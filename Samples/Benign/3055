@@ -1,0 +1,104 @@
+
+  (function () {
+      function page_type(loc) {
+          var path = loc.pathname;
+          var just_the_root = /^\/?$/.test(path);
+          var story_or_poll = /^\/(story|submission|poll)\//i.exec(path);
+          var page_type = just_the_root ? "homepage" : story_or_poll ? story_or_poll[1] : "other";
+          page_type = page_type.toLowerCase() === "submission" ? "story" : page_type;
+          page_type = page_type.toLowerCase() === "other" ? "homepage" : page_type;
+          return page_type;
+      }
+      function page_section(loc) {
+          var greek = ["alpha", "beta", "gamma", "delta"].join("|");
+          var hostwise = "^([a-z]+)(?:-(?:" + greek + "))?\\.(?:slashdot\\.org|[a-z]+-[0-9]+\\.sb\\.sf\\.net)$";
+          var pathwise = "^/(?:(recent|popular|blog)|stories/([^/]+))";
+          var rootwise = "^/?$";
+          var hostwisely = new RegExp(hostwise, "i").exec(loc.hostname);
+          var pathwisely = new RegExp(pathwise, "i").exec(loc.pathname);
+          var rootwisely = new RegExp(rootwise, "i").exec(loc.pathname);
+          var all_greek_to_me = new RegExp("^(" + greek + ")$", "i");
+          function no_greek_for_me(barbarian) {
+              return all_greek_to_me.test(barbarian) ? false : barbarian;
+          }
+          var section = (hostwisely && no_greek_for_me(hostwisely[1])) || (rootwisely && "homepage") || (pathwisely && (pathwisely[1] || pathwisely[2])) || "";
+          section.replace(/[^_a-z]/ig, "");
+          return section;
+      }
+      function single_size(size) {
+          return "" + size[0] + "x" + size[1];
+      }
+      function sz_sz(sz) {
+          var str = "";
+          var sizes = [];
+          if (sz[0] instanceof Array) {
+              for (size in sz) {
+                  sizes.push(single_size(sz[size]));
+              }
+              return sizes.join(",");
+          } else {
+              return single_size(sz);
+          }
+      }
+      function merge_tpc_array_to_str(array1, array2) {
+          var tpc_final = array1.concat(array2);
+          var uniq = tpc_final.reduce(function (a, b) {
+              if (a.indexOf(b) < 0) {
+                  a.push(b);
+              }
+              return a;
+          }, []);
+          var tpc_str = uniq.join(",");
+          tpc_str = tpc_str.replace(/[^_a-z,]/ig, "");
+          tpc_str = tpc_str.replace(/^,/ig, "");
+          return tpc_str;
+      }
+      var tags = {"728x90_A": {"sz": [[728, 90], [970, 90], [970, 250], [980, 66]]}, "728x90_B": {"sz": [728, 90]}, "HubIcon_200x90_A": {"sz": [[200, 90], [220, 90]]}, "PowerSwitch_980x66_A": {"sz": [980, 66]}, "PollPeel": {"sz": [200, 90]}, "VideoWidget_300x250": {"sz": [300, 250], "npt": 1}, "300x250_A": {"sz": [[300, 250], [300, 600], [300, 1050]]}, "300x250_B": {"sz": [[300, 250], [300, 600]]}, "300x250_C": {"sz": [[300, 250], [300, 600]]}, "300x250_D": {"sz": [[300, 250], [300, 600]]}, "Poll_300x250_A": {"sz": [[300, 250], [300, 600]], "npt": 1}, "Pulse_300x600_A": {"sz": [300, 600]}};
+      var network_path = "/4140/ostg.slashdot/";
+      var tag_name_prefix = "SD";
+      var tag_name_linkage = "_";
+      var tag_name_pagetype = page_type(location);
+      var tag_topic = page_section(location);
+      var before_tag_pagetyped = network_path + tag_name_prefix + tag_name_linkage + tag_name_pagetype + tag_name_linkage;
+      var before_tag_pagetypeless = network_path + tag_name_prefix + tag_name_linkage;
+      googletag.cmd.push(function () {
+          function define_me_a_slot(tag, oops) {
+              var sandbox_regex = /[a-z]+-[0-9]+\.sb\.sf\.net$/i;
+              var beta_regex = /\b(alpha|beta|gamma|delta)\b/i;
+              var full_name = tags[tag].npt ? before_tag_pagetypeless + tag : before_tag_pagetyped + tag;
+              var div_id = "div-gpt-ad-" + tag.toLowerCase();
+              var service;
+              if (oops) {
+                  console.log(full_name + ": define out of page slot (" + div_id + "-oops)");
+                  service = googletag.defineOutOfPageSlot(full_name, div_id + "-oops").addService(googletag.pubads());
+              } else {
+                  console.log(full_name + ": define slot (" + div_id + ")");
+                  service = googletag.defineSlot(full_name, tags[tag].sz, div_id).addService(googletag.pubads());
+              }
+              if (!oops) {
+                  service.setTargeting("sz", tags[tag].sz);
+              }
+              var frontend_tpc = tag_topic.split(",");
+              var backend_tpc = ["poll"];
+              var tpc_final = merge_tpc_array_to_str(frontend_tpc, backend_tpc);
+              service.setTargeting("tpc", tpc_final);
+              if (location.hostname.match(sandbox_regex)) {
+                  service.setTargeting("test", "adops");
+              }
+              if (location.hostname.match(beta_regex)) {
+                  service.setTargeting("site", "beta");
+              }
+              if (tags[tag].oops) {
+                  tags[tag].oops = 0;
+                  define_me_a_slot(tag, true);
+              }
+          }
+          for (tag in tags) {
+              define_me_a_slot(tag, false);
+          }
+          googletag.pubads().enableAsyncRendering();
+          googletag.pubads().collapseEmptyDivs();
+          googletag.enableServices();
+      });
+  })();
+

@@ -1,0 +1,24 @@
+
+  var c_url = "";
+  var c_title = "";
+  var c_via = "";
+  if (c_via == "") {
+      c_via = "el_pais";
+  }
+  if (c_title == "" && typeof getTitleFromMeta == "function") {
+      c_title = encodeURI(getTitleFromMeta());
+  }
+  if (c_title == "") {
+      c_title = (document.getElementById("titulo_noticia")) ? document.getElementById("titulo_noticia").innerHTML : (document.getElementsByTagName("title")) ? encodeURIComponent(document.getElementsByTagName("title")[0].innerHTML.split("|")[0]) : "";
+  }
+  if (c_url == "") {
+      c_url = location.href;
+      c_url = c_url.replace(/.html.*$/gi, ".html");
+      c_url = c_url.replace(/\/album-\d+\//gi, "/album/");
+      c_url = c_url.replace(/http:\/\/elpais.com\/m\/([^\/]+)\//gi, "http://$1.elpais.com/$1/");
+      c_url = c_url.replace(/http:\/\/elpais.elpais.com/gi, "http://elpais.com");
+      c_url = c_url.replace(/http:\/\/diario.elpais.com/gi, "http://elpais.com");
+      c_url = c_url.replace(/http:\/\/tematicos.elpais.com/gi, "http://elpais.com");
+  }
+  var params = {url: c_url, text: c_title, via: c_via};
+

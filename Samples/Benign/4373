@@ -1,0 +1,73 @@
+
+  var WPCOMDoLoginForm = function () {
+      var lForm = jQuery("#loginform");
+      if (jQuery(".user-login-input", lForm).val() !== "") {
+          jQuery(".user-login-label span", lForm).hide();
+      }
+      if (jQuery(".user-pass-input", lForm).val() != "") {
+          jQuery(".user-pass-label span", lForm).hide();
+      }
+      jQuery(".user-login-label input", lForm).focus(function () {
+          jQuery(".user-login-label span", lForm).hide();
+          if (jQuery(".user-login-input", lForm).val() !== "") {
+              jQuery(".user-login-label span", lForm).hide();
+          }
+          if (jQuery(".user-pass-input", lForm).val() != "") {
+              jQuery(".user-pass-label span", lForm).hide();
+          }
+      });
+      jQuery(".user-pass-label input", lForm).focus(function () {
+          jQuery(".user-pass-label span", lForm).hide();
+          if (jQuery(".user-pass-input", lForm).val() !== "") {
+              jQuery(".user-pass-label span", lForm).hide();
+          }
+      });
+      jQuery(".user-login-label input", lForm).keydown(function () {
+          if (jQuery(".userlogin-label span", lForm).is(":visible")) {
+              jQuery(".userlogin-label span", lForm).hide();
+          }
+      });
+      jQuery(".user-pass-label input", lForm).keydown(function () {
+          if (jQuery(".user-pass-label span", lForm).is(":visible")) {
+              jQuery(".user-pass-label span", lForm).hide();
+          }
+      });
+      jQuery(".user-login-label", lForm).click(function () {
+          jQuery(".user-login-input", lForm).trigger("focus");
+          if (jQuery(".user-login-input", lForm).val() !== "") {
+              jQuery(".userlogin-label span", lForm).hide();
+          }
+      });
+      jQuery(".user-pass-label", lForm).click(function () {
+          jQuery(".user-pass-input", lForm).trigger("focus");
+          if (jQuery(".user-pass-input", lForm).val() !== "") {
+              jQuery(".user-pass-label span", lForm).hide();
+          }
+      });
+      jQuery(".user-login-input", lForm).blur(function () {
+          if (jQuery(".user-login-input", lForm).val() == "") {
+              jQuery(".user-login-label span", lForm).show();
+          }
+          if (jQuery(".user-login-input", lForm).val() !== "") {
+              jQuery(".userlogin-label span", lForm).hide();
+          }
+      });
+      jQuery(".user-pass-input", lForm).blur(function () {
+          if (jQuery(".user-pass-input", lForm).val() == "") {
+              jQuery(".user-pass-label span", lForm).show();
+          }
+          if (jQuery(".user-pass-input", lForm).val() !== "") {
+              jQuery(".user-pass-label span", lForm).hide();
+          }
+      });
+  };
+  jQuery(document).ready(function () {
+      var loginInputs = jQuery(".user-login-input, .user-pass-input").bind("change.wpcomdologin", function () {
+          WPCOMDoLoginForm();
+      });
+      setTimeout(function () {
+          loginInputs.unbind(".wpcomdologin");
+          WPCOMDoLoginForm();
+      }, 200);
+  });
+

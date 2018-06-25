@@ -1,0 +1,18 @@
+
+  $(document).ready(function () {
+      var artists = ["mpa", "tycho", "nia", "maylee", "cheebacabra", "odezenne", "ariya"];
+      var artist = artists[Math.floor(Math.random() * artists.length)];
+      $("div.artist").addClass(artist);
+      PopupImage.attach("a.popupImage");
+      $(function () {
+          $(".rslides").responsiveSlides({auto: true, speed: 500, timeout: 5000, pager: true, nav: false, random: false, pause: true, pauseControls: true, namespace: "centered-btns"});
+      });
+      if (window.location.hash) {
+          if (window.location.hash.substring(1) == "premiumfeatures") {
+              $(".see-more").hide();
+              $(".features-extended").show();
+              $("html, body").animate({scrollTop: $("#premiumfeatures").offset().top}, 500);
+          }
+      }
+  });
+

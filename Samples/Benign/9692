@@ -1,0 +1,212 @@
+
+  var ajaxurl = "http://edublogs.org/wp-admin/admin-ajax.php";
+  var eb_ayah_complete = false;
+  jQuery(document).ready(function ($) {
+      $.fn.shaliTip = function (options) {
+          var opts = $.extend({}, $.fn.shaliTip.defaults, options), $tooltipContainer = $("<div>", {className: opts.containerClass});
+          return this.each(function () {
+              var $this = $(this), position = $this.position(), hoverTimer, $thisTipContainer = $tooltipContainer.clone().css("left", position.left + $this.width()).text($this.attr("title")).insertAfter($this).addClass("tooltip-container");
+              $thisTipContainer.css("top", position.top - ($thisTipContainer.height() / 2));
+              $this.add($thisTipContainer).hover(function () {
+                  clearTimeout(hoverTimer);
+                  $thisTipContainer.show();
+              }, function () {
+                  hoverTimer = setTimeout(function () {
+                      $thisTipContainer.hide();
+                  }, opts.hideDelay);
+              }).removeAttr("title");
+          });
+      };
+      $.fn.shaliTip.defaults = {containerClass: "tooltip-container", hideDelay: 100};
+      $(".help").shaliTip();
+      $(".open-tos").click(function (e) {
+          e.preventDefault();
+          $("#tos-content").fadeToggle(500);
+      });
+      $("#tos-content .tos-close a").click(function (e) {
+          e.preventDefault();
+          $("#tos-content").fadeOut(500);
+      });
+      $(".regbox select").focus(function () {
+          $(this).addClass("focus").parent().addClass("focus");
+      }).blur(function () {
+          $(this).removeClass("focus").parent().removeClass("focus");
+      });
+      $(".regbox input[type=text]").attr("autocomplete", "off");
+      $(".regbox input[name=user_name]").attr("autocapitalize", "off").attr("autocorrect", "off").attr("autofocus", true).filter_input({regex: "[a-z0-9]", to_lower: true, live: true});
+      $(".regbox input[name=user_email]").attr("autocapitalize", "off").attr("autocorrect", "off").filter_input({regex: "[a-z0-9_\\.\\-@\\+]", to_lower: true, live: true});
+      $(".regbox input[name=blogname]").attr("autocapitalize", "off").attr("autocorrect", "off").filter_input({regex: "[a-z0-9]", to_lower: true, live: true});
+      $("#setupform").attr("autocomplete", "off");
+      var _eb_val_xhr = {user_login: false, user_email: false, blogname: false};
+      $("input[name=user_name]").blur(function () {
+          $(this).removeClass("input-error").parent().find("div.error").remove();
+          if ($(this).val() == "") {
+              $(this).addClass("input-error");
+              $(this).parent().prepend("<div class=\"error\">Please enter a username.</div>");
+              return;
+          }
+          _eb_val_user_login_data = {action: "eb_validate_user_login", eb_sig: "a3ebb0725a", user_name: $(this).val()};
+          if (_eb_val_xhr.user_login) {
+              _eb_val_xhr.user_login.abort();
+          }
+          _eb_val_xhr.user_login = $.post(ajaxurl, _eb_val_user_login_data, function (response) {
+              if (response.error == 0) {
+                  $("input[name=user_name]").addClass("valid");
+                  if (response.autofill_blogname && ($("input[name=blogname]").val() == "" || $("input[name=blogname]").val() == "mysmartblog")) {
+                      $("input[name=blogname]").val(response.autofill_blogname);
+                      $("input[name=blogname]").removeClass("placeholder-active");
+                      $("input[name=blogname]").blur();
+                  }
+              } else {
+                  $("input[name=user_name]").addClass("input-error");
+                  $("input[name=user_name]").parent().prepend("<div class=\"error\">" + response.msg + "</div>");
+              }
+          }, "json").always(function () {
+              _eb_val_xhr.user_login = false;
+          });
+      }).focus(function () {
+          $(this).removeClass("input-error");
+      });
+      $("input[name=password_1]").blur(function () {
+          $(this).removeClass("input-error").parent().find("div.error").remove();
+          if ($(this).val() == "") {
+              $(this).addClass("input-error");
+              $(this).parent().prepend("<div class=\"error\">You must provide a password.</div>");
+              return;
+          }
+      }).focus(function () {
+          $(this).removeClass("input-error");
+      });
+      $("input[name=password_2]").blur(function () {
+          $(this).removeClass("input-error").parent().find("div.error").remove();
+          if ($("input[name=password_1]").val() == "") {
+              return;
+          }
+          if ($(this).val() == "") {
+              $(this).addClass("input-error");
+              $(this).parent().prepend("<div class=\"error\">Please confirm your password.</div>");
+              return;
+          }
+          if ($(this).val() != $("input[name=password_1]").val()) {
+              $(this).addClass("input-error");
+              $(this).parent().prepend("<div class=\"error\">Passwords do not match.</div>");
+          }
+      }).focus(function () {
+          $(this).removeClass("input-error");
+      });
+      $("input[name=user_email]").blur(function () {
+          $(this).removeClass("input-error").parent().find("div.error").remove();
+          if ($(this).val() == "" || $(this).val() == "optional for students") {
+              return;
+          }
+          _eb_val_user_email_data = {action: "eb_validate_user_email", eb_sig: "cb2d4dc328", user_email: $(this).val()};
+          if (_eb_val_xhr.user_email) {
+              _eb_val_xhr.user_email.abort();
+          }
+          _eb_val_xhr.user_email = $.post(ajaxurl, _eb_val_user_email_data, function (response) {
+              if (response.error == 0) {
+                  $("input[name=user_email]").addClass("valid");
+              } else {
+                  $("input[name=user_email]").addClass("input-error");
+                  $("input[name=user_email]").parent().prepend("<div class=\"error\">" + response.msg + ".</div>");
+              }
+          }, "json").always(function () {
+              _eb_val_xhr.user_email = false;
+          });
+      }).focus(function () {
+          $(this).removeClass("input-error");
+      });
+      $("input[name=blogname]").blur(function () {
+          $(this).removeClass("input-error").parent().find("div.error").remove();
+          if ($(this).val() == "") {
+              $(this).addClass("input-error");
+              $(this).parent().prepend("<div class=\"error\">Please enter a blog domain.</div>");
+              return;
+          }
+          _eb_val_blogname_data = {action: "eb_validate_blogname", eb_sig: "cfe4ec65f1", blogname: $(this).val()};
+          if (_eb_val_xhr.blogname) {
+              _eb_val_xhr.blogname.abort();
+          }
+          _eb_val_xhr.blogname = $.post(ajaxurl, _eb_val_blogname_data, function (response) {
+              if (response.error == 0) {
+                  $("input[name=blogname]").addClass("valid");
+              } else {
+                  $("input[name=blogname]").addClass("input-error");
+                  $("input[name=blogname]").parent().prepend("<div class=\"error\">" + response.msg + "</div>");
+              }
+          }, "json").always(function () {
+              _eb_val_xhr.blogname = false;
+          });
+      }).focus(function () {
+          $(this).removeClass("input-error");
+      });
+      $("input[name=blog_title]").blur(function () {
+          $(this).removeClass("input-error").parent().find("div.error").remove();
+          if ($(this).val() == "") {
+              $(this).addClass("input-error");
+              $(this).parent().prepend("<div class=\"error\">Please choose a blog title. This can easily be changed later.</div>");
+              return;
+          }
+      }).focus(function () {
+          $(this).removeClass("input-error");
+      });
+      $("select[name=blog_type]").blur(function () {
+          $(this).removeClass("input-error").parent().removeClass("input-error").parent().find("div.error").remove();
+          if ($(this).val() == "") {
+              $(this).addClass("input-error");
+              $(this).parent().addClass("input-error");
+              $(this).parent().parent().prepend("<div class=\"error\">Please choose from student, teacher or other.</div>");
+              return;
+          }
+      }).focus(function () {
+          $(this).removeClass("input-error");
+      });
+      $("#setupform").on("blur", "input[name=securitycode]", function () {
+          $(this).removeClass("input-error").parent().parent().parent().find("div.error").remove();
+          if ($("input[name=securitycode]").val().replace(" ", "").length != 8) {
+              $(this).addClass("input-error");
+              $(this).parent().parent().parent().prepend("<div class=\"error\">Please enter the correct anti-spam word.</div>");
+          }
+      }).on("focus", "input[name=securitycode]", function () {
+          $(this).removeClass("input-error");
+      });
+      $("input[name=tos_agree]").change(function () {
+          $(this).removeClass("input-error").parent().parent().find("div.error").remove();
+          if ($("input[name=tos_agree]:checked").length == 0) {
+              $(this).addClass("input-error");
+              $(this).parent().parent().prepend("<div class=\"error\">Please read and agree to the terms of service.</div>");
+          }
+      }).focus(function () {
+          $(this).removeClass("input-error");
+      });
+      $("#setupform").submit(function () {
+          $("#setupform input").blur();
+          $("#setupform select").blur();
+          $("input[name=tos_agree]").change();
+          if (!eb_ayah_complete) {
+              $("div.wrap-action-ust_signup_fields").prepend("<div class=\"error\">The Are You a Human test wasn't entered correctly. Please try again or contact us if you are still having trouble.</div>");
+              return false;
+          }
+          if ($("#setupform input.input-error").length > 0) {
+              $("#setupform input.input-error:first").focus();
+              return false;
+          } else {
+              if ($("#setupform select.input-error").length > 0) {
+                  $("#setupform select.input-error:first").focus();
+                  return false;
+              }
+          }
+      });
+      if ($("#setupform .error").length > 0) {
+          $("html, body").animate({scrollTop: $("#setupform .error:first").offset().top}, 1000);
+      }
+      if (typeof AYAH != "undefined" && AYAH.isIframeCommSupported()) {
+          AYAH.addGameCompleteHandler(function () {
+              $("div.wrap-action-ust_signup_fields").find("div.error").remove();
+              eb_ayah_complete = true;
+          });
+      } else {
+          eb_ayah_complete = true;
+      }
+  });
+

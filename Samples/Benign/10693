@@ -1,0 +1,41 @@
+
+  var _urlThreadeskup = "/Threadeskup";
+  var _urlThreadeskupSimple = "/ThreadeskupSimple";
+  function EPET_obtenerYPintarNumComentarios(idComentariosNoticia) {
+      EPETUtils_makeHttpRequestGet(function (httpRequest) {
+          var _numeroComentariosNoticia = -1;
+          if (httpRequest.status != 200) {
+          } else {
+              var _hashTMP = Array();
+              var data = httpRequest.responseText;
+              eval("_hashTMP = " + data);
+              if (typeof _hashTMP.perfilesHilos != "undefined" && typeof _hashTMP.perfilesHilos["_" + idComentariosNoticia] != "undefined" && typeof _hashTMP.perfilesHilos["_" + idComentariosNoticia].numero_mensajes != "undefined") {
+                  _numeroComentariosNoticia = _hashTMP.perfilesHilos["_" + idComentariosNoticia].numero_mensajes;
+              }
+          }
+          _objDivNumComentariosFirma = document.getElementById("num_comentarios_noticia_firma_" + idComentariosNoticia);
+          if (_objDivNumComentariosFirma) {
+              if (_numeroComentariosNoticia < 1) {
+                  _objDivNumComentariosFirma.innerHTML = "";
+                  _objDivNumComentariosFirma.style.display = "none";
+              } else {
+                  _objDivNumComentariosFirma.innerHTML = _numeroComentariosNoticia;
+                  _objDivNumComentariosFirma.style.display = "inline-block";
+              }
+          }
+          _objDivNumComentariosWidget = document.getElementById("num_comentarios_noticia_" + idComentariosNoticia);
+          if (_objDivNumComentariosWidget) {
+              if (_numeroComentariosNoticia < 1) {
+                  _objDivNumComentariosWidget.innerHTML = "";
+              } else {
+                  _objDivNumComentariosWidget.innerHTML = "<span class=\"numero\">" + _numeroComentariosNoticia + "</span> comentario";
+                  if (_numeroComentariosNoticia > 1) {
+                      _objDivNumComentariosWidget.innerHTML += "s";
+                  }
+              }
+          }
+      }, _urlThreadeskupSimple + "?action=info&th=" + idComentariosNoticia + "&rnd=" + Math.random());
+  }
+  var _idComentariosNoticia = "1413281887-73e94ca90ae3e919e7e86647832c1b07";
+  EPET_obtenerYPintarNumComentarios(_idComentariosNoticia);
+

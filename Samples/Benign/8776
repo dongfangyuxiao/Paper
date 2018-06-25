@@ -1,0 +1,101 @@
+
+  var body = document.getElementsByTagName("body")[0];
+  var unsupportedBrowser = document.getElementById("unsupportedBrowser");
+  if (!document.addEventListener) {
+      body.innerHTML = unsupportedBrowser.innerHTML;
+  } else {
+      body.removeChild(unsupportedBrowser);
+      var isIframe = function (win) {
+          try {
+              return win.self !== win.top;
+          }
+          catch (e) {
+              return true;
+          }
+      };
+      if (isIframe(window)) {
+          body.setAttribute("class", body.className + " home-drawer");
+      }
+      if (window.DISQUS_HOME_VERSION === "1") {
+          require.config({paths: {"home": "./v1"}});
+      }
+  }
+  define("initializer", ["require", "underscore", "exports"], function (localRequire, _, exports) {
+      "use strict";
+      var doc = document;
+      exports.ready = false;
+      var params = _.reduce(location.search.substr(1).split("&"), function (a, c) {
+          var p = _.map(c.split("="), decodeURIComponent);
+          if (p[0] !== "") {
+              a[p[0]] = p[1];
+          }
+          return a;
+      }, {});
+      exports.params = params;
+      exports.setReady = function () {
+          localRequire(["common/bus"], function (Bus) {
+              Bus.sendHostMessage("ready");
+              exports.ready = true;
+          });
+      };
+      exports.setFailure = function (data) {
+          var errorMsg = doc.getElementById("error");
+          if (errorMsg) {
+              errorMsg.style.display = "block";
+          }
+          var host = window.opener || window.parent;
+          if (!host) {
+              return;
+          }
+          data = data || {code: "source"};
+          if (localRequire.defined("common/bus")) {
+              localRequire("common/bus").sendHostMessage("fail", data);
+          } else {
+              host.postMessage(JSON.stringify({scope: "host", name: "fail", data: data, sender: location.hash.slice(1).replace(/(^\d+).*/, "$1")}), "*");
+          }
+      };
+      exports.init = function () {
+          if (params.n_s) {
+              doc.documentElement.className += " not-supported type-" + params.n_s;
+              return;
+          }
+          var deps = ["home/apps/dashboard/app"];
+          var language = params.l || doc.documentElement.lang;
+          if (language && language !== "en") {
+              var languageModule = "../lang/" + language;
+              deps.push(languageModule);
+          }
+          function depsReady() {
+              localRequire(["jquery", "home/apps/dashboard/app"], function ($, app) {
+                  app.init({CDN_ROOT: "//a.disquscdn.com/home/d-68e73d2"});
+              });
+          }
+          function provideModuleFallback(name, fallback) {
+              require.undef(name);
+              define(name, fallback);
+              localRequire([name]);
+          }
+          function depsFailed(error) {
+              window.console.warn(error.toString());
+              var failedModules = error.requireModules || [];
+              var i = 0, len = failedModules.length;
+              for (; i < len; ++i) {
+                  switch (failedModules[i]) {
+                    case "../lang/" + language:
+                      provideModuleFallback(failedModules[i], null);
+                      break;
+                    case "remote/config":
+                      provideModuleFallback(failedModules[i], {switches: [], lounge: {}, discovery: {}, experiments: {}});
+                      break;
+                    default:
+                      return void exports.setFailure();
+                  }
+              }
+          }
+          localRequire(deps, depsReady, depsFailed);
+      };
+  });
+  require(["initializer"], function (i) {
+      i.init();
+  });
+

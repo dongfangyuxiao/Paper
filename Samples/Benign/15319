@@ -1,0 +1,9 @@
+
+  jq("#search_form").bind("submit", function (event) {
+      if (jq.trim(jq("#search_input").val()) == "") {
+          event.stopPropagation();
+          return false;
+      }
+  });
+  initAutoComplete(10);
+

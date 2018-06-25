@@ -1,0 +1,71 @@
+
+  (function (e) {
+      "use strict";
+      var t = e.GOC = e.GOC || {};
+      t.queue = t.queue || [], t.opts = t.opts || {};
+  })(this), GOC.load = function (e, t) {
+      "use strict";
+      var n = document, r = n.getElementsByTagName("script")[0], i = n.createElement("script");
+      i.type = "text/javascript", i.async = "async", i.onload = i.onreadystatechange = function (e, n) {
+          var r = this, i = r.readyState, s = r.parentNode;
+          s && (n || !i || i === "complete" || i === "loaded") && (s.removeChild(this), !n && t && t());
+      }, i.src = e, r.parentNode.insertBefore(i, r), i = n = r = null;
+  }, function (e) {
+      "use strict";
+      var t = e.encodeURIComponent;
+      e.GOC.load("//a.dilcdn.com/g/domains/" + t(e.location.hostname) + ".js");
+  }(this), function (e) {
+      "use strict";
+      var t = e.GOC, n = e.encodeURIComponent;
+      t.ao = function (e) {
+          var r = [], i = t.opts, s = i.footer;
+          i.lang && r.push("lang=" + n(i.lang)), i.cds && r.push("cds");
+          if (s) {
+              for (var o in s) {
+                  s.hasOwnProperty(o) && r.push("footer[" + encodeURIComponent(o) + "]=" + encodeURIComponent(s[o]));
+              }
+          }
+          return r.length && (e += (e.indexOf("?") < 0 ? "?" : "&") + r.join("&")), e;
+      };
+  }(this), GOC.css = function (e) {
+      "use strict";
+      var t = document, n = t.createElement("style"), r = t.getElementsByTagName("head")[0], i = (r || t).getElementsByTagName("script")[0];
+      e && (n.setAttribute("type", "text/css"), i ? i.parentNode.insertBefore(n, i) : r.appendChild(n), n.styleSheet ? n.styleSheet.cssText = e : n.appendChild(t.createTextNode(e)));
+  }, function (e, t) {
+      "use strict";
+      var n = e.GOC, r = e.screen, i = e.document, s = i.documentElement, o = function () {
+          var e = r && r.fontSmoothingEnabled, n, s, o, u, a;
+          if (e !== t) {
+              return e;
+          }
+          try {
+              n = i.createElement("canvas"), n.width = n.height = 32, s = n.getContext("2d"), s.textBaseline = "top", s.font = "32px Arial", s.fillStyle = s.strokeStyle = "black", s.fillText("O", 0, 0);
+              for (o = 0; o < 32; o++) {
+                  for (u = 0; u < 32; u++) {
+                      a = s.getImageData(o, u, 1, 1).data[3];
+                      if (a !== 255 && a !== 0) {
+                          return !0;
+                      }
+                  }
+              }
+              return !1;
+          }
+          catch (f) {
+              return t;
+          }
+      }, u = function (e) {
+          var t = i.createElement("div");
+          t.innerHTML = "M", t.style.fontFamily = e, s.insertBefore(t, s.firstChild), s.clientWidth, s.removeChild(t);
+      };
+      n.pf = function (e, t) {
+          o() === !0 && (n.css(e), u(t));
+      };
+  }(this);
+  GOC.pf("@font-face{font-family:'Matterhorn';src:url(\"//a.dilcdn.com/a/m4-573eba883466.eot#\") format(\"eot\"),url(\"//a.dilcdn.com/a/m4-4f55e08dfcef.woff\") format(\"woff\"),url(\"//a.dilcdn.com/a/m4-e3b605e8daea.ttf\") format(\"truetype\"),url(\"//a.dilcdn.com/a/m4-b63bf5e5da5f.svg#Matterhorn\") format(\"svg\");font-weight:400;font-style:normal}\n", "Matterhorn");
+  GOC.opts.cds = false;
+  GOC.opts.bg = "dark";
+  GOC.opts.footer = {"comscore": ""};
+  GOC.load("//a.dilcdn.com/a/goc/responsive-b41195ae2228.js");
+  GOC.a = "//a.dilcdn.com/g/us/home/sac/";
+  GOC.queue.push(["_sMenu", "//a.dilcdn.com/g/us/home/responsive/menu-b587321ed89c.js"]);
+

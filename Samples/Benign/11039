@@ -1,0 +1,30 @@
+
+  var videoPublicityDown = false;
+  var videoFuente = "0";
+  var url_cache = "http://ep02.epimg.net";
+  var url_reproductor_epet = "http://ep00.epimg.net/reproductores/playerPEP.swf";
+  var UrlPublicidadOveron = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=%2F7811748%2Foveron_player%2Felpais_web%2Fflash&ciu_szs=&impl=s&gdfp_req=1&env=vp&output=xml_vast2&correlator={random}&unviewed_position_start=1";
+  var publicidad_HTML5 = true;
+  var postroll_HTML5 = true;
+  var reproductorVideoGlobal = "2";
+  var UrlPublicidad = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=%2F7811748%2Felpais_web%2Fplayer_video%2Fflash&ciu_szs=&impl=s&gdfp_req=1&env=vp&output=xml_vast2&correlator={random}&unviewed_position_start=1";
+  var ids_tracking = [{"id": "MonsterCabecera", "tipo": "externo", "marca": "clasificados"}, {"id": "MNSwdgFormAction", "tipo": "externo", "marca": "clasificados"}, {"id": "MonsterCV", "tipo": "externo", "marca": "clasificados"}, {"id": "MonsterPublicar", "tipo": "externo", "marca": "clasificados"}, {"id": "MonsterC3", "tipo": "externo", "marca": "clasificados"}, {"id": "IdealistaC3", "tipo": "externo", "marca": "clasificados"}, {"id": "IdealistaC2", "tipo": "externo", "marca": "clasificados"}, {"id": "CursosC3", "tipo": "externo", "marca": "clasificados"}, {"id": "CursosC2", "tipo": "externo", "marca": "clasificados"}, {"id": "CursosFormAction", "tipo": "externo", "marca": "clasificados"}, {"id": "IdealistaBanner", "tipo": "externo", "marca": "clasificados"}];
+  var LANG = "es";
+  var referrer = document.referrer;
+  if (referrer.indexOf("http://t.co/") == 0 || (referrer.indexOf("twitter.com") > 0 && referrer.indexOf("twitter.com") < 30)) {
+      if (typeof (DFP_tags) != "undefined") {
+          DFP_tags.push("fromtwitter");
+      } else {
+          var DFP_tags = ["fromtwitter"];
+      }
+  }
+  var reg_ref_noticia = /http.?:\/\/[^\/]*\/[^\/]*\/\d+\/\d+\/\d+\/[^\/]*\/(.*?)\.html/i;
+  var result_rrn = reg_ref_noticia.exec(document.location.href);
+  if (result_rrn) {
+      if (typeof (DFP_tags) != "undefined") {
+          DFP_tags.push(result_rrn[1]);
+      } else {
+          var DFP_tags = [result_rrn[1]];
+      }
+  }
+

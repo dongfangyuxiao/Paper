@@ -1,0 +1,35 @@
+
+  $(function () {
+      (function () {
+          var $message, $close;
+          $message = $(".messaging-nav");
+          $close = $(".close-message");
+          $confirm = $(".optoutconfirm");
+          $back_to_classic = $(".back_to_classic");
+          $back_to_classic.slashModal({content: $("#optout"), width: 670, top: 70, hide_overlay: false});
+          if (!$.cookie("hide_sitenotice_2")) {
+              $message.fadeIn("fast");
+          }
+          function hideNotice(evt) {
+              evt.preventDefault();
+              $message.fadeOut("fast", function () {
+                  $.cookie("hide_sitenotice_2", "true", {path: "/", expires: 14});
+              });
+          }
+          function trackAndNavigateOptOut() {
+              var betagroup = $.cookie("betagroup");
+              $.cookie("betagroup", "-1", {path: "/", domain: ".slashdot.org", expires: 730});
+              $.removeCookie("sendtobeta", {path: "/", domain: ".slashdot.org"});
+              if (betagroup && (betagroup >= 2 && betagroup <= 26)) {
+                  _gaq.push(["_trackEvent", "OutboundLinks", "OptOutOfBetaRedirectGroup", ""]);
+              }
+              setTimeout("document.location = \"http://slashdot.org/?nobeta=1\"", 100);
+          }
+          function optOutBeta() {
+              trackAndNavigateOptOut();
+          }
+          $close.on("click", hideNotice);
+          $confirm.on("click", optOutBeta);
+      })();
+  });
+

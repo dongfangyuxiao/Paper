@@ -1,0 +1,14 @@
+
+  function analytics() {
+      var analyticsHost = ((document.location.protocol == "https:") ? "https://ssl." : "http://www.");
+      $(document.body).append(unescape("%3Cscript src=\"" + analyticsHost + "google-analytics.com/ga.js\" type=\"text/javascript\"%3E%3C/script%3E"));
+      var analyticsPoller = window.setInterval(function () {
+          if (window._gat) {
+              window.clearInterval(analyticsPoller);
+              var tracker = _gat._getTracker("UA-7980419-1");
+              tracker._setVar(":locen:nano:");
+              tracker._trackPageview();
+          }
+      }, 500);
+  }
+

@@ -1,0 +1,18 @@
+
+  function sendToFriend(url, pos) {
+      var newUrl = "/sendToFriend/view?url=";
+      var buildingName = String(buildings[pos][6]);
+      newUrl += escape(url);
+      newUrl += "&title=";
+      newUrl += buildingName;
+      window.open(newUrl, "", "scrollbars=0,width=676,height=600");
+  }
+  function sendToFriendMobile(url, pos) {
+      var newUrl = "/sendToFriend/view?url=";
+      var buildingName = String(buildings[pos][6]);
+      newUrl += escape(url);
+      newUrl += "&title=";
+      newUrl += buildingName;
+      location.href = newUrl;
+  }
+

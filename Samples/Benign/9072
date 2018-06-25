@@ -1,0 +1,56 @@
+
+  var wcurl = "http://www.e-recht24.de/";
+  var wcpath = "modules/mod_widerrufcheck/";
+  var wcfile = "search.php";
+  var wcid = 321;
+  function stopRKey(evt) {
+      var evt = (evt) ? evt : ((event) ? event : null);
+      var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+      if ((evt.keyCode == 13) && (node.id == "wc-url" || node.id == "wc-submit")) {
+          widerrufcheckSearch();
+          return false;
+      }
+  }
+  document.onkeypress = stopRKey;
+  var emonialpos = 1;
+  var emonialtimer;
+  var emonialwidth;
+  function scrollemonial169(dir) {
+      newpos = emonialpos + dir;
+      if (newpos > 5) {
+          newpos = 1;
+      }
+      if (newpos < 1) {
+          newpos = 5;
+      }
+      emonialwidth = document.getElementById("emonial_single_wrap169").offsetWidth;
+      document.getElementById("emonial_single169_" + newpos).style.width = emonialwidth + "px";
+      var myEffects1 = new Fx.Tween("emonial_single169_" + emonialpos, {property: "opacity"}, {"duration": "1000"});
+      var myEffects2 = new Fx.Tween("emonial_single169_" + newpos, {property: "opacity"}, {"duration": "1000"});
+      myEffects1.start(1, 0);
+      myEffects2.start(0, 1);
+      emonialpos = newpos;
+      clearTimeout(emonialtimer);
+      emonialtimer = setTimeout("scrollemonial169(1)", 5000);
+  }
+  window.addEvent("domready", function () {
+      emonialwidth = document.getElementById("emonial_single_wrap169").offsetWidth;
+      document.getElementById("emonial_single169_1").style.width = emonialwidth + "px";
+      var myEffects1 = new Fx.Tween("emonial_single169_" + emonialpos, {property: "opacity"}, {"duration": "0"});
+      myEffects1.start(0, 1);
+      emonialtimer = setTimeout("scrollemonial169(1)", 5000);
+  });
+  var suggestlimit = 5;
+  var suggestrunning = false;
+  var suggesttype = "";
+  var suggestdata = "";
+  var suggesturl = "http://www.e-recht24.de/modules/mod_anwaltde/autosuggest.php";
+  var adeMouseX = 0;
+  var adeMouseY = 0;
+  window.addEvent("domready", function () {
+      $(document.body).addEvent("mousemove", function (event) {
+          adeMouseX = event.page.x;
+          adeMouseY = event.page.y;
+      });
+  });
+

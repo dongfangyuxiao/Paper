@@ -1,0 +1,87 @@
+
+  jQuery(function ($) {
+      var $template_grid_slides = $("#section-dl-grid-1 .slides");
+      for (var i = 6; i > 0; i--) {
+          if (i > 1) {
+              $template_grid_slides.clone().appendTo($("#section-dl-grid-" + i));
+          }
+          $("#section-dl-grid-" + i).flexslider({animationLoop: true, controlNav: false, itemMargin: 0, keyboard: false, pauseOnAction: false, useCSS: false, video: false, slideshow: false, animation: "fade", startAt: (i - 1), itemWidth: $("#section-dl-grid-" + i).width(), before: function (slider) {
+          }, after: function (slider) {
+          }});
+      }
+      var sectiondl_time_offset = 20;
+      function sectiondl_shuffle_grid() {
+          var min_range = 7;
+          var timeout_1 = Math.floor(Math.random() * (sectiondl_time_offset - min_range + 1)) + min_range;
+          var timeout_2 = Math.floor(Math.random() * (sectiondl_time_offset - min_range + 1)) + min_range;
+          var timeout_3 = Math.floor(Math.random() * (sectiondl_time_offset - min_range + 1)) + min_range;
+          var timeout_4 = Math.floor(Math.random() * (sectiondl_time_offset - min_range + 1)) + min_range;
+          var timeout_5 = Math.floor(Math.random() * (sectiondl_time_offset - min_range + 1)) + min_range;
+          var timeout_6 = Math.floor(Math.random() * (sectiondl_time_offset - min_range + 1)) + min_range;
+          setTimeout(function () {
+              var $flex_item = $("#section-dl-grid-1");
+              var current_slide_index = $flex_item.data("flexslider").currentSlide;
+              var new_slide_index = current_slide_index + 6;
+              var slides_count = $flex_item.data("flexslider").count;
+              if (new_slide_index >= slides_count) {
+                  new_slide_index = Math.abs(new_slide_index - slides_count);
+              }
+              $flex_item.flexslider(new_slide_index);
+          }, timeout_1 * 1000);
+          setTimeout(function () {
+              var $flex_item = $("#section-dl-grid-2");
+              var current_slide_index = $flex_item.data("flexslider").currentSlide;
+              var new_slide_index = current_slide_index + 6;
+              var slides_count = $flex_item.data("flexslider").count;
+              if (new_slide_index >= slides_count) {
+                  new_slide_index = Math.abs(new_slide_index - slides_count);
+              }
+              $flex_item.flexslider(new_slide_index);
+          }, timeout_2 * 1000);
+          setTimeout(function () {
+              var $flex_item = $("#section-dl-grid-3");
+              var current_slide_index = $flex_item.data("flexslider").currentSlide;
+              var new_slide_index = current_slide_index + 6;
+              var slides_count = $flex_item.data("flexslider").count;
+              if (new_slide_index >= slides_count) {
+                  new_slide_index = Math.abs(new_slide_index - slides_count);
+              }
+              $flex_item.flexslider(new_slide_index);
+          }, timeout_3 * 1000);
+          setTimeout(function () {
+              var $flex_item = $("#section-dl-grid-4");
+              var current_slide_index = $flex_item.data("flexslider").currentSlide;
+              var new_slide_index = current_slide_index + 6;
+              var slides_count = $flex_item.data("flexslider").count;
+              if (new_slide_index >= slides_count) {
+                  new_slide_index = Math.abs(new_slide_index - slides_count);
+              }
+              $flex_item.flexslider(new_slide_index);
+          }, timeout_4 * 1000);
+          setTimeout(function () {
+              var $flex_item = $("#section-dl-grid-5");
+              var current_slide_index = $flex_item.data("flexslider").currentSlide;
+              var new_slide_index = current_slide_index + 6;
+              var slides_count = $flex_item.data("flexslider").count;
+              if (new_slide_index >= slides_count) {
+                  new_slide_index = Math.abs(new_slide_index - slides_count);
+              }
+              $flex_item.flexslider(new_slide_index);
+          }, timeout_5 * 1000);
+          setTimeout(function () {
+              var $flex_item = $("#section-dl-grid-6");
+              var current_slide_index = $flex_item.data("flexslider").currentSlide;
+              var new_slide_index = current_slide_index + 6;
+              var slides_count = $flex_item.data("flexslider").count;
+              if (new_slide_index >= slides_count) {
+                  new_slide_index = Math.abs(new_slide_index - slides_count);
+              }
+              $flex_item.flexslider(new_slide_index);
+          }, timeout_6 * 1000);
+      }
+      sectiondl_shuffle_grid();
+      setInterval(function () {
+          sectiondl_shuffle_grid();
+      }, sectiondl_time_offset * 1000);
+  });
+

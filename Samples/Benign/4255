@@ -1,0 +1,14 @@
+
+  $(function () {
+      var params = {debug: false, session: "", token: "4TKuhKuoiS4uCnLEpI0TLdrpakfLMv5jYY054fVxeiM="};
+      if (window.SiteSfsContest) {
+          window.Page = new SiteSfsContest(params);
+      } else {
+          if (window.SitePage) {
+              window.Page = new SitePage(params);
+          } else {
+              window.Page = new IndiePage(params);
+          }
+      }
+  });
+

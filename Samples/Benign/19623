@@ -1,0 +1,16 @@
+
+  $(function () {
+      var popw = $("#videopop");
+      $("#videopop .close a, #videopop .btmbtn a").click(function () {
+          popw.fadeOut(200);
+          return false;
+      });
+      $("#video_show").click(function () {
+          if (typeof _gaq != "undefined") {
+              _gaq.push(["_trackEvent", "Video actions", "Click watch video"]);
+          }
+          popw.fadeIn(200);
+          return false;
+      });
+  });
+

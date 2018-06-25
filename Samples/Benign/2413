@@ -1,0 +1,15 @@
+
+  (function () {
+      function snickerdoodle(which) {
+          var pairs = document.cookie.split(/;\s*/);
+          for (var i = 0; i < pairs.length; ++i) {
+              var pair = pairs[i].split("=");
+              if (pair[0] == which) {
+                  return pair[1];
+              }
+          }
+          return null;
+      }
+      window.ClientID = snickerdoodle("client_id");
+  })();
+

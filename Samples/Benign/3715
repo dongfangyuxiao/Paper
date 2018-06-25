@@ -1,0 +1,18 @@
+
+  (function ($) {
+      var $body = $("body"), $page = $("#slashpage"), $menu = $("#slashmenu"), transitionEnd = "transitionend webkitTransitionEnd otransitionend MSTransitionEnd";
+      $("#toggle-menu").on("touchstart click", function (e) {
+          e.preventDefault();
+          $body.addClass("animating");
+          if ($body.hasClass("menu-visible")) {
+              $body.addClass("right");
+          } else {
+              $body.addClass("left");
+          }
+          $page.on(transitionEnd, function () {
+              $body.removeClass("animating left right").toggleClass("menu-visible");
+              $page.off(transitionEnd);
+          });
+      });
+  })(jQuery);
+

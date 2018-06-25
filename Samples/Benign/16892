@@ -1,0 +1,13 @@
+
+  (function (widgetFactory) {
+      var emitter = new Imgur.Emitter();
+      widgetFactory.__set_emitter_only_for_jafo(emitter);
+      widgetFactory.produceLocationCommand(emitter);
+      var galleryFactory = widgetFactory.produceOutsideGalleryFactory();
+      var galleryGraph = galleryFactory.produceOutsideGallery(emitter);
+      var gallery = galleryGraph.gallery, history = galleryGraph.history;
+      var outsideTaggingWidget = galleryFactory.produceOutsideTaggingWidget(emitter, galleryGraph);
+      gallery.outsideInit();
+      Imgur.Upload.Index.getInstance().generalInit();
+  })(_widgetFactory);
+

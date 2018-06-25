@@ -1,0 +1,10 @@
+
+  if (swfobject.getFlashPlayerVersion().major >= 10 && useFlashUploader) {
+      var t = new Date().getTime() / (60 * 60 * 24 * 1000) | 0;
+      swfobject.embedSWF("/swf/Uploader.swf?nocache=" + t, "flashUploader", "606", "51", "10.0.0", null, flashVars, {wmode: "transparent"});
+  } else {
+      $("#flashUploader").show();
+      $(".disabledButton").hide();
+      initMultiFile();
+  }
+

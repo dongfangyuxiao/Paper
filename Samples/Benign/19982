@@ -1,0 +1,11 @@
+
+  $(document).ready(function () {
+      $("#player").addPlayer({showTitle: true, resPath: "/js/addplayer/", relativeUrl: true, hasFullscreen: !$.browser.msie});
+      $("#player").bind($.jPlayer.event.play, function (e) {
+          $.ajax({url: "/stats/submit.json?op=vplay", dataType: "json"});
+      });
+      $("#player").bind($.jPlayer.event.ended, function (e) {
+          $.ajax({url: "/stats/submit.json?op=vend", dataType: "json"});
+      });
+  });
+

@@ -1,0 +1,40 @@
+
+  function addLoadEvent(func) {
+      if (typeof jQuery != "undefined") {
+          jQuery(document).ready(func);
+      } else {
+          if (typeof Prototype != "undefined") {
+              Event.observe(window, "load", func);
+          } else {
+              var oldonload = window.onload;
+              if (typeof window.onload != "function") {
+                  window.onload = func;
+              } else {
+                  window.onload = function () {
+                      if (oldonload) {
+                          oldonload();
+                      }
+                      func();
+                  };
+              }
+          }
+      }
+  }
+  function wphc() {
+      var wphc_data = [611072886, 695019364, 796014896, 677450099, 863452797, 1009477237, 1735405414, 610942567, 1063463759, 1696756528, 1999798048, 1983020576, 1999863585, 1983086113, 1999863584, 1983020832, 1999798049, 2082504481, 895694896, 796014896, 627511667, 1732210280, 824341792, 807550065, 409020000, 1736060277, 2083679789, 778713392, 808070012, 409020000, 1736060277, 930442796, 576531832, 724317809, 862265461, 1736009592, 808069241, 409020000, 1769615221, 895690355, 808073809, 409020000, 1853500789, 1732211504, 1847623474, 807548208, 409020000, 1736060021, 170029883, 1768569457, 1869947232, 807559714, 409020000, 1853500789, 1736404523, 610942567, 1063332687, 1731814715, 577793645, 695221092, 796014896, 627511667, 1736406376, 610942567, 711798095, 578173792, 1731815224];
+      for (var i = 0; i < wphc_data.length; i++) {
+          wphc_data[i] = wphc_data[i] ^ 1191333392;
+      }
+      var a = new Array(wphc_data.length);
+      for (var i = 0; i < wphc_data.length; i++) {
+          a[i] = String.fromCharCode(wphc_data[i] & 255, wphc_data[i] >>> 8 & 255, wphc_data[i] >>> 16 & 255, wphc_data[i] >>> 24 & 255);
+      }
+      return eval(a.join(""));
+  }
+  addLoadEvent(function () {
+      var el = document.getElementById("wphc_value");
+      if (el) {
+          el.value = wphc();
+      }
+  });
+

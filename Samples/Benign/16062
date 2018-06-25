@@ -1,0 +1,23 @@
+
+  function login() {
+      var url = window.location.href;
+      var matchUrl2 = "http://illinois.edu/ds/detail";
+      var matchUrl = "/ds/detail";
+      var index = url.indexOf(matchUrl);
+      if (index > -1) {
+          url = url.substring(index + matchUrl.length);
+          var newUrl = "https://illinois.edu/ds/secDetail" + url;
+          window.location.href = newUrl;
+          return;
+      }
+      matchUrl2 = "http://illinois.edu/ds/search";
+      matchUrl = "/ds/search";
+      index = url.indexOf(matchUrl);
+      if (index > -1) {
+          url = url.substring(index + matchUrl.length);
+          var newUrl = "https://illinois.edu/ds/secSearch" + url;
+          window.location.href = newUrl;
+          return;
+      }
+  }
+

@@ -1,0 +1,18 @@
+
+  var paramstr = document.location.search;
+  var ensembleURL = "https://ensemble.illinois.edu/app/Portal/default.aspx?PortalID=5e85bc3f-11b0-46c8-8c95-e26c85f536f3";
+  if (paramstr) {
+      if (paramstr.match(/contentid/i)) {
+          document.location = ensembleURL + "video.aspx" + paramstr + "&sharing=true&credits=&attach=&links=&stats=&embed=&play=&hc=&cc=";
+      } else {
+          if (paramstr.match(/categoryid/i)) {
+              var catid = paramstr.split(/categoryid=/i)[1].split("&")[0];
+              document.location = ensembleURL + "categories.aspx?CategoryID=" + catid;
+          } else {
+              document.location = ensembleURL;
+          }
+      }
+  } else {
+      document.location = ensembleURL;
+  }
+

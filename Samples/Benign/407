@@ -1,0 +1,22 @@
+
+  $(document).ready(function () {
+      $("#web_screenshots").carouFredSel({width: "100%", auto: {items: 7, duration: 30000, easing: "linear", timeoutDuration: 0, pauseOnHover: "immediate", transition: true}, scroll: {pauseOnHover: true, onBefore: function () {
+          $(this).children().removeClass("hover");
+      }}});
+      $(".web_capture").click(function () {
+          window.location.href = $(this).attr("link");
+      });
+      var is_paused = false;
+      $(document).keyup(function (e) {
+          if (e.keyCode == 27) {
+              if (is_paused) {
+                  $("#web_screenshots").trigger("resume");
+                  is_paused = false;
+              } else {
+                  $("#web_screenshots").trigger("pause", 1);
+                  is_paused = true;
+              }
+          }
+      });
+  });
+

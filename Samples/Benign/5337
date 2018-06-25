@@ -1,0 +1,22 @@
+
+  var ads_cluster = new Array();
+  cbs_ads_zone = "";
+  cbs_ads_tags = null;
+  cbs_partner_inject();
+  googletag.cmd.push(function () {
+      googletag.pubads().enableAsyncRendering();
+      ads_cluster["ad_1"] = googletag.defineSlot("/4128/CBS.LOCAL/" + cbs_ads_zone + "", [[970, 66], [728, 90]], "ad_1").addService(googletag.pubads()).setTargeting("tag", cbs_ads_tags).setTargeting("loc", "top").setTargeting("pos", 1).setCollapseEmptyDiv(true);
+      var ad_skin_1 = googletag.defineOutOfPageSlot("/4128/CBS.LOCAL/" + cbs_ads_zone + "", "ad_skin_1").addService(googletag.pubads()).setTargeting("tag", cbs_ads_tags);
+      ads_cluster["ad_2"] = googletag.defineSlot("/4128/CBS.LOCAL/" + cbs_ads_zone + "", [[300, 250]], "ad_2").addService(googletag.pubads()).setTargeting("tag", cbs_ads_tags).setTargeting("loc", "top").setTargeting("pos", 2).setCollapseEmptyDiv(true);
+      ads_cluster["ad_31"] = googletag.defineSlot("/4128/CBS.LOCAL/" + cbs_ads_zone + "", [[300, 250]], "ad_31").addService(googletag.pubads()).setTargeting("tag", cbs_ads_tags).setTargeting("loc", "middle").setTargeting("pos", 31).setCollapseEmptyDiv(true);
+      ads_cluster["ad_3"] = googletag.defineSlot("/4128/CBS.LOCAL/" + cbs_ads_zone + "", [[300, 250]], "ad_3").addService(googletag.pubads()).setTargeting("tag", cbs_ads_tags).setTargeting("loc", "bottom").setTargeting("pos", 3).setCollapseEmptyDiv(true);
+      ads_cluster["ad_4"] = googletag.defineSlot("/4128/CBS.LOCAL/" + cbs_ads_zone + "", [[728, 90]], "ad_4").addService(googletag.pubads()).setTargeting("tag", cbs_ads_tags).setTargeting("loc", "bottom").setTargeting("pos", 4).setCollapseEmptyDiv(true);
+      googletag.enableServices();
+      googletag.display("ad_1");
+      googletag.display("ad_skin_1");
+      googletag.display("ad_2");
+      googletag.display("ad_31");
+      googletag.display("ad_3");
+      googletag.display("ad_4");
+  });
+

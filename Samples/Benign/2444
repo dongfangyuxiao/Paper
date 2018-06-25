@@ -1,0 +1,36 @@
+
+  var isDebug = null;
+  var siteroot = "http://bandcamp.com";
+  var siteroot_https = "https://bandcamp.com";
+  var siteroot_current = "https://bandcamp.com";
+  var band_url = null;
+  var isProduction = true;
+  document.documentElement.className += " js";
+  var Browser = {"media_mode": "desktop", "type": null, "grade": "X", "mobile_app_compatible": false, "make": null, "platform": null, "version": [-1], "platform_closed": false, "platform_name": ""};
+  var TemplGlobals = {"sitedomain": "bandcamp.com", "image_siteroot": "http://f1.bcbits.com", "is_https": true, "siteroot": "http://bandcamp.com", "custom_domains_active": true, "siteroot_current": "https://bandcamp.com", "image_formats": [{"resize_algo": "original", "file_format": null, "name": "original", "id": 0}, {"resize_algo": "scrub", "file_format": "original", "name": "fullsize", "id": 1}, {"width": 350, "resize_algo": "thumb", "file_format": "JPEG", "name": "art_thumb", "id": 2, "height": 350}, {"width": 100, "resize_algo": "thumb", "file_format": "JPEG", "name": "art_thumbthumb", "id": 3, "height": 100}, {"width": 300, "resize_algo": "thumb", "file_format": "JPEG", "name": "art_embedded_metadata", "id": 4, "height": 300}, {"width": 700, "resize_algo": "thumb", "file_format": "JPEG", "name": "art_embedded_metadata_large", "id": 5, "height": 700}, {"width": 100, "resize_algo": "thumb", "file_format": "JPEG", "name": "art_embedded_player", "id": 6, "height": 100}, {"width": 150, "resize_algo": "thumb", "file_format": "JPEG", "name": "art_embedded_player_large", "id": 7, "height": 150}, {"width": 124, "resize_algo": "thumb", "file_format": "JPEG", "name": "art_tags", "id": 8, "height": 124}, {"width": 210, "resize_algo": "thumb", "file_format": "JPEG", "name": "art_tags_large", "id": 9, "height": 210}, {"width": 1200, "resize_algo": "fit", "file_format": "JPEG", "name": "screen", "id": 10, "height": 1200}, {"width": 135, "resize_algo": "thumb", "file_format": "JPEG", "name": "art_feed_new_release", "id": 15, "height": 135}, {"width": 700, "quality": 70, "minsize": {"format": 5, "size": 30000}, "resize_algo": "thumb", "file_format": "JPEG", "name": "art_app_large", "id": 16, "height": 700}, {"width": 1024, "resize_algo": "fit", "file_format": "JPEG", "name": "bio_screen", "id": 20, "height": 1024}, {"width": 120, "resize_algo": "fit", "file_format": "JPEG", "name": "bio_thumb", "id": 21, "height": 180}, {"width": 25, "resize_algo": "thumb", "file_format": "JPEG", "name": "bio_navbar", "id": 22, "height": 25}, {"width": 300, "resize_algo": "fit", "file_format": "JPEG", "name": "bio_phone", "id": 23, "height": 300}, {"width": 300, "resize_algo": "thumb", "file_format": "JPEG", "name": "bio_licensing", "id": 24, "height": 300}, {"width": 700, "quality": 70, "resize_algo": "fit", "file_format": "JPEG", "name": "bio_app", "id": 25, "height": 700}, {"width": 800, "resize_algo": "thumb", "file_format": "JPEG", "name": "bio_subscribe", "id": 26, "height": 600}, {"width": 1024, "resize_algo": "fit", "file_format": "original", "name": "package_screen", "id": 31, "height": 1024}, {"width": 400, "resize_algo": "thumb", "file_format": "JPEG", "name": "package_page", "id": 36, "height": 300}, {"width": 168, "resize_algo": "thumb", "file_format": "JPEG", "name": "package_thumb", "id": 37, "height": 126}, {"width": 210, "resize_algo": "thumb", "file_format": "JPEG", "name": "fan_bio_thumb", "id": 41, "height": 210}, {"width": 50, "resize_algo": "thumb", "file_format": "JPEG", "name": "fan_bio_thumb_small", "id": 42, "height": 50}, {"width": 99999, "resize_algo": "fit", "file_format": "JPEG", "name": "fan_banner", "id": 43, "height": 100}, {"width": 140, "resize_algo": "thumb", "file_format": "JPEG", "name": "results_grid", "id": 50, "height": 140}, {"width": 975, "max_height": 180, "resize_algo": "thumb", "file_format": "original", "name": "custom_header_desktop", "id": 100}, {"width": 750, "resize_algo": "fit", "file_format": "JPEG", "name": "custom_header_paypal", "id": 101, "height": 90}, {"width": 640, "max_height": 124, "resize_algo": "thumb", "file_format": "JPEG", "name": "custom_header_phone", "id": 120}, {"resize_algo": "scrub", "file_format": "JPEG", "name": "design_background", "id": 130}, {"width": 60, "resize_algo": "thumb", "file_format": "JPEG", "name": "subscribe_message", "id": 140, "height": 45}], "base_port_str": null, "image_siteroot_https": "https://f1.bcbits.com", "siteroot_https": "https://bandcamp.com", "static_siteroot": "https://s1.bcbits.com"};
+  var JSLoader = {currentset: {foot: []}, writeScriptTags: function (section) {
+      var libs = JSLoader.currentset[section];
+      if (!libs) {
+          throw "couldn't find js section: " + section;
+      }
+      for (var i = 0; i < libs.length; i++) {
+          document.write("<script type=\"text/javascript\" src=\"" + libs[i] + "\"></s" + "cript>");
+      }
+  }, requireJS: function (src) {
+      if (typeof (src) == "string") {
+          JSLoader._addRequire(src);
+      } else {
+          for (var i = 0; i < src.length; i++) {
+              JSLoader._addRequire(src[i]);
+          }
+      }
+  }, _addRequire: function (src) {
+      var libs = JSLoader.currentset.foot;
+      for (var i = 0; i < libs.length; i++) {
+          if (libs[i] == src) {
+              return;
+          }
+      }
+      libs.push(src);
+  }};
+

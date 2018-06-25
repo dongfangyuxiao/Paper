@@ -1,0 +1,38 @@
+
+  $(function () {
+      var locations = $("#locations"), locLinks = $("#location-links"), jumpMenu = $("<select />"), nationwideLink = $("<li><a href=\"#\" class=\"nationwide\">Click here</a> to view nationwide resources</li>");
+      locLinks.add(locations.children().not(":first")).hide();
+      locLinks.children("li").each(function () {
+          var a = $(this).children("a");
+          if (a.length == 0) {
+              return;
+          }
+          $("<option />", {val: a.attr("href")}).text(a.text()).appendTo(jumpMenu);
+      });
+      jumpMenu.change(function (e) {
+          var jumpMenuVal = jumpMenu.val(), currLocation = locations.children(":visible"), speed = "slow";
+          showLoc = function () {
+              $(jumpMenuVal).slideDown(speed);
+          };
+          if (currLocation.length !== 0) {
+              currLocation.slideUp(speed, function () {
+                  showLoc();
+              });
+          } else {
+              if (currLocation.attr("id") == jumpMenuVal.slice(1)) {
+              } else {
+                  showLoc();
+              }
+          }
+      }).keyup(function () {
+          $(this).trigger("change");
+      });
+      jumpMenu.insertAfter(locLinks);
+      $("a.nationwide", locations).live("click", function (e) {
+          jumpMenu.val("#nationwide").change();
+          return false;
+      });
+      nationwideLink.appendTo("#locations > div.location:not(:eq(0)) > ul");
+      $("a", locations).attr("target", "_blank");
+  });
+

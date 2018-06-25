@@ -1,0 +1,55 @@
+
+  jQuery(function ($) {
+      var variable_id = "";
+      apply_css_property();
+      if (jQuery("input[name=variation_id]").length > 0) {
+          display_chained_products_in_description_tab();
+      }
+      jQuery("input[name=variation_id]").on("change", function () {
+          display_chained_products_in_description_tab();
+      });
+      function display_chained_products_in_description_tab() {
+          setTimeout(function () {
+              if (variable_id == jQuery("input[name=variation_id]").val()) {
+                  return;
+              }
+              variable_id = jQuery("input[name=variation_id]").val();
+              var original_stock = jQuery("div.single_variation p.stock").text();
+              var form_data = new Object();
+              form_data.variable_id = variable_id;
+              form_data.price = jQuery("#show_price").val();
+              form_data.quantity = jQuery("#show_quantity").val();
+              form_data.style = jQuery("#select_style").val();
+              if (variable_id == undefined || variable_id == "") {
+                  jQuery(".tab-included-products").html("");
+                  return;
+              }
+              jQuery(".tab-included-products").html("<img src = 'http://cyberchimpscom.c.presscdn.com/wp-content/plugins/woocommerce/assets/images/ajax-loader.gif' />");
+              jQuery("span.price, div.single_variation p.stock").css("visibility", "hidden");
+              jQuery.ajax({url: "https://cyberchimps.com/wp-admin/admin-ajax.php", type: "POST", data: {form_value: form_data, action: "get_chained_products_html_view"}, dataType: "html", success: function (result) {
+                  if (result) {
+                      jQuery(".tab-included-products").html(result);
+                      apply_css_property();
+                      if (result.lastIndexOf("<stock") == -1 || result.lastIndexOf("</stock>") == -1) {
+                          jQuery("div.single_variation p.stock").text(original_stock);
+                      } else {
+                          var max_quantity = result.substring(result.lastIndexOf("<stock") + 30, result.lastIndexOf("</stock>"));
+                          jQuery("div.single_variation p.stock").text(max_quantity + " in stock");
+                          jQuery("input[name=quantity]").attr("max", max_quantity);
+                          jQuery("input[name=quantity]").attr("data-max", max_quantity);
+                      }
+                  } else {
+                      jQuery(".tab-included-products").html("");
+                      jQuery("div.single_variation p.stock").text(original_stock);
+                  }
+                  jQuery("span.price, div.single_variation p.stock").css("visibility", "visible");
+              }});
+          }, 0);
+      }
+      function apply_css_property() {
+          jQuery(".tab-included-products").find("ul.products li").addClass("product").css("border-bottom", "initial");
+          jQuery(".tab-included-products").find("h3").css({"line-height": "1.64", "text-transform": "initial", "letter-spacing": "initial"});
+          jQuery(".tab-included-products").find("ul.products li.product a span.onsale").css("display", "none");
+      }
+  });
+

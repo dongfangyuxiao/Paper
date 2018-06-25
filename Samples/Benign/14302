@@ -1,0 +1,19 @@
+
+  __GMT_TIME = 1413447962;
+  $(document).ready(function () {
+      G_LOAD.f_CLOSE(1);
+      $.fn.tipsy.defaults = {delayIn: 0, delayOut: 0, fade: false, fallback: "", gravity: "s", html: true, live: false, offset: 0, opacity: 0.8, title: "title", trigger: "hover"};
+      $(".ttip").tipsy({gravity: "se"});
+      $(".MenuSX_voce, .MenuSX_voce a").mouseenter(function () {
+          $(this).toggleClass("MenuSX_voce_hover");
+      }).mouseleave(function () {
+          $(this).toggleClass("MenuSX_voce_hover");
+      });
+  });
+  f_PRT_lang(false);
+  $("#langCurrSET").mouseenter(function () {
+      if ($("#menuLang").html() == "") {
+          f_PRT_lang(true);
+      }
+  });
+

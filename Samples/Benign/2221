@@ -1,0 +1,9 @@
+
+  $("#top-banner a.dismissable").on("click", function (event) {
+      banner = $(this);
+      banner.closest("#top-banner").hide();
+      $.post(banner.attr("href"));
+      event.preventDefault();
+      return false;
+  });
+

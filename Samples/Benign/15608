@@ -1,0 +1,16 @@
+
+  function show_item(subgroup, target_id, step_number) {
+      $A($(subgroup).select(".outgoing_button")).each(function (btn) {
+          btn.hide();
+      });
+      for (i = step_number + 1; i <= 3; i++) {
+          $$(".sub_item" + i).each(function (elem) {
+              elem.hide();
+          });
+          $$("sub_button" + i).each(function (elem) {
+              elem.checked = false;
+          });
+      }
+      $(target_id).show();
+  }
+

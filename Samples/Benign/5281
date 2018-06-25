@@ -1,0 +1,12 @@
+
+  jQuery(document).ready(function ($) {
+      if (typeof Gravatar.init !== "function") {
+          return;
+      }
+      Gravatar.profile_cb = function (hash, id) {
+          WPGroHo.syncProfileData(hash, id);
+      };
+      Gravatar.my_hash = WPGroHo.my_hash;
+      Gravatar.init("body", "#wp-admin-bar-my-account");
+  });
+

@@ -1,0 +1,83 @@
+
+  String.prototype.empty = function () {
+      return (this.trim() == "");
+  };
+  clearAdvancedSearchForm = function () {
+      $("allterms").value = "";
+      $("exactphrase").value = "";
+      $("orterm1").value = "";
+      $("orterm2").value = "";
+      $("orterm3").value = "";
+      $("unwantedterms").value = "";
+      $("s").value = "";
+  };
+  buildAdvancedSearch = function () {
+      var space = "", or = "";
+      $("s").value = "";
+      if (!$("allterms").value.empty()) {
+          $("s").value += $("allterms").value;
+          space = " ";
+      }
+      if (!$("exactphrase").value.empty()) {
+          $("s").value += space + "\"" + $("exactphrase").value + "\"";
+          space = " ";
+      }
+      if (!$("orterm1").value.empty()) {
+          $("s").value += space + $("orterm1").value;
+          space = " ";
+          or = "or ";
+      }
+      if (!$("orterm2").value.empty()) {
+          $("s").value += space + or + $("orterm2").value;
+          space = " ";
+          or = "or ";
+      }
+      if (!$("orterm3").value.empty()) {
+          $("s").value += space + or + $("orterm3").value;
+          space = " ";
+      }
+      if (!$("unwantedterms").value.empty()) {
+          var value = $("unwantedterms").value.strip();
+          value = value.replace(/([^"]*)("[^"]*")?([^"]*)/g, function (whole, before, quotes, after) {
+              if (before && !before.empty()) {
+                  before = " ~" + before.strip().replace(/\s+/g, " ~");
+              } else {
+                  before = "";
+              }
+              if (quotes && !quotes.empty()) {
+                  quotes = " ~" + quotes;
+              } else {
+                  quotes = "";
+              }
+              if (!after && !after.empty()) {
+                  after = " ~" + after.strip().replace(/\s+/g, " ~");
+              } else {
+                  after = "";
+              }
+              return (before + quotes + after).strip();
+          });
+          $("s").value += space + value;
+      }
+  };
+  Event.observe("allterms", "keyup", function () {
+      buildAdvancedSearch();
+  });
+  Event.observe("exactphrase", "keyup", function () {
+      buildAdvancedSearch();
+  });
+  Event.observe("orterm1", "keyup", function () {
+      buildAdvancedSearch();
+  });
+  Event.observe("orterm2", "keyup", function () {
+      buildAdvancedSearch();
+  });
+  Event.observe("orterm3", "keyup", function () {
+      buildAdvancedSearch();
+  });
+  Event.observe("unwantedterms", "keyup", function () {
+      buildAdvancedSearch();
+  });
+  Event.observe("clearbutton", "click", function () {
+      clearAdvancedSearchForm();
+  });
+

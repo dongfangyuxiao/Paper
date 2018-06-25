@@ -1,0 +1,38 @@
+
+  var _comscore, _gaq;
+  (function (doc) {
+      "use strict";
+      var debug = false, gaKey = "", gaPunt = "", gaCustomVars = {component: "website", forum: "", version: "v5"}, gaSlots = {component: 1, forum: 3, version: 4};
+      gaKey = gaCustomVars.component == "website" ? "UA-1410476-16" : "";
+      var s = doc.getElementsByTagName("script")[0], p = s.parentNode;
+      var isSecure = doc.location.protocol == "https:";
+      if (!debug) {
+          _comscore = _comscore || [];
+          _comscore.push({c1: "7", c2: "10137436", c3: "1"});
+          var cs = document.createElement("script");
+          cs.async = true;
+          cs.src = (isSecure ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+          p.insertBefore(cs, s);
+      }
+      _gaq = _gaq || [];
+      if (!debug) {
+          _gaq.push(["_setAccount", gaKey]);
+          _gaq.push(["_setDomainName", ".disqus.com"]);
+      }
+      if (!gaPunt) {
+          for (var v in gaCustomVars) {
+              if (!(gaCustomVars.hasOwnProperty(v) && gaCustomVars[v])) {
+                  continue;
+              }
+              _gaq.push(["_setCustomVar", gaSlots[v], gaCustomVars[v]]);
+          }
+          _gaq.push(["_trackPageview"]);
+      }
+      var ga = doc.createElement("script");
+      ga.type = "text/javascript";
+      ga.async = true;
+      var prefix = isSecure ? "https://ssl" : "http://www";
+      ga.src = prefix + ".google-analytics.com/ga.js";
+      p.insertBefore(ga, s);
+  }(document));
+

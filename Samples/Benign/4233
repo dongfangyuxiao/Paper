@@ -1,0 +1,18 @@
+
+  $(function () {
+      var params = {token: "1jAslcRpPjzgQRHC/ItZnt2AVg4hzKdT6LI3d0FYPqs=", debug: false, session: ""};
+      if (window.Site) {
+          window.Page = new Site(params);
+      } else {
+          if (window.SiteIndex) {
+              window.Page = new SiteIndex(params);
+          } else {
+              if (window.SitePage) {
+                  window.Page = new SitePage(params);
+              } else {
+                  window.Page = new IndiePage(params);
+              }
+          }
+      }
+  });
+

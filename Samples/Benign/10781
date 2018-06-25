@@ -1,0 +1,90 @@
+
+  function salta_a_lo_mas_visto() {
+      if (document.getElementById("li_lmv_elpais").className.indexOf("activo") > -1) {
+          if (document.getElementById("li_lmv_america").className.indexOf("activo") > -1) {
+              document.location = "http://elpais.com/lomasvisto/america.html";
+          } else {
+              document.location = "http://elpais.com/lomasvisto/";
+          }
+      } else {
+          if (document.getElementById("li_lmv_verne").className.indexOf("activo") > -1) {
+              document.location = "http://elpais.com/lomasvisto/verne.html";
+          } else {
+              if (document.getElementById("li_lmv_twitter").className.indexOf("activo") > -1) {
+                  document.location = "http://elpais.com/lomasvisto/twitter.html";
+              } else {
+                  document.location = "http://elpais.com/lomasvisto/";
+              }
+          }
+      }
+  }
+  function lmv_cambia_pestana(idpestana) {
+      document.getElementById("lmv_america").style.display = "none";
+      switch (idpestana) {
+        case "lmv_elpais":
+          document.getElementById("lmv_todo").style.display = "block";
+          document.getElementById("lmv_twitter").style.display = "none";
+          document.getElementById("lmv_verne").style.display = "none";
+          document.getElementById("lmv_seccion").style.display = "none";
+          document.getElementById("li_lmv_elpais").className = "activo";
+          document.getElementById("li_lmv_twitter").className = "";
+          document.getElementById("li_lmv_verne").className = "";
+          document.getElementById("li_lmv_seccion").className = "";
+          document.getElementById("lmv_subpestanas").style.display = "block";
+          lmv_cambia_subpestana("lmv_todo");
+          break;
+        case "lmv_twitter":
+          document.getElementById("lmv_todo").style.display = "none";
+          document.getElementById("lmv_twitter").style.display = "block";
+          document.getElementById("lmv_verne").style.display = "none";
+          document.getElementById("lmv_seccion").style.display = "none";
+          document.getElementById("li_lmv_elpais").className = "";
+          document.getElementById("li_lmv_twitter").className = "activo";
+          document.getElementById("li_lmv_verne").className = "";
+          document.getElementById("li_lmv_seccion").className = "";
+          document.getElementById("lmv_subpestanas").style.display = "none";
+          break;
+        case "lmv_verne":
+          document.getElementById("lmv_todo").style.display = "none";
+          document.getElementById("lmv_twitter").style.display = "none";
+          document.getElementById("lmv_verne").style.display = "block";
+          document.getElementById("lmv_seccion").style.display = "none";
+          document.getElementById("li_lmv_elpais").className = "";
+          document.getElementById("li_lmv_twitter").className = "";
+          document.getElementById("li_lmv_verne").className = "activo";
+          document.getElementById("li_lmv_seccion").className = "";
+          document.getElementById("lmv_subpestanas").style.display = "none";
+          break;
+        case "lmv_seccion":
+          document.getElementById("lmv_todo").style.display = "none";
+          document.getElementById("lmv_twitter").style.display = "none";
+          document.getElementById("lmv_verne").style.display = "none";
+          document.getElementById("lmv_seccion").style.display = "block";
+          document.getElementById("li_lmv_elpais").className = "";
+          document.getElementById("li_lmv_twitter").className = "";
+          document.getElementById("li_lmv_verne").className = "";
+          document.getElementById("li_lmv_seccion").className = "activo";
+          document.getElementById("lmv_subpestanas").style.display = "none";
+          break;
+      }
+  }
+  function lmv_cambia_subpestana(idpestana) {
+      document.getElementById("lmv_twitter").style.display = "none";
+      document.getElementById("lmv_verne").style.display = "none";
+      document.getElementById("lmv_seccion").style.display = "none";
+      switch (idpestana) {
+        case "lmv_todo":
+          document.getElementById("lmv_todo").style.display = "block";
+          document.getElementById("lmv_america").style.display = "none";
+          document.getElementById("li_lmv_todo").className = "activo";
+          document.getElementById("li_lmv_america").className = "";
+          break;
+        case "lmv_america":
+          document.getElementById("lmv_todo").style.display = "none";
+          document.getElementById("lmv_america").style.display = "block";
+          document.getElementById("li_lmv_todo").className = "";
+          document.getElementById("li_lmv_america").className = "activo";
+          break;
+      }
+  }
+

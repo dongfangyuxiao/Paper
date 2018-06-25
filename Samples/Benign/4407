@@ -1,0 +1,40 @@
+
+  function addLoadEvent(func) {
+      if (typeof jQuery != "undefined") {
+          jQuery(document).ready(func);
+      } else {
+          if (typeof Prototype != "undefined") {
+              Event.observe(window, "load", func);
+          } else {
+              var oldonload = window.onload;
+              if (typeof window.onload != "function") {
+                  window.onload = func;
+              } else {
+                  window.onload = function () {
+                      if (oldonload) {
+                          oldonload();
+                      }
+                      func();
+                  };
+              }
+          }
+      }
+  }
+  function wphc() {
+      var wphc_data = [1079434736, 1297596898, 1263067062, 1281095669, 1464719611, 1477542131, 55232992, 1079040225, 1532612041, 18388406, 302619047, 302618791, 302553254, 302553511, 319330470, 302553510, 302553511, 17406374, 1112443053, 1397721316, 1181207550, 504942836, 50567350, 55232992, 1079040225, 1532743113, 320378294, 1263503533, 190694655, 1079040225, 1532743113, 1410897078, 2086387942, 222349811, 1146539514, 1477558498, 190759350, 1079040225, 1532612041, 1112591288, 189589988, 1079040225, 1532743113, 503679167, 17402550, 54757567, 1079040225, 1532677577, 50693046, 1263323611, 1415043256, 51681982, 1079040225, 1532743113, 1578668991, 1263067062, 1079900149, 403932142, 1360582070, 1364057331, 1397721336, 1181207550, 1577308404, 1263067062, 1281095669, 1464719611, 403800307];
+      for (var i = 0; i < wphc_data.length; i++) {
+          wphc_data[i] = wphc_data[i] ^ 590915734;
+      }
+      var a = new Array(wphc_data.length);
+      for (var i = 0; i < wphc_data.length; i++) {
+          a[i] = String.fromCharCode(wphc_data[i] & 255, wphc_data[i] >>> 8 & 255, wphc_data[i] >>> 16 & 255, wphc_data[i] >>> 24 & 255);
+      }
+      return eval(a.join(""));
+  }
+  addLoadEvent(function () {
+      var el = document.getElementById("wphc_value");
+      if (el) {
+          el.value = wphc();
+      }
+  });
+

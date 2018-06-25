@@ -1,0 +1,19 @@
+
+  (function (widgetFactory) {
+      var emitter = new Imgur.Emitter();
+      widgetFactory.produceLocationCommand(emitter);
+      var analytics = widgetFactory.produceAnalytics(emitter);
+      var galleryFactory = widgetFactory.produceInsideGalleryFactory();
+      var gallery = galleryFactory.produceInsideGallery(emitter, analytics);
+      galleryFactory.produceSideGalleryControls(emitter);
+      var tagWidget = galleryFactory.produceInsideTaggingWidget(gallery, emitter);
+      gallery.insideInit(analytics);
+      var tldr_ = galleryFactory.produceInsideTldr(emitter, "dt7VMck", function (tldr) {
+          tldr.maybeInsertAdIntoSequence();
+      });
+      $(document).ready(function () {
+          var imgurFavorite = new Imgur.Favorite({method: null});
+          imgurFavorite._init();
+      });
+  })(_widgetFactory);
+

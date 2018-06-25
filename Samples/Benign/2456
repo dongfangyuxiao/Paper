@@ -1,0 +1,99 @@
+
+  function LoginVM(initUsername, bounceURL) {
+      var self = this;
+      this.username = ko.observable(initUsername).extend({errorKeys: {missingValue: "Please enter your username.", noMatch: "We didn't recognize that username. Please try again."}});
+      this.username.focused = ko.observable(!initUsername);
+      this.password = ko.observable().extend({errorKeys: {missingValue: "Please enter your password.", tooShort: "Your password is at least 3 characters.", noMatch: "That password isn't correct. Please try again."}});
+      this.password.focused = ko.observable(initUsername);
+      this.twofactor = ko.observable().extend({errorKeys: {missingValue: "Please enter your two-factor code.", noMatch: "Code validation failed. Please try again."}});
+      this.twofactorRemember = ko.observable(false);
+      this.twofactorVisible = ko.observable(false);
+      this.twofactorHelpVisible = ko.observable(false);
+      this.showTwoFactorHelp = function () {
+          self.twofactorHelpVisible(true);
+      };
+      this.loginFormVisible = ko.observable(!null);
+      this.showSonos = ko.observable(null);
+      this.sonosErrorKey = ko.observable(null);
+      this.signupVisible = ko.observable(!null);
+      this.validate = function () {
+          self.username.error_key(self.username() ? null : "missingValue");
+          self.password.error_key(!self.password() ? "missingValue" : self.password().length < 3 ? "tooShort" : null);
+          return !self.username.error_key() && !self.password.error_key();
+      };
+      this.submitEnabled = ko.observable(true);
+      this.submit = function () {
+          if (!self.submitEnabled()) {
+              return;
+          }
+          if (!self.validate()) {
+              return;
+          }
+          self.showSonos(false);
+          if (!self.sonosErrorKey()) {
+              self.signupVisible(true);
+          }
+          setTimeout(function () {
+              self.sonosErrorKey("");
+          }, 100);
+          self.submitEnabled(false);
+          var postData = {"user.name": self.username(), "login.password": self.password(), "login.twofactor": self.twofactorVisible() ? self.twofactor() : "", "login.twofactor_remember": self.twofactorVisible() ? self.twofactorRemember() : "", "login.from": "hpfans"};
+          $.post("/login_cb", postData).done(function (response) {
+              if (Trackpipe.showXHRError(response)) {
+                  return;
+              }
+              if (response.ok) {
+                  var url = bounceURL;
+                  if (response.show_sonos) {
+                      self.loginFormVisible(false);
+                      self.signupVisible(false);
+                      setTimeout(function () {
+                          self.showSonos(true);
+                      }, 100);
+                      return;
+                  }
+                  if ((url === "/" || response.override_bounce) && response.next_url) {
+                      url = response.next_url;
+                  }
+                  window.location = url;
+                  return;
+              } else {
+                  if (response.errors) {
+                      Log.debug("response.errors", response.errors);
+                      Iter.each(response.errors, function (error) {
+                          Log.debug("error.field: " + error.field + "; error.reason: " + error.reason);
+                          if (error.field == "login.twofactor" && error.reason == "missingValue") {
+                              self.twofactorVisible(true);
+                              $("#twofactor-field").focus();
+                          } else {
+                              if (error.field == "user.name" && error.reason == "noFanAccount") {
+                                  self.sonosErrorKey("noFanAccount");
+                                  self.showSonos(true);
+                                  self.signupVisible(false);
+                              } else {
+                                  var observable = {"user.name": self.username, "login.password": self.password, "login.twofactor": self.twofactor}[error.field];
+                                  if (!observable) {
+                                      Log.error("Unknown error field", error.field);
+                                      observable = self.password;
+                                  }
+                                  observable.error_key(error.reason);
+                              }
+                          }
+                      });
+                  }
+              }
+              self.submitEnabled(true);
+          }).fail(function () {
+              Dialog.alert("Network Error", "There was a network error. Please try again.");
+              self.submitEnabled(true);
+          });
+      };
+      $(document).ready(function () {
+          if (MediaView.mode == "phone" && Browser.platform == "iphone" && Browser.make == "safari") {
+              var field = $("#username-field");
+              var parent = field.parent();
+              field.detach().attr("type", "email").prependTo(parent);
+          }
+      });
+  }
+

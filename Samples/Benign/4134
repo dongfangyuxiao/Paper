@@ -1,0 +1,80 @@
+
+  (function () {
+      if (typeof window.janrain !== "object") {
+          window.janrain = {};
+      }
+      if (typeof window.janrain.settings !== "object") {
+          window.janrain.settings = {};
+      }
+      if (typeof window.janrain.settings.share !== "object") {
+          window.janrain.settings.share = {};
+      }
+      if (typeof window.janrain.settings.packages !== "object") {
+          janrain.settings.packages = [];
+      }
+      janrain.settings.packages.push("share");
+      janrain.settings.share.providers = ["facebook", "twitter", "linkedin"];
+      janrain.settings.share.providersEmail = [];
+      janrain.settings.share.modes = ["broadcast", "contact"];
+      janrain.settings.share.attributionDisplay = false;
+      janrain.settings.share.message = "";
+      janrain.settings.share.title = "";
+      janrain.settings.share.url = "";
+      janrain.settings.share.description = "";
+      janrain.settings.share.modalBackgroundColor = "#000000";
+      janrain.settings.share.modalBorderRadius = "5";
+      janrain.settings.share.modalOpacity = "0.5";
+      janrain.settings.share.modalWidth = "5";
+      janrain.settings.share.bodyBackgroundColor = "#009DDC";
+      janrain.settings.share.bodyBackgroundColorOverride = false;
+      janrain.settings.share.bodyColor = "#333333";
+      janrain.settings.share.bodyContentBackgroundColor = "#ffffff";
+      janrain.settings.share.bodyFontFamily = "Helvetica";
+      janrain.settings.share.bodyTabBackgroundColor = "#f8f8f8";
+      janrain.settings.share.bodyTabColor = "#000000";
+      janrain.settings.share.elementBackgroundColor = "#f6f6f6";
+      janrain.settings.share.elementBorderColor = "#cccccc";
+      janrain.settings.share.elementBorderRadius = "3";
+      janrain.settings.share.elementButtonBorderRadius = "6";
+      janrain.settings.share.elementButtonBoxShadow = "3";
+      janrain.settings.share.elementColor = "#333333";
+      janrain.settings.share.elementHoverBackgroundColor = "#eeeeee";
+      janrain.settings.share.elementLinkColor = "#009DDC";
+      function isReady() {
+          janrain.ready = true;
+      }
+      if (document.addEventListener) {
+          document.addEventListener("DOMContentLoaded", isReady, false);
+      } else {
+          window.attachEvent("onload", isReady);
+      }
+      var e = document.createElement("script");
+      e.type = "text/javascript";
+      e.id = "janrainWidgets";
+      if (document.location.protocol === "https:") {
+          e.src = "https://rpxnow.com/js/lib/login.slashdot.org/widget.js";
+      } else {
+          e.src = "http://widget-cdn.rpxnow.com/js/lib/login.slashdot.org/widget.js";
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(e, s);
+  })();
+  $(document).ready(function () {
+      if (janrain) {
+          $(document).on("click", "a.janrain", function () {
+              var $anchor = $(this);
+              var provider = $anchor.attr("data-provider");
+              var url = $anchor.attr("data-url");
+              var message = $anchor.attr("data-message");
+              var title = $anchor.attr("data-title");
+              janrain.engage.share.reset();
+              janrain.engage.share.showProvider(provider);
+              janrain.engage.share.setTitle(title);
+              janrain.engage.share.setMessage(message);
+              janrain.engage.share.setUrl(url);
+              janrain.engage.share.show();
+              return false;
+          });
+      }
+  });
+

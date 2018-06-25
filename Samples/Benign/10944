@@ -1,0 +1,19 @@
+
+  var medio = "pestana_cursos";
+  function cargarmedio(nuevomedio) {
+      if (document.getElementById("li_" + medio) && document.getElementById("li_" + nuevomedio)) {
+          if (nuevomedio == "pestana_iahorro" && document.getElementById("iframe_iahorro")) {
+              var src_iframe = document.getElementById("iframe_iahorro").src;
+              if (src_iframe == "http://ep01.epimg.net/t.gif") {
+                  document.getElementById("iframe_iahorro").src = "http://wdintegra.iahorro.com/widgetsprisa/clasificados/elpais/clasificados.html";
+              }
+          }
+          document.getElementById("li_" + medio).className = "";
+          document.getElementById("li_" + nuevomedio).className += " marcado";
+          document.getElementById(medio).style.display = "none";
+          document.getElementById(nuevomedio).style.display = "";
+          document.getElementById(nuevomedio).className = "";
+          medio = nuevomedio;
+      }
+  }
+

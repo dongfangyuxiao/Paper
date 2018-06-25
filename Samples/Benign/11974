@@ -1,0 +1,12 @@
+
+  html_font_size_selector = "<ul id=\"font_size_selector\"><li><a class=\"hiddenIn\" id=\"stylesheettextlow\" href=\"#\" title=\"Carattere normale\"><img src=\"/wel/images/eu_portal/bt_a_s.gif\" alt=\"Carattere normale\"></a></li><li><a class=\"hiddenIn\" id=\"stylesheettextmid\" href=\"#\" title=\"Ingrandisci carattere\"><img src=\"/wel/images/eu_portal/bt_a_m.gif\" alt=\"Ingrandisci carattere\"></a></li><li><a class=\"hiddenIn\" id=\"stylesheettexthigh\" href=\"#\" title=\"Ingrandisci ancora carattere\"><img src=\"/wel/images/eu_portal/bt_a_x.gif\" alt=\"Ingrandisci ancora carattere\"></a></li></ul><img class=\"sep\" src=\"/wel/images/accessbar_sep.gif\" alt=\"\" />";
+  html_color_selector = "<ul><li><a class=\"styleSwitcher\" id=\"stylesheetcolorblue\" href=\"#\"><img src=\"/wel/images/eu_portal/color-blue.gif\" title=\"Scegli il blu\" alt=\"Scegli il blu\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorgreen\" href=\"#\"><img src=\"/wel/images/eu_portal/color-green.gif\" title=\"Scegli il verde\" alt=\"Scegli il verde\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorred\" href=\"#\"><img src=\"/wel/images/eu_portal/color-red.gif\" title=\"Scegli il rosso\" alt=\"Scegli il rosso\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorblack\" href=\"#\"><img src=\"/wel/images/eu_portal/color-blue-yellow.gif\" title=\"Visualizzazione a contrasto elevato\" alt=\"Visualizzazione a contrasto elevato\"></a></li></ul><img class=\"sep\" src=\"/wel/images/accessbar_sep.gif\" alt=\"\" />";
+  if (isCssActivate() == true) {
+      document.write("<div id=\"accessbar\" class=\"accessbar_hp\"><p><span class=\"hiddenIn\">" + html_font_size_selector + html_color_selector);
+      document.write("<div id=\"share-tool\">");
+      document.write("</div>");
+      document.write("</span></p><span class=\"hiddenIn\"></span></div>");
+      $("accessbar").setStyle("display", "inline");
+      iBeginShare.attachLink("share-tool");
+  }
+

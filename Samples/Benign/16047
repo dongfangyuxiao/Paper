@@ -1,0 +1,53 @@
+
+  var googleResultUrl = "http://illinois.edu/resources/results.html";
+  var cx = "006549799505564222509:-8lddip9q2g";
+  var cof = "FORID:11";
+  var skinId = "";
+  function sendSearch() {
+      if (document.gs.searchType_people.checked) {
+          document.gs.cx.value = "";
+          document.gs.cof.value = "";
+          if (document.gs.q.value == "Search") {
+              document.gs.search.value = "";
+          } else {
+              document.gs.search.value = document.gs.q.value;
+          }
+          document.gs.skinId.value = skinId;
+          document.gs.action = "/ds/search";
+      } else {
+          document.gs.cx.value = cx;
+          document.gs.cof.value = cof;
+          document.gs.id = cx;
+          document.gs.action = googleResultUrl;
+      }
+  }
+  function checkSearchValue() {
+      if (document.gs.q.value == "Search" || document.gs.q.value == "") {
+          document.gs.q.style.backgroundColor = "#ffffff";
+          document.gs.q.value = "";
+      }
+  }
+  function getDate() {
+      var months = new Array(13);
+      months[1] = "Jan";
+      months[2] = "Feb";
+      months[3] = "Mar";
+      months[4] = "Apr";
+      months[5] = "May";
+      months[6] = "Jun";
+      months[7] = "Jul";
+      months[8] = "Aug";
+      months[9] = "Sep";
+      months[10] = "Oct";
+      months[11] = "Nov";
+      months[12] = "Dec";
+      var time = new Date();
+      var lmonth = months[time.getMonth() + 1];
+      var date = time.getDate();
+      var year = time.getYear();
+      if (year < 2000) {
+          year = year + 1900;
+      }
+      return (lmonth + "&nbsp;" + date + ",&nbsp;" + year);
+  }
+

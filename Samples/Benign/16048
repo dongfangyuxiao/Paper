@@ -1,0 +1,45 @@
+
+  function getElementsByClassName(oElm, strTagName, strClassName) {
+      var arrElements = (strTagName == "*" && oElm.all) ? oElm.all : oElm.getElementsByTagName(strTagName);
+      var arrReturnElements = new Array();
+      strClassName = strClassName.replace(/-/g, "-");
+      var oRegExp = new RegExp("(^|s)" + strClassName + "(s|$)");
+      var oElement;
+      for (var i = 0; i < arrElements.length; i++) {
+          oElement = arrElements[i];
+          if (oRegExp.test(oElement.className)) {
+              arrReturnElements.push(oElement);
+          }
+      }
+      return (arrReturnElements);
+  }
+  var hs_list = new Array("false", "false", "false");
+  function setHideShowImageInfo(position) {
+      var arrayTD = getElementsByClassName(document, "td", "ws-show-flag");
+      var arrayTH = getElementsByClassName(document, "th", "ws-show-flag");
+      if (hs_list[position] == "true") {
+          location.reload(true);
+          document.getElementById("expand_image_" + position).style.display = "block";
+          document.getElementById("collapse_image_" + position).style.display = "none";
+          for (var i = 0; i < arrayTD.length; i++) {
+              arrayTD[i].style.display = "none";
+          }
+          for (var i = 0; i < arrayTH.length; i++) {
+              arrayTH[i].style.display = "none";
+          }
+          hs_list[position] = "false";
+          document.getElementById("thing_" + position).className = "place-off-screen";
+      } else {
+          document.getElementById("expand_image_" + position).style.display = "none";
+          document.getElementById("collapse_image_" + position).style.display = "block";
+          for (var i = 0; i < arrayTD.length; i++) {
+              arrayTD[i].style.display = "block";
+          }
+          for (var i = 0; i < arrayTH.length; i++) {
+              arrayTH[i].style.display = "block";
+          }
+          hs_list[position] = "true";
+          document.getElementById("thing_" + position).className = "place-on-screen";
+      }
+  }
+

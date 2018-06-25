@@ -1,0 +1,19 @@
+
+  jq(document).ready(function () {
+      var slideshowAjax = setTimeout(function () {
+          HubPages.Lightbox.Slideshow.create({id: 4478316, title: "Flowers and Herbs for Pomanders", url: "http://hubpages.com/hub/Flowers-and-Herbs-for-Pomanders", type: "Hub"});
+      }, 20000);
+      HubPages.Lightbox.Slideshow.init(4478316, "Flowers and Herbs for Pomanders", "http://hubpages.com/hub/Flowers-and-Herbs-for-Pomanders", ".moduleImage div:not(.thumbnails) img", "Hub");
+      var imgIdList = [11836172, 11836286, 11839606, 11839214, 11839156, 11835835, 11853884, 11846479, 11838596, 11853797, 11853919];
+      for (var i = 0; i < imgIdList.length; i++) {
+          selector = "#img_url_" + imgIdList[i];
+          jQuery(selector).css("cursor", "pointer");
+      }
+      jQuery(".moduleImage").mouseover(function () {
+          jQuery(this).find(".slideshowButton").show();
+      });
+      jQuery(".moduleImage").mouseout(function () {
+          jQuery(this).find(".slideshowButton").hide();
+      });
+  });
+

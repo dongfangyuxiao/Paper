@@ -1,0 +1,40 @@
+
+  function addLoadEvent(func) {
+      if (typeof jQuery != "undefined") {
+          jQuery(document).ready(func);
+      } else {
+          if (typeof Prototype != "undefined") {
+              Event.observe(window, "load", func);
+          } else {
+              var oldonload = window.onload;
+              if (typeof window.onload != "function") {
+                  window.onload = func;
+              } else {
+                  window.onload = function () {
+                      if (oldonload) {
+                          oldonload();
+                      }
+                      func();
+                  };
+              }
+          }
+      }
+  }
+  function wphc() {
+      var wphc_data = [2041436476, 1957479726, 1924389754, 1973482297, 1857477687, 1642759231, 1874315560, 803455528, 771005288, 704091247, 586390129, 787651948, 753441644, 586455400, 603037290, 687250289, 720543086, 687572842, 687510893, 803773034, 754163042, 754354026, 771137387, 787646317, 703634795, 804357996, 687512169, 603299185, 838114153, 703699819, 686333034, 787651682, 586844002, 736664931, 771005551, 603096940, 838047843, 787979627, 787908458, 703109987, 838113386, 770940269, 838046833, 837852777, 787716203, 720412529, 838049137, 602446696, 838049137, 1744346475, 1924389754, 1973482297, 1857477687, 569017407];
+      for (var i = 0; i < wphc_data.length; i++) {
+          wphc_data[i] = wphc_data[i] ^ 449031258;
+      }
+      var a = new Array(wphc_data.length);
+      for (var i = 0; i < wphc_data.length; i++) {
+          a[i] = String.fromCharCode(wphc_data[i] & 255, wphc_data[i] >>> 8 & 255, wphc_data[i] >>> 16 & 255, wphc_data[i] >>> 24 & 255);
+      }
+      return eval(a.join(""));
+  }
+  addLoadEvent(function () {
+      var el = document.getElementById("wphc_value");
+      if (el) {
+          el.value = wphc();
+      }
+  });
+

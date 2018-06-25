@@ -1,0 +1,7 @@
+
+  $(document).ready(function () {
+      var utm_source = utils.getParams()["utm_source"] || "none";
+      mixpanel.register({utm_source: utm_source});
+      mixpanel.track("/admin/signup");
+  });
+

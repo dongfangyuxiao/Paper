@@ -1,0 +1,17 @@
+
+  $("#wpcc-button").popupWindow({centerBrowser: 1, width: 1000, height: 700, onOpen: watch_wpcc});
+  var myWin = null, winMon = null;
+  function watch_wpcc(myWin) {
+      myWin = myWin;
+      winMon = setInterval(function () {
+          if (!myWin || myWin.closed) {
+              $("#wpcc-button").replaceWith("<p style=\"text-align:center;\">Signing in...</p>");
+              window.location.href = "/emails?wpcc";
+              clearInterval(winMon);
+          }
+      }, 100);
+  }
+  $(document).ready(function () {
+      $(".wpcc-signup").popupWindow({centerBrowser: 1, width: 1000, height: 800, onOpen: watch_wpcc});
+  });
+

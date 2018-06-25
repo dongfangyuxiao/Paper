@@ -1,0 +1,64 @@
+
+  $(document).ready(function () {
+      var imgArr = new Array("/imgs/a4af05c55862d450ea6fb1a5b052381b.jpg", "/imgs/d6add8e2fa82020f7dafdb81b4ccb40a.jpg", "/imgs/ea9d3d1e606d350a870acfbf9c7a44df.jpg");
+      var preloadArr = new Array();
+      var i;
+      for (i = 0; i < imgArr.length; i++) {
+          preloadArr[i] = new Image();
+          preloadArr[i].src = imgArr[i];
+      }
+      var currImg = 0;
+      $(".round_icon.right").click(function () {
+          console.log(currImg);
+          currImg = currImg + 1;
+          $("#responsive_img").animate({opacity: 0}, 200, function () {
+              $(this).css("background", "url(" + preloadArr[currImg].src + ") top center no-repeat");
+          }).animate({opacity: 1}, 200);
+          if (currImg == imgArr.length) {
+              currImg = 0;
+          }
+      });
+      $(".round_icon.left").click(function () {
+          console.log(currImg);
+          if (currImg == 0) {
+              currImg = imgArr.length;
+          }
+          $("#responsive_img").animate({opacity: 0}, 200, function () {
+              $(this).css("background", "url(" + preloadArr[currImg].src + ") top center no-repeat");
+          }).animate({opacity: 1}, 200);
+          currImg = currImg - 1;
+      });
+  });
+  $(document).ready(function () {
+      var imgArr2 = new Array("/imgs/6ebe2e7432ca926ec5019ebd6960f37e.png", "/imgs/c1bec06f195e8adc1e5b596fb1d1efaf.png", "/imgs/e62cbece35e11192a9cfa316075df6fe.png");
+      var preloadArr2 = new Array();
+      var i2;
+      for (i2 = 0; i2 < imgArr2.length; i2++) {
+          preloadArr2[i2] = new Image();
+          preloadArr2[i2].src = imgArr2[i2];
+      }
+      var currImg2 = 1;
+      var intID2 = setInterval(changeImg2, 3000);
+      function changeImg2() {
+          $("#integracje_img").animate({opacity: 0}, 200, function () {
+              $(this).css("background", "url(" + preloadArr2[currImg2++ % preloadArr2.length].src + ") top center no-repeat");
+          }).animate({opacity: 1}, 200);
+      }
+  });
+  $(document).ready(function () {
+      var imgArr3 = new Array("/imgs/aebb9a900c24aab27412b864ad65edf7.png", "/imgs/801068d89decdad221157c384ab0a0dd.png", "/imgs/985ee86c4432ff0bcdf45886a3fb1c5d.png");
+      var preloadArr3 = new Array();
+      var i3;
+      for (i3 = 0; i3 < imgArr3.length; i3++) {
+          preloadArr3[i3] = new Image();
+          preloadArr3[i3].src = imgArr3[i3];
+      }
+      var currImg3 = 1;
+      var intID3 = setInterval(changeImg3, 3000);
+      function changeImg3() {
+          $("#bonusy_img").animate({opacity: 0}, 200, function () {
+              $(this).css("background", "url(" + preloadArr3[currImg3++ % preloadArr3.length].src + ") top center no-repeat");
+          }).animate({opacity: 1}, 200);
+      }
+  });
+

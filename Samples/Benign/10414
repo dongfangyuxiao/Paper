@@ -1,0 +1,86 @@
+
+  var referrer = document.referrer;
+  var address = document.location.href;
+  var tag = "noencontrado";
+  var seccion = "tag";
+  switch (referrer) {
+    case "http://politica.elpais.com/":
+      seccion = "politica";
+      break;
+    case "http://internacional.elpais.com/":
+      seccion = "internacional";
+      break;
+    case "http://sociedad.elpais.com/":
+      seccion = "sociedad";
+      break;
+    case "http://economia.elpais.com/":
+      seccion = "economia";
+      break;
+    case "http://tecnologia.elpais.com/":
+      seccion = "tecnologia";
+      break;
+    case "http://cultura.elpais.com/":
+      seccion = "cultura";
+      break;
+    case "http://deportes.elpais.com/":
+      seccion = "deportes";
+      break;
+    case "http://ccaa.elpais.com/ccaa/andalucia.html":
+      seccion = "ccaa/andalucia";
+      break;
+    case "http://ccaa.elpais.com/ccaa/valencia.html":
+      seccion = "ccaa/valencia";
+      break;
+    case "http://ccaa.elpais.com/ccaa/paisvasco.html":
+      seccion = "ccaa/paisvasco";
+      break;
+    case "http://ccaa.elpais.com/ccaa/galicia.html":
+      seccion = "ccaa/galicia";
+      break;
+    case "http://ccaa.elpais.com/ccaa/catalunya.html":
+      seccion = "ccaa/catalunya";
+      break;
+    case "http://ccaa.elpais.com/ccaa/madrid.html":
+      seccion = "ccaa/madrid";
+      break;
+    default:
+      seccion = "tag";
+  }
+  var regExpTagCombinado = /http.?:\/\/([^\/]*)\/[^\/]*\/c\/(\w+)/i;
+  var regExpTag = /http.?:\/\/([^\/]*)\/[^\/]*\/([^\/]*)\/?([a-z]?)\/?/i;
+  var regExpTag2 = /http.?:\/\/([^\/]*)\/[^\/]*\/(\w)\/(\w+)/i;
+  var result_re = regExpTagCombinado.exec(address);
+  var result_re2;
+  if (result_re) {
+      tag = "c_" + result_re[2];
+  } else {
+      result_re = regExpTag.exec(address);
+      if (result_re) {
+          if (result_re[3] != "") {
+              tag = result_re[2] + "_" + result_re[3];
+          } else {
+              tag = result_re[2] + "_a";
+          }
+      } else {
+          tag = "no_definido";
+      }
+  }
+  var regNoPortadilla = /\/\d+\/?$/;
+  var gtpadunit = "elpais_web/" + seccion;
+  var gtpdivid = "elpais_gpt";
+  var listadoKW = [];
+  if (typeof (DFP_tags) != "undefined") {
+      listadoKW = DFP_tags;
+  }
+  if (!regNoPortadilla.exec(address)) {
+      listadoKW.push("portadillatema");
+  }
+  listadoKW.push(tag);
+  if (typeof (PBS) != "undefined") {
+      var huecosPBS = {"inter": true, "skin": true, "ldb1": [[728, 90], [980, 90]], "boxd": {"box1": "ldb1"}, "ldb2": [980, 90], "mpu1": [[300, 250], [400, 400], [300, 600], [400, 600]], "mpu2": [[300, 250], [400, 400]], "mpu3": [[300, 250], [400, 400]], "sky1": [120, 600], "nstdX": [2, 3, 4]};
+      PBS.setAds({asy: false, adunit: gtpadunit, divid: gtpdivid, key: {paiskey: listadoKW}, ads: huecosPBS});
+  } else {
+      var PBS = {display: function () {
+      }};
+  }
+

@@ -1,0 +1,12 @@
+
+  html_font_size_selector = "<ul id=\"font_size_selector\"><li><a class=\"hiddenIn\" id=\"stylesheettextlow\" href=\"#\" title=\"Normale Schriftgr&ouml;&szlig;e\"><img src=\"/wel/images/eu_portal/bt_a_s.gif\" alt=\"Normale Schriftgr&ouml;&szlig;e\"></a></li><li><a class=\"hiddenIn\" id=\"stylesheettextmid\" href=\"#\" title=\"Schrift vergr&ouml;&szlig;ern\"><img src=\"/wel/images/eu_portal/bt_a_m.gif\" alt=\"Schrift vergr&ouml;&szlig;ern\"></a></li><li><a class=\"hiddenIn\" id=\"stylesheettexthigh\" href=\"#\" title=\"Gr&ouml;&szlig;te Schriftgr&ouml;&szlig;e\"><img src=\"/wel/images/eu_portal/bt_a_x.gif\" alt=\"Gr&ouml;&szlig;te Schriftgr&ouml;&szlig;e\"></a></li></ul><img class=\"sep\" src=\"/wel/images/accessbar_sep.gif\" alt=\"\" />";
+  html_color_selector = "<ul><li><a class=\"styleSwitcher\" id=\"stylesheetcolorblue\" href=\"#\"><img src=\"/wel/images/eu_portal/color-blue.gif\" title=\"Seitenfarbe Blau\" alt=\"Seitenfarbe Blau\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorgreen\" href=\"#\"><img src=\"/wel/images/eu_portal/color-green.gif\" title=\"Seitenfarbe Gr&uuml;n\" alt=\"Seitenfarbe Gr&uuml;n\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorred\" href=\"#\"><img src=\"/wel/images/eu_portal/color-red.gif\" title=\"Seitenfarbe Rot\" alt=\"Seitenfarbe Rot\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorblack\" href=\"#\"><img src=\"/wel/images/eu_portal/color-blue-yellow.gif\" title=\"kontrastreiche Version\" alt=\"kontrastreiche Version\"></a></li></ul><img class=\"sep\" src=\"/wel/images/accessbar_sep.gif\" alt=\"\" />";
+  if (isCssActivate() == true) {
+      document.write("<div id=\"accessbar\" class=\"accessbar_hp\"><p><span class=\"hiddenIn\">" + html_font_size_selector + html_color_selector);
+      document.write("<div id=\"share-tool\">");
+      document.write("</div>");
+      document.write("</span></p><span class=\"hiddenIn\"></span></div>");
+      $("accessbar").setStyle("display", "inline");
+      iBeginShare.attachLink("share-tool");
+  }
+

@@ -1,0 +1,20 @@
+
+  function crea_options() {
+      var num_paginas = 21;
+      var li_pagina = 1;
+      var TxtOptions = "";
+      var cont = 1;
+      for (var cont = 1; cont <= num_paginas; cont++) {
+          if (li_pagina == cont) {
+              TxtOptions += "<option value='" + (num_paginas + 1 - cont) + "' selected='selected'>p\xe1g " + cont + " / " + num_paginas + "</option>";
+          } else {
+              TxtOptions += "<option value='" + (num_paginas + 1 - cont) + "'>p\xe1g " + cont + " / " + num_paginas + "</option>";
+          }
+      }
+      var SelectObj = document.getElementById("tag_paginacion");
+      var SelectObj1 = document.getElementById("tag_paginacion1");
+      SelectObj.innerHTML = TxtOptions;
+      SelectObj1.innerHTML = TxtOptions;
+  }
+  var stout = setTimeout(crea_options, 500);
+

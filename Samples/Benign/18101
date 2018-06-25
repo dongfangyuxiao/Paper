@@ -1,0 +1,11 @@
+
+  (function (widgetFactory) {
+      var emitter = new Imgur.Emitter();
+      var galleryFactory = widgetFactory.produceOutsideGalleryFactory();
+      var gallery = galleryFactory.produceOutsideMemes(emitter);
+      Imgur.Upload.Memes.getInstance({uploadURL: "/upload/?sid_hash=c1b36b546e6e2a3c4a84113ef4fe7a06"});
+      var memegenerator = Imgur.MemeGen.getInstance({section: "popular", sort: "day"});
+      memegenerator.generalInit();
+      $(".title-e").tipsy({opacity: 1, gravity: "e"});
+  })(_widgetFactory);
+

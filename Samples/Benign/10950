@@ -1,0 +1,29 @@
+
+  var PBS = {"display": function () {
+  }};
+  if (userAgent.indexOf("mobile") == -1) {
+      function EPETdispatchEvent(element, evento) {
+          var event;
+          if (document.createEvent) {
+              event = document.createEvent("CustomEvent");
+              event.initEvent(evento, true, true);
+          } else {
+              if (document.createEventObject) {
+                  event = document.createEventObject();
+                  event.eventType = evento;
+              }
+          }
+          event.eventName = evento;
+          if (element.dispatchEvent) {
+              element.dispatchEvent(event);
+          } else {
+              if (element.fireEvent) {
+                  element.fireEvent(event.eventType, event);
+              }
+          }
+      }
+      EPETaddEvent(window, "load", function () {
+          EPETdispatchEvent(window, "resize");
+      });
+  }
+

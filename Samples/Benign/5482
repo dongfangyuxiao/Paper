@@ -1,0 +1,11 @@
+
+  (function () {
+      var imageDiv = document.getElementById("cq-image-jsp-surveyimage");
+      var imageEvars = "{ imageLink: \"/content/census/en/programs-surveys/are-you-in-a-survey.html\", imageAsset: \"/content/dam/Census/are-you-in-a-survey-rect.png\", imageTitle: \"Are You in a Survey?\" }";
+      var tagNodes = imageDiv.getElementsByTagName("A");
+      for (var i = 0; i < tagNodes.length; i++) {
+          var link = tagNodes.item(i);
+          link.setAttribute("onclick", "CQ_Analytics.record({event: \"imageClick\", values: " + imageEvars + ", collect:  false, options: { obj: this }, componentPath: \"census/components/common/body/inasurveyimage\"})");
+      }
+  })();
+

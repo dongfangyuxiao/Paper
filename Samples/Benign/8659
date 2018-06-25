@@ -1,0 +1,27 @@
+
+  $(function () {
+      "use strict";
+      var activeUsername = "forums";
+      var $container = $("#profile-container");
+      $container.empty().removeClass("inactive");
+      var profile = DISQUS.next.host.profile.Profile({container: $container[0], fullscreen: false, forumId: null, threadId: null, forumPk: null});
+      profile.init();
+      profile.show(activeUsername);
+      var history = window.history;
+      if (!history) {
+          return;
+      }
+      profile.on("renderProfile", function (user) {
+          activeUsername = user.username;
+          history.pushState(user, "", "/" + user.username + "/");
+      });
+      window.onpopstate = function () {
+          var user = history.state;
+          if (!user || user.username === activeUsername) {
+              return;
+          }
+          activeUsername = user.username;
+          profile.show(user.username);
+      };
+  });
+

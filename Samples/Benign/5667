@@ -1,0 +1,12 @@
+
+  jQuery(function () {
+      jQuery(".tab-info").idTabs(function (id, list, set) {
+          jQuery("a", set).removeClass("selected").filter("a[href='" + id + "']").addClass("selected");
+          for (i in list) {
+              jQuery(list[i]).hide();
+          }
+          jQuery(id).fadeIn();
+          return false;
+      });
+  });
+

@@ -1,0 +1,118 @@
+
+  function scrollToTop() {
+      window.scrollTo(0, 0);
+  }
+  jQuery(document).ready(function () {
+      function content1() {
+          jQuery(".content1").hide();
+          jQuery(".heading2").hide();
+          jQuery(".heading1").click(function () {
+              jQuery(this).next(".content1").slideToggle(500);
+              window.location.hash = "content1";
+              jQuery(".heading1").hide();
+              jQuery(".heading2").show();
+              jQuery(".heading3").hide();
+          });
+      }
+      function content2() {
+          jQuery(".content2").hide();
+          jQuery(".heading2").click(function () {
+              jQuery(this).next(".content2").slideToggle(500);
+              window.location.hash = "content2";
+              jQuery(".heading2").hide();
+              jQuery(".heading4").hide();
+              jQuery(".heading3").show();
+          });
+      }
+      function content3() {
+          jQuery(".content3").hide();
+          jQuery(".heading3").click(function () {
+              jQuery(this).next(".content3").slideToggle(500);
+              window.location.hash = "content3";
+              jQuery(".heading3").hide();
+              jQuery(".heading4").show();
+          });
+      }
+      function content4() {
+          jQuery(".content4").hide();
+          jQuery(".heading4").click(function () {
+              jQuery(this).next(".content4").slideToggle(500);
+              window.location.hash = "content4";
+              jQuery(".heading4").hide();
+              jQuery(".heading5").show();
+          });
+      }
+      function content5() {
+          jQuery(".content5").hide();
+          jQuery(".heading5").click(function () {
+              jQuery(this).next(".content5").slideToggle(500);
+              window.location.hash = "content5";
+              jQuery(".heading5").hide();
+          });
+      }
+      if (window.location.hash.substr(1) == "") {
+          content1();
+          content2();
+          content3();
+          content4();
+          content5();
+      } else {
+          if (window.location.hash.substr(1) == "content1") {
+              jQuery(this).next(".content1").slideToggle(500);
+              jQuery(".heading1").hide();
+              jQuery(".heading3").hide();
+              jQuery(".content2").hide();
+              jQuery(".content3").hide();
+              jQuery(".content4").hide();
+              jQuery(".content5").hide();
+              content2();
+              content3();
+              content4();
+              content4();
+          } else {
+              if (window.location.hash.substr(1) == "content2") {
+                  jQuery(this).next(".content2").slideToggle(500);
+                  jQuery(".heading1").hide();
+                  jQuery(".heading2").hide();
+                  jQuery(".heading4").hide();
+                  jQuery(".content3").hide();
+                  jQuery(".content4").hide();
+                  jQuery(".content5").hide();
+                  content3();
+                  content4();
+                  content5();
+              } else {
+                  if (window.location.hash.substr(1) == "content3") {
+                      jQuery(this).next(".content3").slideToggle(500);
+                      jQuery(".heading1").hide();
+                      jQuery(".heading2").hide();
+                      jQuery(".heading3").hide();
+                      jQuery(".content4").hide();
+                      jQuery(".content5").hide();
+                      content4();
+                      content5();
+                  } else {
+                      if (window.location.hash.substr(1) == "content4") {
+                          jQuery(this).next(".content4").slideToggle(500);
+                          jQuery(".heading1").hide();
+                          jQuery(".heading2").hide();
+                          jQuery(".heading3").hide();
+                          jQuery(".heading4").hide();
+                          jQuery(".content5").hide();
+                          content5();
+                      } else {
+                          if (window.location.hash.substr(1) == "content5") {
+                              jQuery(this).next(".content5").slideToggle(500);
+                              jQuery(".heading1").hide();
+                              jQuery(".heading2").hide();
+                              jQuery(".heading3").hide();
+                              jQuery(".heading4").hide();
+                              jQuery(".heading5").hide();
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  });
+

@@ -1,0 +1,12 @@
+
+  function showAccountFields() {
+      $("form.bigform ul li:not(:first-child)").fadeIn("fast");
+  }
+  function updateUserUrl() {
+      var username = $("#username").val().toLowerCase();
+      if (!username || username.length == 0) {
+          username = "USERNAME";
+      }
+      $("#userUrl").css("visibility", "visible").find("strong").text(username);
+  }
+

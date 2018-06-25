@@ -1,0 +1,13 @@
+
+  var searchOrder = [1];
+  var searchOptions = [["Search for %(term)s", {}], ["Search everybody for %(term)s", {}]];
+  var searchScope = new RegExp("(comment|group|room|who|list|from|friends|like):");
+  $("#searchbox").bind("focus keydown", setupSearchBox);
+  window.gFeedSpec = {"hash": "e7b608ee8817fd5be0d36bb182cb2829", "start": 0, "token": "Lc87SEJhGMbxc6ADUalBZpndFslIBW1qSYSwTUmaGxxCKKOiQQQvg4vY2hghjUFUs6PQEBWcoAbFKDA4kxV2o6HL-b_Tj-fje97v_cq2YN-fSiGEKT1gGtXIXQ9k1UUuJnErjq0V3AnjcQq_nukdRciVHJ55UdvASzdOrWJzAm0H9BUnuRbFpWWMLeLsz9r_3xRfHd33uNnB8wZe36L1Fe8MDLYwfSW9C_x8w5kbPFTXTQ2ZPy_nqsZ5TiefttF4xOYHxmWf7RfpvWPAOmd-s27H7mHcHcXECC44sDKA35PSk_tVMSPqvVjqQd8Y5mWOX_oWDQflHc84ZsU9uT8k855kX28_Tu-fmP4CyC9V8Q..", "num": 30, "_user": "f4f6a9557f224a1a98bc67fc9a8f7879", "type": 1};
+  realtime.token = gFeedSpec.token;
+  realtime.args = $.extend({tz: 420}, gFeedSpec);
+  $(function () {
+      maybeRestoreHtml();
+      realtime.start();
+  });
+

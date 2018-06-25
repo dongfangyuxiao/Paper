@@ -1,0 +1,14 @@
+
+  (function ($) {
+      $(document).ready(function () {
+          $("#Form_Form").validate({ignore: ":hidden", errorClass: "required", errorElement: "span", errorPlacement: function (error, element) {
+              error.addClass("message");
+              if (element.is(":radio")) {
+                  error.insertAfter(element.closest("ul"));
+              } else {
+                  error.insertAfter(element);
+              }
+          }, messages: {"EditableFormHeading21": "'Your contact details' is required.", "EditableTextField23": "'First Name' is required.", "EditableTextField24": "'Last Name' is required.", "EditableTextField25": "'Address' is required.", "EditableTextField26": "'City' is required.", "EditableTextField27": "'State' is required.", "EditableTextField28": "'Postcode' is required.", "EditableTextField29": "'Phone Number' is required.", "EditableTextField30": "'Fax Number' is required.", "EditableTextField31": "'Email Address' is required.", "EditableFormHeading32": "'Your complaint details' is required.", "EditableTextField34": "'The .au domain name you are making a complaint about:' is required.", "EditableLiteralField33": "'EditableLiteralField33' is required.", "EditableRadioField37": "'Please select the auDA Published Policy you are making a complaint under' is required.", "EditableTextField38": "'Details of complaint' is required.", "EditableCheckbox39": "(required) ", "EditableCheckbox40": "(required) "}, rules: {"EditableCheckbox39": {"required": true}, "EditableCheckbox40": {"required": true}}});
+      });
+  })(jQuery);
+

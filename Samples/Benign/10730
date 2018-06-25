@@ -1,0 +1,31 @@
+
+  var videoPublicityDown = false;
+  var videoFuente = "0";
+  var url_cache = "http://ep02.epimg.net";
+  var url_reproductor_epet = "http://ep00.epimg.net/reproductores/playerPEP.swf";
+  var UrlPublicidadOveron = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=%2F7811748%2Foveron_player%2Felpais_web%2Fflash&ciu_szs=&impl=s&gdfp_req=1&env=vp&output=xml_vast2&correlator={random}&unviewed_position_start=1";
+  var publicidad_HTML5 = true;
+  var postroll_HTML5 = true;
+  var reproductorVideoGlobal = "2";
+  var UrlPublicidad = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=%2F7811748%2Felpais_web%2Fplayer_video%2Fflash&ciu_szs=&impl=s&gdfp_req=1&env=vp&output=xml_vast2&correlator={random}&unviewed_position_start=1";
+  var listado_norm_tags = "enfermedades_infecciosas_a,espana_a,enfermedades_a,medicina_a,sociedad_a,salud_a,opinion_a,ebola_a,sierra_leona_a,ayuda_humanitaria_a,epidemia_a,africa_subsahariana_a,africa_occidental_a,cooperacion_desarrollo_a,africa_a,planeta_futuro_a";
+  var DFP_tags = ["enfermedades_infecciosas_a", "espana_a", "enfermedades_a", "medicina_a", "sociedad_a", "salud_a", "opinion_a", "ebola_a", "sierra_leona_a", "ayuda_humanitaria_a", "epidemia_a", "africa_subsahariana_a", "africa_occidental_a", "cooperacion_desarrollo_a", "africa_a", "planeta_futuro_a"];
+  var listado_id_tags = "29425,30342,29409,57568,73526,71011,88211,82292,73148,16493,29951,103710,124968,24351,81569,135072";
+  var referrer = document.referrer;
+  if (referrer.indexOf("http://t.co/") == 0 || (referrer.indexOf("twitter.com") > 0 && referrer.indexOf("twitter.com") < 30)) {
+      if (typeof (DFP_tags) != "undefined") {
+          DFP_tags.push("fromtwitter");
+      } else {
+          var DFP_tags = ["fromtwitter"];
+      }
+  }
+  var reg_ref_noticia = /http.?:\/\/[^\/]*\/[^\/]*\/\d+\/\d+\/\d+\/[^\/]*\/(.*?)\.html/i;
+  var result_rrn = reg_ref_noticia.exec(document.location.href);
+  if (result_rrn) {
+      if (typeof (DFP_tags) != "undefined") {
+          DFP_tags.push(result_rrn[1]);
+      } else {
+          var DFP_tags = [result_rrn[1]];
+      }
+  }
+

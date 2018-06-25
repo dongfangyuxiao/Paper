@@ -1,0 +1,24 @@
+
+  $(document).ready(function () {
+      var settings = {verticalDragMaxHeight: 150, autoReinitialise: true, autoReinitialiseDelay: 1000};
+      $("#panel").jScrollPane(settings);
+      $("#panel-arrows").jScrollPane({showArrows: true, horizontalGutter: 10});
+      $("#menuexpand").click(function () {
+          $("div.menu").toggle("slow", function () {
+              var cssDisplay = $("div.menu").css("display");
+              var menuHeight = $("div.menu").height();
+              if (cssDisplay == "block" && menuHeight > 1) {
+                  var newHeight = 765 - menuHeight;
+              } else {
+                  var newHeight = 765;
+              }
+              $("#panel").css("height", newHeight);
+          });
+          var api = $("#panel").data("jsp");
+          api.reinitialise();
+      });
+      $("#outeraccordion").accordion({heightStyle: "content", collapsible: true, autoheight: true, active: false, collapsible: true, alwaysOpen: false, autoheight: false, animate: false, header: "h2"});
+      var api = $("#panel").data("jsp");
+      api.reinitialise();
+  });
+

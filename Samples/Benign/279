@@ -1,0 +1,105 @@
+
+  var mail_stats = null;
+  var svn_stats = null;
+  var plot = null;
+  function mutate_stats(arr) {
+      for (var i = 0; i < arr.length; i++) {
+          arr[i][0] = arr[i][0] * 1000;
+      }
+      return arr;
+  }
+  function graph_show_tlps(stats) {
+      var series = [];
+      var keys = [];
+      for (var k in stats.tlps) {
+          keys.push(k);
+      }
+      var keys = ["httpd", "maven", "hadoop", "lucene", "harmony", "openoffice", "incubator"];
+      keys.sort();
+      for (var i in keys) {
+          var k = keys[i];
+          var value = stats.tlps[k].total;
+          var d = {label: k, data: value};
+          series.push(d);
+      }
+      var options = {xaxis: {mode: "time", timeformat: "%y/%m"}, grid: {clickable: true}, legend: {show: true, container: $("#graph-label"), noColumns: 5}};
+      plot = $.plot($("#placeholder"), series, options);
+  }
+  function graph_svn_tlps() {
+      graph_show_tlps(svn_stats);
+      $("#placeholder").bind("plotclick", function (event, pos, item) {
+          if (item) {
+              graph_file(svn_stats.tlps[item.series.label]["projects"]);
+          }
+      });
+  }
+  function graph_mail_tlps() {
+      graph_show_tlps(mail_stats);
+      $("#placeholder").bind("plotclick", function (event, pos, item) {
+          if (item) {
+              graph_file(mail_stats.tlps[item.series.label]["lists"]);
+          }
+      });
+  }
+  function graph_edge(stats) {
+      var series = [];
+      var keys = [];
+      for (var k in stats) {
+          keys.push(k);
+      }
+      keys.sort();
+      for (var i in keys) {
+          var k = keys[i];
+          var d = {label: k, data: stats[k]};
+          series.push(d);
+      }
+      var options = {xaxis: {mode: "time", timeformat: "%y/%m"}, grid: {clickable: true}, legend: {show: true, container: $("#graph-label"), noColumns: 5}};
+      plot = $.plot($("#placeholder"), series, options);
+  }
+  function graph_file(file) {
+      $.getJSON("json/" + file, function (stats) {
+          for (var k in stats) {
+              stats[k] = mutate_stats(stats[k]);
+          }
+          graph_edge(stats);
+      });
+  }
+  function graph_totals() {
+      if (mail_stats === null || svn_stats == null) {
+          return;
+      }
+      var mail = {label: "Mailing List Traffic", data: mail_stats.total, yaxis: 1};
+      var svn = {label: "Subversion Commits", data: svn_stats.total, yaxis: 2};
+      var options = {xaxis: {mode: "time", timeformat: "%y/%m"}, grid: {clickable: true}, legend: {container: $("#graph-label"), noColumns: 6}};
+      plot = $.plot($("#placeholder"), [mail, svn], options);
+      $("#placeholder").bind("plotclick", function (event, pos, item) {
+          if (item) {
+              plot.highlight(item.series, item.datapoint);
+              $("#placeholder").unbind();
+              if (item.series.label == "Subversion Commits") {
+                  graph_svn_tlps();
+              } else {
+                  graph_mail_tlps();
+              }
+          }
+      });
+  }
+  $(function () {
+      $.getJSON("json/mailstats.json", function (mstats) {
+          mstats.total = mutate_stats(mstats.total);
+          mail_stats = mstats;
+          for (var k in mail_stats.tlps) {
+              mail_stats.tlps[k].total = mutate_stats(mail_stats.tlps[k].total);
+          }
+          graph_totals();
+      });
+      $.getJSON("json/svnstats.json", function (mstats) {
+          mstats.total = mutate_stats(mstats.total);
+          svn_stats = mstats;
+          for (var k in svn_stats.tlps) {
+              svn_stats.tlps[k].total = mutate_stats(svn_stats.tlps[k].total);
+          }
+          graph_totals();
+      });
+  });
+

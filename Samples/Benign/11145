@@ -1,0 +1,20 @@
+
+  function domaincheck() {
+      if ($("#checkmail").val() == "") {
+          return false;
+      }
+      rawemail = $("#checkmail").val().toLowerCase();
+      hash = hex_md5(rawemail);
+      safeemail = $("<div/>").text(rawemail).html();
+      content = "Email Address: " + safeemail + "<br />Email Hash: " + hash + "<br />https://s.gravatar.com/avatar/" + hash + "?s=80" + "<br /><br />" + "<h3>How your gravatar looks on sites using the following ratings:</h3>" + "<div id=\"grav_rating_demos\">" + "<div class=\"grav_rating_demo\"><img src=\"https://s.gravatar.com/avatar/" + hash + "?s=80&r=g\" /><br />G or better</div>" + "<div class=\"grav_rating_demo\"><img src=\"https://s.gravatar.com/avatar/" + hash + "?s=80&r=pg\" /><br />PG or better</div>" + "<div class=\"grav_rating_demo\"><img src=\"https://s.gravatar.com/avatar/" + hash + "?s=80&r=r\" /><br />R or better</div>" + "<div class=\"grav_rating_demo\"><img src=\"https://s.gravatar.com/avatar/" + hash + "?s=80&r=x\" /><br />X or better</div>" + "<br style=\"clear:both;\"></div>";
+      $("#gravatarcheck").html(content);
+  }
+  function checkForEnter(event) {
+      if (event.keyCode == 13) {
+          domaincheck();
+      }
+  }
+  $(document).ready(function () {
+      $("#checkmail").keydown(checkForEnter);
+  });
+

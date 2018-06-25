@@ -1,0 +1,46 @@
+
+  var networkFilterVisible = 0;
+  $(document).ready(function () {
+      $(".project_rail").each(function () {
+          $(".tags", this).addClass("design_template").prepend("Design template:<br/>");
+      });
+      if ($(".view_tag_info b").length != 0) {
+          $(".show_network_menu").before("Filtered by ").text($(".view_tag_info b").text());
+          $(".view_all_tag").show();
+      }
+      if ($(".entry").length == 0 && $(".search_results").length == 0) {
+          $("#content_container").prepend("<div style=\"margin-left: 430px; border-top: 0; padding-top: 0;\" class=\"entry\"><br><br>No sites with this design template have been Showcased yet. <a href=\"http://cargocollective.com/favorites\">View all</a></div>");
+      }
+      $(".tag_nav_menu #col_1 a:first").addClass("top_left");
+      $(".tag_nav_menu #col_2 a:first").addClass("top_right");
+      $(".tag_nav_menu #col_2 a:last").addClass("bottom_right");
+      $(".tag_nav_menu #col_1 a:last").addClass("bottom_left");
+      $(".show_network_menu").click(function () {
+          networkFilterVisible = 1;
+          $(".tag_nav_menu").toggle();
+      });
+      $(document).click(function () {
+          if (networkFilterVisible == 1) {
+              networkFilterVisible = 0;
+          } else {
+              $(".tag_nav_menu").hide();
+          }
+      });
+      $(document).click(function () {
+          if (networkFilterVisible == 1) {
+              networkFilterVisible = 0;
+              $(".tag_nav_menu").hide();
+              $(".network_down").text("\u25bc");
+              $(".show_network_menu").removeClass("active");
+          } else {
+          }
+      });
+  });
+  $(document).bind("paginationComplete", function (e, dataObj) {
+      $(".project_rail").each(function () {
+          if (!$(".tags", this).hasClass("design_template")) {
+              $(".tags", this).addClass("design_template").prepend("Design template:<br/>");
+          }
+      });
+  });
+

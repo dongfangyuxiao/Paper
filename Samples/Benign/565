@@ -1,0 +1,14 @@
+
+  (function ($) {
+      $(document).ready(function () {
+          $("#Form_Form").validate({ignore: ":hidden", errorClass: "required", errorElement: "span", errorPlacement: function (error, element) {
+              error.addClass("message");
+              if (element.is(":radio")) {
+                  error.insertAfter(element.closest("ul"));
+              } else {
+                  error.insertAfter(element);
+              }
+          }, messages: {"EditableFormHeading9": "'Your Contact Details' is required.", "EditableTextField1": "'First Name' is required.", "EditableTextField7": "'Last Name' is required.", "EditableTextField48": "'Email address' is required.", "EditableTextField8": "'Address' is required.", "EditableTextField14": "'City' is required.", "EditableTextField15": "'State' is required.", "EditableTextField16": "'Postcode' is required.", "EditableTextField50": "'Phone Number' is required.", "EditableFormHeading10": "'Your Complaint Details' is required.", "EditableTextField11": "'Name of registrar / reseller you are making a complaint against' is required.", "EditableTextField17": "'Name of person(s) you have contacted at the registrar/reseller:' is required.", "EditableTextField18": "'When did you first make a complaint to the company?:' is required.", "EditableTextField19": "'Your .au domain name (if applicable):' is required.", "EditableTextField20": "'Details of complaint' is required.", "EditableCheckbox12": "  (This is a required field)", "EditableCheckbox13": "  (This is a required field)"}, rules: {"EditableCheckbox12": {"required": true}, "EditableCheckbox13": {"required": true}}});
+      });
+  })(jQuery);
+

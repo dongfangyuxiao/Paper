@@ -1,0 +1,17 @@
+
+  if (window.addEventListener) {
+      window.addEventListener("load", addViewModeElement, false);
+  }
+  if (window.attachEvent) {
+      window.attachEvent("onload", addViewModeElement);
+  }
+  function addViewModeElement() {
+      var agent = navigator.userAgent;
+      if (agent.search(/iPhone/) != -1 || agent.search(/iPod/) != -1 || agent.search(/Android/) != -1) {
+          var el = document.createElement("div");
+          el.setAttribute("id", "viewSwitcher");
+          el.innerHTML = "<dl><dt>\u8868\u793a\u5207\u66ff</dt><dd><ul><li><a href=\"javascript:void(0);\" onclick=\"setSpView('s_ameblo_view_type', '.ameblo.jp', '/');\">\u30e2\u30d0\u30a4\u30eb\u7248</a></li><li><em>\u30d1\u30bd\u30b3\u30f3\u7248</em></li></ul></dd></dl>";
+          document.getElementsByTagName("body").item(0).appendChild(el);
+      }
+  }
+

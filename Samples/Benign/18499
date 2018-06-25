@@ -1,0 +1,17 @@
+
+  (function (widgetFactory) {
+      var emitter = new Imgur.Emitter();
+      var analytics = widgetFactory.produceAnalytics();
+      var gallery = new Imgur.SideGallery(emitter, {$container: $("#side-gallery")}, Imgur.Environment);
+      gallery.load();
+      $(".stats-link").on("click", _.bind(analytics.popAndLoad, analytics, {"hash": "Vdu6F", "deletehash": null, "name": null, "datetime": "2012-10-17 04:09:48", "date": "2 years ago", "size": 5412, "width": "620", "height": "36", "views": "12,997", "bandwidth": "67.08 MB", "ext": ".gif", "title": "", "description": "", "source": "http://k42.kn3.net/taringa/1/4/7/7/7/6/81/ru1na/7D9.gif", "animated": false, "looping": false}));
+      var shareButtons = Imgur.ShareButtons.getInstance();
+      shareButtons.bindButtons();
+      $(document).ready(function () {
+          var imgurFavorite = new Imgur.Favorite({hash: "Vdu6F", method: null});
+          imgurFavorite._init();
+          imgurFavorite._init_click_handler();
+      });
+      Imgur.getInstance().setImageView("Vdu6F");
+  })(_widgetFactory);
+

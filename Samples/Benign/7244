@@ -1,0 +1,58 @@
+
+  function recordOutboundLink(link, category, action) {
+      _gat._getTrackerByName()._trackEvent(category, action);
+      if (link.target == "_blank") {
+          return true;
+      }
+      setTimeout("document.location = \"" + link.href + "\"", 100);
+      return false;
+  }
+  function getAttr(ele, attr) {
+      var result = (ele.getAttribute && ele.getAttribute(attr)) || null;
+      if (!result) {
+          var attrs = ele.attributes;
+          var length = attrs.length;
+          for (var i = 0; i < length; i++) {
+              if (attr[i].nodeName === attr) {
+                  result = attr[i].nodeValue;
+              }
+          }
+      }
+      return result;
+  }
+  function aiosp_addLoadEvent(func) {
+      var oldonload = window.onload;
+      if (typeof window.onload != "function") {
+          window.onload = func;
+      } else {
+          window.onload = function () {
+              if (oldonload) {
+                  oldonload();
+              }
+              func();
+          };
+      }
+  }
+  function aiosp_addEvent(element, evnt, funct) {
+      if (element.attachEvent) {
+          return element.attachEvent("on" + evnt, funct);
+      } else {
+          return element.addEventListener(evnt, funct, false);
+      }
+  }
+  aiosp_addLoadEvent(function () {
+      var links = document.getElementsByTagName("a");
+      for (var x = 0; x < links.length; x++) {
+          if (typeof links[x] == "undefined") {
+              continue;
+          }
+          aiosp_addEvent(links[x], "onclick", function () {
+              var mydomain = new RegExp(document.domain, "i");
+              href = getAttr(this, "href");
+              if (href && href.toLowerCase().indexOf("http") === 0 && !mydomain.test(href)) {
+                  recordOutboundLink(this, "Outbound Links", href);
+              }
+          });
+      }
+  });
+

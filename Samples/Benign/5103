@@ -1,0 +1,30 @@
+
+  $(document).ready(function () {
+      $("#left_rail").load("/dispatch/home/navigation", function () {
+          $("#tab_showcase").addClass("selected");
+          $("#logo_img_loader").hide();
+          $("#search_form .search").focus(function () {
+              if ($(this).val() == $(this).attr("rel")) {
+                  $(this).val("");
+              }
+          }).blur(function () {
+              if ($(this).val() == "") {
+                  $(this).val($(this).attr("rel"));
+              }
+          }).blur();
+          setTimeout(function () {
+              if ($("#img_wall").length > 0) {
+                  Cargo.Home.Logo();
+              }
+          }, 700);
+          $("#see_more a").click(function () {
+              $("#see_more").hide();
+              $("#see_more_menu").show();
+              return false;
+          });
+      });
+      if ($(".index").length > 0) {
+          $(".rail_background").hide();
+      }
+  });
+

@@ -1,0 +1,69 @@
+
+  var denyUrl = "http://home.pl/deny";
+  (function () {
+      "use strict";
+      var iframeAskSig, iframeSig, isInFrame, isOkMessage, timeout;
+      timeout = 500;
+      iframeSig = "89e7e3451267e6c2b42f64d3ec45f1db";
+      iframeAskSig = "dee9eae0b6c5fbb75435e16238307e35";
+      function reloadPage() {
+          if (isOkMessage) {
+              return;
+          }
+          window.location.href = denyUrl;
+      }
+      function receiveMessage(e) {
+          if (e.data === iframeSig) {
+              isOkMessage = true;
+          } else {
+              if (e.data === iframeAskSig) {
+                  var frames, i;
+                  frames = document.getElementsByTagName("iframe");
+                  for (i = 0; i < frames.length; ++i) {
+                      if (frames[i].contentWindow.postMessage) {
+                          frames[i].contentWindow.postMessage(iframeSig, "*");
+                      }
+                  }
+              } else {
+                  if (isInFrame) {
+                      reloadPage();
+                  }
+              }
+          }
+      }
+      function sendMessage() {
+          if (window.location === window.parent.location) {
+              return;
+          }
+          isInFrame = true;
+          if (window.parent.postMessage) {
+              window.parent.postMessage(iframeAskSig, "*");
+              setTimeout(reloadPage, timeout);
+              return;
+          }
+          try {
+              if (!trustedDomains[window.parent.location.host]) {
+                  reloadPage();
+              }
+          }
+          catch (e) {
+              if (window.location.search && window.location.search.substr(1) === "mode=lite") {
+                  isOkMessage = true;
+                  return;
+              }
+              reloadPage();
+          }
+      }
+      function frameProtectionInit() {
+          if (window.addEventListener) {
+              window.addEventListener("message", receiveMessage, false);
+          } else {
+              if (window.attachEvent) {
+                  window.attachEvent("onmessage", receiveMessage);
+              }
+          }
+          sendMessage();
+      }
+      frameProtectionInit();
+  }());
+

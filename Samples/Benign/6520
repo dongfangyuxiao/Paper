@@ -1,0 +1,28 @@
+
+  jQuery(document).ready(function ($) {
+      var cookie = $.cookie("affwp_ref");
+      var ref = affwp_get_query_vars()["ref"];
+      if (ref && !cookie) {
+          var cookie_value = ref;
+          $.cookie("affwp_ref", cookie_value, {expires: 1, path: "/"});
+          $.ajax({type: "POST", data: {action: "affwp_track_visit", affiliate: ref, url: document.URL, referrer: document.referrer}, url: affwp_scripts.ajaxurl, success: function (response) {
+              $.cookie("affwp_ref_visit_id", response, {expires: 1, path: "/"});
+          }}).fail(function (response) {
+              if (window.console && window.console.log) {
+                  console.log(response);
+              }
+          }).done(function (response) {
+          });
+      }
+      function affwp_get_query_vars() {
+          var vars = [], hash;
+          var hashes = window.location.href.slice(window.location.href.indexOf("?") + 1).split("&");
+          for (var i = 0; i < hashes.length; i++) {
+              hash = hashes[i].split("=");
+              vars.push(hash[0]);
+              vars[hash[0]] = hash[1];
+          }
+          return vars;
+      }
+  });
+

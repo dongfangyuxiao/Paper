@@ -1,0 +1,40 @@
+
+  var currentDate = new Date();
+  var currentHour = currentDate.getHours();
+  var datSunrise = 5;
+  var datDay = 10;
+  var datMidday = 15;
+  var datSunset = 19;
+  var datNight = 22;
+  if (currentHour >= datSunrise && currentHour < datDay) {
+      styleBG = "#000 url(/images/template2012/header_fall/sunrise.jpg) no-repeat 50% 90%";
+      styleHomeBGPos = "40% 60%";
+  } else {
+      if (currentHour >= datDay && currentHour < datMidday) {
+          styleBG = "#000 url(/images/template2012/header_fall/day.jpg) no-repeat 40% 40%";
+          styleHomeBGPos = "40% 40%";
+      } else {
+          if (currentHour >= datMidday && currentHour < datSunset) {
+              styleBG = "#000 url(/images/template2012/header_fall/midday.jpg) no-repeat 40% 40%";
+              styleHomeBGPos = "40% 40%";
+          } else {
+              if (currentHour >= datSunset && currentHour < datNight) {
+                  styleBG = "#000 url(/images/template2012/header_fall/sunset.jpg) no-repeat 10% 90%";
+                  styleHomeBGPos = "10% 99%";
+              } else {
+                  styleBG = "#000 url(/images/template2012/header_fall/night.jpg) no-repeat 20% 50%";
+                  styleHomeBGPos = "20% 20%";
+              }
+          }
+      }
+  }
+  document.write("\n<style>\n");
+  document.write("header {\n");
+  document.write("\tbackground: " + styleBG + ";\n");
+  document.write("\tbackground-size: cover;\n");
+  document.write("}\n");
+  document.write(".home header {\n");
+  document.write("\tbackground-position: " + styleHomeBGPos + ";\n");
+  document.write("}\n\n");
+  document.write("</style>\n");
+

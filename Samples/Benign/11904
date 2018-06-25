@@ -1,0 +1,22 @@
+
+  document.addEvent("domready", function () {
+      new Autocompleter.Local("demo-local4", tokens, {"minLength": 1, "selectMode": "pick", "injectChoice": function (token) {
+          var infos = String(token).split("|");
+          var text = infos[0];
+          var href = infos[1];
+          var choice = new Element("li");
+          test_html = "<span>" + this.markQueryValue(text) + "</span>";
+          new Element("a", {"class": "demo-info", "href": href, "html": test_html}).inject(choice);
+          choice.inputValue = text;
+          document.getElementById("hiddenhref").inputValue = href;
+          this.addChoiceEvents(choice).inject(this.choices);
+      }});
+  });
+  function submitautocomplete() {
+      var href = String(document.getElementById("hiddenhref").inputValue);
+      http_test = href.indexOf("://");
+      if (http_test != -1) {
+          window.location = href;
+      }
+  }
+

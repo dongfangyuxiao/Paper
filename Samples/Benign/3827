@@ -1,0 +1,24 @@
+
+  $(function () {
+      function subscribeNewsletter(evt) {
+          var token = $.cookie("user"), realemail = $("#realemail").val(), country = $("#country").val(), job_title = $("#job_title").val(), company_size = $("#company_size").val(), slashdot_daily = $("#slashdot_daily").val(), weekly_slashback = $("#weekly_slashback").val(), weekly_resource = $("#weekly_resource").val(), api_key = sd_api_key, api_endpoint = sd_api_base + "newsletter.json";
+          data = {api_key: api_key, realemail: realemail, country: country, job_title: job_title, company_size: company_size};
+          if (slashdot_daily) {
+              data.slashdot_daily = slashdot_daily;
+          }
+          if (weekly_slashback) {
+              data.weekly_slashback = weekly_slashback;
+          }
+          if (weekly_resource) {
+              data.weekly_resource = weekly_resource;
+          }
+          if (token) {
+              data.token = token;
+          }
+          $.ajax({url: api_endpoint, data: data, dataType: "json", success: function () {
+              $(".form-standalone-wrapper").hide();
+              $(".confirmation-wrapper ").fadeIn("fast");
+          }});
+      }
+  });
+

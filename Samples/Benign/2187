@@ -1,0 +1,20 @@
+
+  if (!isDebug) {
+      var _gaq = _gaq || [];
+      var _qevents = _qevents || [];
+      (function () {
+          var doc = document, isHttps = ("https:" == doc.location.protocol);
+          function loadScript(src) {
+              var n = doc.createElement("script"), s = doc.getElementsByTagName("script")[0];
+              n.type = "text/javascript";
+              n.async = true;
+              n.src = src;
+              s.parentNode.insertBefore(n, s);
+          }
+          _gaq.push(["_setAccount", "UA-4189134-2"], ["_setDomainName", "bandcamp.com"], ["_setAllowAnchor", true], ["_trackPageview"]);
+          loadScript((isHttps ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js");
+          _qevents.push({qacct: "p-0207-dhLCDgvg"});
+          loadScript((isHttps ? "https://secure" : "http://edge") + ".quantserve.com/quant.js");
+      })();
+  }
+

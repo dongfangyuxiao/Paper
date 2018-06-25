@@ -1,0 +1,22 @@
+
+  var readOnlyRequest;
+  var cn = "read-only";
+  if (window.XMLHttpRequest) {
+      readOnlyRequest = new XMLHttpRequest();
+  } else {
+      if (window.ActiveXObject) {
+          readOnlyRequest = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+  }
+  readOnlyRequest.onreadystatechange = function () {
+      if (readOnlyRequest.readyState == 4 && readOnlyRequest.status >= 500 && readOnlyRequest.status < 500) {
+          var roMessage = document.createElement("div");
+          roMessage.id = "read-only-warning";
+          roMessage.innerHTML = "Kinja is in read-only mode. We are working to restore service.";
+          document.body.className = (document.body.className === "") ? cn : document.body.className + " " + cn;
+          document.body.appendChild(roMessage);
+      }
+  };
+  readOnlyRequest.open("GET", "/ajax/readOnlyMode");
+  readOnlyRequest.send();
+

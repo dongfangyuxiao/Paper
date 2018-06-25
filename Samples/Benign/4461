@@ -1,0 +1,34 @@
+
+  var url = "http:///wp-content/mu-plugins/blogcom-oauth-comments/endpoints/local/?callback=&";
+  if (!url.match("^http")) {
+      var state = window.location.hash.split("state=")[1].split("end_state")[0];
+      var stateParts = state.split("&");
+      if (stateParts.length == 1) {
+          stateParts = decodeURIComponent(state).split("&");
+      }
+      var domain, callback;
+      for (var i in stateParts) {
+          var name, value;
+          name = stateParts[i].split("=")[0];
+          try {
+              value = stateParts[i].split("=")[1];
+          }
+          catch (err) {
+              value = "";
+          }
+          if (name == "domain") {
+              domain = value;
+          }
+          if (name == "callback") {
+              callback = value;
+          }
+      }
+      url = "http://" + domain + url;
+      url = url.replace("the_callback", callback);
+  }
+  if (window.location.hash) {
+      window.location = url + "&hash=" + encodeURIComponent(window.location.hash.replace(/^#/, ""));
+  } else {
+      window.location = url;
+  }
+

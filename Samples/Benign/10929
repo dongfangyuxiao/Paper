@@ -1,0 +1,54 @@
+
+  document.getElementById("pbt-medios").onclick = function () {
+      EPETaddClass("capa-webs-grupo", "activado");
+  };
+  document.getElementById("cierrame").onclick = function () {
+      EPETremoveClass("capa-webs-grupo", "activado");
+  };
+  document.getElementById("cierrame2").onclick = function () {
+      EPETremoveClass("capa-webs-grupo", "activado");
+  };
+  document.getElementById("cerrar_bm0").onclick = function () {
+      var obj = document.getElementById("pie_bm0");
+      document.getElementById("modulo0").style.display = "none";
+      obj.activo = 0;
+  };
+  document.getElementById("cerrar_bm0_2").onclick = function () {
+      var obj = document.getElementById("pie_bm0");
+      document.getElementById("modulo0").style.display = "none";
+      obj.activo = 0;
+  };
+  document.getElementById("cerrar_bm2").onclick = function () {
+      var obj = document.getElementById("pie_bm2");
+      document.getElementById("modulo2").style.display = "none";
+      obj.activo = 0;
+  };
+  document.getElementById("cerrar_bm2_2").onclick = function () {
+      var obj = document.getElementById("pie_bm2");
+      document.getElementById("modulo2").style.display = "none";
+      obj.activo = 0;
+  };
+  document.getElementById("pie_bm2").onclick = function () {
+      var obj = document.getElementById("pie_bm2");
+      if ((obj.activo != undefined) && obj.activo) {
+          document.getElementById("modulo2").style.display = "none";
+          obj.activo = 0;
+      } else {
+          document.getElementById("modulo2").style.display = "block";
+          obj.activo = 1;
+      }
+  };
+  document.getElementById("pie_bm0").onclick = function () {
+      var obj = document.getElementById("pie_bm0");
+      if ((obj.activo != undefined) && obj.activo) {
+          document.getElementById("modulo0").style.display = "none";
+          obj.activo = 0;
+      } else {
+          document.getElementById("modulo0").style.display = "block";
+          obj.activo = 1;
+      }
+  };
+  if (typeof EPETChangeBuzz2GPlus == "function") {
+      EPETChangeBuzz2GPlus();
+  }
+

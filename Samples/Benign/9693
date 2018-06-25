@@ -1,0 +1,37 @@
+
+  var lc_timer;
+  jQuery(document).ready(function () {
+      if (typeof jQuery("#signup-secureimgdiv").on == "function") {
+          jQuery("#signup-secureimgdiv").on("click", "#lc_reload_action", function () {
+              lean_captcha_signup_load_img();
+              return false;
+          });
+      } else {
+          jQuery("#signup-secureimgdiv").live("click", "#lc_reload_action", function () {
+              lean_captcha_signup_load_img();
+              return false;
+          });
+      }
+      lean_captcha_signup_load_img();
+  });
+  function lean_captcha_signup_load_img() {
+      jQuery("#signup-secureimgdiv").load("http://edublogs.org/wp-content/plugins/lean-captcha/lc_ep.php", {"action": "lean_captcha_signup_render", "key": "lc_543f81cec93ed"}, function () {
+          var lc_s_timer;
+          if (typeof lc_s_timer !== undefined) {
+              clearTimeout(lc_s_timer);
+          }
+          lc_s_timer = setTimeout("lean_captcha_signup_load_img();", 290000);
+          lean_captcha_signup_fix_tab_index();
+      });
+  }
+  function lean_captcha_signup_fix_tab_index() {
+      var tabindex = 1;
+      jQuery("#setupform input,select,.lc_action").each(function () {
+          if (this.type != "hidden") {
+              var $input = jQuery(this);
+              $input.attr("tabindex", tabindex);
+              tabindex++;
+          }
+      });
+  }
+

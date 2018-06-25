@@ -1,0 +1,13 @@
+
+  function initSkimLinks() {
+      $(".links .link-list a.title").click(function (event) {
+          if ($(this).attr("skimlinks") != "1") {
+              var currUrl = encodeURI($(this).attr("href"));
+              var ref = encodeURI(document.location.href);
+              var url = "http://go.delicious.com/?id=63408X1518852&xs=1&url=" + currUrl + "&sref=" + ref;
+              $(this).attr("href", url);
+              $(this).attr("skimlinks", 1);
+          }
+      });
+  }
+

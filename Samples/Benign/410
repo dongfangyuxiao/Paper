@@ -1,0 +1,24 @@
+
+  function roSizer() {
+      var h1 = Math.max.apply(null, $(".ro1 div.box").map(function () {
+          return $(this).height();
+      }).get());
+      $(".ro1 div.box").height(h1);
+      var h2 = Math.max.apply(null, $(".ro2 h1").map(function () {
+          return $(this).height();
+      }).get());
+      $(".ro2 h1").height(h2);
+      var h3 = Math.max.apply(null, $(".ro2_0 div").map(function () {
+          return $(this).height();
+      }).get());
+      $(".ro2_0").height(h3);
+      var h4 = Math.max.apply(null, $(".ro2_1 div").map(function () {
+          return $(this).height();
+      }).get());
+      $(".ro2_1").height(h4);
+  }
+  $().ready(roSizer);
+  $(window).resize(function () {
+      roSizer();
+  });
+

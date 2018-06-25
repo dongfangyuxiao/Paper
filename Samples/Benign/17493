@@ -1,0 +1,16 @@
+
+  Imgur.Environment = {isDev: false, isSubdomain: Imgur.Util.isSubdomain("imgur.com"), host: "imgur.com", cdnUrl: "//i.imgur.com", signed: false, auth: {}, recaptcha_key: "6LeZbt4SAAAAAKEsafT3QzEFp5vJ1-Z23uy5mPDz", msid: "c1b36b546e6e2a3c4a84113ef4fe7a06", beta: {enabled: false, inBeta: false}, ctaConfig: {"anonymous": [{"active": true, "type": "button", "localStorageName": "cta-anonymous", "url": "/", "buttonText": "start exploring", "title": "Welcome to Imgur!", "description": "Your new home for the Internet's most viral images.", "background": "//s.imgur.com/images/house-cta/cta-background.jpg", "newTab": false, "buttonColor": "#77ac21"}], "user": [{"active": false, "type": "button", "localStorageName": "cta-hoodie", "url": "http://store.imgur.com/collections/frontpage/products/limited-edition-dave-cave-imgur-hoodies", "buttonText": "Order Today!", "title": "Limited Edition Imgur Hoodies!", "description": "Don't miss your chance to snag this limited time Imgur swag!", "background": "//s.imgur.com/images/house-cta/cta-hoodie.jpg", "newTab": true, "buttonColor": "#8724ac"}], "gaming": [{"active": true, "type": "button", "localStorageName": "cta-gaming", "url": "http://imgur.com/t/gaming/top/week", "buttonText": "Check it out!", "title": "You are now browsing the Internet on God Mode.", "description": "Awesome unlocked! Imgur has gaming content like you wouldn't believe.", "background": "//s.imgur.com/images/house-cta/cta-twitch.jpg", "newTab": false, "buttonColor": "#4d3280"}], "facebook": [{"active": true, "type": "facebook", "localStorageName": "cta-fb141008", "title": "Like us on Facebook!", "description": "We're bringing funny to your newsfeed. Like Imgur on Facebook!", "background": "//s.imgur.com/images/house-cta/facebook-day.jpg"}], "global": [{"active": true, "type": "button", "localStorageName": "gifvwelcome", "title": "Introducing GIFV", "description": "We've improved GIF support and increased upload limits for animated GIFs to a whopping 50MB!", "background": "//s.imgur.com/images/house-cta/gif-to-video.png", "newTab": false, "buttonText": "learn more", "url": "http://imgur.com/blog/?p=4775", "frontPageOnly": true}]}};
+  var imgur = Imgur.getInstance();
+  imgur.init(_.merge(Imgur.Environment, {beta: {"enabled": false, "inBeta": false, "showInvite": false, "ctaInvite": [], "ctaWelcome": []}}));
+  var uploader = Imgur.Upload.Global.getInstance(Imgur.getInstance()._);
+  if (uploader._.el.$uploadGlobal.length > 0) {
+      uploader.bindPasteUpload();
+      uploader.generalInit();
+  }
+  imgur.generalInit();
+  $(function () {
+  });
+  var _widgetFactory = new Imgur.Factory.Widget(Imgur.Environment);
+  _widgetFactory.mergeConfig("global", Imgur.Environment);
+  _widgetFactory.produceCtaBanner("/gallery/" + "RvFtM5r");
+

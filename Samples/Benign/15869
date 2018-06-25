@@ -1,0 +1,79 @@
+
+  var su = new hpFormHandler("signu");
+  su.method = "post";
+  su.submitUri = "https://hubpages.com/sxml/signup";
+  su.nextUri = null;
+  su.individualerrors = true;
+  su.setValidators({usname3: function (ele) {
+      su.validateLengthMax(ele, 100, "Your username is too long.  Please make it shorter.");
+      su.validateLengthMin(ele, 3, "User Names must have at least three characters.  Give it another shot.");
+      su.validateNoRegex(ele, /[^a-zA-Z\-0-9 ]/, "Please include only letters, numbers, dashes, and spaces in your username.");
+      su.validateRegex(ele, /^[a-zA-Z]/, "Please make the first character of your username a letter.");
+      su.validateRegex(ele, /[a-zA-Z0-9]$/, "Please make the last character of your username a letter or a number.");
+      su.validateRegex(ele, /^[^\s].*[^\s]$/, "Please do not include spaces at the start or end of your username.");
+      su.validateServerCheck(ele, "/xml/checkusername.php", {0: "The username you specified is not available.  Please try another one", 1: "The username you specified contains prohibited language.  Your username should not be profane, sexually suggestive, or otherwise offensive."});
+  }, usemail3: function (ele) {
+      su.validateEmail(ele);
+      su.validateServerCheck(ele, "/xml/checkemail.php", "This email address has already been used to register for an account.  Please use a different email address, or login to your existing account.");
+  }}, {usname3: function (ele) {
+      su.validateMandatory(ele, "Please specify a username.");
+  }, usemail3: function (ele) {
+      su.validateMandatory(ele, "Please specify an email address.");
+  }, password: function (ele) {
+      su.validateNewPassword(ele, "password2");
+  }, eula: function (ele) {
+      su.validateMandatory(ele, "Please verify that you have read and agree to the HubPages terms of use.");
+  }});
+  hpFormHandler.prototype.handleResponse = function (req) {
+      try {
+          eval(req.responseText);
+      }
+      catch (e) {
+      }
+      if (!hipSuccess) {
+          $("hipError").innerHTML = "Please try typing the two distorted words again.";
+          $("hipError").className = "alert";
+          $("hipError").show();
+          Recaptcha.reload();
+      } else {
+          if (!valid) {
+              Recaptcha.reload();
+              if (typeof errorHtml === "undefined") {
+                  errorHtml = "There was an error.  Please try again.";
+              }
+              $("formErrors").innerHTML = errorHtml;
+              $("formErrors").show();
+          } else {
+              window.location.replace("https://hubpages.com/user/finished");
+          }
+      }
+  };
+  function _helpOn(id) {
+      ele = jq("#" + id);
+      ele.addClass("hover");
+  }
+  function _helpOff(id) {
+      ele = jq("#" + id);
+      ele.removeClass("hover");
+  }
+  function subdomainFromUserName(username) {
+      username = username.replace(/\s/g, "", username);
+      if (/^[a-zA-Z][a-zA-Z\-0-9 ]+[a-zA-Z0-9]$/.test(username)) {
+          return username.toLowerCase();
+      } else {
+          return "";
+      }
+  }
+  jq(document).ready(function () {
+      jq("#usname3").keyup(function () {
+          jq("#subdomain").html(subdomainFromUserName(jq(this).val()));
+      });
+      jq("#promoteemail").change(function () {
+          if (jq(this).attr("checked")) {
+              jq("#newsemail").attr({"disabled": "", "checked": "checked"});
+          } else {
+              jq("#newsemail").attr({"disabled": "disabled", "checked": ""});
+          }
+      });
+  });
+

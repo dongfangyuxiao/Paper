@@ -1,0 +1,15 @@
+
+  var gtpadunit = "elpais_web/portada";
+  var gtpdivid = "elpais_gpt";
+  var listadoKW = [];
+  if (typeof (DFP_tags) != "undefined") {
+      listadoKW = DFP_tags;
+  }
+  if (typeof (PBS) != "undefined") {
+      var huecosPBS = {"inter": true, "skin": true, "ldb1": [[728, 90], [980, 90]], "ldb2": [980, 90], "ldb3": [[728, 90], [980, 90]], "ldb4": [980, 90], "ldb5": [980, 90], "mpu1": [[300, 250], [400, 400], [300, 600], [400, 600]], "mpu2": [[300, 250], [400, 400]], "mpu3": [[300, 250], [400, 400]], "mpu4": [[300, 250], [400, 400]], "mpu5": [[300, 250], [400, 400]], "nstdX": [1, 2, 3, 4, 5], "boxd": {"box1": "ldb1", "box2": "ldb3"}};
+      PBS.setAds({asy: false, adunit: gtpadunit, divid: gtpdivid, key: {paiskey: listadoKW}, ads: huecosPBS});
+  } else {
+      var PBS = {display: function () {
+      }};
+  }
+

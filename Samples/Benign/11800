@@ -1,0 +1,55 @@
+
+  function buildTagSelectSpecial(id_ul, action) {
+      var innerContent = new Array();
+      var innerValue = new Array();
+      var innerHref = new Array();
+      var selectTagHtml = "";
+      $$("#" + id_ul + " li").each(function (el) {
+          var optionText = "";
+          var hrefExpr = "";
+          if (el.className != "optiontitle") {
+              if (Browser.Engine.trident) {
+                  optionText = el.firstChild.innerHTML;
+                  hrefExpr = el.firstChild.href;
+                  if (navigator.appVersion.indexOf("MSIE 9") != -1 || navigator.appVersion.indexOf("MSIE 10") != -1) {
+                      optionText = el.childNodes[1].innerHTML;
+                      hrefExpr = el.childNodes[1].href;
+                  }
+              } else {
+                  optionText = el.childNodes[1].innerHTML;
+                  hrefExpr = el.childNodes[1].href;
+              }
+          } else {
+              hrefExpr = "-1";
+              optionText = el.innerHTML;
+          }
+          innerValue.include(optionText);
+          innerHref.include(hrefExpr);
+      });
+      innerContent = innerValue.associate(innerHref);
+      var selectTag = new Element("select", {"name": id_ul, "id": id_ul});
+      each_index = 1;
+      $each(innerContent, function (value, key) {
+          var optionLine = "";
+          optionLine += "<option";
+          if ($chk(key)) {
+              optionLine += " value=\"" + key + "\"";
+          }
+          optionLine += ">";
+          optionLine += value;
+          optionLine += "</option>";
+          selectTagHtml += optionLine;
+          each_index++;
+      });
+      selectTag.set("html", selectTagHtml);
+      selectTag.replaces($(id_ul));
+      selectTag.setStyle("display", "inline");
+      if (action != "") {
+          selectTag.addEvent("change", function (el) {
+              if (this.value != -1) {
+                  eval(action);
+              }
+          });
+      }
+  }
+

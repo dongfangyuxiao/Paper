@@ -1,0 +1,80 @@
+
+  idMap = "xxc";
+  function getInput(obj, default_txt) {
+      if (obj.value == default_txt) {
+          return "";
+      }
+      return obj.value;
+  }
+  function isHjChannel() {
+      return ch != "";
+  }
+  function appendQueryString(url, queryString) {
+      if (url.indexOf("?") > 0) {
+          return url + "&" + queryString;
+      } else {
+          return url + "?" + queryString;
+      }
+  }
+  function appendTracking(obj, tracking) {
+      obj.href = appendQueryString(obj.href, tracking);
+  }
+  function clearInput(obj, default_txt) {
+      if (obj.value == default_txt) {
+          obj.value = "";
+      }
+  }
+  function enterKey(e) {
+      var keynum;
+      if (window.event) {
+          keynum = e.keyCode;
+      } else {
+          if (e.which) {
+              keynum = e.which;
+          }
+      }
+      if (keynum == 13) {
+          MNSwdgDoSearch(document.getElementById("MNSwdgFormAction").href);
+          return false;
+      } else {
+          return true;
+      }
+  }
+  function MNSwdgDoSearch(url) {
+      var skillskeywords;
+      if (isHjChannel()) {
+          skillskeywords = "&q=" + getInput(document.getElementById("MNSwdgSkillsKeywords"), "Palabras clave o JOB ID");
+      } else {
+          skillskeywords = "?q=" + getInput(document.getElementById("MNSwdgSkillsKeywords"), "");
+      }
+      var location = "";
+      var city = getInput(document.getElementById("MNSwdgLocation"), "");
+      if (city != "" && city != "Localidad o CP") {
+          location = "&where=" + city;
+      }
+      window.open(url + skillskeywords + location + "&re=130&cy=es&brd=1&rad=" + defaultradius, "_blank");
+  }
+  function replaceDomains(links) {
+      for (var i = 0; i < links.length; i++) {
+          if (isHjChannel()) {
+              links[i].href = appendQueryString(links[i].href, "ch=" + ch);
+          } else {
+              var domainReplacement = rootDomain;
+              if (links[i].href.indexOf("hiring.local-jobs.monster.com") > 0) {
+                  domainReplacement = ".monster.es";
+              }
+              links[i].href = links[i].href.replace(".local-jobs.monster.com", domainReplacement);
+          }
+      }
+  }
+  if (isHjChannel()) {
+      appendTracking(document.getElementById("MNSwdgFormAction"), "wt.mc_n=olm_sk_boxhome2");
+  }
+  var MNSwdg = document.getElementById("lp_cntr");
+  if (MNSwdg) {
+      MNSwdg.links = MNSwdg.getElementsByTagName("A");
+      replaceDomains(MNSwdg.links);
+      MNSwdg.areas = MNSwdg.getElementsByTagName("area");
+      replaceDomains(MNSwdg.areas);
+  }
+

@@ -1,0 +1,11 @@
+
+  clickHandlers.helpsection = function (link) {
+      var questions = link.parents(".category").find(".questions");
+      questions.toggle();
+      if (questions.is(":visible")) {
+          link.css("background-image", "url('/static/images/arrow-expanded.png?v=f6a0')");
+      } else {
+          link.css("background-image", "url('/static/images/arrow-collapsed.png?v=3328')");
+      }
+  };
+

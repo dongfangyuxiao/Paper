@@ -1,0 +1,12 @@
+
+  html_font_size_selector = "<ul id=\"font_size_selector\"><li><a class=\"hiddenIn\" id=\"stylesheettextlow\" href=\"#\" title=\"Tamanho normal\"><img src=\"/wel/images/eu_portal/bt_a_s.gif\" alt=\"Tamanho normal\"></a></li><li><a class=\"hiddenIn\" id=\"stylesheettextmid\" href=\"#\" title=\"Aumentar tamanho\"><img src=\"/wel/images/eu_portal/bt_a_m.gif\" alt=\"Aumentar tamanho\"></a></li><li><a class=\"hiddenIn\" id=\"stylesheettexthigh\" href=\"#\" title=\"Tamanho m&aacute;ximo\"><img src=\"/wel/images/eu_portal/bt_a_x.gif\" alt=\"Tamanho m&aacute;ximo\"></a></li></ul><img class=\"sep\" src=\"/wel/images/accessbar_sep.gif\" alt=\"\" />";
+  html_color_selector = "<ul><li><a class=\"styleSwitcher\" id=\"stylesheetcolorblue\" href=\"#\"><img src=\"/wel/images/eu_portal/color-blue.gif\" title=\"Escolher o azul para cor da p&aacute;gina\" alt=\"Escolher o azul para cor da p&aacute;gina\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorgreen\" href=\"#\"><img src=\"/wel/images/eu_portal/color-green.gif\" title=\"Escolher o verde para cor da p&aacute;gina\" alt=\"Escolher o verde para cor da p&aacute;gina\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorred\" href=\"#\"><img src=\"/wel/images/eu_portal/color-red.gif\" title=\"Escolher o vermelho para cor da p&aacute;gina\" alt=\"Escolher o vermelho para cor da p&aacute;gina\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorblack\" href=\"#\"><img src=\"/wel/images/eu_portal/color-blue-yellow.gif\" title=\"Ver p&aacute;gina em alto contraste\" alt=\"Ver p&aacute;gina em alto contraste\"></a></li></ul><img class=\"sep\" src=\"/wel/images/accessbar_sep.gif\" alt=\"\" />";
+  if (isCssActivate() == true) {
+      document.write("<div id=\"accessbar\" class=\"accessbar_hp\"><p><span class=\"hiddenIn\">" + html_font_size_selector + html_color_selector);
+      document.write("<div id=\"share-tool\">");
+      document.write("</div>");
+      document.write("</span></p><span class=\"hiddenIn\"></span></div>");
+      $("accessbar").setStyle("display", "inline");
+      iBeginShare.attachLink("share-tool");
+  }
+

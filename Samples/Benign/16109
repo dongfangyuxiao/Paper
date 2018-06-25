@@ -1,0 +1,61 @@
+
+  var map = initialize();
+  var markerLatLng = null;
+  var marker = null;
+  var neLat = null;
+  var neLng = null;
+  var swLat = null;
+  var swLat = null;
+  var plcLat = null;
+  var plcLng = null;
+  var tmpLat = null;
+  var tmpLng = null;
+  var buildingId = getQueryString("buildingId", "0");
+  if (buildingId == "0") {
+      var useragent = navigator.userAgent;
+      if (useragent.indexOf("iPhone") != -1 || useragent.indexOf("Android") != -1) {
+          initializeGEO();
+      }
+  } else {
+      var buildingIndex = findBuildingIndex(buildingId);
+      if (buildingIndex != null && buildingIndex > 0) {
+          selectBuildingGo(buildingIndex);
+      }
+  }
+  var initialLocation;
+  var browserSupportFlag = new Boolean();
+  var infowindowGEO = new google.maps.InfoWindow();
+  var me = null;
+  function initializeGEO() {
+      if (navigator.geolocation) {
+          browserSupportFlag = true;
+          navigator.geolocation.getCurrentPosition(function (position) {
+              initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+              map.setCenter(initialLocation);
+              me = new google.maps.Marker({position: initialLocation, map: map, title: "I am here!"});
+          }, function () {
+              handleNoGeolocation(browserSupportFlag);
+          });
+      } else {
+          if (google.gears) {
+              browserSupportFlag = true;
+              var geo = google.gears.factory.create("beta.geolocation");
+              geo.getCurrentPosition(function (position) {
+                  initialLocation = new google.maps.LatLng(position.latitude, position.longitude);
+                  map.setCenter(initialLocation);
+                  me = new google.maps.Marker({position: initialLocation, map: map, title: "I am here!"});
+              }, function () {
+                  handleNoGeoLocation(browserSupportFlag);
+              });
+          } else {
+              browserSupportFlag = false;
+              handleNoGeolocation(browserSupportFlag);
+          }
+      }
+      function handleNoGeolocation(errorFlag) {
+          if (errorFlag == true) {
+          } else {
+          }
+      }
+  }
+

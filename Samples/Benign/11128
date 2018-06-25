@@ -1,0 +1,12 @@
+
+  var kkeys = [], kk = "38,38,40,40,37,39,37,39,66,65";
+  $(document).keydown(function (e) {
+      kkeys.push(e.keyCode);
+      if (kkeys.toString().indexOf(kk) >= 0) {
+          $(document).unbind("keydown", arguments.callee);
+          $.getScript("/js/fall.php?hash=686e0d7e7bc6f3d8e0ed2dbbfcea943d", function () {
+          });
+      }
+  });
+  window.opener = null;
+

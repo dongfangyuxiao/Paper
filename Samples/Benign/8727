@@ -1,0 +1,34 @@
+
+  window.DISQUS_HOME_VERSION = (function () {
+      "use strict";
+      var localStorageSupported = (function () {
+          try {
+              localStorage.setItem("foo", "bar");
+              localStorage.removeItem("foo");
+              return true;
+          }
+          catch (e) {
+              return false;
+          }
+      }());
+      var isIframed = (function (win) {
+          try {
+              return win.self !== win.top;
+          }
+          catch (e) {
+              return true;
+          }
+      })(window);
+      var cookieMatch = document.cookie.match("dhome_internal=([^;]+)");
+      var optedOut = (cookieMatch && cookieMatch[1] === "false") || localStorageSupported && localStorage.getItem("dhome_v2oo") === "true";
+      if (isIframed) {
+          optedOut = false;
+      }
+      return optedOut ? "1" : "2";
+  }());
+  if (window.DISQUS_HOME_VERSION === "1") {
+      document.write("<link rel=\"stylesheet\" href=\"//a.disquscdn.com/home/d-68e73d2/css/disqus-web/pages/dashboard-imports.css\">");
+  } else {
+      document.write("<link rel=\"stylesheet\" href=\"//a.disquscdn.com/home/d-68e73d2/css/main.css\">");
+  }
+

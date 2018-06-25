@@ -1,0 +1,27 @@
+
+  $(document).ready(function () {
+      if ($(".search_results").length > 0) {
+          $(".result").each(function () {
+              $(this).wrapInner("<div class=\"pr_wrapper\" />");
+              $(this).click(function () {
+                  window.parent.location = $(".search_title a", this).attr("href");
+              });
+          });
+          $(".search_title").each(function () {
+              if ($.trim($(this).text()) == "Comment") {
+                  $(this).addClass("comment_tag");
+              }
+          });
+      }
+      $("#site_footer_container").appendTo("body");
+      $("#page_footer_container").remove();
+  });
+  $(document).bind("projectLoadComplete", function (e, pid) {
+      $("#open_" + pid + " .project_rail_tags").html(function (i, h) {
+          return h.replace(/, /gi, "");
+      });
+      $("#open_" + pid + " .project_rail_filed").prepend("<br/>");
+      $("#open_" + pid + " .project_rail_filed").append(":");
+      $("#open_" + pid + " .project_rail_tags a").before("<br/>");
+  });
+

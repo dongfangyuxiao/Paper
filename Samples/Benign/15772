@@ -1,0 +1,19 @@
+
+  var spanSelector = "span.follow_809", htmlSpan = jq(spanSelector), htmlSpanLength = htmlSpan.length;
+  if (htmlSpanLength == 0) {
+      htmlSpan = jq("." + spanSelector.match(/follow_[\S]*[0-9]+$/g, "")[0]);
+  }
+  jq.each(htmlSpan, function () {
+      jq(this).data("overrides", {"style": "float:none"});
+      jq(this).data("typeId", 4);
+      jq(this).data("objectId", 809);
+  });
+  jq(document).bind("update_follow_buttons", function () {
+      var htmlSpan = jq("span.follow_809");
+      jq.each(htmlSpan, function () {
+          jq(this).data("overrides", {"style": "float:none"});
+          jq(this).data("typeId", 4);
+          jq(this).data("objectId", 809);
+      });
+  });
+

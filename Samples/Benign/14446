@@ -1,0 +1,23 @@
+
+  $(function () {
+      c_Cookie();
+      $("#banner").slides({preload: true, preloadImage: "static/img/loading.gif", play: 5000, pause: 2500, hoverPause: true, container: "banner_container", effect: "fade", generatePagination: true, paginationClass: "banner_pagination"});
+      $("#policies").click(function () {
+          $("#box_policies").hide();
+          s_Cookie("privacyPolicy", 1, 365);
+      });
+  });
+  function g_Cookie(N, x) {
+      if ((x = document.cookie) && (N = (";" + x).match(new RegExp("(;| )" + N + "=[^;]+")))) {
+          return unescape(N[0].split(/=/g)[1]);
+      }
+  }
+  function s_Cookie(N, V, D) {
+      document.cookie = N + "=" + escape(V) + (D ? "; expires=" + new Date(+new Date() + D * 86400000).toGMTString() : "") + "; path=/";
+  }
+  function c_Cookie() {
+      if (g_Cookie("privacyPolicy") == 1) {
+          $("#box_policies").hide();
+      }
+  }
+

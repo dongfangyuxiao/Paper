@@ -1,0 +1,13 @@
+
+  (function (window, document) {
+      if (!window.postMessage) {
+          return;
+      }
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      var _cbv = window._cbv || (window._cbv = []);
+      _cbv.push(["autoDetectYouTubeIframes"]);
+  }(this, this.document));
+

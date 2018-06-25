@@ -1,0 +1,52 @@
+
+  $(document).ready(function () {
+      $(".button_offer").click(function () {
+          $("html, body").animate({scrollTop: $("[name=\"" + $.attr(this, "href").substr(1) + "\"]").offset().top}, 400, "swing");
+          return false;
+      });
+      $("#tabs_features").is(function () {
+          var $active, $content, $links, $this;
+          $this = $(this);
+          $links = $this.find("a");
+          $active = $($links.filter("[href='" + document.location.hash + "']").get(0) || $links.get(0));
+          $this.children("div").removeClass("active");
+          $active.parent().addClass("active");
+          $links.not($active).each(function () {
+              $($(this).attr("href") + "_tab").hide();
+          });
+          $content = $($active.attr("href") + "_tab");
+          $content.show();
+          $this.on("click", "a", function (event) {
+              toggle_tabs(event);
+              window.location.hash = $(this).attr("href");
+          });
+          function toggle_tabs(event) {
+              var $active, $element, hash, link;
+              $element = $(event.target);
+              link = $element.get(0);
+              hash = link.hash;
+              $active = $(hash + "_tab");
+              if (!$active.length) {
+                  return;
+              }
+              event.preventDefault();
+              $("#tabs_features div").removeClass("active").each(function () {
+                  var $this, href;
+                  $this = $(this);
+                  href = $this.children("a").attr("href");
+                  if (href === hash) {
+                      $this.addClass("active");
+                  } else {
+                      $(href + "_tab").hide();
+                  }
+              });
+              $active.show();
+          }
+          $(".context_menu a").on("click", function (event) {
+              var hash_link = $(this).attr("href");
+              window.location.hash = hash_link.substr(hash_link.indexOf("#") + 1);
+              toggle_tabs(event);
+          });
+      });
+  });
+

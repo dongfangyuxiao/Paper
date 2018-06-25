@@ -1,0 +1,30 @@
+
+  $(document).ready(function () {
+      $(".HOMEthu").mouseenter(function () {
+          $("#tb_" + $(this).attr("id")).css("display", "block");
+          $("#img_" + $(this).attr("id")).css("display", "none");
+      }).mouseleave(function () {
+          $("#tb_" + $(this).attr("id")).css("display", "none");
+          $("#img_" + $(this).attr("id")).css("display", "block");
+      }).click(function () {
+          location.href = "http://www.histats.com/?act=2";
+      });
+  });
+  $(window).load(function () {
+      $("#slider_H").nivoSlider({animSpeed: 500, pauseTime: 5000, startSlide: 0, directionNav: true, controlNav: false, pauseOnHover: true});
+  });
+  function f_prova() {
+      $("#wrapper").html("video");
+  }
+  $("#prevViedeo").click(function () {
+      var PRT_v = "<iframe width=\"630\" height=\"388\" src=\"http://www.youtube.com/embed/-ZdSNq-l1AU?hd=1&autoplay=1\" frameborder=\"0\" allowfullscreen  class=\"HOMESlider\" frameborder=\"0\"></iframe>";
+      $("#areaScroll").html(PRT_v);
+  });
+  $("#areaScroll").mouseenter(function () {
+      $("#prevViedeo").css("display", "block");
+      $("#wrapper").css("display", "none");
+  }).mouseleave(function () {
+      $("#prevViedeo").css("display", "none");
+      $("#wrapper").css("display", "block");
+  });
+

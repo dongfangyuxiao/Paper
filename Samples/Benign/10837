@@ -1,0 +1,15 @@
+
+  var gtpadunit = "elpais_web/opinion/portada";
+  var gtpdivid = "elpais_gpt";
+  var listadoKW = [];
+  if (typeof (DFP_tags) != "undefined") {
+      listadoKW = DFP_tags;
+  }
+  if (typeof (PBS) != "undefined") {
+      var huecosPBS = {"inter": false, "skin": true, "ldb1": [[728, 90], [980, 90]], "boxd": {"box1": "ldb1"}};
+      PBS.setAds({asy: false, adunit: gtpadunit, divid: gtpdivid, key: {paiskey: listadoKW}, ads: huecosPBS});
+  } else {
+      var PBS = {display: function () {
+      }};
+  }
+

@@ -1,0 +1,14 @@
+
+  function grav_email(user, domain) {
+      document.write("<a href=\"mailto:" + user + "@" + domain + "\" title=\"Email\" class=\"email\">" + user + "@" + domain + "</a>");
+  }
+  function grav_xmpp(user, domain) {
+      if (domain) {
+          str = user + "@" + domain;
+      } else {
+          str = user + "@gmail.com";
+      }
+      document.write("<a href=\"xmpp:" + str + "\" title=\"GTalk/Jabber\" class=\"url\">" + str + "</a>");
+      return false;
+  }
+

@@ -1,0 +1,18 @@
+
+  var gtpadunit = "elpais_web/politica/actualidad";
+  var gtpdivid = "elpais_gpt";
+  var listadoKW = [];
+  if (typeof (DFP_tags) != "undefined") {
+      listadoKW = DFP_tags;
+  }
+  if (document.referrer == "http://elpais.com/") {
+      listadoKW.push("articuloportada");
+  }
+  if (typeof (PBS) != "undefined") {
+      var huecosPBS = {"inter": true, "skin": true, "ldb1": [[728, 90], [980, 90]], "btn2": [400, 100], "boxd": {"box1": "ldb1"}};
+      PBS.setAds({asy: false, adunit: gtpadunit, divid: gtpdivid, key: {paiskey: listadoKW}, ads: huecosPBS});
+  } else {
+      var PBS = {display: function () {
+      }};
+  }
+

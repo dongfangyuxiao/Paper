@@ -1,0 +1,14 @@
+
+  $(function () {
+      var params = {debug: false, session: "", token: "UbS99ml14MRYGAF9hkEwpcd4/DblTuw4+T5rYoa1Jg4="};
+      if (window.SiteJobs) {
+          window.Page = new SiteJobs(params);
+      } else {
+          if (window.SitePage) {
+              window.Page = new SitePage(params);
+          } else {
+              window.Page = new IndiePage(params);
+          }
+      }
+  });
+

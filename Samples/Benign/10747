@@ -1,0 +1,18 @@
+
+  var gtpadunit = "elpais_web/opinion";
+  var gtpdivid = "elpais_gpt";
+  var listadoKW = [];
+  if (typeof (DFP_tags) != "undefined") {
+      listadoKW = DFP_tags;
+  }
+  if (document.referrer == "http://elpais.com/") {
+      listadoKW.push("articuloportada");
+  }
+  if (typeof (PBS) != "undefined") {
+      var huecosPBS = {"inter": true, "skin": true, "ldb1": [[728, 90], [980, 90]], "ldb2": [[728, 90], [980, 90]], "mpu1": [[300, 250], [400, 400], [300, 600], [400, 600]], "mpu2": [[300, 250], [400, 400]], "mpu3": [[300, 250], [400, 400]], "btn1": [560, 90], "btn2": [400, 100], "text": true, "boxd": {"box1": "ldb1"}};
+      PBS.setAds({asy: false, adunit: gtpadunit, divid: gtpdivid, key: {paiskey: listadoKW}, ads: huecosPBS});
+  } else {
+      var PBS = {display: function () {
+      }};
+  }
+

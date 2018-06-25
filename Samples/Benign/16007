@@ -1,0 +1,29 @@
+
+  var googleResultUrl = "http://illinois.edu/resources/results.html";
+  var cx = "006549799505564222509:-8lddip9q2g";
+  var cof = "FORID:11";
+  var skinId = "2363";
+  function sendSearch() {
+      if (document.gs.searchType_people.checked) {
+          document.gs.cx.value = "";
+          document.gs.cof.value = "";
+          if (document.gs.q.value == "Search") {
+              document.gs.search.value = "";
+          } else {
+              document.gs.search.value = document.gs.q.value;
+          }
+          document.gs.skinId.value = skinId;
+          document.gs.action = "http://illinois.edu/ds/search";
+      } else {
+          document.gs.cx.value = cx;
+          document.gs.cof.value = cof;
+          document.gs.id = cx;
+          document.gs.action = googleResultUrl;
+      }
+  }
+  function checkSearchValue() {
+      if (document.gs.q.value == "Search") {
+          document.gs.q.value = "";
+      }
+  }
+

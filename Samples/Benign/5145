@@ -1,0 +1,14 @@
+
+  var icpForm10480 = document.getElementById("icpsignup10480");
+  if (document.location.protocol === "https:") {
+      icpForm10480.action = "https://app.icontact.com/icp/signup.php";
+  }
+  function verifyRequired10480() {
+      if (icpForm10480["fields_email"].value == "") {
+          icpForm10480["fields_email"].focus();
+          alert("The Email field is required.");
+          return false;
+      }
+      return true;
+  }
+

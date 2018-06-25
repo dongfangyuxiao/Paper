@@ -1,0 +1,29 @@
+
+  function checkName(form) {
+      $("#nameerror").empty();
+      if (!form.name.value) {
+          return true;
+      }
+      if (form.name.value.length < 3 || form.name.value.length > 25) {
+          $("#nameerror").text("Your name must be between 3 and 25 characters long");
+          form.name.focus();
+          return false;
+      }
+      return true;
+  }
+  function checkPasswords(form) {
+      $("#passworderror").empty();
+      if (!form.password.value) {
+          return true;
+      }
+      if (form.password.value.length < 6) {
+          $("#passworderror").text("Your password must be at least six characters long");
+          form.password.focus();
+          return false;
+      }
+      return true;
+  }
+  $(function () {
+      setUpCreateForm($(".createform"));
+  });
+

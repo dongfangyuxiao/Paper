@@ -1,0 +1,70 @@
+
+  $(document).ready(function () {
+      $("p.scrollmore").click(function () {
+          $("p.scrollmore").toggle();
+          $("p.scrollless").toggle();
+          $("p.hidden1").slideDown(300);
+          $("p.hidden1b").fadeIn(100);
+          $(".hideonclick").toggle();
+      });
+      $("p.scrollless").click(function () {
+          $("p.hidden1").slideDown(300);
+          $("p.hidden1b").fadeOut(100);
+          $("p.scrollmore").toggle();
+          $("p.scrollless").toggle();
+          $(".hideonclick").toggle();
+      });
+      $("p.scrollmore2").click(function () {
+          $("p.scrollmore2").toggle();
+          $("p.scrollless2").toggle();
+          $("p.hidden2").slideDown(300);
+          $("p.hidden2b").fadeIn(100);
+          $(".hideonclick2").toggle();
+      });
+      $("p.scrollless2").click(function () {
+          $("p.hidden2").slideDown(300);
+          $("p.hidden2b").fadeOut(100);
+          $("p.scrollmore2").toggle();
+          $("p.scrollless2").toggle();
+          $(".hideonclick2").toggle();
+      });
+      $("p.scrollmore3").click(function () {
+          $("p.scrollmore3").toggle();
+          $("p.scrollless3").toggle();
+          $("p.hidden3").slideDown(300);
+          $("p.hidden3b").fadeIn(100);
+          $(".hideonclick3").toggle();
+      });
+      $("p.scrollless3").click(function () {
+          $("p.hidden3").slideDown(300);
+          $("p.hidden3b").fadeOut(100);
+          $("p.scrollmore3").toggle();
+          $("p.scrollless3").toggle();
+          $(".hideonclick3").toggle();
+      });
+      $("p.scrollmore4").click(function () {
+          $("p.scrollmore4").toggle();
+          $("p.scrollless4").toggle();
+          $("p.hidden4").slideDown(300);
+          $("p.hidden4b").fadeIn(100);
+          $(".hideonclick4").toggle();
+      });
+      $("p.scrollless4").click(function () {
+          $("p.hidden4").slideDown(300);
+          $("p.hidden4b").fadeOut(100);
+          $("p.scrollmore4").toggle();
+          $("p.scrollless4").toggle();
+          $(".hideonclick4").toggle();
+      });
+  });
+  var player;
+  function onYouTubePlayerAPIReady() {
+      player = new YT.Player("player");
+  }
+  $(document).ready(function () {
+      $("#button_offer").click(function () {
+          $("html, body").animate({scrollTop: $("[name=\"" + $.attr(this, "href").substr(1) + "\"]").offset().top}, 400, "swing");
+          return false;
+      });
+  });
+

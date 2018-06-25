@@ -1,0 +1,58 @@
+
+  var player;
+  function onYouTubePlayerAPIReady() {
+      player = new YT.Player("player");
+  }
+  $(document).ready(function () {
+      var leftgap = 10;
+      var rightgap = 10;
+      var defaultgap = 100;
+      var caption = true;
+      var reveal = 0.5;
+      $(".beforeafter").each(function () {
+          var i = $(this);
+          var img_mask = i.children("img:eq(0)").attr("src");
+          var img_bg = i.children("img:eq(1)").attr("src");
+          var img_cap_one = i.children("img:eq(0)").attr("alt");
+          var width = i.children("img:eq(0)").width();
+          var height = i.children("img:eq(0)").height();
+          i.find("img").hide();
+          i.css({"overflow": "hidden", "position": "relative"});
+          i.append("<div class=\"ba-mask\"></div>");
+          i.append("<div class=\"ba-bg\"></div>");
+          i.append("<div class=\"ba-caption\">" + img_cap_one + "</div>");
+          i.children(".ba-mask, .ba-bg").width(width);
+          i.children(".ba-mask, .ba-bg").height(height);
+          i.children(".ba-mask").css("backgroundImage", "url(" + img_mask + ")");
+          i.children(".ba-bg").css("backgroundImage", "url(" + img_bg + ")");
+          i.children(".ba-mask").animate({"width": width - defaultgap}, 1000);
+          if (caption) {
+              i.children(".caption").show();
+          } else {
+              i.children(".ba-caption").hide();
+          }
+      }).mousemove(function (e) {
+          var i = $(this);
+          pos_img = i.offset()["left"];
+          pos_mouse = e.pageX;
+          new_width = pos_mouse - pos_img;
+          img_width = i.width();
+          img_cap_one = i.children("img:eq(0)").attr("alt");
+          img_cap_two = i.children("img:eq(1)").attr("alt");
+          if (new_width > leftgap && new_width < (img_width - rightgap)) {
+              i.children(".ba-mask").width(new_width);
+          }
+          if (new_width < (img_width * reveal)) {
+              i.children(".ba-caption").html(img_cap_two);
+          } else {
+              i.children(".ba-caption").html(img_cap_one);
+          }
+      });
+  });
+  $(document).ready(function () {
+      $("#button_offer").click(function () {
+          $("html, body").animate({scrollTop: $("[name=\"" + $.attr(this, "href").substr(1) + "\"]").offset().top}, 400, "swing");
+          return false;
+      });
+  });
+

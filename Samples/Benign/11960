@@ -1,0 +1,12 @@
+
+  html_font_size_selector = "<ul id=\"font_size_selector\"><li><a class=\"hiddenIn\" id=\"stylesheettextlow\" href=\"#\" title=\"R&eacute;tablir la taille normale du texte\"><img src=\"/wel/images/eu_portal/bt_a_s.gif\" alt=\"R&eacute;tablir la taille normale du texte\"></a></li><li><a class=\"hiddenIn\" id=\"stylesheettextmid\" href=\"#\" title=\"Agrandir la taille du texte\"><img src=\"/wel/images/eu_portal/bt_a_m.gif\" alt=\"Agrandir la taille du texte\"></a></li><li><a class=\"hiddenIn\" id=\"stylesheettexthigh\" href=\"#\" title=\"Choisir la plus grande taille de texte\"><img src=\"/wel/images/eu_portal/bt_a_x.gif\" alt=\"Choisir la plus grande taille de texte\"></a></li></ul><img class=\"sep\" src=\"/wel/images/accessbar_sep.gif\" alt=\"\" />";
+  html_color_selector = "<ul><li><a class=\"styleSwitcher\" id=\"stylesheetcolorblue\" href=\"#\"><img src=\"/wel/images/eu_portal/color-blue.gif\" title=\"Choisir le bleu\" alt=\"Choisir le bleu\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorgreen\" href=\"#\"><img src=\"/wel/images/eu_portal/color-green.gif\" title=\"Choisir le vert\" alt=\"Choisir le vert\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorred\" href=\"#\"><img src=\"/wel/images/eu_portal/color-red.gif\" title=\"Choisir le rouge\" alt=\"Choisir le rouge\"></a></li><li><a class=\"styleSwitcher\" id=\"stylesheetcolorblack\" href=\"#\"><img src=\"/wel/images/eu_portal/color-blue-yellow.gif\" title=\"Choisir le contraste &eacute;lev&eacute;\" alt=\"Choisir le contraste &eacute;lev&eacute;\"></a></li></ul><img class=\"sep\" src=\"/wel/images/accessbar_sep.gif\" alt=\"\" />";
+  if (isCssActivate() == true) {
+      document.write("<div id=\"accessbar\" class=\"accessbar_hp\"><p><span class=\"hiddenIn\">" + html_font_size_selector + html_color_selector);
+      document.write("<div id=\"share-tool\">");
+      document.write("</div>");
+      document.write("</span></p><span class=\"hiddenIn\"></span></div>");
+      $("accessbar").setStyle("display", "inline");
+      iBeginShare.attachLink("share-tool");
+  }
+

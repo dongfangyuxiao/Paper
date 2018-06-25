@@ -1,0 +1,14 @@
+
+  (function (widgetFactory) {
+      if (!Imgur.Environment.isDev) {
+          var optValue, ref = document.referrer;
+          if ((optValue = $.cookie("o")) == null) {
+              optValue = Math.random().toFixed(5);
+              $.cookie("o", optValue, {expires: 7, path: "/", domain: "imgur.com"});
+          }
+          if (optValue < 0.1) {
+              $.getScript("//cdn.optimizely.com/js/1507425748.js");
+          }
+      }
+  })(_widgetFactory);
+

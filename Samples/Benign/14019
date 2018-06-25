@@ -1,0 +1,30 @@
+
+  (function () {
+      (function () {
+          "use strict";
+          requirejs.config({paths: (function () {
+              var paths = {"html-janitor": "lib/html-janitor", jquery: "lib/jquery", underscore: "lib/underscore", backbone: "lib/backbone", "backbone.marionette": "lib/backbone.marionette", "backbone.stickit": "lib/backbone.stickit", moment: "lib/amd-wrapped/momentjs/moment", "moment-timezone": "lib/amd-wrapped/momentjs/moment-timezone", ace: "lib/ace"};
+              if (typeof document !== "undefined") {
+                  paths.templates = "templates/closure/" + (document.getElementsByTagName("html")[0].getAttribute("lang") || "en-US");
+              }
+              return paths;
+          }())});
+      }());
+      var modules = {"BaseApp": "-e48a6b499fc62fa38f582e6e5c7b96be", "TagPageApp": "-a430baaf721e21c3345f1044e3acb4a9", "FrontPageApp": "-f914e79e8196734c2e424738e019a13c", "Main": "-f24959078e306c8bd780c33fae91af05", "PromotedPostPreview": "-a041afb0c090da48e514c6ca5527ca22", "SettingsPageApp": "-a3dadcb31ef6dc42fc927050e05f79f1", "RuleSystem": "-0920c456c82765b68710b0c9d99a9400", "ImagePlaceholder": "-a006bdcfa95a783d4eff179caa434feb", "ace": "-a486a39565033c80d86a498ff172dad1", "GroupchatsModule": "-189e3896ad2cd8a94ca96ae1368ef12e", "PostEditorApp": "-a6d1f1a0b7d9b935582804cedd4fb82f", "FeaturesPageApp": "-542c7ec400b57d967a2902479435a9d6", "Commerce": "-0d7fb92877d3f35395e0fc8502856a75", "LeaderboardStatsPageApp": "-9ac4d0b406ade984065f979ec83bd9c4", "ScribeEditor": "-eaa03aa3009238d3525cd1d2ba06dbed", "PrivatePageApp": "-570dde5dd7f04fde90514cd0eff9c3a8", "PostDebugPageApp": "-c7b47e914b193529248aaa705447a541", "PostApp": "-811ed295637ff77db878f8ca0e75ddd4", "StatsPageApp": "-c4a1b7757aedc5e81b7a3ebdb2e993eb", "Foundation5": "-eca72c908883b2021aede721138ae330", "FlaggedRepliesApp": "-097678dc387144dbdb886b44ab0209dc", "NewEditor": "-42bdf944f62c9425e158c0f31ab828f6", "MarionetteEditor": "-e442961b6949f18b3f6a911d95c929d8", "JWPlayer": "-bcb2726c49022f1b0a79203da422279b", "GmgFeaturesPageApp": "-f2ff7d3a6dd0a104e9af963ac31e739e", "NotificationsPageApp": "-5c89c4c924bfeb9865b68278ad4afbfd", "KinjaFeedApp": "-9d82acfa6def41071b2960d476ea1766", "AmazonInsetsModule": "-6f603130f0cb3ba873764a9b4afe685b", "SearchPageApp": "-01f30fab6d8c06a479686106174d25bd", "Raven": "-a5a41ab4341e1880a8fa8f19fa062ae8", "UIKitApp": "-767ce0acb5e6e88ea5b062d2b5e26f56", "StatsPerformanceApp": "-80b5f8ec50ed8d1e52c0287b79d8f8e0"}, paths = {}, baseUrl = "http://c.kinja-static.com/assets/javascripts-min/", modulePath = "layer/";
+      for (var module in modules) {
+          if (modules.hasOwnProperty(module)) {
+              paths["module/" + module] = "module/" + module + "-en-US" + modules[module];
+              paths["layer/" + module] = "layer/" + module + "-en-US" + modules[module];
+          }
+      }
+      require.config({waitSeconds: 0, baseUrl: baseUrl, paths: paths, map: {"*": {"config": "config"}}});
+      markUserTime("JS - Before preload");
+      var mainModules = [modulePath + "Main", modulePath + "PostApp"];
+      require(mainModules, function () {
+          markUserTime("JS - After preload");
+          require(["module/Main"], function () {
+              markUserTime("JS - After app init");
+          });
+      });
+  }());
+

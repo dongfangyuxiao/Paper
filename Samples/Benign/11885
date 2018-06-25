@@ -1,0 +1,33 @@
+
+  function formFunction() {
+      var box = new LightFace({width: 600, height: 300, content: $("lightbox_content").innerHTML, keys: {esc: function () {
+          this.close();
+          box.unfade();
+          hide_overlayer();
+      }}, buttons: [{title: "", event: function () {
+          this.close();
+          box.unfade();
+          hide_overlayer();
+      }}], draggable: false});
+      var closer = function (e) {
+          var parent = document.id(box).getParent(".lightface");
+          if (e.target != parent && !parent.contains(e.target)) {
+              box.close();
+              hide_overlayer();
+          }
+      };
+      document.id(document.body).addEvent("click", closer);
+      $("layout").focus();
+  }
+  function show_overlayer() {
+      $("overlayer").setStyle("display", "block");
+  }
+  function hide_overlayer() {
+      $("overlayer").setStyle("display", "none");
+  }
+  window.addEvent("domready", function () {
+      show_overlayer();
+      formFunction();
+      $("layout").focus();
+  });
+

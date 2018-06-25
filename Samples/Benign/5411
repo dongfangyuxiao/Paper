@@ -1,0 +1,54 @@
+
+  CQ_Analytics.Sitecatalyst.frameworkComponents = ["census/components/common/shared/sharethis", "foundation/components/login", "foundation/components/list", "foundation/components/page", "foundation/components/video", "census/components/common/body/textimage", "census/components/page/censusbasepage", "census/components/common/body/searchresults", "foundation/components/download", "foundation/components/image", "foundation/components/search"];
+  CQ_Analytics.Sitecatalyst.updateEvars = function (options) {
+      var mapping = [];
+      mapping.push({scVar: "eventdata.events.shareThis", cqVar: "event7", resourceType: "census/components/common/shared/sharethis"});
+      mapping.push({scVar: "eVar44", cqVar: "eventdata.shareservice", resourceType: "census/components/common/shared/sharethis"});
+      mapping.push({scVar: "pageName", cqVar: "pagedata.title", resourceType: "foundation/components/page"});
+      mapping.push({scVar: "eventdata.events.searched", cqVar: "event1", resourceType: "foundation/components/page"});
+      mapping.push({scVar: "eventdata.events.pageView", cqVar: "event5", resourceType: "foundation/components/page"});
+      mapping.push({scVar: "eVar3", cqVar: "eventdata.downloadLink", resourceType: "census/components/common/body/textimage"});
+      mapping.push({scVar: "prop2", cqVar: "pagedata.titleprop", resourceType: "census/components/common/body/textimage"});
+      mapping.push({scVar: "eventdata.events.startDownload", cqVar: "event2", resourceType: "census/components/common/body/textimage"});
+      mapping.push({scVar: "hier4", cqVar: "eventdata.downloadLink", resourceType: "census/components/common/body/textimage"});
+      mapping.push({scVar: "eVar43", cqVar: "eventdata.downloadFileName", resourceType: "census/components/common/body/textimage"});
+      mapping.push({scVar: "pageName", cqVar: "pagedata.title", resourceType: "census/components/page/censusbasepage"});
+      mapping.push({scVar: "prop2", cqVar: "pagedata.titleprop", resourceType: "census/components/page/censusbasepage"});
+      mapping.push({scVar: "eVar9", cqVar: "pagedata.survey", resourceType: "census/components/page/censusbasepage"});
+      mapping.push({scVar: "channel", cqVar: "pagedata.theme", resourceType: "census/components/page/censusbasepage"});
+      mapping.push({scVar: "event10", cqVar: "eventdata.keyword", resourceType: "census/components/common/body/searchresults"});
+      mapping.push({scVar: "eVar2", cqVar: "eventdata.page", resourceType: "census/components/common/body/searchresults"});
+      mapping.push({scVar: "eventdata.events.searched", cqVar: "event1", resourceType: "census/components/common/body/searchresults"});
+      mapping.push({scVar: "eventdata.events.search", cqVar: "prop4", resourceType: "census/components/common/body/searchresults"});
+      mapping.push({scVar: "eVar46", cqVar: "eventdata.searchtype", resourceType: "census/components/common/body/searchresults"});
+      mapping.push({scVar: "eVar45", cqVar: "eventdata.stateGeo", resourceType: "census/components/common/body/searchresults"});
+      mapping.push({scVar: "eVar19", cqVar: "eventdata.keyword", resourceType: "census/components/common/body/searchresults"});
+      mapping.push({scVar: "event43", cqVar: "eventdata.downloadLink", resourceType: "foundation/components/download"});
+      mapping.push({scVar: "event10", cqVar: "eventdata.keyword", resourceType: "foundation/components/search"});
+      mapping.push({scVar: "eventdata.events.searched", cqVar: "event1", resourceType: "foundation/components/search"});
+      mapping.push({scVar: "eventdata.events.search", cqVar: "prop4", resourceType: "foundation/components/search"});
+      mapping.push({scVar: "eVar19", cqVar: "eventdata.keyword", resourceType: "foundation/components/search"});
+      for (var i = 0; i < mapping.length; i++) {
+          var m = mapping[i];
+          if (!options || (options.componentPath == m.resourceType)) {
+              CQ_Analytics.Sitecatalyst.setEvar(m.scVar, m.cqVar);
+          }
+      }
+  };
+  CQ_Analytics.CCM.addListener("storesinitialize", function (e) {
+      var lte = s.linkTrackEvents;
+      s.pageName = "library:publications";
+      s.PageName = "en>library>Publications";
+      s.channel = "";
+      CQ_Analytics.Sitecatalyst.collect();
+      CQ_Analytics.Sitecatalyst.updateEvars();
+      var s_code = s.t();
+      if (s_code) {
+          document.write(s_code);
+      }
+      s.linkTrackEvents = lte;
+      if (s.linkTrackVars.indexOf("events") == -1) {
+          delete s.events;
+      }
+  });
+

@@ -1,0 +1,19 @@
+
+  $(document).ready(function () {
+      $("#tweets.carousel").carousel({interval: 7500, pause: "no"});
+      $(window).on("scroll", function () {
+          $(".navbar.navbar-fixed-top").toggleClass("shadow", $(document).scrollTop() !== 0);
+      });
+      $(".play-video").click(function (e) {
+          e.preventDefault();
+          $("#ourUsers").toggleClass("videoActive");
+          $("#ourUsers .videoContainer").html("<iframe src=\"http://player.vimeo.com/video/67075072?autoplay=1&amp;color=1bbb66\" width=\"100%\" height=\"600\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>");
+      });
+      $(".carousel").bind("slid", function (e) {
+          var target = $(e.target);
+          $(".carousel-nav .active", target).removeClass("active");
+          var idx = $(" .item.active", target).index();
+          $(".carousel-nav a:eq(" + idx + ")", target).addClass("active");
+      });
+  });
+

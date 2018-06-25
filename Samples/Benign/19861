@@ -1,0 +1,58 @@
+
+  $(document).ready(function () {
+      function readCookie(name) {
+          var nameEQ = name + "=";
+          var ca = document.cookie.split(";");
+          for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) === " ") {
+                  c = c.substring(1, c.length);
+              }
+              if (c.indexOf(nameEQ) === 0) {
+                  return c.substring(nameEQ.length, c.length);
+              }
+          }
+          return null;
+      }
+      var nm = [["license-standard", "license-pro"], ["storage-premium", "storage-power"]];
+      var getsel = function () {
+          var l = $("input[name=commercial]:checked"), s = $("input[name=havesite]:checked");
+          return l.length && s.length && nm[s.val()][l.val()];
+      };
+      if (readCookie("buyHlp") === null) {
+          var helpBoxT = setTimeout(function () {
+              if (helpBoxT !== null) {
+                  $("a.help-choose-button").trigger("click");
+              }
+          }, 45000);
+      }
+      $("a.help-choose-button").click(function (e) {
+          clearTimeout(helpBoxT);
+          helpBoxT = null;
+          $("#helpchoosewindow").fadeIn();
+          var exdate = new Date();
+          exdate.setDate(exdate.getDate() + 366);
+          var p = location.href;
+          document.cookie = "buyHlp=1" + "; expires=" + exdate.toUTCString() + "; path=" + p.substring(p.indexOf("/", 8));
+          return false;
+      });
+      $("a#cont").click(function (e) {
+          var sel = getsel();
+          if (sel) {
+              $("#" + sel).show();
+              $(this).parents("div:first").hide();
+              $(".suggested").fadeIn(600);
+          } else {
+              alert("Please answer both questions!");
+          }
+          return false;
+      });
+      $("input[name=commercial],input[name=havesite]").change(function () {
+          var sel = getsel();
+          if (sel) {
+              $(".suggested>div").hide();
+              $("#" + sel).show();
+          }
+      });
+  });
+

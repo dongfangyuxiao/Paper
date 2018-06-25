@@ -1,0 +1,39 @@
+
+  if (false) {
+      $(".captcha #recaptcha_response_field").addClass("signin-error").attr("title", "");
+  }
+  var uv = new Imgur.Signin.Validator($("#username"), false, "That username is already registered.");
+  $("#username").keyup(_.throttle(_.bind(uv.validateTaken, uv), 500));
+  var ev = new Imgur.Signin.Validator($("#email"), false, "That email is already registered.");
+  $("#email").keyup(_.throttle(_.bind(ev.validateTaken, ev), 500));
+  uv.showTipsies();
+  var $registerForm = $("#register-form");
+  var $stepOne = $(".register-form.register-two-step .register-step-one"), $stepTwo = $(".register-form.register-two-step .register-step-two");
+  function ToggleForm() {
+      $(".tipsy").remove();
+      if ($stepOne.hasClass("register-visible")) {
+          $stepOne.removeClass("register-visible");
+          $stepTwo.addClass("register-visible");
+          $registerForm.attr("action", "");
+      } else {
+          $registerForm.attr("action", "javascript:void(0)");
+          $stepTwo.removeClass("register-visible");
+          $stepOne.addClass("register-visible");
+      }
+      $(".register-visible input:visible").eq(0).focus();
+  }
+  $stepOne.find("button[name=\"next\"]").on("click", function (e) {
+      e.preventDefault();
+      if ($registerForm.valid()) {
+          ToggleForm();
+      }
+  });
+  $stepTwo.find(".back-signin").on("click", function (e) {
+      e.preventDefault();
+      ToggleForm();
+  });
+  $registerForm.attr("action", "javascript:ToggleForm()");
+  $(".register-form button[name=\"submit\"]").on("click", function (e) {
+      $registerForm.submit();
+  });
+

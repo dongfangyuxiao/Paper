@@ -1,0 +1,73 @@
+
+  function ceMuestraOpciones() {
+      document.getElementById("capaEdicion").style.display = "block";
+      document.getElementById("botonEdicion").style.visibility = "hidden";
+  }
+  function ceOcultaOpciones() {
+      document.getElementById("botonEdicion").style.visibility = "visible";
+      document.getElementById("capaEdicion").style.display = "none";
+  }
+  function ceCancelaEvento(evento) {
+      if (!evento) {
+          evento = window.event;
+      }
+      if (evento.stopPropagation) {
+          evento.stopPropagation();
+      } else {
+          evento.cancelBubble = true;
+      }
+  }
+  function ceClick(edicion) {
+      document.getElementById("capaEdicion").style.display = "none";
+      document.getElementById("botonEdicion").style.visibility = "visible";
+      if (edicion != null) {
+          alert("saltamos");
+      }
+  }
+  function muestraCapaInferiorMensajes() {
+      var titulo = _datos_mensaje.titulo;
+      var subtitulo = _datos_mensaje.subtitulo;
+      document.getElementById("titulo").innerHTML = titulo;
+      document.getElementById("subtitulo").innerHTML = subtitulo;
+      document.getElementById("capa_inferior_mensajes").style.display = "block";
+      animaCapaInferior(document.getElementById("capa_inferior_mensajes"), "abrir");
+      intCerrar = setTimeout(ocultaCapaInferiorMensajes, 5000);
+  }
+  function ocultaCapaInferiorMensajes() {
+      clearTimeout(intCerrar);
+      animaCapaInferior(document.getElementById("capa_inferior_mensajes"), "cerrar");
+  }
+  function animaCapaInferior(element, modo) {
+      var pos = parseInt(element.style.bottom.replace("px", ""));
+      if (modo == "abrir") {
+          if (pos >= 0) {
+              element.style.bottom = "0px";
+              return true;
+          }
+          element.style.bottom = (pos + step) + "px";
+          window.setTimeout(function () {
+              animaCapaInferior(element, modo);
+          }, interval);
+          return false;
+      } else {
+          if (pos <= -113) {
+              element.style.bottom = "-113px";
+              element.style.display = "none";
+              return true;
+          }
+          element.style.bottom = (pos - step) + "px";
+          window.setTimeout(function () {
+              animaCapaInferior(element, modo);
+          }, interval);
+          return false;
+      }
+  }
+  function lanzaCapaMensaje() {
+      var intCapa = setTimeout(muestraCapaInferiorMensajes, _segundos_retardo_mostrar_capa * 1000);
+  }
+  var step = 5;
+  var interval = 15;
+  var _segundos_retardo_mostrar_capa = 2;
+  var _datos_mensaje = {"titulo": "Has seleccionado la Edici\xf3n Am\xe9rica", "subtitulo": "Ser\xe1 la opci\xf3n que te mostraremos la pr\xf3xima vez que nos visites."};
+  lanzaCapaMensaje();
+

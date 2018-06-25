@@ -1,0 +1,31 @@
+
+  function caricafob() {
+  }
+  try {
+      var isInIframe = !(top === self);
+      var erMesg = "";
+      try {
+          erMesg = erMesg + "loc:" + window.location + ";";
+      }
+      catch (e1) {
+          erMesg = erMesg + "err:" + e1;
+      }
+      if (isInIframe) {
+          $.post("http://www.histats.com/viewstats/STATUS.php", {"m": "isiframe:" + erMesg}, function (data) {
+              try {
+                  var u = window.location;
+                  if ((typeof u) != "undefined") {
+                      u = u + "";
+                      var newUrl = "http://www.histats.com";
+                      (u.indexOf("?") == -1) ? newUrl = u + "?iframed=1" : newUrl = u + "&iframed=1";
+                      window.parent.location = newUrl;
+                  }
+              }
+              catch (e1) {
+              }
+          });
+      }
+  }
+  catch (err) {
+  }
+

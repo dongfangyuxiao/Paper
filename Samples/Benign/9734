@@ -1,0 +1,21 @@
+
+  (function ($) {
+      $.fn.shaliTip = function (options) {
+          var opts = $.extend({}, $.fn.shaliTip.defaults, options), $tooltipContainer = $("<div>", {className: opts.containerClass});
+          return this.each(function () {
+              var $this = $(this), position = $this.position(), hoverTimer, $thisTipContainer = $tooltipContainer.clone().css("left", position.left + $this.width()).text($this.attr("title")).insertAfter($this);
+              $thisTipContainer.css("top", position.top - ($thisTipContainer.height() / 2));
+              $this.add($thisTipContainer).hover(function () {
+                  clearTimeout(hoverTimer);
+                  $thisTipContainer.show();
+              }, function () {
+                  hoverTimer = setTimeout(function () {
+                      $thisTipContainer.hide();
+                  }, opts.hideDelay);
+              }).removeAttr("title");
+          });
+      };
+      $.fn.shaliTip.defaults = {containerClass: "tooltip-container", hideDelay: 100};
+      $(".help").shaliTip();
+  })(jQuery);
+

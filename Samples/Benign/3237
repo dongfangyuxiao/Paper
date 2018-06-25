@@ -1,0 +1,32 @@
+
+  $(function () {
+      var FB_URL = "http://graph.facebook.com/?id=" + window.location.href + "\"", LN_URL = "http://www.linkedin.com/countserv/count/share?url=" + window.location.href + "&format=json\"", TW_URL = "http://cdn.api.twitter.com/1/urls/count.json?url=" + window.location.href + "\"";
+      $.ajax({type: "GET", url: FB_URL}).done(function (data) {
+          if (data.shares !== undefined) {
+              $(".fb span").text(" " + data.shares);
+          } else {
+              $(".fb span").text(" 0");
+          }
+      }).fail(function () {
+          $(".fb span").text(" x");
+      });
+      $.ajax({type: "GET", url: LN_URL, dataType: "jsonp"}).done(function (data) {
+          if (data.count !== undefined) {
+              $(".ln span").text(" " + data.count);
+          } else {
+              $(".ln span").text(" 0");
+          }
+      }).fail(function () {
+          $(".ln span").text(" x");
+      });
+      $.ajax({type: "GET", url: TW_URL, dataType: "jsonp"}).done(function (data) {
+          if (data.count !== undefined) {
+              $(".tw span").text(" " + data.count);
+          } else {
+              $(".tw span").text(" 0");
+          }
+      }).fail(function () {
+          $(".tw span").text(" x");
+      });
+  });
+

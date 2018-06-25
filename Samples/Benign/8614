@@ -1,0 +1,419 @@
+
+  var DISQUS = (function (window, undefined) {
+      "use strict";
+      var DISQUS = window.DISQUS || {};
+      DISQUS.AssertionError = function (message) {
+          this.message = message;
+      };
+      DISQUS.AssertionError.prototype.toString = function () {
+          return "Assertion Error: " + (this.message || "[no message]");
+      };
+      DISQUS.assert = function (value, message, soft) {
+          if (value) {
+              return;
+          }
+          if (soft) {
+              window.console && window.console.log("DISQUS assertion failed: " + message);
+          } else {
+              throw new DISQUS.AssertionError(message);
+          }
+      };
+      var cleanFuncs = [];
+      DISQUS.define = function (name, fn) {
+          if (typeof name === "function") {
+              fn = name;
+              name = "";
+          }
+          var parts = name.split(".");
+          var part = parts.shift();
+          var cur = DISQUS;
+          var exports = (fn || function () {
+              return {};
+          }).call({overwrites: function (obj) {
+              obj.__overwrites__ = true;
+              return obj;
+          }}, window);
+          while (part) {
+              cur = (cur[part] ? cur[part] : cur[part] = {});
+              part = parts.shift();
+          }
+          for (var key in exports) {
+              if (!exports.hasOwnProperty(key)) {
+                  continue;
+              }
+              if (!exports.__overwrites__ && cur[key] !== null) {
+                  DISQUS.assert(!cur.hasOwnProperty(key), "Unsafe attempt to redefine existing module: " + key, true);
+              }
+              cur[key] = exports[key];
+              cleanFuncs.push(function (cur, key) {
+                  return function () {
+                      delete cur[key];
+                  };
+              }(cur, key));
+          }
+          return cur;
+      };
+      DISQUS.use = function (name) {
+          return DISQUS.define(name);
+      };
+      DISQUS.cleanup = function () {
+          for (var i = 0; i < cleanFuncs.length; i++) {
+              cleanFuncs[i]();
+          }
+      };
+      return DISQUS;
+  })(window);
+  DISQUS.define(function (window, undefined) {
+      "use strict";
+      var DISQUS = window.DISQUS;
+      var document = window.document;
+      var head = document.getElementsByTagName("head")[0] || document.body;
+      var jobs = {running: false, timer: null, queue: []};
+      var uid = 0;
+      DISQUS.getUid = function (prefix) {
+          var id = ++uid + "";
+          return prefix ? prefix + id : id;
+      };
+      DISQUS.defer = function (cond, func) {
+          function beat() {
+              var queue = jobs.queue;
+              if (queue.length === 0) {
+                  jobs.running = false;
+                  clearInterval(jobs.timer);
+              }
+              for (var i = 0, pair; pair = queue[i]; i++) {
+                  if (pair[0]()) {
+                      queue.splice(i--, 1);
+                      pair[1]();
+                  }
+              }
+          }
+          jobs.queue.push([cond, func]);
+          beat();
+          if (!jobs.running) {
+              jobs.running = true;
+              jobs.timer = setInterval(beat, 100);
+          }
+      };
+      DISQUS.isOwn = function (obj, key) {
+          return Object.prototype.hasOwnProperty.call(obj, key);
+      };
+      DISQUS.isString = function (str) {
+          return Object.prototype.toString.call(str) === "[object String]";
+      };
+      DISQUS.each = function (collection, callback) {
+          var length = collection.length, forEach = Array.prototype.forEach;
+          if (!isNaN(length)) {
+              if (forEach) {
+                  forEach.call(collection, callback);
+              } else {
+                  for (var i = 0; i < length; i++) {
+                      callback(collection[i], i, collection);
+                  }
+              }
+          } else {
+              for (var key in collection) {
+                  if (DISQUS.isOwn(collection, key)) {
+                      callback(collection[key], key, collection);
+                  }
+              }
+          }
+      };
+      DISQUS.extend = function (obj) {
+          DISQUS.each(Array.prototype.slice.call(arguments, 1), function (source) {
+              for (var prop in source) {
+                  obj[prop] = source[prop];
+              }
+          });
+          return obj;
+      };
+      DISQUS.serializeArgs = function (params) {
+          var pcs = [];
+          DISQUS.each(params, function (val, key) {
+              if (val !== undefined) {
+                  pcs.push(key + (val !== null ? "=" + encodeURIComponent(val) : ""));
+              }
+          });
+          return pcs.join("&");
+      };
+      DISQUS.serialize = function (url, params, nocache) {
+          if (params) {
+              url += (~url.indexOf("?") ? (url.charAt(url.length - 1) == "&" ? "" : "&") : "?");
+              url += DISQUS.serializeArgs(params);
+          }
+          if (nocache) {
+              var ncp = {};
+              ncp[(new Date()).getTime()] = null;
+              return DISQUS.serialize(url, ncp);
+          }
+          var len = url.length;
+          return (url.charAt(len - 1) == "&" ? url.slice(0, len - 1) : url);
+      };
+      var TIMEOUT_DURATION = 20000;
+      var addEvent, removeEvent;
+      if ("addEventListener" in window) {
+          addEvent = function (node, event, handler) {
+              node.addEventListener(event, handler, false);
+          };
+          removeEvent = function (node, event, handler) {
+              node.removeEventListener(event, handler, false);
+          };
+      } else {
+          addEvent = function (node, event, handler) {
+              node.attachEvent("on" + event, handler);
+          };
+          removeEvent = function (node, event, handler) {
+              node.detachEvent("on" + event, handler);
+          };
+      }
+      DISQUS.require = function (url, params, nocache, success, failure) {
+          var script = document.createElement("script");
+          var evName = script.addEventListener ? "load" : "readystatechange";
+          var timeout = null;
+          script.src = DISQUS.serialize(url, params, nocache);
+          script.async = true;
+          script.charset = "UTF-8";
+          function handler(ev) {
+              ev = ev || window.event;
+              if (!ev.target) {
+                  ev.target = ev.srcElement;
+              }
+              if (ev.type != "load" && !/^(complete|loaded)$/.test(ev.target.readyState)) {
+                  return;
+              }
+              if (success) {
+                  success();
+              }
+              if (timeout) {
+                  clearTimeout(timeout);
+              }
+              removeEvent(ev.target, evName, handler);
+          }
+          if (success || failure) {
+              addEvent(script, evName, handler);
+          }
+          if (failure) {
+              timeout = setTimeout(function () {
+                  failure();
+              }, TIMEOUT_DURATION);
+          }
+          head.appendChild(script);
+          return DISQUS;
+      };
+      DISQUS.requireStylesheet = function (url, params, nocache) {
+          var link = document.createElement("link");
+          link.rel = "stylesheet";
+          link.type = "text/css";
+          link.href = DISQUS.serialize(url, params, nocache);
+          head.appendChild(link);
+          return DISQUS;
+      };
+      DISQUS.requireSet = function (urls, nocache, callback) {
+          var remaining = urls.length;
+          DISQUS.each(urls, function (url) {
+              DISQUS.require(url, {}, nocache, function () {
+                  if (--remaining === 0) {
+                      callback();
+                  }
+              });
+          });
+      };
+      DISQUS.injectCss = function (css) {
+          var style = document.createElement("style");
+          style.setAttribute("type", "text/css");
+          css = css.replace(/\}/g, "}\n");
+          if (window.location.href.match(/^https/)) {
+              css = css.replace(/http:\/\//g, "https://");
+          }
+          if (style.styleSheet) {
+              style.styleSheet.cssText = css;
+          } else {
+              style.appendChild(document.createTextNode(css));
+          }
+          head.appendChild(style);
+      };
+      DISQUS.isString = function (val) {
+          return Object.prototype.toString.call(val) === "[object String]";
+      };
+  });
+  DISQUS.define("Events", function (window, undefined) {
+      "use strict";
+      var once = function (func) {
+          var ran = false, memo;
+          return function () {
+              if (ran) {
+                  return memo;
+              }
+              ran = true;
+              memo = func.apply(this, arguments);
+              func = null;
+              return memo;
+          };
+      };
+      var has = DISQUS.isOwn;
+      var keys = Object.keys || function (obj) {
+          if (obj !== Object(obj)) {
+              throw new TypeError("Invalid object");
+          }
+          var keys = [];
+          for (var key in obj) {
+              if (has(obj, key)) {
+                  keys[keys.length] = key;
+              }
+          }
+          return keys;
+      };
+      var slice = [].slice;
+      var Events = {on: function (name, callback, context) {
+          if (!eventsApi(this, "on", name, [callback, context]) || !callback) {
+              return this;
+          }
+          this._events = this._events || {};
+          var events = this._events[name] || (this._events[name] = []);
+          events.push({callback: callback, context: context, ctx: context || this});
+          return this;
+      }, once: function (name, callback, context) {
+          if (!eventsApi(this, "once", name, [callback, context]) || !callback) {
+              return this;
+          }
+          var self = this;
+          var onced = once(function () {
+              self.off(name, onced);
+              callback.apply(this, arguments);
+          });
+          onced._callback = callback;
+          return this.on(name, onced, context);
+      }, off: function (name, callback, context) {
+          var retain, ev, events, names, i, l, j, k;
+          if (!this._events || !eventsApi(this, "off", name, [callback, context])) {
+              return this;
+          }
+          if (!name && !callback && !context) {
+              this._events = {};
+              return this;
+          }
+          names = name ? [name] : keys(this._events);
+          for (i = 0, l = names.length; i < l; i++) {
+              name = names[i];
+              if (events = this._events[name]) {
+                  this._events[name] = retain = [];
+                  if (callback || context) {
+                      for (j = 0, k = events.length; j < k; j++) {
+                          ev = events[j];
+                          if ((callback && callback !== ev.callback && callback !== ev.callback._callback) || (context && context !== ev.context)) {
+                              retain.push(ev);
+                          }
+                      }
+                  }
+                  if (!retain.length) {
+                      delete this._events[name];
+                  }
+              }
+          }
+          return this;
+      }, trigger: function (name) {
+          if (!this._events) {
+              return this;
+          }
+          var args = slice.call(arguments, 1);
+          if (!eventsApi(this, "trigger", name, args)) {
+              return this;
+          }
+          var events = this._events[name];
+          var allEvents = this._events.all;
+          if (events) {
+              triggerEvents(events, args);
+          }
+          if (allEvents) {
+              triggerEvents(allEvents, arguments);
+          }
+          return this;
+      }, stopListening: function (obj, name, callback) {
+          var listeners = this._listeners;
+          if (!listeners) {
+              return this;
+          }
+          var deleteListener = !name && !callback;
+          if (typeof name === "object") {
+              callback = this;
+          }
+          if (obj) {
+              (listeners = {})[obj._listenerId] = obj;
+          }
+          for (var id in listeners) {
+              listeners[id].off(name, callback, this);
+              if (deleteListener) {
+                  delete this._listeners[id];
+              }
+          }
+          return this;
+      }};
+      var eventSplitter = /\s+/;
+      var eventsApi = function (obj, action, name, rest) {
+          if (!name) {
+              return true;
+          }
+          if (typeof name === "object") {
+              for (var key in name) {
+                  obj[action].apply(obj, [key, name[key]].concat(rest));
+              }
+              return false;
+          }
+          if (eventSplitter.test(name)) {
+              var names = name.split(eventSplitter);
+              for (var i = 0, l = names.length; i < l; i++) {
+                  obj[action].apply(obj, [names[i]].concat(rest));
+              }
+              return false;
+          }
+          return true;
+      };
+      var triggerEvents = function (events, args) {
+          var ev, i = -1, l = events.length, a1 = args[0], a2 = args[1], a3 = args[2];
+          switch (args.length) {
+            case 0:
+              while (++i < l) {
+                  (ev = events[i]).callback.call(ev.ctx);
+              }
+              return;
+            case 1:
+              while (++i < l) {
+                  (ev = events[i]).callback.call(ev.ctx, a1);
+              }
+              return;
+            case 2:
+              while (++i < l) {
+                  (ev = events[i]).callback.call(ev.ctx, a1, a2);
+              }
+              return;
+            case 3:
+              while (++i < l) {
+                  (ev = events[i]).callback.call(ev.ctx, a1, a2, a3);
+              }
+              return;
+            default:
+              while (++i < l) {
+                  (ev = events[i]).callback.apply(ev.ctx, args);
+              }
+          }
+      };
+      var listenMethods = {listenTo: "on", listenToOnce: "once"};
+      DISQUS.each(listenMethods, function (implementation, method) {
+          Events[method] = function (obj, name, callback) {
+              var listeners = this._listeners || (this._listeners = {});
+              var id = obj._listenerId || (obj._listenerId = DISQUS.getUid("l"));
+              listeners[id] = obj;
+              if (typeof name === "object") {
+                  callback = this;
+              }
+              obj[implementation](name, callback, this);
+              return this;
+          };
+      });
+      Events.bind = Events.on;
+      Events.unbind = Events.off;
+      return Events;
+  });
+  DISQUS.use("Bus");
+  _.extend(DISQUS.Bus, DISQUS.Events);
+

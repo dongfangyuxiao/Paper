@@ -1,0 +1,24 @@
+
+  function inliner(obj) {
+      if (window.inlined) {
+          return false;
+      }
+      window.inlined = true;
+      var href = obj.href + "&nochrome=1";
+      var appendPageContentsHere = $(obj).parent().parent().parent();
+      appendPageContentsHere.append("<div id=\"loadin\" style=\"padding:50px\"><hr/><h4><img src=\"/upload/ext/resources/images/default/tree/loading.gif\"/>loading...</h4><hr/></div>");
+      $.get(href, function (htm) {
+          var top = "<div id=\"begPgSpcr\" style=\"padding-bottom:17px;\"></div>";
+          var start = htm.indexOf(top);
+          var end = htm.indexOf("<div><hr style=\"clear:both;\"/></div>");
+          start = (start < 0 ? 0 : start + top.length);
+          if (end < 0) {
+              end = htm.length;
+          }
+          htm = htm.substr(start, end - start);
+          $("#loadin").remove();
+          appendPageContentsHere.append("<hr/>" + htm);
+      });
+      return false;
+  }
+

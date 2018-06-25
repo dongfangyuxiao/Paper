@@ -1,0 +1,18 @@
+
+  $(document).ready(function () {
+      var imgArr = new Array("/imgs/6ae65bb8720cea07f6e78bfb1d844b23.jpg", "/imgs/92dd6795db862b07e4b572bdc8607f61.jpg", "/imgs/fd2a9905e1fe7642d7a64ce77ae60aa2.jpg");
+      var preloadArr = new Array();
+      var i;
+      for (i = 0; i < imgArr.length; i++) {
+          preloadArr[i] = new Image();
+          preloadArr[i].src = imgArr[i];
+      }
+      var currImg = 1;
+      var intID = setInterval(changeImg, 3000);
+      function changeImg() {
+          $("#responsive_img").animate({opacity: 0}, 200, function () {
+              $(this).css("background", "url(" + preloadArr[currImg++ % preloadArr.length].src + ") top center no-repeat");
+          }).animate({opacity: 1}, 200);
+      }
+  });
+

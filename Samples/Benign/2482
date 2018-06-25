@@ -1,0 +1,11 @@
+
+  var TagAll = {showall: function (name, event) {
+      Y.util.Event.stopEvent(event);
+      function unhide(elem) {
+          YAHOO.util.Dom.replaceClass(elem, "hidden", "nothidden");
+      }
+      Y.util.Dom.getElementsByClassName("hidden", null, name, unhide);
+      var targetEl = Y.util.Event.getTarget(event);
+      YAHOO.util.Dom.addClass(targetEl, "hidden");
+  }};
+

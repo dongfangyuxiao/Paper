@@ -1,0 +1,30 @@
+
+  var videoPublicityDown = false;
+  var videoFuente = "0";
+  var url_cache = "http://ep02.epimg.net";
+  var url_reproductor_epet = "http://ep00.epimg.net/reproductores/playerPEP.swf";
+  var UrlPublicidad = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=%2F7811748%2Felpais_web%2Fplayer_video%2Fflash&ciu_szs=&impl=s&gdfp_req=1&env=vp&output=xml_vast2&correlator={random}&unviewed_position_start=1";
+  var UrlPublicidadOveron = "http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=%2F7811748%2Foveron_player%2Felpais_web%2Fflash&ciu_szs=&impl=s&gdfp_req=1&env=vp&output=xml_vast2&correlator={random}&unviewed_position_start=1";
+  var publicidad_HTML5 = true;
+  var postroll_HTML5 = true;
+  var listado_norm_tags = "enfermedades_infecciosas_a,transmision_enfermedades_a,asistencia_sanitaria_a,enfermedades_a,sanidad_a,medicina_a,salud_a,ebola_a,hospital_carlos_iii_a,teresa_romero_ramos_a,epidemia_a,hospitales_a,cuarentena_a,contagio_a,prevencion_enfermedades_a,personal_sanitario_a";
+  var DFP_tags = ["enfermedades_infecciosas_a", "transmision_enfermedades_a", "asistencia_sanitaria_a", "enfermedades_a", "sanidad_a", "medicina_a", "salud_a", "ebola_a", "hospital_carlos_iii_a", "teresa_romero_ramos_a", "epidemia_a", "hospitales_a", "cuarentena_a", "contagio_a", "prevencion_enfermedades_a", "personal_sanitario_a"];
+  var listado_id_tags = "29425,76584,15945,29409,71529,57568,71011,82292,82672,145384,29951,38349,143696,24273,83561,64896";
+  var referrer = document.referrer;
+  if (referrer.indexOf("http://t.co/") == 0 || (referrer.indexOf("twitter.com") > 0 && referrer.indexOf("twitter.com") < 30)) {
+      if (typeof (DFP_tags) != "undefined") {
+          DFP_tags.push("fromtwitter");
+      } else {
+          var DFP_tags = ["fromtwitter"];
+      }
+  }
+  var reg_ref_noticia = /http.?:\/\/[^\/]*\/[^\/]*\/\d+\/\d+\/\d+\/[^\/]*\/(.*?)\.html/i;
+  var result_rrn = reg_ref_noticia.exec(document.location.href);
+  if (result_rrn) {
+      if (typeof (DFP_tags) != "undefined") {
+          DFP_tags.push(result_rrn[1]);
+      } else {
+          var DFP_tags = [result_rrn[1]];
+      }
+  }
+

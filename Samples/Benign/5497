@@ -1,0 +1,73 @@
+
+  var curLeft;
+  $(document).ready(function () {
+      var baseWidth = parseInt($(".grid_indicators").css("width").substring(0, 3).valueOf());
+      var numChildren = $("#innerbanner").children().length;
+      $("#innerbanner").css("width", (baseWidth * numChildren));
+      $(".grid_leftArrowNav").css("background", "none");
+      curLeft = "auto";
+      $(".grid_rightArrowNav").hover(function () {
+          if ($(".grid_rightArrowNav").css("background-image") != "none") {
+              $(".grid_rightArrowNav").css("background-image", "url(/etc/designs/census/images/AppRotatorRight-hover.png)");
+          }
+      }, function () {
+          if ($(".grid_rightArrowNav").css("background-image") != "none") {
+              $(".grid_rightArrowNav").css("background-image", "url(/etc/designs/census/images/AppRotatorRight.png)");
+          }
+      });
+      $(".grid_rightArrowNav").click(function () {
+          var fullWidth = $("#innerbanner").css("width");
+          fullWidth = parseInt($("#innerbanner").css("width").substring(0, fullWidth.indexOf("px")).valueOf());
+          var containerWidth = $("#banner").css("width");
+          containerWidth = parseInt($("#banner").css("width").substring(0, containerWidth.indexOf("px")).valueOf());
+          if (curLeft == "auto") {
+              curLeft = 0;
+          } else {
+              curLeft = curLeft.valueOf();
+          }
+          var newLeft = curLeft + -(baseWidth);
+          if (Math.abs(newLeft) <= (fullWidth - containerWidth)) {
+              $("#innerbanner").animate({left: newLeft + "px"}, 800);
+              curLeft = newLeft;
+              $(".grid_leftArrowNav").css("background-image", "url(/etc/designs/census/images/AppRotatorLeft.png)");
+              if (Math.abs(newLeft) == (fullWidth - containerWidth)) {
+                  $(".grid_rightArrowNav").css("background", "none");
+              }
+          } else {
+              $(".grid_rightArrowNav").css("background", "none");
+          }
+          return false;
+      });
+      $(".grid_leftArrowNav").hover(function () {
+          if ($(".grid_leftArrowNav").css("background-image") != "none") {
+              $(".grid_leftArrowNav").css("background-image", "url(/etc/designs/census/images/AppRotatorLeft-hover.png)");
+          }
+      }, function () {
+          if ($(".grid_leftArrowNav").css("background-image") != "none") {
+              $(".grid_leftArrowNav").css("background-image", "url(/etc/designs/census/images/AppRotatorLeft.png)");
+          }
+      });
+      $(".grid_leftArrowNav").click(function () {
+          var newLeft;
+          var fullWidth = $("#innerbanner").css("width");
+          fullWidth = parseInt($("#innerbanner").css("width").substring(0, fullWidth.indexOf("px")).valueOf());
+          if (curLeft == "auto") {
+              curLeft = 0;
+          } else {
+              curLeft = curLeft.valueOf();
+          }
+          newLeft = curLeft + (baseWidth);
+          if (newLeft <= 0) {
+              $(".grid_rightArrowNav").css("background-image", "url(/etc/designs/census/images/AppRotatorRight.png)");
+              $("#innerbanner").animate({left: newLeft + "px"}, 800);
+              curLeft = newLeft;
+              if (newLeft == 0) {
+                  $(".grid_leftArrowNav").css("background", "none");
+              }
+          } else {
+              $(".grid_leftArrowNav").css("background", "none");
+          }
+          return false;
+      });
+  });
+

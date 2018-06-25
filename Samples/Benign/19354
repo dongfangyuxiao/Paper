@@ -1,0 +1,17 @@
+
+  var impressions;
+  setInterval(function () {
+      randomInt = getRandomInt(0, impressions.length - 1);
+      $("#counter").text(impressions[randomInt]);
+  }, 2000);
+  var url = "http://s3.amazonaws.com/content.issuu.com/about/impressions.json?callback=callme";
+  $.ajax({type: "GET", url: url, async: false, contentType: "text/javascript", dataType: "jsonp"});
+  function callme(data) {
+      impressions = data.impressions;
+      randomInt = getRandomInt(0, impressions.length - 1);
+      $("#counter").text(impressions[randomInt]);
+  }
+  function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+

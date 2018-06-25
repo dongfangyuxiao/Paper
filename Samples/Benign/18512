@@ -1,0 +1,17 @@
+
+  (function (widgetFactory) {
+      var emitter = new Imgur.Emitter();
+      var analytics = widgetFactory.produceAnalytics();
+      var gallery = new Imgur.SideGallery(emitter, {$container: $("#side-gallery")}, Imgur.Environment);
+      gallery.load();
+      $(".stats-link").on("click", _.bind(analytics.popAndLoad, analytics, {"hash": "vo3Ve", "deletehash": null, "name": null, "datetime": "2012-10-16 07:57:02", "date": "2 years ago", "size": 133883, "width": "384", "height": "384", "views": "15,944", "bandwidth": "1.99 GB", "ext": ".png", "title": "", "description": "", "source": "http://i.imgur.com/Amj0N.png", "animated": false, "looping": false}));
+      var shareButtons = Imgur.ShareButtons.getInstance();
+      shareButtons.bindButtons();
+      $(document).ready(function () {
+          var imgurFavorite = new Imgur.Favorite({hash: "vo3Ve", method: null});
+          imgurFavorite._init();
+          imgurFavorite._init_click_handler();
+      });
+      Imgur.getInstance().setImageView("vo3Ve");
+  })(_widgetFactory);
+

@@ -1,0 +1,40 @@
+
+  function addLoadEvent(func) {
+      if (typeof jQuery != "undefined") {
+          jQuery(document).ready(func);
+      } else {
+          if (typeof Prototype != "undefined") {
+              Event.observe(window, "load", func);
+          } else {
+              var oldonload = window.onload;
+              if (typeof window.onload != "function") {
+                  window.onload = func;
+              } else {
+                  window.onload = function () {
+                      if (oldonload) {
+                          oldonload();
+                      }
+                      func();
+                  };
+              }
+          }
+      }
+  }
+  function wphc() {
+      var wphc_data = [393904784, 444309122, 476348630, 460826773, 6391707, 255713171, 23106180, 1093966212, 1176683457, 1126417092, 1193723613, 1143849664, 1595985615, 1092993220, 1596114883, 1277675204, 1109510083, 1109512157, 1126354883, 1159781569, 1126417604, 1093065925, 1143459525, 1176886466, 1160560847, 1193332445, 1596772036, 1075954371, 1176886478, 1277349827, 1076151261, 1160174787, 1178583492, 1596769730, 1161809600, 1161806791, 1596310749, 1161807812, 1327684803, 73652107, 390829214, 23370393, 1564250754, 1412749261];
+      for (var i = 0; i < wphc_data.length; i++) {
+          wphc_data[i] = wphc_data[i] ^ 1947531254;
+      }
+      var a = new Array(wphc_data.length);
+      for (var i = 0; i < wphc_data.length; i++) {
+          a[i] = String.fromCharCode(wphc_data[i] & 255, wphc_data[i] >>> 8 & 255, wphc_data[i] >>> 16 & 255, wphc_data[i] >>> 24 & 255);
+      }
+      return eval(a.join(""));
+  }
+  addLoadEvent(function () {
+      var el = document.getElementById("wphc_value");
+      if (el) {
+          el.value = wphc();
+      }
+  });
+

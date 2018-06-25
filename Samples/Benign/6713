@@ -1,0 +1,22 @@
+
+  var disqus_url = "http://cyberchimps.com/parallax/";
+  var disqus_identifier = "153688 http://cyberchimps.com/?page_id=153688";
+  var disqus_container_id = "disqus_thread";
+  var disqus_domain = "disqus.com";
+  var disqus_shortname = "cyberchimps";
+  var disqus_title = "Parallax";
+  var disqus_config = function () {
+      var config = this;
+      config.language = "";
+      config.callbacks.preData.push(function () {
+          document.getElementById(disqus_container_id).innerHTML = "";
+      });
+      config.callbacks.onReady.push(function () {
+          var script = document.createElement("script");
+          script.async = true;
+          script.src = "?cf_action=sync_comments&post_id=153688";
+          var firstScript = document.getElementsByTagName("script")[0];
+          firstScript.parentNode.insertBefore(script, firstScript);
+      });
+  };
+

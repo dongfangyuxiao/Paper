@@ -1,0 +1,14 @@
+
+  $(function () {
+      var params = {token: "Qoj2OfkZAP+VkFOQMux5qY7SxgOXRY10FClAKk+3gTY=", debug: false, session: ""};
+      if (window.SiteBuzz) {
+          window.Page = new SiteBuzz(params);
+      } else {
+          if (window.SitePage) {
+              window.Page = new SitePage(params);
+          } else {
+              window.Page = new IndiePage(params);
+          }
+      }
+  });
+

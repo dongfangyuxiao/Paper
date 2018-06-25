@@ -1,0 +1,90 @@
+
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-52004991-1"]);
+  (function () {
+      var ga = document.createElement("script");
+      ga.type = "text/javascript";
+      ga.async = true;
+      ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+  var OneNote = (function () {
+      var fnName = "fn" + (new Date()).getTime();
+      var support = {MSIE: 8, Chrome: 30, Firefox: 24};
+      window[fnName] = function () {
+          if (typeof OneNoteBookmarklet === "undefined") {
+              window.clipperId = "ON-1ea43a57-3a77-45fc-b174-af2cf6a31530";
+              var jsCode = document.createElement("script");
+              jsCode.setAttribute("src", "https://www.onenote.com/Clipper/Root?NoAuth=1");
+              jsCode.setAttribute("id", "oneNoteCaptureRootScript");
+              jsCode.setAttribute("type", "text/javascript");
+              document.body.appendChild(jsCode);
+          }
+      };
+      function getBrowser() {
+          var ua = navigator.userAgent, tem, m = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+          if (/trident/i.test(m[1])) {
+              tem = /\brv[ :]+(\d+)/g.exec(ua) || [];
+              return {type: "MSIE", version: (tem[1] || "")};
+          }
+          if (m[1] === "Chrome") {
+              tem = ua.match(/\bOPR\/(\d+)/);
+              if (tem != null) {
+                  return {type: "Opera", version: tem[1]};
+              }
+          }
+          m = m[2] ? [m[1], m[2]] : [navigator.appName, navigator.appVersion, "-?"];
+          if ((tem = ua.match(/version\/(\d+)/i)) != null) {
+              m.splice(1, 1, tem[1]);
+          }
+          return {type: m[0], version: m[1]};
+      }
+      function isSupport() {
+          try {
+              var browser = getBrowser(), type = browser.type, version = parseInt(browser.version), isSupport = support[type] && (version > support[type]);
+              return isSupport;
+          }
+          catch (err) {
+              return false;
+          }
+      }
+      function onClick() {
+          window[fnName]();
+          _gaq.push(["_trackEvent", "Button", "Click"]);
+      }
+      return {displayBtn: isSupport(), onClick: onClick};
+  })();
+  (function () {
+      if (OneNote.displayBtn) {
+          var onenoteBtnList = getDomList("div", "oneNoteBtnArea");
+          if (onenoteBtnList.length === 0) {
+              return;
+          }
+          for (var i = 0, l = onenoteBtnList.length; i < l; i++) {
+              onenoteBtnList[i].style.display = "block";
+              onenoteBtnList[i].onclick = function () {
+                  OneNote.onClick();
+              };
+          }
+      }
+      function getDomList(el, className) {
+          var domList = [];
+          if (document.getElementsByClassName) {
+              domList = document.getElementsByClassName(className);
+          } else {
+              var divList = document.getElementsByTagName(el);
+              if (divList.length === 0) {
+                  return;
+              }
+              for (var i = 0, l = divList.length; i < l; i++) {
+                  var cName = divList[i].getAttribute("className") || divList[i].getAttribute("class");
+                  if (cName.indexOf(className) !== -1) {
+                      domList.push(divList[i]);
+                  }
+              }
+          }
+          return domList;
+      }
+  })();
+

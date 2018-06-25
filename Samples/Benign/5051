@@ -1,0 +1,104 @@
+
+  $(document).ready(function () {
+      var scale = 0.5;
+      var points = 30;
+      var origins = {horizontal: {coordinate: -121.4944, pixel: 92}, vertical: {coordinate: 38.5816, pixel: 147}};
+      var zoom = {horizontal: 98 / 3.2507, vertical: 186 / 4.5294};
+      var size = {};
+      var calculateVertical = function (value, origins, zoom, radius) {
+          value = value * 1;
+          value = origins.vertical.coordinate - value;
+          value = value * zoom.vertical;
+          value = value + origins.vertical.pixel;
+          value = value - radius;
+          value = value + "";
+          if (value.indexOf(".") != -1) {
+              value = value.substr(0, value.indexOf("."));
+          }
+          value = value * 1;
+          return value;
+      };
+      var calculateHorizontal = function (value, origins, zoom, radius) {
+          value = value * 1;
+          value = value - origins.horizontal.coordinate;
+          value = value * zoom.horizontal;
+          value = value + origins.horizontal.pixel;
+          value = value - radius;
+          value = value + "";
+          if (value.indexOf(".") != -1) {
+              value = value.substr(0, value.indexOf("."));
+          }
+          value = value * 1;
+          return value;
+      };
+      var calculateSize = function (value, size) {
+          var zoom = (size.maxSize - size.minSize) / (size.maxVisitors - size.minVisitors);
+          value = value * 1;
+          value = value - size.minVisitors;
+          value = value * zoom;
+          value = value + size.minSize;
+          value = value + "";
+          if (value.indexOf(".") != -1) {
+              value = value.substr(0, value.indexOf("."));
+          }
+          return value;
+      };
+      var animate = function (index, item) {
+          setTimeout(function () {
+              if (index > points) {
+                  return false;
+              }
+              var diameter = calculateSize(item[2], size) - 6;
+              var radius = diameter / 2;
+              var deltaRadius = radius - size.minRadius;
+              var top = calculateVertical(item[0], origins, zoom, size.minRadius) * scale;
+              var left = calculateHorizontal(item[1], origins, zoom, size.minRadius) * scale;
+              var bubble = $("#map_439582365 .obj_bubbleTemplate").clone();
+              bubble.removeClass("obj_bubbleTemplate").show();
+              bubble.css({"height": size.minSize + "px", "width": size.minSize + "px", "top": top + "px", "left": left + "px"});
+              bubble.appendTo($("#map_439582365"));
+              bubble.qtip({content: item[3] + " Visitors: " + item[2]});
+              bubble.animate({height: "+=" + (diameter - size.minSize), width: "+=" + (diameter - size.minSize), top: "-=" + deltaRadius, left: "-=" + deltaRadius}, 1500).fadeOut(8000, function () {
+                  bubble.qtip("destroy");
+                  bubble.remove();
+                  setTimeout(function () {
+                      animate(index, item);
+                  }, (points - 10) * 500);
+              });
+          }, index * 500);
+      };
+      var paint = function (rows) {
+          var dimensions = {width: 328, height: 406};
+          $("#map_439582365 img").width(dimensions.width * scale);
+          $("#map_439582365 img").height(dimensions.height * scale);
+          size = {maxSize: 40, minSize: 10, minRadius: 5, maxVisitors: rows[0][2], minVisitors: rows[points][2]};
+          var total = 0;
+          for (var x = 0; x < rows.length; x++) {
+              total += rows[x][2];
+              animate(x, rows[x]);
+          }
+      };
+      Util.AJAXLoadData("Metrics/GetVisitors", {range: "Day", type: "coordinate"}, function (data) {
+          paint(DataUtil.generateRows(data, ["ga:latitude", "ga:longitude"], ["ga:latitude", "ga:longitude", "ga:visitors", "ga:city"], []));
+      });
+  });
+  $(document).ready(function () {
+      Util.AJAXLoadData("Metrics/GetVisitors", {range: "Day", type: "general"}, function (data) {
+          var rows = DataUtil.generateRows(data, ["ga:day", "ga:hour"], ["ga:visitors"], []);
+          var value = 42;
+          if (rows.length > 1) {
+              value = rows[rows.length - 2][0];
+          } else {
+              if (rows.length == 1) {
+                  value = rows[rows.length - 1][0];
+              }
+          }
+          value = value + "";
+          var result = "";
+          for (var index = 0; index < value.length; index++) {
+              result = value.substr(value.length - (index + 1), 1) + ((index != 0 && index % 3 == 0) ? "," : "") + result;
+          }
+          $("#divTotalNumberOfVisitors_3489287342").text(result);
+      });
+  });
+

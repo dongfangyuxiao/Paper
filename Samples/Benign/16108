@@ -1,0 +1,17 @@
+
+  var css = "100%";
+  var wsStyleVar = document.createElement("style");
+  var wsContentVar = "";
+  wsContentVar += "html{";
+  wsContentVar += css;
+  wsContentVar += "}";
+  wsStyleVar.setAttribute("type", "text/css");
+  if (wsStyleVar.styleSheet) {
+      wsStyleVar.styleSheet.cssText = wsContentVar;
+  } else {
+      var tt1 = document.createTextNode(wsContentVar);
+      wsStyleVar.appendChild(tt1);
+  }
+  var wsHeadVar = document.getElementsByTagName("head")[0];
+  wsHeadVar.appendChild(wsStyleVar);
+

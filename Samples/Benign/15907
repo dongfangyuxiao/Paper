@@ -1,0 +1,140 @@
+
+  $(window).load(function () {
+  });
+  function hideIframeOverlayReload() {
+      $("#overlay5").children("a.close").trigger("click");
+      try {
+          var search = location.search.substring(1);
+          var pairs = search.split("&");
+          var params = {};
+          for (i in pairs) {
+              var tmp = pairs[i].split("=");
+              params[tmp[0]] = tmp[1];
+          }
+          var dest = (params["dest"]) ? params["dest"] : "http://www.icq.com";
+          document.location = dest;
+      }
+      catch (e) {
+      }
+  }
+  function hideIframeOverlay() {
+      $("#overlay5").children("a.close").trigger("click");
+  }
+  var login_box_iframe = null;
+  $(document).ready(function () {
+      $("#search").submit(function () {
+          if ($("#search_keyword").val() == "" || $("#search_keyword").val() == "") {
+              return false;
+          }
+      });
+      var isUIn = (document.cookie.indexOf("karma_session") != -1 || document.cookie.indexOf("karma_ud") != -1);
+      if (isUIn) {
+          $("#login").hide();
+          $(".bottom_links").hide();
+          var uName = "";
+          if (!(uName = getCookie("karma_nick"))) {
+              document.location.href = "/logout";
+          } else {
+              $("#header_userbox_button").text(uName);
+              $("#login_box").addClass("user-box");
+              $("#logout").show();
+          }
+      } else {
+          $("#login").show();
+          $(".bottom_links").show();
+          $("#logout").hide();
+      }
+      login_box_iframe = $("#login_box iframe");
+      var k_session = getCookie("karma_session");
+      login_box_iframe.attr("src", "//www.icq.com/login-box/it?r=" + Math.round(Math.random() * 100000));
+      k_session && login_box_iframe.load(function () {
+          if (!getCookie("karma_session")) {
+              window.location.reload();
+          }
+      });
+      if (isUIn) {
+          var headerSelector = "header_userbox_button";
+      } else {
+          var headerSelector = "header_login_button";
+      }
+      $("#" + headerSelector).click(function (e) {
+          e.preventDefault();
+          if ($("#login_box").css("visibility") == "hidden") {
+              $("#login_box").css("display", "none");
+              $("#login_box").css("visibility", "visible");
+          }
+          $("#login_box").slideToggle();
+          try {
+              if (login_box_iframe.document.getElementById("emailuin")) {
+                  login_box_iframe.document.getElementById("emailuin").value = "";
+              }
+              if (login_box_iframe.document.getElementById("password")) {
+                  login_box_iframe.document.getElementById("password").value = "";
+              }
+          }
+          catch (err) {
+          }
+      }).dblclick(function () {
+          $("#login_box").slideToggle();
+      });
+      $(document).click(function (e) {
+          clicked_target = $(e.target);
+          if (clicked_target.attr("id") != headerSelector && clicked_target.attr("id") != "login_box" && clicked_target.parents("#login_box").length == 0) {
+              $("#login_box").slideUp();
+          }
+      });
+      $(".clearText").each(function () {
+          var fallBack = $("#" + $(this).attr("name") + "_text").val();
+          $(this).focusin(function () {
+              if ($(this).val() == fallBack) {
+                  $(this).val("");
+              }
+          }).focusout(function () {
+              if ($(this).val() == "") {
+                  $(this).val(fallBack);
+              }
+          });
+      });
+      var today = new Date();
+      today.setTime(today.getTime());
+      var expiredays = new Date(today.getTime() + 1987488000);
+      document.cookie = "icq_lang=" + escape("it") + ";expires=" + expiredays.toGMTString() + ";path=/" + ";domain=.icq.com";
+      if (($.browser.msie && $.browser.version <= 7)) {
+          $(".box").each(function () {
+              if (!$(this).parent().hasClass("overlay")) {
+                  var centerWidth = $(this).find("div.content").width();
+                  $(this).css({"width": (centerWidth) + "px"});
+              }
+          });
+      }
+      $(".bindToHref").each(function () {
+          $(this).click(function () {
+              var gaCategory = $(this).find("a").attr("ga-category") || "";
+              var gaAction = $(this).find("a").attr("ga-action") || "";
+              var gaLabel = $(this).find("a").attr("ga-label") || "";
+              trackGaEvent(gaCategory, gaAction, gaLabel);
+              var href = $(this).find("a").attr("href");
+              var target = $(this).find("a").attr("target");
+              var post_url = $(this).find("a").attr("post_url");
+              if ($(this).hasClass("webICQ")) {
+                  sOptions = "resizable=yes ,width=300 ,height=600 ,directories=no,titlebar=no,scrollbars=no,status=no,menubar=no,toolbar=no,location=yes";
+                  window.open(href, "_blank", sOptions);
+                  return false;
+              }
+              if (!$(this).hasClass("triggerOverlay")) {
+                  if (target == "_blank") {
+                      window.open(href);
+                  } else {
+                      setTimeout(function () {
+                          window.location = href;
+                      }, 200);
+                  }
+              }
+              return false;
+          });
+      });
+  });
+  function trackGaEvent(category, action, label) {
+      _gaq.push(["_trackEvent", category, action, label]);
+  }
+

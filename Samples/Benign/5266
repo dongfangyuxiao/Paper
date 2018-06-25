@@ -1,0 +1,13 @@
+
+  try {
+      var is_logged_in = false;
+      var rollupTracker = _gat._getTracker("UA-2438645-53");
+      rollupTracker._setCustomVar(1, "User Type", is_logged_in ? "User" : "Guest", 2);
+      rollupTracker._trackPageview();
+      var pageTracker = _gat._getTracker("UA-27919026-19");
+      pageTracker._setCustomVar(1, "User Type", is_logged_in ? "User" : "Guest", 2);
+      pageTracker._trackPageview("/category/news" + window.location.pathname + "?cat=news;cat=category;");
+  }
+  catch (err) {
+  }
+

@@ -1,0 +1,14 @@
+
+  window.addEvent("domready", function () {
+      var myFx = new Fx.Slide("policies_more_infos", {duration: 1, transition: Fx.Transitions.Sine.easeInOut});
+      myFx.slideOut();
+      $("close").toggle();
+  });
+  function toggle_infos() {
+      var myFx = new Fx.Slide("policies_more_infos", {duration: 2000, transition: Fx.Transitions.Sine.easeInOut});
+      myFx.toggle();
+      $("open").toggle();
+      $("close").toggle();
+      return false;
+  }
+

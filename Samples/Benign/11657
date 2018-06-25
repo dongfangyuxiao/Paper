@@ -1,0 +1,95 @@
+
+  var kkeys = [], kk = "38,38,40,40,37,39,37,39,66,65";
+  $(document).keydown(function (e) {
+      kkeys.push(e.keyCode);
+      if (kkeys.toString().indexOf(kk) >= 0) {
+          $(document).unbind("keydown", arguments.callee);
+          $.getScript("/js/fall.php?hash=767fc9c115a1b989744c755db47feb60", function () {
+          });
+      }
+  });
+  function preload_img(img) {
+      var cacheImage = document.createElement("img");
+      cacheImage.src = img;
+  }
+  function display_img(idx, change_url) {
+      if (!$("#photo-" + idx).length) {
+          idx = 0;
+      }
+      $(".gallery-main a").removeClass().addClass("photo-" + idx);
+      highlight_img(idx);
+      $(".gallery-main a").attr("href", "#photo-" + (idx * 1 + 1));
+      $(".gallery-main a").unbind("click").click(function () {
+          display_img((idx * 1 + 1));
+          return false;
+      });
+      if (idx > 0) {
+          $(".gallery-browser").scrollTo("#photo-" + idx + "-wrap", {duration: 500});
+      } else {
+          $(".gallery-browser").scrollTo(0, {duration: 500});
+      }
+      if ("undefined" == typeof change_url || true == change_url) {
+          document.location.hash = "pic-" + idx;
+      }
+      curr_image = idx;
+  }
+  function highlight_img(idx, change_url) {
+      $(".photo-wrap").removeClass("sel");
+      $("#photo-" + idx + "-wrap").addClass("sel");
+  }
+  function resize_container_to_background_img(sel) {
+      var $obj = $(sel);
+      var actualImage = new Image();
+      actualImage.src = $obj.css("background-image").replace(/"/g, "").replace(/url\(|\)$/ig, "");
+      actualImage.onload = function () {
+          if (window.devicePixelRatio >= 1.5) {
+              $obj.width(this.width / 2);
+              $obj.height(this.height / 2);
+          } else {
+              $obj.width(this.width);
+              $obj.height(this.height);
+          }
+      };
+  }
+  var curr_image = 0;
+  $(document).bind("ready", function () {
+      if ("" != document.location.hash) {
+          curr_image = document.location.hash.match(/#pic-([0-9]+)/)[1];
+      }
+      display_img(curr_image, false);
+      $(document).bind("keydown", function (e) {
+          if (39 == e.keyCode) {
+              display_img((curr_image * 1 + 1), true);
+          }
+      });
+      $(document).bind("keydown", function (e) {
+          if (37 == e.keyCode) {
+              display_img((curr_image * 1 - 1), true);
+          }
+      });
+      resize_container_to_background_img("#photo-0");
+      resize_container_to_background_img("#photo-1");
+      resize_container_to_background_img("#photo-2");
+      resize_container_to_background_img("#photo-3");
+      resize_container_to_background_img("#photo-4");
+      resize_container_to_background_img("#photo-5");
+      preload_img("http://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?size=420");
+      preload_img("http://2.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a?size=420");
+      preload_img("http://1.gravatar.com/userimage/5/2873000ea367cd46cae55418e4eac32c?size=420");
+      preload_img("http://0.gravatar.com/userimage/5/3aa58fdf72ca25952c84b3ac4333d3f9?size=420");
+      preload_img("http://2.gravatar.com/userimage/5/996e579d06df6e3397c29ce1cc4c6799?size=420");
+      preload_img("http://2.gravatar.com/userimage/5/ff5263e8c30557b57e64423ee8496e41?size=420");
+      if (window.devicePixelRatio >= 1.5) {
+          $(".list-sites img").each(function () {
+              $(this).attr("src", $(this).attr("src").replace(/w=180/, "w=360"));
+          });
+          preload_img("http://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?size=840");
+          preload_img("http://2.gravatar.com/userimage/5/04bbd674f72c703f6335e2e7a00acc9a?size=840");
+          preload_img("http://1.gravatar.com/userimage/5/2873000ea367cd46cae55418e4eac32c?size=840");
+          preload_img("http://0.gravatar.com/userimage/5/3aa58fdf72ca25952c84b3ac4333d3f9?size=840");
+          preload_img("http://2.gravatar.com/userimage/5/996e579d06df6e3397c29ce1cc4c6799?size=840");
+          preload_img("http://2.gravatar.com/userimage/5/ff5263e8c30557b57e64423ee8496e41?size=840");
+      }
+  });
+  window.opener = null;
+

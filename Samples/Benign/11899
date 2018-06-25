@@ -1,0 +1,20 @@
+
+  jQuery.noConflict();
+  (function ($) {
+      $(function () {
+          $(document).ready(function ($) {
+              $(".lightbox_container").contents().filter(function () {
+                  return this.nodeType == 3;
+              }).remove();
+              $(".lightbox_container > img").remove();
+              $(".lightbox_container a").each(function (i, e) {
+                  var link_text = $(e).parent().children("span.link-text").text();
+                  $(e).colorbox({rel: "gal", title: function () {
+                      var url = $(this).attr("href").replace("_big.jpg", ".pdf");
+                      return "<a target=\"_blank\" href=\"" + url + "\">" + link_text + "</a>";
+                  }});
+              });
+          });
+      });
+  })(jQuery);
+

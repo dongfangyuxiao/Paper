@@ -1,0 +1,18 @@
+
+  (function () {
+      var newLocation = encodeURIComponent(window.location.pathname).replace(/[\.!~*'\(\)]/g, "_");
+      newLocation = newLocation.replace(/%2F/g, "-").replace(/^-/, "").replace(/-$/, "");
+      if (newLocation === "") {
+          newLocation = "homepage";
+      }
+      $("body").addClass("" + newLocation);
+  }());
+  $(function ($) {
+      $("a[href=\"" + window.location.pathname + "\"]").addClass("page-active");
+  });
+  $(document).delegate("[data-toggle-selector]", "click", function (e) {
+      var $this = $(this);
+      $($this.attr("data-toggle-selector")).toggle();
+      e.preventDefault();
+  });
+

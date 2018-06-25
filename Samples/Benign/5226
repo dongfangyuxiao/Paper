@@ -1,0 +1,16 @@
+
+  var ads_cluster = new Array();
+  cbs_ads_zone = "default";
+  cbs_ads_tags = ["page", "aboutus"];
+  cbs_partner_inject();
+  googletag.cmd.push(function () {
+      googletag.pubads().enableAsyncRendering();
+      ads_cluster["ad_1"] = googletag.defineSlot("/4128/CBS.LOCAL/" + cbs_ads_zone + "", [[970, 66], [728, 90]], "ad_1").addService(googletag.pubads()).setTargeting("tag", cbs_ads_tags).setTargeting("loc", "top").setTargeting("pos", 1).setTargeting("type", "page").setTargeting("title", "aboutus").setCollapseEmptyDiv(true);
+      var ad_skin_1 = googletag.defineOutOfPageSlot("/4128/CBS.LOCAL/" + cbs_ads_zone + "", "ad_skin_1").addService(googletag.pubads()).setTargeting("tag", cbs_ads_tags);
+      ads_cluster["ad_4"] = googletag.defineSlot("/4128/CBS.LOCAL/" + cbs_ads_zone + "", [[728, 90]], "ad_4").addService(googletag.pubads()).setTargeting("tag", cbs_ads_tags).setTargeting("loc", "bottom").setTargeting("pos", 4).setTargeting("type", "page").setTargeting("title", "aboutus").setCollapseEmptyDiv(true);
+      googletag.enableServices();
+      googletag.display("ad_1");
+      googletag.display("ad_skin_1");
+      googletag.display("ad_4");
+  });
+

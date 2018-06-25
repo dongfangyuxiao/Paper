@@ -1,0 +1,18 @@
+
+  google.load("visualization", "1", {packages: ["geochart"]});
+  google.load("visualization", "1", {packages: ["corechart"]});
+  var settings = {pointDimensions: ["ga:day", "ga:hour"], filters: [], displayMetrics: ["ga:hour", "ga:visitors", "ga:newVisits"], cachedData: [], refreshData: true, range: "Day", type: "general"};
+  $(document).ready(function () {
+      $("#lnkLoadMetricsMap").click(function () {
+          Util.LoadWorkspace("metrics/newmap");
+      });
+      $("#lnkLoadMetricsVisits").click(function () {
+          Util.LoadWorkspace("metrics/visits");
+      });
+      $("#lnkUpdateMetrics").click(function () {
+          Util.AJAXLoadData("Methods/UpdateVisitorMetrics", {}, function () {
+              alert("Success.");
+          });
+      });
+  });
+

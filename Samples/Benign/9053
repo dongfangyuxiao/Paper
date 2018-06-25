@@ -1,0 +1,99 @@
+
+  function ValidateForm1() {
+      var emailID = document.getElementById("email");
+      var firstname = document.getElementById("first_name").value;
+      var lastname = document.getElementById("last_name").value;
+      var description = document.getElementById("description").value;
+      var phone = document.getElementById("phone").value;
+      if ((firstname == null) || (firstname == "")) {
+          alert("Please enter your first name");
+          return false;
+      }
+      if ((lastname == null) || (lastname == "")) {
+          alert("Please enter your last name");
+          return false;
+      }
+      if ((emailID.value == null) || (emailID.value == "")) {
+          alert("Please enter your email");
+          emailID.focus();
+          return false;
+      }
+      if (echeck(emailID.value) == false) {
+          emailID.value = "";
+          emailID.focus();
+          return false;
+      }
+      if ((phone == null) || (phone == "")) {
+          alert("Please enter phone number");
+          return false;
+      }
+      if ((description == null) || (description == "")) {
+          alert("Please enter a message");
+          return false;
+      }
+      if (jcap() == false) {
+          return false;
+      }
+      return true;
+  }
+  function echeck(str) {
+      var at = "@";
+      var dot = ".";
+      var lat = str.indexOf(at);
+      var lstr = str.length;
+      var ldot = str.indexOf(dot);
+      if (str.indexOf(at) == -1) {
+          alert("Invalid email address");
+          return false;
+      }
+      if (str.indexOf(at) == -1 || str.indexOf(at) == 0 || str.indexOf(at) == lstr) {
+          alert("Invalid email address");
+          return false;
+      }
+      if (str.indexOf(dot) == -1 || str.indexOf(dot) == 0 || str.indexOf(dot) == lstr) {
+          alert("Invalid email address");
+          return false;
+      }
+      if (str.indexOf(at, (lat + 1)) != -1) {
+          alert("Invalid email address");
+          return false;
+      }
+      if (str.substring(lat - 1, lat) == dot || str.substring(lat + 1, lat + 2) == dot) {
+          alert("Invalid email address");
+          return false;
+      }
+      if (str.indexOf(dot, (lat + 2)) == -1) {
+          alert("Invalid email address");
+          return false;
+      }
+      if (str.indexOf(" ") != -1) {
+          alert("Invalid email address");
+          return false;
+      }
+      return true;
+  }
+  function validateForm(ID) {
+      searchTerm = trim(document.getElementById(ID).value);
+      if (searchTerm == "Enter a keyword or domain name.") {
+          alert("Please enter a search term.");
+          return false;
+      }
+      if (searchTerm.length < 2) {
+          alert("Please enter at least 2 characters.");
+          return false;
+      }
+      if (searchTerm.indexOf(" ") >= 0) {
+          alert("Please do not include spaces in your search term.");
+          document.getElementById(ID).focus();
+          return false;
+      }
+      return true;
+  }
+  function submitOnEnter(keyCode) {
+      if (keyCode == 13) {
+          if (validateForm()) {
+              document.tranSearchForm.submit();
+          }
+      }
+  }
+

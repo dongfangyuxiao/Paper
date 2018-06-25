@@ -1,0 +1,16 @@
+
+  function tapeoftheday() {
+      var currentTime = new Date();
+      var month = currentTime.getMonth() + 1;
+      var day = currentTime.getDate();
+      if (month < 10) {
+          month = "0" + month;
+      }
+      if (day < 10) {
+          day = "0" + day;
+      }
+      var url = "/search.php?query=collection:etree AND title:\"-" + month + "-" + day + "\"&sort=-date";
+      window.location = url;
+      return false;
+  }
+

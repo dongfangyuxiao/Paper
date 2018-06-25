@@ -1,0 +1,347 @@
+
+  var LOCATION_SEARCH_URL = "/Widgets/Search/LocationResults";
+  var searchTextBox = document.getElementById("leftColumn_txtSearch");
+  var servicesContainer = document.getElementById("map_location_services");
+  var noJSContainer = document.getElementById("leftColumn_pnlResultsNoJS");
+  var serviceArray = [];
+  var locHttp;
+  var locJsonObj;
+  var queryString;
+  processMarkers = false;
+  buildPager = true;
+  searchTextBox.onkeyup = function () {
+      noJSContainer.style.display = "none";
+      if (activeTab != 4) {
+          keySearch(this, function (panelNum) {
+              resizePanels(panelNum);
+          });
+      } else {
+          mapSearch(this);
+      }
+  };
+  function resizePanels(panelNum) {
+      document.getElementById("panel_searchapp_" + panelNum.toString()).style.height = "auto";
+      document.getElementById("tabpanel_ul").style.height = (document.getElementById("panel_searchapp_" + panelNum.toString()).scrollHeight + 20).toString() + "px";
+  }
+  function tabpanel_searchapp_onclick(panelnum) {
+      activeTab = panelnum;
+      if (panelnum == 4) {
+          resizePanels(panelnum);
+          google.maps.event.trigger(map, "resize");
+          map.setCenter(new google.maps.LatLng(lat, long));
+          map.setZoom(MAP_DEFAULT_ZOOM - 1);
+      }
+      if (searchTextBox.value.length >= CHARS_TO_START_SEARCH && activeTab != 4) {
+          clearAllMarkers();
+          clearAllServices(servicesContainer);
+          getSearchResults();
+      } else {
+          if (searchTextBox.value.length >= CHARS_TO_START_SEARCH && activeTab == 4) {
+              clearAllMarkers();
+              clearPagerControls();
+              clearAllServices(servicesContainer);
+              getMapResults();
+          }
+      }
+  }
+  function mapSearch(control, callback) {
+      if (callback != null) {
+          callbackFunction = callback;
+      }
+      if (divHeadSearchResults == null) {
+          loadCommonControls(searchTextBox);
+      }
+      if (control.value.length >= CHARS_TO_START_SEARCH) {
+          if (searchString != control.value) {
+              clearAllMarkers();
+              clearPagerControls();
+              clearAllServices(servicesContainer);
+              divHeadSearchResults.style.visibility = "visible";
+              searchString = control.value;
+              clearTimeout(timer);
+              timer = setTimeout(function callGetMapResults() {
+                  getMapResults();
+              }, TIME_WAIT_BETWEEN_KEYS);
+          }
+      }
+  }
+  function getMapResults() {
+      var newLat = (getCookie("location_lat") != null && getCookie("location_lat") != "" ? parseFloat(getCookie("location_lat")) : MAP_DEFAULT_LAT);
+      var newLong = (getCookie("location_lng") != null && getCookie("location_lng") != "" ? parseFloat(getCookie("location_lng")) : MAP_DEFAULT_LONG);
+      if (lat != newLat && long != newLong) {
+          lat = newLat;
+          long = newLong;
+          map.setCenter(new google.maps.LatLng(lat, long));
+      }
+      var url = LOCATION_SEARCH_URL + "?search=" + escape(searchString);
+      url += "&flat=" + lat.toString() + "&flong=" + long.toString() + "&searchrange=40";
+      locHttp = new XMLHttpRequest();
+      locHttp.open("GET", url, true);
+      locHttp.onreadystatechange = function () {
+          locationResultResponse();
+      };
+      locHttp.send();
+  }
+  function locationResultResponse() {
+      if (locHttp.readyState == 4 && locHttp.status == 200) {
+          locJsonObj = eval("(" + locHttp.responseText + ")");
+          processMapMarkersAndServices(servicesContainer);
+          if (callbackFunction != null) {
+              callbackFunction(activeTab);
+          }
+      }
+  }
+  function clearAllServices(control) {
+      control.innerHTML = "";
+      serviceArray.length = 0;
+  }
+  function processMapMarkersAndServices(control) {
+      var marker;
+      var markerImg;
+      var heading;
+      var containingDiv;
+      var table;
+      var tbody;
+      var tr;
+      var td;
+      var innerDiv;
+      var checkbox;
+      var label;
+      var serviceName = "";
+      var serviceCounter = 0;
+      var infoWindow = new google.maps.InfoWindow();
+      var markerImgSrcs = ["pinshadow-01.png", "pinshadow-02.png", "pinshadow-03.png", "pinshadow-04.png", "pinshadow-05.png", "pinshadow-06.png", "pinshadow-07.png", "pinshadow-08.png", "pinshadow-09.png", "pinshadow-10.png", "pinshadow-11.png", "pinshadow-12.png"];
+      var i;
+      containingDiv = document.createElement("div");
+      containingDiv.className = "container_style_1";
+      containingDiv.style.marginTop = "20px";
+      heading = document.createElement("h5");
+      heading.className = "add_icon_orange_road";
+      heading.appendChild(document.createTextNode("CA.gov Locations"));
+      innerDiv = document.createElement("div");
+      innerDiv.style.marginRight = "10px";
+      innerDiv.style.marginBottom = "10px";
+      innerDiv.style.marginLeft = "10px";
+      checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = "service";
+      checkbox.value = "service_all";
+      checkbox.id = "service_chk_all";
+      checkbox.checked = true;
+      checkbox.onclick = addAllNoneCheckBoxClickHandler(checkbox);
+      label = document.createElement("label");
+      label.htmlFor = "service_chk_all";
+      label.appendChild(document.createTextNode("Select All / None"));
+      table = document.createElement("table");
+      tbody = document.createElement("tbody");
+      table.appendChild(tbody);
+      containingDiv.appendChild(heading);
+      innerDiv.appendChild(checkbox);
+      innerDiv.appendChild(label);
+      innerDiv.appendChild(document.createElement("br"));
+      innerDiv.appendChild(document.createElement("br"));
+      innerDiv.appendChild(table);
+      containingDiv.appendChild(innerDiv);
+      control.appendChild(containingDiv);
+      for (i = 0; i < locJsonObj.results.length; i++) {
+          if (serviceName != locJsonObj.results[i].servicename) {
+              serviceArray[serviceCounter] = [];
+              markerImg = document.createElement("img");
+              markerImg.src = "/images/search_app/map_pins/" + markerImgSrcs[serviceCounter % markerImgSrcs.length];
+              markerImg.alt = locJsonObj.results[i].servicename;
+              checkbox = document.createElement("input");
+              checkbox.type = "checkbox";
+              checkbox.name = "service";
+              checkbox.value = "service_" + serviceCounter.toString();
+              checkbox.id = "service_chk_" + serviceCounter.toString();
+              checkbox.checked = true;
+              checkbox.onclick = addServiceCheckBoxClickHandler(checkbox);
+              label = document.createElement("label");
+              label.htmlFor = "service_chk_" + serviceCounter.toString();
+              label.appendChild(document.createTextNode(locJsonObj.results[i].servicename));
+              tr = document.createElement("tr");
+              td = document.createElement("td");
+              td.appendChild(markerImg);
+              tr.appendChild(td);
+              td = document.createElement("td");
+              td.appendChild(checkbox);
+              tr.appendChild(td);
+              td = document.createElement("td");
+              td.appendChild(label);
+              tr.appendChild(td);
+              tbody.appendChild(tr);
+              serviceName = locJsonObj.results[i].servicename;
+              serviceCounter++;
+          }
+          marker = new google.maps.Marker({position: new google.maps.LatLng(locJsonObj.results[i].latitude, locJsonObj.results[i].longitude), map: map, title: locJsonObj.results[i].name, animation: google.maps.Animation.DROP, icon: "/images/search_app/map_pins/" + markerImgSrcs[(serviceCounter - 1) % markerImgSrcs.length]});
+          addInfoWindowWithDescription(marker, infoWindow, locJsonObj.results[i]);
+          markers.push(marker);
+          serviceArray[serviceCounter - 1].push(marker);
+      }
+      if (serviceCounter == 0) {
+          var para = document.createElement("p");
+          para.appendChild(document.createTextNode("No services were found..."));
+          innerDiv.appendChild(para);
+      }
+  }
+  function addServiceCheckBoxClickHandler(checkbox) {
+      return function () {
+          showHideService(checkbox);
+      };
+  }
+  function addAllNoneCheckBoxClickHandler(checkbox) {
+      return function () {
+          showHideAll(checkbox);
+      };
+  }
+  function addInfoWindowWithDescription(marker, infoWindow, jsonResult) {
+      var content = "<div style=\"margin-top:5px;width:400px;\"><strong>" + marker.getTitle() + "</strong><br /><div>Tel: " + jsonResult.phone + "<br />" + jsonResult.address + "<br />" + jsonResult.description + "</div>";
+      content += "<div><a href=\"http://maps.google.com/maps?daddr=" + encodeURIComponent(jsonResult.address) + "\" target=\"_blank\">Get Directions</a>";
+      content += "</div></div>";
+      google.maps.event.addListener(marker, "click", function () {
+          infoWindow.close();
+          infoWindow.setContent(content);
+          infoWindow.open(map, marker);
+      });
+  }
+  function showHideService(checkbox) {
+      var serviceId = parseInt(checkbox.id.substr(checkbox.id.lastIndexOf("_") + 1));
+      var i;
+      for (i = 0; i < serviceArray[serviceId].length; i++) {
+          serviceArray[serviceId][i].setVisible(checkbox.checked);
+      }
+  }
+  function showHideAll(checkbox) {
+      var i;
+      var j;
+      var servicecheckbox;
+      for (i = 0; i < serviceArray.length; i++) {
+          servicecheckbox = document.getElementById("service_chk_" + i.toString());
+          servicecheckbox.checked = checkbox.checked;
+          showHideService(servicecheckbox);
+      }
+  }
+  function getQueryString() {
+      var result = {}, queryString = location.search.substring(1), re = /([^&=]+)=([^&]*)/g, m;
+      while (m = re.exec(queryString)) {
+          result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+      }
+      return result;
+  }
+  function addClickEventsToTabPanel() {
+      document.getElementById("tabpanel_search_1").onclick = function () {
+          CAGOVTabpanel.tabpanelClick(this);
+          tabpanel_searchapp_onclick(1);
+      };
+      document.getElementById("tabpanel_search_2").onclick = function () {
+          CAGOVTabpanel.tabpanelClick(this);
+          tabpanel_searchapp_onclick(2);
+      };
+      document.getElementById("tabpanel_search_3").onclick = function () {
+          CAGOVTabpanel.tabpanelClick(this);
+          tabpanel_searchapp_onclick(3);
+      };
+      document.getElementById("tabpanel_search_4").onclick = function () {
+          CAGOVTabpanel.tabpanelClick(this);
+          tabpanel_searchapp_onclick(4);
+      };
+  }
+  function startUp() {
+      queryString = getQueryString();
+      if (queryString["search"] != null && queryString["search"] != "") {
+          noJSContainer.style.display = "none";
+          var newTab = 1;
+          if (queryString["searchtype"] != null && queryString["searchtype"] != "") {
+              var searchType = queryString["searchtype"];
+              switch (searchType) {
+                case "forms":
+                  newTab = 2;
+                  break;
+                case "services":
+                  newTab = 3;
+                  break;
+                case "locations":
+                  newTab = 4;
+                  break;
+                default:
+                  newTab = 1;
+                  break;
+              }
+          }
+          activeTab = newTab;
+          CAGOVTabpanel.tabpanelClick(document.getElementById("tabpanel_search_" + newTab.toString()));
+          if (newTab != 4) {
+              keySearch(searchTextBox, function (panelNum) {
+                  resizePanels(panelNum);
+              });
+          } else {
+              mapSearch(searchTextBox, function (panelNum) {
+                  resizePanels(panelNum);
+                  map.setZoom(MAP_DEFAULT_ZOOM - 1);
+              });
+          }
+      }
+  }
+  document.getElementById("mainForm").onsubmit = function () {
+      return false;
+  };
+  addLoadEvent(addClickEventsToTabPanel);
+  addLoadEvent(startUp);
+  var settings = {pointDimensions: ["ga:day", "ga:hour"], filters: [], displayMetrics: ["ga:hour", "ga:visitors", "ga:newVisits"], refreshData: true, range: "Day", type: "general", painters: {}, updateTotal: function (total) {
+      var value = total + "";
+      var result = "";
+      for (var index = 0; index < value.length; index++) {
+          result = value.substr(value.length - (index + 1), 1) + ((index != 0 && index % 3 == 0) ? "," : "") + result;
+      }
+      $("#spnTotalCount").text(result);
+  }};
+  function loadPopularSearches() {
+      settings.painters.keywords = function (rows) {
+          var dataRows = [];
+          var dataRow;
+          var total = 0;
+          var count = 0;
+          $.each(rows, function (index, item) {
+              total += item[1];
+              dataRow = [];
+              dataRow.push(item[0]);
+              dataRow.push(item[1]);
+              dataRows.push(dataRow);
+          });
+          dataRows.sort(function (a, b) {
+              return parseInt(b[1]) - parseInt(a[1]);
+          });
+          $("#keywordsList_3428479823 tr").remove();
+          $.each(dataRows, function (index, item) {
+              if (item[0].substr(0, 1) == "(") {
+                  return;
+              }
+              count++;
+              if (count > 10) {
+                  return false;
+              }
+              var percent = (item[1] / total) * 100;
+              percent = percent + "";
+              var decimalIndex = percent.indexOf(".");
+              if (decimalIndex != -1) {
+                  percent = percent.substr(0, decimalIndex + 2);
+              }
+              percent = percent + "%";
+              var row = $("<tr></tr>");
+              var term = $("<td></td>").css({"text-align": "left"});
+              term.text(item[0]);
+              term.appendTo(row);
+              term = $("<td></td>").css({"text-align": "right"});
+              term.text(percent);
+              term.appendTo(row);
+              row.appendTo($("#keywordsList_3428479823"));
+          });
+      };
+      Util.AJAXLoadData("Metrics/GetVisitors", {range: settings.range, type: "keyword"}, function (data) {
+          settings.painters.keywords(DataUtil.generateRows(data, ["ga:keyword"], ["ga:keyword", "ga:visitors"], settings.filters));
+      });
+  }
+  $(document).ready(function () {
+      loadPopularSearches();
+  });
+

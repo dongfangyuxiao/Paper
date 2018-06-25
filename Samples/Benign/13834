@@ -1,0 +1,51 @@
+
+  window.google_analytics_uacct = "UA-142218-3";
+  var google_adnum = 0;
+  function google_ad_request_done(google_ads) {
+      var domain = "";
+      var domainParts = document.referrer.split("/");
+      if (domainParts.length > 2) {
+          domainParts = domainParts[2].split(".");
+          domain = domainParts[domainParts.length - 2];
+      }
+      var companions = document.querySelectorAll(".js_ad300-companion");
+      var blockHeight = 0;
+      if (companions.length > 0) {
+          var companion = companions[0];
+          blockHeight = companion.offsetHeight;
+      }
+      var onKinja = location.host.substr(-1 * "kinja.com".length) === "kinja.com";
+      var fromSearch = (domain == "google") || (domain == "bing") || (domain == "yahoo") || (domain == "ask");
+      var cookieString = "fromSearch=1";
+      if (fromSearch) {
+          document.cookie = cookieString;
+      }
+      var inSearchSession = document.cookie.indexOf(cookieString) != -1;
+      var shouldShowAds = !onKinja && (fromSearch || inSearchSession);
+      if (shouldShowAds) {
+          var s = "";
+          var i;
+          if (google_ads.length == 0) {
+              return;
+          }
+          s += "<aside class=\"referenced-wide google-adsense twelve columns\">";
+          s += "<div class=\"container proxima\">";
+          s += "<a href=\"" + google_info.feedback_url + "\" class=\"by-google\">Ads by Google</a><div class=\"google-ads ptm\">" + "<a href=\"" + google_ads[0].url + "\" onmouseout=\"window.status=''\" onmouseover=\"window.status='go to " + google_ads[0].visible_url + "';return true\" class=\"google-headline\">" + "<span> <b>" + google_ads[0].line1 + "</b><br /></span></a> <span>" + google_ads[0].line2 + " " + google_ads[0].line3 + "<br /></span>" + "<a href=\"" + google_ads[0].url + "\" onmouseout=\"window.status=''\" onmouseover=\"window.status='go to " + google_ads[0].visible_url + "';return true\" class=\"google-link\"><span>" + google_ads[0].visible_url + "</span></a><br /><br/>";
+          if (google_ads.length == 2) {
+              s += "<a href=\"" + google_ads[1].url + "\" onmouseout=\"window.status=''\" onmouseover=\"window.status='go to " + google_ads[1].visible_url + "';return true\" class=\"google-headline\">" + "<span> <b>" + google_ads[1].line1 + "</b><br /></span></a> <span style=\"\">" + google_ads[1].line2 + " " + google_ads[1].line3 + "<br /></span>" + "<a href=\"" + google_ads[1].url + "\" onmouseout=\"window.status=''\" onmouseover=\"window.status='go to " + google_ads[1].visible_url + "';return true\" class=\"google-link\"><span>" + google_ads[1].visible_url + "</span></a><br />";
+          }
+          s += "</div></div></aside>";
+          if (google_ads[0].bidtype == "CPC") {
+              google_adnum = google_adnum + google_ads.length;
+          }
+          document.write(s);
+      }
+  }
+  google_ad_client = "ca-pub-0457527031304647";
+  google_ad_output = "js";
+  google_max_num_ads = "1";
+  google_ad_type = "text";
+  google_feedback = "on";
+  google_skip = google_adnum;
+  google_ad_channel = "1102379497";
+

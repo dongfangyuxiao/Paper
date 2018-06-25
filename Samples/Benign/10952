@@ -1,0 +1,16 @@
+
+  ocultaMenuEPVM = function () {
+      var style = document.createElement("style");
+      style.setAttribute("type", "text/css");
+      style.setAttribute("media", "screen");
+      var texto_css = "#secciones,#subsecciones,#subsubsecciones1 { max-height: 0; overflow: hidden; }";
+      if (style.styleSheet) {
+          style.styleSheet.cssText = texto_css;
+      } else {
+          style.appendChild(document.createTextNode(texto_css));
+      }
+      var head = document.getElementsByTagName("head")[0];
+      head.appendChild(style);
+  };
+  ocultaMenuEPVM();
+

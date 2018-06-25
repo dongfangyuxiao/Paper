@@ -1,0 +1,46 @@
+
+  $(document).bind("ready", function () {
+      $required = $("#report-abuse-form textarea, #report-abuse-form select");
+      $required.blur(function () {
+          if ("" == $.trim($(this).val())) {
+              $(this).addClass("abuse-form-required");
+          } else {
+              $(this).removeClass("abuse-form-required");
+          }
+      });
+      $("#report-abuse").click(function (e) {
+          e.preventDefault();
+          $("#report-abuse-container").hide().slideDown("fast");
+      });
+      $("#report-abuse-form").submit(function (e) {
+          e.preventDefault();
+          $required.each(function () {
+              if ("" == $.trim($(this).val())) {
+                  $(this).removeClass("abuse-form-required").addClass("abuse-form-required");
+              } else {
+                  $(this).removeClass("abuse-form-required");
+              }
+          });
+          if ($(".abuse-form-required").length > 0) {
+              return false;
+          }
+          var data = {url: document.location.href, reported_user: "site", reason: $("#report-abuse-reason").val(), details: $("#report-abuse-details").val()};
+          $.post("/site/submit_abuse", data);
+          $(this).parent().slideUp().remove();
+          $("#report-abuse").replaceWith("<div id='report-abuse-submitted'>Report submitted. Thanks!</div>");
+          return false;
+      });
+      $("#report-abuse-cancel").click(function (e) {
+          e.preventDefault();
+          $("#report-abuse-container").hide();
+      });
+  });
+  (function () {
+      var po = document.createElement("script");
+      po.type = "text/javascript";
+      po.async = true;
+      po.src = "https://apis.google.com/js/plusone.js";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(po, s);
+  })();
+
