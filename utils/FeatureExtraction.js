@@ -3,7 +3,33 @@
  * @author Lijingtao
  * 6/25/18.
  */
-// Feature1 计算文本的熵
+const esprima = require('esprima');
+const fs = require('fs');
+
+/**
+ * 根据文本解析得到AST对象
+ * @param text
+ * @param fileName
+ * @returns {*}
+ */
+function initASTObj(text, fileName) {
+  let ASTObj;
+  try {
+    ASTObj = esprima.parseScript(text.trim(), {range: false, loc: false, comment: true});
+  } catch (e) {
+    console.error('AST parse error. File: ' + fileName);
+    // 失败样本写入文件记录
+    fs.writeFile('./result/ErrorSample2.txt', fileName + '\n', {flag: 'a'});
+    return null;
+  }
+  return ASTObj;
+}
+
+/**
+ * Feature1 计算文本的熵
+ * @param text 文本字符串
+ * @returns {number} 文本的熵
+ */
 function calEntropy(text) {
   let map = new Map();
 
@@ -35,12 +61,22 @@ function calEntropy(text) {
   }
 }
 
-// Feature2 最长单词大小
-function getLongestWord(astObj) {
-  // 所有语法单元
-  let units = astObj.body;
-  // 进行递归处理
-  return getLongest(units);
+/**
+ * Feature2 最长单词大小
+ * @param text 文本字符串
+ * @param fileName
+ * @returns {number|*} 最长单词长度
+ */
+function getLongestWord(text, fileName) {
+  let astObj = initASTObj(text, fileName);
+  if (astObj !== null) {
+    // 所有语法单元
+    let units = astObj.body;
+    // 进行递归处理
+    return getLongest(units);
+  } else {
+    return null;
+  }
 }
 
 function getLongest(obj) {
@@ -58,7 +94,7 @@ function getLongest(obj) {
     if (typeof subObj === 'object') {
       if (subObj !== null && subObj !== undefined) {
         let subLongest = getLongest(subObj);
-        longest = subLongest > longest ? subLongest : longest;
+        longest = Math.max(subLongest, longest);
       }
     }
     // 否则找name属性，得到单词长度
@@ -71,7 +107,11 @@ function getLongest(obj) {
   return longest;
 }
 
-// Feature3 特殊字符占比
+/**
+ * Feature3 特殊字符占比
+ * @param text
+ * @returns {number}
+ */
 function specialChProportion(text) {
   // 以标准键盘标点符号为特殊字符
   let dictionary = `~!@#$%^&*()-_=+[]{};:'",<.>/?\\`;
@@ -102,44 +142,67 @@ function averageChPerLine(text) {
 }
 
 // Feature6 AST深度
-function getASTDepth(ASTObj) {
-  // null undefined空节点值，返回深度1
-  if (ASTObj === undefined || ASTObj === null) {
-    return 1;
-  }
-  // Object.keys('string')返回'0'，所以要加入判断string类型
-  if (Object.keys(ASTObj).length === 0 || typeof ASTObj === 'string') {
-    return 1;
-  }
+function getASTDepth(text, fileName) {
+  let ASTObj = initASTObj(text, fileName);
+  return depthCallBack(ASTObj);
 
-  // 不属于以上情况，开始遍历
-  let maxDepth = 0;
-  let keys = Object.keys(ASTObj);
-  let len = keys.length;
+  function depthCallBack(ASTObj) {
+    // null undefined空节点值，返回深度1
+    if (ASTObj === undefined || ASTObj === null) {
+      return 1;
+    }
+    // Object.keys('string')返回'0'，所以要加入判断string类型
+    if (Object.keys(ASTObj).length === 0 || typeof ASTObj === 'string') {
+      return 1;
+    }
 
-  // 递归，树的深度等于1 + 子树最大深度，子树最大深度=1 + ...
-  for (let i = len; i--;) {
-    let nodeDepth = getASTDepth(ASTObj[keys[i]]);
-    maxDepth = Math.max(nodeDepth, maxDepth);
+    // 不属于以上情况，开始遍历
+    let maxDepth = 0;
+    let keys = Object.keys(ASTObj);
+    let len = keys.length;
+
+    // 递归，树的深度等于1 + 子树最大深度，子树最大深度=1 + ...
+    for (let i = len; i--;) {
+      let nodeDepth = depthCallBack(ASTObj[keys[i]]);
+      maxDepth = Math.max(nodeDepth, maxDepth);
+    }
+
+    return 1 + maxDepth;
   }
-
-  return 1 + maxDepth;
 }
 
+
 // Feature7 危险函数调用，URL变化次数，URL变化也是使用危险函数调用，所以合并为同一个
-function funWithRisk(astObj) {
-  // 危险函数调用Array， 'addEventListener'没有添加进去，原论文没有作为特征
+// Feature Plus 1 操作DOM,从DOM节点中取文本的RiskAPI
+function funWithRisk(text, fileName) {
+  let astObj = initASTObj(text, fileName);
+
+  if (astObj === null) {
+    return null;
+  }
+
+  // 危险函数调用Array
   let riskArr = ['eval', 'setInterval', 'setTimeout', 'replace',
     'assign', 'getUserAgent', 'getAppName', 'getCookie', 'setCookie',
     'write', 'changeAttribute', 'writeln', 'innerHTML', 'insertBefore',
     'replaceChild', 'appendChild', 'charAt', 'charCodeAt', 'fromCharCode',
-    'indexOf', 'split', 'location'];
+    'indexOf', 'split', 'location', 'unescape'];
+  // 以下为添加DOM交互的特征
+  let htmlRiskArr = ['innerText', 'childNodes', 'children', 'URL', 'domain', 'getAttribute',
+    'nodeValue', 'appendChild', 'addEventListener', 'attachEvent', 'createElement'];
+  // DOM 事件特征
+  let eventRiskArr = ['mouseover', 'mouseout', 'mousemove'];
 
   // 危险的函数调用set
   let riskSet = new Set(riskArr);
+  let htmlRiskSet = new Set(htmlRiskArr);
+  let eventRiskSet = new Set(eventRiskArr);
 
   // 所有语法单元
   let units = astObj.body;
+
+  // 进行递归处理
+  return getRiskFunction(units);
 
   // 递归函数
   function getRiskFunction(obj) {
@@ -163,17 +226,31 @@ function funWithRisk(astObj) {
       // 否则找name属性，得到危险函数调用
       else if (key === 'name' && typeof subObj === 'string') {
         if (riskSet.has(subObj)) {
-          console.log('Risk function name: ' + subObj);
+          // console.log('Risk function name: ' + subObj);
           number++;
+        }
+        // 所占权重不同,值不同
+        if (htmlRiskSet.has(subObj)) {
+          number += .7;
+        }
+        if (eventRiskArr.has(subObj)) {
+          number += .4;
         }
       }
     }
 
     return number;
   }
+}
 
-  // 进行递归处理
-  return getRiskFunction(units);
+// Feature8 <!-- and //-->风格的注释,会被容错执行
+function riskComment(text, fileName) {
+
+}
+
+// Feature9 AST上下文环境特征
+function ASTHierarchical(text, fileName) {
+
 }
 
 exports.calEntropy = calEntropy;
