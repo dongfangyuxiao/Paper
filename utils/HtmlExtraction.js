@@ -4,6 +4,8 @@
  * 7/4/18.
  */
 const fs = require('fs');
+const htmlparser = require('htmlparser2');
+const path = require('path');
 
 /**
  * 从html中提取js脚本进行分析
@@ -22,4 +24,67 @@ function extractCode (text) {
   return extractScripts;
 }
 
+/**
+ * 提取html中的危险特征
+ * @param text
+ */
+function extractRiskKeyword(text) {
+
+  // 1. html标签中属性内嵌的危险文本keyword
+  let riskKeywordSet = new Set(['javascript:', 'eval', 'document', 'expression', 'url(', 'onload', 'fromCharCode']);
+  // 2. 危险标签的使用, 注意大小写
+  let riskTagSet = new Set(['embed', 'object', 'iframe']);
+  // 3. 危险属性的使用, 注意大小写
+  let riskAttrSet = new Set(['onerror', 'onmouseover', 'onload']);
+  // 危险特征点总数
+  let riskNum = 0;
+
+  let parser = new htmlparser.Parser({
+    onopentag: function (name, attribs) {
+      // 危险标签
+      riskTagSet.has(name) && riskNum++;
+
+      if (attribs.length !== 0) {
+        for (let attr in attribs) {
+          if (attribs.hasOwnProperty(attr)) {
+            // 危险属性
+            riskAttrSet.has(attr) && riskNum++;
+            // 危险文本
+            let attrText = attribs[attr];
+            riskKeywordSet.has(attrText) && riskNum++;
+          }
+        }
+      }
+
+    },
+    ontext: function (text) {
+    },
+    onclosetag: function (tagname) {
+    },
+  }, {decodeEntities: true});
+
+  try {
+    parser.write(text);
+    parser.end();
+
+    console.log(riskNum);
+    return riskNum;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+}
+
+// let samplePath = path.resolve('../Samples/OWASPSamples');
+//
+// fs.readdir(samplePath, function (err, files) {
+//   files.forEach(function (file) {
+//
+//     let a = fs.statSync(path.resolve(samplePath, file));
+//     console.log(a.isFile());
+//   })
+// });
+
+
 module.exports.extractCode = extractCode;
+module.exports.extractRiskKeyword = extractRiskKeyword;
