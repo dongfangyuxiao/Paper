@@ -5,7 +5,7 @@
  */
 var fs = require('fs');
 var esprima = require('esprima');
-var myModule = require('../../utils/FeatureExtraction');
+var myModule = require('../../modules/FeatureExtraction');
 
 // ./Samples/Attack based on multimedia/83.txt
 

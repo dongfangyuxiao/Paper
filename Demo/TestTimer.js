@@ -1,5 +1,5 @@
-function a(a, b) {
-  console.log(arguments[2]);
-}
+const path = require('path');
 
-a(1, 2);
+let tmp = path.resolve('/AAA/BBB');
+
+console.log(typeof path.basename(tmp));
