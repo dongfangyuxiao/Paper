@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie6" lang="zh-cn"><![endif]-->
+<!--[if IE 7 ]><html class="ie7" lang="zh-cn"><![endif]-->
+<!--[if IE 8 ]><html class="ie8" lang="zh-cn"><![endif]-->
+<!--[if IE 9 ]><html class="ie9" lang="zh-cn"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="zh-cn"><!--<![endif]-->
+<head>
+
+    <title>汽车设计与制造资讯-造车网</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.5">
+
+    <link rel="stylesheet" type="text/css" href="/static/auto/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/static/auto/css/jquery.selectBox.css"  />
+    <script type="text/javascript" src="/static/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/static/jquery/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/auto/js/jquery.ajax_form.js"></script>
+    <script type="text/javascript" src="/static/auto/js/jquery.selectBox.js"></script>
+    <script type="text/javascript" src="/static/auto/js/common.js"></script>
+    <meta name="description" content="造车网是行业内唯一专注于汽车设计、汽车制造和管理信息化的专业网站。致力成为汽车设计及汽车制造业最具影响力，内容最全面的网络信息平台。内容包括汽车设计、汽车电子、发动机与驱动、整车装配、汽车零部件、汽车工业自动化、金属加工、汽车新材料、质量控制、物流与信息化等。">
+    <meta name="keywords" content="汽车,技术,汽车设计,汽车制造 ,制造,设计,PLM Dassault Systemes, 达索系统 ,PTC, 发动机 离合器, 汽车零部件, 零部件 ,siemens ,西门子 ,新能源 ,电动 ,混合动力, NX 汽车电子, 整车 装配, ABB,山特维克可乐满 ,欧特克 ">
+    <link rel="stylesheet" type="text/css" href="/static/auto/css/home.css">
+    <script type="text/javascript" src="/static/auto/js/jquery.xscroll.js"></script>
+    <script type="text/javascript" src="/static/auto/js/home.js"></script>
+</head>
+<body>
+
+<div id="top">
+	<div class="body_c">
+		<ul class="info_nav  fl">
+			<li class="info_nav_first"><a href="/">造车网首页</a></li>
+			<li><a href="/sec/NEV">新能源汽车</a></li>
+			<li><a href="/sec/robotics">机器人技术</a></li>
+			<li><a href="/sec/digitization">数字化制造</a></li>
+			<li><a href="/sec/automaticsystem/">自动化系统</a></li>
+			<li><a href="/sec/metalworking/">金属加工技术</a></li>
+			<li class="info_nav_last">
+				<a href="javascript:void(0)">更多</a><i class="selectBox-arrow" style="right: 15px"></i>
+				<div id="more" class="clearfix">
+					<div class="fl clearfix" style="width: 80px;">
+						<a href="/sec/stamping" class="more_item">冲压</a>
+						<a href="/sec/expertViewpoint/" class="more_item">深度观察</a>
+						<a href="/sec/hotmv/" class="more_item">精彩视界</a>
+					</div>
+					<div class="fl clearfix" style="width: 80px;">
+						<a href="/sec/welding/" class="more_item">焊接</a>
+						<a href="/sec/seminar/" class="more_item">在线会议</a>
+						<a href="/sec/market/" class="more_item">市场研究</a>
+
+					</div>
+					<div class="fl clearfix" style="width: 90px;">
+						<a href="/sec/painting/" class="more_item">涂装</a>
+						<a href="/sec/biography/" class="more_item">人物志</a>
+						<a href="/sec/hotnews/" class="more_item">热点资讯</a>
+					</div>
+					<div class="fl clearfix" style="width: 80px;">
+						<a href="/sec/generalassembly/" class="more_item">总装</a>
+						<a href="/sec/exhibition/" class="more_item">展会</a>
+						<a href="/sec/special/" class="more_item">专题</a>
+					</div>
+
+
+				</div>
+			</li>
+		</ul>
+		<ul class="info_nav fr">
+			<li id="userinfo" style="overflow: visible;"></li>
+			<li id="time">2018年07月12日 星期四</li>
+			<li id="top_wx_dcode_btn" style="position: relative;overflow: visible;width: 84px; z-index: 100;">
+				<a  href="javascript:void(0);">造车微网</a>
+				<div id="top_wx_dcode_img" style="text-align: center;border: 1px solid #1b7d7d;background-color: white;width: 200px;display: none;">
+					<img src="/static/auto/images/QRcode.jpg" style="margin: auto;">
+					<p style="font-size: 13px;">扫描二维码，关注微信</p>
+				</div>
+			</li>
+			<li><a href="/autonew/guide.jsp" target="_blank">网站导航</a> </li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	$("#userinfo").load("/autonew/user/userInfo.jsp?_=" +$.now());
+	(function($){
+		var moreShow = function(){
+			$("#top").find(".info_nav_last").addClass("info_nav_last_focus");
+			$("#top").find(".selectBox-arrow").addClass("selectBox-arrow-focus");
+			$("#more").show();
+		};
+		var moreHide = function(){
+			$("#top").find(".info_nav_last").removeClass("info_nav_last_focus");
+			$("#top").find(".selectBox-arrow").removeClass("selectBox-arrow-focus");
+			$("#more").hide();
+		};
+		var navTime;
+		$("#top").find(".info_nav_last").hover(function(){
+			clearTimeout(navTime);
+			navTime = setTimeout(moreShow(),1);
+		},function(){
+			clearTimeout(navTime);
+			navTime = setTimeout(moreHide(),200);
+		});
+
+	})(jQuery);
+
+
+	$(document).ready(function(){
+
+		$("#top_wx_dcode_btn").hover(function(){
+			$("#top_wx_dcode_img").show();
+		},function(){
+			$("#top_wx_dcode_img").hide();
+		});
+		$("#userinfo").delegate("#top_login_btn","click",function(){
+			$("#top_login_btn_wraper").ajax_form_show({css:{"top":"40px","left":"-175px"}});
+		});
+		$("#userinfo").delegate(".close","click",function(){
+			$("#top_login_btn_wraper").ajax_form_hide();
+		});
+
+		$("#userinfo").delegate("#top_logout_btn","click",function(){
+			$.get("/autonew/user/dologout.jsp?doLogout=true&_=" +$.now(),function(){
+				$("#userinfo").load("/autonew/user/userInfo.jsp?_=" +$.now());
+			})
+		});
+	});
+</script>
+<style type="text/css">
+
+	@font-face {
+		font-family: 'Glyphicons Halflings';
+		src: url(/static/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.eot);
+		src: url(/static/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(/static/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.woff2) format('woff2'),url(/static/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.woff) format('woff'),url(/static/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(/static/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+	}
+	.glyphicon {
+		position: relative;
+		top: 1px;
+		display: inline-block;
+		font-family: 'Glyphicons Halflings';
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale
+	}
+	.glyphicon-remove:before {
+		content: "\e014"
+	}
+	.close {
+		float: right;
+		font-size: 21px;
+		font-weight: 700;
+		line-height: 1;
+		color: #000;
+		text-shadow: 0 1px 0 #fff;
+		filter: alpha(opacity=20);
+		opacity: .2
+	}
+</style>
+<div id="header" class="body_c clearfix">
+    <a href="/" class="fl logo_link"><img src="http://www.zaoche168.com/auto/images/logo.png"></a>
+    <div id="search" class="fl">
+        <form name="SearchEcho" onsubmit="return searchSubmit()" action="/autonew/searcher.jsp" >
+            <div class="search_sel clearfix">
+                <select name="searchType" id="searchType" class="selectBox" autocomplete="off">
+                    <option value="news" selected="selected">新闻</option>
+                    <option value="prod">产品</option>
+                    <option value="com">企业</option>
+                    <option value="video">视频</option>
+                </select>
+            </div>
+            <div class="inp_txt_wrap" style="float:left">
+                <input type="text" maxlength="40"  value="请输入关键字" name="searchKey" id="searchKey" class="inp_txt" onfocus="if(this.value=='请输入关键字'){this.value='';this.style.color='black'}" onblur="if(this.value==''){this.value='请输入关键字';this.style.color='#C0C0C0'}" autocomplete="off">
+            </div>
+            <input type="submit" class="submit_btn" value="">
+        </form>
+    </div>
+
+    <div id="header_ad" class="fr">
+        <a  href="http://asia.haascnc.com/vmc_mt.asp?intLanguageCode=2052&webID=VSERIES_VMC" onclick="window.open('/sooqclick.jsp?site=2&advid=AD0000000024351&url=http://asia.haascnc.com/vmc_mt.asp?intLanguageCode=2052&webID=VSERIES_VMC');return false;" title="haas" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a38977108a6a197f5016e12874c99ef06190077427deaee0d3bbd3826d69d08c7664f38c80efd72e2ceaa2aa631124b3b81e" alt="haas" width="600" height="75"  border="0"></a></div>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $("#searchType").selectBox();
+
+
+        });
+    </script>
+</div><!--   #header-->
+<div class="body_c clearfix" style="border-bottom:2px solid #1b7d7d; height:1px; margin-bottom:8px;" ></div>
+<div id="area1" class="body_c clearfix">
+    <div style="width:400px; height: 100%; overflow: hidden;" class="fl">
+        <!-- xscroll代码 开始 -->
+			<div id="playBoxHot"  style="width:100%; height:215px;" class="playbox" >
+				    <div class="pre"><i></i></div>
+				    <div class="next"><i></i></div>
+				    <div class="smalltitle">
+					    <ul class="clearfix">
+						    <li class="thistitle"></li><li></li><li></li><li></li></ul>
+				    </div>
+				    <ul class="oUlplay">
+					       <li class="item">
+				            <a href="http://www.zaoche168.com/theme/7535a82882f94638b92aad4b13b216dd.dhtml" target="_blank" title="机器人在汽车中的硬角色">
+					            <img class="imgItem" src="/resupload/guangzhi/AS00012654/1529466450641_1.jpg" alt="机器人在汽车中的硬角色" title="机器人在汽车中的硬角色">
+				            </a>
+						    <p class="title">机器人在汽车中的硬角色</p>
+					    </li>
+
+					    	 <li class="item">
+				            <a href="http://www.zaoche168.com/auto/_01-ABC00000000000275550.shtml" target="_blank" title="易往信息与徐工集团强强联合，立足制造，共建“工业航母”">
+					            <img class="imgItem" src="/resupload/guangzhi/AS00012654/1528852509701_1.png" alt="易往信息与徐工集团强强联合，立足制造，共建“工业航母”" title="易往信息与徐工集团强强联合，立足制造，共建“工业航母”">
+				            </a>
+						    <p class="title">易往信息与徐工集团强强联合，立足制造，共建“工业航母”</p>
+					    </li>
+
+					    	 <li class="item">
+				            <a href="http://www.zaoche168.com/auto/_01-ABC00000000000275433.shtml" target="_blank" title="头条  PHIIDF 2018耀世启幕，南京智造周再绘蓝图">
+					            <img class="imgItem" src="/resupload/guangzhi/AS00012654/1528349543405_1.jpg" alt="头条  PHIIDF 2018耀世启幕，南京智造周再绘蓝图" title="头条  PHIIDF 2018耀世启幕，南京智造周再绘蓝图">
+				            </a>
+						    <p class="title">头条  PHIIDF 2018耀世启幕，南京智造周再绘蓝图</p>
+					    </li>
+
+					    	 <li class="item">
+				            <a href="http://www.zaoche168.com/theme/edcef9e1b053426191de6cfbad797992.dhtml" target="_blank" title="金属加工与汽车制造最新技术与应用">
+					            <img class="imgItem" src="/resupload/guangzhi/AS00012654/1527052964189_1.jpg" alt="金属加工与汽车制造最新技术与应用" title="金属加工与汽车制造最新技术与应用">
+				            </a>
+						    <p class="title">金属加工与汽车制造最新技术与应用</p>
+					    </li>
+
+					    	 </ul>
+				  </div>
+				<!-- xscroll代码 结束 --><div class="adv_area1 clearfix" style="margin-top: 18px;">
+            <a  href="http://www.zaoche168.com/customer/ni/20180516/index.html" onclick="window.open('/sooqclick.jsp?site=00000000000000000014&advid=AD0000000023746&url=http://www.zaoche168.com/customer/ni/20180516/index.html');return false;" title="ni" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a389390d6fde1ef6f66b80413405c477b1c3eb21993ef7d90b1dd2a6cab420d694c0e70247d4b687df6d2bed6b477cc22fed" alt="ni" width="196" height="115"  border="0"></a><a  href="http://t.cn/R3hQUhC" onclick="window.open('/sooqclick.jsp?site=00000000000000000014&advid=AD0000000026135&url=http://t.cn/R3hQUhC');return false;" title="DS" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a389b40cddcfe96009e00bda00ec2c1efd359ca19ad6571768d9d3826d69d08c7664a8f461c3865ac64e6ff7743538c60b76" alt="DS" width="196" height="115"  border="0"></a><a  href="http://www.zaoche168.com/customer/ptc/20180509/" onclick="window.open('/sooqclick.jsp?site=00000000000000000014&advid=AD0000000026148&url=http://www.zaoche168.com/customer/ptc/20180509/');return false;" title="PTC" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a3896a37812ae4c62efda1cd7d9797920afeec1fe05fd5aeec01d2a6cab420d694c0a8f461c3865ac64e16de77c44151250d" alt="PTC" width="196" height="115"  border="0"></a><a  href="http://response.cognex.com/dsmax_giveaway_cn_lp?src=6C252FDD-4578-E811-911F-00505693004D&cm_campid=6C252FDD-4578-E811-911F-00505693004D" onclick="window.open('/sooqclick.jsp?site=00000000000000000014&advid=AD0000000026342&url=http://response.cognex.com/dsmax_giveaway_cn_lp?src=6C252FDD-4578-E811-911F-00505693004D&cm_campid=6C252FDD-4578-E811-911F-00505693004D');return false;" title="康耐视" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a3895d3df478a01cc433830252ce1eaa9632cc492dd200c65cfbd3826d69d08c7664689f0163f3ad71b8f38cbddb852ad527" alt="康耐视" width="196" height="115"  border="0"></a></div>
+    </div>
+    <div id="area1_center" style="width:465px; height: 100%;margin-left: 20px;" class="fl">
+        <div style="position: relative">
+            <ul id="area1_tabs" class="clearfix"><li class="select" data-link="/sec/hotnews">热点资讯</a> </li><li data-link="/sec/expertViewpoint"> 深度观察</li><li data-link="/sec/special"> 专题报道</li></ul>
+            <a id="area1_more" style="position: absolute;right: 0;top: 0;" href="/sec/hotnews" class="link_more">更多</a>
+        </div>
+
+        <div id="area1_cons">
+            <div class="item" id="hot_con" style="display: block;">
+                <a class="link title txt_overflow" href="http://www.zaoche168.com/auto/_01-ABC00000000000275735.shtml" title="武汉IARS中你错过的那些汽车应用亮点" target="_blank">武汉IARS中你错过的那些汽车应用亮点</a>
+                <a href="/detail/_01-ABC00000000000276564.shtml" target="_blank" class="link txt_overflow">DSP在超精密数控系统中的应用</a>
+                <a href="/detail/_01-ABC00000000000276563.shtml" target="_blank" class="link txt_overflow">中国工业机器人销量创纪录 国产占有率五年来首次下滑</a>
+                <a href="/detail/_01-ABC00000000000276561.shtml" target="_blank" class="link txt_overflow">1-5月全国动力电池实现装机总电量12.67GWh，动力电池产业的狂欢</a>
+                <a href="/detail/_01-ABC00000000000276560.shtml" target="_blank" class="link txt_overflow">回收企业难盈利 梯次利用成僵局 动力电池回收利用亟待破题</a>
+                <a href="/detail/_01-ABC00000000000276545.shtml" target="_blank" class="link txt_overflow">宁德时代拿下宝马40亿欧元意向采购大单 分析称为中国动力电池走出去标志事件</a>
+                <a href="/detail/_01-ABC00000000000276544.shtml" target="_blank" class="link txt_overflow">动力电池竞争向上游环节转移</a>
+                <a class="link title txt_overflow" href="http://www.zaoche168.com/auto/_01-ABC00000000000273022.shtml" title="线路图  汽车检测的前世今生（fa zhan qu shi） " target="_blank">线路图  汽车检测的前世今生（fa zhan qu shi） </a>
+                <a href="/detail/_01-ABC00000000000276542.shtml" target="_blank" class="link txt_overflow">40亿欧元签单宁德时代，宝马先供应原料再采购电芯</a>
+                <a href="/detail/_01-ABC00000000000276540.shtml" target="_blank" class="link txt_overflow">TI DLP(R)技术将微米至亚毫米工业精度、处理速度和灵活性引入桌面3D打印机和便携式3D扫描仪</a>
+                <a href="/detail/_01-ABC00000000000276537.shtml" target="_blank" class="link txt_overflow">西门子收购Austemper Design Systems公司，以期在IC功能安全性技术方面实现突破</a>
+                <a href="/detail/_01-ABC00000000000276520.shtml" target="_blank" class="link txt_overflow">原材料价格上涨，补贴下滑：动力电池企业生存艰难</a>
+                <a href="/detail/_01-ABC00000000000276512.shtml" target="_blank" class="link txt_overflow">威盛SOM-9X20核心板，搭载Qualcomm® 骁龙™ 820E的高性能AI开发板</a>
+                <a href="/detail/_01-ABC00000000000276510.shtml" target="_blank" class="link txt_overflow">三年不鸣潜心技术，首次亮相鲸奇出彩</a>
+                </div>
+            <div class="item" id="sdgc">
+                <div class="clearfix sub_item">
+                    <a href="http://www.zaoche168.com/detail/_01-ABC00000000000272459.shtml" target="_blank"><img class="image" alt="简单分析新能源汽车轻量化材料发展趋势" src="/resupload/guangzhi/AS00012693/1521527339961_1.jpg"></a>
+                    <a class="link" href="http://www.zaoche168.com/detail/_01-ABC00000000000272459.shtml" title="简单分析新能源汽车轻量化材料发展趋势" target="_blank">简单分析新能源汽车轻量化材料发展趋势</a>
+                </div><div class="clearfix sub_item">
+                    <a href="http://www.zaoche168.com/detail/_01-ABC00000000000272467.shtml" target="_blank"><img class="image" alt="2018年中国喷涂行业发展趋势分析 喷涂机器人将成为涂装行业主流" src="/resupload/guangzhi/AS00012693/1521527267663_1.jpg"></a>
+                    <a class="link" href="http://www.zaoche168.com/detail/_01-ABC00000000000272467.shtml" title="2018年中国喷涂行业发展趋势分析 喷涂机器人将成为涂装行业主流" target="_blank">2018年中国喷涂行业发展趋势分析 喷涂机器人将成为涂装行业主流</a>
+                </div><div class="clearfix sub_item">
+                    <a href="http://www.zaoche168.com/detail/_01-ABC00000000000268071.shtml" target="_blank"><img class="image" alt="探究工业机器人越来越火的原因" src="/resupload/guangzhi/AS00012693/1516858149131_1.jpg"></a>
+                    <a class="link" href="http://www.zaoche168.com/detail/_01-ABC00000000000268071.shtml" title="探究工业机器人越来越火的原因" target="_blank">探究工业机器人越来越火的原因</a>
+                </div><div class="clearfix sub_item">
+                    <a href="http://www.zaoche168.com/detail/_01-ABC00000000000270433.shtml" target="_blank"><img class="image" alt="2018年3D打印材料现状分析 国内行业发展地位提升" src="/resupload/guangzhi/AS00012693/1516858108293_1.jpg"></a>
+                    <a class="link" href="http://www.zaoche168.com/detail/_01-ABC00000000000270433.shtml" title="2018年3D打印材料现状分析 国内行业发展地位提升" target="_blank">2018年3D打印材料现状分析 国内行业发展地位提升</a>
+                </div><div class="clearfix sub_item">
+                    <a href="http://www.zaoche168.com/detail/_01-ABC00000000000268076.shtml" target="_blank"><img class="image" alt="中国汽车应该从日本汽车的质量危机中汲取经验和教训" src="/resupload/guangzhi/AS00012693/1516858038431_1.jpg"></a>
+                    <a class="link" href="http://www.zaoche168.com/detail/_01-ABC00000000000268076.shtml" title="中国汽车应该从日本汽车的质量危机中汲取经验和教训" target="_blank">中国汽车应该从日本汽车的质量危机中汲取经验和教训</a>
+                </div></div>
+            <div class="item" id="baodao">
+                <div class="sub_item">
+                    <a href="http://www.zaoche168.com/theme/fe704a2d96e24eafabdcd37a88cd13dc.dhtml" target="_blank"><img class="image" alt="工匠时代 焊接技术的难点与突破" src="/resupload/guangzhi/AS00012694/1524806764057_1.jpg"></a>
+                    <a class="link" href="http://www.zaoche168.com/theme/fe704a2d96e24eafabdcd37a88cd13dc.dhtml" title="工匠时代 焊接技术的难点与突破" target="_blank">工匠时代 焊接技术的难点与突破</a>
+                </div><div class="sub_item">
+                    <a href="http://www.zaoche168.com/theme/db2b0cd3e311477887ea21933861fabc.dhtml" target="_blank"><img class="image" alt="汽车冲压技术的革新" src="/resupload/guangzhi/AS00012694/1521613969243_1.jpg"></a>
+                    <a class="link" href="http://www.zaoche168.com/theme/db2b0cd3e311477887ea21933861fabc.dhtml" title="汽车冲压技术的革新" target="_blank">汽车冲压技术的革新</a>
+                </div><a class="sub_item" style="height: 52px;" href="http://www.zaoche168.com/auto/_01-ABC00000000000231445.shtml" target="_blank" title="购买MT4 MAX/+马上有礼！">购买MT4 MAX/+马上有礼！</a></li>
+                    <a class="sub_item" style="height: 52px;" href="http://www.zaoche168.com/emagazine/targetpage/EM0000001031.html" target="_blank" title="汽车制造解决方案-金属加工">汽车制造解决方案-金属加工</a></li>
+                    <a class="sub_item" style="height: 52px;" href="http://www.zaoche168.com/customer/auto/advantech/20140609/index.html" target="_blank" title="2014嵌入式与测量技术“巡回研讨会”">2014嵌入式与测量技术“巡回研讨会”</a></li>
+                    <a class="sub_item" style="height: 52px;" href="http://www.zaoche168.com/emagazine/targetpage/EM0000001029.html" target="_blank" title="汽车制造解决方案-激光焊接">汽车制造解决方案-激光焊接</a></li>
+                    <a class="sub_item" style="height: 52px;" href="http://www.zaoche168.com/customer/auto/advantech/140508/index.html" target="_blank" title="中国大型汽车总装业主之关键报告">中国大型汽车总装业主之关键报告</a></li>
+                    <a class="sub_item" style="height: 52px;" href="http://www.zaoche168.com/customer/auto/advantech/20140319/index.html" target="_blank" title="研华商城一站式购物平台">研华商城一站式购物平台</a></li>
+                    <a class="sub_item" style="height: 52px;" href="http://www.zaoche168.com/customer/auto/cognex/20140327/index.html" target="_blank" title="为轮胎生产商提供功能强大的全新识别解决方案">为轮胎生产商提供功能强大的全新识别解决方案</a></li>
+                    <a class="sub_item" style="height: 52px;" href="http://www.zaoche168.com/emagazine/modelforauto/2009/eweekly.jsp?emag_id=EM0000001024" target="_blank" title="2014技术专刊-激光加工">2014技术专刊-激光加工</a></li>
+                    </div>
+        </div>
+    </div>
+    <div id="area1_right"  class="fr">
+        <ul id="area1_right_tabs" class="clearfix"><li class="select">技术应用</li><li class="tab_more"><a>全部产品</a></li></ul>
+        <div id="area1_right_cons">
+            <p class="title">四大工艺</p>
+            <p class="sub_title">
+                <a href="/sec/stamping" target="_blank">冲压</a>&nbsp;
+                <a href="/sec/welding" target="_blank">焊接</a>&nbsp;
+                <a href="/sec/painting " target="_blank">涂装</a>&nbsp;
+                <a href="/sec/generalassembly" target="_blank">总装</a>
+            </p>
+            <a href="/sec/NEV" target="_blank" class="title">新能源汽车</a>
+            <p class="sub_title">电池技术&nbsp;充电桩&nbsp;汽车电控技术</p>
+            <a href="/sec/robotics" target="_blank" class="title">机器人技术</a>
+            <p class="sub_title">焊接&nbsp;喷涂&nbsp;装配&nbsp;搬运</p>
+            <a href="/sec/digitization" target="_blank" class="title">数字化制造</a>
+            <p class="sub_title">快速原型制造/3D&nbsp;虚拟技术&nbsp;<br>CAx/MES/PLM/AMS</p>
+            <a href="/sec/automaticsystem" target="_blank" class="title">自动化系统</a>
+            <p class="sub_title">测试测量&nbsp;传感器&nbsp;总线&nbsp;车用通讯</p>
+            <a href="/sec/metalworking" target="_blank" class="title">金属加工技术</a>
+            <p class="sub_title">加工中心&nbsp;金属切削&nbsp;刀具&nbsp;工装夹具</p>
+        </div>
+        <div id="recommend">
+            <p style="display: block;border-left:2px solid  #ff3333;line-height: 20px;padding-left: 6px;">推荐</p>
+            <div class="clearfix">
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=%E6%96%B0%E8%83%BD%E6%BA%90" target="_blank" class="link">新能源</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=仿真" target="_blank" class="link">仿真</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=检测" target="_blank" class="link">检测</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=物流" target="_blank" class="link">物流</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=加工中心" target="_blank" class="link">加工中心</a>
+                <a href="http://www.zaoche168.com/sec/seminar/" target="_blank" class="link">在线会议</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=plm" target="_blank" class="link">plm</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=焊接" target="_blank" class="link">焊接</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=喷涂" target="_blank" class="link">喷涂</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=总线" target="_blank" class="link">总线</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=总装" target="_blank" class="link">总装</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=传感器" target="_blank" class="link">传感器</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=冲压" target="_blank" class="link">冲压</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=数字化" target="_blank" class="link">数字化</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=发动机" target="_blank" class="link">发动机</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=机器人" target="_blank" class="link">机器人</a>
+                <a href="http://www.zaoche168.com/autonew/searcher.jsp?searchType=news&searchKey=工业4.0" target="_blank" class="link">工业4.0</a>
+                </div>
+        </div>
+
+    </div>
+</div>
+<div id="adv_area1" class="body_c">
+    <div class="fl">
+        <a  href="http://www.cn.schunk.com/" onclick="window.open('/sooqclick.jsp?site=00000000000000000014&advid=AD0000000024149&url=http://www.cn.schunk.com/');return false;" title="雄克" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a3890cfe77725a1b2d02cfc4d8b80f2db21813f147f822e51bcbd2a6cab420d694c0f34fa2d626240f1171e954a1cf18aef3" alt="雄克" width="605" height="80"  border="0"></a></div>
+    <div class="fr">
+        <a  href="http://new.abb.com/products/robotics/zh" onclick="window.open('/sooqclick.jsp?site=00000000000000000014&advid=AD0000000025945&url=http://new.abb.com/products/robotics/zh');return false;" title="ABB" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a38904f37a6226a814c62352977571e864d838295895dfb869a2d2a6cab420d694c063c5e72f88c559fa5efa159a8159bcfd" alt="ABB" width="605" height="80"  border="0"></a></div>
+
+</div>
+
+<div id="area2" class="body_c clearfix">
+    <div class="fl" style="width:244px; ">
+        <div class="left_area" id="webinar">
+            <ul class="tabs clearfix">
+                <li class="select">在线研讨会</li>
+                <li><a class="link_more" href="/sec/seminar/">更多</a></li>
+            </ul>
+            <div class="contents">
+                <a class="txt_overflow" href="http://2018promotion.fluke-china.com.cn/?utm_source=IIANEWS&utm_medium=banner&utm_campaign=2018pro" target="_blank"><img src="/resupload/guangzhi/AS00012674/1528683371390_1.gif"></a>
+                <p style="color:#0f8585; font-weight:bold;">[近期预告]</p><h3>精彩研讨会回顾</h3>
+                <ul><li><a class="txt_overflow" href="/autonew/subject.jsp?forumId=598" target="_blank">如何从备件定价策略中获得竞争优势</a></li>
+                <li><a class="txt_overflow" href="/autonew/subject.jsp?forumId=583" target="_blank">面向航天的预测性工程分析解决方案</a></li>
+                <li><a class="txt_overflow" href="/autonew/subject.jsp?forumId=582" target="_blank">“未来舰队”：船舶行业革新的力量！</a></li>
+                <li><a class="txt_overflow" href="/autonew/subject.jsp?forumId=558" target="_blank">智能制造浪潮中的MES系统新挑战</a></li>
+                <li><a class="txt_overflow" href="/autonew/subject.jsp?forumId=554" target="_blank">多物理场仿真推动智能家居快速发展</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div style="width: 100%;margin-bottom: 8px;">
+            <a  href="http://www.igus.com.cn/" onclick="window.open('/sooqclick.jsp?site=2&advid=AD0000000024792&url=http://www.igus.com.cn/');return false;" title="易格思" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a3892088d2525c1c8d1767d74da741d10a050974b22f735c7c80d2a6cab420d694c07cf16ccc2ac8f4733b4569fbcc927dbc" alt="易格思" width="240" height="100"  border="0"></a></div>
+        <div class="left_area" id="biography">
+            <ul class="tabs clearfix">
+                <li class="select">人物志</li>
+                <li><a class="link_more" href="/sec/biography/">更多</a></li>
+            </ul>
+            <ul class="contents">
+                <li>
+                    <a href="http://www.zaoche168.com/detail/_01-ABC00000000000273268.shtml" target="_blank" class="image"><img src="/resupload/guangzhi/AS00012796/1523349627046_1.png"></a>
+                    <div class="txt">
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000273268.shtml" target="_blank" class="txt_overflow">国机铸锻突飞猛进，汽车业务再添羽翼！</a>
+                        <p>阳春三月，万物复苏，迎着和煦的阳光，踏上生机盎然的齐鲁大地，记者再次探访国机铸锻机械有限公司(以下简称“国机铸锻”)。上一次来这里，是2017年5月18日，这家公司在4月18日成立一个月之后举行的正式挂牌仪式。</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="http://www.zaoche168.com/detail/_01-ABC00000000000273480.shtml" target="_blank" class="image"><img src="/resupload/guangzhi/AS00012796/1523349586595_1.png"></a>
+                    <div class="txt">
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000273480.shtml" target="_blank" class="txt_overflow">创新与服务兼顾 魏德米勒智能制造时代的大格局</a>
+                        <p>在讲究高效与服务的今天，量与质的兼顾变得尤为重要。在大浪淘沙般的竞争中，工业联接的专家——魏德米勒一直秉承着对产品创新与服务的探索理念，每一年，都为行业推出符合客户需求的新产品。 2018年3月14日，在一年一度的慕尼黑上海电子展上，魏德米勒重装亮相，现场人气高涨。</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="http://www.zaoche168.com/detail/_01-ABC00000000000267427.shtml" target="_blank" class="image"><img src="/resupload/guangzhi/AS00012796/1511846475984_1.jpg"></a>
+                    <div class="txt">
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000267427.shtml" target="_blank" class="txt_overflow">顺应时代 魏德米勒工业4.0浪潮下的大局观</a>
+                        <p>当今世界，随着工业4.0浪潮的持续推进，制造业变革早已风起云涌。在群雄逐鹿的激烈竞争中，墨守成规与随波逐流皆不可取，在“工业4.0”和“中国制造2025”的长远战略目标下，如何才能卓越发展?工业电联专家魏德米勒的答案是：感知行业，顺应市场而为。“魏德米勒会跟随市场脚步，敏锐感知市场的动向，顺应‘数字化、网络化、智能化’的制造业发展新趋势，恰当地调整业务与布局。”魏德米勒亚洲区执行副总裁赵鸿钧先生给出了魏德米勒在新时代的选择。</p>
+                    </div>
+                </li>
+                </ul>
+        </div>
+
+        <div style="width: 100%;margin-bottom: 8px;"><a  href="https://www.mazak.com.cn/" onclick="window.open('/sooqclick.jsp?site=2&advid=AD0000000024794&url=https://www.mazak.com.cn/');return false;" title="马扎克" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a389c0b702e10fb735146ca2f68ff2fa5748340ea2c4b4477979d2a6cab420d694c07cf16ccc2ac8f473baa48a60e6360a11" alt="马扎克" width="240" height="100"  border="0"></a></div><div style="width: 100%;margin-bottom: 8px;"><a  href="http://www.tsmi.com.cn/" onclick="window.open('/sooqclick.jsp?site=2&advid=AD0000000024705&url=http://www.tsmi.com.cn/');return false;" title="松下" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a3892a0429ef23b2476122f175ceaf0c0deffa7a6b825eb195b4d2a6cab420d694c07cf16ccc2ac8f4731b54aa2ba4a3e3a0" alt="松下" width="240" height="100"  border="0"></a></div><div style="width: 100%;margin-bottom: 8px;"><a  href="http://www.zaoche168.com/customer/thermofisher/20170706/index.html" onclick="window.open('/sooqclick.jsp?site=2&advid=AD0000000024706&url=http://www.zaoche168.com/customer/thermofisher/20170706/index.html');return false;" title="赛默飞" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a38984c4b6163ef47110a2220412f1a2d7545d2b6f783202442ad2a6cab420d694c07cf16ccc2ac8f473883f5d73eea56558" alt="赛默飞" width="240" height="100"  border="0"></a></div><div style="width: 100%;margin-bottom: 8px;"><a  href="http://www.ewininfo.cn/" onclick="window.open('/sooqclick.jsp?site=2&advid=AD0000000024707&url=http://www.ewininfo.cn/');return false;" title="易往" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a389318d5f5abf7e2e5ea2220412f1a2d754797e97c6e357da6bd2a6cab420d694c07cf16ccc2ac8f4736cc47b5df56ec9fb" alt="易往" width="240" height="100"  border="0"></a></div><div id="market" class="left_area">
+            <ul class="tabs clearfix">
+                <li class="select">市场研究</li>
+                <li><a class="link_more" href="/sec/market/">更多&gt;&gt;</a></li>
+            </ul>
+            <div class="contents">
+                <h3>独家调查</h3>
+                <a class="txt_overflow" href="/detail/_01-ABC00000000000271643.shtml" target="_blank" >新能源汽车轻量化路径及前景分析</a>
+                <a class="txt_overflow" href="/detail/_01-ABC00000000000270433.shtml" target="_blank" >2018年3D打印材料现状分析 国内行业发展地位提升</a>
+                <a class="txt_overflow" href="/detail/_01-ABC00000000000269844.shtml" target="_blank" >2018年工业机器人行业现状与发展趋势分析</a>
+                <a class="txt_overflow" href="/detail/_01-ABC00000000000269784.shtml" target="_blank" >2018年工业机器人行业现状与发展趋势分析 年均增速将超30%</a>
+                <a class="txt_overflow" href="/detail/_01-ABC00000000000268844.shtml" target="_blank" >权威报道：中汽协预测2018车市增长3％</a>
+                </div>
+        </div>
+    </div>
+    <div class="right_area fr" style="">
+        <div class="title_wraper">
+            <div class="title fl">机器人技术</div>
+            <div class="fl clearfix" style="width: 357px;border-top: 1px solid #cecece;">
+                <div class="fl clearfix" style="padding: 0 68px 0 63px;">
+                    <a href="/sec/robotics/newslist" target="_blank" class="link">新闻</a>
+                    <a href="/sec/robotics/applist" target="_blank" class="link">案例</a>
+                    <a href="/sec/robotics/techlist" target="_blank" class="link">技术</a>
+                    <a href="/sec/robotics/chanpinlist" target="_blank" class="link">产品</a>
+                </div>
+                <a class="link_more fl" href="/sec/robotics" target="_blank">更多</a>
+
+            </div>
+            <div class="adv">
+                </div>
+        </div>
+        <div class="contents clearfix">
+            <div class="fl left" style="">
+                <a class="link title txt_overflow" href="http://www.zaoche168.com/detail/_01-ABC00000000000271676.shtml" title="工业机器人是自动化工厂体系的通用平台" target="_blank">工业机器人是自动化工厂体系的通用平台</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276563.shtml" target="_blank" title="中国工业机器人销量创纪录 国产占有率五年来首次下滑">中国工业机器人销量创纪录 国产占有率五年来首次下滑</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276494.shtml" target="_blank" title="市场占有率五年来首次下滑 国产工业机器人发展受阻？">市场占有率五年来首次下滑 国产工业机器人发展受阻？</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276493.shtml" target="_blank" title="配天机器人荣获 “金手指奖” 双项大奖">配天机器人荣获 “金手指奖” 双项大奖</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276488.shtml" target="_blank" title="超讯通信与海康机器人签署战略合作协议">超讯通信与海康机器人签署战略合作协议</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276479.shtml" target="_blank" title="In-Sight 7000视觉系统实现汽车变速箱壳体字符的高效准确读取">In-Sight 7000视觉系统实现汽车变速箱壳体字符的高效准确读取</a>
+                <a class="link title txt_overflow" href="http://www.zaoche168.com/detail/_01-ABC00000000000271648.shtml" title="机器人“索菲亚”-人工智能技术进步的体现" target="_blank">机器人“索菲亚”-人工智能技术进步的体现</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276477.shtml" target="_blank" title="使用康耐视产品对轮毂进行刻码及追溯">使用康耐视产品对轮毂进行刻码及追溯</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276406.shtml" target="_blank" title="工业机器人与数控机床集成四大应用">工业机器人与数控机床集成四大应用</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276078.shtml" target="_blank" title="聚焦 AMTS2018：展示汽车工程领域工业机器人系统集成解决方案">聚焦 AMTS2018：展示汽车工程领域工业机器人系统集成解决方案</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276077.shtml" target="_blank" title="聚焦 AMTS2018：有了这项技术，永不停止的工厂就在眼前">聚焦 AMTS2018：有了这项技术，永不停止的工厂就在眼前</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276076.shtml" target="_blank" title="聚焦 AMTS2018：明珞汽车焊装解决方案，助力汽车行业发展">聚焦 AMTS2018：明珞汽车焊装解决方案，助力汽车行业发展</a>
+                </div>
+            <div class="center fl">
+                <p class="title">产品</p>
+                <div style="width:250px; height: 150px; overflow: hidden;margin: auto;">
+                    <a href="http://www.zaoche168.com/detail/_01-ABC00000000000269061.shtml" target="_blank" title="IRB 5350"><img src="/resupload/guangzhi/AS00012804/1514357184867_1.jpg" alt="IRB 5350" style="display: block; max-width:250px; max-height: 150px;"></a>
+                </div>
+                <a class="txt_overflow" style=" padding-left: 10px;" href="http://www.zaoche168.com/detail/_01-ABC00000000000269061.shtml" target="_blank" title="IRB 5350">IRB 5350</a>
+
+                <div class="clearfix">
+                    <div class="fl" style="width: 120px; overflow: hidden;margin-right: 10px;">
+                        <div style="width:120px; height: 84px; border: 1px solid #999999; overflow: hidden;">
+                            <a href="http://www.zaoche168.com/detail/_01-ABC00000000000269139.shtml"  target="_blank" title="SC系列 SC700"><img src="/resupload/guangzhi/AS00012807/1514438474220_1.jpg" alt="SC系列 SC700" style="max-width: 120px; max-height: 84px;"></a>
+                        </div>
+
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000269139.shtml" class="txt_overflow" target="_blank" title="SC系列 SC700">SC系列 SC700</a>
+                    </div>
+                    <div class="fl" style="width: 120px; overflow: hidden;">
+                        <div style="width:120px; height: 84px; border: 1px solid #999999; overflow: hidden;">
+                            <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266660.shtml" target="_blank" title="MotoMINI"><img src="/resupload/guangzhi/AS00012808/1511251912323_1.jpg" alt="MotoMINI" style="max-width: 120px; max-height: 84px;"></a>
+                        </div>
+
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266660.shtml" class="txt_overflow" target="_blank" title="MotoMINI">MotoMINI</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right fl">
+                <p class="title">技术</p>
+                <div class="item_wraper">
+                    <a class="link txt_overflow num num_1" href="/detail/_01-ABC00000000000275166.shtml">雄克：聚焦智能抓取技术</a>
+<a class="link txt_overflow num num_2" href="/detail/_01-ABC00000000000274607.shtml">我国工业机器人产业理该自设高门槛</a>
+<a class="link txt_overflow num num_3" href="/detail/_01-ABC00000000000274606.shtml">埃斯顿：技术壁垒攻坚者，势如破竹</a>
+<a class="link txt_overflow num num_4" href="/detail/_01-ABC00000000000272342.shtml">德马泰克成立机器人卓越中心 开发机器人自动化技术</a>
+<a class="link txt_overflow num num_5" href="/detail/_01-ABC00000000000271562.shtml">学好工业机器人技术，就能摆脱流水线工作吗？</a>
+</div>
+                <p class="title">案例</p>
+                <div class="item_wraper">
+                    <a class="link txt_overflow num num_1" href="/detail/_01-ABC00000000000274777.shtml">工业机器人与数控机床集成四大应用</a>
+<a class="link txt_overflow num num_2" href="/detail/_01-ABC00000000000272341.shtml">简单分析史陶比尔双机器人热成型件激光切割系统</a>
+<a class="link txt_overflow num num_3" href="/detail/_01-ABC00000000000271881.shtml">简单分析AGV在汽车零部件行业的应用</a>
+<a class="link txt_overflow num num_4" href="/detail/_01-ABC00000000000271865.shtml">工业机器人——未来工业测量解决方案</a>
+<a class="link txt_overflow num num_5" href="/detail/_01-ABC00000000000271231.shtml">璧山：“机器人+”推进制造业智能升级</a>
+</div>
+            </div>
+        </div>
+
+        <div class="title_wraper">
+            <div class="title fl">数字化制造</div>
+            <div class="fl clearfix" style="width: 357px;border-top: 1px solid #cecece;">
+                <div class="fl clearfix" style="padding: 0 68px 0 63px;">
+                    <a href="/sec/digitization/newslist" target="_blank" class="link">新闻</a>
+                    <a  href="/sec/digitization/applist" target="_blank" class="link">案例</a>
+                    <a href="/sec/digitization/techlist" target="_blank"  class="link">技术</a>
+                    <a  href="/sec/digitization/chanpinlist" target="_blank"  class="link">产品</a>
+                </div>
+                <a class="link_more fl" href="/sec/digitization" target="_blank">更多</a>
+
+            </div>
+            <div class="adv">
+                </div>
+        </div>
+        <div class="contents clearfix">
+            <div class="fl left" style="">
+                <a class="link title txt_overflow" href="http://www.zaoche168.com/detail/_01-ABC00000000000271672.shtml" title="巴斯夫进军亚太区3D打印市场 为市场提供一系列先进材料与解决方案" target="_blank">巴斯夫进军亚太区3D打印市场 为市场提供一系列先进材料与解决方案</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276537.shtml" target="_blank" title="西门子收购Austemper Design Systems公司，以期在IC功能安全性技术方面实现突破">西门子收购Austemper Design Systems公司，以期在IC功能安全性技术方面实现突破</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276491.shtml" target="_blank" title="西门子和阿里云结成工业物联网合作伙伴关系">西门子和阿里云结成工业物联网合作伙伴关系</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276423.shtml" target="_blank" title="斑马发布AR-Driving技术，成立物联网汽车在线服务联盟">斑马发布AR-Driving技术，成立物联网汽车在线服务联盟</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276074.shtml" target="_blank" title="集成ADAS和HMI系统，Socionext打造一体化智能驾舱解决方案">集成ADAS和HMI系统，Socionext打造一体化智能驾舱解决方案</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000275868.shtml" target="_blank" title="ANSYS携手PTC推出突破性集成设计解决方案，直追思维的速度">ANSYS携手PTC推出突破性集成设计解决方案，直追思维的速度</a>
+                <a class="link title txt_overflow" href="http://www.zaoche168.com/detail/_01-ABC00000000000271517.shtml" title="利戴：利用工厂大数据，探索全新业务" target="_blank">利戴：利用工厂大数据，探索全新业务</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000275705.shtml" target="_blank" title="Solid Edge通过集成式产品组合提供新一代产品开发工具">Solid Edge通过集成式产品组合提供新一代产品开发工具</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000275699.shtml" target="_blank" title="华为的汽车梦不是造车">华为的汽车梦不是造车</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000275677.shtml" target="_blank" title="新思科技推出AI增强型数字设计平台，将人工智能引入芯片设计实现">新思科技推出AI增强型数字设计平台，将人工智能引入芯片设计实现</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000275643.shtml" target="_blank" title="PTC和罗克韦尔自动化宣布建立战略合作伙伴关系，推动产业创新并加快增长">PTC和罗克韦尔自动化宣布建立战略合作伙伴关系，推动产业创新并加快增长</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000275620.shtml" target="_blank" title="西门子依托“数字化企业”实现过程工业的数字化转型">西门子依托“数字化企业”实现过程工业的数字化转型</a>
+                </div>
+            <div class="center fl">
+                <p class="title">产品</p>
+                <div style="width:250px; height: 150px; overflow: hidden;margin: auto;">
+                    <a  href="http://www.zaoche168.com/detail/_01-ABC00000000000266921.shtml" target="_blank" title="紧凑型光电传感器"><img src="/resupload/guangzhi/AS00012805/1511252341576_1.jpg" alt="紧凑型光电传感器" style="display: block; max-width:250px; max-height: 150px;"></a>
+                </div>
+                <a class="txt_overflow" style=" padding-left: 10px;" href="http://www.zaoche168.com/detail/_01-ABC00000000000266921.shtml" target="_blank" title="紧凑型光电传感器">紧凑型光电传感器</a>
+
+                <div class="clearfix">
+                    <div class="fl" style="width: 120px; overflow: hidden;margin-right: 10px;">
+                        <div style="width:120px; height: 84px; border: 1px solid #999999; overflow: hidden;">
+                            <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266639.shtml"  target="_blank" title="智能3D取放系统"><img src="/resupload/guangzhi/AS00012809/1511252122130_1.jpg" alt="智能3D取放系统" style="max-width: 120px; max-height: 84px;"></a>
+                        </div>
+
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266639.shtml" class="txt_overflow" target="_blank" title="智能3D取放系统">智能3D取放系统</a>
+                    </div>
+                    <div class="fl" style="width: 120px; overflow: hidden;">
+                        <div style="width:120px; height: 84px; border: 1px solid #999999; overflow: hidden;">
+                            <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266356.shtml" target="_blank" title="Sinamics GH150"><img src="/resupload/guangzhi/AS00012810/1511252195800_1.jpg" alt="Sinamics GH150" style="max-width: 120px; max-height: 84px;"></a>
+                        </div>
+
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266356.shtml" class="txt_overflow" target="_blank" title="Sinamics GH150">Sinamics GH150</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right fl">
+                <p class="title">技术</p>
+                <div class="item_wraper">
+                    <a class="link txt_overflow num num_1" href="/detail/_01-ABC00000000000274500.shtml">化缘求不来核心技术的提升</a>
+<a class="link txt_overflow num num_2" href="/detail/_01-ABC00000000000272277.shtml">简单分析宝马与3D打印技术的那些事</a>
+<a class="link txt_overflow num num_3" href="/detail/_01-ABC00000000000271517.shtml">利戴：利用工厂大数据，探索全新业务</a>
+<a class="link txt_overflow num num_4" href="/detail/_01-ABC00000000000269262.shtml">政策利好3D打印技术在汽车领域的创新应用</a>
+<a class="link txt_overflow num num_5" href="/detail/_01-ABC00000000000268943.shtml">达索系统汽车行业：跟踪前沿技术，集成解决方案平台，引导企业数字化转型</a>
+</div>
+                <p class="title">案例</p>
+                <div class="item_wraper">
+                    <a class="link txt_overflow num num_1" href="/detail/_01-ABC00000000000276469.shtml">案例分享 | 万可为奔驰新厂提供智能驾驭照明解决方案</a>
+<a class="link txt_overflow num num_2" href="/detail/_01-ABC00000000000274020.shtml">首个交钥匙物联网解决方案</a>
+<a class="link txt_overflow num num_3" href="/detail/_01-ABC00000000000272279.shtml">简单分析3D打印技术在汽车行业的应用</a>
+<a class="link txt_overflow num num_4" href="/detail/_01-ABC00000000000272278.shtml">简单分析3D打印在汽车领域的应用</a>
+<a class="link txt_overflow num num_5" href="/detail/_01-ABC00000000000271386.shtml">联亚光电将销售自有VCSEL开发3D传感解决方案</a>
+</div>
+            </div>
+        </div>
+
+        <div class="title_wraper">
+            <div class="title fl">自动化系统</div>
+            <div class="fl clearfix" style="width: 357px;border-top: 1px solid #cecece;">
+                <div class="fl clearfix" style="padding: 0 68px 0 63px;">
+                    <a href="/sec/automaticsystem/newslist" target="_blank" class="link">新闻</a>
+                    <a href="/sec/automaticsystem/applist" target="_blank" class="link">案例</a>
+                    <a href="/sec/automaticsystem/techlist" target="_blank" class="link">技术</a>
+                    <a href="/sec/automaticsystem/chanpinlist" target="_blank" class="link">产品</a>
+                </div>
+                <a class="link_more fl" href="/sec/automaticsystem/" target="_blank">更多</a>
+
+            </div>
+            <div class="adv">
+                </div>
+        </div>
+        <div class="contents clearfix">
+            <div class="fl left" style="">
+                <a class="link title txt_overflow" href="http://www.zaoche168.com/detail/_01-ABC00000000000271733.shtml" title="DataMan读码器助力NB制造商实施“工业4.0”战略" target="_blank">DataMan读码器助力NB制造商实施“工业4.0”战略</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276540.shtml" target="_blank" title="TI DLP(R)技术将微米至亚毫米工业精度、处理速度和灵活性引入桌面3D打印机和便携式3D扫描仪">TI DLP(R)技术将微米至亚毫米工业精度、处理速度和灵活性引入桌面3D打印机和便携式3D扫描仪</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276512.shtml" target="_blank" title="威盛SOM-9X20核心板，搭载Qualcomm® 骁龙™ 820E的高性能AI开发板">威盛SOM-9X20核心板，搭载Qualcomm® 骁龙™ 820E的高性能AI开发板</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276506.shtml" target="_blank" title="魏德米勒电缆组件">魏德米勒电缆组件</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276505.shtml" target="_blank" title="魏德米勒“u-mation”：适用于机械制造和设备工程的开放且跨平台的自动化组件">魏德米勒“u-mation”：适用于机械制造和设备工程的开放且跨平台的自动化组件</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276492.shtml" target="_blank" title="无人驾驶的梦想照进现实了">无人驾驶的梦想照进现实了</a>
+                <a class="link title txt_overflow" href="http://www.zaoche168.com/detail/_01-ABC00000000000271523.shtml" title="简单分析ISSCC上的各种新型图像传感器技术" target="_blank">简单分析ISSCC上的各种新型图像传感器技术</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276456.shtml" target="_blank" title="新华社谈汽车自动驾驶技术：市场化最大难题不在技术">新华社谈汽车自动驾驶技术：市场化最大难题不在技术</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276424.shtml" target="_blank" title="无人驾驶的最终落地形态将由成本决定？">无人驾驶的最终落地形态将由成本决定？</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276416.shtml" target="_blank" title="无人驾驶的概念先行到技术落地再到实际量产">无人驾驶的概念先行到技术落地再到实际量产</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276276.shtml" target="_blank" title="迪斯泰克获2018优秀汽车制造工件夹持装置及自动化设备供应商奖">迪斯泰克获2018优秀汽车制造工件夹持装置及自动化设备供应商奖</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276125.shtml" target="_blank" title="携手并进 智享“魏”来——客户交流会京城之行">携手并进 智享“魏”来——客户交流会京城之行</a>
+                </div>
+            <div class="center fl">
+                <p class="title">产品</p>
+                <div style="width:250px; height: 150px; overflow: hidden;margin: auto;">
+                    <a  href="http://www.zaoche168.com/detail/_01-ABC00000000000266602.shtml" target="_blank" title="自动化柔性生产线演示方案"><img src="/resupload/guangzhi/AS00012806/1511252452802_1.jpg" alt="自动化柔性生产线演示方案" style="display: block; max-width:250px; max-height: 150px;"></a>
+                </div>
+                <a class="txt_overflow" style=" padding-left: 10px;" href="http://www.zaoche168.com/detail/_01-ABC00000000000266602.shtml" target="_blank" title="自动化柔性生产线演示方案">自动化柔性生产线演示方案</a>
+
+                <div class="clearfix">
+                    <div class="fl" style="width: 120px; overflow: hidden;margin-right: 10px;">
+                        <div style="width:120px; height: 84px; border: 1px solid #999999; overflow: hidden;">
+                            <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266640.shtml"  target="_blank" title="iWeld5智能焊接"><img src="/resupload/guangzhi/AS00012811/1511252995889_1.jpg" alt="iWeld5智能焊接" style="max-width: 120px; max-height: 84px;"></a>
+                        </div>
+
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266640.shtml" class="txt_overflow" target="_blank" title="iWeld5智能焊接">iWeld5智能焊接</a>
+                    </div>
+                    <div class="fl" style="width: 120px; overflow: hidden;">
+                        <div style="width:120px; height: 84px; border: 1px solid #999999; overflow: hidden;">
+                            <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266636.shtml"  target="_blank" title="GA1403C"><img src="/resupload/guangzhi/AS00012812/1511252944167_1.jpg" alt="GA1403C" style="max-width: 120px; max-height: 84px;"></a>
+                        </div>
+
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266636.shtml" class="txt_overflow" target="_blank" title="GA1403C">GA1403C</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right fl">
+                <p class="title">技术</p>
+                <div class="item_wraper">
+                    <a class="link txt_overflow num num_1" href="/detail/_01-ABC00000000000275522.shtml">高科技人脸识别重要性不容小觑，威盛可助一臂之力！</a>
+<a class="link txt_overflow num num_2" href="/detail/_01-ABC00000000000275480.shtml">无人驾驶技术之——看不见的“传感器”高精度地图</a>
+<a class="link txt_overflow num num_3" href="/detail/_01-ABC00000000000274496.shtml">自动化立体仓库的分类与优势</a>
+<a class="link txt_overflow num num_4" href="/detail/_01-ABC00000000000274278.shtml">琻捷电子发布国内首款车规级TPMS传感器芯片</a>
+<a class="link txt_overflow num num_5" href="/detail/_01-ABC00000000000274273.shtml">Metrologic与Stäubli合作制造第一台精密坐标测量机器人</a>
+</div>
+                <p class="title">案例</p>
+                <div class="item_wraper">
+                    <a class="link txt_overflow num num_1" href="/detail/_01-ABC00000000000275784.shtml">自动驾驶汽车紧急制动测试</a>
+<a class="link txt_overflow num num_2" href="/detail/_01-ABC00000000000275781.shtml">迈来芯隆重推出汽车执行器应用集成解决方案</a>
+<a class="link txt_overflow num num_3" href="/detail/_01-ABC00000000000274275.shtml">中国智能制造装备行业深度分析</a>
+<a class="link txt_overflow num num_4" href="/detail/_01-ABC00000000000273717.shtml">如虎添翼，联接新能源未来</a>
+<a class="link txt_overflow num num_5" href="/detail/_01-ABC00000000000273690.shtml">基恩士汽车行业高端精密制造行业尺寸测量改善案例</a>
+</div>
+            </div>
+        </div>
+
+        <div class="title_wraper">
+            <div class="title fl">金属加工技术</div>
+            <div class="fl clearfix" style="width: 357px;border-top: 1px solid #cecece;">
+                <div class="fl clearfix" style="padding: 0 68px 0 63px;">
+                    <a href="/sec/metalworking/newslist" target="_blank" class="link">新闻</a>
+                    <a href="/sec/metalworking/applist" target="_blank" class="link">案例</a>
+                    <a href="/sec/metalworking/techlist" target="_blank" class="link">技术</a>
+                    <a class="link">产品</a>
+                </div>
+                <a class="link_more fl" href="/sec/metalworking/" target="_blank">更多</a>
+
+            </div>
+            <div class="adv">
+                </div>
+        </div>
+        <div class="contents clearfix">
+            <div class="fl left" style="">
+                <a class="link title txt_overflow" href="http://www.zaoche168.com/detail/_01-ABC00000000000271692.shtml" title="全球十大突破性技术，竟有 7 项与汽车革命相关" target="_blank">全球十大突破性技术，竟有 7 项与汽车革命相关</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276564.shtml" target="_blank" title="DSP在超精密数控系统中的应用">DSP在超精密数控系统中的应用</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276489.shtml" target="_blank" title="亚威股份：激光加工装备业务盈利能力将持续提升">亚威股份：激光加工装备业务盈利能力将持续提升</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276470.shtml" target="_blank" title="AMTS 2018走“新”巨献 | 遇见你想要的新科技">AMTS 2018走“新”巨献 | 遇见你想要的新科技</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276454.shtml" target="_blank" title="浅谈CAE 技术在汽车轻量化设计中的应用">浅谈CAE 技术在汽车轻量化设计中的应用</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276453.shtml" target="_blank" title="三菱电机研发LED前照灯光学模块 发光效率高汽车制造商可灵活用于设计">三菱电机研发LED前照灯光学模块 发光效率高汽车制造商可灵活用于设计</a>
+                <a class="link title txt_overflow" href="http://www.zaoche168.com/detail/_01-ABC00000000000271678.shtml" title="福斯为高效生产保驾护航 构建绿色制造体系" target="_blank">福斯为高效生产保驾护航 构建绿色制造体系</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276450.shtml" target="_blank" title="通用汽车使用Autodesk软件、3D打印、人工智能和云计算来实现轻量化设计">通用汽车使用Autodesk软件、3D打印、人工智能和云计算来实现轻量化设计</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276446.shtml" target="_blank" title="汽车设计师眼中的新能源汽车定位">汽车设计师眼中的新能源汽车定位</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276445.shtml" target="_blank" title="未来的汽车设计中，哪部分才是最重要的？">未来的汽车设计中，哪部分才是最重要的？</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276444.shtml" target="_blank" title="汽车仪表盘UI设计">汽车仪表盘UI设计</a>
+                <a class="link txt_overflow" href="/detail/_01-ABC00000000000276443.shtml" target="_blank" title="车用复合材料新技术在汽车工业中的应用">车用复合材料新技术在汽车工业中的应用</a>
+                </div>
+            <div class="center fl">
+                <p class="title">产品</p>
+                <div style="width:250px; height: 150px; overflow: hidden;margin: auto;">
+                    <a  href="http://www.zaoche168.com/detail/_01-ABC00000000000266600.shtml" target="_blank" title="滚珠丝杠滚珠花键 BNS/NS"><img src="/resupload/guangzhi/AS00012803/1511253764486_1.jpg" alt="滚珠丝杠滚珠花键 BNS/NS" style="display: block; max-width:250px; max-height: 150px;"></a>
+                </div>
+                <a class="txt_overflow" style=" padding-left: 10px;" href="http://www.zaoche168.com/detail/_01-ABC00000000000266600.shtml" target="_blank" title="滚珠丝杠滚珠花键 BNS/NS">滚珠丝杠滚珠花键 BNS/NS</a>
+
+                <div class="clearfix">
+                    <div class="fl" style="width: 120px; overflow: hidden;margin-right: 10px;">
+                        <div style="width:120px; height: 84px; border: 1px solid #999999; overflow: hidden;">
+                            <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266085.shtml" target="_blank" title="闪电BOLT 4.0"><img src="/resupload/guangzhi/AS00012813/1511254057987_1.jpg" alt="闪电BOLT 4.0" style="max-width: 120px; max-height: 84px;"></a>
+                        </div>
+
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266085.shtml" class="txt_overflow" target="_blank" title="闪电BOLT 4.0">闪电BOLT 4.0</a>
+                    </div>
+                    <div class="fl" style="width: 120px; overflow: hidden;">
+                        <div style="width:120px; height: 84px; border: 1px solid #999999; overflow: hidden;">
+                            <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266080.shtml"  target="_blank" title="肯纳金属 KCSM40"><img src="/resupload/guangzhi/AS00012814/1511254152405_1.jpg" alt="肯纳金属 KCSM40" style="max-width: 120px; max-height: 84px;"></a>
+                        </div>
+
+                        <a href="http://www.zaoche168.com/detail/_01-ABC00000000000266080.shtml" class="txt_overflow" target="_blank" title="肯纳金属 KCSM40">肯纳金属 KCSM40</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right fl">
+                <p class="title">技术</p>
+                <div class="item_wraper">
+                    <a class="link txt_overflow num num_1" href="/detail/_01-ABC00000000000275852.shtml">数控机床信息智能采集技术的现状与趋势</a>
+<a class="link txt_overflow num num_2" href="/detail/_01-ABC00000000000275851.shtml">数控机床关键技术与发展趋势</a>
+<a class="link txt_overflow num num_3" href="/detail/_01-ABC00000000000274961.shtml">通快暴风切割技术 突破传统光纤激光切割的瓶颈</a>
+<a class="link txt_overflow num num_4" href="/detail/_01-ABC00000000000274803.shtml">榨辊藕孔加工专用机械与设备</a>
+<a class="link txt_overflow num num_5" href="/detail/_01-ABC00000000000274469.shtml">深孔加工振动断屑装置设计</a>
+</div>
+                <p class="title">案例</p>
+                <div class="item_wraper">
+                    <a class="link txt_overflow num num_1" href="/detail/_01-ABC00000000000275168.shtml">德马吉森精机：成功案例   SCHUNK GMBH & CO. KG</a>
+<a class="link txt_overflow num num_2" href="/detail/_01-ABC00000000000274800.shtml">汽车先进高强钢成形技术应用现状</a>
+<a class="link txt_overflow num num_3" href="/detail/_01-ABC00000000000274217.shtml">普通车床的数控改造及应用</a>
+<a class="link txt_overflow num num_4" href="/detail/_01-ABC00000000000273263.shtml">简单分析汽车飞轮齿圈过盈装配加热感应器设计及工艺调试</a>
+<a class="link txt_overflow num num_5" href="/detail/_01-ABC00000000000273104.shtml">简单分析汽车前轴柔性化精加工</a>
+</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="area3" class="body_c">
+    <div class="item fl" style="margin-right: 15px; margin-bottom: 15px;">
+        <div class="title_wraper">
+            <div class="title">四大工艺-冲压</div>
+            <div class="title_r">
+                <a class="link_more" href="/sec/stamping" target="_blank">更多 &gt;&gt;</a>
+            </div>
+        </div>
+        <div class="cons_wraper">
+            <ul class="tabs">
+                <li class="tab current">动态</li>
+                <li class="tab">技术</li>
+                <li class="tab">产品</li>
+                <li class="tab">应用案例</li>
+                <li class="tab">解决方案</li>
+            </ul>
+            <div class="cons">
+                <div class="con" style="display: block;">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128001001/1528857538552_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000275567.shtml" target="_blank" class="title txt_overflow">众泰福特选用中安重工大型冲压生产线</a>
+                                <p class="txt">福特汽车在中国的第二家合资企业--众泰福特汽车有限公司，于5月下旬正式确认，第一条6000T大型快速自动化冲压生产线，选用中安重工自动化装备有限公司与现代乐铁公司的合作产品，这是众泰福特目前唯一的一条冲压生产线。整条冲压线由多连杆2400T、1200T和三台800T共计五台压力机组成，自动化产品采用ABB七轴机器人，整线节拍达到12次/分钟。众泰福特对该条冲压线的技术水平、自动化程度、产品质量的要求非常高。 
+ 压力机产品，由现代乐铁与中安重工采用联合设计、联合制造、联合品牌的方式提供。这是中安重工在中外合资汽车厂获得的第一条大型冲压线订单，也是继PL4S-2400+P4S-800+P4S-630(2)、PL4S-2100+P4S-1200(5)(天津大众备用线)、PL4S-1400+P4S-800 (4)(两条 )之后的第五条大型冲压线业绩。 
+ 中安重工自去年5月份，向中外合资的冲压件生产企业，提供2500吨多工位压力机之后，又一次向中外合资企业提供大型机械压力机，这标志着中安重工的产品质量、技术水平越来越受到客户的广泛认可。 
+ 目前该项目正处在产品设计阶段，众泰福特、现代</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000275317.shtml">AMTS 2018聚焦新材料车身、核心部件冲压工程技术革新</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000275120.shtml">冲压做的好不好，全靠细节来把握！</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000274440.shtml">汽车齿轮的精密锻造技术</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000274272.shtml">金属冲压未来四大自动化方式，大势所趋！</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128001002/1524877831838_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000274203.shtml" target="_blank" class="title txt_overflow">感应加热技术工艺在汽车制造中的应用</a>
+                                <p class="txt">一、感应加热的原理及特点 
+ 1. 电磁感应现象 
+ 电磁感应现象是指放在变化磁通量中的导体，会产生电动势。此电动势称为感应电动势或感生电动势，若将此导体闭合成一回路，则该电动势会驱使电子流动，形成感应电流(见图1)。 
+ 电磁感应现象的发现，乃是电磁学领域中最伟大的成就之一。它不仅揭示了电与磁之间的内在联系，而且为电与磁之间的相互转化奠定了实验基础，为人类获取巨大而廉价的电能开辟了道路，在实用上有重大意义。电磁感应现象的发现，标志着一场重大的工业和技术革命的到来。事实证明，电磁感应是发电机、感应电机、变压器和大部分其他电力设备操作的基础，在电工、电子技术、电气化、自动化和工业加热方面的广泛应用，对推动社会生产力和科学技术的发展起到了重要的作用。 
+ 2. 感应加热原理 
+ 感应加热技术应用的就是变压器的工作原理，在感应器(变压器的初级线圈)中通入交变电流后，在其周围会产生交变磁场，放置在其附近的金属工件(变压器的短路次级线圈)在交变磁场的作用下，会产生电动势，在该电动势的驱使下使工件中的电子流动形成感应电流(涡流见图2)。在工件中电阻的作用下将电能转变为热能，使工件本身加热</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272374.shtml">探讨汽车覆盖件成双冲压工艺设计方法分析</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272373.shtml">托架冲压工艺方案的分析及模具设计</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272347.shtml">有“模”才有样！ 汽车冲压模具市场分析</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272345.shtml">数据会说话 揭秘你所不知道的冲压工！</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128001006/1522827667007_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000273407.shtml" target="_blank" class="title txt_overflow">新E5x Evolution转塔冲床</a>
+                                <p class="txt">先进的伺服电机冲床，设计了多种简易应用功能、快速设定和简易操作的普瑞玛新触摸屏机床控制系统。提供多种不同的特殊刀具，大幅提升机床的工作效率，成型、攻丝、折弯和刻印均无需在独立阶段完成，部分已加工完成可直接成品或进入下一道折弯工序。 转载  冲床</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272875.shtml">拉杆式设计伺服压力机</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272874.shtml">机械式多工位压力机</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272872.shtml">伺服压力机开卷落料线</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272592.shtml">IRB 6660 冲压机器人</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000272370.shtml" target="_blank" class="title txt_overflow">汽车冲压设备上下料机器人研究</a>
+                                <p class="txt">引言 
+ 传统的汽车冲压设备中，人工操作已经无法满足当代汽车行业的需求。随着现代智能化技术与电子技术的快速发展，机器人已经代替人工完成冲压线上的上下料工作。如此，既可以保证冲压设备上下料的安全与效率，又能够控制日渐增加的人工成本。因此，选择合适的冲压设备上下料机器人直接关系着整条冲压设备的工作效率，对保证汽车冲压线路的工作效率与安全都具备重要的意义。 
+ 1 选择汽车冲压设备上下料机器人的原则 
+ 目前我国汽车工业生产的集中度比较低，采用机器人送料的方式具备很好的柔性，大大提升了冲压设备制造生产线路的综合性和利用度，降低了工艺设备的投资成本与人工运作成本。随着机器人的价格越来越低，我国冲压生产线越来越专业，冲压设备上下料机器人的选择也越来越多。如何选择合适的上下料机器人，让上下料机器人更符合我国的冲压生产线，已经成为我国冲压设备选择中的重点。 
+ 在选择上下料机器人前，选购人员要充分并深入的了解冲压技术的内容，包括常见的冲压辅助设备，机器人的整线搭配方式和冲压线机器人的型号选择。自动化技术与电子技术的不断发展，冲压设备上下料机器人的性能及相关的辅助设备也得到发展。机器人的自动化</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272368.shtml">冲压间隙对冲压成型性能的影响</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272366.shtml">凸模圆角尺寸对汽车冲压件成型的影响</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000270606.shtml">冲压和弯曲回弹问题的分析与解决</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000270389.shtml">简单分析配套企业智能冲压车间该如何规划</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128001004/1520573967215_4.png"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000272195.shtml" target="_blank" class="title txt_overflow">冲压机器人系统解决方案</a>
+                                <p class="txt">概述： 
+ • 替代人工在各个冲压工位上进行物料搬运、上下料等工作，提高整条生产线效率。 
+ • 根据冲压生产特点实现冲压自动化无人生产。 
+ • 替代人工进行重复性、高危险性、高节拍的动作。 
+ • 节约人力劳动成本、提高产能、质量及工艺稳定性、提高人员及设备安全性 
+ 图一：主流机械结构图 
+ 冲压机器人根据冲压生产的特点，有二次元机械手、三次元机械手、4轴冲压机器人、5轴冲压机器人等多种类型。我们将针对目前市场主流的4轴冲压机器人方案【见图一：主流机械结构图】作为分析对象，做整体的解决方案描述。 
+ 图二：冲压机器人系统技术需求 
+ 目前冲压机械手的主要技术要点【见图二：冲压机器人系统技术需求】分析，针对末端抖动抑制、重复定位精度、效率节拍、安全性、联动性、易用性等大家所关注的问题，市场主流的几种配置：【PLC/单片机/运动控制器+通用伺服】的方案，不能完全满足市场的技术需求现状，深圳微秒运用自身驱控一体化的优势，RSD系列机器人专用型伺服系统整合逻辑控制、运动控制、伺服驱动器三位一体，内置运动控制曲线算法，综合有效的解决了市场之所需【见图三：深圳微秒驱控一体解决</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000269082.shtml">AMTS冲压工程展区——汽车领域冲压自动化一站式解决方案</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000258392.shtml">高效、精准的追溯解决方案</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000258357.shtml">高效冲压的创新解决方案</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000231860.shtml">ABB适用于高速冲压线的快速和柔性零件传送解决方案</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="item fl">
+        <div class="title_wraper">
+            <div class="title">四大工艺-焊接</div>
+            <div class="title_r">
+                <a class="link_more" href="/sec/welding/" target="_blank">更多 &gt;&gt;</a>
+            </div>
+        </div>
+        <div class="cons_wraper">
+            <ul class="tabs">
+                <li class="tab current">动态</li>
+                <li class="tab">技术</li>
+                <li class="tab">产品</li>
+                <li class="tab">应用案例</li>
+                <li class="tab">解决方案</li>
+            </ul>
+            <div class="cons">
+                <div class="con" style="display: block;">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128002001/1531277187387_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000276510.shtml" target="_blank" class="title txt_overflow">三年不鸣潜心技术，首次亮相鲸奇出彩</a>
+                                <p class="txt">一年一度的上海国际汽车制造技术与装备及材料展览会(AMTS)在上海新国际博览中心落下帷幕，汇聚有来自世界各地800家展商参展，吸引80,000位专业观众到场参观。高品自动化作为国内汽车零部件智能制造的行业翘楚，在展会上发布其旗下全新子品牌——鲸奇。 鲸奇在AMTS展上首次亮相，引起了行业的高度关注和热议。 
+ 鲸奇焊枪展示 
+ 中国已成为世界第一大汽车生产国，2017年，中国市场生产了24，806，687辆汽车，以行业经验估算，10万辆汽车产量需要300台焊钳，中国市场对焊钳的需求量非常巨大。然而中国目前中高端电阻点焊焊钳和焊装自动化工程市场，被欧美、日本等企业占据中高端焊钳的供应。 
+ 近期中美之间的贸易战，证明了中国科技行业的兴起需要依靠自主创新才能获得长远的发展。汽车工业作为国民经济支柱产业，围绕汽车工业展开的先进制造装备， 也要求中国的企业实现技术创新和核心技术的国产化。 
+ 鲸奇，深知核心技术要不来，等不来，求不来。 鲸奇焊钳以振兴民族汽车电阻焊为己任，致力于推动行业的发展，为民族品牌在激烈的国际竞争中博得一席之地。在高端电阻点焊焊钳的基础上，鲸奇发展了焊装自动化系统</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000275811.shtml">激光汽化切割与激光熔化切割的差异在哪？</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000275563.shtml">汽车焊装用胶的性能、用途、车身涂胶位置及规范</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000274796.shtml">揭秘蔚来ES8全铝车身生产线</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000274670.shtml">动力电池制造过程焊接方法与工艺</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128002002/1529562269788_1.png"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000275806.shtml" target="_blank" class="title txt_overflow">中科煜宸激光焊接技术及装备在新能源汽车领域大放异彩</a>
+                                <p class="txt">中科煜宸拥有国内领先的激光焊接技术及装备，在新能源汽车领域，中科煜宸成功攻克了全铝车身及零部件的激光焊接、电机转子铜合金激光焊接等难题，成为国内首家提供全铝车身侧围激光焊接装备和电机转子激光焊接装备的供应商。中科煜宸可提供新能源汽车从材料创新设计、制造工艺到集成制造装备等全面的系统解决方案。 
+ 2017年全国新能源汽车发展速度远超过以往，多个国家已经出台禁售燃油车法规。据中国汽车工业协会数据，2017年11月新能源汽车产销12.2万辆和11.9万辆，同比增长69.4%和83.1%。2017年1-11月，新能源汽车产销63.3万辆和60.5万辆，同比增长50.4%和52.8%。 
+ 据悉，中科煜宸经过多年的技术积累，开发的激光焊接成套技术及装备已处于国内领先地位。近三年来，成功研制并交付了包括远程激光焊接系统、激光—MIG(MAG)复合焊接系统、激光—TIG复合焊接系统、窄间隙激光填丝焊接系统、激光钎焊系统等新能源汽车整车及核心零部件制造装备20多台套。同时自主知识产权的激光焊接头、焊接过程中智能检测技术及闭环焊接质量控制等技术也已实现了产业化应用。 
+ 手持焊枪式光纤激光焊接装</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000275801.shtml">大众汽车18套激光系统焊接技术揭秘</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273908.shtml">Fronius伏能士CMT冷金属过渡电弧工艺的起弧收弧</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273854.shtml">被特斯拉应用已超过十年的动力电池成组技术——超声波焊接</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273847.shtml">动力电池成组中的电阻焊概述</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128002006/1524101729659_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000273843.shtml" target="_blank" class="title txt_overflow">激光焊接-可靠的连接</a>
+                                <p class="txt">激光焊接的优点：漂亮的外观，在大批量生产中部件无变形，根本不需要后处理。 
+ 焊缝窄而深是激光焊接的标志。激光焊缝深深地穿入金属内部。其能量使部件边缘熔化，少量的金属产生了熔池并形成焊缝。焊接头将激光射到工件上并使其熔化。由于激光光斑直径只有几十分之一毫米，它是一种高精度工具。普雷茨特不仅提供激光焊接头而且提供相对应的在线和离线焊接检测系统。焊缝跟踪系统引导焊接头实现精确焊接并检查焊接结果。 
+ 激光焊接的应用范围远远超过了普通焊接 – 无论是材料的选择还是应用本身。激光可以焊接钢、不锈钢、非铁金属及塑料等，也可用于钎焊和熔覆。普雷茨特提供相应的部件。 
+ 深熔焊是聚焦在一点上的巨大激光能量的结果。由于每平方厘米的激光能量高达一兆瓦，打到金属上的激光使其迅速气化。这个过程也称为细孔效应。通过气化激光束穿入金属内部。激光束熔化了吸孔周围的金属，接下来，熔池形成了焊缝。由于线形能量很低，只有很少的热量进入部件。部件不易变形，也不需要后处理，这种方式适合生产。 
+ 尽管激光适合深熔焊，它也适合热传导焊接，在这种应用中不利用激光的焦点，在熔化区域宽度通常大于深度。除了可见焊缝生产，激光</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273821.shtml">焊接环节机器人解决方案</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273820.shtml">振镜激光焊接机</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273819.shtml">汽车发动机油轨焊接平台</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273818.shtml">焊点不良红光指示机</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128002003/1519868694246_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000271754.shtml" target="_blank" class="title txt_overflow">详解Fronius伏能士ArcTig新型焊接工</a>
+                                <p class="txt">Fronius伏能士 ArcTig 焊接工艺是基于钨极惰性气体保护焊接(简称 TIG)的基本原理研制而成的。那么ArcTig的工艺原理相比于TIG有什么不同呢? 
+ ArcTig工艺原理介绍 
+ TIG工艺原理介绍： 
+ 在TIG工艺中，电弧在无氧的惰性气体环境下燃烧，燃烧位置在不熔钨极和金属部件之间。电流会使电极温度升高，进而产生电子流，这会降低合成电阻的阻值，造成电弧强度减弱、宽度增加。由于惰性保护气体的存在，液态熔池内不会发生化学反应。这样，在焊出优质焊缝的同时还可防止材料出现回火色及飞溅情况，保证焊缝形状最佳。TIG焊接适用于不同材料(包括钛等复杂材料)和应用。 
+ Fronius ArcTig工艺原理介绍： 
+ ArcTig 焊接工艺设计用于容器和管道结构以及涡轮机、特殊机器、起重机和油罐制造。此处最为重要的革新是带有电极夹紧系统的优化焊枪，此焊枪可保证电极冷却至末端。这可增大组合电阻的阻值进而产生较高的电弧电压。此时的电子发射发生在小范围内，但密度却极高。这使得电弧宽度减小，更加集中，用户可由此得到高质量的焊缝。 
+ 左图：TIG 右图：ArcTig 
+ 冷却</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000271157.shtml">激光拼焊板在汽车车身制造中的应用</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000271123.shtml">国外汽车工业机器人激光焊接技术的应用</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000270598.shtml">简单分析激光焊接技术在一汽-大众白车身焊接中的应用</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000270310.shtml">简单分析机器人红外线检测系统在汽车车身焊接中的应用</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128002004/1522806696520_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000273342.shtml" target="_blank" class="title txt_overflow">简单介绍激光材料加工在线质量检验系统</a>
+                                <p class="txt">激光束钎焊和焊接在汽车工业中是成熟的焊接技术，特别对于白车身的生产。这些工艺主要用于两件式行李箱盖的焊接，以及具有可见接缝的车顶与侧围之间的焊接，或用于焊接钢或铝车门。因此，对钎焊接缝的光学外观的要求非常高，质量监控至关要。Scansonic MI GmbH与德国弗劳恩霍夫激光技术研究所(Fraunhofer ILT)合作开发出首个完整集成的在线过程控制系统的原型– SCeye。 
+ SCeye系统是汽车白车身生产的激光加工的附加件。它包括一个无与伦比的创新和强大的照明模块，并与高速摄像头相结合;所有这些都完全集成到ALO3钎焊和焊接机头内，如图1所示。照明和摄像头模块同轴对准，这是集成过程监控的关键技术，并在多年前由德国弗劳恩霍夫激光技术研究所发明。 
+ 在不影响钎焊光学元件的可达性的情况下，该系统能够在大规模生产过程中获取高分辨率图像，可用于工艺和质量控制目的。SCeye系统还允许对过程行为和产品质量进行全面的记录。 
+ 本文介绍了SCeye产品的特点，该产品于2015年1月在EALA大会上发布，并展示了受控激光钎焊和气孔检测的最新科学成果。经研究的控制算法基于速度测量和实时</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273049.shtml">Fronius伏能士焊机 — 卡车车厢焊接解决方案</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272297.shtml">Fronius伏能士焊机:商用车轮毂CMT TWIN双丝焊接解决方案</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000270779.shtml">Fronius伏能士焊机 — 乘用车轮毂焊接解决方案</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000270423.shtml">Fronius伏能士为新能源汽车电机焊接提供解决方案</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="item fl"  style="margin-right: 15px; margin-bottom: 15px;">
+        <div class="title_wraper">
+            <div class="title">四大工艺-涂装</div>
+            <div class="title_r">
+                <a class="link_more" href="/sec/painting/" target="_blank">更多 &gt;&gt;</a>
+            </div>
+        </div>
+        <div class="cons_wraper">
+            <ul class="tabs">
+                <li class="tab current">动态</li>
+                <li class="tab">技术</li>
+                <li class="tab">产品</li>
+                <li class="tab">应用案例</li>
+                <li class="tab">解决方案</li>
+            </ul>
+            <div class="cons">
+                <div class="con" style="display: block;">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000274954.shtml" target="_blank" class="title txt_overflow">电镀与电泳的区别是什么</a>
+                                <p class="txt">电镀就是利用电解原理在某些金属表面上镀上一薄层其它金属或合金的过程。电泳:溶液中带电粒子(离子)在电场中移动的现象。 
+ 电镀： 
+ 电镀时，镀层金属做阳极，被氧化成阳离子进入电镀液;待镀的金属制品做阴极，镀层金属的阳离子在金属表面被还原形成镀层。为排除其它阳离子的干扰，且使镀层均匀、牢固，需用含镀层金属阳离子的溶液做电镀液，以保持镀层金属阳离子的浓度不变。电镀的目的是在基材上镀上金属镀层(deposit),改变基材表面性质或尺寸.电镀能增强金属的抗腐蚀性(镀层金属多采用耐腐蚀的金属)、增加硬度、防止磨耗、提高导电性、润滑性、耐热性、和表面美观。 
+ 电镀时，一般都是用含有镀层金属离子的电解质配成电镀液;把待镀金属制品浸入电镀液中与直流电源的负极相连，作为阴极;用镀层金属作为阳极，与直流电源正极相连。通入低压直流电，阳极金属溶解在溶液中成为阳离子，移向阴极，这些离子在阴极获得电子被还原成金属，覆盖在需要电镀的金属制品上。 
+ 电泳： 
+ 利用带电粒子在电场中移动速度不同而达到分离的技术称为电泳技术。1937 年瑞典学者A.W.K.蒂塞利乌斯设计制造了移动界面电泳仪，分离了马血</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000274662.shtml">浅谈涂装自动擦净机器人系统的技术开发及应用</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273907.shtml">汽车车身烘干/涂装工艺流程分析</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273208.shtml">汽车涂装的节能减排技术</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273146.shtml">欧瑞康美科举办新品发布会——见证热喷涂发展新趋势</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000274668.shtml" target="_blank" class="title txt_overflow">浅谈涂装SE防腐性分析</a>
+                                <p class="txt">0 引言 
+ 汽车是由各种金属零部件和非金属零部件组成，在其服役环境中会不同程度产生锈蚀和老化。一般来说，除意外交通事故或零部件磨损外，腐蚀是汽车损坏报废常见的重要原因。再者，随着市场竞争逐渐激烈及消费者的质量意识不断提高，锈蚀问题已成为影响企业形象、产品质量及用户体验的突出因素。为保证汽车服役寿命，国内外各汽车厂对整车防腐目标也都有各自的要求，一般为4-6年无表面锈蚀，10-13年无穿孔及功能腐蚀失效。车身防腐是整车防腐的一部分，防腐分析涉及车身结构、材料、工艺等多方面。本文主要阐述车身开发过程中SE阶段车身防腐性的分析的内容。 
+ 1 车身结构设计防腐性分析 
+ 1.1 车身结构是否有利于电泳 
+ 车身的防腐主要是通过电泳涂膜保护来实现的，电泳涂膜的好坏直接影响白车身的防腐能力，而电泳涂膜的质量排除材料、工艺、生产管理等因素的影响，车身的结构形式的恰当与否直接影响涂膜的好坏。 
+ 钣金表面形成涂膜的条件是有涂料和电场，白车身是一些列板件的总成，其中包含一些腔体结构，这些腔体结构从不同程度上有一定的封闭性，一方面液体进入流出困难，另一方面形成电磁屏蔽隔断电场，这些结构的电泳</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273176.shtml">简单分析VOCs排放特征，识别VOCs关键组分及控制最佳适用技术</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273041.shtml">杜尔为斯柯达建造节能高效的油漆车间</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000273039.shtml">汽车涂装的节能减排技术</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000271153.shtml">涂装生产线上的VOCs治理技术解析</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128003006/1515380335737_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000269603.shtml" target="_blank" class="title txt_overflow">发那科FANUC推出新品喷涂机器人P-40iA</a>
+                                <p class="txt">2017年年末，在上海发那科二十周年暨新产品新技术展示会上，FANUC在中国地区首次推出紧凑型喷涂机器人——P-40iA。 
+ 在一般行业喷涂应用中，如3C、汽车零部件等行业，要求机器人具有较大的可达半径，以适应变化多样的工件外形。P-40iA机器人的出现，实现了更大的可达半径，适应于更广阔的喷涂应用，Small painting just got bigger! 
+ 作为一款紧凑型机器人，P-40iA的可达半径达到了1300mm，负载达到5kg，并采用防爆标准设计，可满足各种危险环境下喷涂等应用。同时，P-40iA可适配FANUC PaintTOOL软件，并提供喷涂行业中强大和便捷的应用操作程序界面。 
+ P-40iA产品特点： 
+ 此外，P-40iA还可搭载FANUC最新的R-30iB Plus机器人控制柜。R-30iB Plus控制柜采用了全新的更高性能的CPU 和增加内存的主板，可将处理时间大幅缩短;并采用了全新的高性能示教器iPendant ，令操作更简便。 转载  发那科  喷涂机器人  P | 40iA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000268672.shtml">瑞士史陶比尔--TX250 paint喷涂机器人</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000265649.shtml">喷漆机器人的流速测量</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000265648.shtml">川崎机器人涂装</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000265647.shtml">SAMES KREMLIN车身喷涂</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128003003/1516759095615_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000270351.shtml" target="_blank" class="title txt_overflow">简单分析汽车涂装生产线技术改造</a>
+                                <p class="txt">随着汽车企业销量日增，现有产能无法满足销售需求，汽车涂装需进行技术改造扩大产能。 
+ 应国家节能减排号召，制定相应的节能减排方案，随本次能扩改造一起实施，降低时间成本和资金成本。 
+ 本次技术改造主要包含以下几点： 
+ ☀自动喷涂系统改造 
+ ☀烘干炉改造 
+ ☀喷漆室排风循环利用改造 
+ ☀RTO排气热能循环利用改造。 
+ 技术改造内容——自动喷涂系统改造 
+ 技术改造内容——烘干炉延长改造 
+ 技术改造内容——喷漆室排风循环利用 
+ 技术改造内容——RTO排气热能循环利用 
+ 总结： 
+ 1、生产影响最低化： 
+ 1.1 自动喷涂系统改造 
+ 1)五一假期在中涂站增加3台壁挂式机器人; 
+ 2)五一至高温假期间利用生产空余时间对新增加的机器人进行轨迹、参数调试，满足节拍、质量需求; 
+ 3)高温假期间将中涂站原有的3台坐式机器人分别转移至色漆1站、色漆2站以及清漆站，使每站有4台坐式机器人; 
+ 4)高温假后面漆线用原有3台坐式机器人保证现生产(24JPH)，利用生产空余时间对4台机器人按照33JPH进行轨迹、颜色调试。 调试OK一个车型转产一个车</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000269601.shtml">机器人喷涂 | 内喷开门机器人的应用研究</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000264182.shtml">车厂自动涂装系统中赫优讯NT100网关应用</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000264179.shtml">汽车修补涂装的喷涂操作技术研究</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000264177.shtml">汽车涂装中喷涂、输送最新技术应用</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128003003/1520992087201_1.png"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000272396.shtml" target="_blank" class="title txt_overflow">简单分析铝合金物流车用水性聚氨酯涂料的应用性</a>
+                                <p class="txt">引言 
+ 铝合金车作为轻量化物流车的一个发展方向，近些年具有较大程度的增长，但是由于铝合金表面氧化膜的问题造成外观效果随着时间的延长而变差，然而随着车厢材质由钢铁转变为铝合金等的变化，为了更好的装饰和防止氧化腐蚀，涂料的种类和品质也发生很大的改变。通过水性聚氨酯涂料来进一步抑制其氧化膜的形成，并达到装饰美观的外观效果是近些年发展起来的一条便捷而更环保的解决方案。水性聚氨酯是用水作为溶剂，相较于传统的溶剂型聚氨酯具有无污染、安全可靠、机械性能优良等优点。随着国家对环境保护要求的进一步提高，尤其是控制有机挥发物(VOC)的排放，继北京市后，广州市、天津市、河北省等相关省市均出台了《工业企业挥发性有机物排放控制标准》等相应的控制VOC的管理办法，所以水性化涂料产品作为低VOC产品的发展方向的一个分支，具有更大的市场潜力，本实验旨在为某汽车公司开发的铝合金物流车上研发一支具有良好附着力和耐候性的环保型水性聚氨酯产品。 
+ 1 试验部分 
+ 1.1 原材料 
+ 本实验中应用的主要原材料，相关的指标、技术参数等见表1所示： 
+ 表1 制备水性聚氨酯的主要原材 
+ 1.2 涂料制备 
+</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272338.shtml">简单分析绿色涂装技术在北汽镇江涂装车间的应用</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000270601.shtml">绿色涂装生产线理念应用在涂装车间 节能减排更环保</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000268300.shtml">SAMES KREMLIN 车身喷涂解决方案</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000267365.shtml">分析汽车涂装系统中的过滤解决方案</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="item fl">
+        <div class="title_wraper">
+            <div class="title">四大工艺-总装</div>
+            <div class="title_r">
+                <a class="link_more" href="/sec/generalassembly/" target="_blank">更多 &gt;&gt;</a>
+            </div>
+        </div>
+        <div class="cons_wraper">
+            <ul class="tabs">
+                <li class="tab current">动态</li>
+                <li class="tab">技术</li>
+                <li class="tab">产品</li>
+                <li class="tab">应用案例</li>
+                <li class="tab">解决方案</li>
+            </ul>
+            <div class="cons">
+                <div class="con" style="display: block;">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128004001/1528878256751_1.JPG"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000275599.shtml" target="_blank" class="title txt_overflow">AMTS 2018总装及智能产线物流工程展区，开启智能工厂新时代</a>
+                                <p class="txt">作为世界领先的汽车材料与设计、工艺与装备、质量与装配、工程与服务技术行业盛会，AMTS 2018(第十四届上海国际汽车制造技术与装备及材料展览会)将一站式展示汽车车身冲压、连接及涂装，动力总成机加、装配及测试，整车材料与设计、开发与试制、总装及测试、质量控制及装配、核心部件加工等工程领域创新技术及应用。 
+ 为更好的推动智能产线物流在总装车间的应用，AMTS 2018–总装及智能产线物流工程展区汇聚行业领军企业，聚焦车型混线生产总装物流、整线装配集成及智能工厂的整体物流解决方案，搭建智能产线物流技术提供商与主机厂及汽车产线原始设备系统集成商的技术及商务交流平台，促进创新的产线物流技术及理念在汽车工程领域的应用。 
+ 一站式展示汽车总装及智能产线物流的整体解决方案 
+ 科大智能科技股份有限公司(展位号：E3-C18)将带来MES调度系统，这是一套面向制造企业车间执行层的生产信息化管理系统。它可以通过人机交互触摸屏实时查看流水线状态及设备状态，并可对设备进行实时控制。其中，大屏看板是一个监控中心，可对数据进行多样化显示，并可制定报警信息。而移动端程序，则可让用户远程查看工厂内的情况，</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272704.shtml">浅谈新能源电动汽车总装车间输送设备的选型</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000272070.shtml">简单分析粘合剂在汽车生产中所体现的制造和工程优势</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000271776.shtml">汽车智能制造|制造更好的汽车——看</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000271034.shtml">知豆电动汽车首台D3电动汽车在宁波宁海总装车间正式下线</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128004002/1519961539752_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000271840.shtml" target="_blank" class="title txt_overflow">麦格纳将在日内瓦车展上展示整车制造最新技术</a>
+                                <p class="txt">据造车网获悉，麦格纳将在即将到来的日内瓦车展上展示其在整车制造方面的最新技术。麦格纳是全球唯一一家生产传统，混合动力和电动动力传动系统车辆的汽车制造商。 
+ 麦格纳总裁GüntherApfalter表示：“我们将全面的生产专业知识与智能工厂解决方案相结合，使公司在全球汽车供应商行业处于独特的优势地位。我们与知名OEM厂商的长期合作伙伴关系进一步证明了这一点，我们采用智能工厂技术，再次证明创新是我们永恒的伙伴和驱动力。” 
+ 奥地利格拉茨工厂在麦格纳的全球业务中发挥着特殊作用：该工厂拥有超过100年的汽车生产经验，迄今为止生产超过300万辆汽车，以及广泛的工程和支持服务使麦格纳成为全球领先品牌独立的汽车制造商工程和制造合作伙伴。 
+ 从今年开始，每年大约20万辆汽车将在格拉茨的麦格纳工厂下线。来自三家汽车制造商的四种不同车型将在一家工厂进行组装，确保其以高容量运营。 
+ 麦格纳自1979年以来一直为戴姆勒打造G级车型，最近推出的最新一代车型将继续在格拉茨生产。自2017年3月起，奥地利工厂还生产了配备传统和插电式混合动力传动系统的BMW 5系车型。在格拉茨完成目前的合同制造业务，</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000270462.shtml">西门子高性能汽车制造与装配技术</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000269708.shtml">这些技术正在改变总装车间，你都了解吗？</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000268495.shtml">现代发新一代动力总成战略 主打Smart Stream系列</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000268494.shtml">全球首台可变压缩比发动机诞生！</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128004006/1514444682414_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000269160.shtml" target="_blank" class="title txt_overflow">涂胶应用软件</a>
+                                <p class="txt">概要 
+ 高速，高品质涂胶与机器人工作同步，可实现快速，洁净涂胶 
+ 操作简单，系统结构也较为简单，取代了以往的涂胶装置专用控制器，通过机器人示教器实现了简单操作 
+ 特点 
+ 美观的涂布焊缝 
+ 通过新开发的涂胶功能，根据机器人的工作速度自动控制涂布量。 
+ 即使在常出现不稳定的拐角处也能保持目标缝宽，实现高品质涂胶。 
+ 支持各种各样的设置类型 
+ 涂胶枪的设置可适用于固定型或搭载机器人型的任一系统。 
+ 请根据生产线的布局和作业流程进行选择。 
+ 搭载有温度补偿功能 
+ 通过附带温度传感器来补偿因温度变化而导致的排出量的变化。 
+ 即使气温随着季节和昼夜而变化，产品品质也会保持恒定。 
+ 利用机器人示教器操作简单 
+ 涂胶枪操作，监控，涂布计划设定均可通过一个机器人示教器来完成。提高了操作性，也让系统结构变得简单。 
+ 使用涂胶专用功能，生产线刚建成时繁琐的试运转调试的效率也得到飞跃性的提高。 转载  那智不二越  软件</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000266588.shtml">大数据运维系统——生产线的家庭医生</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000265676.shtml">格劳博发动机与变速箱安装</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000265675.shtml">格劳博装配设备</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000265674.shtml">杜尔合装和车桥装配系统</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000264190.shtml" target="_blank" class="title txt_overflow">总装车间全自动式风窗玻璃装配工艺分析</a>
+                                <p class="txt">前后风窗玻璃是汽车保持密封性的最主要的部件之一。风窗玻璃的装配直接影响着整车的防漏水、防噪声的品质，进而影响用户及市场对产品的客观评价。本文针对全自动式风窗玻璃装配的设备特点及工艺进行了分析，阐述了视觉引导风窗玻璃自动装配的技术应用及优点。 
+ 传统装配工艺 
+ 风窗玻璃的装配流程一般为：上料→清洗→底涂→晾干→涂胶→装配。 
+ 传统装配工艺的清洗、底涂和涂胶采用人工进行。玻璃常采用的底涂液，其原料为聚异氰酸脂，对操作人员有一定的毒性;底涂完成后，需要进行晾干，大约需要2～5 min;玻璃的涂胶及装配必须在15 min内完成，否则玻璃胶会失效，整车的防漏水性能会大打折扣。 
+ 传统装配工艺效率低、劳动强度大且装配精度(或质量)差，这种方式不仅造成人员成本增加，而且在通过淋雨线时，易出现车辆漏水等小概率问题。 
+ 全自动式风窗玻璃涂胶及装配工艺 
+ 全自动式风窗玻璃涂胶及装配的底涂、涂胶和装配均采用机器人实现工艺动作，其装配工艺采用先进水平的视觉引导系统，实现全程无人化、自动化。 
+ 1.自动底涂工艺 
+ 全自动底涂工艺是利用机器人，将玻璃按照机器人的行走轨迹与固定底涂头</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000264186.shtml">PBS汽车总装生产线监控系统的设计</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000264185.shtml">跃进NJ130型载重汽车发动机的总装配步骤</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000264183.shtml">上海通用汽车公司智能生产实施案例</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000264123.shtml">Plant Simulation软件在总装车间的应用</a>
+                    </div>
+                <div class="con">
+                    <div style="display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;vertical-align: top;"><img class="con_img" src="/resupload/00000000000000000014/128004004/1515554800994_1.jpg"></div>
+                            <div style="display: table-cell;vertical-align: top;">
+                                <a href="/detail/_01-ABC00000000000269711.shtml" target="_blank" class="title txt_overflow">EMUGE夹具在小齿轮加工的应用案例</a>
+                                <p class="txt">在高精度，高效率，高难度领域的夹具，历来都是EMUGE的天下。本次我们就来给大家分享下EMUGE夹具在小齿轮加工的应用。 
+ 设备：REISHAUER RZ260 砂轮直径：280mm 
+ 工件参数： 内孔D12齿轮 齿数：19 
+ 压力角：17.5° 螺旋角：15° 
+ 模数：1.2mm 年产量：120万件 
+ 竞争对手：国内某夹具商、某德国品牌夹具商 (夹具类型：液压夹具) 
+ 客户需求： 
+ 1. 加工工件满足图纸要求，无不良品产生 
+ 2. 实现自动化生产 
+ 竞争对手存在问题：不能实现自动化生产，液压式夹具的膨胀量在IT7左右，D12的直径意味着只有 0.018mm左右的涨紧量，用机械手上下料来是不可能实现的。 
+ EMUGE夹具：SG涨套夹具 (机械式)， 机械式夹具的膨胀量在IT13左右，D12的直径可以达到0.27mm左右的涨紧量，可以实现机械手上下料。 
+ 机床跳动：0.002mm以内，装上连接法兰， D66孔处的跳动可达到0.002mm以内。 
+ 装上夹具本体，通过调节螺钉调节，标准件的重复定位精度可达0.003mm。 
+ 机械手上下料连续</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000268990.shtml">洛德 Flocklok & Flocksil ——汽车密封条植绒解决方案</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000268973.shtml">易往信息 | 汽车整车解决方案</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000252749.shtml">TUV南德受中汽工程委托执行EPC沃尔沃美国汽车总装线NRTL认证项目</a>
+                    <a class="link txt_overflow" href="/detail/_01-ABC00000000000239949.shtml">总装前半桥装配线的开发和应用</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="area4" class="body_c">
+    <div id="exhibit" class="area_l left_area">
+                <ul class="tabs clearfix">
+                    <li class="select">展会</li>
+                    <li><a class="link_more" href="/sec/exhibition/" target="_blank">更多&gt;&gt;</a></li>
+                </ul>
+                <div class="contents">
+                    <a  href="http://www.shanghaiamts.com/c.aspx?id=1483" onclick="window.open('/sooqclick.jsp?site=2&advid=AD0000000026142&url=http://www.shanghaiamts.com/c.aspx?id=1483');return false;" title="第十四届上海国际汽车制造技术与装备及材料展览会" target="_blank"><img src="/gzshow?b4af53d468cb94f770054228e56acd7a4937601cfd27a3898b979d16396a6df71b8fd891c5fca7544f2ece8c2b3f109cd2a6cab420d694c0a8f461c3865ac64ef38cbddb852ad527" alt="第十四届上海国际汽车制造技术与装备及材料展览会" width="215" height="142"  border="0"></a><div class="clearfix" style="margin: 5px;"></div>
+                    <a href="/detail/_01-ABC00000000000267744.shtml" class="txt_overflow" target="_blank">CIAIE 2018第八届上海国际汽车内饰与外饰展览会将于2018年8月举办</a>
+                    <a href="/detail/_01-ABC00000000000267746.shtml" class="txt_overflow" target="_blank">2018第八届中国上海国际汽车内饰与外饰展览会（CIAIE）中文邀请函</a>
+                    <a href="/detail/_01-ABC00000000000268248.shtml" class="txt_overflow" target="_blank">17届中国国际装备制造业博览会邀请函</a>
+                    <a href="/detail/_01-ABC00000000000269723.shtml" class="txt_overflow" target="_blank">2018中国上海国际汽车设计与技术创新展览会</a>
+                    <a href="/detail/_01-ABC00000000000269294.shtml" class="txt_overflow" target="_blank">中国国际工业装配及传输技术设备展览会</a>
+                    <a href="/detail/_01-ABC00000000000269292.shtml" class="txt_overflow" target="_blank">BIAME2018第九届中国(北京)国际汽车制造暨工业装配博览会</a>
+                    <a href="/detail/_01-ABC00000000000267637.shtml" class="txt_overflow" target="_blank">AMTS 2018第十四届上海国际汽车制造技术与装备及材料展览会招展正式启动</a>
+                    </div>
+            </div>
+    <div class="area_m">
+        <div class="area_title ">
+            <div class="area_title_txt">精彩视界</div>
+            <a class="title_more" href="/sec/hotmv/" target="_blank">更多&gt;&gt;</a>
+        </div>
+        <div class="area_body">
+            <div class="mv_wraper" id="h_player">
+                <a href="http://vodyiddatt9.vod.126.net/vodyiddatt9/191ed6aa-0b97-4829-b12f-0c3e44245c44.mp4" target="_blank"><img src="/resupload/guangzhi/AS00012689/1522656992489_1.jpg" ></a>
+                </div>
+            <div class="wraper">
+                <a href="http://vodyiddatt9.vod.126.net/vodyiddatt9/2c67740f-c1d8-47fb-8f86-6c72c4c1199f.mp4" target="_blank" style="margin-bottom: 8px;"><img src="/resupload/guangzhi/AS00012690/1522658092259_1.jpg" ></a>
+                <a href="http://www.zaoche168.com/detail/mv/2489" target="_blank"><img src="/resupload/guangzhi/AS00011415/1392791896805_1.png" ></a>
+                </div>
+            <ul>
+                <li><a href="/detail/mv/3220" target=_blank title="2018年 CIMES"> 2018年 CIMES</a></li>
+                <li><a href="/detail/mv/3188" target=_blank title="万可"> 万可</a></li>
+                <li><a href="/detail/mv/2979" target=_blank title="吉利汽车工厂"> 吉利汽车工厂</a></li>
+                <li><a href="/detail/mv/2977" target=_blank title="奥迪车身冲压铝材"> 奥迪车身冲压铝材</a></li>
+                <li><a href="/detail/mv/2976" target=_blank title="冲压焊接车间"> 冲压焊接车间</a></li>
+                <li><a href="/detail/mv/2975" target=_blank title="冲压模具"> 冲压模具</a></li>
+                <li><a href="/detail/mv/2966" target=_blank title="冲压模具"> 冲压模具</a></li>
+                <li><a href="/detail/mv/2956" target=_blank title="焊接机器人"> 焊接机器人</a></li>
+                </ul>
+
+        </div>
+
+    </div>
+    <div class="area_r">
+
+        <div class="area_title ">
+            <ul id="area4_tab"><li class="select">工程师社区</li><li><a href="/auto/download.shtml" target="_blank">资源下载</a></li></ul>
+
+        </div>
+        <div id="area4_con" class="area_body">
+            <div class="clearfix">
+                <div class="item">
+                    <a href="http://sns.zaoche168.com/space-mtag-tagid-14.html" target="_blank"><img src="/resupload/guangzhi/AS00012688/1502335754054_1.jpg" ></a>
+                    <div class="txt_wraper">
+                        <a href="http://sns.zaoche168.com/space-mtag-tagid-14.html" target="_blank" class="txt_overflow">自由风--越野俱乐部 </a>
+                        <p>畅谈越野的经历；讲述野外的故事；越野车的保养、维修及改装；越野驾驶技术；野外生存常识；越野车制造与生产相关。</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="http://sns.zaoche168.com/space-mtag-tagid-3.html" target="_blank"><img src="/resupload/guangzhi/AS00012688/1502335623641_1.jpg" ></a>
+                    <div class="txt_wraper">
+                        <a href="http://sns.zaoche168.com/space-mtag-tagid-3.html" target="_blank" class="txt_overflow">汽车设计 </a>
+                        <p>造车网正在火热进行汽车设计大赛，对汽车设计感兴趣的朋友，一起交流</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="http://sns.zaoche168.com/space-mtag-tagid-21.html" target="_blank"><img src="/resupload/guangzhi/AS00012688/1502335571062_1.jpg" ></a>
+                    <div class="txt_wraper">
+                        <a href="http://sns.zaoche168.com/space-mtag-tagid-21.html" target="_blank" class="txt_overflow">工业机器人大全 </a>
+                        <p>这里只允许发布与机器人相关的话题、内容。发布与此话题不相关的内容。谢谢合作！</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="http://sns.zaoche168.com/space-mtag-tagid-7.html" target="_blank"><img src="/resupload/guangzhi/AS00012688/1502335522134_1.jpg" ></a>
+                    <div class="txt_wraper">
+                        <a href="http://sns.zaoche168.com/space-mtag-tagid-7.html" target="_blank" class="txt_overflow"> 汽车全方位解读 </a>
+                        <p>全方位解读汽车的各个部分，各种参数。</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="http://sns.zaoche168.com/space-mtag-tagid-16.html" target="_blank"><img src="/resupload/guangzhi/AS00012688/1502335455062_1.jpg" ></a>
+                    <div class="txt_wraper">
+                        <a href="http://sns.zaoche168.com/space-mtag-tagid-16.html" target="_blank" class="txt_overflow">Auto design--设计百科 </a>
+                        <p>汽车设计理念、设计草图、三维设计图、设计软件、汽车电子设计</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="http://sns.zaoche168.com/space-mtag-tagid-9.html" target="_blank"><img src="/resupload/guangzhi/AS00012688/1502335339048_1.jpg" ></a>
+                    <div class="txt_wraper">
+                        <a href="http://sns.zaoche168.com/space-mtag-tagid-9.html" target="_blank" class="txt_overflow">研发绿色汽车应该注重什么？</a>
+                        <p>关注新能源，动力总成、废气后处理、新材料的应用。</p>
+                    </div>
+                </div>
+                </div>
+            <div class="clearfix" style="display:none;">
+                <a href="/auto/software.jsp?id=253606"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    自动驾驶汽车的传感器融合测试</a>
+                <a href="/auto/software.jsp?id=253605"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    汽车电气化：颠覆汽车产业及其他产业</a>
+                <a href="/auto/software.jsp?id=253604"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    NI汽车行业应用与选型指南</a>
+                <a href="/auto/software.jsp?id=253607"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    汽车行业的案例集</a>
+                <a href="/auto/software.jsp?id=253318"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    2017年第十九届国际工业博览会RS展第一期</a>
+                <a href="/auto/software.jsp?id=253319"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    2017年第十九届国际工业博览会RS第四期</a>
+                <a href="/auto/software.jsp?id=253320"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    2017年第十九届国际工业博览会RS第一期</a>
+                <a href="/auto/software.jsp?id=253321"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    2017年第十九届国际工业博览会RS第二期</a>
+                <a href="/auto/software.jsp?id=253322"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    2017年第十九届国际工业博览会RS第三期</a>
+                <a href="/auto/software.jsp?id=253028"  target="_blank"  style="background:url(http://www.iianews.com/img/zip.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    虚拟仪器技术精选材料</a>
+                <a href="/auto/software.jsp?id=252779"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    Teamcenter integration for Solid Edge (SEEC)用户和管理员指南</a>
+                <a href="/auto/software.jsp?id=252778"  target="_blank"  style="background:url(http://www.iianews.com/img/pdf.gif) no-repeat 0 4px;padding-left: 20px;" class="txt_overflow">
+                    Teamcenter integration for Solid Edge (SEEC)用户和管理员指南</a>
+                </div>
+        </div>
+    </div>
+</div>
+    <!-- 企业社区 -->
+
+<div class="body_c" style="border:1px solid #D0D4D7;text-align:center;padding:0 39px 10px;margin-bottom:20px;">
+    <img src="http://www.zaoche168.com/ca/images/acti_title.gif" alt="企业社区" />
+    <div id="comunity">
+        <ul class="clearfix">
+            <li><a href="http://www.zaoche168.com/snsauto/home_sns-9da79f56230615a72a301712b34005f7.shtml" target="_blank"><img src="/resupload/guangzhi/AS00010110/1330308405312_1.jpg" alt="solidworks专区" /></a></li>
+            <li><a href="http://www.plm.automation.siemens.com/zh_cn/" target="_blank"><img src="/resupload/guangzhi/AS00010126/1433403941427_1.jpg" alt="西门子工业软件社区" /></a></li>
+            <li><a href="http://www.zaoche168.com/snsauto/home_sns-402880f701c98a7c0101ca02d4b65811.shtml" target="_blank"><img src="/resupload/guangzhi/AS00010127/1399271746883_1.jpg" alt="山特维克可乐满（中国）" /></a></li>
+            <li><a href="http://www.zaoche168.com/snsauto/home_sns-6be234492380d82fd435d79abffc11c4.shtml" target="_blank"><img src="/resupload/guangzhi/AS00010129/1399272686649_1.jpg" alt="康耐视中国有限公司" /></a></li>
+            </ul>
+        </div>
+</div>
+<script type="text/javascript" src="/auto/js/wordscroll-0.1.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        // 社区滚动
+        $.wordScroll({
+            objId:"comunity",
+            frameWidth:1140,
+            width:150,
+            height:56,
+            liHeight:56,
+            speed:3000,
+            interval:5000,
+            line:1,
+            isHorizontal:true
+        });
+    });
+</script>
+<div id="foot_nav" class="body_c clearfix">
+    <div class="contact fl">
+        <p style="font-size: 20px; font-family: '宋体' , Helvetica, sans-serif ;">联络我们Contact </p>
+        <p style="font-size: 14px; font-family: Arial, '宋体', Helvetica, sans-serif ;">北京市中关村科技园通州园经海六路1号院1号楼3层<br>
+            3<sub>rd</sub> Floor, No.1 Building, No.1 Yard, 6<sub>th</sub> Jinghai Road Tongzhou District Beijing<br>
+            电话TEL：010-57111937<br>
+            邮箱Email：wangzhenxi@sooq.cn
+        </p>
+    </div>
+    <div class="dcode fl">
+        <p style="font-size: 14px; font-family: '宋体'; text-align: center;">关注造车网</p>
+        <img src="/static/auto/images/QRcode.jpg">
+    </div>
+    <div class="nav fl clearfix">
+        <div class="fl" style="border-left:1px dashed #CCC; padding: 0 20px; width: 225px">
+            <ul class="fl" style="width: 86px;">
+                <li> <a href="/sec/hotnews" target="_blank">热点资讯</a></li>
+                <li> <a href="/sec/biography" target="_blank">人物志</a></li>
+                <li> <a href="/sec/expertViewpoint" target="_blank">深度观察</a></li>
+                <li><a href="/sec/technical" target="_blank">技术前沿</a></li>
+                <li> <a href="/sec/application" target="_blank">现场应用</a></li>
+
+            </ul>
+            <ul class="fl" style="width: 96px;">
+                <li><a href="/sec/special" target="_blank">专题报道</a></li>
+                <li><a href="/sec/webinar" target="_blank">在线会议</a></li>
+                <li><a href="/sec/exhibition/" target="_blank">展会</a> </li>
+                <li><a href="/sec/market" target="_blank">市场研究</a></li>
+                <li><a href="/sec/hotmv" target="_blank">精彩视界</a></li>
+
+            </ul>
+        </div>
+        <div class="fl"  style="border-left:1px dashed #CCC; padding: 0 20px; width: 160px;">
+            <ul class="fl" style="width: 86px;">
+                <li>四大工艺</li>
+                <li> <a href="/sec/stamping/" target="_blank">冲压</a></li>
+                <li> <a href="/sec/welding/" target="_blank">焊接</a></li>
+                <li><a href="/sec/painting/" target="_blank">涂装</a></li>
+                <li><a href="/sec/generalassembly/" target="_blank">总装</a></li>
+            </ul>
+
+        </div>
+        <div class="fl"  style="border-left:1px dashed #CCC; padding: 0 20px; width: 160px;">
+            <ul class="fl" style="width: 86px;">
+                <li><a href="/sec/robotics" target="_blank">机器人技术</a></li>
+                <li><a href="/sec/digitization" target="_blank">数字化制造</a></li>
+                <li><a href="/sec/automaticsystem" target="_blank">自动化系统</a></li>
+                <li><a href="/sec/metalworking" target="_blank" class="title">金属加工技术</a></li>
+                <li><a href="/sec/NEV" target="_blank" class="title">新能源汽车</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+</div><!-- #foot_nav--><div id="footer">
+	<div class="body_c clearfix">
+		<div>
+			<a href="https://ss.knet.cn/verifyseal.dll?sn=e08071511000001525813731190&comefrom=trust" target="_blank"><img src="/znw/images/footer_logo10_1.gif"></a>
+			<a href="http://www.bj.cyberpolice.cn/" target="_blank"><img src="/znw/images/footer_logo05.gif"></a>
+			<a href="http://www.12377.cn/" target="_blank"><img src="/znw/images/footer_logo03.gif"></a>
+		</div>
+
+	</div>
+	<div id="bottom">
+		<div class="body_c  clearfix">
+			©2006-2018<a href="http://www.zaoche168.com" target="_blank">造车网</a>
+			zaoche168.cn&ensp;All Rights Reserved &nbsp;
+			京ICP备09015258号-1&nbsp;
+
+			<a href="/autonew/about.jsp?atype=escapeClause" target="_blank">免责声明</a>&ensp;
+			<a href="/autonew/about.jsp" target="_blank">关于我们</a>&ensp;
+			<a href="/autonew/about.jsp?atype=email">主编信箱</a>
+		</div>
+	</div>
+</div><!--    #footer-->
+</body>
+</html>

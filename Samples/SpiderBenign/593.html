@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>易搜商铺网 生意转让 商铺出租 饭店转让 酒店转让 宾馆转让 超市转让 北京商铺</title>
+<meta name="keywords" content="商铺">
+<meta name="description" content="商铺">
+<link rel="stylesheet" type="text/css" href="shangpu/css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="shangpu/css/base.css">
+<link rel="stylesheet" type="text/css" href="shangpu/css/header.css">
+<link rel="stylesheet" type="text/css" href="shangpu/css/main.css">
+<link rel="shortcut icon" href="shangpu/images/favicon.ico">
+</head>
+<body>
+<!-- HEADER BEGIN--> 
+<!-- 顶部导航 -->
+<div id="net-top" class="w h40 tc">
+    <div class="net-com-w h40 ma">
+        <div class="wa h40 fl lh40 f13 fw-st">
+            <script type="text/javascript" src="shangpu/js/jquery-1.12.2.min.js"></script> 
+            <script>
+    $(function(){
+    $.ajax({
+    type:'GET',
+    url:'http://www.esshangpu.com/api.php?op=user',
+    dataType:'json',
+    success:function(msg){
+    if(msg.islogin)
+    {
+		
+		
+    $('.islogin').html( "<a href=\"index.php?m=member&c=index&a=init&t=0\" class=\"net-a\">"+msg.username+"</a><i>|</i><a class=\"net-a\" href=\"index.php?m=member&c=index&a=logout\">注销</a>").show();
+ $('.loginn').css('display','none');
+    }else{
+		  $('.loginn').css('display','block');
+	}
+    }
+    });
+    });
+</script>
+            
+            <div class="islogin"></div>
+            <div class="loginn">
+            <span class="col888">欢迎您！</span>
+	    		<span>
+	    			<a href="http://www.esshangpu.com/index.php?m=member&c=index&a=login" class="net-a">登录</a>
+	    		</span>
+            <span class="mlr2">或</span>
+	            <span>
+	            	<a href="index.php?m=member&c=index&a=register&siteid=1" class="net-a">免费注册</a>
+	            </span>
+	      
+            <span class="col888">欢迎您！</span>
+            </div>
+            
+        </div>
+        <div class="wa h40 fr lh40 f13">
+        	<span class="col888 fl"><a href="javascript:void(0);" onclick="toComplaint()" target="_blank" class="net-aq ">我要投诉&nbsp;&nbsp;</a></span>
+			
+			<span class="col888 fr ml2" id="haftersaletel">售后:010-56256091&nbsp;</span> <span class="col888 fr ml2" id="hcusserhotline">客服热线:010-56256091&nbsp; |&nbsp;&nbsp;</span> <span class="col888 fr ml2" id="hcusserwechat">客服微信:ESSPDZ &nbsp;|&nbsp;&nbsp;</span>        </div>
+        
+    </div>
+</div>
+<!-- 搜索栏 -->
+<div id="net-search" class="w tc">
+    <div class="net-com-w ma h130">
+        <!-- logo -->
+        <div class="fl h130 w375" style="text-align:left;">
+            <p class="kong30"></p>
+            <a href="http://www.esshangpu.com">
+                <img src="shangpu/images/998logo.jpg"  />
+            </a>
+        </div>
+
+        <!-- search -->
+        <div class="fr w800">
+            <!-- 搜索框 -->
+            <p class="kong30 fl"></p>
+            <div class="net-s-lfdiv fl" >
+                <div id="selectinput" class="net-s-div mt15 fl">
+                    <form action="http://www.esshangpu.com/index.php" method="get" target="_self">
+				<input type="hidden" name="m" value="content"/>
+				<input type="hidden" name="c" value="index"/>
+				<input type="hidden" name="a" value="search"/>
+				<input type="hidden" name="typeid" value="13" id="typeid"/>
+				<input type="hidden" name="siteid" value="1" id="siteid"/>
+                        <!-- 区/县Id -->
+                        <input type="hidden" id="search_areaId" name="areaId" value="" />
+                        <input type="hidden" id="search_areaId_children" name="districtId" value="">
+
+                        <!-- 供求类型  默认：我要转店 2:出租 4：求租-->
+                        <input type="hidden" id="search_supplyDemandType" name="supplyDemandType" value="" />
+                        <!-- 行业  商铺大类-->
+                        <input type="hidden" id="search_storeBroadHeading" name="catid" value="" />
+                        <input type="hidden" id="search_storeBroadHeading_sub" name="storeSubclassId" value="" />
+                        <!-- 面积范围 -->
+                        <input type="hidden" id="search_acreageScope" name="acreageScope" value="" />
+                        <input type="hidden" id="search_acreageScopeName" name="acreageScopeName" value="" />
+                        <input class="w70 h20 net-sle-bt01 fl mt10 ml10 col888" type="text" style="display:none" id="cityChoice" value="区域选择" >
+                        <div id="cityselect-obj" class="cityselect selectobjes selectnextobj none">
+                            <div class="select-a">
+                                <div class="select-aa"></div>
+                            </div>
+                            <div class="select-b tl">
+                                <p class="pl20 f16 fw-yahei col99">区域选择</p>
+                            </div>
+                            <div class="select-c">
+                                <ul class="select-cul" id="area_select">
+                                    <!-- 大类选择 -->
+                                                                                  <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_36" val="东城区" id="36" pid="2">东城区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_37" val="西城区" id="37" pid="2">西城区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_38" val="崇文区" id="38" pid="2">崇文区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_39" val="宣武区" id="39" pid="2">宣武区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_40" val="朝阳区" id="40" pid="2">朝阳区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_41" val="石景山区" id="41" pid="2">石景山区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_42" val="海淀区" id="42" pid="2">海淀区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_43" val="门头沟区" id="43" pid="2">门头沟区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_44" val="房山区" id="44" pid="2">房山区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_45" val="通州区" id="45" pid="2">通州区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_46" val="顺义区" id="46" pid="2">顺义区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_47" val="昌平区" id="47" pid="2">昌平区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_48" val="大兴区" id="48" pid="2">大兴区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_49" val="怀柔区" id="49" pid="2">怀柔区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_50" val="平谷区" id="50" pid="2">平谷区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_51" val="密云县" id="51" pid="2">密云县</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_52" val="延庆县" id="52" pid="2">延庆县</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_3365" val="丰台区" id="3365" pid="2">丰台区</li>
+                                                                          <li onclick="selectEvent.cityChange(this);" class="fw-yahei obj_3366" val="北京周边" id="3366" pid="2">北京周边</li>
+                                                                              </ul>
+                            </div>
+                            <div class="select-xline"></div>
+                            <div class="select-d" id="children-list">
+                                <!-- 子选项区域 -->
+                            </div>
+                        </div>
+                        <input class="w70 h20 net-sle-bt01 fl mt10 ml20 col888" type="text" id="hangyChoice" style="display:none" value="行业选择" >
+                        <div id="hangyselect-obj" class="hangyselect selectobjes selectnextobj none">
+                            <div class="select-a">
+                                <div class="select-aa"></div>
+                            </div>
+                            <div class="select-b tl">
+                                <p class="pl20 f16 fw-yahei col99">行业选择</p>
+                            </div>
+                            <div class="select-c">
+                                <ul class="select-cul" id="hangy_select">
+                                    <!-- 大类选择 -->
+                                    					                            <li onclick="selectEvent.hangyeChange(this);" class="fw-yahei obj_2" val="商铺门面" id="2" pid="2">商铺门面</li>
+                                                         <li onclick="selectEvent.hangyeChange(this);" class="fw-yahei obj_3" val="酒楼餐厅" id="3" pid="3">酒楼餐厅</li>
+                                                         <li onclick="selectEvent.hangyeChange(this);" class="fw-yahei obj_4" val="美容健身" id="4" pid="4">美容健身</li>
+                                                         <li onclick="selectEvent.hangyeChange(this);" class="fw-yahei obj_5" val="服装服饰" id="5" pid="5">服装服饰</li>
+                                                         <li onclick="selectEvent.hangyeChange(this);" class="fw-yahei obj_6" val="休闲娱乐" id="6" pid="6">休闲娱乐</li>
+                                                         <li onclick="selectEvent.hangyeChange(this);" class="fw-yahei obj_7" val="教育培训" id="7" pid="7">教育培训</li>
+                                                         <li onclick="selectEvent.hangyeChange(this);" class="fw-yahei obj_8" val="生活服务" id="8" pid="8">生活服务</li>
+                                                         <li onclick="selectEvent.hangyeChange(this);" class="fw-yahei obj_9" val="其它行业" id="9" pid="9">其它行业</li>
+                                                             </ul>
+                            </div>
+                            <div class="select-xline"></div>
+                            <div class="select-d" id="hychildren-list">
+                                <!-- 子选项区域 -->
+                            </div>
+                        </div>
+                        <input class="w70 h20 net-sle-bt01 fl mt10 ml20 col888" type="text" id="mianjiChoice" style="display:none" value="面积选择">
+                        <div id="hzw_city_picker" class="hzw-city-picker none" style="left: 797.5px; top: 132px; margin-top:0px;">
+                            <div class="select-a1">
+                                <div class="select-aa1net-com-w"></div>
+                            </div>
+                            <div class="select-b1 tl">
+                                <p class="pl20 f16 fw-yahei col99">面积选择</p>
+                            </div>
+                            <div class="select-c1">
+                                <ul class="select-cul" id="hzw_hot_city">
+                                    <li class="hzw-hot-city obj_1" onclick="selectEvent.mzChange(this);"  val="50-100平米" id="1" pid="1">50-100平米</li>
+                                    <li class="hzw-hot-city obj_2" onclick="selectEvent.mzChange(this);" val="100-200平米" id="2" pid="2">100-200平米</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input class="w70 h20 net-sh-bt00 fl mt10 ml20 col888" style="width: 300px;" type="text" id="searchname" name="q"  value="关键词..." >
+                        <input class="net-s-btn" type="submit" value="" />
+                    </form>
+                </div>
+                <div class="net-s-mffb mt15 fr curs">
+                    <a  href="index.php?m=member&c=content&a=publish">
+                        <img src="shangpu/images/net-s-mffb.jpg" width="169" height="42" />
+                    </a>
+                </div>
+            </div>
+            <!-- 搜索框下的广告 -->
+            <!-- <p id="sreachDownInfo" class="h20 lh20 hcenter f13 cc0000">
+
+            </p> -->
+        </div>
+        <div class="clear0"></div>
+    </div>
+</div>
+<!-- 菜单栏 -->
+<div id="net-menus" class="w tc mt20 bdbFF3030">
+    <div class="net-com-w ma h40" style="padding-bottom:0px;">
+        <ul class="net-menus-ul fl">
+            <li class="net-menus-mck net-menus-m fw-yahei f18 fl">
+                <a class="f18" href="http://www.esshangpu.com">首&nbsp;&nbsp;&nbsp;页</a>
+            </li>
+            <li class=" net-menus-line fl">
+                <span class="fl colD0D0D0">|</span>
+            </li>
+                                    <li class="  net-menus-m fw-yahei f18 fl" >
+                <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=lists&catid=1" >商铺转让</a>
+            </li>
+                        <li class="  net-menus-m fw-yahei f18 fl" >
+                <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=lists&catid=77" >求租求购专区</a>
+            </li>
+                        <li class="  net-menus-m fw-yahei f18 fl" >
+                <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=lists&catid=78" >易搜资讯</a>
+            </li>
+                                </ul>
+        <div class="net-m-pson wa h40 lh40 fr">
+            <a href="" class="f14 fw-yahei cc0000" target="_blank">
+                今日找店<span class="f18 fw-yahei">35878</span>人
+            </a>
+        </div>
+        <div class="clear0"></div>
+    </div>
+</div> 
+
+<!-- HEADER end--> 
+
+<!-- INDEX BEGIN --> 
+<!-- 轮播图 | 成交案例 -->
+<div class="w ">
+  <div class="net-com-w ma h350 ">
+    <div class="net-c-left swiper-container">
+      <div class="swiper-wrapper">
+        
+                            <div class="swiper-slide"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1265" target="_blank"><img src="http://www.esshangpu.com/uploadfile/2017/0829/20170829111631965.png" alt=""  /></a></div>
+                          <div class="swiper-slide"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1628" target="_blank"><img src="http://www.esshangpu.com/uploadfile/2018/0623/20180623052808284.png" alt=""  /></a></div>
+                          <div class="swiper-slide"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=48&id=1264" target="_blank"><img src="http://www.esshangpu.com/uploadfile/2017/0829/20170829110309397.png" alt="987654321"  /></a></div>
+                          <div class="swiper-slide"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1515" target="_blank"><img src="http://www.esshangpu.com/uploadfile/2018/0323/20180323091051697.png" alt=""  /></a></div>
+          
+                </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Navigation -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="net-cr-sucs " style="width:303px; margin-top:10px; margin-left:23px; padding-left:10px;">
+      <p class="crsucs-btitle fl mt15 mb10 ml20 f20 fw-yahei col666">已成交案例总数</p>
+      <div class="crsucs-num fl t_num h40 lh40 fw-yahei pl20 lspac5">
+        <ul class="f24 col4f4f">
+		<span style="font-size:36px;"><strong><span style="background-color:#ffffe0;">1</span> <span style="background-color:#ffffe0;">2</span> <span style="background-color:#ffffe0;">8</span>&nbsp;<span style="background-color: rgb(255, 255, 224);">8 1 6</span></strong></span>
+        </ul>
+        <input type="hidden" id="cur_num" value="126915">
+ 
+      </div>
+      <div class="crsucs-scrllo fl mt15">
+        <ul class="pl30 fl" id="successfulTransferUl" style="margin-top: -24px;">
+          
+          
+                          <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1656" title="好位置有照日流七千餐厅..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置有照日流七千餐厅...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1653" title="宋庄艺术区餐厅饭店转让..." target="_blank"> <span class="">[北京市]</span> <span class="">宋庄艺术区餐厅饭店转让...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1652" title="精装修美容院低价转让，..." target="_blank"> <span class="">[北京市]</span> <span class="">精装修美容院低价转让，...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=48&id=1651" title="好位置品牌连锁便利店超..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置品牌连锁便利店超...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1650" title="盈利中美容院转让，可做..." target="_blank"> <span class="">[北京市]</span> <span class="">盈利中美容院转让，可做...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1647" title="好位置盈利中超市低价转..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置盈利中超市低价转...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1645" title="好位置饭店转让，可做火..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置饭店转让，可做火...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1644" title="好位置有照日流1万左右超..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置有照日流1万左右超...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1643" title="生意火爆饭店转让，每天..." target="_blank"> <span class="">[北京市]</span> <span class="">生意火爆饭店转让，每天...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1642" title="商业街饭店装让，可做超..." target="_blank"> <span class="">[北京市]</span> <span class="">商业街饭店装让，可做超...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1641" title="好位置有照日流6000左右..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置有照日流6000左右...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1640" title="【鱼你在一起】高端餐饮..." target="_blank"> <span class="">[北京市]</span> <span class="">【鱼你在一起】高端餐饮...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1639" title="好位置有照日流15000饭店..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置有照日流15000饭店...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1638" title="好位置盈利中超市转让，..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置盈利中超市转让，...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1637" title="品牌连锁饭店转让，可做..." target="_blank"> <span class="">[北京市]</span> <span class="">品牌连锁饭店转让，可做...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1634" title="好位置饭店转让，可做拉..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置饭店转让，可做拉...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1633" title="好位置有照日流8千左右水..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置有照日流8千左右水...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1632" title="好位置有照汽车美容店转让" target="_blank"> <span class="">[北京市]</span> <span class="">好位置有照汽车美容店转让</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=13&id=1631" title="求租军都山滑雪场附近农..." target="_blank"> <span class="">[北京市]</span> <span class="">求租军都山滑雪场附近农...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1629" title="好位置饭店转让，可做早..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置饭店转让，可做早...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1628" title="好位置有照日流2万餐厅转..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置有照日流2万餐厅转...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1627" title="好位置有照餐厅转让，可..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置有照餐厅转让，可...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1626" title="好位置商铺转让，可做服..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置商铺转让，可做服...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=22&id=1625" title="盈利外卖档口低价转让，..." target="_blank"> <span class="">[北京市]</span> <span class="">盈利外卖档口低价转让，...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=48&id=1624" title="好位置超市转让，日流水2..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置超市转让，日流水2...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1623" title="好位置美食城档口转让，..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置美食城档口转让，...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=26&id=1622" title="好位置美甲店转让，可做..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置美甲店转让，可做...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1620" title="好位置日流5千饭店档口转..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置日流5千饭店档口转...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=48&id=1617" title="好位置日流5千烟酒超市转..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置日流5千烟酒超市转...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1616" title="好位置有照饭店转让，可..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置有照饭店转让，可...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=39&id=1614" title="好位置精装养生馆转让，..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置精装养生馆转让，...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1613" title="【有照】好位置饭店低价..." target="_blank"> <span class="">[北京市]</span> <span class="">【有照】好位置饭店低价...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1612" title="好位置饭店转让，可做金..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置饭店转让，可做金...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1611" title="好位置商铺出租，可做美..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置商铺出租，可做美...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1610" title="好位置商铺出租，可做美..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置商铺出租，可做美...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1609" title="好位置商铺转让，可做拉..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置商铺转让，可做拉...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1608" title="日流3万高档饭店低价转让..." target="_blank"> <span class="">[北京市]</span> <span class="">日流3万高档饭店低价转让...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1606" title="好位置盈利中饭店转让，..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置盈利中饭店转让，...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1604" title="好位置饭店转让，可做烤..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置饭店转让，可做烤...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                <li class="h25 h25 ellip-cs"> <a class="fl no_unl col666 fw-yahei txtunl" href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1602" title="好位置盈利中的饭店转让..." target="_blank"> <span class="">[北京市]</span> <span class="">好位置盈利中的饭店转让...</span> </a> <span class="col666 fr pr25">1天前</span> </li>
+                        </ul>
+      </div>
+      
+    </div>
+    <div style="height:auto;margin-top:10px; float:right; overflow:hidden; width:317px;">
+    <div class="spct-a-cc fr" style="height:330px; margin-top:10px;overflow:hidden; width:295px;">
+      <div class="spct-a-ttl mb10" style="width:295px;"> <span class="h40 lh40 tl f16 fl dblck fw-yahei">最新求租</span></div>
+      <ul class="spct-a-ul" style="width:290px;">
+          
+               
+        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=13&id=1631" target="_blank" class="no_unl col666 ellip-cs tl">求租军都山滑雪场附近农...</a> </li>
+        
+        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1305" target="_blank" class="no_unl col666 ellip-cs tl">个人求租可经营水吧旺铺</a> </li>
+        
+        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=49&id=1075" target="_blank" class="no_unl col666 ellip-cs tl">求租便利店商铺</a> </li>
+        
+        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=770" target="_blank" class="no_unl col666 ellip-cs tl">五环内可做餐饮的商铺</a> </li>
+        
+        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=768" target="_blank" class="no_unl col666 ellip-cs tl">求租：北京人流密集商圈...</a> </li>
+        
+        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=761" target="_blank" class="no_unl col666 ellip-cs tl">连锁品牌求租全北京一层...</a> </li>
+        
+        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=760" target="_blank" class="no_unl col666 ellip-cs tl">连锁品牌餐饮求租通州繁...</a> </li>
+        
+        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=13&id=759" target="_blank" class="no_unl col666 ellip-cs tl">求租住宅商铺底商,都合适...</a> </li>
+        
+        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=758" target="_blank" class="no_unl col666 ellip-cs tl">求租餐饮用房</a> </li>
+        
+        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=25&id=757" target="_blank" class="no_unl col666 ellip-cs tl">求租商铺做发廊</a> </li>
+                      </ul>
+    </div>
+    
+    <div class="spct-a-cc fr" style="height:355px; margin-top:10px; overflow:hidden; width:295px;">
+      <div class="spct-a-ttl mb10" style="width:295px;"> <span class="h40 lh40 tl f16 fl dblck fw-yahei">今日最新</span></div>
+      <ul class="spct-a-ul" style="width:290px;">
+                        <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1656" target="_blank" class="no_unl col666 ellip-cs tl">好位置有照日流七千餐厅...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1653" target="_blank" class="no_unl col666 ellip-cs tl">宋庄艺术区餐厅饭店转让...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1652" target="_blank" class="no_unl col666 ellip-cs tl">精装修美容院低价转让，...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=48&id=1651" target="_blank" class="no_unl col666 ellip-cs tl">好位置品牌连锁便利店超...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1650" target="_blank" class="no_unl col666 ellip-cs tl">盈利中美容院转让，可做...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1647" target="_blank" class="no_unl col666 ellip-cs tl">好位置盈利中超市低价转...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1645" target="_blank" class="no_unl col666 ellip-cs tl">好位置饭店转让，可做火...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1644" target="_blank" class="no_unl col666 ellip-cs tl">好位置有照日流1万左右超...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1643" target="_blank" class="no_unl col666 ellip-cs tl">生意火爆饭店转让，每天...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1642" target="_blank" class="no_unl col666 ellip-cs tl">商业街饭店装让，可做超...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1641" target="_blank" class="no_unl col666 ellip-cs tl">好位置有照日流6000左右...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1640" target="_blank" class="no_unl col666 ellip-cs tl">【鱼你在一起】高端餐饮...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1639" target="_blank" class="no_unl col666 ellip-cs tl">好位置有照日流15000饭店...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1638" target="_blank" class="no_unl col666 ellip-cs tl">好位置盈利中超市转让，...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1637" target="_blank" class="no_unl col666 ellip-cs tl">品牌连锁饭店转让，可做...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1634" target="_blank" class="no_unl col666 ellip-cs tl">好位置饭店转让，可做拉...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1633" target="_blank" class="no_unl col666 ellip-cs tl">好位置有照日流8千左右水...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1632" target="_blank" class="no_unl col666 ellip-cs tl">好位置有照汽车美容店转让</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=13&id=1631" target="_blank" class="no_unl col666 ellip-cs tl">求租军都山滑雪场附近农...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1629" target="_blank" class="no_unl col666 ellip-cs tl">好位置饭店转让，可做早...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1628" target="_blank" class="no_unl col666 ellip-cs tl">好位置有照日流2万餐厅转...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1627" target="_blank" class="no_unl col666 ellip-cs tl">好位置有照餐厅转让，可...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1626" target="_blank" class="no_unl col666 ellip-cs tl">好位置商铺转让，可做服...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=22&id=1625" target="_blank" class="no_unl col666 ellip-cs tl">盈利外卖档口低价转让，...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=48&id=1624" target="_blank" class="no_unl col666 ellip-cs tl">好位置超市转让，日流水2...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1623" target="_blank" class="no_unl col666 ellip-cs tl">好位置美食城档口转让，...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=26&id=1622" target="_blank" class="no_unl col666 ellip-cs tl">好位置美甲店转让，可做...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1620" target="_blank" class="no_unl col666 ellip-cs tl">好位置日流5千饭店档口转...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=48&id=1617" target="_blank" class="no_unl col666 ellip-cs tl">好位置日流5千烟酒超市转...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1616" target="_blank" class="no_unl col666 ellip-cs tl">好位置有照饭店转让，可...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=39&id=1614" target="_blank" class="no_unl col666 ellip-cs tl">好位置精装养生馆转让，...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1613" target="_blank" class="no_unl col666 ellip-cs tl">【有照】好位置饭店低价...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1612" target="_blank" class="no_unl col666 ellip-cs tl">好位置饭店转让，可做金...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1611" target="_blank" class="no_unl col666 ellip-cs tl">好位置商铺出租，可做美...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1610" target="_blank" class="no_unl col666 ellip-cs tl">好位置商铺出租，可做美...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1609" target="_blank" class="no_unl col666 ellip-cs tl">好位置商铺转让，可做拉...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1608" target="_blank" class="no_unl col666 ellip-cs tl">日流3万高档饭店低价转让...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1606" target="_blank" class="no_unl col666 ellip-cs tl">好位置盈利中饭店转让，...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1604" target="_blank" class="no_unl col666 ellip-cs tl">好位置饭店转让，可做烤...</a> </li>
+                <li class=" f12 col666" style="width:290px;"> <span class="mr10 fl f09">•</span> <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1602" target="_blank" class="no_unl col666 ellip-cs tl">好位置盈利中的饭店转让...</a> </li>
+                      </ul>
+    </div>
+     </div>
+  </div>
+</div>
+<!-- 广告，金牌分析师 | 求租专区 -->
+<div class="w ">
+  <div class="net-com-w ma h660">
+    <div id="net-c-left"> 
+      <!-- 广告 -->
+      <div class="net-cl-gg01 w850 fl mh85 "> 
+	  <img src="http://www.esshangpu.com/uploadfile/2016/0923/20160923034641275.gif" style="height: 85px; width: 851px;" /><br /></div>
+      <p class="kong1"></p>
+      <!-- 金牌分析师 -->
+      <div class="goldanalystdiv"> <span class="goldanalyst"> 金牌分析师 </span> </div>
+      <div class="net-cl-fxlist" >
+        <ul class="net-clfx-ul">
+                     <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=65&id=3" target="_blank">
+          <li class="net-clfx-ul-li dblck fl bdrdad9d9 bdbdad9d9">
+            <div class="nfxw281 nfxh140">
+              <div class="nfxh140 nfxw140 fl"> <img class="mt10 ml10" src="http://www.esshangpu.com/uploadfile/2017/0320/20170320114120744.png"  width="130" height="130" /> </div>
+              <div class="nfxh140 nfxw130 ml10 fl">
+                <p class="mt15 fw-yahei f24 col000 fb">刘阳</p>
+                <p class=" lh25 col8F8F8F">客服主管</p>
+                <p class=" lh25 f13 col8F8F8F">商户评价：</p>
+                <p class=" lh25 ed9500 col8F8F8F"> <span class="s_star_1 "><i class="s_d10"></i></span> </p>
+                <p class=" lh25 f13 col8F8F8F">服务好，擅长撮合</p>
+              </div>
+            </div>
+            <p class="mt10 mb5 ml15 f14 col8F8F8F">服务热线：133****7631</p>
+            <div class="nfxw281 nfxh70 mt10">
+              <div class="nfxw140 nfxh70 fl bgf8f8f8 bdrdad9d9">
+                <p class="tc lh25 col000 f13 " align="center">服务店面(家)</p>
+                <p class="tc f20 1h200 cc0000 f26" align="center">182</p>
+              </div>
+              <div class="nfxw140 nfxh70 fl bgf8f8f8">
+                <p class="tc lh25 col000 f13 lh25" align="center">工作经验</p>
+                <p class="tc f20 1h200 colDD0505" align="center">2年</p>
+              </div>
+            </div>
+          </li>
+          </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=65&id=4" target="_blank">
+          <li class="net-clfx-ul-li dblck fl bdrdad9d9 bdbdad9d9">
+            <div class="nfxw281 nfxh140">
+              <div class="nfxh140 nfxw140 fl"> <img class="mt10 ml10" src="http://www.esshangpu.com/uploadfile/2017/0320/20170320114322985.png"  width="130" height="130" /> </div>
+              <div class="nfxh140 nfxw130 ml10 fl">
+                <p class="mt15 fw-yahei f24 col000 fb">张雪</p>
+                <p class=" lh25 col8F8F8F">客服专员</p>
+                <p class=" lh25 f13 col8F8F8F">商户评价：</p>
+                <p class=" lh25 ed9500 col8F8F8F"> <span class="s_star_1 "><i class="s_d10"></i></span> </p>
+                <p class=" lh25 f13 col8F8F8F">服务一流，擅长撮合</p>
+              </div>
+            </div>
+            <p class="mt10 mb5 ml15 f14 col8F8F8F">服务热线：133****2502</p>
+            <div class="nfxw281 nfxh70 mt10">
+              <div class="nfxw140 nfxh70 fl bgf8f8f8 bdrdad9d9">
+                <p class="tc lh25 col000 f13 " align="center">服务店面(家)</p>
+                <p class="tc f20 1h200 cc0000 f26" align="center">189</p>
+              </div>
+              <div class="nfxw140 nfxh70 fl bgf8f8f8">
+                <p class="tc lh25 col000 f13 lh25" align="center">工作经验</p>
+                <p class="tc f20 1h200 colDD0505" align="center">2年</p>
+              </div>
+            </div>
+          </li>
+          </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=65&id=2" target="_blank">
+          <li class="net-clfx-ul-li dblck fl bdrdad9d9 bdbdad9d9">
+            <div class="nfxw281 nfxh140">
+              <div class="nfxh140 nfxw140 fl"> <img class="mt10 ml10" src="http://www.esshangpu.com/uploadfile/2017/0225/20170225115233389.jpg"  width="130" height="130" /> </div>
+              <div class="nfxh140 nfxw130 ml10 fl">
+                <p class="mt15 fw-yahei f24 col000 fb">张会灵</p>
+                <p class=" lh25 col8F8F8F">商铺分析师</p>
+                <p class=" lh25 f13 col8F8F8F">商户评价：</p>
+                <p class=" lh25 ed9500 col8F8F8F"> <span class="s_star_1 "><i class="s_d10"></i></span> </p>
+                <p class=" lh25 f13 col8F8F8F">专注商铺，擅长撮合</p>
+              </div>
+            </div>
+            <p class="mt10 mb5 ml15 f14 col8F8F8F">服务热线：133****8527</p>
+            <div class="nfxw281 nfxh70 mt10">
+              <div class="nfxw140 nfxh70 fl bgf8f8f8 bdrdad9d9">
+                <p class="tc lh25 col000 f13 " align="center">服务店面(家)</p>
+                <p class="tc f20 1h200 cc0000 f26" align="center">102</p>
+              </div>
+              <div class="nfxw140 nfxh70 fl bgf8f8f8">
+                <p class="tc lh25 col000 f13 lh25" align="center">工作经验</p>
+                <p class="tc f20 1h200 colDD0505" align="center">1年</p>
+              </div>
+            </div>
+          </li>
+          </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=65&id=6" target="_blank">
+          <li class="net-clfx-ul-li dblck fl bdrdad9d9 bdbdad9d9">
+            <div class="nfxw281 nfxh140">
+              <div class="nfxh140 nfxw140 fl"> <img class="mt10 ml10" src="http://www.esshangpu.com/uploadfile/2017/0224/20170224122048771.jpg"  width="130" height="130" /> </div>
+              <div class="nfxh140 nfxw130 ml10 fl">
+                <p class="mt15 fw-yahei f24 col000 fb">劳俊文</p>
+                <p class=" lh25 col8F8F8F">商铺分析师</p>
+                <p class=" lh25 f13 col8F8F8F">商户评价：</p>
+                <p class=" lh25 ed9500 col8F8F8F"> <span class="s_star_1 "><i class="s_d10"></i></span> </p>
+                <p class=" lh25 f13 col8F8F8F">专注商铺，擅长撮合</p>
+              </div>
+            </div>
+            <p class="mt10 mb5 ml15 f14 col8F8F8F">服务热线：133****2109</p>
+            <div class="nfxw281 nfxh70 mt10">
+              <div class="nfxw140 nfxh70 fl bgf8f8f8 bdrdad9d9">
+                <p class="tc lh25 col000 f13 " align="center">服务店面(家)</p>
+                <p class="tc f20 1h200 cc0000 f26" align="center">98</p>
+              </div>
+              <div class="nfxw140 nfxh70 fl bgf8f8f8">
+                <p class="tc lh25 col000 f13 lh25" align="center">工作经验</p>
+                <p class="tc f20 1h200 colDD0505" align="center">1年</p>
+              </div>
+            </div>
+          </li>
+          </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=65&id=5" target="_blank">
+          <li class="net-clfx-ul-li dblck fl bdrdad9d9 bdbdad9d9">
+            <div class="nfxw281 nfxh140">
+              <div class="nfxh140 nfxw140 fl"> <img class="mt10 ml10" src="http://www.esshangpu.com/uploadfile/2017/0224/20170224030714473.jpg"  width="130" height="130" /> </div>
+              <div class="nfxh140 nfxw130 ml10 fl">
+                <p class="mt15 fw-yahei f24 col000 fb">王倩</p>
+                <p class=" lh25 col8F8F8F">店铺分析师</p>
+                <p class=" lh25 f13 col8F8F8F">商户评价：</p>
+                <p class=" lh25 ed9500 col8F8F8F"> <span class="s_star_1 "><i class="s_d10"></i></span> </p>
+                <p class=" lh25 f13 col8F8F8F">专注商铺，擅长撮合</p>
+              </div>
+            </div>
+            <p class="mt10 mb5 ml15 f14 col8F8F8F">服务热线：133****2613</p>
+            <div class="nfxw281 nfxh70 mt10">
+              <div class="nfxw140 nfxh70 fl bgf8f8f8 bdrdad9d9">
+                <p class="tc lh25 col000 f13 " align="center">服务店面(家)</p>
+                <p class="tc f20 1h200 cc0000 f26" align="center">163</p>
+              </div>
+              <div class="nfxw140 nfxh70 fl bgf8f8f8">
+                <p class="tc lh25 col000 f13 lh25" align="center">工作经验</p>
+                <p class="tc f20 1h200 colDD0505" align="center">2年</p>
+              </div>
+            </div>
+          </li>
+          </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=65&id=7" target="_blank">
+          <li class="net-clfx-ul-li dblck fl bdrdad9d9 bdbdad9d9">
+            <div class="nfxw281 nfxh140">
+              <div class="nfxh140 nfxw140 fl"> <img class="mt10 ml10" src="http://www.esshangpu.com/uploadfile/2017/0225/20170225122344384.jpg"  width="130" height="130" /> </div>
+              <div class="nfxh140 nfxw130 ml10 fl">
+                <p class="mt15 fw-yahei f24 col000 fb">赵振跃</p>
+                <p class=" lh25 col8F8F8F">商铺分析师</p>
+                <p class=" lh25 f13 col8F8F8F">商户评价：</p>
+                <p class=" lh25 ed9500 col8F8F8F"> <span class="s_star_1 "><i class="s_d10"></i></span> </p>
+                <p class=" lh25 f13 col8F8F8F">踏实！</p>
+              </div>
+            </div>
+            <p class="mt10 mb5 ml15 f14 col8F8F8F">服务热线：133****2341</p>
+            <div class="nfxw281 nfxh70 mt10">
+              <div class="nfxw140 nfxh70 fl bgf8f8f8 bdrdad9d9">
+                <p class="tc lh25 col000 f13 " align="center">服务店面(家)</p>
+                <p class="tc f20 1h200 cc0000 f26" align="center">96</p>
+              </div>
+              <div class="nfxw140 nfxh70 fl bgf8f8f8">
+                <p class="tc lh25 col000 f13 lh25" align="center">工作经验</p>
+                <p class="tc f20 1h200 colDD0505" align="center">1年</p>
+              </div>
+            </div>
+          </li>
+          </a>            
+         
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 条形广告 -->
+<div class="w">
+<div class="net-com-w ma h480"> 
+  <!-- 广告位 -->
+  <div class="net-com-w h80 mt20"> <a href="" target="_blank"> <img alt="" title="" src='http://101.201.49.69/img0//picture/ad/257/201605/sw20160520073955.jpg' width="1190" height="80" /> </a>  </div>
+  <!-- 旺铺推荐 -->
+  <div class="net-com-w h370 mt10">
+    <p class="net-com-w h50 lh50 f24 mb5 fl fw-st bdb000000 tl" style="font-size:14px;">超值旺铺推荐</p>
+    <div class="w250 h300 mt10 fl bg98f9ff">        <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=17&id=1580" target="_blank"> <img alt="好位置火爆冷饮水吧转让、可做奶茶、糕点、特产、小吃等" src='http://www.esshangpu.com/uploadfile/2018/0516/20180516105044988.jpg' width="250" height="300" /> </a>        </div>
+    <div class="w925 h300 mt10 fl ml15" >             <div class="spct-dt-m mb5 ml6 fl bg98f9ff cztj" > <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1608" target="_blank"> <img alt="日流3万高档饭店低价转让，可做拉面、东北菜、川湘菜等" title="日流3万高档饭店低价转让，可做拉面、东北菜、川湘菜等" width="925" src='http://www.esshangpu.com/uploadfile/2018/0607/20180607104959257.gif' height="49" /></a> </div>
+            <div class="spct-dt-m mb5 ml6 fl bg98f9ff cztj" > <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1521" target="_blank"> <img alt="好位置有照日流2万以上披萨店转让，可做西餐厅酒吧咖啡厅" title="好位置有照日流2万以上披萨店转让，可做西餐厅酒吧咖啡厅" width="925" src='http://www.esshangpu.com/uploadfile/2018/0329/20180329040053739.gif' height="49" /></a> </div>
+            <div class="spct-dt-m mb5 ml6 fl bg98f9ff cztj" > <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1512" target="_blank"> <img alt="好位置有照日流2万饭店转让，可做火锅串串香烤肉等" title="好位置有照日流2万饭店转让，可做火锅串串香烤肉等" width="925" src='http://www.esshangpu.com/uploadfile/2018/0316/20180316013440286.gif' height="49" /></a> </div>
+            <div class="spct-dt-m mb5 ml6 fl bg98f9ff cztj" > <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1568" target="_blank"> <img alt="好位置有照餐厅转让，可做火锅羊蝎子烤鱼烤肉等" title="好位置有照餐厅转让，可做火锅羊蝎子烤鱼烤肉等" width="925" src='http://www.esshangpu.com/uploadfile/2018/0505/20180505054403738.gif' height="49" /></a> </div>
+            <div class="spct-dt-m mb5 ml6 fl bg98f9ff cztj" > <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1569" target="_blank"> <img alt="海淀培训机构转让，周围全是小学，初中，幼儿园等等" title="海淀培训机构转让，周围全是小学，初中，幼儿园等等" width="925" src='http://www.esshangpu.com/uploadfile/2018/0507/20180507094724449.gif' height="49" /></a> </div>
+             </div>
+  </div>
+</div>
+<!-- 图文广告 -->
+<div class="w">
+  <div class="net-com-w ma h800">
+    <p class="net-com-w h50 lh50 f24 mb5 fl fw-st bdb000000 tl"  style="font-size:14px;">精品旺铺推荐</p>
+    <div class="net-com-w ">        <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1656" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置有照日流七千餐厅饭店转让，可做快餐刀削面等" title="好位置有照日流七千餐厅饭店转让，可做快餐刀削面等" src='http://www.esshangpu.com/uploadfile/2018/0711/20180711083758228.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 西二旗 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13601152705</span> <span class="colff2222">189平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            42 </p>
+          <p class="fw-yahei">面积：189平米</p>
+          <p class="fw-yahei">租金：31690</p>
+          <p class="fw-yahei">电话：13601152705</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1643" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="生意火爆饭店转让，每天流水平均11000，正规底商" title="生意火爆饭店转让，每天流水平均11000，正规底商" src='http://www.esshangpu.com/uploadfile/2018/0630/20180630112040230.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 丰葆路 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13311041537</span> <span class="colff2222">297平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            3365 </p>
+          <p class="fw-yahei">面积：297平米</p>
+          <p class="fw-yahei">租金：31000</p>
+          <p class="fw-yahei">电话：13311041537</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1639" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置有照日流15000饭店餐厅转让，可做串吧火锅烤肉等" title="好位置有照日流15000饭店餐厅转让，可做串吧火锅烤肉等" src='http://www.esshangpu.com/uploadfile/2018/0628/20180628094727885.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 昌平县城 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13521334184</span> <span class="colff2222">500平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            47 </p>
+          <p class="fw-yahei">面积：500平米</p>
+          <p class="fw-yahei">租金：20000</p>
+          <p class="fw-yahei">电话：13521334184</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1627" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置有照餐厅转让，可做人民公社烤肉火锅海鲜川湘家常" title="好位置有照餐厅转让，可做人民公社烤肉火锅海鲜川湘家常" src='http://www.esshangpu.com/uploadfile/2018/0622/20180622084230318.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 燕郊永旺梦... </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13366348677</span> <span class="colff2222">670平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            3366 </p>
+          <p class="fw-yahei">面积：670平米</p>
+          <p class="fw-yahei">租金：25000</p>
+          <p class="fw-yahei">电话：13366348677</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1626" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置商铺转让，可做服装、美发美甲，甜品冷饮等" title="好位置商铺转让，可做服装、美发美甲，甜品冷饮等" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621041129257.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 门头沟区大... </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13601334323</span> <span class="colff2222">30平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            43 </p>
+          <p class="fw-yahei">面积：30平米</p>
+          <p class="fw-yahei">租金：7000</p>
+          <p class="fw-yahei">电话：13601334323</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=39&id=1614" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置精装养生馆转让，可做美容美发、足疗SPA等" title="好位置精装养生馆转让，可做美容美发、足疗SPA等" src='http://www.esshangpu.com/uploadfile/2018/0608/20180608025051743.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 大成路 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">17746587215</span> <span class="colff2222">220平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            3365 </p>
+          <p class="fw-yahei">面积：220平米</p>
+          <p class="fw-yahei">租金：37500</p>
+          <p class="fw-yahei">电话：17746587215</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1609" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置商铺转让，可做拉面、烧烤、刀削面、火锅等等" title="好位置商铺转让，可做拉面、烧烤、刀削面、火锅等等" src='http://www.esshangpu.com/uploadfile/2018/0607/20180607114843932.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 亦庄文化创... </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13261053588</span> <span class="colff2222">180平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+             </p>
+          <p class="fw-yahei">面积：180平米</p>
+          <p class="fw-yahei">租金：27600</p>
+          <p class="fw-yahei">电话：13261053588</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1583" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置拉面饭店转让，可做快餐、火锅、烤肉（已转让）" title="好位置拉面饭店转让，可做快餐、火锅、烤肉（已转让）" src='http://www.esshangpu.com/uploadfile/2018/0518/20180518020704455.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 朝阳九龙山 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">010-56255936</span> <span class="colff2222">200平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            40 </p>
+          <p class="fw-yahei">面积：200平米</p>
+          <p class="fw-yahei">租金：54000</p>
+          <p class="fw-yahei">电话：010-56255936</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1551" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置有照日流15000饭店转让，可做烤肉火锅羊蝎子等" title="好位置有照日流15000饭店转让，可做烤肉火锅羊蝎子等" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621042712532.png' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 朝阳清河营 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13522665672</span> <span class="colff2222">410平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            40 </p>
+          <p class="fw-yahei">面积：410平米</p>
+          <p class="fw-yahei">租金：53000</p>
+          <p class="fw-yahei">电话：13522665672</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1494" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置有照日流过万饭店转让，可做拉面火锅(已转让）" title="好位置有照日流过万饭店转让，可做拉面火锅(已转让）" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621042741189.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 海淀北新桥 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">010-56255936</span> <span class="colff2222">200平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            42 </p>
+          <p class="fw-yahei">面积：200平米</p>
+          <p class="fw-yahei">租金：61000</p>
+          <p class="fw-yahei">电话：010-56255936</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1491" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="商业街商铺转让(已转让）" title="商业街商铺转让(已转让）" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621042741189.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 亦庄文化园 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">010-56255936</span> <span class="colff2222">220平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            48 </p>
+          <p class="fw-yahei">面积：220平米</p>
+          <p class="fw-yahei">租金：26000</p>
+          <p class="fw-yahei">电话：010-56255936</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1479" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="肯德基旁的饭店转让，每天流水13000，可做各种品牌餐饮" title="肯德基旁的饭店转让，每天流水13000，可做各种品牌餐饮" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621042848253.png' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 天辰东路 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13371788689</span> <span class="colff2222">150平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            40 </p>
+          <p class="fw-yahei">面积：150平米</p>
+          <p class="fw-yahei">租金：</p>
+          <p class="fw-yahei">电话：13371788689</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1450" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="肯德基旁边的日本料理转让（已转让）" title="肯德基旁边的日本料理转让（已转让）" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621042741189.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 东坝 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">010-56255936</span> <span class="colff2222">200平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            40 </p>
+          <p class="fw-yahei">面积：200平米</p>
+          <p class="fw-yahei">租金：60000</p>
+          <p class="fw-yahei">电话：010-56255936</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1443" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="长阳商业街180平照全灶台王品牌餐饮店转让" title="长阳商业街180平照全灶台王品牌餐饮店转让" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621042938855.png' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 长阳 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13366888667</span> <span class="colff2222">180平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            44 </p>
+          <p class="fw-yahei">面积：180平米</p>
+          <p class="fw-yahei">租金：10000</p>
+          <p class="fw-yahei">电话：13366888667</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1442" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置有照日流2万左右饭店转让，可做拉面（已转让）" title="好位置有照日流2万左右饭店转让，可做拉面（已转让）" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621042741189.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 宣武太平街 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">010-56255936</span> <span class="colff2222">360平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            39 </p>
+          <p class="fw-yahei">面积：360平米</p>
+          <p class="fw-yahei">租金：58000</p>
+          <p class="fw-yahei">电话：010-56255936</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1378" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="流水每天7.8.9千的超市转让，手续齐全" title="流水每天7.8.9千的超市转让，手续齐全" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621043042973.png' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 十八里店 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">18911906728</span> <span class="colff2222">400平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            40 </p>
+          <p class="fw-yahei">面积：400平米</p>
+          <p class="fw-yahei">租金：16000</p>
+          <p class="fw-yahei">电话：18911906728</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1342" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="精装修饭店商铺出租，可做火锅，炒菜，拉面，烤肉等" title="精装修饭店商铺出租，可做火锅，炒菜，拉面，烤肉等" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621043224344.png' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 通州万达 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13718123550</span> <span class="colff2222">240平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            45 </p>
+          <p class="fw-yahei">面积：240平米</p>
+          <p class="fw-yahei">租金：64800</p>
+          <p class="fw-yahei">电话：13718123550</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1291" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置饭店装让，可做小面刀削面拉面火锅麻辣烫快餐等" title="好位置饭店装让，可做小面刀削面拉面火锅麻辣烫快餐等" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621043302250.png' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 昌平县城 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13910387880</span> <span class="colff2222">100平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            47 </p>
+          <p class="fw-yahei">面积：100平米</p>
+          <p class="fw-yahei">租金：13500</p>
+          <p class="fw-yahei">电话：13910387880</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1281" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="《证件齐全》精装修咖啡厅转让，可做西餐，酒吧等等" title="《证件齐全》精装修咖啡厅转让，可做西餐，酒吧等等" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621042741189.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 朝阳门 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">18500197611</span> <span class="colff2222">130平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            36 </p>
+          <p class="fw-yahei">面积：130平米</p>
+          <p class="fw-yahei">租金：27300</p>
+          <p class="fw-yahei">电话：18500197611</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1248" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置有照饭店转让，可做火锅、羊蝎子、炒菜等" title="好位置有照饭店转让，可做火锅、羊蝎子、炒菜等" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621043551389.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 燕郊镇西小... </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13366181885</span> <span class="colff2222">240平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            3366 </p>
+          <p class="fw-yahei">面积：240平米</p>
+          <p class="fw-yahei">租金：16666</p>
+          <p class="fw-yahei">电话：13366181885</p>
+        </div>
+      </div>
+      </a>  <a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1180" target="_blank">
+      <div class="spct-jp-dul mr7 ml7">
+        <div class="w156 h100 bg98f9ff fl"> <img alt="好位置饭店转让，可做拉面火锅炒菜特色小吃等" title="好位置饭店转让，可做拉面火锅炒菜特色小吃等" src='http://www.esshangpu.com/uploadfile/2018/0621/20180621042741189.jpg' width="156" height="100" /> </div>
+        <p class="h25 lh25 f13 fw-yahei tl pl5 fl col000"> 北苑 </p>
+        <p class="h20 lh20 f12 fw-yahei tl pl5 fl"> <span class="col000">13641329923</span> <span class="colff2222">200平米</span> </p>
+        <dir class="cl"></dir>
+        <div class="hyjpin_hover_div">
+          <p class="fw-yahei" title="" style="display:none">区域：
+            40 </p>
+          <p class="fw-yahei">面积：200平米</p>
+          <p class="fw-yahei">租金：44688</p>
+          <p class="fw-yahei">电话：13641329923</p>
+        </div>
+      </div>
+      </a>             <div class="cb"></div>
+    </div>
+  </div>
+</div>
+<!-- 文字广告 -->
+<div class="w">
+  <div class="net-com-w ma h300">
+    <p class="net-com-w h50 lh50 f24 mb5 fl fw-st bdb000000 tl"  style="font-size:14px;">店铺推荐</p>
+    <div class="net-com-w"> 
+      <ul>                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1633">好位置有照日流8千左右水果店转让</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1613">【有照】好位置饭店低价转让，可做快餐、拉面、麻辣烫等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1572">好位置商铺转让，可做美容美甲服装鞋帽精品店等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=17&id=1566">火爆百货中心商场店盈利水吧奶茶店转让(已转让）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1563">好位置火爆美食城招租招商（已招满）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1552">好位置档口转让， 可做拉面快餐米线麻辣烫凉皮等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=47&id=1547">经营多年婴儿游泳馆商铺转让，接手即可盈利</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1546">好位置有照低价婴儿游泳馆转让</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=24&id=1544">好位置品牌加盟美容院转让，可做足疗SAP，养身会所等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1541">好位置火爆美食城招商</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1539">好位置有照日流8千饭店转让(已转让）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1440">好位置有照饭店转让，可做麻辣烫麻辣香锅拉面火锅等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1433">好位置底商转让！可做足疗，美容美发（已转让）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1428">好位置饭店转让，可做冒菜麻辣烫烧烤（已转让）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1419">饭店转让，可做家常菜，火锅，烤肉，拉面等等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=22&id=1413">好位置日流8000档口转让，可做小碗菜、瓦罐汤等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=26&id=1399">好位置美甲低价转让，接手即可盈利(已转让）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=22&id=1393">美食城火爆档口低价转让，可做黄焖鸡，快餐(已转让）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1392">好位置美食城档口转让，可做拌饭、石锅系列等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=13&id=1387">好位置商铺档口招租，可做主食生鲜，干果，调料等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1346">有照主街小吃档口转让,可做甜品冷饮,炸鸡(已转让）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1341">好位置美容院带400会员转让，可做美容养生足浴等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1340">好位置临街档口转让，可做炸鸡牛排鱿鱼水吧特色小吃等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=11&id=1323">好位置鲜奶吧带1200会员转让，可做甜品冷饮(已转让）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1295">【证件齐全】饭店转让，可做麻辣烫、快餐(已转让）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=48&id=1266">好位置有照盈利中超市转让（已转让）</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1140">有照好位置饭店转让，可做麻辣烫、刀削面、特色小吃等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=22&id=1123">好位置档口招租，无转让费，可做拉面、快餐麻辣烫</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=17&id=1099">证件齐全，流水三千好位置水吧奶茶店出租</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=1095">黄金外置水吧转让，可做小吃店，冷饮甜品，汉堡等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=14&id=1067">好地段饭店转让，可做拉面、烤肉、火锅、炒菜等等</a></li>
+                <li style="width: 281px; height:25px; line-height:25px; float:left; overflow:hidden; margin-right:15px;"><a href="http://www.esshangpu.com/index.php?m=content&c=index&a=show&catid=10&id=976">好位置饭店出租转让，可做烤肉，火锅，家常菜等等</a></li>
+              
+      </ul></div>
+  </div>
+</div>
+
+<!-- FOOTER BEGIN --> 
+<div class="w mt10 h130 bgf9f9f9">
+
+</div>
+
+<div id="net-share" class="w h180">
+	<div class="net-com-w h180 ma">
+    	<div class=" w750 h180 fl"  style="width:895px;">
+        	<dl class="w250 h180 fl"  style="width:290px;">
+            	<dt class="mt20 mb15 f16 fw-hwxh col666">关于易搜商铺</dt>
+                                <dd class="f14 fw-hwxh pl30"><a class="unl col666" href="http://www.esshangpu.com/index.php?m=content&c=index&a=lists&catid=67">公司简介</a></dd>
+                                <dd class="f14 fw-hwxh pl30"><a class="unl col666" href="http://www.esshangpu.com/index.php?m=content&c=index&a=lists&catid=68">诚聘英才</a></dd>
+                                <dd class="f14 fw-hwxh pl30"><a class="unl col666" href="http://www.esshangpu.com/index.php?m=content&c=index&a=lists&catid=69">联系我们</a></dd>
+                            </dl>
+            <dl class="w250 h180 fl"  style="width:290px;">
+            	<dt class="mt20 mb15 f16 fw-hwxh col666">快捷服务</dt>
+                                 <dd class="f14 fw-hwxh pl30"><a class="unl col666" href="http://www.esshangpu.com/">我要找店</a></dd>
+                                <dd class="f14 fw-hwxh pl30"><a class="unl col666" href="http://www.esshangpu.com/">我要转店</a></dd>
+                                <dd class="f14 fw-hwxh pl30"><a class="unl col666" href="http://www.esshangpu.com/index.php?m=content&c=index&a=lists&catid=73">商务合作</a></dd>
+                            </dl>
+            <dl class="w250 h180 fl"  style="width:290px;">
+            	<dt class="mt20 mb15 f16 fw-hwxh col666">服务热线</dt>
+				 <dl>
+	<dd class="f14 fw-hwxh">
+		<span class="col666">全国服务热线：</span><span class="ml5 colfc3030">010-56256091</span></dd>
+	<dd class="f14 fw-hwxh">
+		<span class="col666">售后专线：</span><span class="ml5 colfc3030">010-56255936</span></dd>
+	<dd class="f14 fw-hwxh">
+		<span class="col666">投诉电话：</span><span class="ml5 colfc3030">13366402583</span></dd>
+</dl>                
+
+                
+            </dl>
+        </div>
+        <div class="suline01"></div>
+        <div class="w400 h180 fr index-wxlogo" style="width:290px;">
+        	<dl class="w180 h180 fr ml75">
+            	<dt class="mt20 mb15 f19 fw-yahei col666">客户微信</dt>
+                <dd><img alt="" src="http://www.esshangpu.com/uploadfile/2016/0920/20160920095032456.jpg" style="width: 100px; height: 100px;" /></dd>
+            </dl>
+            <dl class="w180 h180 fr">
+            	<dt class="mt20 mb15 f19 fw-yahei col666">微信公众号</dt>
+                <dd><img src="shangpu/images/wx.png" width="100" /></dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<p class="rline01 fl"></p>
+
+<div id="net-footer" class="w tc mh160 fl">
+	<div class="net-com-w mh160 ma">
+   	   <div class="net-com-w tc h52 wcenter mt10">
+      	<div class="ft-img">
+            <!-- <div class="w120 h50 fl bwsc1 mr10"> -->
+            <div class="w120 h50 fl  mr10">
+            	<img src="http://www.998pu.com:80/app/images/falvsm.gif" width="120" height="50">
+            </div>
+            <div class="w120 h50 fl  mr10">
+            	<a href="http://net.china.com.cn/" target="_blank"><img src="http://www.998pu.com:80/app/images/buljilu.gif" width="120" height="50"></a>
+            </div>
+            <div class="w120 h50 fl  mr10">
+            	<a href="http://www.bnia.cn/" target="_blank"><img src="http://www.998pu.com:80/app/images/bjwangxie.gif" width="120" height="50"></a>
+            </div>
+            <div class="w120 h50 fl  mr10">
+            	<img src="http://www.998pu.com:80/app/images/wangjing.gif" width="120" height="50">
+            </div>
+            <div class="w120 h50 fl mr10">
+            	<img src="http://www.998pu.com:80/app/images/wunet.gif" width="120" height="50">
+            </div>
+            <div class="cl"></div>
+        </div>
+      </div>
+      
+      <!-- 公司概况 -->
+      <div class="net-com-w ha">
+      	<p align="center" class="mt10">
+        	<span>
+        	<a class="no_unl col242424" href="index.php?m=content&c=index&a=lists&catid=67">公司简介</a><span>|</span>
+            <a class="no_unl col242424" href="index.php?m=content&c=index&a=lists&catid=76">服务项目</a><span>|</span>
+           
+            <a class="no_unl col242424" href="index.php?m=content&c=index&a=lists&catid=68">诚聘英才</a><span>|</span>
+            <a class="no_unl col242424" href="/index.php?m=content&c=index&a=lists&catid=69">联系我们</a>
+            </span>
+        </p>
+		<p align="center" class="mt1"><a class="no_unl col242424" href="#">全国服务热线：010-56256091，地址：北京市</a>丰台区大成路6号大成时代1504</p>
+<p align="center"><span>北京海君领航科技有限公司 - 版权 &nbsp;京ICP备<a href="http://bcainfo.miitbeian.gov.cn/publish/query/indexFirst.action">16038927</a>号<br />
+ICP经营许可证编号：<a href="https://tsm.miit.gov.cn/pages/home.aspx">京B2-20170466</a></span></p> <a class="no_unl col242424" href="http://www.yunbang.cn">DESIGN BY:云邦</a>
+        
+
+        
+      </div>
+    </div>
+</div> 
+<!-- FOOTER BEGIN --> 
+
+<script type="text/javascript" src="shangpu/js/jquery-1.12.2.min.js"></script> 
+<script type="text/javascript" src="shangpu/js/swiper.min.js"></script> 
+<script type="text/javascript" src="shangpu/js/main.js"></script> 
+<script type="text/javascript" src="shangpu/js/search_selected.js"></script> 
+<script type="text/javascript" src="shangpu/js/hzw-mianji-picker.js"></script>
+
+<script type="text/javascript" src="shangpu/js/scroll.js"></script> 
+      <script type="text/javascript">
+                    $(function(){
+                    	$("div.crsucs-scrllo").myScroll({
+                    		speed:80, //数值越大，速度越慢
+                    		rowHeight:25 //li的高度
+                    	});
+                    });
+					$(function(){
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            speed: 500,
+            loop: true,
+            observer:true,
+            observeParents:true,
+            autoplayDisableOnInteraction : false,
+            autoplay:3000
+        });
+    })
+                    </script> 
+
+</body>
+</html>

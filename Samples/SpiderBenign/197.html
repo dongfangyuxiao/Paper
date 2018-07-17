@@ -1,0 +1,1135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+
+
+<script>
+if(self!=top) top.location=self.location;
+</script>
+
+
+
+
+<script type="text/javascript">
+var s;
+var browser={   
+versions:function(){           
+var u = navigator.userAgent, app = navigator.appVersion;           
+return {               
+trident: u.indexOf('Trident') > -1, //IE内核               
+presto: u.indexOf('Presto') > -1, //opera内核               
+webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核               
+gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+mobile: !!u.match(/AppleWebKit.*Mobile/) || !!u.match(/Windows Phone/) || !!u.match(/Android/) || !!u.match(/MQQBrowser/),
+ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端               
+android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器               
+iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器               
+iPad: u.indexOf('iPad') > -1, //是否iPad               
+webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部           
+};
+}()
+}
+
+//document.writeln(" 是否为移动终端: "+browser.versions.mobile);
+//document.writeln(" ios终端: "+browser.versions.ios);
+//document.writeln(" android终端: "+browser.versions.android);
+//document.writeln(" 是否为iPhone: "+browser.versions.iPhone);
+//document.writeln(" 是否iPad: "+browser.versions.iPad);
+//document.writeln(navigator.userAgent);
+
+//写cookies 
+
+function setCookie(name,value) 
+{ 
+    var Days = 30; 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() + Days*24*60*60*1000); 
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";path=/;domain=dapenti.com;"; 
+} 
+//读取cookies 
+function getCookie(name) 
+{ 
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+ 
+        return unescape(arr[2]); 
+    else 
+        return null; 
+} 
+//删除cookies 
+function delCookie(name) 
+{ 
+    var exp = new Date(); 
+    exp.setTime(exp.getTime() - 1); 
+    var cval=getCookie(name); 
+    if(cval!=null) 
+        document.cookie= name + "="+cval+";expires="+exp.toGMTString()+";path=/;domain=dapenti.com;";  
+} 
+function pcmode(value)
+{
+setCookie("dapenti",value);
+if(value==0)
+{window.location.href="/blog/indexforweb.asp";} 
+else
+{
+window.location.href="/blog/index.asp";}
+
+}
+function automode()
+{
+delCookie("dapenti");
+window.location.href="/blog/index.asp";}
+
+
+
+if(getCookie("dapenti")!=-1)
+{
+
+if(browser.versions.mobile==true )
+
+{
+
+
+	if(browser.versions.iPad==false)
+
+{
+
+	s=window.location.href;
+
+	s=s.replace("index.asp","indexforweb.asp");
+
+	window.location=s;
+}
+
+
+
+}
+}
+
+</script>
+
+
+
+<meta http-equiv='content-type' content='text/html; charset=gb2312' />
+<meta http-equiv='expires' content='0' />
+<meta name='resource-type' content='document' />
+<meta name='distribution' content='global' />
+<meta name='author' content='dapenti' />
+<meta name='copyright' content='Copyright (c) 2008 dapenti. All Rights Reserved.' />
+<meta name='robots' content='index, follow' />
+<meta name='revisit-after' content='1 days' />
+<meta name='rating' content='general' />
+<meta name='keywords' content='图卦;喷嚏图卦;段子;铂程斋;喷嚏网;'>
+<meta name='description' content='dapenti.com-喷嚏网：阅读、发现和分享：8小时外的健康生活！您的网络博客文摘，原创社会人文书评，每天只需5分钟的精神享受。来这儿打喷嚏！' />
+<link rel='alternate' href='http://www.dapenti.com/blog/rss2.asp' type='application/rss+xml' title='喷嚏网-阅读、发现和分享：8小时外的健康生活！' ><link rel='alternate' href='http://www.dapenti.com/blog/rss2.asp?name=xilei' type='application/rss+xml' title='[喷嚏网]--铂程斋' ><title>喷嚏网----阅读、发现和分享：8小时外的健康生活！</title>
+</head>
+<meta name="validate" content="5f3268100b81e7861bc73ec50f873976" />
+<style>
+body { font-family:宋体, Verdana, Arial, Helvetica, sans-serif; font-size: 14px; color: #444444; background-color: #ffffff; MARGIN: 0px auto;}
+td { font-family:宋体,Verdana, Arial, Helvetica, sans-serif; font-size: 14px; }
+.box { text-align: center; clear: both; background-color: #dddddd; }
+#top { background-color: #ffffff; background-image: url(http://wx1.sinaimg.cn/mw690/6283e751gy1fi5b6uzlywj20jg02s74g.jpg); background-repeat: no-repeat; height:
+100px; width:1020px;MARGIN: 0px auto; }
+#menu { width: 760px; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #333333; background-color: #ffffff; line-height:
+170%; text-align: left; color: #CCCCCC; }
+#menu a { line-height: 170%; color: #FFFFFF; text-decoration: none; padding: 3px!important; padding: 5px; }
+#menu a:hover { color: #000000; }
+#body { width: 1020px; background-color: #ffffff; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #666666;MARGIN: 0px
+auto; }
+.box2 { width: 0px; float: left; border-bottom-width: 1px!important; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color:
+#333; padding-bottom: 10px; background-color: #ffffff; text-align: center; margin-bottom: 10px; }
+.box3 { width: 310px; float: right; border-bottom-width: 1px!important; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-
+color: #333; background-color: #ffffff; padding-bottom: 10px; margin-bottom: 10px; }
+.box4 { width: 700px; float: left; background-color: #ffffff; border-bottom-width: 1px!important; border-bottom-width: 0px; border-bottom-style:
+solid; border-bottom-color: #666; text-align: center; padding-bottom: 10px; border-right-width: 1px; border-right-style: dashed; border-right-
+color: #666; border-left-width: 1px; border-left-style: dashed; border-left-color: #666; margin-bottom: 10px; }
+.title { line-height: 160%; background-color: #f6f6f6; border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-
+style: solid; border-top-color: #111; border-bottom-color: #111; clear: both; width: 95%; margin-top: 6px; margin-bottom: 6px; color: #000000;
+font-weight: bold; padding-left: 10px!important; padding-left: 0px; }
+.title_down { line-height: 160%; clear: both; width: 95%; display:block; text-align: left; padding-left: 0px!important; padding-left: 0px; }
+.title_down_normal { line-height: 160%; text-align: left; padding-left: 10px!important; padding-left: 0px; }
+.center_title { line-height: 180%; background-color: #f6f6f6; border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-
+bottom-style: solid; border-top-color: #111; border-bottom-color: #111; clear: both; width: 100%; margin-top: 6px; margin-bottom: 6px; color:
+#000000; font-weight: bold; text-align: left; letter-spacing: 1em; }
+.center_title_down { FONT-SIZE: 14px; line-height: 160%; clear: both; width: 95%; text-align: left; border: 1px solid #e6e6e6; padding: 5px; }
+hr { width: 90%; }
+#bot { margin-top: 10px; background-color: #ffffff; border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-
+style: solid; border-top-color: #A0A0A0; border-bottom-color: #A0A0A0; clear: both; width: 760px; color: #000000; line-height: 200%; font-family:
+宋体,Arial, Helvetica, sans-serif; font-size: 12px; text-align: right; }
+#bot p { margin: 0px; padding: 0px; font-size: 12px; }
+ul { margin: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 20px; list-style-type: circle; }
+#left a { line-height: 160%; text-decoration: none; color: #444444; padding-top: 3px; padding-right: 5px; padding-left: 5px; }
+#left a:hover { color: #000000; }
+#right a { color: #444444; text-decoration: none; line-height: 160%; letter-spacing: 0.2em; }
+#right a:hover { color: #A7ADBE; text-decoration: blink; }
+a { color: #444444; text-decoration: underline; line-height: 160%; }
+#body a { text-decoration: none; }
+#body a:hover { color: #000000; text-decoration: underline; }
+#anostyle a{ border-top: 1px solid #CAE4FF; border-right: 1px solid #D4D0C8; border-bottom: 1px solid #D4D0C8; border-left: 1px solid #CAE4FF;
+background-color: #EDF1F3; height: 24px; margin-bottom: 7px; text-indent: 1px; }
+#anostyle a:hover{ color: #FFFFFF; }
+#sort a { height: 22px; width: 100%; background-color: #F9F9F9; margin-bottom: 2px; }
+#sort a:hover{ background-color: #f6f6f6; color: #999999; text-align: center; font-weight: bold; }
+.center_title1 { line-height: 180%; background-color: #CFDAE2; border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-
+bottom-style: solid; border-top-color: #A3B8D3; border-bottom-color: #A3B8D3; clear: both; width: 50%; margin-top: 6px; margin-bottom: 6px;
+color: #8D98A7; font-weight: bold; text-align: left; letter-spacing: 1em; }
+.center_title_down1 { line-height: 160%; clear: both; width: 48%; text-align: left; border: 1px solid #E2E9ED; padding: 5px; }
+</style>
+<link href="titlestyle.css" rel="stylesheet" type="text/css" />
+<script src="http://dapenti.com/blog/inc/jquery-1.7.1.min.js" charset="utf-8"></script>
+<div id="floatAD_l" class="couplet couplet_l" style="width:160px;top:200px;left:10px;">
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 160*600 -->
+	<ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-3066287473318041" data-ad-slot="3517089266" data-ad-format="auto">
+	</ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div id="floatAD_r" class="couplet couplet_l" style="width:160px;top:200px;right:10px;">
+</div>
+<style> .couplet{position:fixed;z-index:99999;} </style>
+<script type="text/javascript">
+    var min_w = 1346;
+    //GLOBAL.JQUERY.FloatAD(null,null,null,20);
+//$('#floatAD_m').css("left",($(window).width()-1026)/2);
+$('#floatAD_l').css("left",($(window).width()-1026)/2-170);
+//$('#floatAD_r').css("left",($(window).width()+1026)/2+5);
+    if($(window).width()<min_w){
+        $('#floatAD_l').hide();
+        $('#floatAD_r').hide();
+        $('#floatAD_l').remove();
+        $('#floatAD_r').remove();
+    }
+    $(document).ready(function(){
+        //$('#floatAD_m').css("left",($(window).width()-1026)/2);
+	$('#floatAD_l').css("left",($(window).width()-1026)/2-170);
+	//$('#floatAD_r').css("left",($(window).width()+1026)/2+5);
+        if($(window).width()<min_w){
+            $('#floatAD_l').hide();
+	    $('#floatAD_r').hide();
+	    $('#floatAD_l').remove();
+	    $('#floatAD_r').remove();
+        }
+        $(window).trigger('resize');
+    });
+</script>
+<div align="center" class="box">
+	<div class="box" id="top">
+	</div>
+	<div align="center" id="body">
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 970*90 -->
+		<ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px;" data-ad-client="ca-pub-3066287473318041" data-ad-slot="4905605665">
+		</ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+		<div class="box2" id="left">
+		</div>
+		<div class="box4" id="center">
+			<div class="center_title">
+				&nbsp;阅读、发现和分享：8小时外的健康生活！
+			</div>
+			<div align="center" target="_blank">
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 自动代码 -->
+				<ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-3066287473318041" data-ad-slot="5471872463" data-ad-format="auto">
+				</ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br />
+<a href="http://click.linktech.cn/?m=dangdang&a=A100037198&l=99999&l_cd1=0&l_cd2=1&tu=http%3A%2F%2Fhome.dangdang.com" target="_blank">当当网</a>&nbsp;<a href="http://www.amazon.cn" target="_blank">亚马逊</a>&nbsp;<a href="http://click.linktech.cn/?m=360buy&a=A100037198&l=99999&l_cd1=0&l_cd2=1&tu=http%3A%2F%2Fwww.jd.com" target="_blank">京东</a>&nbsp;
+			</div>
+			<table width="100%">
+				<tbody>
+					<tr>
+						<td>
+							<div class="center_title">
+								&nbsp;<a href="http://www.dapenti.com/blog/blog.asp?name=xilei" target="_blank">铂程斋</a> 
+							</div>
+						</td>
+						<td>
+							<div class="center_title">
+								&nbsp;<a href="http://www.dapenti.com/blog/blog.asp?name=agile" target="_blank">乐活</a> 
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=xilei&id=133355 title='棱镜|赴美治癌人群调查：一线城市至少两套房产 百万支出打底' target=_blank>棱镜|赴美治癌人群调查：一线城市至少...</a>
+<li><a href=more.asp?name=xilei&id=133354 title='克罗地亚的消防队观看世界杯，但在点球大战最后时刻接到了火警' target=_blank>克罗地亚的消防队观看世界杯，但在点球...</a>
+<li><a href=more.asp?name=xilei&id=133353 title='#泰沉船涉事旅行社副总发声#：不是零元团，遗憾泰方不公正待遇' target=_blank>#泰沉船涉事旅行社副总发声#：不是零...</a>
+<li><a href=more.asp?name=xilei&id=133352 title='#华人移民倒苦水#：在中国有车有房，来美国一家三口只能租7平米' target=_blank>#华人移民倒苦水#：在中国有车有房，...</a>
+<li><a href=more.asp?name=xilei&id=133351 title='励志“魔笛”莫德里奇：7岁随父母逃难，从难民成为足坛传奇！' target=_blank>励志“魔笛”莫德里奇：7岁随父母逃难...</a>
+<li><a href=more.asp?name=xilei&id=133350 title='做梦时被启发，87岁奶奶按照梦境建了个超美的塑料瓶房' target=_blank>做梦时被启发，87岁奶奶按照梦境建了...</a>
+<li><a href=more.asp?name=xilei&id=133349 title='官方视频：五分钟回顾清莱洞穴救援行动' target=_blank>官方视频：五分钟回顾清莱洞穴救援行动</a>
+<li><a href=more.asp?name=xilei&id=133341 title='一个正常社会不该给绝望者补刀' target=_blank>一个正常社会不该给绝望者补刀</a>
+<li><a href=more.asp?name=xilei&id=133340 title='爆笑反转短片《和拜金女谈恋爱是什么体验》' target=_blank>爆笑反转短片《和拜金女谈恋爱是什么体...</a>
+<li><a href=more.asp?name=xilei&id=133339 title='台风天最倔强大爷：福州一大爷冒着台风在江上划皮划艇' target=_blank>台风天最倔强大爷：福州一大爷冒着台风...</a>
+<li><a href=more.asp?name=xilei&id=133338 title='100秒回顾“秃鹰”计春华演过的经典反派，他曾说：想打到60岁' target=_blank>100秒回顾“秃鹰”计春华演过的经典...</a>
+<li><a href=more.asp?name=xilei&id=133337 title='90后免费开课！#退休老人组团学玩手机#：孩子没时间教，孙女问多了会烦' target=_blank>90后免费开课！#退休老人组团学玩手...</a>
+<li><a href=more.asp?name=xilei&id=133336 title='【喷嚏图卦20180711】他们被困17天，算是另一个“世界杯”的赢家' target=_blank>【喷嚏图卦20180711】他们被困...</a>
+<li><a href=more.asp?name=xilei&id=133334 title='生活不是电视剧[吃瓜]，一碗反套路的毒鸡汤分享给大家' target=_blank>生活不是电视剧[吃瓜]，一碗反套路的...</a>
+<li><a href=more.asp?name=xilei&id=133332 title='纸牌屋女主首次回应凯文性丑闻：很惊讶，私下没交集，男女权力不均是主因' target=_blank>纸牌屋女主首次回应凯文性丑闻：很惊讶...</a>
+<li><a href=more.asp?name=xilei&id=133330 title='泰官方：涉事船公司实为"马甲"公司，为逃税找泰国人当公司法人' target=_blank>泰官方：涉事船公司实为"马甲"公司，...</a>
+<li><a href=more.asp?name=xilei&id=133329 title='川普启程访欧前调侃盟友：比起北约英国，普京或许是最好应付的' target=_blank>川普启程访欧前调侃盟友：比起北约英国...</a>
+<li><a href=more.asp?name=xilei&id=133328 title='200秒全程回顾18天：泰国足球队全员获救，难忘牺牲的突击队员' target=_blank>200秒全程回顾18天：泰国足球队全...</a>
+<li><a href=more.asp?name=xilei&id=133326 title='创造奇迹！视频回顾世纪大救援：#泰国被困少年足球队#13人全数获救时刻！' target=_blank>创造奇迹！视频回顾世纪大救援：#泰国...</a>
+<li><a href=more.asp?name=xilei&id=133324 title='看了电影《我不是药神》有感：枯叶凋零的人间世！' target=_blank>看了电影《我不是药神》有感：枯叶凋零...</a>
+<li><a href=more.asp?name=xilei&id=133323 title='巴逸回应普吉翻船事故' target=_blank>巴逸回应普吉翻船事故</a>
+<li><a href=more.asp?name=xilei&id=133322 title='编剧汪海林：怀念煤老板做投资人的日子 除了找女演员没任何要求' target=_blank>编剧汪海林：怀念煤老板做投资人的日子...</a>
+<li><a href=more.asp?name=xilei&id=133310 title='马斯克发布逃生舱测试视频：用于营救被困泰国儿童' target=_blank>马斯克发布逃生舱测试视频：用于营救被...</a>
+<li><a href=more.asp?name=xilei&id=133309 title='【喷嚏图卦20180710】国运之战' target=_blank>【喷嚏图卦20180710】国运之战</a>
+<li><a href=more.asp?name=xilei&id=133308 title='当梅西内马尔遇上AI守门员' target=_blank>当梅西内马尔遇上AI守门员</a>
+<li><a href=more.asp?name=xilei&id=133307 title='从洞穴水下营救泰国足球少年' target=_blank>从洞穴水下营救泰国足球少年</a>
+<li><a href=more.asp?name=xilei&id=133305 title='上海楼市的艰难 远超出我的想象' target=_blank>上海楼市的艰难 远超出我的想象</a>
+<li><a href=more.asp?name=xilei&id=133304 title='不满“软脱欧”英外交大臣辞职 特蕾莎&#8226;梅致敬感谢辞职之人' target=_blank>不满“软脱欧”英外交大臣辞职 特蕾莎...</a>
+<li><a href=more.asp?name=xilei&id=133303 title='【浮世汇14】人类动物园' target=_blank>【浮世汇14】人类动物园</a>
+<li><a href=more.asp?name=xilei&id=133302 title='数百名游客不惧炎热到沙漠“享受”沙疗，医师：可治多种疾病' target=_blank>数百名游客不惧炎热到沙漠“享受”沙疗...</a>
+</li></ul>
+							</div>
+						</td>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=agile&id=133348 title='这番奇景，可不是随时随地都能见到的' target=_blank>这番奇景，可不是随时随地都能见到的</a>
+<li><a href=more.asp?name=agile&id=133347 title='日本反鸡汤套路短片：人生没有奇迹' target=_blank>日本反鸡汤套路短片：人生没有奇迹</a>
+<li><a href=more.asp?name=agile&id=133346 title='就没有广场舞大妈驾驭不了的神曲' target=_blank>就没有广场舞大妈驾驭不了的神曲</a>
+<li><a href=more.asp?name=agile&id=133345 title='这注定只是自己的狂欢' target=_blank>这注定只是自己的狂欢</a>
+<li><a href=more.asp?name=agile&id=133344 title='【肯德基新品】红黑cp堡、四酱薯条和林允代言的莫吉托到底如何？' target=_blank>【肯德基新品】红黑cp堡、四酱薯条和...</a>
+<li><a href=more.asp?name=agile&id=133343 title='香港街头实测AI穿搭实力 你给机器配的衣服打几分？' target=_blank>香港街头实测AI穿搭实力 你给机器配...</a>
+<li><a href=more.asp?name=agile&id=133342 title='酸辣脆爽又解暑的洗澡泡菜，一洗一泡，就是意想不到的简单。' target=_blank>酸辣脆爽又解暑的洗澡泡菜，一洗一泡，...</a>
+<li><a href=more.asp?name=agile&id=133320 title='废物的时间被耽误有什么关系呢' target=_blank>废物的时间被耽误有什么关系呢</a>
+<li><a href=more.asp?name=agile&id=133321 title='社恐最高兴的瞬间，大家团结起来，自己呆着啊' target=_blank>社恐最高兴的瞬间，大家团结起来，自己...</a>
+<li><a href=more.asp?name=agile&id=133319 title='请注意：扫地机器喵' target=_blank>请注意：扫地机器喵</a>
+<li><a href=more.asp?name=agile&id=133318 title='女生会对不喜欢的男生有多残忍' target=_blank>女生会对不喜欢的男生有多残忍</a>
+<li><a href=more.asp?name=agile&id=133317 title='千万别让老婆玩烘焙！' target=_blank>千万别让老婆玩烘焙！</a>
+<li><a href=more.asp?name=agile&id=133316 title='《狮子王》《犬之岛》等41部动画超强混剪' target=_blank>《狮子王》《犬之岛》等41部动画超强...</a>
+<li><a href=more.asp?name=agile&id=133315 title='【寻味手札.红油抄手】夏天没有食欲？一定是打开方式不对！' target=_blank>【寻味手札.红油抄手】夏天没有食欲？...</a>
+<li><a href=more.asp?name=agile&id=133314 title='你为什么需要一台吸尘器？' target=_blank>你为什么需要一台吸尘器？</a>
+<li><a href=more.asp?name=agile&id=133313 title='三款超简单沁心冷泡茶来啦！' target=_blank>三款超简单沁心冷泡茶来啦！</a>
+<li><a href=more.asp?name=agile&id=133296 title='美食探店:三味酥屋，每一本书(酥)都是一部“南京城市记忆”' target=_blank>美食探店:三味酥屋，每一本书(酥)都...</a>
+<li><a href=more.asp?name=agile&id=133295 title='头痛的原因和缓解方法' target=_blank>头痛的原因和缓解方法</a>
+<li><a href=more.asp?name=agile&id=133294 title='在这个盛夏花开的季节，怎能不尝尝荷花？' target=_blank>在这个盛夏花开的季节，怎能不尝尝荷花...</a>
+<li><a href=more.asp?name=agile&id=133293 title='华北最强农家乐：保定动物园' target=_blank>华北最强农家乐：保定动物园</a>
+<li><a href=more.asp?name=agile&id=133292 title='网红小哥趣味演示玩贝斯的11个境界' target=_blank>网红小哥趣味演示玩贝斯的11个境界</a>
+<li><a href=more.asp?name=agile&id=133291 title='蛋糕的新切法！大兄弟是在食堂工作吧' target=_blank>蛋糕的新切法！大兄弟是在食堂工作吧</a>
+<li><a href=more.asp?name=agile&id=133290 title='这个视频，内马尔看了会流泪' target=_blank>这个视频，内马尔看了会流泪</a>
+<li><a href=more.asp?name=agile&id=133289 title='范志红：剩菜真的有益心血管？' target=_blank>范志红：剩菜真的有益心血管？</a>
+<li><a href=more.asp?name=agile&id=133271 title='采访呢！ 橘猫你可不可以不要那么抢镜！' target=_blank>采访呢！ 橘猫你可不可以不要那么抢镜...</a>
+<li><a href=more.asp?name=agile&id=133270 title='华晨宇批离人愁原唱' target=_blank>华晨宇批离人愁原唱</a>
+<li><a href=more.asp?name=agile&id=133269 title='想关窗？不存在的' target=_blank>想关窗？不存在的</a>
+<li><a href=more.asp?name=agile&id=133268 title='贝嫂花式炫夫：我老公，他穿什么都帅' target=_blank>贝嫂花式炫夫：我老公，他穿什么都帅</a>
+<li><a href=more.asp?name=agile&id=133267 title='陈丹青与焦雄屏对谈中国电影' target=_blank>陈丹青与焦雄屏对谈中国电影</a>
+<li><a href=more.asp?name=agile&id=133266 title='《欢乐颂》安迪同款餐厅！一碗米饭，让人感觉以前的饭都白吃了！' target=_blank>《欢乐颂》安迪同款餐厅！一碗米饭，让...</a>
+</li></ul>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" colspan="2">
+							<div align="center">
+<script type="text/javascript">
+        document.write('<a style="display:none!important;" id="tanx-a-mm_10006712_103995_10405227"></a>');
+        tanx_s = document.createElement("script");
+        tanx_s.type = "text/javascript";
+        tanx_s.charset = "gbk";
+        tanx_s.id = "tanx-s-mm_10006712_103995_10405227";
+        tanx_s.async = true;
+        tanx_s.src = "http://p.tanx.com/ex?i=mm_10006712_103995_10405227";
+        tanx_h = document.getElementsByTagName("head")[0];
+        if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="center_title">
+								&nbsp;<a href="http://www.dapenti.com/blog/blog.asp?name=caijing" target="_blank">财经风云</a> 
+							</div>
+						</td>
+						<td>
+							<div class="center_title">
+								&nbsp;&nbsp; <a href="http://dapenti.com/blog/blog.asp?subjectid=105&amp;name=xilei" target="_blank">世
+界观</a> 
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=caijing&id=133283 title='董明珠砸重金做芯片李东生称500亿元远不够' target=_blank>董明珠砸重金做芯片李东生称500亿元...</a>
+<li><a href=more.asp?name=caijing&id=133282 title='开盘即破发 小米未来还关注什么？' target=_blank>开盘即破发 小米未来还关注什么？</a>
+<li><a href=more.asp?name=caijing&id=133281 title='国有金融资本管理意见:调整国有股比例 实施员工持股' target=_blank>国有金融资本管理意见:调整国有股比例...</a>
+<li><a href=more.asp?name=caijing&id=133280 title='A股开放步伐提速 五类外国投资者可开户' target=_blank>A股开放步伐提速 五类外国投资者可开...</a>
+<li><a href=more.asp?name=caijing&id=133279 title='罕见！上交所深夜"喊话"力挺A股：股价与基本面背道而驰，这四大方面显示A股的投资价值已不容忽视！' target=_blank>罕见！上交所深夜"喊话"力挺A股：股...</a>
+<li><a href=more.asp?name=caijing&id=133260 title='1500多个交易日仅1天亏损的高频交易神话，高盛能打破么？' target=_blank>1500多个交易日仅1天亏损的高频交...</a>
+<li><a href=more.asp?name=caijing&id=133259 title='中国商人未能支付款项 对冲基金Elliott接管AC米兰' target=_blank>中国商人未能支付款项 对冲基金Ell...</a>
+<li><a href=more.asp?name=caijing&id=133258 title='一周全球干货梳理：美国威胁退出WTO、停不下来的油价、特斯拉再增产' target=_blank>一周全球干货梳理：美国威胁退出WTO...</a>
+<li><a href=more.asp?name=caijing&id=133257 title='美银美林：如果伊朗出口归零 油价将飙至120美元' target=_blank>美银美林：如果伊朗出口归零 油价将飙...</a>
+<li><a href=more.asp?name=caijing&id=133256 title='一周期市回顾、下周展望及投资策略' target=_blank>一周期市回顾、下周展望及投资策略</a>
+<li><a href=more.asp?name=caijing&id=133255 title='美方挑起贸易战中国反制 美钢铁大豆率先受冲击' target=_blank>美方挑起贸易战中国反制 美钢铁大豆率...</a>
+<li><a href=more.asp?name=caijing&id=133254 title='赌球币SOC暴跌蒸发3亿美元 懂球帝辟谣并撇清关系' target=_blank>赌球币SOC暴跌蒸发3亿美元 懂球帝...</a>
+<li><a href=more.asp?name=caijing&id=133253 title='投行：世界杯严重打压汇市交易量 后市恐将爆发大行情' target=_blank>投行：世界杯严重打压汇市交易量 后市...</a>
+<li><a href=more.asp?name=caijing&id=133252 title='IPO审核或将提速？下周5家企业将上会' target=_blank>IPO审核或将提速？下周5家企业将上...</a>
+<li><a href=more.asp?name=caijing&id=133251 title='市场情绪反常！美元短缺正在影响整个世界的资产价格' target=_blank>市场情绪反常！美元短缺正在影响整个世...</a>
+<li><a href=more.asp?name=caijing&id=133250 title='人民日报：美国挑起对外贸易战给世界带来三重危害' target=_blank>人民日报：美国挑起对外贸易战给世界带...</a>
+<li><a href=more.asp?name=caijing&id=133224 title='参考消息：携手回击“关税重锤” 欧洲你还等什么？' target=_blank>参考消息：携手回击“关税重锤” 欧洲...</a>
+<li><a href=more.asp?name=caijing&id=133176 title='新华社评论员：美国鼓吹“经济侵略”充斥冷战思维——一评美国白宫贸易和制造业政策办公室报告' target=_blank>新华社评论员：美国鼓吹“经济侵略”充...</a>
+<li><a href=more.asp?name=caijing&id=133175 title='花旗：股市牛市尚未结束 应逢低买入美股' target=_blank>花旗：股市牛市尚未结束 应逢低买入美...</a>
+<li><a href=more.asp?name=caijing&id=133174 title='美联储6月会议纪要：重申渐进加息 越发担心贸易风险' target=_blank>美联储6月会议纪要：重申渐进加息 越...</a>
+<li><a href=more.asp?name=caijing&id=133173 title='《华尔街日报》称沙特阿美有可能无法推进上市 油价下挫' target=_blank>《华尔街日报》称沙特阿美有可能无法推...</a>
+<li><a href=more.asp?name=caijing&id=133172 title='空头控场有色重挫 沪锌暴跌逾4%再创一年新低' target=_blank>空头控场有色重挫 沪锌暴跌逾4%再创...</a>
+<li><a href=more.asp?name=caijing&id=133171 title='如果金融危机近在眼前，黄金会是最好的配置吗？' target=_blank>如果金融危机近在眼前，黄金会是最好的...</a>
+<li><a href=more.asp?name=caijing&id=133170 title='“IPO堰塞湖”收缩：正常待审企业下降近400家，小米无重启CDR计划!' target=_blank>“IPO堰塞湖”收缩：正常待审企业下...</a>
+<li><a href=more.asp?name=caijing&id=133169 title='曹德旺：个税应3万元起征 我站在穷人的立场上讲话' target=_blank>曹德旺：个税应3万元起征 我站在穷人...</a>
+<li><a href=more.asp?name=caijing&id=133168 title='上证综指估值仅12倍PE左右 A股无疑成全球估值洼地?' target=_blank>上证综指估值仅12倍PE左右 A股无...</a>
+<li><a href=more.asp?name=caijing&id=133167 title='人民币兑美元中间价上调415点 创2017年10月11日以来最大升幅' target=_blank>人民币兑美元中间价上调415点 创2...</a>
+<li><a href=more.asp?name=caijing&id=133166 title='央行定向降准今日落地 短期资金仍充裕' target=_blank>央行定向降准今日落地 短期资金仍充裕</a>
+<li><a href=more.asp?name=caijing&id=133149 title='越跌越买！险资本周逾百亿资金抄底A股' target=_blank>越跌越买！险资本周逾百亿资金抄底A股</a>
+<li><a href=more.asp?name=caijing&id=133148 title='被特朗普逼急了？伊朗威胁封锁运油“咽喉”霍尔木兹海峡' target=_blank>被特朗普逼急了？伊朗威胁封锁运油“咽...</a>
+</li></ul>
+							</div>
+						</td>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=xilei&id=133354 title='克罗地亚的消防队观看世界杯，但在点球大战最后时刻接到了火警' target=_blank>克罗地亚的消防队观看世界杯，但在点球...</a>
+<li><a href=more.asp?name=xilei&id=133353 title='#泰沉船涉事旅行社副总发声#：不是零元团，遗憾泰方不公正待遇' target=_blank>#泰沉船涉事旅行社副总发声#：不是零...</a>
+<li><a href=more.asp?name=xilei&id=133352 title='#华人移民倒苦水#：在中国有车有房，来美国一家三口只能租7平米' target=_blank>#华人移民倒苦水#：在中国有车有房，...</a>
+<li><a href=more.asp?name=xilei&id=133351 title='励志“魔笛”莫德里奇：7岁随父母逃难，从难民成为足坛传奇！' target=_blank>励志“魔笛”莫德里奇：7岁随父母逃难...</a>
+<li><a href=more.asp?name=xilei&id=133350 title='做梦时被启发，87岁奶奶按照梦境建了个超美的塑料瓶房' target=_blank>做梦时被启发，87岁奶奶按照梦境建了...</a>
+<li><a href=more.asp?name=xilei&id=133349 title='官方视频：五分钟回顾清莱洞穴救援行动' target=_blank>官方视频：五分钟回顾清莱洞穴救援行动</a>
+<li><a href=more.asp?name=xilei&id=133340 title='爆笑反转短片《和拜金女谈恋爱是什么体验》' target=_blank>爆笑反转短片《和拜金女谈恋爱是什么体...</a>
+<li><a href=more.asp?name=xilei&id=133339 title='台风天最倔强大爷：福州一大爷冒着台风在江上划皮划艇' target=_blank>台风天最倔强大爷：福州一大爷冒着台风...</a>
+<li><a href=more.asp?name=xilei&id=133338 title='100秒回顾“秃鹰”计春华演过的经典反派，他曾说：想打到60岁' target=_blank>100秒回顾“秃鹰”计春华演过的经典...</a>
+<li><a href=more.asp?name=xilei&id=133337 title='90后免费开课！#退休老人组团学玩手机#：孩子没时间教，孙女问多了会烦' target=_blank>90后免费开课！#退休老人组团学玩手...</a>
+<li><a href=more.asp?name=xilei&id=133334 title='生活不是电视剧[吃瓜]，一碗反套路的毒鸡汤分享给大家' target=_blank>生活不是电视剧[吃瓜]，一碗反套路的...</a>
+<li><a href=more.asp?name=xilei&id=133332 title='纸牌屋女主首次回应凯文性丑闻：很惊讶，私下没交集，男女权力不均是主因' target=_blank>纸牌屋女主首次回应凯文性丑闻：很惊讶...</a>
+<li><a href=more.asp?name=xilei&id=133330 title='泰官方：涉事船公司实为"马甲"公司，为逃税找泰国人当公司法人' target=_blank>泰官方：涉事船公司实为"马甲"公司，...</a>
+<li><a href=more.asp?name=xilei&id=133329 title='川普启程访欧前调侃盟友：比起北约英国，普京或许是最好应付的' target=_blank>川普启程访欧前调侃盟友：比起北约英国...</a>
+<li><a href=more.asp?name=xilei&id=133328 title='200秒全程回顾18天：泰国足球队全员获救，难忘牺牲的突击队员' target=_blank>200秒全程回顾18天：泰国足球队全...</a>
+<li><a href=more.asp?name=xilei&id=133326 title='创造奇迹！视频回顾世纪大救援：#泰国被困少年足球队#13人全数获救时刻！' target=_blank>创造奇迹！视频回顾世纪大救援：#泰国...</a>
+<li><a href=more.asp?name=xilei&id=133323 title='巴逸回应普吉翻船事故' target=_blank>巴逸回应普吉翻船事故</a>
+<li><a href=more.asp?name=xilei&id=133322 title='编剧汪海林：怀念煤老板做投资人的日子 除了找女演员没任何要求' target=_blank>编剧汪海林：怀念煤老板做投资人的日子...</a>
+<li><a href=more.asp?name=xilei&id=133310 title='马斯克发布逃生舱测试视频：用于营救被困泰国儿童' target=_blank>马斯克发布逃生舱测试视频：用于营救被...</a>
+<li><a href=more.asp?name=xilei&id=133308 title='当梅西内马尔遇上AI守门员' target=_blank>当梅西内马尔遇上AI守门员</a>
+<li><a href=more.asp?name=xilei&id=133307 title='从洞穴水下营救泰国足球少年' target=_blank>从洞穴水下营救泰国足球少年</a>
+<li><a href=more.asp?name=xilei&id=133304 title='不满“软脱欧”英外交大臣辞职 特蕾莎&#8226;梅致敬感谢辞职之人' target=_blank>不满“软脱欧”英外交大臣辞职 特蕾莎...</a>
+<li><a href=more.asp?name=xilei&id=133302 title='数百名游客不惧炎热到沙漠“享受”沙疗，医师：可治多种疾病' target=_blank>数百名游客不惧炎热到沙漠“享受”沙疗...</a>
+<li><a href=more.asp?name=xilei&id=133301 title='除了格列卫，这些抗癌药也进医保了！' target=_blank>除了格列卫，这些抗癌药也进医保了！</a>
+<li><a href=more.asp?name=xilei&id=133300 title='纪录片《我不是药神》—药有神功' target=_blank>纪录片《我不是药神》—药有神功</a>
+<li><a href=more.asp?name=xilei&id=133298 title='救生衣的正确穿戴！' target=_blank>救生衣的正确穿戴！</a>
+<li><a href=more.asp?name=xilei&id=133297 title='华北最强农家乐：保定动物园' target=_blank>华北最强农家乐：保定动物园</a>
+<li><a href=more.asp?name=xilei&id=133288 title='消防车“怒怼”乱停的私家车' target=_blank>消防车“怒怼”乱停的私家车</a>
+<li><a href=more.asp?name=xilei&id=133287 title='扎心金曲榜《吃鸡愁》' target=_blank>扎心金曲榜《吃鸡愁》</a>
+<li><a href=more.asp?name=xilei&id=133286 title='布克奖中的布克奖！翁达杰《英国病人》获评“金布克”' target=_blank>布克奖中的布克奖！翁达杰《英国病人》...</a>
+</li></ul>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="center" colspan="2">
+							<div align="center">
+<script type="text/javascript">
+    /*336*280，创建于2012-3-8*/
+    var cpro_id = "u797868";
+</script>
+<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="center_title">
+								&nbsp;热门视频
+							</div>
+						</td>
+						<td>
+							<div class="center_title">
+								&nbsp;<a href="http://www.dapenti.com/blog/blog.asp?name=dianying" target="_blank">乐影</a> 
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=xilei&id=132569 title='任志强：房价走势并不是不可预测' target=_blank>任志强：房价走势并不是不可预测</a>
+<li><a href=more.asp?name=xilei&id=132650 title='211大学毕业证被妈妈藏起来，#她30岁辞职再战高考#' target=_blank>211大学毕业证被妈妈藏起来，#她3...</a>
+<li><a href=more.asp?name=xilei&id=132544 title='感受一下1968-2016各国GDP排名变化' target=_blank>感受一下1968-2016各国GDP...</a>
+<li><a href=more.asp?name=xilei&id=132606 title='佛系辩论会！僧人辩拜佛不能烧香吗' target=_blank>佛系辩论会！僧人辩拜佛不能烧香吗</a>
+<li><a href=more.asp?name=xilei&id=132649 title='中国直播界网红有超过半数为雕塑专业硕士研究生' target=_blank>中国直播界网红有超过半数为雕塑专业硕...</a>
+<li><a href=more.asp?name=xilei&id=132540 title='上台时羞涩无比的13岁女孩 开唱后画风突然宛如狮子' target=_blank>上台时羞涩无比的13岁女孩 开唱后画...</a>
+<li><a href=more.asp?name=xilei&id=132595 title='一个高考考生在6月13日从景区栈道跳下，结束了自己的生命' target=_blank>一个高考考生在6月13日从景区栈道跳...</a>
+<li><a href=more.asp?name=xilei&id=132562 title='冯小刚的胡说八道' target=_blank>冯小刚的胡说八道</a>
+<li><a href=more.asp?name=xilei&id=132623 title='史上最流弊的广告没有之一' target=_blank>史上最流弊的广告没有之一</a>
+<li><a href=more.asp?name=xilei&id=132675 title='最近很火的那首《that girl》原版' target=_blank>最近很火的那首《that girl》...</a>
+<li><a href=more.asp?name=xilei&id=132829 title='消防员本已抓住女孩的一只手，结果被女孩拼命挣脱开，可见她对这个世界多么绝望' target=_blank>消防员本已抓住女孩的一只手，结果被女...</a>
+<li><a href=more.asp?name=xilei&id=132573 title='杨伟民：中国住宅空置率比日本还高，这很不正常' target=_blank>杨伟民：中国住宅空置率比日本还高，这...</a>
+<li><a href=more.asp?name=xilei&id=132605 title='网络骚扰受害者：我的前任为了报复我，把我的不雅照传到网上' target=_blank>网络骚扰受害者：我的前任为了报复我，...</a>
+<li><a href=more.asp?name=xilei&id=132508 title='美国浣熊执着攀登摩天大楼 千万网友关注下终于登顶' target=_blank>美国浣熊执着攀登摩天大楼 千万网友关...</a>
+<li><a href=more.asp?name=xilei&id=132798 title='新浪娱乐独家对话马蓉完整版视频' target=_blank>新浪娱乐独家对话马蓉完整版视频</a>
+<li><a href=more.asp?name=xilei&id=132619 title='中字全程视频|朝鲜电视台播42分钟特金会纪录片' target=_blank>中字全程视频|朝鲜电视台播42分钟特...</a>
+<li><a href=more.asp?name=xilei&id=132529 title='《人民公仆》中，这讽刺真是黑到了骨子里' target=_blank>《人民公仆》中，这讽刺真是黑到了骨子...</a>
+<li><a href=more.asp?name=xilei&id=132538 title='爱因斯坦原来这样看中国，震惊外媒' target=_blank>爱因斯坦原来这样看中国，震惊外媒</a>
+<li><a href=more.asp?name=xilei&id=132617 title='奥地利现雨瀑倾泻而下奇观' target=_blank>奥地利现雨瀑倾泻而下奇观</a>
+<li><a href=more.asp?name=xilei&id=132640 title='方锦龙《琵琶行》' target=_blank>方锦龙《琵琶行》</a>
+<li><a href=more.asp?name=xilei&id=132594 title='央视记者大秀中式英文' target=_blank>央视记者大秀中式英文</a>
+<li><a href=more.asp?name=xilei&id=132564 title='《侏罗纪公园》片段' target=_blank>《侏罗纪公园》片段</a>
+<li><a href=more.asp?name=xilei&id=132629 title='牙医导演工人学生……细数冰岛国脚职业到底有多少身份' target=_blank>牙医导演工人学生……细数冰岛国脚职业...</a>
+<li><a href=more.asp?name=xilei&id=132998 title='女子倒地猝死无人急救 同学录像围观讨论死状' target=_blank>女子倒地猝死无人急救 同学录像围观讨...</a>
+<li><a href=more.asp?name=xilei&id=132732 title='所谓的三观不合，到底是哪三观？' target=_blank>所谓的三观不合，到底是哪三观？</a>
+<li><a href=more.asp?name=xilei&id=132599 title='花9年时间，他找到了检测地沟油最简单的方法' target=_blank>花9年时间，他找到了检测地沟油最简单...</a>
+<li><a href=more.asp?name=xilei&id=132530 title='小学老师狂抽学生用脚踹  学生哭喊：老师求你别打了' target=_blank>小学老师狂抽学生用脚踹  学生哭喊：...</a>
+<li><a href=more.asp?name=xilei&id=132841 title='大学寝室的“两个世界”' target=_blank>大学寝室的“两个世界”</a>
+<li><a href=more.asp?name=xilei&id=132506 title='《大时代》“丁孝蟹”恨别股市：散户自以为是，总有一天会输光' target=_blank>《大时代》“丁孝蟹”恨别股市：散户自...</a>
+<li><a href=more.asp?name=xilei&id=132495 title='真正的大师！这位老人弹《琵琶语》红遍网络，能把琵琶变成各国乐器' target=_blank>真正的大师！这位老人弹《琵琶语》红遍...</a>
+</li></ul>
+							</div>
+						</td>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=dianying&id=130586 title='哈罗，比基尼 1989' target=_blank>哈罗，比基尼 1989</a>
+<li><a href=more.asp?name=dianying&id=130585 title='[PBS]癌:万疾之王 3/3 攻瑕蹈隙(2015)[水山汉化]' target=_blank>[PBS]癌:万疾之王 3/3 攻瑕...</a>
+<li><a href=more.asp?name=dianying&id=130584 title='[PBS]癌:万疾之王2/3 盲人摸象(2015)[水山汉化]' target=_blank>[PBS]癌:万疾之王2/3 盲人摸...</a>
+<li><a href=more.asp?name=dianying&id=130583 title='[PBS]癌:万疾之王 1/3 灵丹妙药(2015)[水山汉化]' target=_blank>[PBS]癌:万疾之王 1/3 灵丹...</a>
+<li><a href=more.asp?name=dianying&id=130071 title='【纪录片】心灵魔术' target=_blank>【纪录片】心灵魔术</a>
+<li><a href=more.asp?name=dianying&id=128347 title='【法国】脸庞，村庄【2017】' target=_blank>【法国】脸庞，村庄【2017】</a>
+<li><a href=more.asp?name=dianying&id=127828 title='【纪录片】阿尔法狗 AlphaGo 2017' target=_blank>【纪录片】阿尔法狗 AlphaGo ...</a>
+<li><a href=more.asp?name=dianying&id=124073 title='乱(1985)【黑泽明 执导】' target=_blank>乱(1985)【黑泽明 执导】</a>
+<li><a href=more.asp?name=dianying&id=123077 title='孙子从美国来' target=_blank>孙子从美国来</a>
+<li><a href=more.asp?name=dianying&id=123030 title='茶馆 (1982)【高清修复】' target=_blank>茶馆 (1982)【高清修复】</a>
+<li><a href=more.asp?name=dianying&id=121017 title='【电影】牯岭街少年杀人事件（修复版）' target=_blank>【电影】牯岭街少年杀人事件（修复版）</a>
+<li><a href=more.asp?name=dianying&id=120723 title='【电影】步履不停' target=_blank>【电影】步履不停</a>
+<li><a href=more.asp?name=dianying&id=120505 title='【喜剧/犯罪】捕蝇纸' target=_blank>【喜剧/犯罪】捕蝇纸</a>
+<li><a href=more.asp?name=dianying&id=120455 title='【2016日影】怒' target=_blank>【2016日影】怒</a>
+<li><a href=more.asp?name=dianying&id=120409 title='【电影】逃出绝命镇 Get Out （2017）' target=_blank>【电影】逃出绝命镇 Get Out ...</a>
+<li><a href=more.asp?name=dianying&id=120305 title='【电影】杰出公民' target=_blank>【电影】杰出公民</a>
+<li><a href=more.asp?name=dianying&id=119937 title='【电影】恐怖分子' target=_blank>【电影】恐怖分子</a>
+<li><a href=more.asp?name=dianying&id=119936 title='【电影】四月物语' target=_blank>【电影】四月物语</a>
+<li><a href=more.asp?name=dianying&id=119729 title='【电影】看不见的客人' target=_blank>【电影】看不见的客人</a>
+<li><a href=more.asp?name=dianying&id=119639 title='【电影】四月三周两天 (2007)【戛纳金棕榈奖】' target=_blank>【电影】四月三周两天 (2007)【...</a>
+<li><a href=more.asp?name=dianying&id=119536 title='【电影】西线无战事' target=_blank>【电影】西线无战事</a>
+<li><a href=more.asp?name=dianying&id=119535 title='【电影】爱国者之日' target=_blank>【电影】爱国者之日</a>
+<li><a href=more.asp?name=dianying&id=119286 title='【TVB】有楼万事足 有楼有真爱' target=_blank>【TVB】有楼万事足 有楼有真爱</a>
+<li><a href=more.asp?name=dianying&id=119107 title='【韩影】金福南杀人事件的始末' target=_blank>【韩影】金福南杀人事件的始末</a>
+<li><a href=more.asp?name=dianying&id=118862 title='【电影】西葫芦的生活' target=_blank>【电影】西葫芦的生活</a>
+<li><a href=more.asp?name=dianying&id=118859 title='【电影】我是布莱克' target=_blank>【电影】我是布莱克</a>
+<li><a href=more.asp?name=dianying&id=118751 title='【电影】推销员' target=_blank>【电影】推销员</a>
+<li><a href=more.asp?name=dianying&id=118635 title='【格鲁吉亚】忏悔（1987）' target=_blank>【格鲁吉亚】忏悔（1987）</a>
+<li><a href=more.asp?name=dianying&id=118562 title='【电影】烈日灼人' target=_blank>【电影】烈日灼人</a>
+<li><a href=more.asp?name=dianying&id=118484 title='【电影】史崔特先生的故事' target=_blank>【电影】史崔特先生的故事</a>
+</li></ul>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div align="center">
+<script type="text/javascript">
+    /*336*280，创建于2012-3-8*/
+    var cpro_id = "u797868";
+</script>
+<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+			</div>
+			<table width="100%">
+				<tbody>
+					<tr>
+						<td>
+							<div class="center_title">
+								&nbsp;<a href="http://dapenti.com/blog/blog.asp?subjectid=182&name=xilei" target="_blank">长阅读</a> 
+							</div>
+						</td>
+						<td>
+							<div class="center_title">
+								&nbsp;<a href="http://www.dapenti.com/blog/blog.asp?name=tupian" target="_blank">喷嚏意图</a> 
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=xilei&id=133248 title='【长阅读84】隔壁的中国' target=_blank>【长阅读84】隔壁的中国</a>
+<li><a href=more.asp?name=xilei&id=132975 title='【长阅读83】每个人的梦想都不容易' target=_blank>【长阅读83】每个人的梦想都不容易</a>
+<li><a href=more.asp?name=xilei&id=132527 title='【长阅读82】This is America' target=_blank>【长阅读82】This is Ame...</a>
+<li><a href=more.asp?name=xilei&id=131804 title='【长阅读81】有时候，关键不是去改变世界，而是去解释世界' target=_blank>【长阅读81】有时候，关键不是去改变...</a>
+<li><a href=more.asp?name=xilei&id=131531 title='【长阅读80】中国和美国会不会彻底走上对抗的道路' target=_blank>【长阅读80】中国和美国会不会彻底走...</a>
+<li><a href=more.asp?name=xilei&id=130970 title='【长阅读79】末路中兴' target=_blank>【长阅读79】末路中兴</a>
+<li><a href=more.asp?name=xilei&id=130782 title='【长阅读78】三个背景完全不同的人纠缠在一起，串成一条看得见的食物链' target=_blank>【长阅读78】三个背景完全不同的人纠...</a>
+<li><a href=more.asp?name=xilei&id=130622 title='【长阅读77】第二次门户开放' target=_blank>【长阅读77】第二次门户开放</a>
+<li><a href=more.asp?name=xilei&id=130076 title='【长阅读76】胜利与危机' target=_blank>【长阅读76】胜利与危机</a>
+<li><a href=more.asp?name=xilei&id=129550 title='【长阅读75】中国富豪的钱是怎么转移到国外的？' target=_blank>【长阅读75】中国富豪的钱是怎么转移...</a>
+<li><a href=more.asp?name=xilei&id=129411 title='【长阅读74】这是一个不可思议的低分，估计所有人都始料未及' target=_blank>【长阅读74】这是一个不可思议的低分...</a>
+<li><a href=more.asp?name=xilei&id=128559 title='【长阅读73】那时的「鲁迅」不再是一个作家的名字' target=_blank>【长阅读73】那时的「鲁迅」不再是一...</a>
+<li><a href=more.asp?name=xilei&id=127945 title='【长阅读72】区块链是什么' target=_blank>【长阅读72】区块链是什么</a>
+<li><a href=more.asp?name=xilei&id=127687 title='【长阅读71】人民是很健忘的' target=_blank>【长阅读71】人民是很健忘的</a>
+<li><a href=more.asp?name=xilei&id=127488 title='【长阅读70】如果回到那个时代，你会成为什么人' target=_blank>【长阅读70】如果回到那个时代，你会...</a>
+<li><a href=more.asp?name=xilei&id=126744 title='【长阅读69】今日无货送达' target=_blank>【长阅读69】今日无货送达</a>
+<li><a href=more.asp?name=xilei&id=126237 title='【长阅读68】人类最大的难题，是实现一个能够主持普遍正义的公民社会' target=_blank>【长阅读68】人类最大的难题，是实现...</a>
+<li><a href=more.asp?name=xilei&id=126003 title='【长阅读67】人家到春天都去义务植树你从来不去，一年又差100分' target=_blank>【长阅读67】人家到春天都去义务植树...</a>
+<li><a href=more.asp?name=xilei&id=125724 title='【长阅读66】我也是第一次做父亲，有做的不好的地方，请你原谅' target=_blank>【长阅读66】我也是第一次做父亲，有...</a>
+<li><a href=more.asp?name=xilei&id=125087 title='【长阅读65】20世纪发生了太多事情，彻底改变了地球上大多数人的生活' target=_blank>【长阅读65】20世纪发生了太多事情...</a>
+</li></ul>
+							</div>
+						</td>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=tupian&id=133335 title='到了年龄的一个问题' target=_blank>到了年龄的一个问题</a>
+<li><a href=more.asp?name=tupian&id=133312 title='人有种奇怪的虚荣心' target=_blank>人有种奇怪的虚荣心</a>
+<li><a href=more.asp?name=tupian&id=133311 title='这里所谓的尊严' target=_blank>这里所谓的尊严</a>
+<li><a href=more.asp?name=tupian&id=133030 title='关系幸福的两点' target=_blank>关系幸福的两点</a>
+<li><a href=more.asp?name=tupian&id=133024 title='什么是洗脑' target=_blank>什么是洗脑</a>
+<li><a href=more.asp?name=tupian&id=133023 title='每当出现动乱或灾难的苗头时' target=_blank>每当出现动乱或灾难的苗头时</a>
+<li><a href=more.asp?name=tupian&id=133022 title='到最后你还是没认清你自己' target=_blank>到最后你还是没认清你自己</a>
+<li><a href=more.asp?name=tupian&id=132613 title='一个孩子对大人的相信程度' target=_blank>一个孩子对大人的相信程度</a>
+<li><a href=more.asp?name=tupian&id=132612 title='人生的本质' target=_blank>人生的本质</a>
+<li><a href=more.asp?name=tupian&id=132611 title='看久了以后' target=_blank>看久了以后</a>
+<li><a href=more.asp?name=tupian&id=132018 title='这只不过是个笑话而已' target=_blank>这只不过是个笑话而已</a>
+<li><a href=more.asp?name=tupian&id=132013 title='需要学会的控制' target=_blank>需要学会的控制</a>
+<li><a href=more.asp?name=tupian&id=131608 title='如此生活' target=_blank>如此生活</a>
+<li><a href=more.asp?name=tupian&id=131607 title='你的获得与失去' target=_blank>你的获得与失去</a>
+<li><a href=more.asp?name=tupian&id=131575 title='我们和母亲' target=_blank>我们和母亲</a>
+<li><a href=more.asp?name=tupian&id=131466 title='如果一个人闭上眼睛' target=_blank>如果一个人闭上眼睛</a>
+<li><a href=more.asp?name=tupian&id=131464 title='我们给他们的赠礼' target=_blank>我们给他们的赠礼</a>
+<li><a href=more.asp?name=tupian&id=131389 title='随着年龄的增长' target=_blank>随着年龄的增长</a>
+<li><a href=more.asp?name=tupian&id=131387 title='阅读' target=_blank>阅读</a>
+<li><a href=more.asp?name=tupian&id=131358 title='请务必保持完整' target=_blank>请务必保持完整</a>
+</li></ul>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+<script type="text/javascript">
+    /*336*280，创建于2012-3-8*/
+    var cpro_id = "u797868";
+</script>
+<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+			<table width="100%">
+				<tbody>
+					<tr>
+						<td>
+							<div class="center_title">
+								&nbsp;本周热读
+							</div>
+						</td>
+						<td>
+							<div class="center_title">
+								&nbsp;<a href="http://www.dapenti.com/blog/blog.asp?name=dianying" target="_blank">本月热读</a> 
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=xilei&id=133205 title='韭菜切割新手法，自行体会' target=_blank>韭菜切割新手法，自行体会</a>
+<li><a href=more.asp?name=xilei&id=133262 title='美国农民的生活是怎样的？为啥美国农业世界领先？' target=_blank>美国农民的生活是怎样的？为啥美国农业...</a>
+<li><a href=more.asp?name=xilei&id=133305 title='上海楼市的艰难 远超出我的想象' target=_blank>上海楼市的艰难 远超出我的想象</a>
+<li><a href=more.asp?name=xilei&id=133195 title='中国人为什么用不上平价救命药｜大象公会' target=_blank>中国人为什么用不上平价救命药｜大象公...</a>
+<li><a href=more.asp?name=xilei&id=133192 title='#局面专访# 周立波10：刚刚讲了三次某某的名字都得抹掉' target=_blank>#局面专访# 周立波10：刚刚讲了三...</a>
+<li><a href=more.asp?name=xilei&id=133229 title='北京某三甲医院，早晨开门时的盛大场面' target=_blank>北京某三甲医院，早晨开门时的盛大场面</a>
+<li><a href=more.asp?name=xilei&id=133274 title='康熙和雍正批阅过的那些蜜汁奏折，终于知道为啥他们每天要批阅奏折到半夜了' target=_blank>康熙和雍正批阅过的那些蜜汁奏折，终于...</a>
+<li><a href=more.asp?name=xilei&id=133248 title='【长阅读84】隔壁的中国' target=_blank>【长阅读84】隔壁的中国</a>
+<li><a href=more.asp?name=xilei&id=133198 title='日薪上万VS日薪几十美元，他们分别过着怎样的生活' target=_blank>日薪上万VS日薪几十美元，他们分别过...</a>
+<li><a href=more.asp?name=xilei&id=133203 title='普吉岛翻船遇难、失踪者都来自这艘船，“凤凰号”沉没前舱内画面：巨浪高过船体' target=_blank>普吉岛翻船遇难、失踪者都来自这艘船，...</a>
+<li><a href=more.asp?name=xilei&id=133185 title='#局面专访# 周立波04：被铐一天两夜什么感受？又不是没有进去过' target=_blank>#局面专访# 周立波04：被铐一天两...</a>
+<li><a href=more.asp?name=xilei&id=133180 title='#局面专访#周立波 01：来上节目不是为了“洗白” 法律早已证我无罪' target=_blank>#局面专访#周立波 01：来上节目不...</a>
+<li><a href=more.asp?name=xilei&id=133191 title='#局面专访# 周立波09：我来告诉你这个某某是什么来路？' target=_blank>#局面专访# 周立波09：我来告诉你...</a>
+<li><a href=more.asp?name=xilei&id=133207 title='中美贸易战打响第一枪 若全面升级后果很严重' target=_blank>中美贸易战打响第一枪 若全面升级后果...</a>
+<li><a href=more.asp?name=xilei&id=133206 title='人民群众看得懂的艺术才是正能量的' target=_blank>人民群众看得懂的艺术才是正能量的</a>
+<li><a href=more.asp?name=xilei&id=133219 title='两个儿子还在车上，她跳上车开枪打伤偷车贼！律师：正当防卫' target=_blank>两个儿子还在车上，她跳上车开枪打伤偷...</a>
+<li><a href=more.asp?name=xilei&id=133221 title='谷村新司《昴》' target=_blank>谷村新司《昴》</a>
+<li><a href=more.asp?name=xilei&id=133190 title='#局面专访# 周立波08：被视频爆料吸毒？那是我喝醉了' target=_blank>#局面专访# 周立波08：被视频爆料...</a>
+<li><a href=more.asp?name=xilei&id=133275 title='中山大学一长江学者被曝性骚扰：把头埋在女生胸部闻' target=_blank>中山大学一长江学者被曝性骚扰：把头埋...</a>
+<li><a href=more.asp?name=xilei&id=133193 title='主题曲响起，凛冬将至！' target=_blank>主题曲响起，凛冬将至！</a>
+<li><a href=more.asp?name=agile&id=133211 title='要减有害的内脏脂肪、到底应该有氧还是无氧运动？' target=_blank>要减有害的内脏脂肪、到底应该有氧还是...</a>
+<li><a href=more.asp?name=agile&id=133236 title='泰国失踪的孩子找到几天了，却救不出来！！' target=_blank>泰国失踪的孩子找到几天了，却救不出来...</a>
+<li><a href=more.asp?name=xilei&id=133202 title='这么多年我怎么没想到还可以跳起来躲开！！' target=_blank>这么多年我怎么没想到还可以跳起来躲开...</a>
+<li><a href=more.asp?name=xilei&id=133232 title='普吉沉船幸存者：全家只剩我一人了' target=_blank>普吉沉船幸存者：全家只剩我一人了</a>
+<li><a href=more.asp?name=xilei&id=133278 title='全凭我敢……想……' target=_blank>全凭我敢……想……</a>
+<li><a href=more.asp?name=xilei&id=133182 title='#局面专访#周立波02：枪就是某某的 他家里有一个军火库' target=_blank>#局面专访#周立波02：枪就是某某的...</a>
+<li><a href=more.asp?name=xilei&id=133226 title='中国女记者亲历普吉岛翻船事故：有生以来最可怕的两个半小时' target=_blank>中国女记者亲历普吉岛翻船事故：有生以...</a>
+<li><a href=more.asp?name=xilei&id=133261 title='香港青少年管弦乐团玩了一把乐器快闪' target=_blank>香港青少年管弦乐团玩了一把乐器快闪</a>
+<li><a href=more.asp?name=xilei&id=133189 title='#局面专访# 周立波07：DNA证明我与毒品无关 再质疑就是无聊了' target=_blank>#局面专访# 周立波07：DNA证明...</a>
+<li><a href=more.asp?name=agile&id=133209 title='杭州补衣匠给奔驰补顶篷，两个洞1万' target=_blank>杭州补衣匠给奔驰补顶篷，两个洞1万</a>
+</li></ul>
+							</div>
+						</td>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=xilei&id=132761 title='这个“流氓国家”，或许是千万中国人的救命稻草！' target=_blank>这个“流氓国家”，或许是千万中国人的...</a>
+<li><a href=more.asp?name=xilei&id=132569 title='任志强：房价走势并不是不可预测' target=_blank>任志强：房价走势并不是不可预测</a>
+<li><a href=more.asp?name=xilei&id=132794 title='马光远：关于中国经济的真相（节选）' target=_blank>马光远：关于中国经济的真相（节选）</a>
+<li><a href=more.asp?name=xilei&id=132650 title='211大学毕业证被妈妈藏起来，#她30岁辞职再战高考#' target=_blank>211大学毕业证被妈妈藏起来，#她3...</a>
+<li><a href=more.asp?name=xilei&id=132544 title='感受一下1968-2016各国GDP排名变化' target=_blank>感受一下1968-2016各国GDP...</a>
+<li><a href=more.asp?name=xilei&id=132606 title='佛系辩论会！僧人辩拜佛不能烧香吗' target=_blank>佛系辩论会！僧人辩拜佛不能烧香吗</a>
+<li><a href=more.asp?name=xilei&id=132527 title='【长阅读82】This is America' target=_blank>【长阅读82】This is Ame...</a>
+<li><a href=more.asp?name=xilei&id=132649 title='中国直播界网红有超过半数为雕塑专业硕士研究生' target=_blank>中国直播界网红有超过半数为雕塑专业硕...</a>
+<li><a href=more.asp?name=xilei&id=132540 title='上台时羞涩无比的13岁女孩 开唱后画风突然宛如狮子' target=_blank>上台时羞涩无比的13岁女孩 开唱后画...</a>
+<li><a href=more.asp?name=xilei&id=132595 title='一个高考考生在6月13日从景区栈道跳下，结束了自己的生命' target=_blank>一个高考考生在6月13日从景区栈道跳...</a>
+<li><a href=more.asp?name=xilei&id=132542 title='东北国营厂下岗职工自述：几万块就把自己彻底卖了' target=_blank>东北国营厂下岗职工自述：几万块就把自...</a>
+<li><a href=more.asp?name=xilei&id=132562 title='冯小刚的胡说八道' target=_blank>冯小刚的胡说八道</a>
+<li><a href=more.asp?name=xilei&id=132623 title='史上最流弊的广告没有之一' target=_blank>史上最流弊的广告没有之一</a>
+<li><a href=more.asp?name=xilei&id=133074 title='这是今年最犀利的演讲：国家命运与个人命运' target=_blank>这是今年最犀利的演讲：国家命运与个人...</a>
+<li><a href=more.asp?name=xilei&id=132733 title='香港和大陆个人所得税之比较' target=_blank>香港和大陆个人所得税之比较</a>
+<li><a href=more.asp?name=xilei&id=132675 title='最近很火的那首《that girl》原版' target=_blank>最近很火的那首《that girl》...</a>
+<li><a href=more.asp?name=xilei&id=132829 title='消防员本已抓住女孩的一只手，结果被女孩拼命挣脱开，可见她对这个世界多么绝望' target=_blank>消防员本已抓住女孩的一只手，结果被女...</a>
+<li><a href=more.asp?name=xilei&id=132573 title='杨伟民：中国住宅空置率比日本还高，这很不正常' target=_blank>杨伟民：中国住宅空置率比日本还高，这...</a>
+<li><a href=more.asp?name=xilei&id=132600 title='震惊！斯坦福监狱实验是个骗局！救救心理学生！' target=_blank>震惊！斯坦福监狱实验是个骗局！救救心...</a>
+<li><a href=more.asp?name=xilei&id=132605 title='网络骚扰受害者：我的前任为了报复我，把我的不雅照传到网上' target=_blank>网络骚扰受害者：我的前任为了报复我，...</a>
+<li><a href=more.asp?name=xilei&id=132508 title='美国浣熊执着攀登摩天大楼 千万网友关注下终于登顶' target=_blank>美国浣熊执着攀登摩天大楼 千万网友关...</a>
+<li><a href=more.asp?name=xilei&id=132798 title='新浪娱乐独家对话马蓉完整版视频' target=_blank>新浪娱乐独家对话马蓉完整版视频</a>
+<li><a href=more.asp?name=xilei&id=132619 title='中字全程视频|朝鲜电视台播42分钟特金会纪录片' target=_blank>中字全程视频|朝鲜电视台播42分钟特...</a>
+<li><a href=more.asp?name=xilei&id=132828 title='2018年6月20日下午，甘肃省庆阳市一个十九岁女孩跳楼自杀' target=_blank>2018年6月20日下午，甘肃省庆阳...</a>
+<li><a href=more.asp?name=xilei&id=132529 title='《人民公仆》中，这讽刺真是黑到了骨子里' target=_blank>《人民公仆》中，这讽刺真是黑到了骨子...</a>
+<li><a href=more.asp?name=xilei&id=132538 title='爱因斯坦原来这样看中国，震惊外媒' target=_blank>爱因斯坦原来这样看中国，震惊外媒</a>
+<li><a href=more.asp?name=xilei&id=132617 title='奥地利现雨瀑倾泻而下奇观' target=_blank>奥地利现雨瀑倾泻而下奇观</a>
+<li><a href=more.asp?name=xilei&id=132640 title='方锦龙《琵琶行》' target=_blank>方锦龙《琵琶行》</a>
+<li><a href=more.asp?name=xilei&id=132594 title='央视记者大秀中式英文' target=_blank>央视记者大秀中式英文</a>
+<li><a href=more.asp?name=xilei&id=132601 title='【浮世汇10】爱是最大的不自由，也不仅仅是爱情' target=_blank>【浮世汇10】爱是最大的不自由，也不...</a>
+</li></ul>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div align="center">
+			</div>
+			<table width="100%">
+				<tbody>
+					<tr>
+						<td>
+							<div class="center_title">
+								&nbsp;<a href="http://www.dapenti.com/blog/blog.asp?subjectid=2&amp;name=xilei" target="_blank">铂程斋
+书评</a> 
+							</div>
+						</td>
+						<td>
+							<div class="center_title">
+								&nbsp;<a href="http://www.dapenti.com/blog/blog.asp?subjectid=8&amp;name=xilei" target="_blank">浮世绘 </a> 
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=xilei&id=8056 title='找到属于自己的金山' target=_blank>找到属于自己的金山</a>
+<li><a href=more.asp?name=xilei&id=761 title='《长尾理论》中文版图书推出！' target=_blank>《长尾理论》中文版图书推出！</a>
+<li><a href=more.asp?name=xilei&id=28653 title='每一个昨天都是明天' target=_blank>每一个昨天都是明天</a>
+<li><a href=more.asp?name=xilei&id=10093 title='哈佛大学的幸福课：幸福的方法' target=_blank>哈佛大学的幸福课：幸福的方法</a>
+<li><a href=more.asp?name=xilei&id=2200 title='换上你的右脑袋' target=_blank>换上你的右脑袋</a>
+<li><a href=more.asp?name=xilei&id=16750 title='思考的力量' target=_blank>思考的力量</a>
+<li><a href=more.asp?name=xilei&id=11764 title='一个工科生的阅读法则' target=_blank>一个工科生的阅读法则</a>
+<li><a href=more.asp?name=xilei&id=15282 title='每一个孩子都是功夫熊猫' target=_blank>每一个孩子都是功夫熊猫</a>
+<li><a href=more.asp?name=xilei&id=185 title='太阳底下无新事' target=_blank>太阳底下无新事</a>
+<li><a href=more.asp?name=xilei&id=9701 title='空雨衣' target=_blank>空雨衣</a>
+<li><a href=more.asp?name=xilei&id=18504 title='贾樟柯的秘密：自由的瞬间' target=_blank>贾樟柯的秘密：自由的瞬间</a>
+<li><a href=more.asp?name=xilei&id=287 title='愿天下人都有健康自信的身体' target=_blank>愿天下人都有健康自信的身体</a>
+<li><a href=more.asp?name=xilei&id=19423 title='中国小孩为什么都怕写作文' target=_blank>中国小孩为什么都怕写作文</a>
+<li><a href=more.asp?name=xilei&id=308 title='从A到A+' target=_blank>从A到A+</a>
+<li><a href=more.asp?name=xilei&id=119 title='谁是英雄？' target=_blank>谁是英雄？</a>
+<li><a href=more.asp?name=xilei&id=411 title='星巴克：咖啡豆里的使命' target=_blank>星巴克：咖啡豆里的使命</a>
+<li><a href=more.asp?name=xilei&id=311 title='为什么利润没了？' target=_blank>为什么利润没了？</a>
+<li><a href=more.asp?name=xilei&id=8373 title='欲望的金苹果' target=_blank>欲望的金苹果</a>
+<li><a href=more.asp?name=xilei&id=21505 title='民主不是什么' target=_blank>民主不是什么</a>
+<li><a href=more.asp?name=xilei&id=14356 title='每个学生都可以得A' target=_blank>每个学生都可以得A</a>
+<li><a href=more.asp?name=xilei&id=233 title='行销=传播' target=_blank>行销=传播</a>
+<li><a href=more.asp?name=xilei&id=23359 title='让我们为自己来打拼吧！' target=_blank>让我们为自己来打拼吧！</a>
+<li><a href=more.asp?name=xilei&id=23282 title='目送' target=_blank>目送</a>
+<li><a href=more.asp?name=xilei&id=11123 title='三十年河东' target=_blank>三十年河东</a>
+<li><a href=more.asp?name=xilei&id=18104 title='奥数的歧途' target=_blank>奥数的歧途</a>
+<li><a href=more.asp?name=xilei&id=12552 title='爱会赢，并且永远是胜利者' target=_blank>爱会赢，并且永远是胜利者</a>
+<li><a href=more.asp?name=xilei&id=1925 title='在与狼共舞的时代里' target=_blank>在与狼共舞的时代里</a>
+<li><a href=more.asp?name=xilei&id=6980 title='活着' target=_blank>活着</a>
+<li><a href=more.asp?name=xilei&id=412 title='目标' target=_blank>目标</a>
+<li><a href=more.asp?name=xilei&id=168 title='从现在开始' target=_blank>从现在开始</a>
+</li></ul>
+							</div>
+						</td>
+						<td>
+							<div class="center_title_down">
+								<ul><li><a href=more.asp?name=xilei&id=12095 title='PPT的秘密【二】：小满应聘记' target=_blank>PPT的秘密【二】：小满应聘记</a>
+<li><a href=more.asp?name=xilei&id=17353 title='天生我材必有用' target=_blank>天生我材必有用</a>
+<li><a href=more.asp?name=xilei&id=16017 title='豆瓣发现了什么' target=_blank>豆瓣发现了什么</a>
+<li><a href=more.asp?name=xilei&id=8864 title='更大的公平' target=_blank>更大的公平</a>
+<li><a href=more.asp?name=xilei&id=33890 title='领导怕的就是这个' target=_blank>领导怕的就是这个</a>
+<li><a href=more.asp?name=xilei&id=6868 title='不知所措的生活' target=_blank>不知所措的生活</a>
+<li><a href=more.asp?name=xilei&id=8092 title='中国式处事：闭嘴与惩罚' target=_blank>中国式处事：闭嘴与惩罚</a>
+<li><a href=more.asp?name=xilei&id=10008 title='假如后天来临' target=_blank>假如后天来临</a>
+<li><a href=more.asp?name=xilei&id=9592 title='人性的基本原理' target=_blank>人性的基本原理</a>
+<li><a href=more.asp?name=xilei&id=25596 title='没办法活了' target=_blank>没办法活了</a>
+<li><a href=more.asp?name=xilei&id=2925 title='风中的羽毛：我的个人版改革三十年纪' target=_blank>风中的羽毛：我的个人版改革三十年纪</a>
+<li><a href=more.asp?name=xilei&id=16480 title='义务帮人买电脑指南' target=_blank>义务帮人买电脑指南</a>
+<li><a href=more.asp?name=xilei&id=18150 title='答“普鲁斯特问卷”【2009】' target=_blank>答“普鲁斯特问卷”【2009】</a>
+<li><a href=more.asp?name=xilei&id=28414 title='当我们谈版权的时候，我们在谈什么' target=_blank>当我们谈版权的时候，我们在谈什么</a>
+<li><a href=more.asp?name=xilei&id=1952 title='动物凶猛' target=_blank>动物凶猛</a>
+<li><a href=more.asp?name=xilei&id=478 title='从程序员到技术领导者' target=_blank>从程序员到技术领导者</a>
+<li><a href=more.asp?name=xilei&id=21104 title='要是中国也这样有多好' target=_blank>要是中国也这样有多好</a>
+<li><a href=more.asp?name=xilei&id=18436 title='转身的时候' target=_blank>转身的时候</a>
+<li><a href=more.asp?name=xilei&id=36 title='大卫科波菲的雪' target=_blank>大卫科波菲的雪</a>
+<li><a href=more.asp?name=xilei&id=28152 title='股沟是个大傻逼' target=_blank>股沟是个大傻逼</a>
+<li><a href=more.asp?name=xilei&id=19456 title='我们也可以改变' target=_blank>我们也可以改变</a>
+<li><a href=more.asp?name=xilei&id=11377 title='人为什么养狗' target=_blank>人为什么养狗</a>
+<li><a href=more.asp?name=xilei&id=23468 title='2049' target=_blank>2049</a>
+<li><a href=more.asp?name=xilei&id=11827 title='思想的盛宴' target=_blank>思想的盛宴</a>
+<li><a href=more.asp?name=xilei&id=14699 title='为何做不成你想做的事情？(一)' target=_blank>为何做不成你想做的事情？(一)</a>
+<li><a href=more.asp?name=xilei&id=21822 title='如何应对不让拷贝的网页？' target=_blank>如何应对不让拷贝的网页？</a>
+<li><a href=more.asp?name=xilei&id=438 title='半夜狗叫' target=_blank>半夜狗叫</a>
+<li><a href=more.asp?name=xilei&id=15410 title='谁能告诉我什么是中国梦？' target=_blank>谁能告诉我什么是中国梦？</a>
+<li><a href=more.asp?name=xilei&id=26922 title='两只老虎：记一场国际化的中式婚礼' target=_blank>两只老虎：记一场国际化的中式婚礼</a>
+<li><a href=more.asp?name=xilei&id=10794 title='不能说的秘密' target=_blank>不能说的秘密</a>
+</li></ul>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+<br />
+<br />
+<script language="javascript"> function g(formname) { var url = "http://www.baidu.com/baidu"; if (formname.s[1].checked) { formname.ct.value = "2097152"; } else {
+formname.ct.value = "0"; } formname.action = url; return true; } </script>
+			<form name="f1" onsubmit="return g(this)">
+				<table style="font-size:9pt;" bgcolor="#ffffff">
+					<tbody>
+						<tr height="60">
+							<td valign="top">
+							</td>
+							<td>
+								<input name="word" size="50" maxlength="100" /> <input type="submit" value="百度搜索" /><br />
+<input name="tn" type="hidden" value="bds" /> <input name="cl" type="hidden" value="3" /> <input name="ct" type="hidden" /> <input name="si" type="hidden" value="www.dapenti.com" /> <input name="s" type="radio" /> 互联网 <input name="s" type="radio" /> www.dapenti.com
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+		<div class="box3" id="right">
+			<div class="title">
+				<p>
+					&nbsp;推荐热读
+				</p>
+			</div>
+			<div class="title_down">
+				<p>
+					&nbsp;【<span style="line-height:1.5;">喷嚏官方app】</span><a href="http://dapenti.com/blog/app/penti.apk" target="_blank">安卓版 </a>&nbsp;<a href="https://itunes.apple.com/cn/app/pen-ti-wang-guan-fang-yue-du/id1007107881?mt=8" target="_blank">iOS版</a> 
+				</p>
+赞助商链接<br />
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- new300*250 -->
+				<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;" data-ad-client="ca-pub-3066287473318041" data-ad-slot="4409754079">
+				</ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+				<p>
+					<span style="color:#ff0000;">广告联系：dapenti#dapenti.com</span>&nbsp;
+				</p>
+				<p>
+					<ul><li><a href=more.asp?name=xilei&id=133305 title='上海楼市的艰难 远超出我的想象' target=_blank>上海楼市的艰难 远超出我的想象</a>
+<li><a href=more.asp?name=xilei&id=133303 title='【浮世汇14】人类动物园' target=_blank>【浮世汇14】人类动物园</a>
+<li><a href=more.asp?name=agile&id=133317 title='千万别让老婆玩烘焙！' target=_blank>千万别让老婆玩烘焙！</a>
+<li><a href=more.asp?name=xilei&id=133307 title='从洞穴水下营救泰国足球少年' target=_blank>从洞穴水下营救泰国足球少年</a>
+<li><a href=more.asp?name=xilei&id=133322 title='编剧汪海林：怀念煤老板做投资人的日子 除了找女演员没任何要求' target=_blank>编剧汪海林：怀念煤老板做投资人的日子 除了找女演员没任何要求</a>
+<li><a href=more.asp?name=xilei&id=133297 title='华北最强农家乐：保定动物园' target=_blank>华北最强农家乐：保定动物园</a>
+<li><a href=more.asp?name=xilei&id=133334 title='生活不是电视剧[吃瓜]，一碗反套路的毒鸡汤分享给大家' target=_blank>生活不是电视剧[吃瓜]，一碗反套路的毒鸡汤分享给大家</a>
+<li><a href=more.asp?name=xilei&id=133341 title='一个正常社会不该给绝望者补刀' target=_blank>一个正常社会不该给绝望者补刀</a>
+<li><a href=more.asp?name=xilei&id=133302 title='数百名游客不惧炎热到沙漠“享受”沙疗，医师：可治多种疾病' target=_blank>数百名游客不惧炎热到沙漠“享受”沙疗，医师：可治多种疾病</a>
+<li><a href=more.asp?name=xilei&id=133324 title='看了电影《我不是药神》有感：枯叶凋零的人间世！' target=_blank>看了电影《我不是药神》有感：枯叶凋零的人间世！</a>
+<li><a href=more.asp?name=agile&id=133318 title='女生会对不喜欢的男生有多残忍' target=_blank>女生会对不喜欢的男生有多残忍</a>
+<li><a href=more.asp?name=xilei&id=133310 title='马斯克发布逃生舱测试视频：用于营救被困泰国儿童' target=_blank>马斯克发布逃生舱测试视频：用于营救被困泰国儿童</a>
+<li><a href=more.asp?name=xilei&id=133332 title='纸牌屋女主首次回应凯文性丑闻：很惊讶，私下没交集，男女权力不均是主因' target=_blank>纸牌屋女主首次回应凯文性丑闻：很惊讶，私下没交集，男女权力不均是主因</a>
+<li><a href=more.asp?name=xilei&id=133340 title='爆笑反转短片《和拜金女谈恋爱是什么体验》' target=_blank>爆笑反转短片《和拜金女谈恋爱是什么体验》</a>
+<li><a href=more.asp?name=xilei&id=133308 title='当梅西内马尔遇上AI守门员' target=_blank>当梅西内马尔遇上AI守门员</a>
+<li><a href=more.asp?name=xilei&id=133300 title='纪录片《我不是药神》—药有神功' target=_blank>纪录片《我不是药神》—药有神功</a>
+<li><a href=more.asp?name=xilei&id=133338 title='100秒回顾“秃鹰”计春华演过的经典反派，他曾说：想打到60岁' target=_blank>100秒回顾“秃鹰”计春华演过的经典反派，他曾说：想打到60岁</a>
+<li><a href=more.asp?name=xilei&id=133339 title='台风天最倔强大爷：福州一大爷冒着台风在江上划皮划艇' target=_blank>台风天最倔强大爷：福州一大爷冒着台风在江上划皮划艇</a>
+<li><a href=more.asp?name=agile&id=133320 title='废物的时间被耽误有什么关系呢' target=_blank>废物的时间被耽误有什么关系呢</a>
+<li><a href=more.asp?name=xilei&id=133301 title='除了格列卫，这些抗癌药也进医保了！' target=_blank>除了格列卫，这些抗癌药也进医保了！</a>
+</li></ul>
+				</p>
+			</div>
+			<div class="title">
+				<p>
+					&nbsp;<a href="http://www.dapenti.com/blog/blog.asp?subjectid=137&amp;name=xilei" target="_blank">喷嚏一下</a> 
+				</p>
+			</div>
+			<div class="title_down">
+				赞助商链接<br />
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- new300*250 -->
+				<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;" data-ad-client="ca-pub-3066287473318041" data-ad-slot="4409754079">
+				</ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+				<p>
+					<ul></li></ul>
+				</p>
+				<p>
+					<a href="http://www.dapenti.com/blog/blog.asp?subjectid=137&amp;name=xilei" target="_blank">更多</a> 
+				</p>
+			</div>
+			<div class="title">
+				<a href="http://www.dapenti.com/blog/blog.asp?subjectid=70&amp;name=xilei" target="_blank">喷嚏图卦</a> 
+			</div>
+			<div class="title_down">
+				<p>
+					赞助商链接
+				</p>
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- new300*250 -->
+				<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;" data-ad-client="ca-pub-3066287473318041" data-ad-slot="4409754079">
+				</ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+				<p>
+					<ul><li><a href=more.asp?name=xilei&id=133336 title='【喷嚏图卦20180711】他们被困17天，算是另一个“世界杯”的赢家' target=_blank>【喷嚏图卦20180711】他们被困17天，算是另一个“世界杯”的赢家</a>
+<li><a href=more.asp?name=xilei&id=133309 title='【喷嚏图卦20180710】国运之战' target=_blank>【喷嚏图卦20180710】国运之战</a>
+<li><a href=more.asp?name=xilei&id=133284 title='【喷嚏图卦20180709】群里50多人，除1名被害人全是骗子' target=_blank>【喷嚏图卦20180709】群里50多人，除1名被害人全是骗子</a>
+<li><a href=more.asp?name=xilei&id=133263 title='【喷嚏图卦20180708】楼盘摇号就是天上掉馅儿饼，看你接着接不着' target=_blank>【喷嚏图卦20180708】楼盘摇号就是天上掉馅儿饼，看你接着接不着</a>
+<li><a href=more.asp?name=xilei&id=133227 title='【喷嚏图卦20180707】他们说当时没有强风，但气象局早已发出警告' target=_blank>【喷嚏图卦20180707】他们说当时没有强风，但气象局早已发出警告</a>
+<li><a href=more.asp?name=xilei&id=133204 title='【喷嚏图卦20180706】在太平洋上，一艘名为Peak Pegasus集装箱货船正在与时间赛跑' target=_blank>【喷嚏图卦20180706】在太平洋上，一艘名为Peak Pegasus集装箱货船正在与时间赛跑</a>
+<li><a href=more.asp?name=xilei&id=133155 title='【喷嚏图卦20180705】美国是在向全世界开火，也在向自己开火' target=_blank>【喷嚏图卦20180705】美国是在向全世界开火，也在向自己开火</a>
+<li><a href=more.asp?name=xilei&id=133119 title='【喷嚏图卦20180704】我们也可以打压美国的电信公司，不让他们在中国提供服务' target=_blank>【喷嚏图卦20180704】我们也可以打压美国的电信公司，不让他们在中国提供服务</a>
+<li><a href=more.asp?name=xilei&id=133084 title='【喷嚏图卦20180703】他们是所有团队的榜样，很荣幸与他们共事' target=_blank>【喷嚏图卦20180703】他们是所有团队的榜样，很荣幸与他们共事</a>
+<li><a href=more.asp?name=xilei&id=133061 title='【喷嚏图卦20180702】请大家保持理智，不要相信封建迷信' target=_blank>【喷嚏图卦20180702】请大家保持理智，不要相信封建迷信</a>
+<li><a href=more.asp?name=xilei&id=133031 title='【喷嚏图卦20180701】没有人永远19岁，但永远有人19岁' target=_blank>【喷嚏图卦20180701】没有人永远19岁，但永远有人19岁</a>
+<li><a href=more.asp?name=xilei&id=132997 title='【喷嚏图卦20180630】我他妈要的不是这个' target=_blank>【喷嚏图卦20180630】我他妈要的不是这个</a>
+<li><a href=more.asp?name=xilei&id=132979 title='【喷嚏图卦20180629】抹黑' target=_blank>【喷嚏图卦20180629】抹黑</a>
+<li><a href=more.asp?name=xilei&id=132946 title='【喷嚏图卦20180628】鸿沟依旧、前路漫漫' target=_blank>【喷嚏图卦20180628】鸿沟依旧、前路漫漫</a>
+</li></ul>
+				</p>
+				<p>
+					<a href="http://www.dapenti.com/blog/blog.asp?subjectid=70&amp;name=xilei" target="_blank"><span style="font-size:x-small;">更
+多</span></a> 
+				</p>
+			</div>
+			<div class="focusPic">
+<script language="javascript">
+var nn;
+nn=1;
+setTimeout('change_img()',6000);
+function change_img()
+{
+if(nn>4) nn=1
+setTimeout('setFocus1('+nn+')',6000);
+nn++;
+tt=setTimeout('change_img()',6000);
+}
+function setFocus1(i)
+{
+selectLayer1(i);
+}
+function selectLayer1(i)
+{
+switch(i)
+{
+case 1:
+document.getElementById("focusPic1").style.display="block";
+document.getElementById("focusPic2").style.display="none";
+document.getElementById("focusPic3").style.display="none";
+document.getElementById("focusPic4").style.display="none";
+document.getElementById("focusPic1nav").style.display="block";
+document.getElementById("focusPic2nav").style.display="none";
+document.getElementById("focusPic3nav").style.display="none";
+document.getElementById("focusPic4nav").style.display="none";
+break;
+case 2:
+document.getElementById("focusPic1").style.display="none";
+document.getElementById("focusPic2").style.display="block";
+document.getElementById("focusPic3").style.display="none";
+document.getElementById("focusPic4").style.display="none";
+document.getElementById("focusPic1nav").style.display="none";
+document.getElementById("focusPic2nav").style.display="block";
+document.getElementById("focusPic3nav").style.display="none";
+document.getElementById("focusPic4nav").style.display="none";
+break;
+case 3:
+document.getElementById("focusPic1").style.display="none";
+document.getElementById("focusPic2").style.display="none";
+document.getElementById("focusPic3").style.display="block";
+document.getElementById("focusPic4").style.display="none";
+document.getElementById("focusPic1nav").style.display="none";
+document.getElementById("focusPic2nav").style.display="none";
+document.getElementById("focusPic3nav").style.display="block";
+document.getElementById("focusPic4nav").style.display="none";
+break;
+case 4:
+document.getElementById("focusPic1").style.display="none";
+document.getElementById("focusPic2").style.display="none";
+document.getElementById("focusPic3").style.display="none";
+document.getElementById("focusPic4").style.display="block";
+document.getElementById("focusPic1nav").style.display="none";
+document.getElementById("focusPic2nav").style.display="none";
+document.getElementById("focusPic3nav").style.display="none";
+document.getElementById("focusPic4nav").style.display="block";
+break;
+}
+}
+</script>
+				<div id="focusPic1" style="display:block;">
+					<div class="pic">
+						<a href="https://www.amazon.cn/dp/B01LZ7578N/ref=sr_1_2?ie=UTF8&qid=1487137985&sr=8-2&keywords=%E5%B7%A8%E4%BA%BA%E7%9A%84%E9%99%A8%E8%90%BD" target="_blank"><img height="147" alt="巨人的陨落" src="https://images-cn.ssl-images-amazon.com/images/I/513LCP9bPGL.jpg" border="0" /></a> 
+						<h2>
+							<a href="https://www.amazon.cn/dp/B01LZ7578N/ref=sr_1_2?ie=UTF8&qid=1487137985&sr=8-2&keywords=%E5%B7%A8%E4%BA%BA%E7%9A%84%E9%99%A8%E8%90%BD" target="_blank"></a>巨人的陨落
+						</h2>
+						<p style="height:90px;">
+							波澜壮阔地展现了一个我们自认为了解，但从未如此真切感受过的20世纪
+						</p>
+					</div>
+				</div>
+				<div id="focusPic2" style="display:none;">
+					<div class="pic">
+						<a href="https://www.amazon.cn/dp/B01DKATSJK/ref=sr_1_2?ie=UTF8&qid=1487138131&sr=8-2&keywords=%E9%AA%84%E5%82%B2%E4%B9%8B%E5%A1%94+%E6%88%98%E5%89%8D%E4%B8%96%E7%95%8C%E7%9A%84%E8%82%96%E5%83%8F" target="_blank"><img height="147" alt="骄傲之塔" src="https://images-cn.ssl-images-amazon.com/images/I/A1hHrPeanXL.jpg" border="0" /></a> 
+						<h2>
+							<a href="https://www.amazon.cn/dp/B01DKATSJK/ref=sr_1_2?ie=UTF8&qid=1487138131&sr=8-2&keywords=%E9%AA%84%E5%82%B2%E4%B9%8B%E5%A1%94+%E6%88%98%E5%89%8D%E4%B8%96%E7%95%8C%E7%9A%84%E8%82%96%E5%83%8F" target="_blank"></a>骄傲之塔
+						</h2>
+						<p style="height:90px;">
+							“八月炮火”轰响之前，英国的贵族世界开始倾塌，权力转向新的阶层，热血的无政府主义者畅想着一个和谐世界
+						</p>
+					</div>
+				</div>
+				<div id="focusPic3" style="display:none;">
+					<div class="pic">
+						<a href="https://www.amazon.cn/gp/product/B01MZ4Z5DQ/ref=oh_aui_detailpage_o07_s01?ie=UTF8&psc=1" target="_blank"><img height="147" alt="未来简史" src="https://images-cn.ssl-images-amazon.com/images/I/71j%2BJTZO%2ByL.jpg" border="0" /></a> 
+						<h2>
+							<a href="https://www.amazon.cn/gp/product/B01MZ4Z5DQ/ref=oh_aui_detailpage_o07_s01?ie=UTF8&psc=1" target="_blank"></a>未来简史
+						</h2>
+						<p style="height:90px;">
+							进入21世纪后，曾经长期威胁人类生存、发展的瘟疫、饥荒和战争已经被攻克，智人面临着新的待办议题：永生不老、幸福快乐和成为具有“神性”的人类。
+						</p>
+					</div>
+				</div>
+				<div id="focusPic4" style="display:none;">
+					<div class="pic">
+						<a href="https://www.amazon.cn/gp/product/B01M357ROF/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1" target="_blank"><img height="147" alt="分水岭" src="https://images-cn.ssl-images-amazon.com/images/I/916Kre9NRZL.jpg" border="0" target="_blank" /></a> 
+						<h2>
+							<a href="https://www.amazon.cn/gp/product/B01M357ROF/ref=oh_aui_detailpage_o09_s00?ie=UTF8&psc=1" target="_blank"></a>分水岭
+						</h2>
+						<p style="height:90px;">
+							本书是有关小马丁&#8226;路德&#8226;金及其领导的美国民权运动最权威的著作之一。
+						</p>
+					</div>
+				</div>
+				<div id="focusPic4" style="display:none;">
+					<div class="pic">
+						<a href="https://www.amazon.cn/%E8%92%8B%E4%BB%8B%E7%9F%B3%E4%B8%8E%E7%8E%B0%E4%BB%A3%E4%B8%AD%E5%9B%BD-%E9%99%B6%E6%B6%B5/dp/B008B2I3FI/ref=sr_1_1?ie=UTF8&qid=1464522816&sr=8-1&keywords=%E8%92%8B%E4%BB%8B%E7%9F%B3%E4%B8%8E%E7%8E%B0%E4%BB%A3%E4%B8%AD%E5%9B%BD" target="_blank"><img height="147" alt="蒋介石与现代中国" src="https://images-cn.ssl-images-amazon.com/images/I/81AlBNfU4tL.jpg" border="0" target="_blank" /></a> 
+						<h2>
+							<a href="https://www.amazon.cn/%E8%92%8B%E4%BB%8B%E7%9F%B3%E4%B8%8E%E7%8E%B0%E4%BB%A3%E4%B8%AD%E5%9B%BD-%E9%99%B6%E6%B6%B5/dp/B008B2I3FI/ref=sr_1_1?ie=UTF8&qid=1464522816&sr=8-1&keywords=%E8%92%8B%E4%BB%8B%E7%9F%B3%E4%B8%8E%E7%8E%B0%E4%BB%A3%E4%B8%AD%E5%9B%BD" target="_blank"></a>蒋介石与现代中国
+						</h2>
+						<p style="height:90px;">
+							蒋介石非但不是无能，反而是有远见，训练有素而且精明的策略家。他精准预测了许多政治事件，其所在高度更是二十世纪的中国政治家难以超越的。
+						</p>
+					</div>
+				</div>
+				<div id="focusPic1nav" style="display:block;">
+					<div class="more">
+						<h3>
+						</h3>
+						<h4>
+							1
+						</h4>
+						<h4>
+							<a href="javascript:setFocus1(2);" target="_self">2</a> 
+						</h4>
+						<h4>
+							<a href="javascript:setFocus1(3);" target="_self">3</a> 
+						</h4>
+						<h4>
+							<a href="javascript:setFocus1(4);" target="_self">4</a> 
+						</h4>
+					</div>
+				</div>
+				<div id="focusPic2nav" style="display:none;">
+					<div class="more">
+						<h3>
+						</h3>
+						<h4>
+							<a href="javascript:setFocus1(1);" target="_self">1</a> 
+						</h4>
+						<h4>
+							2
+						</h4>
+						<h4>
+							<a href="javascript:setFocus1(3);" target="_self">3</a> 
+						</h4>
+						<h4>
+							<a href="javascript:setFocus1(4);" target="_self">4</a> 
+						</h4>
+					</div>
+				</div>
+				<div id="focusPic3nav" style="display:none;">
+					<div class="more">
+						<h3>
+						</h3>
+						<h4>
+							<a href="javascript:setFocus1(1);" target="_self">1</a> 
+						</h4>
+						<h4>
+							<a href="javascript:setFocus1(2);" target="_self">2</a> 
+						</h4>
+						<h4>
+							3
+						</h4>
+						<h4>
+							<a href="javascript:setFocus1(4);" target="_self">4</a> 
+						</h4>
+					</div>
+				</div>
+				<div id="focusPic4nav" style="display:none;">
+					<div class="more">
+						<h3>
+						</h3>
+						<h4>
+							<a href="javascript:setFocus1(1);" target="_self">1</a> 
+						</h4>
+						<h4>
+							<a href="javascript:setFocus1(2);" target="_self">2</a> 
+						</h4>
+						<h4>
+							<a href="javascript:setFocus1(3);" target="_self">3</a> 
+						</h4>
+						<h4>
+							4
+						</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div align="center" class="box">
+	<br />
+<br />
+	<h2>
+		<span style="color:#ff0000;"></span>&nbsp;
+	</h2>
+	<h2>
+		<span style="color:#808080;"><span style="font-size:x-small;">联系电邮： dapenti#dapenti.com &nbsp; (# 换成 @)</span>&nbsp; </span> 
+	</h2>
+<br />
+</div>
+<script type="text/javascript">
+        document.write('<a style="display:none!important;" id="tanx-a-mm_10006712_103995_70582412"></a>');
+        tanx_s = document.createElement("script");
+        tanx_s.type = "text/javascript";
+        tanx_s.charset = "gbk";
+        tanx_s.id = "tanx-s-mm_10006712_103995_70582412";
+        tanx_s.async = true;
+        tanx_s.src = "http://p.tanx.com/ex?i=mm_10006712_103995_70582412";
+        tanx_h = document.getElementsByTagName("head")[0];
+        if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script><center><a target='_blank' href='http://www.cdnet110.com/alert/'><img src='cdwj.gif'></a>|<a style='color: #444444' href='index.asp'>站点首页</a> | <a style='color: #444444' href='mailto:dapenti@dapenti.com'>联系我们</a> | <a style='color: #444444' href='http://www.dapenti.com:81/blog/user_login.asp'>博客登陆</a><br>  <a href='ttp://www.beian.gov.cn/'>蜀ICP备11003155号 公安部备案号：51019002000333</a><br><br>特别声明：本站不提供任何视听上传服务，所有视频内容均来自视频分享站点所提供的公开引用资源<br><br><span style='color: #444444; font-size: 11px; font-family: Tahoma, Arial'>
+Powered by <a href='' style='color: #444444' target='_blank'><b>oBlog </b> <b style='color:#CC3300'>2.52 </b></a> 
+&copy; Copyright 2004. All rights reserved. <br></span></center><script type='text/javascript' src='http://widget.wumii.com/ext/relatedItemsWidget.htm'></script><a href='http://www.wumii.com/widget/relatedItems.htm' style='border:0;'><img src='http://static.wumii.com/images/pixel.png' alt='无觅相关文章插件，快速提升流量' style='border:0;padding:0;margin:0;' /></a><!-- JiaThis Button BEGIN --><script type='text/javascript'>var jiathis_config = {data_track_clickback:true,hideMore:false};</script><script type='text/javascript' src='http://v3.jiathis.com/code/jia.js?uid=1607768' charset='utf-8'></script><!-- JiaThis Button END -->
+</body>
+</html>
+
+
+<P align=center><FONT color=#ff0000>
+<P><A style="CURSOR: hand" onclick=pcmode(-1)>电脑版式</A> &nbsp;&nbsp;<A style="CURSOR: hand" onclick=pcmode(0)>移动版式</A> &nbsp;&nbsp;|&nbsp;&nbsp;<A style="CURSOR: hand" onclick=automode()>自动选择（默认）</A> </FONT>&nbsp;</P>
+

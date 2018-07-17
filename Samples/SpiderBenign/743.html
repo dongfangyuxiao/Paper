@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Ceeger视界 - 虚拟现实世界门户</title>
+<meta name="keywords" content="vr门户,vr网站,vr教学,unity3d,虚拟现实,增强现实" />
+<meta name="description" content="Ceeger视界 - 关注最新最前沿的科技资讯。" />
+<link href="http://www.ceeger.com//style/css/css.css" rel="stylesheet" type="text/css"> 
+<link href="http://www.ceeger.com//style/css/slide.css" rel="stylesheet" type="text/css"> 
+<script src="http://www.ceeger.com/style/js/jquery.js" type="text/javascript"></script>
+<script>
+	var t = n = 0, count;
+	$(document).ready(function(){	
+		count=$("#banner_list a").length;
+		$("#banner_list a:not(:first-child)").hide();
+		$("#banner_info").html($("#banner_list a:first-child").find("img").attr('alt'));
+		$("#banner_info").click(function(){window.open($("#banner_list a:first-child").attr('href'), "_blank")});
+		$("#home_slide_big li").click(function() {
+			var i = $(this).attr('index') - 1;
+			n = i;
+			if (i >= count) return;
+			$("#banner_info").html($("#banner_list a").eq(i).find("img").attr('alt'));
+			$("#banner_info").unbind().click(function(){window.open($("#banner_list a").eq(i).attr('href'), "_blank")})
+			$("#banner_list a").filter(":visible").fadeOut(500).parent().children().eq(i).fadeIn(1000);
+			document.getElementById("home_slide_big").style.background="";
+			$(this).toggleClass("on");
+			$(this).siblings().removeAttr("class");
+		});
+		t = setInterval("showAuto()", 4000);
+		$("#home_slide_big").hover(function(){clearInterval(t)}, function(){t = setInterval("showAuto()", 4000);});
+	})
+	
+	function showAuto()
+	{
+		n = n >=(count - 1) ? 0 : ++n;
+		$("#home_slide_big li").eq(n).trigger('click');
+	}
+</script>
+<body>
+<div class="header">
+	<div class="headerbox">
+    	<div class="headerlogo"><a href="/"><img src="http://www.ceeger.com//style/images/ceegerlogo.png" title="Ceeger Logo 视界"></a></div>
+        <div id="headernav">
+                <a href="/">首页</a>
+<a href="http://www.ceeger.com/news/index.html">资讯</a>
+<a href="http://www.ceeger.com/hardwares/index.html">硬件</a>
+<a href="http://www.ceeger.com/vr_video/index.html">视频</a>
+<a href="http://www.ceeger.com/ceeger_recreation/index.html">视界娱乐</a>
+<a href="http://www.ceeger.com/developer/index.html">开发者中心</a>
+
+<a href="/forum">论坛</a>
+                <div class="login">          
+             <script type="text/javascript">
+                 $.ajax({
+                         type:"POST",
+                         url:"/userapi.php",
+                         cache:false,
+                         async:false,
+                         //data:"",
+                         success:function(data){
+                              var data = JSON.parse(data);              
+                         if(data!=0){
+                         $(".login").html("<img id='images' src="+data.avatar+" /> "); 
+                        }
+                    }      
+                  });
+
+                //在cookie中获取论坛用户进行登陆注册退出
+               function getCookie(cookieName){
+                var userJson = "";
+                var getcookie = document.cookie;
+                var strCookie=decodeURIComponent(getcookie);
+                var arrCookie = strCookie.split("; ");
+                for(var i=0; i<arrCookie.length;i++){
+                   var arr = arrCookie[i].split("=");
+                         if(cookieName == arr[0]){
+                         userJson = arr[1];
+                         break; 
+                      }
+                 }
+                return userJson ;
+              }
+              var use = getCookie('userinfo');
+              var user = "";
+              var username = "";
+              if(use!=""){
+              user =  eval("("+use+")");
+              username = user.username;
+              }        
+             //console.log(user);
+            // alert(user);             
+              if(username == "游客"||use == ""){                
+                document.write("<a href='/forum/index.php?m=u&c=register'>注册</a><span> | </span><a href='/forum/index.php?m=u&c=login'>登录</a>");     
+              }else{
+                document.write("<a href=''>"+username+"</a><span> | </span><a href='/forum/index.php?m=u&c=login&a=logout'>退出</a>");
+              }         
+              </script>
+              
+
+              	</div>
+                <div class="clearfix"></div>
+            </div>
+            <div id="headersubnav">
+              
+
+                <div class="clearfix"></div>
+            </div>    
+        
+        
+    </div>
+</div>
+<!--/*身体开始*/-->
+<div class="mainbox margin_b">
+    <div class="vr_center">
+    	<div class="headline">
+<a href='http://www.ceeger.com/news/industry_news/883.html'>
+            <h1>微软力反馈技术曝光，在 VR 虚拟画面中提供触觉反</h1>
+            <p>近日，微软公布两个原型控制器的白皮书，两个控制器均可为 VR 提供更真实的“触觉反馈”，当用户在 VR 中摸到了物体，控制器就会把该物体形态反馈给用户，让用户感觉就像真的摸到了虚拟表面，同时可配合 Oculus 设备...</p>
+        </a>
+
+        
+      </div>
+            <div id="home_slide_big">	
+        <div id="banner_bg"></div>  <!--标题背景-->
+        <div id="banner_info"></div> <!--标题-->
+      <ul>
+<li class="on" index="1"><img src="http://www.ceeger.com/thumbs/50x50/c/bcb3973661c12825c.png" alt="微软力反馈技术曝光，在 VR 虚拟画面中提供触觉反馈"/></li>
+<li  index="2"><img src="http://www.ceeger.com/thumbs/50x50/e/6e6ab2cc353dae4c6.jpg" alt=" Vive 销量超 14 万 VR 能否为 HTC 续命？"/></li>
+<li  index="3"><img src="http://www.ceeger.com/thumbs/50x50/5/050a118472fd0d798.jpeg" alt="VR 行业真的冷了吗？"/></li>
+<li  index="4"><img src="http://www.ceeger.com/thumbs/50x50/1/6161c3c8b638494c5." alt="Oculus首席科学家谈五年内VR发展：单眼4K、140度视场角"/></li>
+<li  index="5"><img src="http://www.ceeger.com/thumbs/50x50/3/232aa69bced93bc80.jpg" alt="DMM 与东映动画合作 2017 年推出海完全原创剧情海贼王 VR 影片"/></li>
+
+        </ul>
+       <div id="banner_list">
+<a href="http://www.ceeger.com/news/industry_news/883.html"><img src="http://www.ceeger.com/thumbs/900x380/c/bcb3973661c12825c.png" alt="微软力反馈技术曝光，在 VR 虚拟画面中提供触觉反馈" /></a><a href="http://www.ceeger.com/news/industry_data/879.html"><img src="http://www.ceeger.com/thumbs/900x380/e/6e6ab2cc353dae4c6.jpg" alt=" Vive 销量超 14 万 VR 能否为 HTC 续命？" /></a><a href="http://www.ceeger.com/news/industry_news/876.html"><img src="http://www.ceeger.com/thumbs/900x380/5/050a118472fd0d798.jpeg" alt="VR 行业真的冷了吗？" /></a><a href="http://www.ceeger.com/news/industry_news/861.html"><img src="http://www.ceeger.com/thumbs/900x380/1/6161c3c8b638494c5." alt="Oculus首席科学家谈五年内VR发展：单眼4K、140度视场角" /></a><a href="http://www.ceeger.com/news/industry_news/857.html"><img src="http://www.ceeger.com/thumbs/900x380/3/232aa69bced93bc80.jpg" alt="DMM 与东映动画合作 2017 年推出海完全原创剧情海贼王 VR 影片" /></a>
+       </div>    
+    </div>  
+
+
+
+	</div>
+    <div class="layout_s float_r">
+    	<div class="home_slide_m margin_b">
+<a href='http://www.ceeger.com/ceeger_recreation/vr_movies/vr_belle/850.html'><img src='http://www.ceeger.com/thumbs/265x180/0/6063063f36254376e.jpg' alt='韩国女子流行演唱组合Bambino vr360热舞'/></a>
+
+</div>
+        <div class="vr_movie layout_s title_gradient_bg2" style="height:315px; overflow:hidden;">
+        	<h2 class="titleh2">VR电影</h2>
+            <ul>
+<li><a href='http://www.ceeger.com/ceeger_recreation/vr_movies/vr_belle/850.html' title='韩国女子流行演唱组合Bambino vr360热舞'>
+                    <img src='http://www.ceeger.com/thumbs/116x58/0/6063063f36254376e.jpg' alt='韩国女子流行演唱组合Bambino vr360热舞'/>
+                    <span>韩国女子流行演唱组合Bambino vr360热舞</span>
+                    <div class='overlay'></div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/ceeger_recreation/vr_movies/vr_belle/824.html' title='Tahiti美女组合SKIP歌曲跳舞 360 VR MV'>
+                    <img src='http://www.ceeger.com/thumbs/116x58/1/b1bde74aacc8d5997.jpg' alt='Tahiti美女组合SKIP歌曲跳舞 360 VR MV'/>
+                    <span>Tahiti美女组合SKIP歌曲跳舞 360 VR MV</span>
+                    <div class='overlay'></div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/ceeger_recreation/vr_movies/vr_animation/821.html' title='8K高清Blender制作羊驼卡通VR体验短片'>
+                    <img src='http://www.ceeger.com/thumbs/116x58/7/6760f8c49f89eb325.jpg' alt='8K高清Blender制作羊驼卡通VR体验短片'/>
+                    <span>8K高清Blender制作羊驼卡通VR体验短片</span>
+                    <div class='overlay'></div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/ceeger_recreation/vr_movies/vr_360/818.html' title='美国宇航局水下训练宇航员太空行走'>
+                    <img src='http://www.ceeger.com/thumbs/116x58/9/696b3e8817c16c72b.jpg' alt='美国宇航局水下训练宇航员太空行走'/>
+                    <span>美国宇航局水下训练宇航员太空行走</span>
+                    <div class='overlay'></div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/ceeger_recreation/vr_movies/vr_360/817.html' title='The Conjuring 2- Visions 魔术2幻象体验'>
+                    <img src='http://www.ceeger.com/thumbs/116x58/3/636a4dd23d26736eb.jpg' alt='The Conjuring 2- Visions 魔术2幻象体验'/>
+                    <span>The Conjuring 2- Visions 魔术2幻象体验</span>
+                    <div class='overlay'></div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/ceeger_recreation/vr_movies/vr_belle/813.html' title='富力 万创upbox 女神公寓 vr360视频'>
+                    <img src='http://www.ceeger.com/thumbs/116x58/e/4e42aacad2fb53988.jpg' alt='富力 万创upbox 女神公寓 vr360视频'/>
+                    <span>富力 万创upbox 女神公寓 vr360视频</span>
+                    <div class='overlay'></div>
+                    </a>
+                </li>
+            </ul>
+<img src="http://www.ceeger.com/style/images/circle.png" class="s1">
+            <img src="http://www.ceeger.com/style/images/circle.png" class="s2">
+        </div>
+    </div><div class="clearfix"></div>
+</div>
+<!--/*VR资讯*/-->
+<div class="mainbox margin_b">
+    <div class="layout_m float_l title_bg1" style="height:596px; overflow:hidden;background-color:#FFFFFF">
+   	  <div class="homenews title_bg_corner">
+       	<h2 class="titleh2">VR资讯</h2>
+            <ul>
+
+<li><a href='http://www.ceeger.com/news/industry_news/884.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/160x96/d/ede6fb1e72ef74997.jpg' alt='HTC把目光瞄向手机VR：为Android手机推出VR在线商店' title='HTC把目光瞄向手机VR：为Android手机推出VR在线商店' /></div>
+                    <div class='contents'>
+                        <div class='intitle'>HTC把目光瞄向手机VR：为Android手机推出VR在线商店</div>
+                        <p>由于智能手机业务表现不佳，HTC将目光瞄准了下一代平台，希望通</p>
+                    </div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/news/industry_news/882.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/160x96/0/404bbf15122124d87.jpg' alt='VR看房子什么感觉' title='VR看房子什么感觉' /></div>
+                    <div class='contents'>
+                        <div class='intitle'>VR看房子什么感觉</div>
+                        <p>VR 看起来是个能让房产销售提高效率的新事物。
+
+它缩短的是房</p>
+                    </div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/news/industry_news/883.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/160x96/c/bcb3973661c12825c.png' alt='微软力反馈技术曝光，在 VR 虚拟画面中提供触觉反馈' title='微软力反馈技术曝光，在 VR 虚拟画面中提供触觉反馈' /></div>
+                    <div class='contents'>
+                        <div class='intitle'>微软力反馈技术曝光，在 VR 虚拟画面中提供触觉反馈</div>
+                        <p>近日，微软公布两个原型控制器的白皮书，两个控制器均可为 VR 提</p>
+                    </div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/news/industry_news/880.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/160x96/3/e3e475df717019cf8.jpg' alt=' 保千里甩掉苹果三星等巨头 本月24日抢先发布VR手机' title=' 保千里甩掉苹果三星等巨头 本月24日抢先发布VR手机' /></div>
+                    <div class='contents'>
+                        <div class='intitle'> 保千里甩掉苹果三星等巨头 本月24日抢先发布VR手机</div>
+                        <p>保千里通过其官方微信公众号推文宣布将于10月24日召开新品发布会</p>
+                    </div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/news/industry_news/872.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/160x96/b/8b878a94ea07e35ef.jpg' alt='自闭症康复跨界VR系统 探索自闭症儿童全新康复手段' title='自闭症康复跨界VR系统 探索自闭症儿童全新康复手段' /></div>
+                    <div class='contents'>
+                        <div class='intitle'>自闭症康复跨界VR系统 探索自闭症儿童全新康复手段</div>
+                        <p>作为探索自闭症儿童全新康复手段，自闭症儿童VR系统首次受邀亮相</p>
+                    </div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/news/industry_data/879.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/160x96/e/6e6ab2cc353dae4c6.jpg' alt=' Vive 销量超 14 万 VR 能否为 HTC 续命？' title=' Vive 销量超 14 万 VR 能否为 HTC 续命？' /></div>
+                    <div class='contents'>
+                        <div class='intitle'> Vive 销量超 14 万 VR 能否为 HTC 续命？</div>
+                        <p>在 VR 市场，HTC 算得上是最早入局的一批，并且核心技术的支撑，</p>
+                    </div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/news/industry_news/877.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/160x96/c/aca4bd09f930704de.jpg' alt='福布斯：盘点VR改变世界的5种方式' title='福布斯：盘点VR改变世界的5种方式' /></div>
+                    <div class='contents'>
+                        <div class='intitle'>福布斯：盘点VR改变世界的5种方式</div>
+                        <p>我们与互联网之间的连接只是二维的，在与互联网进行交互时，我们</p>
+                    </div>
+                    </a>
+                </li><li><a href='http://www.ceeger.com/news/industry_news/876.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/160x96/5/050a118472fd0d798.jpeg' alt='VR 行业真的冷了吗？' title='VR 行业真的冷了吗？' /></div>
+                    <div class='contents'>
+                        <div class='intitle'>VR 行业真的冷了吗？</div>
+                        <p>曾经，由于山寨成本远低于自主研发，缺乏核心技术的硬件厂商大部</p>
+                    </div>
+                    </a>
+                </li>
+            </ul>
+        </div>	
+    </div>
+    <div class="layout_s float_r title_b1">
+    	<div class="expo_news title_gradient_bg3" style="height:596px; overflow:hidden;">
+       	 	<h2 class="titleh2">会展速报</h2>
+		<ul>
+
+<li><a href='http://www.ceeger.com/news/expo_news/860.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/243x80/3/f3f93ff93babebd52.' alt='深圳山寨厂商泛滥成灾，VR门槛到底有多低？' title='深圳山寨厂商泛滥成灾，VR门槛到底有多低？' /></div>
+                    <p>深圳山寨厂商泛滥成灾，VR门槛到底有多低？</p>  
+                    </a>
+                </li><li><a href='http://www.ceeger.com/news/expo_news/859.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/243x80/6/9691cf7bbaa65f826.jpg' alt='VR产业先锋齐聚榴莲VR发布会 共同打破VR行业困局' title='VR产业先锋齐聚榴莲VR发布会 共同打破VR行业困局' /></div>
+                    <p>VR产业先锋齐聚榴莲VR发布会 共同打破VR行业困局</p>  
+                    </a>
+                </li><li><a href='http://www.ceeger.com/news/expo_news/802.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/243x80/f/6f669c8943970cd70.jpg' alt='七鑫易维携世界首款VR眼控配件登GTC大会' title='七鑫易维携世界首款VR眼控配件登GTC大会' /></div>
+                    <p>七鑫易维携世界首款VR眼控配件登GTC大会</p>  
+                    </a>
+                </li><li><a href='http://www.ceeger.com/news/expo_news/762.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/243x80/c/8c82180db28b5eb52.jpg' alt='2016.9.7首届全球虚拟现实中国峰会上海开幕' title='2016.9.7首届全球虚拟现实中国峰会上海开幕' /></div>
+                    <p>2016.9.7首届全球虚拟现实中国峰会上海开幕</p>  
+                    </a>
+                </li>
+
+             </ul>
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!--/*VR视频*/-->
+<div class="mainbox margin_b">
+    <div class="layout_m float_l title_bg1" style="background-color:#FFFFFF">
+    	<div class="vr_video title_bg_corner" >
+        	<h2 class="titleh2">VR视频</h2>
+            <ul>
+<li><a href='http://www.ceeger.com/vr_video/vr_game_experience/845.html'><img src='http://www.ceeger.com/thumbs/277x175/9/e9e67e745385c17e1.jpg' alt='精英:危机四伏 Elite Dangerous Anaconda bridge上的物理行走体验' title='精英:危机四伏 Elite Dangerous Anaconda bridge上的物理行走体验' /><p>精英:危机四伏 Elite Dangerous An</p><div class='overlay'></div></a></li><li><a href='http://www.ceeger.com/vr_video/vr_game_experience/833.html'><img src='http://www.ceeger.com/thumbs/277x175/6/b6b65de25c820569d.jpg' alt='MONSTER SMASH 怪物大破坏& Birdtual Reality 鸟类飞行 VR游戏体验' title='MONSTER SMASH 怪物大破坏& Birdtual Reality 鸟类飞行 VR游戏体验' /><p>MONSTER SMASH 怪物大破坏& Birdtu</p><div class='overlay'></div></a></li><li><a href='http://www.ceeger.com/vr_video/vr_game_experience/832.html'><img src='http://www.ceeger.com/thumbs/277x175/c/4c49c78ad191a9afe.jpg' alt='Sword Master VR剑击大师混合现实演示' title='Sword Master VR剑击大师混合现实演示' /><p>Sword Master VR剑击大师混合现实</p><div class='overlay'></div></a></li><li><a href='http://www.ceeger.com/vr_video/vr_game_experience/831.html'><img src='http://www.ceeger.com/thumbs/277x175/f/0f02a041224618b8d.jpg' alt='Sword Master VR剑击大师体验' title='Sword Master VR剑击大师体验' /><p>Sword Master VR剑击大师体验</p><div class='overlay'></div></a></li><li><a href='http://www.ceeger.com/vr_video/vr_game_experience/830.html'><img src='http://www.ceeger.com/thumbs/277x175/0/50567936de7da19fb.jpg' alt='THE CHAMP RETURNS! VR拳击游戏' title='THE CHAMP RETURNS! VR拳击游戏' /><p>THE CHAMP RETURNS! VR拳击游戏</p><div class='overlay'></div></a></li><li><a href='http://www.ceeger.com/vr_video/vr_game_experience/826.html'><img src='http://www.ceeger.com/thumbs/277x175/1/d1dce708078fa35e7.jpg' alt='The Elevator Ritual 电梯恐怖游戏Oculus Rift VR体验' title='The Elevator Ritual 电梯恐怖游戏Oculus Rift VR体验' /><p>The Elevator Ritual 电梯恐怖游戏</p><div class='overlay'></div></a></li>
+ 		  </ul>
+
+        </div>	
+    </div>
+    <div class="layout_s float_r title_b1 title_gradient_bg5"  style="background-color:#FFFFFF">
+    	<div class="home_ceegervr">
+       	 	<h2 class="titleh2" style="color:#FFFFFF">VR开发技术</h2>
+            <ul>
+<li><a href='http://www.ceeger.com/vr_video/vr_technology_video/842.html'><div class="thums"><img src='http://www.ceeger.com/thumbs/243x170/e/1e1cffc5883d0f3ef.jpg' alt='用于VR游戏的目前最好的全向跑步机合集' title='用于VR游戏的目前最好的全向跑步机合集' /></div><span>用于VR游戏的目前最好的全向跑步机</span></a></li><li><a href='http://www.ceeger.com/vr_video/vr_technology_video/840.html'><div class="thums"><img src='http://www.ceeger.com/thumbs/243x170/7/4748277c973b80cc3.jpg' alt='全向跑步机 Infinadeck 2016演示' title='全向跑步机 Infinadeck 2016演示' /></div><span>全向跑步机 Infinadeck 2016演示</span></a></li>
+
+			</ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!--div class="mainbox margin_b">
+    <div class="layout_n float_l title_bg1">
+    	<div class="vr_game title_bg_corner">
+        	<h2 class="titleh2">VR游戏</h2>
+            <ul>
+            	<li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="layout_s float_l margin_l">
+    	<div class="vr_strategy title_bg_corner">
+        	<h2 class="titleh2">游戏攻略</h2>
+          <ul>
+            	<li><a href="#"><img src="../style/images/slide_left.png" /><span>别急会更新的……别急会更新的……别急会更新的……</span></a></li>
+                <li><a href="#"><span>别急会更新的……别急会更新的……别急会更新的……</span></a></li>
+                <li><a href="#"><img src="../style/images/slide_left.png" /><span>别急会更新的……别急会更新的……别急会更新的……</span></a></li>
+                <li><a href="#"><img src="../style/images/slide_left.png" /><span>别急会更新的……别急会更新的……别急会更新的……</span></a></li>
+                <li><a href="#"><img src="../style/images/slide_left.png" /><span>别急会更新的……别急会更新的……别急会更新的……</span></a></li>
+            </ul>
+        	
+        </div>	
+    </div>
+    <div class="layout_s float_r title_b1"  style="background:url(../style/images/img06.jpg) top center no-repeat #fff">
+    	<div class="vr_app">
+       	 	<h2 class="titleh2">VR应用</h2>
+            <ul>
+            	<li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+                <li><a href="#"><div class="thums"><img src="../style/images/vrmovie.png"></div><span>VR电影VRsV影</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div-->
+<div class="mainbox margin_b">
+    <div class="layout_n float_l title_bg1 ">
+    	<div class="teach_video title_bg_corner">
+        	<h2 class="titleh2">视界开发学院</h2>
+            <ul>
+
+<li><a href='http://www.ceeger.com/developer/ceeger_tutorial/ceeger_video/855.html'><img src='http://www.ceeger.com/thumbs/277x175/1/010295e5268fb2b8b.jpg' alt='高通增强现实系列教程（五）demo1素材下载导入，识别图制作，插件导入' title='高通增强现实系列教程（五）demo1素材下载导入，识别图制作，插件导入' /><p>高通增强现实系列教程（五）demo1</p><div class='overlay'></div></a></li><li><a href='http://www.ceeger.com/developer/ceeger_tutorial/ceeger_video/851.html'><img src='http://www.ceeger.com/thumbs/277x175/d/cdc35ae3a69f53043.jpg' alt='高通增强现实系列教程（一）零基础带你了解增强现实' title='高通增强现实系列教程（一）零基础带你了解增强现实' /><p>高通增强现实系列教程（一）零基础</p><div class='overlay'></div></a></li><li><a href='http://www.ceeger.com/developer/ceeger_tutorial/ceeger_video/854.html'><img src='http://www.ceeger.com/thumbs/277x175/7/373d8c987aed90f7c.jpg' alt='高通增强现实系列教程（四）打包发布' title='高通增强现实系列教程（四）打包发布' /><p>高通增强现实系列教程（四）打包发</p><div class='overlay'></div></a></li><li><a href='http://www.ceeger.com/developer/ceeger_tutorial/ceeger_video/853.html'><img src='http://www.ceeger.com/thumbs/277x175/6/969ebef893f8d2d1b.jpg' alt='高通增强现实系列教程（三）sdk下载以及制作' title='高通增强现实系列教程（三）sdk下载以及制作' /><p>高通增强现实系列教程（三）sdk下</p><div class='overlay'></div></a></li><li><a href='http://www.ceeger.com/developer/ceeger_tutorial/ceeger_video/852.html'><img src='http://www.ceeger.com/thumbs/277x175/5/757c63a3954d7a6b2.jpg' alt='高通增强现实系列教程（二）识别图制作' title='高通增强现实系列教程（二）识别图制作' /><p>高通增强现实系列教程（二）识别图</p><div class='overlay'></div></a></li><li><a href='http://www.ceeger.com/developer/ceeger_tutorial/ceeger_video/846.html'><img src='http://www.ceeger.com/thumbs/277x175/b/9b960f61f4be7b806.jpg' alt='导航寻路Navmesh随堂视频' title='导航寻路Navmesh随堂视频' /><p>导航寻路Navmesh随堂视频</p><div class='overlay'></div></a></li>
+     		  </ul>
+
+        </div>	
+    </div>
+    <div class="layout_s float_l margin_l title_bg1">
+    	<div class="home_article title_bg_corner">
+        	<h2 class="titleh2">技术文章</h2>
+            <ul>
+<li><a href='http://www.ceeger.com/developer/ceeger_tutorial/ceeger_article/885.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/236x100/4/b4bf569b89e51b3ee.png' alt='VR中的基础交互（一）' title='VR中的基础交互（一）' /></div>
+                    <span>VR中的基础交互（一）</span>  
+                    </a>
+                </li><li><a href='http://www.ceeger.com/developer/ceeger_tutorial/ceeger_article/881.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/236x100/9/595355e1edf4d75df.png' alt='一个简单动态时钟' title='一个简单动态时钟' /></div>
+                    <span>一个简单动态时钟</span>  
+                    </a>
+                </li><li><a href='http://www.ceeger.com/developer/ceeger_tutorial/ceeger_article/878.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/236x100/c/dcd7ba22f7da7176c.png' alt='VR中使用VorpX' title='VR中使用VorpX' /></div>
+                    <span>VR中使用VorpX</span>  
+                    </a>
+                </li><li><a href='http://www.ceeger.com/developer/ceeger_tutorial/ceeger_article/822.html'>
+                    <div class='thums'><img src='http://www.ceeger.com/thumbs/236x100/c/2c21b7d0bea3da6a9.png' alt='LeapMotion开发(四)检测工具' title='LeapMotion开发(四)检测工具' /></div>
+                    <span>LeapMotion开发(四)检测工具</span>  
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="layout_s float_r">
+    	<div class="develop_res margin_b title_gradient_bg1" style="height:650px;">
+       	 	<h2 class="titleh2">免费资源</h2>
+            <ul>
+            	<script type="text/javascript" src="http://www.ceeger.com/forum/index.php?m=design&c=api&token=66jBEOFxTH&id=78&format=script"></script>
+            </ul>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="footer_box">
+	<div class="footer">
+    <div class="footer_r">
+          <img src="http://www.ceeger.com//style/images/qrcode.png">
+          <p>关注微信公众平台</p>
+        </div>
+        <div class="footer_l">
+            <img src="http://www.ceeger.com//style/images/ceegerlogo.png">
+            <p>关于我们 | 投稿 | 加入我们</p>        
+        </div>        
+         <div class="footer_c">
+          
+        </div>
+        
+        <div class="clearfix"></div>
+	</div>
+</div>
+</body>
+</html>

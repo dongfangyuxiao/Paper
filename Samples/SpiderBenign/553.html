@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录</title>
+<link href="/static/style/front/user/login.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="zbody">
+<!--  -->
+<form action="/user/login/dologin" method="post">
+	<input type="hidden" name="backurl" value="/" />
+	<div class="zlogin" style="position:relative;">
+		<div id="error" class="zl_erro"></div>
+		<div style="position:absolute;top:110px;left:200px;">
+			<input class="zl_input" type="text" name="username" value="" />
+		</div>
+		<div style="position:absolute;top:178px;left:200px;">
+			<input class="zl_input" type="password" name="password" value="" />
+		</div>
+		<div style="font-size: 19px;height: 36px;left: 106px;line-height: 36px;position: absolute;top: 228px;">
+			验证码:
+		</div>
+		<div style="position:absolute;top:228px;left:191px;">
+			<input type="text" name="checkcode" style="background:#fff;height: 32px;line-height:32px;padding: 0 6px;width: 136px;"/>
+			<img title="看不清, 点击切换一下" src="/user/login/checkimg" _src="/user/login/checkimg" onclick="this.src = this.getAttribute('_src') + '?' + Math.random();" style="width:100px;height:36px;cursor:pointer;vertical-align:middle;"/>
+		</div>
+		<div style="position:absolute;top:278px;left:338px;">
+			<input class="zl_submit" type="submit" value="" />
+		</div>
+		<div class="zl_ip">您的IP地址是:123.112.15.221</div>
+	</div>
+</form>
+
+<script>
+(function() {
+	function setText(n, t) {
+		if (document.all) {
+			n.innerText = t;
+		} else {
+			n.textContent = t;
+		}
+	}
+	
+	function trim(str){ //删除左右两端的空格
+		return str.replace(/(^\s*)|(\s*$)/g, '');
+	} 
+	
+	function check(name, tips) {
+		var input = document.getElementsByName(name)[0];
+		var p = document.getElementById('error');
+		if (trim(input.value) == '') {
+			setText(p, tips);
+			return false;
+		} else {
+			setText(p, '');
+			return true;
+		}
+	}
+	
+	function checkUserName() {
+		return check('username', '用户名不能为空');
+	}
+	
+	function checkPassword() {
+		return check('password', '密码不能为空');
+	}
+	
+	function checkCheckcode() {
+		return check('checkcode', '验证码不能为空');
+	}
+	
+	document.forms[0].onsubmit = function() {
+		return checkUserName() && checkPassword() && checkCheckcode();
+	};
+})();
+</script>
+</body>
+</html>

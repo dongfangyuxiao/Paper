@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title>酷安网 - 发现应用的乐趣</title>
+<meta name="description" content="酷安网，发现应用的乐趣！快来发现新鲜的、有趣的、好玩儿的应用！在酷安网，玩转手机应用，分享应用经验，发现应用的乐趣，尽享应用的快乐！"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#48ae4c">
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/style.css?v1707153"/>
+<script src="/static/jquery/3.2.1/jquery-3.2.1.min.js"></script>
+<script src="/static/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="warpper">
+    <div class="header_nav">
+        <div class="navbar navbar-fixed-top header" role="navigation" id="nav-outer">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"
+                    data-target="#nav_right" data-target='#login'
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" id="logo">
+                <img id="logoimg" src="/static/img/coolapk.svg" alt="酷安"/>
+                <span id="logofont">酷安</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-left navbar-collapse-menu" id="nav_right">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">首页</a></li>
+                <li><a href="/apk/">应用</a></li>
+                <li><a href="/game/">游戏</a></li>
+                <li><a href="/game/online/">在线游戏</a></li>
+                <li><a href="/apk/com.coolapk.market?from=navbar">酷安手机APP</a></li>
+                <li><a href="https://developer.coolapk.com/?from=navbar">开发者平台</a></li>
+            </ul>
+        </div>
+        <div class="navbar-right" id="login">
+            <ul class="nav navbar-nav">
+                                <li><a href="https://account.coolapk.com/auth/login">登录</a></li>
+                <li><a href="https://account.coolapk.com/auth/register">注册</a></li>
+                            </ul>
+        </div>
+        <div class="navbar-right form-group">
+            <form action="/search">
+                <input id="search" type="search" class="form-control" name="q" placeholder="应用搜索"/>
+                <img src="/static/img/search.png"/>
+            </form>
+        </div>
+    </div><!-- /.container -->
+</div>
+        <div id="head" class="container header_nav">
+    <div class="row">
+        <div class="rowbox">
+            <div class="col-lg-6 col-sm-12 col-md-6" id="news-pic">
+                <p class="welcome_title">酷安</p>
+                <p class="welcome_title">发现应用的乐趣</p>
+                <p class="welcome_font">快来发现新鲜的、有趣的、好玩的应用</p>
+                <img src="/qr/image?data=base64:aHR0cHM6Ly93d3cuY29vbGFway5jb20vYXBrL2NvbS5jb29sYXBrLm1hcmtldD9mcm9tPXFy&h=3dd9c107"
+                     alt="扫码下载酷安手机APP">
+                <p class="welcome_down_font">扫码下载酷安手机APP</p>
+                <a href="javascript:void(0);" onclick="return onDownloadApk(0);">
+                    <button class="btn-lg"><img src="/static/img/android.png" alt="">下载酷安手机APP</button>
+                </a>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-6" id="news-word">
+                <div class="divimg">
+                    <img src="/static/img/index_Phone.png" alt="" class="smail">
+                    <div class="lunbo">
+                        <div id="myCarousel" class="carousel slide swiper-wrapper">
+                            <!-- 轮播（Carousel）指标 -->
+                            <!--<ol class="carousel-indicators">-->
+                            <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+                            <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
+                            <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+                            <!--</ol>-->
+                            <!-- 轮播（Carousel）项目 -->
+                            <div class="carousel-inner">
+                                <div class="item active swiper-slide">
+                                    <img src="/static/img/index_carousel.jpg " alt="First slide">
+                                </div>
+                                <div class="item swiper-slide">
+                                    <img src="/static/img/index_carousel2.png" alt="Second slide">
+                                </div>
+                                <div class="item swiper-slide">
+                                    <img src="/static/img/index_carousel3.png" alt="Third slide">
+                                </div>
+                                <div class="item swiper-slide">
+                                    <img src="/static/img/index_carousel4.png" alt="Second slide">
+                                </div>
+                            </div>
+                            <!--轮播（Carousel）导航 -->
+                            <a class="carousel-control left" href="#myCarousel"
+                               data-slide="prev"></a>
+                            <a class="carousel-control right" href="#myCarousel"
+                               data-slide="next"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+<div class="main container">
+    <div class="w">
+        <!--最近更新应用-->
+        <div class="ApplicationToRecommend">
+            <h3>
+                <strong id="mine_title">最近更新应用</strong>
+                <span><a href="/apk/update" id="mine_title_right">查看更多</a></span>
+            </h3>
+            <div class="applications">
+                                                <a href="/apk/com.mandian.android.dongdong">
+                                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://pp.myapp.com/ma_icon/0/icon_10601175_1531365342/96"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">动动计步器</span>
+                                    <span class="sp-time">14分钟前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                                            <a href="/game/com.yingxiong.dfzj.uc">
+                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://image.game.uc.cn/2016/3/22/12783110.png"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">巅峰战舰</span>
+                                    <span class="sp-time">26分钟前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                    <a href="/apk/com.tencent.qim">
+                                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://pp.myapp.com/ma_icon/0/icon_52629599_1531363372/96"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">DOV-QQ短视频社交新姿势</span>
+                                    <span class="sp-time">45分钟前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                                            <a href="/game/com.tencent.tmgp.bnsm">
+                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://pp.myapp.com/ma_icon/0/icon_11437038_1531363181/96"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">战斗吧剑灵</span>
+                                    <span class="sp-time">45分钟前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                    <a href="/apk/com.ksxkq.floating">
+                                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://image.coolapk.com/apk_logo/2017/1026/ic_launcher_APP-13113-o_1btbl363e4ng1unb49q1fbjnl8q-uid-654216@512x512.png"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">悬浮菜单</span>
+                                    <span class="sp-time">48分钟前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                    <a href="/apk/com.mybank.android.phone">
+                                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://pp.myapp.com/ma_icon/0/icon_42256038_1531362740/96"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">网商银行</span>
+                                    <span class="sp-time">50分钟前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                    <a href="/apk/com.xfplay.play">
+                                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://pp.myapp.com/ma_icon/0/icon_40356_1531361901/96"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">影音先锋</span>
+                                    <span class="sp-time">1小时前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                                            <a href="/game/com.PB.palacem4cncn.hwyad.aligames">
+                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://image.9game.cn/2018/2/5/19442641.png"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">宫廷计手游</span>
+                                    <span class="sp-time">1小时前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                                            <a href="/game/com.taplion.tarsylia.aligames">
+                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://image.9game.cn/2018/1/24/19284828.png"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">契约勇士</span>
+                                    <span class="sp-time">1小时前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                                            <a href="/game/com.wanmei.torchlight.android.uc">
+                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://image.9game.cn/2016/9/18/14275958.png"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">火炬之光</span>
+                                    <span class="sp-time">1小时前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                                            <a href="/game/com.wyd.hero.dandandao.uc">
+                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://image.game.uc.cn/2016/6/24/13620728.png"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">弹弹岛2</span>
+                                    <span class="sp-time">1小时前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                                    <a href="/apk/com.sonymobile.sketch">
+                                                                <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                            <div class="index_icon">
+                                <img src="http://image.coolapk.com/apk_logo/2015/0212/97100_1423727545_8787.png"></div>
+                            <dl>
+                                <dd>
+                                    <span class="sp-name">涂画Sketch</span>
+                                    <span class="sp-time">1小时前</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </a>
+                                </div>
+        </div>
+        <!--应用推荐-->
+        <div class="ApplicationToRecommend">
+            <h3>
+                <strong id="mine_title">应用推荐</strong>
+                <span><a href="/apk" id="mine_title_right">查看更多</a></span>
+            </h3>
+            <div class="applications">
+                                <a href="/apk/com.youku.phone">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.coolapk.com/apk_logo/2017/1012/0_1507791455_1327.png.t.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">优酷</span>
+                                <span class="sp-time">  489万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.tencent.qqlive">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_3040_1530159742/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">腾讯视频</span>
+                                <span class="sp-time">  353万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.ss.android.ugc.aweme">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_42350811_1525936443/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">抖音短视频</span>
+                                <span class="sp-time">  94万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.sankuai.meituan">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_11109_1529463930/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">美团-团购美食电影酒店优惠</span>
+                                <span class="sp-time">  347万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/ctrip.android.view">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_6240_1520301477/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">携程旅行迪士尼酒店机票火车票旅游门票攻略团购</span>
+                                <span class="sp-time">  132万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.ss.android.article.news">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_213141_1526546486/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">今日头条</span>
+                                <span class="sp-time">  203万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.xunlei.downloadprovider">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_113692_1530191060/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">迅雷</span>
+                                <span class="sp-time">  308万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.taobao.taobao">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_5080_1522309493/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">手机淘宝</span>
+                                <span class="sp-time">  982万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.netease.yanxuan">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_12219005_1526958022/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">网易严选</span>
+                                <span class="sp-time">  30万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.eg.android.AlipayGphone">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_5294_1528342898/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">支付宝</span>
+                                <span class="sp-time">  852万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.baidu.netdisk">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_116071_1519905856/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">百度网盘</span>
+                                <span class="sp-time">  698万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.ss.android.ugc.live">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://shp.qpic.cn/ma_icon/0/icon_42256978_1506064432/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">火山小视频</span>
+                                <span class="sp-time">  10万次下载</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                            </div>
+        </div>
+        <!--游戏推荐-->
+        <div class="ApplicationToRecommend">
+            <h3>
+                <strong id="mine_title">游戏推荐</strong>
+                <span><a href="/game" id="mine_title_right">查看更多</a></span>
+            </h3>
+            <div class="applications">
+                                <a href="/apk/com.tencent.tmgp.wesix">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_42353261_1530771652/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">消除者联盟：北鼻假日</span>
+                                <span class="sp-time">119.58M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.nhnst.SKCQCN.uc">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.coolapk.com/apk_logo/2017/0914/3edbb1cec21940e27aa33fa2f383f15a-20559-o_1bpvgnu6c1nu865bpamhds326q-uid-440723@360x360.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">克鲁赛德战记</span>
+                                <span class="sp-time">94.19M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.supercell.boombeach.uc">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.game.uc.cn/2014/10/23/10004636.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">海岛奇兵</span>
+                                <span class="sp-time">100.61M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.zlongame.fengshen.aligames">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.coolapk.com/apk_logo/2017/0706/c43d9e0086466302c362252bd33ed722-for-134524-o_1bkbap0lp1v5hr0r1bmmgbf1b2jq-uid-440723.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">封神召唤师</span>
+                                <span class="sp-time">468.01M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.netease.frxy">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.coolapk.com/apk_logo/2018/0622/59f46a3e58f640bf43da0b3486819eb7-173685-o_1cgip0q4en161kk2137n1olrt6nq-uid-440723@360x360.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">非人学园网易官方版</span>
+                                <span class="sp-time">655.92M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.tencent.shootgame">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://pp.myapp.com/ma_icon/0/icon_12118307_1530583653/256"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">魂斗罗：归来</span>
+                                <span class="sp-time">954.86M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.ztgame.jl.uc">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.game.uc.cn/2016/8/8/13948672.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">街篮</span>
+                                <span class="sp-time">460.27M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.netease.my">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.coolapk.com/apk_logo/2017/0620/c03f50696c59bd94a963c1e7af74fc46-for-14444-o_1bj2bknvs1dkk1r30ispnjq1qojq-uid-440723.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">梦幻西游网易官方版</span>
+                                <span class="sp-time">804.18M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.happyelements.AndroidAnimal">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.coolapk.com/apk_logo/2017/0706/c43d9e0086466302c362252bd33ed722-for-15067-o_1bkbb19mr1ivdvuon811fpb54vq-uid-440723.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">开心消消乐</span>
+                                <span class="sp-time">106.07M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.tencent.tmgp.ffom">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.coolapk.com/apk_logo/2018/0319/21153431217-180654-b04462f5e02b338368b00fef488a4687-uid-440723@256x256.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">自由幻想</span>
+                                <span class="sp-time">1.10G</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.netease.x19">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.coolapk.com/apk_logo/2018/0125/de393ccaccf4200bb9db245101d095dd-163590-o_1c4m7hmjh1kak14t51ctt1sikm45q-uid-440723@269x269.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">我的世界网易官方版</span>
+                                <span class="sp-time">212.01M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                                <a href="/apk/com.netease.dhxy">
+                    <div class="index_app col-md-2 col-sm-3 col-xs-3">
+                        <div class="index_icon">
+                            <img src="http://image.coolapk.com/apk_logo/2018/0327/c08a3456f23804f89d985c7eb2542f0d-18600-o_1c9ig2mra15mhcsc3c51grhfb5q-uid-440723@200x200.png"></div>
+                        <dl>
+                            <dd>
+                                <span class="sp-name">大话西游网易官方版</span>
+                                <span class="sp-time">828.07M</span>
+                            </dd>
+                        </dl>
+                    </div>
+                </a>
+                            </div>
+        </div>
+        <!--应用集推荐-->
+        <!--
+        <div class="ApplicationLevelRecommended">
+            <h3>
+                <strong id="mine_title">应用集推荐</strong>
+                <span><a href="/album" id="mine_title_right">查看更多</a></span>
+            </h3>
+            <div class="applications">
+                            </div>
+        </div>
+        -->
+
+    </div>
+</div>
+<div class="banner_div">
+    <div class="banner_img">
+        <a href="https://developer.coolapk.com/?from=index-bottom" target="_blank">
+            <img class="banner" src="/static/img/banner.jpg">
+        </a>
+    </div>
+</div>
+<script type="text/javascript">
+    //设置图片切换时间
+    $(".carousel").carousel({
+        interval: 3000
+    })
+</script>
+<div class="container">
+    <div class="footer">
+        <div class="w">
+            <div class="footer-links">
+                <a href="/about/about.html">关于酷安</a> &middot;
+                <a href="/about/contact.html">联系合作</a> &middot;
+                <a href="/about/jobs.html">加入我们</a> &middot;
+                <a href="/about/copyright.html">版权声明</a> &middot;
+                <a href="/apk/com.coolapk.market?from=footer">酷安手机APP</a> &middot;
+                <a href="https://developer.coolapk.com?from=footer">酷安开发者平台</a>
+            </div>
+            <div class="footer-copyright">
+                Copyright &copy; 2010-2018 酷安网, All Rights Reserved.
+            </div>
+            <div class="footer-copyright">
+                酷安网V8.0 | <a href="http://www.miibeian.gov.cn/" target="_blank"
+                             style="color: #999;">粤ICP备15030494号-2</a> |
+                粤网文 [2016] 2468-477号 | 粤IAS备 201704260017 | 粤B2-20180425
+            </div>
+            <div class="footer-record">
+                <img src="/static/img/beian.png"> 粤公网安备44030502000719号
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<a href="javascript:void(0);" onclick="onDownloadApk(0);">
+    <div class="under">
+        <img src="/static/img/under_logo.png" class="under_logo">
+        <div class="under_text">
+            <p class="under_title">酷安</p>
+            <p class="under_info">发现应用的乐趣</p>
+        </div>
+        <button class="under_btn">下载酷安手机APP</button>
+    </div>
+</a>
+<script type="text/javascript">
+    function onDownloadApk($downloadId) {
+        if ($downloadId) {
+            window.location.href = "";
+        } else {
+            window.location.href = 'https://dl.coolapk.com/down?pn=com.coolapk.market&id=NDU5OQ&h=a97a95d2pbqhos&from=click';
+        }
+    }
+</script>
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7132d8577cc4aa4ae4ee939cd42eb02b' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
+

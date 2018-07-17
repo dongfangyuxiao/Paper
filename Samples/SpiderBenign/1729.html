@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="A9VG电玩部落,中国电玩及主机游戏行业的领先平台,致力于为玩家报道最新主机游戏独家资讯，PS4和Xbox One等主机电视游戏攻略,更有A9VG论坛为电玩主机游戏爱好者提供交流平台。" name="description" />
+	<meta content="A9VG,电玩部落,电视游戏,主机游戏,单机游戏" name="keywords" />
+    <meta content="" name="author" />
+	<meta http-equiv="Cache-Control" content="no-transform" /> 
+	<meta http-equiv="Cache-Control" content="no-siteapp" /> 
+	<title>A9VG电玩部落-核心玩家聚集地</title>
+	<link rel="stylesheet" href="http://www.a9vg.com/assets/css/style.css">
+	<script type="text/javascript" src="http://www.a9vg.com/assets/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="http://www.a9vg.com/assets/js/common.js"></script>
+	<!--<script type="text/javascript" src="http://gg.stargame.com/g.js"></script>-->
+	<script type="text/javascript" src="http://g1.tagtic.cn/g.js"></script>
+	<style>
+.adv{
+	position: fixed;
+	width: 300px;
+	height: 250px;
+	bottom:0px;
+	right:0px;
+	z-index:10;
+}
+.adv span{
+	float:left;
+	position:absolute;
+	font-size: 12px;
+	height:20px;
+	right:0px;
+	top:-20px;
+}
+		.white{
+			background-color:white;
+		}
+</style>
+</head>
+<body>
+	<div class="a9-site a9-index">
+		
+		<!-- 最顶部导航 start -->
+		<div class="header">
+			<div class="wrap clearfix">
+				<div class="login" id="loginBox"></div>
+
+<div class="access">
+	<div class="media clearfix">
+		<span class="sina"> 新浪 </span>
+		<span class="wechat"> 微信 </span>
+		<span class="phone"> 手机 </span>
+	</div>
+	<div class="media-detail detail">
+		<div class="wrap clearfix">
+			<dl>
+				<dt>
+					<img src="http://www.a9vg.com/assets/images/qrcode-1.jpg" alt="">
+				</dt>
+				<dd>
+					<h3><span class="sina"></span>关注官方微博</h3>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<img src="http://www.a9vg.com/assets/images/qrcode-2.jpg" alt="">
+				</dt>
+				<dd>
+					<h3><span class="wechat"></span>关注微信公众号</h3>
+				</dd>
+			</dl>
+			<dl>
+				<dt>
+					<img src="http://www.a9vg.com/assets/images/qrcode-3.jpg" alt="">
+				</dt>
+				<dd>
+					<h3><span class="p-ios"></span><span class="p-and"></span>A9VG APP</h3>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	function getCookie(name) {
+		var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+		if(arr != null) return unescape(decodeURI(arr[2])); return '';
+	}
+	
+	function User() {
+		this.setUserId = function(F) {
+			this.userId = F;
+		};
+		this.setNickName = function(F) {
+			this.nickName = F;
+		};
+		this.setHeadImg = function(F) {
+			this.headImg = F;
+		};
+	}
+	
+	function getUserFromCookie() {
+		var auth = getCookie('a9vg_user'), matches= ''; 
+		if (matches = auth.match(/^(\d+)(.+)$/)) {
+			var user = new User();
+			user.setUserId(matches[1]);
+			user.setNickName(matches[2]);
+			return user;
+		} 
+		return false;
+	}
+	
+	var a9vgUserLoginStatus = "";
+	var userloginStatus = getUserFromCookie();
+	if (userloginStatus){
+		a9vgUserLoginStatus = "<div class='after'><div class='info'><em class='avatar'><img src='http://bbs.a9vg.com/uc_server/avatar.php?size=small&uid=" + userloginStatus.userId + "' alt=''></em><span class='arr-d'>" + userloginStatus.nickName.substr(0,10) + "</span> </div> <div class='info-detail detail'> <div class='gap gap14'> <ul class='clearfix'> <li><a href='http://bbs.a9vg.com/home.php?mod=space&uid=" + userloginStatus.userId + "' target='_blank'>个人中心</a></li><li><a href='http://www.a9vg.com/psn/user/set' target='_blank'>我的PSN</a></li><li><a href='http://bbs.a9vg.com/home.php?mod=spacecp' target='_blank'>资料设置</a></li> <li><a href='http://i.a9vg.com/login/logout'>退出</a></li></ul></div></div></div>"; 
+	} else {
+		a9vgUserLoginStatus = '<div class="before gap gap12-dark"><ul class="clearfix"> <li> <a href="http://i.a9vg.com/login?back=' + decodeURIComponent(window.location.href) + '" target="_blank">登录</a></li><li><a href="http://i.a9vg.com/register?back=' + decodeURIComponent(window.location.href) + '" target="_blank">注册</a></li></ul></div>';
+	}
+	$("#loginBox").html(a9vgUserLoginStatus);
+</script>			</div>
+		</div>
+		<!-- 最顶部导航 end -->
+		
+		<div class="wrap" id="ad-background-top">
+			
+			<!-- 次顶部导航 start -->
+			<div class="nav">
+	<div class="logo">
+		<a href="http://www.a9vg.com/" target="_blank" title="A9VG"></a>
+	</div>
+	<div class="nav-links gap gap36">
+		<ul class="clearfix">
+			<li class="li-1">
+				<div class="clearfix">
+					<a href="http://www.a9vg.com/" target="_blank">首页</a>
+					<a href="http://www.a9vg.com/news/" target="_blank">新闻</a>
+					<a href="http://www.a9vg.com/strategy/" target="_blank">攻略</a>
+					<a href="http://www.a9vg.com/review/" target="_blank">评测</a>
+					<a href="http://www.a9vg.com/hardware/" target="_blank">硬件</a>
+				</div>
+				<div class="clearfix">
+					<a href="http://www.a9vg.com/psn/" target="_blank">PSN</a>
+					<a href="http://www.a9vg.com/game" target="_blank">游戏库</a>
+					<a href="http://www.a9vg.com/game/release" target="_blank">发售表</a>
+					<a href="http://www.a9vg.com/game/top/" target="_blank">排行榜</a>
+					<span class="lt-item">
+						<a href="http://bbs.a9vg.com/forum.php" target="_blank" class="lt arr-d">论坛</a>
+						<div class="lt-detail detail">
+							<div class="gap gap14">
+								<ul class="clearfix">
+									<li><a href="http://bbs.a9vg.com/forum-261-1.html" target="_blank">游戏新闻特区</a></li>
+									<li><a href="http://bbs.a9vg.com/forum-610-1.html" target="_blank">PS4讨论区</a></li>
+									<li><a href="http://bbs.a9vg.com/forum-661-1.html" target="_blank">NS讨论区</a></li>
+									<!--<li><a href="http://bbs.a9vg.com/forum-139-1.html" target="_blank">怀旧游戏长廊</a></li>-->
+									<li><a href="http://bbs.a9vg.com/forum-640-1.html" target="_blank">Steam讨论区</a></li>
+									<li><a href="http://bbs.a9vg.com/forum-609-1.html" target="_blank">Xbox讨论区</a></li>
+									<li><a href="http://bbs.a9vg.com/forum-12-1.html" target="_blank">信步闲庭</a></li>
+								</ul>
+							</div>
+						</div>
+					</span>
+				</div>
+			</li>
+			<li class="li-2">
+				<div class="clearfix">
+					<a href="http://www.a9vg.com/ps4/" target="_blank">PS4</a>
+					<a href="http://www.a9vg.com/xboxone/" target="_blank">Xbox</a>
+					<a href="http://www.a9vg.com/switch/" target="_blank">Switch</a>
+				</div>
+				<div class="clearfix">
+					<a href="http://www.a9vg.com/psv/" target="_blank">PSV</a>
+					<a href="http://www.a9vg.com/3ds/" target="_blank">3DS</a>
+					<a href="http://www.a9vg.com/pc/" target="_blank">PC</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="search">
+		<form action="">
+			<input class="txt" type="text" placeholder="输入信息，查找游戏">
+			<div class="btn">
+				<span>
+					<input type="button">
+				</span>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var $searchBtn = $('.search .btn'), 
+		$searchTxt = $('.search .txt');
+	$searchBtn.click(function() {
+		var txt = $searchTxt.val();
+		if (txt != '') window.open('http://www.baidu.com/s?wd=site:www.a9vg.com ' + txt);
+	});
+	$searchTxt.keypress(function(e) {
+		if (e.keyCode == 13) $searchBtn.click();
+	});
+</script>			<!-- 次顶部导航 end -->
+			
+			<!-- 热门推荐 start -->
+			<div class="section1 combine1 mt10">
+	<div class="tab-nav gap gap16" data-action="tab">
+		<ul class="shift20 clearfix">
+			<li class="cur"><span>热门游戏</span></li>
+			<li><span>100小时+</span></li>
+			<li><span>万众期待</span></li>
+			<li><span>怀旧经典</span></li>
+			<li><span>恐怖游戏</span></li>
+			<li><span>硬核专家</span></li>
+			<li><span>聚会必备</span></li>
+			<li><span>超强画质</span></li>
+		</ul>
+	</div>
+	<div class="tab-ctns mt20" id="hotTags"></div>
+</div>
+
+<script type="text/javascript">
+	a9Site.api('game/api/tags_list', null, function(data) {
+		hotTags(data);
+	});	
+	function hotTags(data) {
+		var tags = ['热门游戏', '100小时+', '万众期待', '怀旧经典', '恐怖系', '硬核专家', '聚会必备', '超强画质'];
+		var arr = [];
+		$.each(tags, function(i,j){
+			arr.push('<div class="tab-ctn" style="' + (i == 0 ? 'display: block;' : '') + '">');
+			if(j == '热门游戏'){
+				arr.push('<div class="txt-o-img toi-1"><ul class="clearfix">');
+			} else {
+				arr.push('<div class="txt-o-img toi-2"><ul class="clearfix">');
+			}
+
+			if(data[j] && data[j].length > 0) {
+				$.each(data[j], function(m, n){
+					arr.push('<li><a class="img-scale" href="/game/' + n.id + '" target="_blank"><img src="' + n.cover + '" alt=""><h3 class="txt-mask">' + n.name + '</h3></a>');
+					//arr.push( j == '热门游戏' ? '' : '<i class="score">' + n.a9_rating + '</i>');
+					arr.push( j == '热门游戏' ? '' : (n.a9_rating > 0 ? ('<i class="score">' + n.a9_rating + '</i>') : ''));
+					arr.push('</li>');
+				});
+			} else {
+				arr.push('<li>暂无信息</li>');
+			}
+
+			arr.push('</ul></div>');
+
+			if(j == '热门游戏'){
+				arr.push('<div class="txt-orders"> <div class="txt-order gap gap10"> <ul class="clearfix"> <li class="cur"><a href="http://www.a9vg.com/game/271" target="_blank">仁王</a></li> <li><a href="http://www.a9vg.com/game/274" target="_blank">如龙6</a></li> <li class="cur"><a href="http://www.a9vg.com/game/301" target="_blank">血源诅咒</a></li> <li><a href="http://www.a9vg.com/game/237" target="_blank">奥丁领域</a></li> <li class="cur"><a href="http://www.a9vg.com/game/82" target="_blank">黑暗之魂3</a></li> <li><a href="http://www.a9vg.com/game/179" target="_blank">DQ建造者</a></li> <li class="cur"><a href="http://www.a9vg.com/game/671" target="_blank">COD二战</a></li> <li><a href="http://www.a9vg.com/game/230" target="_blank">死或生沙排3</a></li> <li><a href="http://www.a9vg.com/game/178" target="_blank">最终幻想15</a></li> <li><a href="http://www.a9vg.com/game/339" target="_blank">暴雨 重制版</a></li> <li><a href="http://www.a9vg.com/game/609" target="_blank">怪物猎人XX</a></li> <li><a href="http://www.a9vg.com/game/85" target="_blank">最后的守护者</a></li> <li class="cur"><a href="http://www.a9vg.com/game/640" target="_blank">真三国无双8</a></li> <li><a href="http://www.a9vg.com/game/219" target="_blank">DQ英雄集结2</a></li> <li><a href="javascript:void(0);" target="_blank">SD高达G创世纪</a></li> </ul> </div> <div class="txt-order gap gap10"> <ul class="clearfix"> <li><a href="http://www.a9vg.com/game/449" target="_blank">机战V</a></li> <li class="cur"><a href="http://www.a9vg.com/game/77" target="_blank">地平线</a></li> <li><a href="http://www.a9vg.com/game/203" target="_blank">全境封锁</a></li> <li><a href="http://www.a9vg.com/game/452" target="_blank">看门狗2</a></li> <li><a href="http://www.a9vg.com/game/84" target="_blank">合金装备5</a></li> <li class="cur"><a href="http://www.a9vg.com/game/436" target="_blank">生化危机7</a></li> <li><a href="http://www.a9vg.com/game/650" target="_blank">喷射战士2</a></li> <li><a href="http://www.a9vg.com/game/8" target="_blank">GTA5</a></li> <li><a href="http://www.a9vg.com/game/664" target="_blank">火焰纹章回声</a></li> <li class="cur"><a href="http://www.a9vg.com/game/93" target="_blank">女神异闻录5</a></li> <li><a href="http://www.a9vg.com/game/450" target="_blank">最终幻想12</a></li> <li><a href="http://www.a9vg.com/game/735" target="_blank">马里奥+疯兔</a></li> <li><a href="http://www.a9vg.com/game/731" target="_blank">刺客信条起源</a></li> <li><a href="http://www.a9vg.com/game/373" target="_blank">精灵宝可梦日月</a></li> <li class="cur"><a href="http://www.a9vg.com/game/799" target="_blank">绝地求生大逃杀</a></li> </ul> </div> <div class="txt-order gap gap10"> <ul class="clearfix"> <li><a href="http://www.a9vg.com/game/86" target="_blank">辐射4</a></li> <li><a href="http://www.a9vg.com/game/98" target="_blank">风之旅人</a></li> <li class="cur"><a href="http://www.a9vg.com/game/540" target="_blank">命运2</a></li> <li><a href="http://www.a9vg.com/game/19" target="_blank">最后生还者</a></li> <li class="cur"><a href="http://www.a9vg.com/game/319" target="_blank">GT赛车</a></li> <li class="cur"><a href="http://www.a9vg.com/game/75" target="_blank">神秘海域4</a></li> <li class="cur"><a href="http://www.a9vg.com/game/758" target="_blank">极限竞速7</a></li> <li class="cur"><a href="http://www.a9vg.com/game/92" target="_blank">尼尔机械纪元</a></li> <li><a href="http://www.a9vg.com/game/215" target="_blank">神秘海域合集</a></li> <li class="cur"><a href="http://www.a9vg.com/game/33" target="_blank">巫师3狂猎</a></li> <li><a href="http://www.a9vg.com/game/280" target="_blank">新大众高尔夫</a></li> <li><a href="http://www.a9vg.com/game/711" target="_blank">马里奥赛车8</a></li> <li><a href="http://www.a9vg.com/game/410" target="_blank">塞尔达荒野之息</a></li> <li class="cur"><a href="http://www.a9vg.com/game/229" target="_blank">勇者斗恶龙11</a></li> <li><a href="http://www.a9vg.com/game/661" target="_blank">NBA2K18</a></li> </ul> </div> </div>'); 
+			}
+
+			arr.push('</div>');
+		});
+		$("#hotTags").html(arr.join(''));
+	}
+</script>			<!-- 热门推荐 end -->
+			
+			<!-- 广告 通栏一 -->
+			<div class="ad mt30" style="background-color:white;"> <script type="text/javascript">SG_GG(3980);</script> </div>
+			
+			<!-- 新闻区 start -->
+			<div class="section2 mt40">
+	<div class="col3 clearfix">
+		<div class="col-l">
+			<!-- 焦点图 start -->
+			<div class="slide-wrap">
+				<div class="slide-index">
+					<i>0</i><em>/ 0</em>
+				</div>
+				<div class="bd">
+					<ul>
+																																	<li>
+								<a href="http://www.a9vg.com/news/201807/7902219791.html" target="_blank">
+									<img src="http://img.a9vg.com/2018/07/11/129f01676c187994b87858ac629ce8a4.jpeg" alt="">
+									<h3 class="txt-mask">《英雄传说 闪之轨迹4》艾丝蒂尔/约修亚/玲确定登场</h3>
+								</a>
+							</li>
+																												<li>
+								<a href="http://www.a9vg.com/news/201807/5191219761.html" target="_blank">
+									<img src="http://img.a9vg.com/2018/07/10/e32bc5ca25b5e0a431914671366c17a1.jpeg" alt="">
+									<h3 class="txt-mask">《怪物猎人世界》PC版发售日和售价确定 配置需求公开</h3>
+								</a>
+							</li>
+																												<li>
+								<a href="http://www.a9vg.com/news/201807/1554719751.html" target="_blank">
+									<img src="http://img.a9vg.com/2018/07/09/b11d23beee804964e3ad67158f37109e.jpeg" alt="">
+									<h3 class="txt-mask">SIE宣布2018 PlayStation中国发布会将于8月2日在上海举办</h3>
+								</a>
+							</li>
+																												<li>
+								<a href="http://www.a9vg.com/news/201807/7499119730.html" target="_blank">
+									<img src="http://img.a9vg.com/2018/07/08/e56f95f942ea6b7ba9947082e766de45.jpeg" alt="">
+									<h3 class="txt-mask">好莱坞版高达在即 回顾一下那些欧美人改编的日漫电影</h3>
+								</a>
+							</li>
+																												<li>
+								<a href="http://www.a9vg.com/news/201807/5497119737.html" target="_blank">
+									<img src="http://img.a9vg.com/2018/07/07/3bb748dcbbc79f20f9c6e83432d0fa22.jpeg" alt="">
+									<h3 class="txt-mask">腾讯WeGame发布会汇总 《怪物猎人世界》《真三国无双8》</h3>
+								</a>
+							</li>
+																												<li>
+								<a href="http://www.a9vg.com/news/201807/7314419729.html" target="_blank">
+									<img src="http://img.a9vg.com/2018/07/06/bede10067e14ced43ef2c4f5207673e7.jpeg" alt="">
+									<h3 class="txt-mask">2018年ChinaJoy新闻发布会在沪召开 六大亮点先睹为快</h3>
+								</a>
+							</li>
+																									</ul>
+				</div>
+				<a class="page prev" href="javascript:void(0)"></a>
+				<a class="page next" href="javascript:void(0)"></a>
+			</div>
+			<!-- 焦点图 end -->
+
+			<!-- 评测中心 start -->
+			<div class="pc-box">
+				<h2 class="title">
+					<a class="more-link" href="http://www.a9vg.com/game/review/" target="_blank">更多>></a>
+					<a class="sub" href="http://www.a9vg.com/game/review/" target="_blank">评测中心</a>
+				</h2>
+				<!-- <span class="circle-score score-5">0.5</span>
+				<span class="circle-score score-10">1.0</span>
+				<span class="circle-score score-15">1.5</span>
+				<span class="circle-score score-20">2.0</span>
+				<span class="circle-score score-25">2.5</span>
+				<span class="circle-score score-30">3.0</span>
+				<span class="circle-score score-35">3.5</span>
+				<span class="circle-score score-40">4.0</span>
+				<span class="circle-score score-45">4.5</span>
+				<span class="circle-score score-50">5.0</span>
+				<span class="circle-score score-55">5.5</span>
+				<span class="circle-score score-60">6.0</span>
+				<span class="circle-score score-65">6.5</span>
+				<span class="circle-score score-70">7.0</span>
+				<span class="circle-score score-75">7.5</span>
+				<span class="circle-score score-80">8.0</span>
+				<span class="circle-score score-85">8.5</span>
+				<span class="circle-score score-90">9.0</span>
+				<span class="circle-score score-95">9.5</span>
+				<span class="circle-score score-100">10</span> -->
+				<div class="txt-r-img mt10">
+																												<dl>
+							<dt>
+								<a class="img-scale" href="http://www.a9vg.com/review/201807/2688319678.html" target="_blank">
+									<img src="http://img.a9vg.com/2018/07/04/c213761a125d73383a0c4059e4af94e0.jpeg" alt="">
+								</a>
+							</dt>
+							<dd>
+								<h3>
+									<a href="http://www.a9vg.com/review/201807/2688319678.html" target="_blank">不思议的幻想乡TODR</a>
+								</h3>
+								<p>			
+									 东方粉丝向游戏，涵盖了大部分人气角色，有让人回味的动力。
+									<span class="gradient"></span>
+								</p>
+								<span class="circle-score">7</span>
+							</dd>
+						</dl>
+																								<dl>
+							<dt>
+								<a class="img-scale" href="http://www.a9vg.com/review/201807/1376519645.html" target="_blank">
+									<img src="http://img.a9vg.com/2018/07/03/fb54ed7d6f414c311323e099c4059266.jpeg" alt="">
+								</a>
+							</dt>
+							<dd>
+								<h3>
+									<a href="http://www.a9vg.com/review/201807/1376519645.html" target="_blank">心灵队长</a>
+								</h3>
+								<p>			
+									 作为一款预告向游戏作品，本作很好地让玩家勾起了对于续作的兴趣。
+									<span class="gradient"></span>
+								</p>
+								<span class="circle-score">7.5</span>
+							</dd>
+						</dl>
+																								<dl>
+							<dt>
+								<a class="img-scale" href="http://www.a9vg.com/review/201806/8722819465.html" target="_blank">
+									<img src="http://img.a9vg.com/2018/07/02/deb13e55d28468fc8e0fcd980689cf57.jpeg" alt="">
+								</a>
+							</dt>
+							<dd>
+								<h3>
+									<a href="http://www.a9vg.com/review/201806/8722819465.html" target="_blank">火星记忆</a>
+								</h3>
+								<p>			
+									 打算蹭上大逃杀游戏的热门，但游戏整体素质却欠缺打磨。
+									<span class="gradient"></span>
+								</p>
+								<span class="circle-score">5</span>
+							</dd>
+						</dl>
+																								<dl>
+							<dt>
+								<a class="img-scale" href="http://www.a9vg.com/review/201806/7336319594.html" target="_blank">
+									<img src="http://img.a9vg.com/2018/07/02/c910f029de759766d310a2d44df97560.jpeg" alt="">
+								</a>
+							</dt>
+							<dd>
+								<h3>
+									<a href="http://www.a9vg.com/review/201806/7336319594.html" target="_blank">飙酷车神2</a>
+								</h3>
+								<p>			
+									 海陆空三位一体带来了多方位的竞速体验，但细节还欠缺打磨
+									<span class="gradient"></span>
+								</p>
+								<span class="circle-score">7.5</span>
+							</dd>
+						</dl>
+																					</div>
+			</div>
+			<!-- 评测中心 end -->
+
+			<!-- 论坛热版 start -->
+			<div class="lt-hot">
+				<h2 class="title">
+					<a class="more-link" href="http://bbs.a9vg.com/forum.php" target="_blank">更多>></a>
+					<a class="sub" href="http://bbs.a9vg.com/forum.php" target="_blank">论坛热版</a>
+				</h2>
+				<div class="color-list mt10">
+					<ul>
+																																										<li class="cl-1">
+																	<a href="http://bbs.a9vg.com/forum-677-1.html" target="_blank">E3 2018</a>
+								</li>		   
+																																					<li class="cl-2">
+																	<a href="http://bbs.a9vg.com/forum-447-1.html" target="_blank">2018俄罗斯世界杯</a>
+								</li>		   
+																																					<li class="cl-3">
+																	<a href="http://bbs.a9vg.com/forum-610-1.html" target="_blank">PS4综合讨论区</a>
+								</li>		   
+																																					<li class="cl-4">
+																	<a href="http://bbs.a9vg.com/forum-609-1.html" target="_blank">Xbox One综合讨论区</a>
+								</li>		   
+																																					<li class="cl-5">
+																	<a href="http://bbs.a9vg.com/forum-661-1.html" target="_blank">Switch综合讨论区</a>
+								</li>		   
+																																					<li class="cl-6">
+																	<a href="http://bbs.a9vg.com/forum-640-1.html" target="_blank">PC/Steam综合讨论区</a>
+								</li>		   
+																									</ul>
+				</div>
+				<div class="dot-list mt12">
+					<ul class="list">
+																																	<li>
+								<span>
+									<a href="http://bbs.a9vg.com/thread-5365983-1-1.html" target="_blank">PS4上还有和巫师3一样讲良心的游戏吗？</a>
+								</span>
+							</li>
+																												<li>
+								<span>
+									<a href="http://bbs.a9vg.com/thread-5365989-1-1.html" target="_blank">[A9足球竞猜 1267] 7月11日 Day 28</a>
+								</span>
+							</li>
+																												<li>
+								<span>
+									<a href="http://bbs.a9vg.com/thread-5365798-1-1.html" target="_blank">关于这次PC上的猛汉王 大家怎么看？</a>
+								</span>
+							</li>
+																												<li>
+								<span>
+									<a href="http://bbs.a9vg.com/thread-5365873-1-1.html" target="_blank">Switch《堡垒之夜》评测</a>
+								</span>
+							</li>
+																									</ul>
+				</div>
+			</div>
+			<!-- 论坛热版 end -->
+
+		</div>
+		<div class="col-m">
+			<div class="rec-list">
+				<ul>
+																												<li>
+							<a href="http://www.a9vg.com/news/201807/9778919808.html" target="_blank">工长君采访：九霄单机游戏要颠覆传统仙侠</a>
+						</li>
+																								<li>
+							<a href="http://www.a9vg.com/news/201807/2412819783.html" target="_blank">《FF8》莉诺雅参战《最终幻想纷争NT》</a>
+						</li>
+																					</ul>
+			</div>
+
+			<div class="assort-list mt15">
+				<ul class="list">
+																																								<li>
+													<!--<em>新闻</em>-->
+																																			                            <em>NS</em>
+																					<span>
+								<a href="http://www.a9vg.com/news/201807/6469619821.html" target="_blank">《异度神剑2》光的仆从“塞壬”寿屋模型发售日公布</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			                            <em>NS</em>
+																					<span>
+								<a href="http://www.a9vg.com/news/201807/6356819818.html" target="_blank">《太鼓达人Switch》新宣传视频公布 日本网红表演B-Box</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/6263419817.html" target="_blank">《勇者海王星》OP开场动画欣赏 风格迥异这次颇为正经</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/6104119816.html" target="_blank">《奈尔克与传说的炼金术士们》公开战斗画面 最大5人组队</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/5732319815.html" target="_blank">《如龙》制作人谈论登陆Switch与XboxOne平台的可能性</a>
+							</span>
+						</li>
+																																			<li class="cur">
+													<!--<em>新闻</em>-->
+																																			<em>新闻</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/2709119814.html" target="_blank">怪物猎人3D动画《怪物猎人：公会传奇》发表！2019年推出</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/2301019813.html" target="_blank">《无双大蛇3》公开约12分钟试玩演示与PS4实机截图画面</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>视频</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/video/201807/1926819812.html" target="_blank">《宵星传说 决定版》AX2018宣传视频 全平台中文版今冬推出</a>
+							</span>
+						</li>
+									</ul>
+			</div>
+
+			<div class="assort-list mt15">
+				<ul class="list">
+																																								<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/0215519811.html" target="_blank">《光明之响 龙奏回音》NS中文版已发售 NS和PS4版画面对比</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/9787819809.html" target="_blank">《极限竞速：地平线4》45分钟试玩 惊艳夏季使人过目不忘</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			                            <em>NS</em>
+																					<span>
+								<a href="http://www.a9vg.com/news/201807/9842819810.html" target="_blank">NS版《大神 绝景版》eCapcom限定版联动物品公开实物售价</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>新闻</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/9778919808.html" target="_blank">工长君采访：打造“九霄”世界观的单机游戏 颠覆传统仙侠</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			                            <em>NS</em>
+																					<span>
+								<a href="http://www.a9vg.com/news/201807/9769219807.html" target="_blank">《美妙世界 最终混合》经销商称9月27日将同步推出中文版</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/9566219806.html" target="_blank">已开发三年的机甲射击游戏《泰坦天降OL》宣布终止开发</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																										<em>Steam</em>
+																					<span>
+								<a href="http://www.a9vg.com/news/201807/8915119804.html" target="_blank">7月11日Steam优惠推荐：Headupgame专场、过山车之星</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/8946819805.html" target="_blank">《噬血代码》宣布延期到2019年发售 为了提升游戏的品质</a>
+							</span>
+						</li>
+									</ul>
+			</div>
+
+			<div class="assort-list mt15">
+				<ul class="list">
+																																								<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/8408019799.html" target="_blank">《罗罗娜/托托莉/梅露露的工作室DX》游戏画面 9月20日发售</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/8117219796.html" target="_blank">《无人深空》新视频总结11个自游戏发售后两年来新增的改变</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/8306119797.html" target="_blank">《魔界战记》《夜廻》《鲁弗兰》等作品都会积极推出续作</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																										<em>PC</em>
+																					<span>
+								<a href="http://www.a9vg.com/news/201807/8010919795.html" target="_blank">全新传感器加持的竞技神器 罗技G304无线游戏鼠标评测</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/8009319794.html" target="_blank">《孤岛惊魂5》DLC“火星迷航记”公布 7月17日登陆</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																			<em>Mul</em>
+														<span>
+								<a href="http://www.a9vg.com/news/201807/7889719790.html" target="_blank">本周Fami通新作评分 《封闭的恶梦》《杀戮的天使》等</a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																										<em>PS4</em>
+																					<span>
+								<a href="http://www.a9vg.com/news/201807/7902219791.html" target="_blank">《英雄传说 闪之轨迹4》艾丝蒂尔/约修亚/玲确定登场 </a>
+							</span>
+						</li>
+																																			<li>
+													<!--<em>新闻</em>-->
+																																										<em>PS4</em>
+																					<span>
+								<a href="http://www.a9vg.com/news/201807/7804119789.html" target="_blank">《VR手办from光明 雾香》上架 校园制服与海边泳装同步推出</a>
+							</span>
+						</li>
+									</ul>
+			</div>
+
+			<a class="more-btn" href="http://www.a9vg.com/news/" target="_blank">
+				<span>更多新闻</span>
+			</a>
+
+			<div class="assort-list mt15">
+				<ul class="list">
+																						<li>
+													<em>厂商</em>
+							<span>
+								<a href="http://www.a9vg.com/news/201807/8770619803.html" target="_blank">助力数字娱乐全球化，中国台湾展团确认参展2018ChinaJoy BTOB</a>
+							</span>
+						</li>
+																	<li>
+													<em>厂商</em>
+							<span>
+								<a href="http://www.a9vg.com/news/201807/8744819802.html" target="_blank">腾讯游戏Gcloud确认参展2018ChinaJoy BTOB</a>
+							</span>
+						</li>
+																	<li>
+													<em>厂商</em>
+							<span>
+								<a href="http://www.a9vg.com/news/201807/8545519801.html" target="_blank">荣耀电竞（广州）网络科技有限公司将于2018年ChinaJoy BTOC展区精彩亮相</a>
+							</span>
+						</li>
+																	<li>
+													<em>厂商</em>
+							<span>
+								<a href="http://www.a9vg.com/news/201807/8458019800.html" target="_blank">美国高通公司全球副总裁Don McGuire将出席2018全球游戏产业峰会</a>
+							</span>
+						</li>
+																	<li>
+													<em>厂商</em>
+							<span>
+								<a href="http://www.a9vg.com/news/201807/8364319798.html" target="_blank">2018年第十六届ChinaJoy展前预览（BTOB篇）正式发布！</a>
+							</span>
+						</li>
+									</ul>
+			</div>
+		</div>
+		<div class="col-r">
+			<h2 class="title shift">
+				<a class="more-link" href="http://www.a9vg.com/game/release" target="_blank">更多>></a>
+				<a class="sub" href="http://www.a9vg.com/game/release" target="_blank">游戏发售表</a>
+			</h2>
+			<div id="releaseSheet" data-tab-nav="全部,PS4,Xbox,Switch,PC"></div>
+
+			<h2 class="title">
+				<a class="sub" href="javascript:void(0);" target="_blank">专题集合</a>
+			</h2>
+			<div class="img-list mt20">
+				<ul>
+																												<li>
+							<a class="img-scale" href="http://www.a9vg.com/news/201806/1588219579.html" target="_blank">
+								<img src="http://img.a9vg.com/2017/11/15/26c0e57d2c9428e58d3852696cc439d1.jpeg" alt="">
+							</a>
+						</li>
+																								<li>
+							<a class="img-scale" href="http://www.a9vg.com/e3.html" target="_blank">
+								<img src="http://img.a9vg.com/2018/06/06/2a2aff2f7c667f86aad41ed0dd9dd96b.jpeg" alt="">
+							</a>
+						</li>
+																								<li>
+							<a class="img-scale" href="https://srw.huijiwiki.com/" target="_blank">
+								<img src="http://img.a9vg.com/2018/05/15/c590553c8663d1c824ee2963d042e290.jpeg" alt="">
+							</a>
+						</li>
+																					</ul>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	//nav
+	var $releaseSheets = $('#releaseSheet'), arrNav = [], plts = $releaseSheets.attr("data-tab-nav").split(",");
+	arrNav.push('<div class="tab-nav gap gap12" data-action="tab"><ul class="clearfix">');
+	$.each(plts, function(n, v) {
+		arrNav.push('<li class="' + (n == 0 ? 'cur' : '') + '"><span>' + v + '</span></li>');
+	});
+	arrNav.push('</ul></div>');
+	$releaseSheets.html(arrNav.join(''));
+	
+	//ctn
+	a9Site.api('game/api/release_list', null, function(data) {
+		renderReleaseSheets(data);
+	});
+	function renderReleaseSheets(data) {
+		var arr = [];
+		arr.push('<div class="tab-ctns mt10">');
+		$.each(plts, function(n, v) {
+			arr.push('<div class="tab-ctn" style="' + (n == 0 ? 'display:block' : '') + '">');
+			arr.push('<div class="circle-list shift"><ul class="list">');
+			if (data[v] && data[v].length > 0) {
+				$.each(data[v], function(i, g) {
+					arr.push('<li><span>');
+					arr.push('<a href="/game/' + g.id + '" target="_blank">' + g.name + '</a>');
+					arr.push('<p class="clearfix">');
+					$.each(g.platforms, function(j, plt) {
+						if(j<4){
+						arr.push('<a class="label ' + a9Site.labelClass(plt) + '" target="_blank" href="/game/' + plt.toLowerCase() + '"></a>');
+						}
+					});
+					arr.push('</p></span>');
+					arr.push('<i class="time">' + a9Site.getDate(g.release_date, " / ", false, true, true) + '</i>');
+					arr.push('</li>');
+
+				});
+			} else {
+				arr.push('<li>暂无信息</li>')
+			}
+			arr.push('</ul></div></div>');
+		});
+		arr.push('</div>');
+		$releaseSheets.append(arr.join(''));
+	}
+</script>
+			<!-- 新闻区 end -->
+			
+			<!-- 广告 通栏二 -->
+			<div class="ad mt30" style="background-color:white;"> <script type="text/javascript">SG_GG(3981);</script> </div>
+			
+			<!-- 视频区 start -->
+			<div class="section3 mt20">
+	<h2 class="title">
+		<a class="more-link" href="http://www.a9vg.com/video/ " target="_blank">更多>></a>
+		<a class="sub" href="http://www.a9vg.com/video/" target="_blank">视频</a>
+	</h2>
+	<div class="video-list mt20">
+		<ul class="clearfix">
+			 
+						<li>
+				<a href="http://www.a9vg.com/video/201807/1926819812.html" target="_blank">
+					<img src="http://img.a9vg.com/games/2018/07/11/2a2c3250eaa7756fe09e900b1166553c_w320.jpeg" alt="">
+					<h3 class="txt-mask">
+						<span>《宵星传说 决定版》AX2018宣传视频 全平台中文版今冬推出</span>
+					</h3>
+					<div class="part-mask"></div>
+					<i class="play"></i>
+				</a>
+			</li>
+						<li>
+				<a href="http://www.a9vg.com/video/201807/0289219746.html" target="_blank">
+					<img src="http://img.a9vg.com/games/2018/07/09/8ed4d22dd224c1f041fb7f20e87cb44b_w320.jpeg" alt="">
+					<h3 class="txt-mask">
+						<span>《神狱塔断罪玛丽2》售前宣传片 将与《死亡终局》联动</span>
+					</h3>
+					<div class="part-mask"></div>
+					<i class="play"></i>
+				</a>
+			</li>
+						<li>
+				<a href="http://www.a9vg.com/video/201807/0156619745.html" target="_blank">
+					<img src="http://img.a9vg.com/games/2018/07/09/2ce102055e277dc9947d5f86bcd7ff90_w320.jpeg" alt="">
+					<h3 class="txt-mask">
+						<span>《东京喰种:re CALL to EXIST》宣传片 对应PS4与PC平台</span>
+					</h3>
+					<div class="part-mask"></div>
+					<i class="play"></i>
+				</a>
+			</li>
+						<li>
+				<a href="http://www.a9vg.com/video/201807/4449719735.html" target="_blank">
+					<img src="http://img.a9vg.com/games/2018/07/07/b57fea47b9d41f18fbb0ca22eae1d442_w320.jpeg" alt="">
+					<h3 class="txt-mask">
+						<span>怪物猎人世界的马路牙子战神改玩铳枪了 1分半讨伐灭尽龙</span>
+					</h3>
+					<div class="part-mask"></div>
+					<i class="play"></i>
+				</a>
+			</li>
+						<li>
+				<a href="http://www.a9vg.com/video/201807/8077019713.html" target="_blank">
+					<img src="http://img.a9vg.com/games/2018/07/05/56d10164a78483189eb4c4c18cf57578_w320.jpeg" alt="">
+					<h3 class="txt-mask">
+						<span>《黑色五叶草 骑士四重奏》第二弹宣传视频 展示游戏玩法</span>
+					</h3>
+					<div class="part-mask"></div>
+					<i class="play"></i>
+				</a>
+			</li>
+					</ul>
+	</div>
+</div>			<!-- 视频区 end -->
+			
+			<!-- 攻略大区 start -->
+			<div class="section4 mt20">
+				<div class="col3 clearfix">
+					<div class="col2-l">
+						<div class="limit-item">
+						<h2 class="title">
+							<a class="more-link" href="http://www.a9vg.com/strategy/" target="_blank">更多>></a>
+							<a class="sub" href="http://www.a9vg.com/strategy/" target="_blank">最新攻略大作</a>
+						</h2>
+						<div class="horizontal mt10">
+	<div class="txt-r-img has-links has-order">
+		  
+											<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/game/482" target="_blank">
+							<img src="http://img.a9vg.com/2018/05/03/f953cd2d1e3897f69ff6b9461f7fdf86.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/game/482" target="_blank">战神</a>
+						</h3>
+						<div class="txt-orders">
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201804/2563118392.html" target="_blank">白金攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201804/5878918440.html" target="_blank">全女武神视频攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201804/5878918440.html" target="_blank">挑战攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201804/6984918346.html" target="_blank">渡鸦攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201804/4538618340.html" target="_blank">文物攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/1543218561.html" target="_blank">全符文收集攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+						</div>
+						<div class="links gap gap12">
+							<ul class="clearfix">
+								<li>
+									<a href="http://bbs.a9vg.com/forum-366-1.html" target="_blank">论坛</a>
+								</li>
+								<li>
+									<a href="http://www.a9vg.com/game/482" target="_blank">专区</a>
+								</li>
+							</ul>
+						</div>
+					</dd>
+				</dl>			
+												<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/game/933" target="_blank">
+							<img src="http://img.a9vg.com/2018/05/28/ede12442bba1eb5225295206c68f4bc3.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/game/933" target="_blank">黑暗之魂：重制版</a>
+						</h3>
+						<div class="txt-orders">
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201805/0298818947.html" target="_blank">白金攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/0107318945.html" target="_blank">全誓约获得攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/3822618572.html" target="_blank">全魔法获得攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201805/9196218617.html" target="_blank">全咒术获得攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/3910918573.html" target="_blank">全奇迹获得攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/3514718571.html" target="_blank">全武器获得攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+						</div>
+						<div class="links gap gap12">
+							<ul class="clearfix">
+								<li>
+									<a href="http://bbs.a9vg.com/forum-477-1.html" target="_blank">论坛</a>
+								</li>
+								<li>
+									<a href="http://www.a9vg.com/game/933" target="_blank">专区</a>
+								</li>
+							</ul>
+						</div>
+					</dd>
+				</dl>			
+												<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/game/773" target="_blank">
+							<img src="http://img.a9vg.com/2018/01/26/f42e7fb2a185e4f01e3dd766404a20fc.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/game/773" target="_blank">怪物猎人世界</a>
+						</h3>
+						<div class="txt-orders">
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201801/6114917137.html" target="_blank">新手入门</a></li>
+									<li><a href="http://www.a9vg.com/guide/201801/9311717198.html" target="_blank">全怪物弱点</a></li>
+									<li><a href="http://www.a9vg.com/guide/201801/8490817250.html" target="_blank">实用心得攻略合集</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201801/7710817214.html" target="_blank">随从猫全道具</a></li>
+									<li><a href="http://www.a9vg.com/guide/201802/7961317315.html" target="_blank">不动衣装获得攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201801/8305017219.html" target="_blank">全衣装获得攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+						</div>
+						<div class="links gap gap12">
+							<ul class="clearfix">
+								<li>
+									<a href="http://bbs.a9vg.com/forum-675-1.html" target="_blank">论坛</a>
+								</li>
+								<li>
+									<a href="http://www.a9vg.com/game/773" target="_blank">专区</a>
+								</li>
+							</ul>
+						</div>
+					</dd>
+				</dl>			
+												<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/game/309" target="_blank">
+							<img src="http://img.a9vg.com/2018/05/28/0edd81269fd7ba59ca66874a581f3701.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/game/309" target="_blank">底特律：成为人类</a>
+						</h3>
+						<div class="txt-orders">
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201805/5380918905.html" target="_blank">白金攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/2524318915.html" target="_blank">康纳全死路线</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/3229118884.html" target="_blank">全员生还攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201805/6463318869.html" target="_blank">全杂志攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/5192618901.html" target="_blank">康纳叛变条件</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/5661518908.html" target="_blank">耶利哥搜查攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+						</div>
+						<div class="links gap gap12">
+							<ul class="clearfix">
+								<li>
+									<a href="http://bbs.a9vg.com/forum-676-1.html" target="_blank">论坛</a>
+								</li>
+								<li>
+									<a href="http://www.a9vg.com/game/309" target="_blank">专区</a>
+								</li>
+							</ul>
+						</div>
+					</dd>
+				</dl>			
+												<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/game/897" target="_blank">
+							<img src="http://img.a9vg.com/2018/05/03/317b0d7b895ed5427d72d60e7b11b02a.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/game/897" target="_blank">战场女武神4</a>
+						</h3>
+						<div class="txt-orders">
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201805/3204418704.html" target="_blank">白金攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/1489218694.html" target="_blank">全勋章攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/3440518680.html" target="_blank">全武器攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201802/1925217637.html" target="_blank">全任务S评价攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/3383118679.html" target="_blank">全王牌攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201805/3690518649.html" target="_blank">全战车装备攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+						</div>
+						<div class="links gap gap12">
+							<ul class="clearfix">
+								<li>
+									<a href="http://bbs.a9vg.com/forum-444-1.html" target="_blank">论坛</a>
+								</li>
+								<li>
+									<a href="http://www.a9vg.com/game/897" target="_blank">专区</a>
+								</li>
+							</ul>
+						</div>
+					</dd>
+				</dl>			
+												<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/game/658" target="_blank">
+							<img src="http://img.a9vg.com/2018/07/05/9a354c9b59e47862b8475fd299b34e97.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/game/658" target="_blank">八途旅人</a>
+						</h3>
+						<div class="txt-orders">
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201807/0149219698.html" target="_blank">弱点攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201807/1188419674.html" target="_blank">剑客技能攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201807/0030619634.html" target="_blank">猎人技能攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201806/2236219540.html" target="_blank">中文流程攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201807/1243319675.html" target="_blank">佣兵召唤攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201807/7302919687.html" target="_blank">药师调合攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+						</div>
+						<div class="links gap gap12">
+							<ul class="clearfix">
+								<li>
+									<a href="http://bbs.a9vg.com/forum-661-1.html" target="_blank">论坛</a>
+								</li>
+								<li>
+									<a href="http://www.a9vg.com/game/658" target="_blank">专区</a>
+								</li>
+							</ul>
+						</div>
+					</dd>
+				</dl>			
+												<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/game/653" target="_blank">
+							<img src="http://img.a9vg.com/2017/12/25/7f455cf443f8ceafd782fa6f883dacb0.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/game/653" target="_blank">异度神剑2</a>
+						</h3>
+						<div class="txt-orders">
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201712/5665316210.html" target="_blank">系统介绍</a></li>
+									<li><a href="http://www.a9vg.com/guide/201712/7014016224.html" target="_blank">稀有异刃抽卡攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201712/6620016394.html" target="_blank">收纳包喜好攻略</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201712/2522016472.html" target="_blank">史诗核心水晶速刷</a></li>
+									<li><a href="http://www.a9vg.com/guide/201712/5856016217.html" target="_blank">快速赚钱攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201712/5864816643.html" target="_blank">全精英怪位置</a></li>
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+						</div>
+						<div class="links gap gap12">
+							<ul class="clearfix">
+								<li>
+									<a href="http://bbs.a9vg.com/forum-204-1.html" target="_blank">论坛</a>
+								</li>
+								<li>
+									<a href="http://www.a9vg.com/game/653" target="_blank">专区</a>
+								</li>
+							</ul>
+						</div>
+					</dd>
+				</dl>			
+												<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/game/651" target="_blank">
+							<img src="http://img.a9vg.com/2017/11/15/bfee45f36d71a67ef6143aecb9489e7d.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/game/651" target="_blank">超级马里奥 奥德赛</a>
+						</h3>
+						<div class="txt-orders">
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201710/0814015549.html" target="_blank">全紫色硬币收集</a></li>
+									<li><a href="http://www.a9vg.com/guide/201711/0676915669.html" target="_blank">全壁画位置</a></li>
+									<li><a href="http://www.a9vg.com/guide/201711/0638715668.html" target="_blank">跳绳攻略</a></li>
+								
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+							<div class="txt-order gap gap10">
+								<ul class="clearfix">
+																		<li><a href="http://www.a9vg.com/guide/201710/0628015514.html" target="_blank">全月亮收集攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201710/5312115577.html" target="_blank">刷钱攻略</a></li>
+									<li><a href="http://www.a9vg.com/guide/201711/1095415794.html" target="_blank">种子收集攻略</a></li>									
+																	</ul>
+								<span class="gradient"></span>
+							</div>
+						</div>
+						<div class="links gap gap12">
+							<ul class="clearfix">
+								<li>
+									<a href="http://bbs.a9vg.com/forum-372-1.html" target="_blank">论坛</a>
+								</li>
+								<li>
+									<a href="http://www.a9vg.com/game/651" target="_blank">专区</a>
+								</li>
+							</ul>
+						</div>
+					</dd>
+				</dl>			
+								</div>
+</div>						</div>
+					</div>
+					<div class="col-r">
+						<h2 class="title">
+	<a class="sub" href="http://www.a9vg.com/psn/" target="_blank">PSN搜索</a>
+</h2>
+<div class="search mt20">
+	<form id="form_psn_search" method="get" action="/psn/user/search" target="_blank">
+		<input class="txt" type="text" placeholder="请输入PSN ID">
+		<div class="btn">
+			<span>
+				<input type="button" onclick="$('#form_psn_search').submit()">
+			</span>
+		</div>
+	</form>
+</div>						
+						<div class="psn-item-wrap" data-psn-item="">
+							<h2 class="title">
+	<a class="more-link" href="http://www.a9vg.com/psn/" target="_blank">更多>></a>
+	<a class="sub" href="http://www.a9vg.com/psn/" target="_blank">最新奖杯</a>
+</h2>
+<div class="circle-list no-label mt10">
+	<ul class="list">
+	</ul>
+</div>
+
+							<script type="text/javascript">
+								a9Site.psnData();
+							</script>
+						</div>
+	
+					</div>
+				</div>
+			</div>
+			
+			<div class="section5">
+				<div class="col3 clearfix">
+					<div class="col-l">
+	<h2 class="title">
+		<a class="more-link" href="http://www.a9vg.com/trophy/" target="_blank">更多>></a>
+		<a class="sub" href="http://www.a9vg.com/trophy/" target="_blank">奖杯成就</a>
+	</h2>
+	<div class="dot-list mt12">
+		<ul class="list">
+			   
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201806/7607919456.html" target="_blank">《辐射 避难所》全奖杯白金引导攻略 白金要点心得总结</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201806/7690219495.html" target="_blank">《辐射：避难所》巧夺天工奖杯攻略 巧夺天工奖杯解锁条件</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201806/7327819489.html" target="_blank">《辐射：避难所》保家卫国奖杯攻略 防御掠夺者奖杯解法</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201806/9630819080.html" target="_blank">《说谎公主与盲目王子》全花朵收集视频攻略 花朵奖杯攻略</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201806/9122719056.html" target="_blank">《说谎公主与盲目王子》白金攻略 全奖杯收集攻略</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201806/9556819079.html" target="_blank">《说谎公主与盲目王子》全花瓣收集视频攻略 花瓣奖杯攻略</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201806/7661019070.html" target="_blank">《说谎公主与盲目王子》不杀敌过关奖杯解锁视频攻略解说</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201806/8548419052.html" target="_blank">《说谎公主与盲目王子》赏月奖杯视频攻略 与你赏月奖杯</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201806/2178919019.html" target="_blank">《说谎公主与盲目王子》速通奖杯关卡视频攻略解说</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201805/2524318915.html" target="_blank">《底特律：成为人类》康纳全死奖杯视频攻略 康纳全死路线</a>
+				</span>
+			</li>
+					</ul>
+	</div>
+</div>
+<div class="col-m">
+	<h2 class="title">
+		<a class="more-link" href="http://www.a9vg.com/strategy/" target="_blank">更多>></a>
+		<a class="sub" href="http://www.a9vg.com/strategy/" target="_blank">最新攻略</a>
+	</h2>
+	<div class="dot-list mt12">
+		<ul class="list">
+			   
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201807/1841619780.html" target="_blank">《八途旅人》全NPC信息中文攻略 八方旅人全NPC信息一览</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201807/1155719774.html" target="_blank">《马里奥网球ACE》隐藏人物获得方法 马网隐藏角色解锁方式</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201807/1065219772.html" target="_blank">《马里奥网球ACE》全服装获得方法 马网全服装解锁方式</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201807/2609519754.html" target="_blank">《八途旅人》全角色支线任务中文攻略 八方旅人支线一览</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201807/5819519726.html" target="_blank">《八途旅人》稀有装备武器道具掉落攻略 八方旅人重要NPC</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201807/8780219715.html" target="_blank">《八途旅人》快速赚钱中文攻略 八方旅人怎么快速刷钱</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201807/8495019714.html" target="_blank">《八途旅人》快速升级中文攻略 八方旅人怎么快速刷级</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201807/8017819712.html" target="_blank">《八途旅人》正道邪道技能攻略 八方旅人场景指令的区别</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201807/0149219698.html" target="_blank">《八途旅人》敌人弱点中文攻略 八方旅人发现弱点小技巧</a>
+				</span>
+			</li>
+						<li>
+				<span>
+					<a href="http://www.a9vg.com/guide/201807/9792619694.html" target="_blank">《八途旅人》舞女璞露姆萝婕摩诃不思议之舞随机效果攻略</a>
+				</span>
+			</li>
+					</ul>
+	</div>
+</div>					
+					<div class="col-r">
+						<div class="hot-rate-wrap" data-hot-rate="both-8">  
+							<!-- this template needs to be wrapped by a div with classname "hot-rate-wrap" and attr "data-hot-rate"="both/hot/rate-8/10" in diferent situation  -->
+<div class="tab-ctns mt10 raw-rate"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 攻略大区 end -->
+			
+			<!-- 广告 通栏三 -->
+			<div class="ad mt30" style="background-color:white;"> <script type="text/javascript">SG_GG(3982);</script> </div>
+			
+			<!-- 数码区 start -->
+			<div class="section6 mt20">
+	<div class="col3 clearfix">
+		<div class="col-l">
+			<h2 class="title">
+				<a class="more-link" href="http://www.a9vg.com/hardware/" target="_blank">更多>></a>
+				<a class="sub" href="http://www.a9vg.com/hardware/" target="_blank">硬件</a>
+			</h2>
+			<div class="txt-r-img mt10">
+				  
+								<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/news/201807/8306419657.html" target="_blank">
+							<img src="http://img.a9vg.com/games/2018/07/03/125679e56e907fffdb2dbdeed4d86323_w320.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/news/201807/8306419657.html" target="_blank">三款全新造型new2DSLL公开 含动物之森与我的世界主题</a>
+						</h3>
+						<p>
+							任天堂宣布今年夏季将在日本推出三款全新造型的New2DSLL，分别是《动物之森》《马里奥赛车7》《我的世界》特别版掌机。
+							<span class="gradient"></span>
+						</p>
+					</dd>
+				</dl>
+								<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/news/201806/3742019529.html" target="_blank">
+							<img src="http://img.a9vg.com/games/2018/06/24/b0ae0aaaf022ce251f40ae53781c4487_w320.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/news/201806/3742019529.html" target="_blank">Switch竖屏握把配件Flip Grip众筹成功 可垂直游玩NS</a>
+						</h3>
+						<p>
+							任天堂Switch上有一部分游戏支持竖屏游玩，尤其是飞行射击弹幕游戏，比如《斑鸠》《打击者1945》和《南梦宫博物馆》中的部分游戏等等。不过由于Switch竖屏游玩时如果想将掌机本体放在桌上或是捧在手中都略显麻烦，于是就有人在Kickstarter上开启了一个众筹项目——这个名为FlipGrip的握把配件可以让你的Switch在竖屏状态下更舒服。
+							<span class="gradient"></span>
+						</p>
+					</dd>
+				</dl>
+								<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/news/201806/5363619395.html" target="_blank">
+							<img src="http://img.a9vg.com/games/2018/06/15/0be780e947f2f3b47a0661a7e6e6d867_w320.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/news/201806/5363619395.html" target="_blank">详解PS4竞技手柄Vantage 它或许可以帮助你提升游戏水平</a>
+						</h3>
+						<p>
+							上个月，专门从事操控配件设计的Scuf公司（真正的手柄大厂）发表了PS4竞技手柄“Vantage”，由于其花样众多的辅助功能以及可拆卸组装等设计，也被戏称为PS4版的精英手柄。E3期间外媒G.I上手了这个手柄，并对Scuf的工作人员进行了采访，其中有一些有趣的观点。
+							<span class="gradient"></span>
+						</p>
+					</dd>
+				</dl>
+							</div>
+		</div>
+		<div class="col-m">
+			<h2 class="title">
+				<a class="more-link" href="http://www.a9vg.com/digireview/" target="_blank">更多>></a>
+				<a class="sub" href="http://www.a9vg.com/digireview/" target="_blank">评测</a>
+			</h2>
+			<div class="txt-r-img mt10">
+				  
+								<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/news/201807/8010919795.html" target="_blank">
+							<img src="http://img.a9vg.com/games/2018/07/11/009de9e3adf45d63c0104409eff6ba88_w320.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/news/201807/8010919795.html" target="_blank">全新传感器加持的竞技神器 罗技G304无线游戏鼠标评测</a>
+						</h3>
+						<p>
+							一直以来，延迟和连接不稳是很多玩家对无线游戏键鼠的固有看法。因此一款反应精准灵敏、手感轻盈、电量持久又能摆脱有线束缚的游戏装备，变成了广大游戏玩家的迫切需要。作为游戏外设重量级品牌，罗技G五月发布了G304LIGHTSPEED无线游戏鼠标。采用了LIGHTSPEED™无线技术和新一代HERO传感器的这款无线鼠标，是否能够打破一直以来这类产品的性能“痛点”，助力玩家“吃鸡”，我们现在来上手体验一下。
+							<span class="gradient"></span>
+						</p>
+					</dd>
+				</dl>
+								<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/news/201805/8120218736.html" target="_blank">
+							<img src="http://img.a9vg.com/games/2018/05/15/b70d3459174620cae5839aeb889ebcb4_w320.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/news/201805/8120218736.html" target="_blank">还是那么大！初代Xbox手柄「Duke」复刻版开箱与详解</a>
+						</h3>
+						<p>
+							我们拿到了受到关注的初代Xbox手柄Duke的复刻版，让我们来通过照片好好看看沉睡了10数年之久的大家伙吧。
+							<span class="gradient"></span>
+						</p>
+					</dd>
+				</dl>
+								<dl>
+					<dt>
+						<a class="img-scale" href="http://www.a9vg.com/news/201805/0603218718.html" target="_blank">
+							<img src="http://img.a9vg.com/games/2018/05/12/fc9e0501a43c9a105b7e74de2ccdaf28_w320.jpeg" alt="">
+						</a>
+					</dt>
+					<dd>
+						<h3>
+							<a href="http://www.a9vg.com/news/201805/0603218718.html" target="_blank">一切性能为游戏开路 AOC游戏电视55G1X体验谈</a>
+						</h3>
+						<p>
+							老牌显示设备厂商AOC推出了自己的最新游戏专用电视55G1X，也许听到“游戏专用”你会有一些疑惑，但这确实是一款为主机游戏打造的产品，支持4K HDR，并有着专门针对主机游戏进行优化的色彩参数；且相对于低廉的售价，它的实际表现更令人感到意外...
+							<span class="gradient"></span>
+						</p>
+					</dd>
+				</dl>
+							</div>
+		</div>
+		<div class="col-r">
+			<h2 class="title">
+				<a class="more-link" href="http://www.a9vg.com/digi/" target="_blank">更多>></a>
+				<a class="sub" href="http://www.a9vg.com/digi/" target="_blank">数码</a>
+			</h2>
+			<div class="dot-list mt12">
+				<ul class="list">
+					 
+										<li>
+						<span>
+							<a href="http://www.a9vg.com/news/201804/1222918501.html" target="_blank">专访索尼高明：A8F与PS4是&quot;官配&quot; 大幅升级游戏体验</a>
+						</span>
+					</li>
+										<li>
+						<span>
+							<a href="http://www.a9vg.com/news/201802/8465917283.html" target="_blank">重视中国市场 索尼4KHDR电视新品在华首发上市</a>
+						</span>
+					</li>
+										<li>
+						<span>
+							<a href="http://www.a9vg.com/news/201801/7347316988.html" target="_blank">新型PS VR将于1月19日在香港上市 摄像头同捆版2988港币</a>
+						</span>
+					</li>
+										<li>
+						<span>
+							<a href="http://www.a9vg.com/news/201801/6364616887.html" target="_blank">索尼CES展会重磅发布全新4K HDR OLED与液晶系列电视</a>
+						</span>
+					</li>
+										<li>
+						<span>
+							<a href="http://www.a9vg.com/news/201801/7953116825.html" target="_blank">《盗贼之海》主题手柄2月6日中国同步上市 售价539元</a>
+						</span>
+					</li>
+										<li>
+						<span>
+							<a href="http://www.a9vg.com/news/201801/7251016821.html" target="_blank">索尼发布A8F系列4K OLED电视 支持杜比视界和HDR10</a>
+						</span>
+					</li>
+										<li>
+						<span>
+							<a href="http://www.a9vg.com/news/201801/6455616817.html" target="_blank">HTC Vive正式公开Vive Pro以及Vive无线适配器</a>
+						</span>
+					</li>
+										<li>
+						<span>
+							<a href="http://www.a9vg.com/news/201801/0605316811.html" target="_blank">索尼怪咖新品SRS-WS1体验谈：定位古怪的挂颈式个人音响</a>
+						</span>
+					</li>
+										<li>
+						<span>
+							<a href="http://www.a9vg.com/news/201801/2377316769.html" target="_blank">美加狮破产后复活了！Mad Catz将携新品参展CES2018</a>
+						</span>
+					</li>
+										<li>
+						<span>
+							<a href="http://www.a9vg.com/news/201711/3126016040.html" target="_blank">索尼推出《怪物猎人世界》主题Walkman无线耳机无线音箱</a>
+						</span>
+					</li>
+									</ul>
+			</div>
+		</div>
+	</div>
+</div>			<!-- 数码区 end -->
+			
+			<!-- 图集区 start -->
+			<div class="section7">
+	<div class="img-set">
+		<dl class="clearfix">
+														<dt>
+					<a class="img-scale" href="http://www.a9vg.com/image/201807/3968819734.html" target="_blank">
+						<img src="http://img.a9vg.com/games/2018/07/07/0826c58b65b44dd2768be95709443e5e.jpeg" alt="">
+					</a>
+				</dt>
+															<dd>
+					<a class="img-scale" href="http://www.a9vg.com/image/201807/3664619733.html" target="_blank">
+						<img src="http://img.a9vg.com/games/2018/07/07/80025fe7e2b6597aea6a4dd911c75609_w320.jpeg" alt="">
+					</a>
+				</dd>
+															<dd>
+					<a class="img-scale" href="http://www.a9vg.com/image/201807/3278019732.html" target="_blank">
+						<img src="http://img.a9vg.com/games/2018/07/07/94a42c5d39706079f151752956c69d14_w320.jpeg" alt="">
+					</a>
+				</dd>
+															<dd>
+					<a class="img-scale" href="http://www.a9vg.com/image/201806/7763419336.html" target="_blank">
+						<img src="http://img.a9vg.com/games/2018/06/13/55a7ac5f5bd8a78e4a763cf541ee252b_w320.jpeg" alt="">
+					</a>
+				</dd>
+															<dd>
+					<a class="img-scale" href="http://www.a9vg.com/image/201806/0726819229.html" target="_blank">
+						<img src="http://img.a9vg.com/games/2018/06/11/0bd991be520385e97f613570a398bf36_w320.jpeg" alt="">
+					</a>
+				</dd>
+									</dl>
+	</div>
+</div>			<!-- 图集区 end -->
+			
+			<!-- 一周文章点击区及论坛 start -->
+			<div class="section8 mt20">
+	<div class="col3 clearfix">
+		<div class="col-l">
+			<h2 class="title">
+				<span class="sub">一周热门文章</span>
+			</h2>
+			<div class="rank-list o-rank mt10">
+				<ul class="list">
+										 
+										<li>
+						<em class="first3">1</em>
+						<span>
+							<a href="http://www.a9vg.com/news/201807/5497119737.html" target="_blank">腾讯游戏之夜发布会汇总 《怪物猎人世界》登陆WeGame</a>
+						</span>
+					</li>
+										 
+										<li>
+						<em class="first3">2</em>
+						<span>
+							<a href="http://www.a9vg.com/news/201807/1554719751.html" target="_blank">SIE宣布2018 PlayStation中国发布会将于8月2日在上海举办</a>
+						</span>
+					</li>
+										 
+										<li>
+						<em class="first3">3</em>
+						<span>
+							<a href="http://www.a9vg.com/news/201807/4304719719.html" target="_blank">《机动战士高达》好莱坞真人电影化 日升与传奇影业合作</a>
+						</span>
+					</li>
+										 
+										<li>
+						<em>4</em>
+						<span>
+							<a href="http://www.a9vg.com/news/201807/3994119717.html" target="_blank">打越钢太郎新作《AI 梦境档案》发表 登陆三平台有中文版</a>
+						</span>
+					</li>
+										 
+										<li>
+						<em>5</em>
+						<span>
+							<a href="http://www.a9vg.com/news/201807/5191219761.html" target="_blank">《怪物猎人世界》PC版发售日和售价确定 配置需求公开</a>
+						</span>
+					</li>
+										 
+										<li>
+						<em>6</em>
+						<span>
+							<a href="http://www.a9vg.com/news/201806/1588219579.html" target="_blank">PS+会员2018年7月免费游戏汇总 Plus港服日服欧美服会免阵容</a>
+						</span>
+					</li>
+										 
+										<li>
+						<em>7</em>
+						<span>
+							<a href="http://www.a9vg.com/news/201807/5658719700.html" target="_blank">《无双大蛇3》雅典娜清晰图 马超骑猪曹丕石田三成神格化</a>
+						</span>
+					</li>
+										 
+										<li>
+						<em>8</em>
+						<span>
+							<a href="http://www.a9vg.com/news/201807/6004819739.html" target="_blank">《怪物猎人世界》PC简体中文版将登陆腾讯WeGame平台</a>
+						</span>
+					</li>
+										 
+										<li>
+						<em>9</em>
+						<span>
+							<a href="http://www.a9vg.com/news/201807/4395519720.html" target="_blank">《龙之死印》发布预告片 《洛克人Zero》团队全新作品</a>
+						</span>
+					</li>
+										 
+										<li>
+						<em>10</em>
+						<span>
+							<a href="http://www.a9vg.com/news/201807/7499119730.html" target="_blank">好莱坞版高达在即 回顾一下那些欧美人改编的日漫电影</a>
+						</span>
+					</li>
+														</ul>
+			</div>
+		</div>
+		
+		<div class="col-m">
+			<div class="forum-hot-wrap" data-forum-hot="data_xw" data-type="rank">
+				<h2 class="title">
+					<span class="sub">论坛新闻区</span>
+				</h2>
+				<div class="rank-list o-rank mt10">
+					<ul class="list"></ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-r">
+			<div class="forum-hot-wrap" data-forum-hot="data_qt" data-type="rank">
+				<h2 class="title">
+					<div class="links gap gap12">
+						<ul class="clearfix">
+							<li>
+								<a href="http://bbs.a9vg.com/forum-661-1.html" target="_blank">Switch</a>
+							</li>
+							<li>
+								<a href="http://bbs.a9vg.com/forum-610-1.html" target="_blank">PS4</a>
+							</li>
+							<li>
+								<a href="http://bbs.a9vg.com/forum-609-1.html" target="_blank">Xbox</a>
+							</li>
+							<li>
+								<a href="http://bbs.a9vg.com/forum-640-1.html " target="_blank">Steam</a>
+							</li>
+						</ul>
+					</div>
+					<span class="sub">游戏综合版</span>
+				</h2>
+				<div class="rank-list o-rank mt10">
+					<ul class="list"></ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	a9Site.forumData("http://bbs.a9vg.com/api/a9vgpc.php", null);
+</script>			<!-- 一周文章点击区及论坛 end -->
+			<!-- 广告 通栏四 -->
+			<div class="ad mt30" style="background-color:white;"> <script type="text/javascript">SG_GG(8003);</script> </div>
+			<!-- 广告 通栏四 -->
+			<!-- 返回顶部 start -->
+			<div class="to-top" id="toTop" data-top="100">
+	<div class="qrcode">
+		<span><img src="http://www.a9vg.com/assets/images/qrcode-toTop.jpg" alt=""></span>
+		<p>扫码下载APP</p>
+	</div>
+	<a href="javascript:void(0);"><i></i>返回顶部</a>
+</div>
+
+<script type="text/javascript">
+	$("#toTop").click(function(){
+		if(parseInt($(this).attr("data-top")) > 5){
+			$("body, html").stop().animate({
+				scrollTop: 0
+			}, 1000);
+   		}
+	});
+</script>			<!-- 返回顶部 end -->
+			
+		</div>
+		
+		<!-- 次底部导航 start -->
+		<div class="foot-nav">
+	<div class="wrap">
+		<dl class="clearfix">
+			<dt class="access">
+				<h2>关注我们</h2>
+				<div class="media-detail">
+					<div class="clearfix">
+						<dl>
+							<dt><img src="http://www.a9vg.com/assets/images/qrcode-1.jpg" alt=""></dt>
+							<dd><h3><span class="sina"></span>关注官方微博</h3></dd>
+						</dl>
+						<dl>
+							<dt><img src="http://www.a9vg.com/assets/images/qrcode-2.jpg" alt=""></dt>
+							<dd><h3><span class="wechat"></span>关注微信公众号</h3></dd>
+						</dl>
+						<dl>
+							<dt><img src="http://www.a9vg.com/assets/images/qrcode-3.jpg" alt=""></dt>
+							<dd><h3><span class="p-ios"></span><span class="p-and"></span>A9VG APP</h3></dd>
+						</dl>
+					</div>
+				</div>
+			</dt>
+			<dd class="dd dd-1">
+				<h2>游戏频道</h2>
+				<ul class="clearfix">
+					<li><a href="http://www.a9vg.com/ps4/" target="_blank">PS4</a></li>
+					<li><a href="http://www.a9vg.com/3ds/" target="_blank">3DS</a></li>
+					<li><a href="http://www.a9vg.com/xboxone/" target="_blank">Xbox One</a></li>
+					<li><a href="http://www.a9vg.com/pc/" target="_blank">PC</a></li>
+					<li><a href="http://www.a9vg.com/switch/" target="_blank">Switch</a></li>
+					<li><a href="http://www.a9vg.com/wiiu/" target="_blank">WiiU</a></li>
+					<li><a href="http://www.a9vg.com/psv/" target="_blank">PSV</a></li>
+				</ul>
+			</dd>
+			<dd class="dd dd-2">
+				<h2>综合</h2>
+				<ul>
+					<li><a href="http://www.a9vg.com/news/" target="_blank">新闻</a></li>
+					<li><a href="http://www.a9vg.com/strategy/" target="_blank">攻略</a></li>
+					<li><a href="http://www.a9vg.com/guide/" target="_blank">新手指南</a></li>
+					<li><a href="http://www.a9vg.com/trophy/" target="_blank">奖杯成就</a></li>
+				</ul>
+			</dd>
+			<dd class="dd dd-3">
+				<h2>游戏库</h2>
+				<ul>
+					<li><a href="http://www.a9vg.com/game" target="_blank">游戏推荐</a></li>
+					<li><a href="http://www.a9vg.com/game/review/" target="_blank">游戏评测</a></li>
+					<li><a href="http://www.a9vg.com/game/release" target="_blank">发售表</a></li>
+					<li><a href="http://www.a9vg.com/game/top/" target="_blank">排行榜</a></li>
+				</ul>
+			</dd>
+			<dd class="dd dd-4">
+				<h2>论坛</h2>
+				<ul>
+					<li><a href="http://bbs.a9vg.com/forum-261-1.html" target="_blank">综合讨论</a></li>
+					<li><a href="http://bbs.a9vg.com/forum-223-1.html" target="_blank">精选文章</a></li>
+					<li><a href="http://bbs.a9vg.com/forum-139-1.html" target="_blank">怀旧长廊</a></li>
+					<li><a href="http://bbs.a9vg.com/forum-12-1.html" target="_blank">信步闲庭</a></li>
+				</ul>
+			</dd>
+		</dl>
+	</div>
+</div>		<!-- 次底部导航 end -->
+		
+		<div class="foot-index">
+			
+			<!-- 仅首页的友情链接 start -->
+			<div class="foot-links">
+				<div class="wrap">
+					<p>友情链接：</p>
+					<div class="txt-order gap gap10-deep">
+						<ul class="clearfix">
+							<li><a href="http://www.gamehome.tv/" target="_blank">电玩之家</a></li>
+							<li><a href="http://www.tuwan.com/" target="_blank">兔玩网</a></li>
+							<li><a href="http://www.banma.com/" target="_blank">手游攻略</a></li>
+							<li><a href="http://www.497.com/" target="_blank">497电玩</a></li>
+							<li><a href="http://guide.candou.com/" target="_blank">手游攻略</a></li>
+							<li><a href="http://fahao.xiaopi.com/" target="_blank">小皮发号中心</a></li>
+							<li><a href="http://www.youxiniao.com/" target="_blank">手机游戏</a></li>
+							<li><a href="http://huoying.265g.com/" target="_blank">265G火影忍者</a></li>
+							<li><a href="http://www.game2.cn/" target="_blank">网页游戏</a></li>
+							<li><a href="http://tv.18183.com/" target="_blank">安卓电视游戏</a></li>
+							<li><a href="http://www.kpzs.com/" target="_blank">安卓应用市场</a></li>
+							<li><a href="http://www.game333.net/" target="_blank">游乐园</a></li>
+							<li><a href="http://www.yiwan.com/" target="_blank">易玩网</a></li>
+							<li><a href="http://xin.07073.com/" target="_blank">最新网页游戏</a></li>
+							<li><a href="http://www.gameres.com/" target="_blank">游资网</a></li>
+							<li><a href="http://www.cpplay.com/" target="_blank">手机单机游戏</a></li>
+							<li><a href="http://www.emu999.net/" target="_blank">街机游戏下载</a></li>
+							<li><a href="http://www.lonlife.cn/" target="_blank">网游加速器</a></li>
+							<li><a href="http://www.51wan.com/" target="_blank">51wan网页游戏</a></li>
+							<li><a href="http://soft.anruan.com/" target="_blank">安卓软件下载</a></li>
+							<li><a href="http://codol.gamersky.com/" target="_blank">使命召唤OL</a></li>
+							<li><a href="http://pc.17173.com/" target="_blank">17173单机频道</a></li>
+							<li><a href="http://www.benshouji.com/" target="_blank">笨手机游戏网</a></li>
+							<li><a href="http://www.apkbus.com/" target="_blank">安卓巴士</a></li>
+							<li><a href="http://www.sfw.cn/" target="_blank">上方网</a></li>
+							<li><a href="http://www.swjoy.com/" target="_blank">顺网游戏</a></li>
+							<li><a href="http://game.feng.com/" target="_blank">iOS手游</a></li>
+							<li><a href="http://www.moyoyo.com/" target="_blank">手游交易</a></li>
+							<li><a href="http://www.ucbug.cc/" target="_blank">ucbug下载站</a></li>
+							<li><a href="http://www.5068yx.com/" target="_blank">5068小游戏</a></li>
+							<li><a href="http://www.douxie.cn/" target="_blank">斗蟹网页游戏</a></li>
+							<li><a href="http://www.139y.com/" target="_blank">手心攻略</a></li>
+							<li><a href="http://www.1688wan.com/" target="_blank">1688玩手游网</a></li>
+							<li><a href="http://www.361games.com/" target="_blank">游戏排行榜</a></li>
+							<li><a href="http://www.mobile-dad.com/" target="_blank">MTK手机爸爸</a></li>
+							<li><a href="http://www.499.cn/" target="_blank">499小游戏</a></li>
+							<li><a href="http://www.pujia8.com/" target="_blank">扑家吧</a></li>
+							<li><a href="http://lushi.163.com/" target="_blank">炉石传说</a></li>
+							<li><a href="http://www.diyiyou.com/" target="_blank">手游排行榜</a></li>
+							<li><a href="http://m.ali213.net/" target="_blank">手机游戏下载</a></li>
+							<li><a href="http://www.mz6.net/" target="_blank">魅族溜</a></li>
+							<li><a href="http://android.byfen.com/" target="_blank">百分网安卓游戏</a></li>
+							<li><a href="http://www.loldk.com/" target="_blank">英雄联盟大咖</a></li>
+							<li><a href="http://www.18pk.com/" target="_blank">18PK游戏网</a></li>
+							<li><a href="http://www.ledu.com/" target="_blank">好玩的网页游戏</a></li>
+							<li><a href="http://www.66u.com/" target="_blank">66游</a></li>
+							<li><a href="http://lol.mingrent.com/" target="_blank">英雄联盟攻略</a></li>
+							<li><a href="http://www.hack50.com/" target="_blank">IT新闻</a></li>
+							<li><a href="http://www.joyme.com/" target="_blank">iPhone游戏</a></li>
+							<li><a href="http://lol.tuwan.com/" target="_blank">LOL</a></li>
+							<li><a href="http://www.hanhande.com/" target="_blank">动画片大全</a></li>
+							<li><a href="http://www.357.com/" target="_blank">357游戏网</a></li>
+							<li><a href="http://www.8868.cn/" target="_blank">手游交易平台</a></li>
+							<li><a href="http://www.youxi366.com/" target="_blank">全面战争</a></li>
+							<li><a href="http://ol.kuai8.com/" target="_blank">网络游戏排行榜</a></li>
+							<li><a href="http://www.3355.cn/" target="_blank">3355小游戏</a></li>
+							<li><a href="http://www.pcsoft.com.cn/" target="_blank">软件下载</a></li>
+							<li><a href="http://www.87g.com/" target="_blank">87G手游网</a></li>
+							<li><a href="http://www.766.com/" target="_blank">星竞界</a></li>
+							<li><a href="http://www.joyme.com/" target="_blank">着迷网</a></li>
+							<li><a href="http://tv.duowan.com/" target="_blank">多玩电视游戏</a></li>
+							<li><a href="http://www.880sy.com/" target="_blank">手游排行榜</a></li>
+							<li><a href="http://www.9377.com/" target="_blank">网页游戏</a></li>
+							<li><a href="http://www.desktx.com/" target="_blank">桌面天下</a></li>
+							<li><a href="http://www.yoyou.com/" target="_blank">优游网</a></li>
+							<li><a href="http://www.ou99.com/" target="_blank">魔兽地图下载</a></li>
+							<li><a href="http://www.99down.com/" target="_blank">99软件站</a></li>
+							<li><a href="http://www.haidaozhu.com/" target="_blank">海盗猪游戏网</a></li>
+							<li><a href="http://www.anyv.net/" target="_blank">微信公众平台</a></li>
+							<li><a href="http://www.tulaoshi.com" target="_blank">图老师</a></li>
+							<li><a href="http://www.38xf.com" target="_blank">三八女性网</a></li>
+							<li><a href="http://www.kd120.com" target="_blank">口袋健康</a></li>
+							<li><a href="https://game.stargame.com/" target="_blank">星游戏</a></li>
+							<li><a href="http://www.pp3.cn/" target="_blank">pp3电脑主题</a></li>
+							<li><a href="http://www.noyes.cn/" target="_blank">noyes游戏</a></li>
+							<li><a href="http://www.u77.com/" target="_blank">U77总有好游戏</a></li>
+							<li><a href="http://www.tvhome.com/" target="_blank">电视之家</a></li>
+							<li><a href="http://bbs.mumayi.com/" target="_blank">木蚂蚁安卓论坛</a></li>
+							<li><a href="http://www.secretmine.net/" target="_blank">我的世界下载</a></li>
+							<li><a href="http://www.g.com.cn/" target="_blank">引力资讯</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 仅首页的友情链接 end -->
+
+			<!-- 最底部导航 start -->
+			<div class="footer">
+	<div class="wrap">
+		<div class="about-site">
+			<dl class="clearfix">
+				<dt>
+					<a href="javascript:void(0);" target="_blank">
+						<img src="http://www.a9vg.com/assets/images/ba-logo.png" alt="">
+					</a>
+				</dt>
+				<dd>
+					<p>
+						<span>© 2017 · A9VG电玩部落</span>
+						<a href="/about" target="_blank" rel="nofollow">关于我们</a>
+						<a href="/about/contactus.html" target="_blank" rel="nofollow">联系我们</a>
+						<a href="/about/sitemap.html" target="_blank">网站导航</a>
+					</p>
+					<p>重庆星游传媒有限公司 Copyright ©  2014-2017</p>
+					<p>
+						<a href="http://www.miibeian.gov.cn/state/outPortal/loginPortal.action" rel="nofollow">渝ICP备14007792号-11</a>    
+						<a href="http://www.stargame.com/css/images/license_1.jpg" rel="nofollow">渝网文[2015]1041-1042号</a>    
+						<a href="http://www.stargame.com/css/images/bdper.jpg" rel="nofollow">节目制作经营许可证渝字270号</a>    
+						<a href="http://www.stargame.com/css/images/zengzhi.jpg" rel="nofollow">增值电信业务经营许可证 渝B2-20150036</a> 
+					</p>
+					<p>
+						<a target="_blank" href="http://beian.cqwa.gov.cn/open/showRecord?id=50011202300305" rel="nofollow">渝公安备案：50011202300305</a>
+					</p>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?68e4f3f877acf23e052991a583acf43e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript">
+	var app_key = "sir5iofxrcce8f6j";
+	(function () {
+		var jssdk = document.createElement('script');
+		jssdk.type = 'text/javascript';
+		jssdk.src = 'http://www.a9vg.com/assets/js/JSSDK-1.3.min.js';
+		var sArr = document.getElementsByTagName('script');
+		var s = document.getElementsByTagName('script')[sArr.length - 1];
+		s.parentNode.insertBefore(jssdk, s);
+	})();
+</script>
+
+			<!-- 最底部导航 end -->
+		</div>
+		
+		<!-- 广告 中间悬浮 -->
+		<div class="ad" > <script type="text/javascript">SG_GG(4041);</script> </div>
+
+		<!-- 广告 两侧对联 -->
+		<div class="ad" id="all"> <script type="text/javascript">SG_GG(8005);</script><script type="text/javascript">SG_GG(8004);</script> <!--<script type="text/javascript" src="http://gg.stargame.com/c/4042.js"/>--> </div>
+		<!-- 广告 背景覆盖 -->
+		<div class="ad ad-background" id="wap_all"><script type="text/javascript" src="http://g1.tagtic.cn/v1/xingyou/c/4043.js"></script></div>
+
+		<!-- 广告 右下弹窗 -->
+		 <div id="adv" class="ad">
+			<script type="text/javascript">SG_GG(4044);</script>
+		</div>
+
+ </div>
+	
+	<script type="text/javascript" src="http://www.a9vg.com/assets/js/jquery.SuperSlide.2.1.1.js"></script>
+	
+	<script type="text/javascript">
+		
+		//焦点图
+		$(".slide-wrap").slide({
+			mainCell:".bd ul", 
+			autoPage: true, 
+			autoPlay: true, 
+			interTime: 3000, 
+			triggerTime: 0,
+			mouseOverStop: true,
+			startFun:function( i,c,s ){ 
+				$(".slide-index").find("i").html(i+1).end().find("em").html("/ "+c);
+			} 
+		});
+		//score
+		a9Site.scorePro();
+	</script>
+</body>
+</html>
+
+
+

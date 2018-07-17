@@ -1,0 +1,419 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>「我要啦」网站流量统计 - 最精准易用的网站统计分析平台</title>
+  <meta name="keywords" content="免费统计,流量统计,流量,网站统计,访问统计,我要啦,51La" />
+  <meta name="description" content="我要啦 统计面向网站站长提供免费的、功能完善的、人性化的网站流量统计分析服务" />
+  <meta content="always" name="referrer">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="stylesheet" href="/js/vendor/peppermint/peppermint.required.css" />
+  <link rel="stylesheet" href="/js/vendor/peppermint/peppermint.suggested.css" />
+  <link rel="stylesheet" href="//images.51.la/dist/front-style2.css?v=1531104359650" />
+  <link rel="shortcut icon" href="/favicon.ico">
+  <!-- <script src="//js.users.51.la/411583.js"></script> -->
+</head>
+
+<body class="index-body">
+  
+<style>
+  .feadback-content{
+    position: relative;
+  }
+  .feadback-header{
+    background: #5C5959 url('//images.51.la/20180627162914-20180627162312.png') no-repeat center center;
+    cursor: pointer;
+    height: 50px;
+    width: 100%;
+  }
+  .feedback-header-close{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+  }
+  .feedback-header-close .icon-guanbi{
+    font-size: 16px;
+    color: #fff;
+  }
+  .btn-close-feedback {
+    position: absolute;
+    display: block;
+    top: 25px;
+    right: 25px;
+    width: 16px;
+    height: 23px;
+}
+.layer-container{
+  /* padding: 8px 32px 30px 32px; */
+}
+.container-1{
+  width: 150px;
+  height: 150px;
+  background: url('//images.51.la/20180425150336-thecode_wecheat.png') no-repeat;
+}
+.container-2{
+  margin-top: 20px;
+  margin-left: 32px;
+  margin: 35px 50px 0 32px;
+}
+.title-1{
+  opacity: 0.79;
+font-family: PingFangSC-Regular;
+font-size: 18px;
+color: #333333;
+line-height: 40px;
+text-align: left;
+}
+</style>
+
+<div class="feadback-content ">
+  <div class="feadback-header">
+  </div>
+  <div class="feedback-header-close">
+    <i class="iconfont icon-guanbi"></i>
+  </div>
+</div>
+
+<div class="layer-box hide" id="layer-mobile-code">
+  <div class="layer-content">
+    <a href="javascript:;" class="btn-close-feedback">
+      <i class="iconfont icon-close"></i>
+    </a>
+    <div class="layer-container clearfix">
+      <div class="pull-left container-1">
+
+      </div>
+      <div class="pull-right container-2">
+        <div class="title-1">扫描二维码，关注公众号</div>
+        <div class="title-1">随时随地监控网站流量数据</div>
+      </div>
+    </div>
+  </div>
+</div>
+ <div class="slide-function">
+  <div class="item feedback">
+    <i class="iconfont icon-fankui"></i>
+  </div>
+  <div class="item qr-code">
+    <i class="iconfont icon-weixin"></i>
+  </div>
+  <div class="item back-top">
+    <i class="iconfont icon-TOP"></i>
+  </div>
+</div>
+
+<div class="feedback-content hide">
+  <input type="hidden" id="feedback-userLogin" value="">
+  <div class="feedback-title clearfix">
+    <div class="pull-left">产品反馈</div>
+    <div class="pull-right mr10">
+      <a href="javascript:;" class="feedback-close icon-close"></a>
+    </div>
+  </div>
+  <div class="feedback-box">
+    <form action="/feedback/add" class="c-form-vertical form-feedback" onsubmit="return false">
+      <input type="hidden" name="images" id="upload-img-user">
+      <label>问题类型</label>
+      <div class="form-group form-group-b">
+        <div class="c-radio-inline">
+          <label>
+            <input name="type" type="radio" value="1" data-required="type" checked>
+            <i class="icon iconfont"></i>产品相关</label>
+        </div>
+        <div class="c-radio-inline">
+          <label>
+            <input name="type" type="radio" value="2" data-required="type">
+            <i class="icon iconfont"></i>使用故障</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="clearfix">
+          <div class="tcolor-dark pull-left">问题描述</div>
+          <div class="tf-s tcolor-light pull-right">
+            <a href="/user/feedback">反馈列表</a>
+          </div>
+        </div>
+        <textarea name="content" class="form-control form-callback" style="resize:none" placeholder="最多可输入400字" data-required="content"
+          maxlength="400"></textarea>
+      </div>
+      <div class="form-group">
+        <!--dom结构部分-->
+        <div id="uploader-demo">
+          <!--用来存放item-->
+          <div id="fileList" class="uploader-list">
+          </div>
+          <div id="filePicker" data-token="">选择图片
+            <span class="tf-s ml5 tcolor-light">(支持JPG/GIF/PNG，单张不超过2MB)</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group tc">
+        <a href="javascript:;" class="btn btn-primary btn-feedback">提交</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="qr-code-content hide">
+  <img width="100" height="100" src="//images.51.la/images/index/wechat.png" alt="">
+</div>
+
+  <div class="home-header">
+    <div class="content clearfix">
+      <div class="pull-left">
+        <div class="clearfix">
+          <a href="/" class="logo">
+            <i class="iconfont icon-logo"></i>
+            <!-- <i class="iconfont icon-slogen"></i> -->
+          </a>
+          <div class="pull-left">
+            <ul class="navigator">
+              <li>
+                <a href="/" class="active">首页 </a>
+              </li>
+               
+              <li>
+                <a href="/report/main?comId=2260177">功能演示</a>
+              </li>
+              
+              <li>
+                <a href="/ranking/os">排行榜</a>
+              </li>
+              <li>
+                <a href="/news/list">动态资讯</a>
+              </li>
+              <li>
+                <a href="/doc/" target="_blank">帮助中心</a>
+              </li>
+              <li>
+                <a href="javascript:;" class="item feedback">意见反馈</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pull-right mr20">
+        <div class="clearfix dropdown">
+          
+          <div class="pull-right">
+            <div class="entry">
+              <a href="/login" class="btn btn-default btn-default-hover">登录</a>
+              <a href="/register" class="btn btn-default-reverse btn-default-reverse-hover ml20">注册</a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="peppermint peppermint-inactive" id="peppermint">
+    
+    <div>
+      <a class="item" href="https://www.51.la/news/detail?id=179&#38;from=list" target="_blank" style="background:#2e2f3a url(https://images.51.la/20180620163103-数据引用首页.png) center center no-repeat;height:440px;background-size:cover ;display:block;"></a>
+    </div>
+    
+    <div>
+      <a class="item" href="javascript:;" target="_blank" style="background:#2e2f3a url(https://images.51.la/20180627161219-微信推广banner.png) center center no-repeat;height:440px;background-size:cover ;display:block;"></a>
+    </div>
+    
+    <div>
+      <a class="item" href="/report/main?comId=2260177" target="_blank" style="background:#2e2f3a url(//images.vrm.cn/bn2.png) center center no-repeat;height:440px;background-size:cover ;display:block;"></a>
+    </div>
+    
+    <div>
+      <a class="item" href="//www.51.la/news/detail?id=172&#38;from=list" target="_blank" style="background:#2e2f3a url(//images.51.la/20180404115933-banner4-question.jpg) center center no-repeat;height:440px;background-size:cover ;display:block;"></a>
+    </div>
+    
+  </div>
+  <!---banner end-->
+   
+<div class="box-da-A1" role="a1">
+  <div class="content clearfix">
+    
+    <a href="http://www.pingguotx.com/" rel="nofollow" class="da-item " target="_blank" data-url="/ad/adclick?code=pingguotx.com&url=http://www.pingguotx.com/&location=A1">
+      <img src="https://images.51.la/20180626175315-C960B42AF04E841C4C90AE8F4980775E.png" width="180" height="50">
+    </a>
+    
+    <a href="http://szlebaixing.com" rel="nofollow" class="da-item " target="_blank" data-url="/ad/adclick?code=szlebaixing.com&url=http://szlebaixing.com&location=A1">
+      <img src="https://images.51.la/20180424182308-20180105175757-20171211163739-A1.gif" width="180" height="50">
+    </a>
+    
+    <a href="http://84446444.com/51la.html " rel="nofollow" class="da-item " target="_blank" data-url="/ad/adclick?code=A1-3&url=http://84446444.com/51la.html &location=A1">
+      <img src="https://images.51.la/20180611171213-首页A1-4.gif" width="180" height="50">
+    </a>
+    
+    <a href="http://www.3xx.vip/" rel="nofollow" class="da-item " target="_blank" data-url="/ad/adclick?code=A1-4&url=http://www.3xx.vip/&location=A1">
+      <img src="https://images.51.la/20180621091236-A1-4.gif" width="180" height="50">
+    </a>
+    
+    <a href="http://4053555.com/" rel="nofollow" class="da-item " target="_blank" data-url="/ad/adclick?code=A1-5&url=http://4053555.com/&location=A1">
+      <img src="https://images.51.la/20180612120208-ACEAD405D9AFAA2BAEF8B3ABB2A6BA04.png" width="180" height="50">
+    </a>
+    
+    <a href="http://www.3xx.vip/" rel="nofollow" class="da-item nomr" target="_blank" data-url="/ad/adclick?code=A1-6&url=http://www.3xx.vip/&location=A1">
+      <img src="https://images.51.la/20180701001044-A1-4.gif" width="180" height="50">
+    </a>
+    
+  </div>
+</div>
+
+ 
+  <!---introduce strart-->
+  <div class="home-about">
+    <div class="home-about-title mb20">[我要啦] — 免费的流量统计技术服务提供商</div>
+    <div class="home-about-introduce">
+      <p>我要啦（51.la）是免费的流量统计技术服务提供商，为互联网各类站点提供第三方数据统计分析。让站长了解网站现状，把握网站脉搏。
+        <br> 16年来我要啦一如既往地专注于网站统计，拥有
+        <span class="fb">微信报表推送</span>、
+        <span class="fb">全端页面阅读深度分析</span>、
+        <span class="fb">实时访客智能监测</span>等多项功能，致力于探索网站更深度价值。
+      </p>
+    </div>
+    <div class="hone-about-server">已服务</div>
+    <div class="hone-about-date clearfix">
+      <p class="pull-left">3,525,513
+        <span class="ml10">注册站长</span>
+      </p>
+      <p class="pull-right">19,450,579
+        <span class="ml10">统计网站</span>
+      </p>
+    </div>
+  </div>
+  <!-- about end -->
+  <div class="home-advantage">
+    <div class="content">
+      <div class="home-advantage-title">我们的优势</div>
+      <div class="home-advantage-introduce mt20">
+        我要啦具备四大核心数据统计功能，风靡站长圈十六年，是一众站长们的制胜法宝！
+      </div>
+      <div class="content clearfix">
+        <div class="item mr20">
+          <div class="icon home-monitro"></div>
+          <!-- <i class="iconfont icon-zhinengjiankongsy"></i> -->
+          <p class="title">实时访客智能监测</p>
+          <p class="text">访客都从哪里来？</p>
+          <p class="text">谁在等待沟通？</p>
+          <p class="text">您的网站实时访客状态一目了然</p>
+        </div>
+        <div class="item mr20">
+          <div class="icon home-analysis"></div>
+          <!-- <i class="iconfont icon-relitusy"></i> -->
+          <p class="title">热力图监控分析</p>
+          <p class="text">访客点击是不是如你所愿？</p>
+          <p class="text">直观洞察访客浏览情况及点击偏好，</p>
+          <p class="text">让您从容把握用户交互行为</p>
+        </div>
+        <div class="item mr20">
+          <div class="icon home-push"></div>
+          <!-- <i class="iconfont icon-tuisongbaobiaosy"></i> -->
+          <p class="title">微信报表推送随心看</p>
+          <p class="text">人不在电脑前？</p>
+          <p class="text">无法及时获知数据变动情况？</p>
+          <p class="text">微信报表功能，随时随地查看数据报表</p>
+        </div>
+        <div class="item">
+          <div class="icon home-read"></div>
+          <!-- <i class="iconfont icon-yuedushendusy"></i> -->
+          <p class="title">全端页面阅读深度</p>
+          <p class="text">访客每屏阅读了多久？</p>
+          <p class="text">阅读到第几屏离开了？</p>
+          <p class="text">快速了解访客对内容的感兴趣程度</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---home-advantage end-->
+  <div class="home-free">
+    <div class="home-free-title">马上行动，探索网站数据增长的奥秘</div>
+    <a href="/report/main?comId=2260177">查看演示</a>
+    <a href="/register" class="ml20">立即注册</a>
+  </div>
+  <!-- free end -->
+  <div class="home-footer">
+    <div class="content">
+      <div class="clearfix">
+        <div class="col-3">
+          <h3 class="h3 mb20">广告合作</h3>
+          <p class="lh-m tcolor-light">联系方式：3187548973（QQ)</p>
+          <p class="lh-m tcolor-light">服务时间：9:00-18:00（工作日）</p>
+        </div>
+        <div class="col-3">
+          <h3 class="h3 mb20">建议反馈</h3>
+          <p class="lh-m tcolor-light">客服QQ：1962406908</p>
+          <p class="lh-m tcolor-light">QQ群：608879616</p>
+        </div>
+        <div class="col-2 pull-right">
+          <h3 class="h3 mb20">微信公众号</h3>
+          <img src="//images.51.la/images/index/wechat.png" alt="二维码" width="100" height="100">
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="lh-l link">
+          <a href="/service/terms_of_service">用户协议</a>
+          <a href="/service/copyright_notice">版权声明</a>
+          <a href="/login#forget">找回密码</a>
+          <a href="/service/biz_contact">广告联系</a>
+          <a href="/service/contact_us">联系我们</a>
+          <a href="/service/about_us">关于我们</a>
+          <a href="/service/update_log">更新日志</a>
+          <a href="/doc/" target="_blank">使用帮助</a>
+        </div>
+        <div class="lh-l">
+          Copyright © 2002-2018 51.la All Rights Reserved &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备17055553号-1</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---footer end-->
+  <script src="/js/vendor/jquery.js"></script>
+  <!-- <script src="/js/vendor/owl.carousel.min.js"></script> -->
+  <script src="/js/vendor/peppermint/peppermint.min.js"></script>
+  <script>
+    $('.peppermint').Peppermint({
+      dots: true,
+      slideshow: true,
+      speed: 500,
+      slideshowInterval: 5000,
+      stopSlideshowAfterInteraction: true,
+      onSetup: function (n) {
+      }
+    })
+  </script>
+  <script src="//images.51.la/dist/global.js?v=1531104359650"></script>
+  <script src="//images.51.la/dist/index.js?v=1531104359650"></script> <div class="hide">
+  <!-- 51la -->
+  <script type="text/javascript" src="//js.users.51.la/19236546.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112772236-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-112772236-1');
+  </script>
+  <!-- baidu detect -->
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?bd18429bc8eb892f081d3f995c802e1e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <!-- cnzz detect -->
+  <script src="https://s22.cnzz.com/z_stat.php?id=1273154340&web_id=1273154340" language="JavaScript"></script>
+  <!-- 51la image detect -->
+  <img src="https://ia.51.la/go1?id=19421897&pvFlag=1">
+  <!-- 51la heatmap -->
+  <script type="text/javascript" src="//trace.pv.com.cn/50001278.js"></script>
+</div>
+
+</body>
+
+</html>

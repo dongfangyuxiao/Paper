@@ -1,0 +1,3304 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="zh_CN"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="zh_CN"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="zh_CN"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="zh-CN">
+<!--<![endif]-->
+<head>
+<script language='javascript' src='/ant_count.php?&dom=www.antpedia.com&rand=51311' type='text/javascript'></script>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="mobile-agent" content="format=html5;url=//m.antpedia.com/">
+<script src='/tophone.php?type=index'></script>
+<meta charset="utf-8">
+<title>分析测试百科网</title>
+<meta name="keywords" content="分析测试百科网,antpedia,分析仪器,分析技术,实验室,仪器评测">
+<meta name="description" content="分析测试百科网是基于WEB2.0理念和技术架构的、面向分析测试领域内的专家、专业技术人员和采购决策者的专业资讯门户、用户交流社区、增值服务平台">
+<meta property="qc:admins" content="24106654626164054116375" />
+<meta property="wb:webmaster" content="4096c54a415b5290" />
+<link rel="stylesheet" href="/css/site_index_2018/css.css" type="text/css">
+<link type="text/css" href="/css/site_index_2018/flexslider.min.css" rel="stylesheet" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="//m.antpedia.com/">
+<script type="text/javascript" src="/include/js/site_index_2018/jquery-min.js"></script>
+<script src="/common/bdstat.js"></script>
+<script type="text/javascript">
+//antop点赞和踩踩的功能
+function dianzan(type,info_id,obj){
+if(type==1 || type==2){
+$.ajax({
+type:"post",
+url: '/antopdeclare_action.php',
+dataType:"json",
+data:'action=vote&vote='+type+'&info_id='+info_id,
+success:function(m){
+if(m.type=='ok'){
+alert('投票成功！');
+if(type==1){//如果是点赞的话，则增加一票
+var haspiao=parseInt($(obj).find("span").html());
+haspiao =haspiao+1;
+$(obj).find("span").html(haspiao);
+}
+}else{
+alert(m.msg);
+}
+}	
+});
+}else{
+alert("请合法操作！");
+}
+}
+</script>
+<script type="text/javascript" src="/include/js/site_index_2018/jquery-search.js"></script>
+<script type="text/javascript" src="/include/js/site_index_2018/jquery.orbit.min.js"></script>
+<script type="text/javascript" src="/include/js/site_index_2018/jquery.unveil.min.js"></script>
+<script type="text/javascript" src="/include/js/site_index_2018/jquery.flexslider.min.js"></script>
+
+<!--新品速递-->
+<script type="text/javascript">
+$(window).load(function() {
+$('.flexslider').flexslider();
+});
+
+$(document).ready(function() {
+$('.flexslider').hover(function() {
+$('.flex-direction-nav li a.prev').css('display', 'block');
+$('.flex-direction-nav li a.next').css('display', 'block');
+}, function() {
+$('.flex-direction-nav li a.prev').css('display', 'none');
+$('.flex-direction-nav li a.next').css('display', 'none');
+});
+});
+</script>
+
+<!--Antop-->
+<script>$(document).ready(function() {
+$(".producList1 .antop_Img").each(function() {
+$(this).hover(function() {
+$(this).css("display","none");
+$(this).parent().find(".antop_prize1").css("display","block");
+ },
+function() {
+});
+});
+$(".producList1 .antop_prize1").each(function() {
+$(this).hover(function() {        	
+},
+function() {
+$(this).css("display","none");
+$(this).parent().find(".antop_Img").css("display","block");
+});
+});
+$(".producList2 .antop_Img1").each(function() {
+   $(this).hover(function() {
+   },
+   function() {
+$(this).css("display","none");
+$(this).parent().find(".antop_prize").css("display","block");
+   });
+});
+$(".producList2 .antop_prize").each(function() {
+$(this).hover(function() {   
+$(this).css("display","none");
+$(this).parent().find(".antop_Img1").css("display","block");    	
+},
+   function() {
+   });
+});
+});
+</script>
+
+
+<!--顶部新闻滚动图片新闻-->
+<script>
+$(window).load(function() {
+$('#featured').orbit({
+bullets: true,
+startClockOnMouseOut: true,
+captionAnimation: 'slideOpen'
+});
+});
+
+$(function(){
+//空间管理下拉效果
+$(".kjgl p").click(function(){
+var ul = $(".listUl");
+if(ul.css("display")=="none"){
+ul.slideDown(200);
+}else{
+ul.slideUp(200);
+}
+});
+//webinar 换一批
+$("#hyp").bind("click", function(){
+$.get("/webinar_hyh2017new.php?ch=hyh", function(result){
+$("#dyd").replaceWith(result);
+});
+});
+
+
+//安特百货搜索
+$("#searchbtn01").click(function(){
+var keyword="";
+if($("#key01").val()!="" && $("#key01").val()!="请输入您要搜索的商品关键字..."){
+keyword ="&"+$.trim($("#key01").val());
+}
+window.open('http://www.antbuyhot.com/shop/index.php?act=search'+keyword,"_blank");
+});
+$("#selectTypeList li a").click(function(){
+$("#selectTypeList li a").each(function(){
+$(this).removeClass("current");
+});
+$(this).addClass("current");
+});
+$("#searchbtn").click(function(){
+var select = $("#selectTypeList li a.current").text();
+var info = $.trim(select);
+var name = $("#key").val();
+if(info == '仪器'){
+$("#inputID").val()
+if(name == '请输入关键字...'){
+window.open("//s.antpedia.com/1/",'_blank');
+}else{
+window.open("//s.antpedia.com/1/"+name,'_blank');
+}
+}else if(info == '耗材'){
+if(name == '请输入关键字...'){
+window.open("//s.antpedia.com/9/",'_blank');
+}else{
+window.open("//s.antpedia.com/9/"+name,'_blank');
+}
+}else if(info == '试剂'){
+if(name == '请输入关键字...'){
+window.open("//s.antpedia.com/10/",'_blank');
+}else{
+window.open("//s.antpedia.com/10/"+name,'_blank');
+}
+}else if(info == '实验室'){
+if(name == '请输入关键字...'){
+window.open("//s.antpedia.com/2/",'_blank');
+}else{
+window.open("//s.antpedia.com/2/"+name,'_blank');
+}
+}else if(info == '资讯'){
+if(name == '请输入关键字...'){
+window.open("//s.antpedia.com/3/",'_blank');
+}else{
+window.open("//s.antpedia.com/3/"+name,'_blank');
+}
+}else if(info == '下载'){
+if(name == '请输入关键字...'){
+window.open("//s.antpedia.com/5/",'_blank');
+}else{
+window.open("//s.antpedia.com/5/"+name,'_blank');
+}
+}else if(info == '厂商'){
+if(name == '请输入关键字...'){
+window.open("//s.antpedia.com/6/",'_blank');
+}else{
+window.open("//s.antpedia.com/6/"+name,'_blank');
+}
+}else if(info == '社区'){
+if(name == '请输入关键字...'){
+window.open("//s.antpedia.com/7/",'_blank');
+}else{
+window.open("//s.antpedia.com/7/"+name,'_blank');
+}
+}else if(info == 'Webinar'){
+if(name == '请输入关键字...'){
+window.open("//s.antpedia.com/11/",'_blank');
+}else{
+window.open("//s.antpedia.com/11/"+name,'_blank');
+}
+}else if(info == '全站'){
+if(name == '请输入关键字...'){
+window.open("//s.antpedia.com/13/",'_blank');
+}else{
+window.open("//s.antpedia.com/13/"+name,'_blank');
+}
+}else{
+window.open("//s.antpedia.com/13/",'_blank');
+}
+});
+});
+
+//搜索下拉联想功能
+var currid = 0;/*当前处于的联想结果位置 ID , 0号输入为输入框 ,1~N 为输入框下可选择的链接*/
+var id_range = 0;/*一共有多少个联想结果*/
+var t=1;
+
+function setsearchtype(k){
+t = k;
+}
+function skey_up(){
+var newid = currid -1;
+if(newid ==0){
+newid = id_range;
+}
+$("a#skwlink"+ newid).css('background-color','#ccc');
+$("a#skwlink"+ currid).css('background-color','#fff');
+$("#key").val($("a#skwlink"+newid).text());
+currid = newid;	
+
+}
+
+function skey_down(){
+var newid = currid+1;
+if(newid > id_range) {
+newid = 1;
+}
+$("a#skwlink"+ newid).css('background-color','#ccc');
+$("a#skwlink"+ currid).css('background-color','#fff');
+$("#key").val($("a#skwlink"+newid).text());
+currid = newid;	
+}
+
+function cleanmoredetail(){
+$("div#moredetail").html('');
+currid=0;
+$("div#moredetail").css("display","none");
+}
+
+$(document).ready(function(){
+$("#key").blur(function(){setTimeout(cleanmoredetail,500)});
+$("#key").keyup(function(event){
+var key_code = event.keyCode;
+if(key_code == 13){	
+$("#searchbtn").click();
+return ;
+}
+if(key_code == 38){/*上*/
+skey_up();
+
+return;
+}
+if(key_code == 40 ){/*下 */
+skey_down();
+return;
+}
+$.ajax({
+url: "//s.antpedia.com/keyword_for_other.php?t="+t+"&q="+$("#key").val(),
+data:"{}",
+type: "GET",
+dataType: "jsonp",
+jsonpCallback:"faces",
+cache: true,
+success: function(json){
+if(json.length >3){
+$("#moredetail").html('');
+currid = 0;
+for(i = 0;i<json.length;i++){
+$("#moredetail").append('<a class="skwclass" id="skwlink'+(i+1)+'" href="//s.antpedia.com/'+t+'/'+json[i]+'" target=_blank>'+json[i]+'</a>');
+}
+$("#moredetail").css("display","");
+}else{
+$("#moredetail").html('');
+$("#moredetail").css("display","none");
+}
+        id_range = json.length;	
+   },
+error: function(e){
+}
+});
+})
+});
+</script>
+<script type="text/javascript">
+/*下面是对联广告的js代码
+$(document).ready(function() {
+var duilian = $("div.duilian");
+var duilian_close = $("a.duilian_close");
+
+var window_w = $(window).width();
+if(window_w > 1000) {
+duilian.show();
+}
+$(window).scroll(function() {
+var scrollTop = $(window).scrollTop();
+duilian.stop().animate({
+top: scrollTop + 100
+});
+});
+duilian_close.click(function() {
+$(this).parent().hide();
+return false;
+});
+});
+*/
+
+//安捷伦右下方飘窗广告js\
+/*
+$(function (){
+$('.mypiaofu').animate({right:'5px'},1000);
+$('.mypiaofu .close').click(function(){
+$('.mypiaofu').hide();
+});
+});
+*/
+
+//今日焦点禾信滚动新闻
+/*
+function autoScroll(obj){  
+$(obj).find(".scroll-ul").animate({  
+marginTop : "-30px"  
+},1000,function(){  
+$(this).css({marginTop : "0px"}).find("li:first").appendTo(this);  
+})  
+}  
+$(function(){  
+setInterval('autoScroll(".scroll-div")',3500); 
+}) 
+*/
+</script>
+</head>
+<!--style="background:url(/images/site_index_2018/bg_2018.jpg) no-repeat center 219px;"-->
+<body >
+<!--安捷伦右下方漂浮广告
+<div class="mypiaofu">
+<a href="/antad/antadr.php?mid=2&url=https%3A%2F%2Fad.doubleclick.net%2Fddm%2Fclk%2F309246140%3B136840804%3By" target=_blank><img src="/images/agilent/20160918.jpg"></a>
+<a href="javascript:" class="close">关闭</a>
+</div>-->
+
+<!--对联广告
+<div class="duilian duilian_left" style="z-index: 999999;">
+<a href="/antad/antadr.php?mid=61&url=http%3A%2F%2Fevent.hach.com.cn%2Fworldcup2018%2Findex.html%3Futm_campaign%3Dworldcup2018%26utm_source%3Dantpedia%26utm_medium%3Dbanner-sydl%23%2FWorldCup" target=_blank><div class="duilian_con">
+<img src="/images/site_index_2018/hpimage/20180619hx_left.jpg"></div>
+</a>
+<a href="#" class="duilian_close">关闭</a>
+</div>
+<div class="duilian duilian_right" style="z-index: 999999;">
+<a href="/antad/antadr.php?mid=61&url=http%3A%2F%2Fevent.hach.com.cn%2Fworldcup2018%2Findex.html%3Futm_campaign%3Dworldcup2018%26utm_source%3Dantpedia%26utm_medium%3Dbanner-sydl%23%2FWorldCup" target=_blank><div class="duilian_con">
+<img src="/images/site_index_2018/hpimage/20180619hx_right.jpg"></div>
+</a>
+</div>
+-->
+<!-- end -->
+<div class="header">
+<div class="top">
+<div class="top-div">
+<div class="top-con">
+<div class="top-left-div">
+<a href="//m.antpedia.com/" target="_blank" class="mobile" title="手机版">手机版</a>
+<script src='/batch.panel.minisite.login2016.php?type=1'></script>
+<a href="//ibook.antpedia.com/demandPublish.php" target="_blank" class="inquiry">发布询价单</a>
+</div>
+<div class="top-right-div">
+<a href="https://www.antpedia.com/book-login.html" class="vendorLogin" title="厂商登录" target="_blank">厂商登录</a>
+<!--<a href="https://www.antpedia.com/special/660-collection.html" class="newsflash" title="新闻快讯"target="_blank">新闻快讯</a>-->
+<a href='/news/' class="subscribe" title="行业热点" target="_blank">行业热点</a>
+<!--<a href='/?action-subscriberindex' class="subscribe" title="订阅新闻" target="_blank">订阅新闻</a>删掉-->
+<a href='/?action-wzdt2017' class="siteMap" title="网站地图" target="_blank">网站地图</a>
+<script src='/batch.panel.minisite.login2016.php?type=2'></script>
+</div>
+
+</div>
+</div>
+
+<div class="layout-top">
+<div class="logo">
+<a href="/" target="_blank"><img src="/images/site_index_2018/logo.jpg" width="160" height="70" alt="分析测试百科网" /></a>
+</div>
+<div class="searchBar">
+<div class="searchselect">
+<span id="type" typename="song">全站</span>
+<a class="searchselectbtn" href="javascript:;"></a>
+<ul id="selectTypeList" id="selectTypeList">
+<li>
+<A class="current" href="javascript:setsearchtype(1);">仪器</A>
+</li>
+<li>
+<A href="javascript:setsearchtype(9);">耗材</A>
+</li>
+<li>
+<A href="javascript:setsearchtype(10);">试剂</A>
+</li>
+<li>
+<A href="javascript:setsearchtype(2);">实验室</A>
+</li>
+<li>
+<A href="javascript:setsearchtype(3);">资讯</A>
+</li>
+<li>
+<A href="javascript:setsearchtype(5);">下载</A>
+</li>
+<li>
+<A href="javascript:setsearchtype(6);">厂商</A>
+</li>
+<li>
+<A href="javascript:setsearchtype(7);">社区</A>
+</li>
+<li>
+<A href="javascript:setsearchtype(11);">Webinar</A>
+</li>
+<li>
+<A href="javascript:setsearchtype(13);">全站</A>
+</li>
+<li>
+<A href="/standard/" target="_blank">标准</A>
+</li>
+<li class="last"></li>
+</ul>
+</div>
+
+<div class="searchContainer">
+<input id="key" type="text" value="例如：气相色谱..." onfocus="if(this.value=='例如：气相色谱...'){this.value='';}" onblur="if(this.value==''){this.value='例如：气相色谱...';}">
+<button class="searchbtn" id="searchbtn">
+ <div class="anim"></div>
+ <span>搜索</span>
+</button>
+</div>
+
+<div id='moredetail' style='display:none;'></div>
+
+<div class="post-buy">
+<a href="//ibook.antpedia.com/demandPublish.php" target="_blank" class="buy_a">
+<div class="anim"></div>
+<span>发布询价单</span>
+</a>
+</div>
+<div class="hotWords">
+<img src="/images/site_index_2018/searchHot.jpg" alt="">&nbsp;<a href='https://s.antpedia.com/1/%E7%A7%BB%E6%B6%B2%E5%B7%A5%E4%BD%9C%E7%AB%99' target='_blank' class='adv_oraurl'>移液工作站</a><a name=extsiteurl href='https://s.antpedia.com/1/%E7%A7%BB%E6%B6%B2%E5%B7%A5%E4%BD%9C%E7%AB%99'></a><a href='https://s.antpedia.com/1/%E6%B6%B2%E7%9B%B8%E8%89%B2%E8%B0%B1' target='_blank' class='adv_oraurl'>液相色谱</a><a name=extsiteurl href='https://s.antpedia.com/1/%E6%B6%B2%E7%9B%B8%E8%89%B2%E8%B0%B1'></a><a href='https://s.antpedia.com/1/%E5%8E%9F%E5%AD%90%E5%90%B8%E6%94%B6' target='_blank' class='adv_oraurl'>原子吸收</a><a name=extsiteurl href='https://s.antpedia.com/1/%E5%8E%9F%E5%AD%90%E5%90%B8%E6%94%B6'></a><a href='https://s.antpedia.com/1/%E6%A0%87%E5%87%86%E7%89%A9%E8%B4%A8' target='_blank' class='adv_oraurl'>标准物质</a><a name=extsiteurl href='https://s.antpedia.com/1/%E6%A0%87%E5%87%86%E7%89%A9%E8%B4%A8'></a><a href='https://s.antpedia.com/1/%E7%9B%B4%E8%AF%BB%E5%85%89%E8%B0%B1%E4%BB%AA' target='_blank' class='adv_oraurl'>直读光谱仪</a><a name=extsiteurl href='https://s.antpedia.com/1/%E7%9B%B4%E8%AF%BB%E5%85%89%E8%B0%B1%E4%BB%AA'></a><a href='https://s.antpedia.com/1/%E6%89%AB%E6%8F%8F%E7%94%B5%E9%95%9C' target='_blank' class='adv_oraurl'>扫描电镜</a><a name=extsiteurl href='https://s.antpedia.com/1/%E6%89%AB%E6%8F%8F%E7%94%B5%E9%95%9C'></a><a href='http://s.antpedia.com/1/%E5%BE%AE%E6%B3%A2%E6%B6%88%E8%A7%A3' target='_blank' class='adv_oraurl'>微波消解</a><a name=extsiteurl href='http://s.antpedia.com/1/%E5%BE%AE%E6%B3%A2%E6%B6%88%E8%A7%A3'></a><a href='http://s.antpedia.com/1/%E7%B2%92%E5%BA%A6%E4%BB%AA' target='_blank' class='adv_oraurl'>粒度仪</a><a name=extsiteurl href='http://s.antpedia.com/1/%E7%B2%92%E5%BA%A6%E4%BB%AA'></a><a href='http://s.antpedia.com/1/ICP-MS' target='_blank' class='adv_oraurl'>ICP-MS</a><a name=extsiteurl href='http://s.antpedia.com/1/ICP-MS'></a><a href='https://s.antpedia.com/1/%E5%9B%BA%E7%9B%B8%E8%90%83%E5%8F%96' target='_blank' class='adv_oraurl'>固相萃取</a><a name=extsiteurl href='https://s.antpedia.com/1/%E5%9B%BA%E7%9B%B8%E8%90%83%E5%8F%96'></a></div>
+</div>
+
+<div id="top-ad"><div><a href='http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=4' target=_blank class='adv_oraurl'><img src='//i4.antpedia.com/images/advimages/2018-06-08/20180608032647.gif' width=240 height=70></a></div><a name=extsiteurl href='http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=4'></a></div>
+</div>
+</div>
+
+<div class="menu">
+<div class="layout-menu">
+<ul class="nav-list">
+
+<li class="drop-menu-effect">
+<a href="/news/" class="selected2" target="_blank"><span class="arrow nav-list-span">资讯</span></a>
+<ul class="submenu">
+<li><a href="/news/" target="_blank" title="行业资讯">行业资讯</a></li>
+<li><a href="/oranews/1/" target="_blank" title="原创报道">原创报道</a></li>
+<li><a href="/special/" target="_blank" title="专题">专题</a></li>
+<li><a href="/enewsletter/1/" target="_blank" title="eNewsletter">eNewsletter</a></li>
+<li><a href="/finance/" target="_blank" title="产经">产经</a></li>
+</ul>
+</li>
+
+
+<li class="drop-menu-effect">
+<a href="//ibook.antpedia.com/" target="_blank" title="仪器谱"><span class="arrow arrow-1 nav-list-span">仪器谱</span></a>
+<ul class="submenu submenu-1">
+<li><a href="//ibook.antpedia.com/newsproduct.php" target="_blank" title="新品速递">新品速递</a></li>
+<li><a href="//ibook.antpedia.com/bidding.php" target="_blank" title="招标中标">招标中标</a></li>
+<li><a href="//ibook.antpedia.com/demandIndex.php" target="_blank" title="求购信息">求购信息</a></li>
+</ul>
+</li>
+
+
+<li class="drop-menu-effect">
+<a href="/antop/" target="_blank"><span class="antop_label nav-list-span">ANTOP</span></a>
+</li>
+<li class="drop-menu-effect">
+<a href="/labs/" target="_blank" title="前沿Lab"><span class="nav-list-span">前沿Lab</span></a>
+</li>
+<li class="drop-menu-effect">
+<a href="http://www.antbuyhot.com/shop/index.php" target="_blank" title="安特百货"><span class="antbuy_label nav-list-span">安特百货</span></a>
+</li>
+<li class="drop-menu-effect">
+<a href="/webinar/" target="_blank" title="Webinar"><span class="nav-list-span">Webinar</span></a>
+</li>
+<li class="drop-menu-effect">
+<a href="//c.antpedia.com/" target="_blank" title="会议会展"><span class="nav-list-span">会议会展</span></a>
+</li>
+<li class="drop-menu-effect">
+<a href="/standard/" target="_blank"><span class="nav-list-span">标准</span></a>
+</li>
+
+<li class="drop-menu-effect">
+<a href="//cbook.antpedia.com/" target="_blank" title="耗材/试剂谱"><span class="arrow arrow-2 nav-list-span">耗材/试剂谱</span></a>
+<ul class="submenu submenu-1">
+<li><a href="//rbook.antpedia.com/" target="_blank" title="试剂谱">试剂谱</a></li>
+<li><a href="http://ichain.antpedia.com/" target="_blank" title="产业链">产业链</a></li>
+</ul>
+</li>
+
+<li class="drop-menu-effect">
+<a href="/minisite/" target="_blank" title="Minisite"><span class="nav-list-span">Minisite</span></a>
+</li>	
+<li class="drop-menu-effect">
+<a href="/weixingroup/" target="_blank"><span class="scientific_label nav-list-span">科研矩阵</span></a>
+</li>	
+
+</ul>
+</div>
+<div class="sub-menu">
+<div class="sub-div01">
+<div class="shop-guide">
+<a href="/instrument/" target="_blank">导购</a>
+</div>
+<ul>
+<li><a href='http://www.antpedia.com/instrument/cat-150/' target='_blank' class='adv_oraurl'>气相</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-150/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-151/' target='_blank' class='adv_oraurl'>液相</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-151/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-138/' target='_blank' class='adv_oraurl'>气质</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-138/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-139/' target='_blank' class='adv_oraurl'>液质</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-139/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-152/' target='_blank' class='adv_oraurl'>紫外</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-152/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-253/' target='_blank' class='adv_oraurl'>拉曼</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-253/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-154/' target='_blank' class='adv_oraurl'>AAS</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-154/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-155/' target='_blank' class='adv_oraurl'>AFS</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-155/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-275/' target='_blank' class='adv_oraurl'>ICPMS</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-275/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-164/' target='_blank' class='adv_oraurl'>微波消解</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-164/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-167/' target='_blank' class='adv_oraurl'>IC</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-167/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-494/' target='_blank' class='adv_oraurl'>粒度仪</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-494/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-236/' target='_blank' class='adv_oraurl'>COD</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-236/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-288/' target='_blank' class='adv_oraurl'>VOC</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-288/'></a><span>|</span></li>
+<li><a href='http://www.antpedia.com/instrument/cat-178/' target='_blank' class='adv_oraurl'>SPE</a><a name=extsiteurl href='http://www.antpedia.com/instrument/cat-178/'></a></li>
+</ul>
+</div>
+<div class="sub-div02">
+<ul>
+<li><a href="/food/" target="_blank" title="食品">食品</a><span>|</span></li>
+<li><a href="/pharmaceutical/" target="_blank" title="医药">制药</a><span>|</span></li>
+<li><a href="/environment/" target="_blank" title="环境">环境</a><span>|</span></li>
+<li><a href="/chemical/" target="_blank" title="化工">化工</a><span>|</span></li>
+<li><a href="/clinical/" target="_blank" title="医药">临床</a><span>|</span></li>
+<li><a href="/ydkj/" target="_blank" title="移动检测">移动检测</a><span>|</span></li>
+<li><a href="/advanced-material/" target="_blank" title="先进材料">先进材料</a><span>|</span></li>
+<li><a href="/life-science/" target="_blank" title="生命科学">生命科学</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!--10秒大图广告-->
+<!--
+<div id='agitop' style="margin:0 auto;display:block;width:1003px;height:500px;">
+<a href="/custom/decennial/" target="_blank">
+<img src="/images/site_index_v9/20171009_10zn.jpg"></a>
+</div>
+<script> 
+$(document).ready(function(){ setInterval(showagitop,7000); });
+function showagitop(){ $("div#agitop").slideUp(); }
+</script>
+-->
+<div id="luxury_car"></div>
+<script type="text/javascript">
+var mainFunction = function(isLogin, gz_uid) {
+var luxury_car_data = [
+[
+"Multiwave 7000微波消解",
+"/images/site_index_2018/hpimage/adplogo.jpg",
+"/images/site_index_2018/hpimage/adplogo.jpg",
+"/images/site_index_2018/hpimage/adp_long_20180706.jpg",
+"/antad/antadr.php?mid=36&url=https%3A%2F%2Fwww.anton-paar.com%2Fcn-cn%2Fproducts%2Fdetails%2Fmicrowave-digestion-system-multiwave-7000%2F%3Futm_source%3Dbanner%26utm_medium%3Dwww%26utm_campaign%3Dmultiwave7000",
+"安东帕",
+"/antad/antadr.php?mid=36&url=https%3A%2F%2Fwww.anton-paar.com%2Fcn-cn%2Fproducts%2Fdetails%2Fmicrowave-digestion-system-multiwave-7000%2F%3Futm_source%3Dbanner%26utm_medium%3Dwww%26utm_campaign%3Dmultiwave7000"
+],
+[
+"布鲁克质谱",
+"/images/site_index_2018/hpimage/blklogo.jpg",
+"/images/site_index_2018/hpimage/blklogo.jpg",
+"/images/site_index_2018/hpimage/blklong_20170919.jpg",
+"/antad/antadr.php?mid=41&url=https://www.bruker.com/products/mass-spectrometry-and-separations/lc-ms/o-tof/timstof-pro/overview.html",
+"布鲁克（北京）科技有限公司 纳米表面仪器部",
+"/antad/antadr.php?mid=41&url=https://www.bruker.com/products/mass-spectrometry-and-separations/lc-ms/o-tof/timstof-pro/overview.html"
+],
+[
+"德国耶拿",
+"/images/site_index_2018/hpimage/ynlogo.jpg",
+"/images/site_index_2018/hpimage/ynlogo.jpg",
+"/images/site_index_2018/hpimage/yena_long.jpg",
+"/antad/antadr.php?mid=22&url=http://ibook.antpedia.com/190/",
+"德国耶拿分析仪器股份公司",
+"/antad/antadr.php?mid=22&url=http://ibook.antpedia.com/190/"
+],
+[
+"天美学院",
+"/images/site_index_2018/hpimage/tmlogo.jpg",
+"/images/site_index_2018/hpimage/tmlogo.jpg",
+"/images/site_index_2018/hpimage/tm_20180612.jpg",
+"/antad/antadr.php?mid=24&url=https://ibook.antpedia.com/13/n/28935-n.html",
+"天美学院",
+"/antad/antadr.php?mid=24&url=https://ibook.antpedia.com/13/n/28935-n.html"
+],
+[
+"样品前处理技术领导者",
+"/images/site_index_2018/hpimage/logo_lbtk20171228.jpg",
+"/images/site_index_2018/hpimage/logo_lbtk20171228.jpg",
+"/images/site_index_2018/hpimage/lbtklong.gif",
+"/antad/antadr.php?mid=34&url=http://ibook.antpedia.com/193/",
+"北京莱伯泰科仪器股份有限公司",
+"/antad/antadr.php?mid=34&url=http://ibook.antpedia.com/193/"
+],
+[
+"哈希公司",
+"/images/site_index_2018/hpimage/hxlogo.jpg",
+"/images/site_index_2018/hpimage/hxlogo.jpg",
+"/images/site_index_2018/hpimage/hxlong_20180531.jpg",
+"/antad/antadr.php?mid=61&url=http%3A%2F%2Fevent.hach.com.cn%2Flssys%2Findex.html%3Futm_campaign%3Dlssys%26utm_source%3Dantpedia%26utm_medium%3Dbanner-FTB",
+"哈希公司",
+"/antad/antadr.php?mid=61&url=http%3A%2F%2Fevent.hach.com.cn%2Flssys%2Findex.html%3Futm_campaign%3Dlssys%26utm_source%3Dantpedia%26utm_medium%3Dbanner-FTB"
+]
+];
+
+//调整品牌宽度
+var li_width = [195, 196, 196, 198, 197, 196];
+var luxury_car_html = '';
+luxury_car_html += '<div class="luxury_car">';
+luxury_car_html += '<ul id="list_ul">';
+for(var i = 0; i < luxury_car_data.length; i++) {
+luxury_car_html += '<li><a href="" target="_blank" ><span class="logo"><img src="' + luxury_car_data[i][1] + '" ></span><span class="txt">' + luxury_car_data[i][0] + '</span></a></li>';
+}
+luxury_car_html += '</ul>';
+luxury_car_html += '<div id="car_bar">'
+for(var i = 0; i < luxury_car_data.length; i++) {
+
+if(luxury_car_data[i][1] == "") {
+luxury_car_html += '<div class="car_bar"><div class="car_wrap"><a target="_blank" href="' + luxury_car_data[i][4] + '"><img src="' + luxury_car_data[i][2] + '" width="1000" height="50"/></a></div></div>';
+} else {
+
+if(isLogin == 0 || isLogin == 'undefined') {
+luxury_car_html += '<div class="car_bar"><div class="car_bar_l"><dl><dt><a href="' + luxury_car_data[i][6] + '" target="_blank"><img src="' + luxury_car_data[i][2] + '" /></a></dt></dl></div><div class="car_bar_r"><div class="car_wrap"><a target="_blank" href="' + luxury_car_data[i][4] + '"><img src="' + luxury_car_data[i][3] + '" width="1000" height="50"/></a></div></div></div>';
+} else {
+luxury_car_html += '<div class="car_bar"><div class="car_bar_l"><dl><dt><a href="' + luxury_car_data[i][6] + '" target="_blank"><img src="' + luxury_car_data[i][2] + '" /></a></dt><dd><p><a href="' + luxury_car_data[i][4] + '" target="_blank"><img src="' + luxury_car_data[i][3] + '" /></a></p><p>' +
+(function() {
+var uidArr = [];
+var isGz = false;
+for(var k = 0; k < gz_uid.length; k++) {
+uidArr[k] = gz_uid[k].id;
+}
+for(var k = 0; k < uidArr.length; k++) {
+if(luxury_car_data[i][3] == uidArr[k]) {
+isGz = true;
+break;
+}
+}
+if(isGz) {
+return '<img src="" />';
+} else {
+return '<a href="javascript:;" target="_blank" onclick="luxury_car_gz(' + luxury_car_data[i][5] + ',\'' + luxury_car_data[i][4] + '\')" id="luxury_gz_' + luxury_car_data[i][5] + '"><img src="" /></a>';
+}
+
+})() +
+'</p></dd></dl></div><div class="car_bar_r"><div class="car_wrap"><a target="_blank" href=""><img src="" width="1000" height="50"/></a></div></div></div>';
+}
+}
+}
+luxury_car_html += '</div></div>';
+document.getElementById("luxury_car").innerHTML = luxury_car_html;
+var aLi = document.getElementById("list_ul").getElementsByTagName("li");
+var oDiv = document.getElementById("car_bar");
+var aCarBar = getByClass(oDiv, "car_bar");
+var aCarWrap = getByClass(oDiv, "car_wrap");
+var aImg = [];
+for(var i = 0; i < aCarWrap.length; i++) {
+aImg.push(aCarWrap[i].getElementsByTagName('img')[0]);
+aLi[i].style.width = li_width[i] + 'px';
+aLi[i].getElementsByTagName("a")[0].style.width = li_width[i] + 'px';
+aLi[i].getElementsByTagName("a")[0].getElementsByTagName("span")[0].style.width = li_width[i] + 'px';
+aLi[i].getElementsByTagName("a")[0].getElementsByTagName("span")[1].style.width = li_width[i] + 'px';
+}
+
+for(var i = 0; i < aLi.length; i++) {
+
+aLi[i].index = i;
+
+aLi[i].onmouseover = function() {
+for(i = 0; i < aLi.length; i++) {
+aLi[i].className = '';
+aCarBar[i].style.display = 'none';
+aImg[i].src = "";
+aLi[i].getElementsByTagName("a")[0].href = luxury_car_data[i][4];
+aCarWrap[i].getElementsByTagName("a")[0].href = luxury_car_data[i][4];
+}
+this.className = 'show';
+aCarBar[this.index].style.display = 'block';
+if(aImg[this.index].src != "http://d5.sina.com.cn/shh/lechan/20111227sina_car/images/pixal.png") {
+aImg[this.index].src = luxury_car_data[this.index][3];
+}
+
+}
+aLi[i].onmouseout = function() {
+for(i = 0; i < aLi.length; i++) {
+if(this.className = 'show') {
+this.className = '';
+aCarBar[this.index].style.display = 'none';
+}
+}
+}
+}
+for(var i = 0; i < aCarBar.length; i++) {
+aCarBar[i].index = i;
+aCarBar[i].onmouseover = function() {
+for(i = 0; i < aCarBar.length; i++) {
+aCarBar[i].style.display = '';
+aImg[i].src = "";
+}
+this.style.display = 'block';
+aLi[this.index].className = 'show';
+if(aImg[this.index].src != "http://d5.sina.com.cn/shh/lechan/20111227sina_car/images/pixal.png") {
+aImg[this.index].src = luxury_car_data[this.index][3];
+}
+
+}
+aCarBar[i].onmouseout = function() {
+for(i = 0; i < aCarBar.length; i++) {
+if(this.style.display = 'block') {
+aLi[this.index].className = '';
+this.style.display = 'none';
+//aImg[i].src = "";
+}
+}
+}
+}
+
+}
+var getByClass = function(oParent, sClass) {
+var parent = oParent || document;
+var re = new RegExp('\\b' + sClass + '\\b');
+var aEles = parent.getElementsByTagName('*');
+var arr = [];
+for(var i = 0; i < aEles.length; i++) {
+if(re.test(aEles[i].className)) {
+arr.push(aEles[i]);
+}
+}
+return arr;
+}
+
+var getJson = function(url) {
+var oScript = document.createElement('script');
+oScript.type = 'text/javascript';
+oScript.src = url;
+document.getElementsByTagName('head')[0].appendChild(oScript);
+
+}
+var luxury_car_info = function(json) {
+var isLogin = json.succ;
+var gz_uid = json.result;
+mainFunction(isLogin, gz_uid);
+}
+
+var luxury_car_gz = function(uid, monitor) {
+var url = 'http://all.vic.sina.com.cn/201302auto/follow.php?uid=' + uid;
+getJson(url);
+var oImage = new Image();
+oImage.src = monitor + '&_=' + new Date().getTime();
+}
+
+var luxury_car_follow = function(json) {
+if(json.succ == 1) {
+document.getElementById("luxury_gz_" + json.uid).parentNode.innerHTML = '<img src="//img.antpedia.com/images/ep/d2.sina.com.cn/468ac514cdabc2fd2cbf27c0acd3196e.png" />';
+}
+}
+/*
+try{
+getJson('http://all.vic.sina.com.cn/201302auto/islogin.php');
+}catch(e){}
+*/
+luxury_car_info({
+"succ": 0,
+"result": []
+});
+</script>
+</div>
+
+<div class="main">
+<!--右侧半圆形定位广告
+<div><a href="/custom/decennial/" class="pc" target="_blank" title="分析测试百科网十周年"></a></div>
+-->
+<div class="tag-1">
+<div class="tag-leftDiv">
+<div class="tag1-left">
+<!--轮播图-->
+<div class="content ">
+<div class="con-tag clearBoder">
+<div class="rotary-figure">
+  
+<div id="featured"><a href="https://www.antpedia.com/news/71/n-2224071.html" target=_blank data-caption="#htmlCaption1"><img src="//i5.antpedia.com/cache/indexad/e/fed9614f7785d46927937abc45918769.jpg" title="中国质谱学术大会4大主题 质谱应用“顶天立地”" alt="中国质谱学术大会4大主题 质谱应用“顶天立地”" height=200 width=348></a><a href="https://www.antpedia.com/news/57/n-2223757.html" target=_blank data-caption="#htmlCaption2"><img src="//i4.antpedia.com/cache/indexad/c/1ccf65f5ed4bde10c6e99df9be37f482.jpg" title="沃特世：同中国科学家深度合作共促糖组学创新" alt="沃特世：同中国科学家深度合作共促糖组学创新" height=200 width=348></a><a href="http://www.antpedia.com/news/65/n-2223665.html" target=_blank data-caption="#htmlCaption3"><img src="//i5.antpedia.com/cache/indexad/8/282742c5cd1016aba403eaffb5e5c9d2.jpg" title="孙世刚院士寄语全国分子光谱会议40年（一） 需温故知新" alt="孙世刚院士寄语全国分子光谱会议40年（一） 需温故知新" height=200 width=348></a><a href="http://www.antpedia.com/news/29/n-2223729.html" target=_blank data-caption="#htmlCaption4"><img src="//i2.antpedia.com/cache/indexad/b/ab7b54e2f3d69e1d437ccf37d50d44a1.jpg" title="张丽华：搭建蛋白质组学研究平台" alt="张丽华：搭建蛋白质组学研究平台" height=200 width=348></a><a href="http://www.antpedia.com/news/81/n-2223181.html" target=_blank data-caption="#htmlCaption5"><img src="//i2.antpedia.com/cache/indexad/6/e686468a3d8d246cfd2a909b69872fd1.png" title="质谱成像技术使临床诊断更容易，更智能，分辨率可达3μm" alt="质谱成像技术使临床诊断更容易，更智能，分辨率可达3μm" height=200 width=348></a><a href="http://www.antpedia.com/news/77/n-2222977.html" target=_blank data-caption="#htmlCaption6"><img src="//i3.antpedia.com/cache/indexad/2/721c858abb1c32a45828129faed83f5b.jpg" title="珀金埃尔默：农残分析成热点 近年质谱新品广受欢迎" alt="珀金埃尔默：农残分析成热点 近年质谱新品广受欢迎" height=200 width=348></a></div><span class="orbit-caption" id="htmlCaption1">中国质谱学术大会4大主题 质谱应用“顶天立地”</span><span class="orbit-caption" id="htmlCaption2">沃特世：同中国科学家深度合作共促糖组学创新</span><span class="orbit-caption" id="htmlCaption3">孙世刚院士寄语全国分子光谱会议40年（一） 需温故知新</span><span class="orbit-caption" id="htmlCaption4">张丽华：搭建蛋白质组学研究平台</span><span class="orbit-caption" id="htmlCaption5">质谱成像技术使临床诊断更容易，更智能，分辨率可达3μm</span><span class="orbit-caption" id="htmlCaption6">珀金埃尔默：农残分析成热点 近年质谱新品广受欢迎</span></div>
+</div>
+</div>
+<!--end-->
+
+<div class="h15"></div>
+
+<!--哈希2+1广告
+<div class="tag-b1">      <a href="//www.antpedia.com/antad/antadr.php?mid=61&p=1&url=http%3A%2F%2Fibook.antpedia.com%2F124%2F" target="_blank" class="tag-b1-logo" title="">        <img src="//i5.antpedia.com/space/images/manuf/1510818532-1566.jpg!w125x40.jpg" alt="" height="60" width="145">      </a>      <p class="tag-b1-txt">       <a href="//www.antpedia.com/antad/antadr.php?mid=61&p=2&url=http%3A%2F%2Fibook.antpedia.com%2F124%2Fn%2F17388-n.html" target="_blank" title="哈希上海制药用户齐聚浦东 共同探讨水质分析仪应用">哈希上海制药用户齐聚浦东 共同探讨水质分析仪应用</a>      </p>      <ul class="tag-b1-ul-1">       <li>        <a href="//www.antpedia.com/antad/antadr.php?mid=61&p=3&url=http%3A%2F%2Fibook.antpedia.com%2F124%2Fn%2F17316-n.html" target="_blank" title="丹纳赫水平台，积极致力于绿水青山的建设">丹纳赫水平台，积极致力于绿水青山的建设</a>       </li>       <li>        <a href="//www.antpedia.com/antad/antadr.php?mid=61&p=4&url=http%3A%2F%2Fibook.antpedia.com%2F124%2Fn%2F17314-n.html" target="_blank" title="李林博士出席“清华-哈希水质奖学金”颁奖仪式">李林博士出席“清华-哈希水质奖学金”颁奖仪式</a>       </li>      </ul>      <a class="more" href="//www.antpedia.com/corp/61/" target="_blank"><span>更多</span></a>     </div>-->
+<!--广告-->
+<div class="tag-b1"><div><a href='//www.antpedia.com/antad/antadr.php?mid=25&url=http%3A%2F%2Ft.antpedia.com%2Fjq%2F25345468.aspx' target=_blank class='adv_oraurl'><img src='//i4.antpedia.com/images/advimages/2018-06-25/20180625015232.gif' width=350 height=127></a></div><a name=extsiteurl href='http://t.antpedia.com/jq/25345468.aspx'></a></div>
+<!--end--> 
+
+<!--精英视角-->
+<div class="content elites">
+<div class="title">
+<h3>精英视角</h3>
+<a href="/news/741/" target="_blank" class="more"><span>更多</span></a>
+</div>
+<div class="con-tag bgF7">
+<ul class="ul-1"> <!--news_jysj-->
+  <li><a href="https://www.antpedia.com/news/71/n-2224071.html" target="_blank" title="中国质谱学术大会4大主题 质谱应用“顶天立地”(图)">中国质谱学术大会4大主题 质谱应用“顶天立地”(图)：......</a></li>
+  
+  <li><a href="https://www.antpedia.com/news/29/n-2223729.html" target="_blank" title="张丽华：搭建蛋白质组学研究平台(图)">张丽华：搭建蛋白质组学研究平台(图)......</a></li>
+  
+  <li><a href="https://www.antpedia.com/news/65/n-2223665.html" target="_blank" title="孙世刚院士寄语全国分子光谱会议40年（一） 需温故知新(图)">孙世刚院士寄语全国分子光谱会议40年（一） 需温故知新(图)：......</a></li>
+  
+  <li><a href="https://www.antpedia.com/news/75/n-2222875.html" target="_blank" title="刘虎威教授谈2018中国质谱学术大会：团结就是力量(图)">刘虎威教授谈2018中国质谱学术大会：团结就是力量(图)......</a></li>
+  
+</ul>
+</div>
+</div>
+<!--end-->
+
+<!--左侧精英视角下方广告-->
+<div class="tag-b2"><div><a href='//www.antpedia.com/antad/antadr.php?mid=30&url=http%3A%2F%2Fibook.antpedia.com%2F151%2F' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-01-11/20180111030848.gif' width=350 height=90></a></div><a name=extsiteurl href='http://ibook.antpedia.com/151/'></a></div>
+<!--end-->
+
+<!--Minisite-->
+<div class="content">
+<div class="con-tag noBg">
+<ul class="minisite_ul"><li><a href='/antad/antadr.php?mid=1&url=http%3A%2F%2Fwww.antpedia.com%2Fcustom%2Fdemecon%2F'  target=_blank title='德迈康提供从产品设计到专利保护整体解决方案'>德迈康提供从产品设计到专利保护整体解决方案</a></li><li><a href='/antad/antadr.php?mid=204&url=http%3A%2F%2Fwww.antpedia.com%2Fcustom%2Fantpedia%2F20171113%2F'  target=_blank title='粮油检测标准及仪器配置'>粮油检测标准及仪器配置</a></li><li><a href='/antad/antadr.php?mid=30&url=http%3A%2F%2Fwww.antpedia.com%2Fcustom%2Fhaiguang%2F'  target=_blank title='海光仪器成立30周年纪念'>海光仪器成立30周年纪念</a></li><li><a href='/antad/antadr.php?mid=204&url=http%3A%2F%2Fwww.antpedia.com%2Fspecial%2F702-collection.html'  target=_blank title='第三届全国质谱会专题'>第三届全国质谱会专题</a></li></ul></div>
+</div>
+<!--end-->
+
+<!--首页左侧文字链-->
+<div class="content">
+<div class="con-tag bgF7">
+<ul class="webinar_ul">
+<li>
+<a href="http://www.antpedia.com/news/52/n-1461752.html" target="_blank" class="webinar_lable">通知</a>
+<a href="http://www.antpedia.com/news/52/n-1461752.html" target="_blank" title="ANTOP奖项开放申报！" class="webinar_a">ANTOP奖项开放申报！</a>
+</li>
+<li>
+<a href="https://www.antpedia.com/news/18/n-2148618.html" target="_blank" class="webinar_lable">通知</a>
+<a href="https://www.antpedia.com/news/18/n-2148618.html" target="_blank" title="2018 ANTOP颁奖盛典回顾！" class="webinar_a">2018 ANTOP颁奖盛典回顾！</a>
+</li>
+<li>
+<a href="http://www.antpedia.com/custom/xbs/20170712/" target="_blank" class="webinar_lable">焦点</a>
+<a href="http://www.antpedia.com/custom/xbs/20170712/" target="_blank" title="致敬：分析测试行业的“X布斯”" class="webinar_a">致敬：分析测试行业的“X布斯”</a>
+</li>
+<li>
+<a href="https://www.antpedia.com/news/74/n-2161274.html" target="_blank" class="webinar_lable">通知</a>
+<a href="https://www.antpedia.com/news/74/n-2161274.html" target="_blank" title="2018Antpedia超值营销方案包上线啦~" class="webinar_a">2018Antpedia超值营销方案包上线啦~</a>
+</li>
+</ul>
+</div>
+</div>
+<!--end-->
+
+<!--九块区域-->
+<div class="content">
+<div class="con-tag clearBoder">
+<ul class="newtool">
+<li>
+<a title="搜标准" href="/standard/" target="_blank" class="pt_nt_01"></a>
+</li>
+<li>
+<a title="听讲座" href="/webinar/" target="_blank" class="pt_nt_02"></a>
+</li>
+<li>
+<a title="找仪器" href="//ibook.antpedia.com/" target="_blank" class="pt_nt_03"></a>
+</li>
+<li>
+<a title="查参数" href="/instrument/" target="_blank" class="pt_nt_04"></a>
+</li>
+<li>
+<a title="逛百货" href="http://www.antbuyhot.com/shop/index.php" target="_blank" class="pt_nt_05"></a>
+</li>
+<li>
+<a title="发求购" href="//ibook.antpedia.com/demandPublish.php" target="_blank" class="pt_nt_06"></a>
+</li>
+<li>
+<a title="加微群" href="/weixingroup/" target="_blank" class="pt_nt_07"></a>
+</li>
+<li>
+<a title="免费登记维修等等" href="/?action-repaircheck" target="_blank" class="pt_nt_08"></a>
+</li>
+</ul>
+</div>
+</div>
+<!--end-->
+</div>
+
+<div class="tag1-right">
+<!-- 天瑞广告-->
+<div class="tag-b3"><div><a href='//www.antpedia.com/antad/antadr.php?mid=57&url=http%3A%2F%2Fwww.skyray-instrument.com%2Factivity%2Fms%2Findex.htm' target=_blank class='adv_oraurl'><img src='//i4.antpedia.com/images/advimages/2018-01-24/20180124092256.gif' width=465 height=67></a></div><a name=extsiteurl href='http://www.skyray-instrument.com/activity/ms/index.htm'></a></div>
+<!--end-->
+
+<!--今日焦点tab-->
+<div class="hot-topics">
+<div class="title">
+<ul class="title-list">
+<li class="on"><a href="/news/" target=_blank>要闻</a></li>
+<li><a href="//ibook.antpedia.com/n/1/" target=_blank>厂商</a></li>
+<li><a href="/oranews/1/" target=_blank>原创</a></li>
+<li><a href="/special/" target=_blank>专题</a></li>
+<li><a href="/standard/" target=_blank>标准</a></li>
+</ul>
+</div>
+<div class="product-wrap">
+<!-- 要闻 -->
+<div class="product show">
+<!-- 要闻头条1 -->
+<div class="new-txt-First">
+<a href="#" target="_blank"><a href='https://www.antpedia.com/news/71/n-2224071.html' target='_blank' class='adv_oraurl'>中国质谱学术大会4大主题 质谱应用“顶天立地”</a><a name=extsiteurl href='https://www.antpedia.com/news/71/n-2224071.html'></a></a>
+</div>
+<!-- 要闻1end -->
+
+<ul class="cf">
+<li><a href="https://www.antpedia.com/news/15/n-2223615.html" target="_blank" title="国家自然科学基金委发布“十三五”第三批重大项目指南">国家自然科学基金委发布“十三五”第三批重大项目指南</a></li>
+<li><a href="https://www.antpedia.com/news/07/n-2223607.html" target="_blank" title="两部门发布2017年全国认证认可检验检测服务业统计信息">两部门发布2017年全国认证认可检验检测服务业统计信息</a></li>
+<li><a href="https://www.antpedia.com/news/09/n-2223009.html" target="_blank" title="关于对维生素C等6个药用辅料标准征集意见的通知">关于对维生素C等6个药用辅料标准征集意见的通知</a></li>
+<li><a href="https://www.antpedia.com/news/05/n-2223005.html" target="_blank" title="小时候的味道还在吗？“复方草珊瑚含片”质量标准重修订">小时候的味道还在吗？“复方草珊瑚含片”质量标准重修订</a></li>
+<li><a href="https://www.antpedia.com/news/03/n-2223003.html" target="_blank" title="关于“安尔眠糖浆”质量标准修订的公示">关于“安尔眠糖浆”质量标准修订的公示</a></li>
+<li><a href="https://www.antpedia.com/news/99/n-2222599.html" target="_blank" title="李灿院士寄语全国分子光谱会议40年（一） 与会议的缘分">李灿院士寄语全国分子光谱会议40年（一） 与会议的缘分</a></li>
+<li><a href="https://www.antpedia.com/news/01/n-2222701.html" target="_blank" title="第十五届全国青年分析测试学术报告会第二轮通知">第十五届全国青年分析测试学术报告会第二轮通知</a></li>
+<li><a href="https://www.antpedia.com/news/44/n-2221944.html" target="_blank" title="我国发布食品中那非类物质检验方法 UPLC-MS法可测90种">我国发布食品中那非类物质检验方法 UPLC-MS法可测90种</a></li>
+</ul>
+
+<!-- 要闻头条2 -->
+<div class="new-txt">
+<a href="#" target="_blank"><a href='https://www.antpedia.com/webinar/656557915.html' target='_blank' class='adv_oraurl'>【半导体制造工业和表面特征研究】主题研讨会</a><a name=extsiteurl href='https://www.antpedia.com/webinar/656557915.html'></a></a>
+</div>
+<!-- 要闻2end -->
+<ul class="cf">
+<li><a href="https://www.antpedia.com/news/42/n-2223242.html" target="_blank" title="美加学者研制高灵敏度 可容性溶解分子光学压力传感器">美加学者研制高灵敏度 可容性溶解分子光学压力传感器</a></li>
+<li><a href="https://www.antpedia.com/news/81/n-2223181.html" target="_blank" title="质谱成像技术使临床诊断更容易，更智能，分辨率可达3μm">质谱成像技术使临床诊断更容易，更智能，分辨率可达3μm</a></li>
+<li><a href="https://www.antpedia.com/news/23/n-2223123.html" target="_blank" title="质谱、光谱相结合，德国学者研究获得二氧化氮电离途径">质谱、光谱相结合，德国学者研究获得二氧化氮电离途径</a></li>
+<li><a href="https://www.antpedia.com/news/96/n-2221296.html" target="_blank" title="铜像“玄奘”被雨淋出绿斑，竟是起了化学反应？">铜像“玄奘”被雨淋出绿斑，竟是起了化学反应？</a></li>
+<li><a href="https://www.antpedia.com/news/70/n-2221270.html" target="_blank" title="我国学者在仿生催化和有机小分子催化领域获重要突破">我国学者在仿生催化和有机小分子催化领域获重要突破</a></li>
+<li><a href="https://www.antpedia.com/news/46/n-2220846.html" target="_blank" title="中科院大化所代谢组学深度覆盖分析技术获新进展">中科院大化所代谢组学深度覆盖分析技术获新进展</a></li>
+<li><a href="https://www.antpedia.com/news/86/n-2218886.html" target="_blank" title="大连化物所用LC-HRMS对食品未知风险物质进行非靶向筛查">大连化物所用LC-HRMS对食品未知风险物质进行非靶向筛查</a></li>
+<li><a href="https://www.antpedia.com/news/89/n-2218689.html" target="_blank" title="表面增强拉曼光谱可研究纳米缝隙分子层的电荷转移效应">表面增强拉曼光谱可研究纳米缝隙分子层的电荷转移效应</a></li>
+</ul>
+
+<!-- 要闻头条3 -->
+<div class="new-txt">
+<a href="#" target="_blank"><a href='//www.antpedia.com/antad/antadr.php?mid=2&url=https%3A%2F%2Fwww.agilent.com%2Fzh-cn%2Fpromotions%2Ffindgc' target='_blank' class='adv_oraurl'>众里寻它——寻找中国进样次数最多的GC</a><a name=extsiteurl href='https://www.agilent.com/zh-cn/promotions/findgc'></a></a>
+</div>
+<!-- 要闻3end -->
+<ul class="cf">
+<li><a href="https://www.antpedia.com/news/57/n-2223757.html" target="_blank" title="沃特世：同中国科学家深度合作共促糖组学创新">沃特世：同中国科学家深度合作共促糖组学创新</a></li>
+<li><a href="https://www.antpedia.com/news/12/n-2223612.html" target="_blank" title="珀金埃尔默与WIH测试NIPT 评估Vanadis非侵入性产前检测性能">珀金埃尔默与WIH测试NIPT 评估Vanadis非侵入性产前检测性能</a></li>
+<li><a href="https://www.antpedia.com/news/51/n-2223151.html" target="_blank" title="以迭代创新满足客户需求，沃特世LC分析平台全线升级">以迭代创新满足客户需求，沃特世LC分析平台全线升级</a></li>
+<li><a href="https://www.antpedia.com/news/72/n-2222672.html" target="_blank" title="日立推出ExTOPE Connect 适用于手持光谱仪数据管理和存储">日立推出ExTOPE Connect 适用于手持光谱仪数据管理和存储</a></li>
+<li><a href="https://www.antpedia.com/news/91/n-2222691.html" target="_blank" title="为客户多走一公里：总裁谈40年SCIEX成功基因">为客户多走一公里：总裁谈40年SCIEX成功基因</a></li>
+<li><a href="https://www.antpedia.com/news/53/n-2222153.html" target="_blank" title="沃特世发布Xevo TQ-GC气质联用仪 重回EI离子源">沃特世发布Xevo TQ-GC气质联用仪 重回EI离子源</a></li>
+<li><a href="https://ibook.antpedia.com/106/n/32032-n.html" target="_blank" title="安东帕表面测试仪器 即将飞向外太空？！">安东帕表面测试仪器 即将飞向外太空？！</a></li>
+<li><a href="https://ibook.antpedia.com/6249/n/30837-n.html" target="_blank" title="德国元素——服务到家，免费申请！青岛站！">德国元素——服务到家，免费申请！青岛站！</a></li>
+<li><a href="https://www.antpedia.com/news/67/n-2221267.html" target="_blank" title="日立分析发布新款高分辨率探测器SDD款XRF镀层测厚仪">日立分析发布新款高分辨率探测器SDD款XRF镀层测厚仪</a></li>
+</ul>
+</div>
+<!-- 要闻end -->
+
+<!-- 厂商 -->
+<div class="product">
+<!--厂商头条1
+<div class="new-txt">
+<a href="#" target="_blank">第五届世界华人质谱学术研讨会第一轮通知111</a>
+</div>
+厂商头条2
+<div class="new-txt">
+<a href="#" target="_blank">第五届世界华人质谱学术研讨会第一轮通知</a>
+</div>
+
+厂商头条3
+<div class="new-txt">
+<a href="#" target="_blank">第五届世界华人质谱学术研讨会第一轮通知</a>
+</div>
+-->
+<ul class="cf" >
+<li><a href="//ibook.antpedia.com/n/36740.html" target="_blank" title="岛津倾情赞助2018年中日分离科学双边会">岛津倾情赞助2018年中日分离科学双边会</a></li>
+<li><a href="//ibook.antpedia.com/n/36537.html" target="_blank" title="普析公司2018年8月6日至8月9日举办原子吸收分光光度计应用及维护培训班，敬请参加，欢迎垂询">普析公司2018年8月6日至8月9日举办原子吸收分光光度计应用及维护培训班，敬请参加，欢迎垂询</a></li>
+<li><a href="//ibook.antpedia.com/n/34692.html" target="_blank" title="为客户多走一公里：总裁谈40年SCIEX成功基因">为客户多走一公里：总裁谈40年SCIEX成功基因</a></li>
+<li><a href="//ibook.antpedia.com/n/34440.html" target="_blank" title="沃特世7月26日“胆汁酸-肠道菌群互作在肝病中的发现与应用”网络讲座即将启动">沃特世7月26日“胆汁酸-肠道菌群互作在肝病中的发现与应用”网络讲座即将启动</a></li>
+<li><a href="//ibook.antpedia.com/n/34438.html" target="_blank" title="赛默飞中国区总裁艾礼德会见山东省委常委、济南市委书记王忠林王忠林">赛默飞中国区总裁艾礼德会见山东省委常委、济南市委书记王忠林王忠林</a></li>
+<li><a href="//ibook.antpedia.com/n/34437.html" target="_blank" title="“全国冶金物理测试信息网建网37周年学术研讨会”暨“第四届钢铁材料显微分析交流会”圆满成功">“全国冶金物理测试信息网建网37周年学术研讨会”暨“第四届钢铁材料显微分析交流会”圆满成功</a></li>
+<li><a href="//ibook.antpedia.com/n/34436.html" target="_blank" title="从分子机制-细胞分析-活体成像-定量病理提供纳米医药研究方案">从分子机制-细胞分析-活体成像-定量病理提供纳米医药研究方案</a></li>
+<li><a href="//ibook.antpedia.com/n/34435.html" target="_blank" title="SGS中国区核心合作供应商名单新鲜出炉，安谱实验位列首位！">SGS中国区核心合作供应商名单新鲜出炉，安谱实验位列首位！</a></li>
+<li><a href="//ibook.antpedia.com/n/34433.html" target="_blank" title="东曹生命科学将参展第47届国际高效液相色谱及相关技术会议">东曹生命科学将参展第47届国际高效液相色谱及相关技术会议</a></li>
+<li><a href="//ibook.antpedia.com/n/34429.html" target="_blank" title="蹭的是世界杯的热点，踢的是正经的球赛">蹭的是世界杯的热点，踢的是正经的球赛</a></li>
+<li><a href="//ibook.antpedia.com/n/34427.html" target="_blank" title="【招聘】磐合科仪诚聘精英！">【招聘】磐合科仪诚聘精英！</a></li>
+<li><a href="//ibook.antpedia.com/n/34426.html" target="_blank" title="【新品上市】非常适合挥发性有机物分析的气相色谱柱">【新品上市】非常适合挥发性有机物分析的气相色谱柱</a></li>
+<li><a href="//ibook.antpedia.com/n/34425.html" target="_blank" title="海光仪器助力“全球除砷攻坚战”">海光仪器助力“全球除砷攻坚战”</a></li>
+<li><a href="//ibook.antpedia.com/n/34424.html" target="_blank" title="《我不是药神》“穷病”也得奋力治疗！">《我不是药神》“穷病”也得奋力治疗！</a></li>
+<li><a href="//ibook.antpedia.com/n/32230.html" target="_blank" title="2018届国科大·牛津显微分析学院授课结束">2018届国科大·牛津显微分析学院授课结束</a></li>
+<li><a href="//ibook.antpedia.com/n/32051.html" target="_blank" title="加压流体萃取-固相萃取-气质法测定土壤中的28种有机磷">加压流体萃取-固相萃取-气质法测定土壤中的28种有机磷</a></li>
+<li><a href="//ibook.antpedia.com/n/32043.html" target="_blank" title="禾信仪器受邀参加第十三届重庆高交会暨第九届国际军博会">禾信仪器受邀参加第十三届重庆高交会暨第九届国际军博会</a></li>
+<li><a href="//ibook.antpedia.com/n/32041.html" target="_blank" title="微波消解大不同之控温方式">微波消解大不同之控温方式</a></li>
+<li><a href="//ibook.antpedia.com/n/32038.html" target="_blank" title="Thermo Scientific™ Biomate™160分光光度计 助力您的生命科学研究">Thermo Scientific™ Biomate™160分光光度计 助力您的生命科学研究</a></li>
+<li><a href="//ibook.antpedia.com/n/32035.html" target="_blank" title="安东帕、康塔质量管理体系通过国际ISO标准">安东帕、康塔质量管理体系通过国际ISO标准</a></li>
+<li><a href="//ibook.antpedia.com/n/31355.html" target="_blank" title="开拓免疫学研究新视野，获取ATP产生动力学的新认知！">开拓免疫学研究新视野，获取ATP产生动力学的新认知！</a></li>
+<li><a href="//ibook.antpedia.com/n/31349.html" target="_blank" title="天美欧洲分销总部搬迁新址">天美欧洲分销总部搬迁新址</a></li>
+<li><a href="//ibook.antpedia.com/n/31124.html" target="_blank" title="免费培训丨“山西省电镜学会-TESCAN 2018年扫描电镜应用操作培训”成功举办！">免费培训丨“山西省电镜学会-TESCAN 2018年扫描电镜应用操作培训”成功举办！</a></li>
+<li><a href="//ibook.antpedia.com/n/30836.html" target="_blank" title="海能、新仪全国技术交流会——北京站">海能、新仪全国技术交流会——北京站</a></li>
+<li><a href="//ibook.antpedia.com/n/30816.html" target="_blank" title="海能仪器全国技术交流会——北京站">海能仪器全国技术交流会——北京站</a></li>
+
+<li><a href="//cbook.antpedia.com/6762/n/4581-n.html" target="_blank" title="Why惰性化找RESTEK，专家告诉您理由！">Why惰性化找RESTEK，专家告诉您理由！</a></li>
+<li><a href="//cbook.antpedia.com/6742/n/4538-n.html" target="_blank" title="2017年4月Kromasil色谱柱优化代理商体系">2017年4月Kromasil色谱柱优化代理商体系</a></li>
+<li><a href="//cbook.antpedia.com/6329/n/4537-n.html" target="_blank" title="东曹生物将参展2017国际生物治疗大会暨展览会">东曹生物将参展2017国际生物治疗大会暨展览会</a></li>
+<li><a href="//cbook.antpedia.com/6507/n/4554-n.html" target="_blank" title="爱吉仁荣获2016年度浙江省信用管理示范单位">爱吉仁荣获2016年度浙江省信用管理示范单位</a></li>
+<li><a href="//cbook.antpedia.com/6329/n/4518-n.html" target="_blank" title="易贸生物产业大会上东曹带来精彩报告！">易贸生物产业大会上东曹带来精彩报告！</a></li>
+<li><a href="//cbook.antpedia.com/6329/n/4515-n.html" target="_blank" title="2016东曹色谱分离纯化技术交流会圆满收官！">2016东曹色谱分离纯化技术交流会圆满收官！</a></li>
+</ul>
+</div>
+<!-- 厂商end -->
+
+<!-- 原创 -->
+<div class="product">
+<ul class="original-ul01">
+<li>
+<div class="original-left">
+<img src="//i2.antpedia.com/images/cache/8/02b79e520de45c8d8b7130a01d53b648.jpg" />
+<p><a href="https://www.antpedia.com/news/97/n-2224097.html" target="_blank" title="法制司征集2019年卫生标准立项建议 含重大疾病的预防等">法制司征集2019年卫生标准立项建议 含重大疾病的预防等</a></p>
+</div>
+<div class="original-right">
+<ul>
+<li><a href="https://www.antpedia.com/news/57/n-2223757.html" target="_blank" title="沃特世：同中国科学家深度合作共促糖组学创新">沃特世：同中国科学家深度合作共促糖组学创新</a></li>
+<li><a href="https://www.antpedia.com/news/73/n-2223773.html" target="_blank" title="安捷伦和新加坡南洋理工大学开发新的水质分析方法">安捷伦和新加坡南洋理工大学开发新的水质分析方法</a></li>
+<li><a href="https://www.antpedia.com/news/29/n-2223729.html" target="_blank" title="张丽华：搭建蛋白质组学研究平台">张丽华：搭建蛋白质组学研究平台</a></li>
+<li><a href="https://www.antpedia.com/news/07/n-2223707.html" target="_blank" title="布鲁克两项MALDI Biotyper OMA应用获AOAC方法奖">布鲁克两项MALDI Biotyper OMA应用获AOAC方法奖</a></li>
+<li><a href="https://www.antpedia.com/news/65/n-2223665.html" target="_blank" title="孙世刚院士寄语全国分子光谱会议40年（一） 需温故知新">孙世刚院士寄语全国分子光谱会议40年（一） 需温故知新</a></li>
+</ul>
+</div>
+</li>
+<li>
+<div class="original-left">
+<img src="//img.antpedia.com/space/attachments/2018/07/188126_201807120716461.jpg!w136x90.jpg" />
+<p><a href="https://www.antpedia.com/news/71/n-2224071.html" target="_blank" title="中国质谱学术大会4大主题 质谱应用“顶天立地”">中国质谱学术大会4大主题 质谱应用“顶天立地”</a></p>
+</div>
+<div class="original-right">
+<ul>
+<li><a href="https://www.antpedia.com/news/42/n-2223642.html" target="_blank" title="市场监管总局关于13批次食品不合格情况的通告">市场监管总局关于13批次食品不合格情况的通告</a></li>
+<li><a href="https://www.antpedia.com/news/12/n-2223612.html" target="_blank" title="珀金埃尔默与WIH测试NIPT 评估Vanadis非侵入性产前检测性能">珀金埃尔默与WIH测试NIPT 评估Vanadis非侵入性产前检测性能</a></li>
+<li><a href="https://www.antpedia.com/news/15/n-2223615.html" target="_blank" title="自然科学基金委发布“十三五”重大项目指南 涵肿瘤标志物">自然科学基金委发布“十三五”重大项目指南 涵肿瘤标志物</a></li>
+<li><a href="https://www.antpedia.com/news/75/n-2223275.html" target="_blank" title="农产品快速检测技术实现新突破 20秒可检出239种农药残留">农产品快速检测技术实现新突破 20秒可检出239种农药残留</a></li>
+<li><a href="https://www.antpedia.com/news/42/n-2223242.html" target="_blank" title="美加学者研制高灵敏度 可容性溶解分子光学压力传感器">美加学者研制高灵敏度 可容性溶解分子光学压力传感器</a></li>
+</ul>
+</div>
+</li>
+</ul>
+<ul class="original-ul02">
+<li><a href="https://www.antpedia.com/news/81/n-2223181.html" target="_blank" title="质谱成像技术使临床诊断更容易，更智能，分辨率可达3μm">质谱成像技术使临床诊断更容易，更智能，分辨率可达3μm</a></li>
+<li><a href="https://www.antpedia.com/news/23/n-2223123.html" target="_blank" title="质谱、光谱相结合，德国学者研究获得二氧化氮电离途径">质谱、光谱相结合，德国学者研究获得二氧化氮电离途径</a></li>
+<li><a href="https://www.antpedia.com/news/54/n-2223054.html" target="_blank" title="聚焦药物和蛋白 质谱技术创新开发临床应用研讨会落幕">聚焦药物和蛋白 质谱技术创新开发临床应用研讨会落幕</a></li>
+<li><a href="https://www.antpedia.com/news/09/n-2223009.html" target="_blank" title="关于对维生素C等6个药用辅料标准征集意见的通知">关于对维生素C等6个药用辅料标准征集意见的通知</a></li>
+<li><a href="https://www.antpedia.com/news/05/n-2223005.html" target="_blank" title="小时候的味道还在吗？“复方草珊瑚含片”质量标准重修订">小时候的味道还在吗？“复方草珊瑚含片”质量标准重修订</a></li>
+<li><a href="https://www.antpedia.com/news/03/n-2223003.html" target="_blank" title="关于“安尔眠糖浆”质量标准修订的公示">关于“安尔眠糖浆”质量标准修订的公示</a></li>
+<li><a href="https://www.antpedia.com/news/77/n-2222977.html" target="_blank" title="珀金埃尔默：农残分析成热点 近年质谱新品广受欢迎">珀金埃尔默：农残分析成热点 近年质谱新品广受欢迎</a></li>
+<li><a href="https://www.antpedia.com/news/75/n-2222875.html" target="_blank" title="刘虎威教授谈2018中国质谱学术大会：团结就是力量">刘虎威教授谈2018中国质谱学术大会：团结就是力量</a></li>
+<li><a href="https://www.antpedia.com/news/91/n-2222691.html" target="_blank" title="为客户多走一公里：总裁谈40年SCIEX成功基因">为客户多走一公里：总裁谈40年SCIEX成功基因</a></li>
+<li><a href="https://www.antpedia.com/news/99/n-2222599.html" target="_blank" title="李灿院士寄语全国分子光谱会议40年（一） 与会议的缘分">李灿院士寄语全国分子光谱会议40年（一） 与会议的缘分</a></li>
+<li><a href="https://www.antpedia.com/news/75/n-2222175.html" target="_blank" title="聚焦质谱技术创新开发与应用 拓展临床质谱方法学研究">聚焦质谱技术创新开发与应用 拓展临床质谱方法学研究</a></li>
+<li><a href="https://www.antpedia.com/news/53/n-2222153.html" target="_blank" title="沃特世发布Xevo TQ-GC气质联用仪 重回EI离子源">沃特世发布Xevo TQ-GC气质联用仪 重回EI离子源</a></li>
+<li><a href="https://www.antpedia.com/news/84/n-2222084.html" target="_blank" title="蚕丝蛋白注入 让新型的光响应性阻变存储器可降解">蚕丝蛋白注入 让新型的光响应性阻变存储器可降解</a></li>
+<li><a href="https://www.antpedia.com/news/67/n-2221967.html" target="_blank" title="柔性钙钛矿太阳能电池的器件设计及发展策略">柔性钙钛矿太阳能电池的器件设计及发展策略</a></li>
+<li><a href="https://www.antpedia.com/news/66/n-2221966.html" target="_blank" title="识旧交新 独具匠心 沃特世发布全新Xevo TQ-GC气质联用仪">识旧交新 独具匠心 沃特世发布全新Xevo TQ-GC气质联用仪</a></li>
+<li><a href="https://www.antpedia.com/news/44/n-2221944.html" target="_blank" title="我国发布食品中那非类物质检验方法 UPLC-MS法可测90种">我国发布食品中那非类物质检验方法 UPLC-MS法可测90种</a></li>
+<li><a href="https://www.antpedia.com/news/34/n-2221934.html" target="_blank" title="第二十二次全国分析测试中心主任年会在冰城召开">第二十二次全国分析测试中心主任年会在冰城召开</a></li>
+<li><a href="https://www.antpedia.com/news/84/n-2221484.html" target="_blank" title="李静海主任当选国际科学理事会副主席">李静海主任当选国际科学理事会副主席</a></li>
+<li><a href="https://www.antpedia.com/news/65/n-2221465.html" target="_blank" title="关于征集2019国家科学技术学术著作出版基金项目的通知">关于征集2019国家科学技术学术著作出版基金项目的通知</a></li>
+</ul>
+</div>
+<!-- 原创end -->
+
+<!-- 专题 -->
+<div class="product">
+<div class="topic-div">
+<h4><a href="https://www.antpedia.com/special/737-collection.html" target="_blank" title="第十八届世界制药原料中国展（CPHI China 2018）">第十八届世界制药原料中国展（CPHI China 2018）</a></h4>
+<p>2018年6月20日-22日，由欧洲博闻展览咨询有限公司、中国医药保健品进出口商会主办，上海博华国际展览有限公司协办的第十八届世界制药原料中...</p>
+<img src="/collection/images/coll_2018070512061329776.jpg" height="78" width="364"  alt="第十八届世界制药原料中国展（CPHI China 2018）"/>
+</div>
+<ul class="topic-ul">
+<li><a href="http://www.antpedia.com/custom/demecon/" target="_blank" title="德迈康-实现从产品设计到专利保护的整体解决方案">德迈康-实现从产品设计到专利保护的整体解决方案</a></li>
+<li><a href="http://www.antpedia.com/custom/haiguang/" target="_blank" title="海光仪器成立30周年纪念">海光仪器成立30周年纪念</a></li>
+<li><a href="https://www.antpedia.com/special/734-collection.html" target="_blank" title="中国化学会第十三届全国分析化学年会">中国化学会第十三届全国分析化学年会</a></li>
+<li><a href="https://www.antpedia.com/special/ASMS2018.html" target="_blank" title="第66届ASMS会议专题ASMS2018">第66届ASMS会议专题ASMS2018</a></li>
+<li><a href="http://www.antpedia.com/custom/labtech/20180531/" target="_blank" title="莱伯泰科湿法消解仪器精品荟萃">莱伯泰科湿法消解仪器精品荟萃</a></li>
+<li><a href="http://www.antpedia.com/custom/labtech/20180524/" target="_blank" title="莱伯泰科全自动萃取技术在有机样品前处理过程中的应用">莱伯泰科全自动萃取技术在有机样品前处理过程中的应用</a></li>
+<li><a href="https://www.antpedia.com/special/725-collection.html" target="_blank" title="持久性有机污染物论坛2018暨化学品环境安全大会">持久性有机污染物论坛2018暨化学品环境安全大会</a></li>
+<li><a href="https://www.antpedia.com/special/724-collection.html" target="_blank" title="2018年蛋白和肽类药物及诊断试剂研发与质控国际研讨会（PPTD 2018）">2018年蛋白和肽类药物及诊断试剂研发与质控国际研讨会（PPTD 2018）</a></li>
+<li><a href="https://www.antpedia.com/special/721-collection.html" target="_blank" title="2018CISILE中国国际科学仪器及实验室装备展览会专题">2018CISILE中国国际科学仪器及实验室装备展览会专题</a></li>
+<li><a href="https://www.antpedia.com/special/720-collection.html" target="_blank" title="第九届化学和药物结构分析上海年会（CPSA 2018）">第九届化学和药物结构分析上海年会（CPSA 2018）</a></li>
+<li><a href="https://www.antpedia.com/special/719-collection.html" target="_blank" title="CBIFS2018第十一届中国国际食品安全技术论坛">CBIFS2018第十一届中国国际食品安全技术论坛</a></li>
+<li><a href="https://www.antpedia.com/special/718-collection.html" target="_blank" title="中国仪器仪表学会创新驱动助力贵州 大健康-食品、药品安全高峰论坛">中国仪器仪表学会创新驱动助力贵州 大健康-食品、药品安全高峰论坛</a></li>
+<li><a href="https://www.antpedia.com/special/717-collection.html" target="_blank" title="第六届激光诱导击穿光谱技术研讨会">第六届激光诱导击穿光谱技术研讨会</a></li>
+<li><a href="https://www.antpedia.com/special/712-collection.html" target="_blank" title="2018国家机构改革">2018国家机构改革</a></li>
+<li><a href="http://www.antpedia.com/custom/labtech/20180313/" target="_blank" title="莱伯泰科智能平台系列">莱伯泰科智能平台系列</a></li>
+<li><a href="https://www.antpedia.com/special/PITTCON2018.html" target="_blank" title="Pittcon 2018仪器新品专题">Pittcon 2018仪器新品专题</a></li>
+<li><a href="http://www.antpedia.com/custom/shimadzu/20180124/index.html" target="_blank" title="岛津遇见“双一流”">岛津遇见“双一流”</a></li>
+<li><a href="https://www.antpedia.com/special/705-collection.html" target="_blank" title="【回顾】2017分析测试行业大事件盘点">【回顾】2017分析测试行业大事件盘点</a></li>
+<li><a href="http://www.antpedia.com/custom/waters/20171124/index.html" target="_blank" title="沃特世开创离子淌度质谱十周年">沃特世开创离子淌度质谱十周年</a></li>
+<li><a href="https://www.antpedia.com/special/702-collection.html" target="_blank" title="第三届全国质谱会专题">第三届全国质谱会专题</a></li>
+<li><a href="https://www.antpedia.com/special/696-collection.html" target="_blank" title="PerkinElmer 80 周年公益活动暨第50期PerkinElmer客户体验中心开放日">PerkinElmer 80 周年公益活动暨第50期PerkinElmer客户体验中心开放日</a></li>
+<li><a href="https://www.antpedia.com/special/695-collection.html" target="_blank" title="【解读】2017年两院院士评选">【解读】2017年两院院士评选</a></li>
+<li><a href="http://www.antpedia.com/custom/antpedia/20171113/" target="_blank" title="粮油检测标准及仪器配置一览">粮油检测标准及仪器配置一览</a></li>
+<li><a href="http://www.antpedia.com/custom/shimadzu/testingmachines/" target="_blank" title="岛津制作所试验机100周年纪念">岛津制作所试验机100周年纪念</a></li>
+</ul>
+</div>
+<!-- 专题end -->
+
+<!-- 标准 -->
+<div class="product">
+<ul class="standard_01">
+<li> 
+<a href="/standard/7944180.html" target="_blank"  class="sTitle01" >金属材料采购指南</a>
+<p>Procurement Guidelines for Metallic Materials (PTB-8 - 2014)</p>
+<span>标准号：ASME PTB-8-2014</span>
+<a href="/download_pdf.php?a100=ASME+PTB-8-2014&a104=US-ASME&elecfile=1&act=down" target="_blank" class="sBtn" >下载前三页</a>
+</li>
+<li> 
+<a href="/standard/7944186.html" target="_blank"  class="sTitle01" >符合ASME第VIII节部分1中UHX部分的壳管式热交换器标准</a>
+<p>Criteria for Shell-and-Tube Heat Exchangers According to Part UHX of ASME Section VIII-Division 1 (P</p>
+<span>标准号：ASME PTB-7-2014</span>
+<a href="/download_pdf.php?a100=ASME+PTB-7-2014&a104=US-ASME&elecfile=1&act=down" target="_blank" class="sBtn" >下载前三页</a>
+</li>
+<li> 
+<a href="/standard/7944260.html" target="_blank"  class="sTitle01" >未标尺寸的工程图和相关文档编制实践</a>
+<p>Undimensioned Drawings (Y14.31 - 2014)</p>
+<span>标准号：ASME Y14.31-2014</span>
+<a href="/download_pdf.php?a100=ASME+Y14.31-2014&a104=US-ASME&elecfile=1&act=down" target="_blank" class="sBtn" >下载前三页</a>
+</li>
+<li> 
+<a href="/standard/7944248.html" target="_blank"  class="sTitle01" >试验不确定度</a>
+<p>Test Uncertainty (PTC 19.1 - 2013)</p>
+<span>标准号：ASME PTC 19.1-2013</span>
+<a href="/download_pdf.php?a100=ASME+PTC+19.1-2013&a104=US-ASME&elecfile=1&act=down" target="_blank" class="sBtn" >下载前三页</a>
+</li>
+</ul>
+<ul class="standard_02">
+ <li>中国标准分类</li>
+ <li><a href="/standard/index.php?type=2" target="_blank">国际标准分类</a></li>
+</ul>
+<ul class="standard_03">
+<li>
+<a href="/standard/type.php?type=ccs&ino=A" target="_blank"><span>A</span>综合</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=B" target="_blank"><span>B</span>农业、林业</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=C" target="_blank"><span>C</span>医药、卫生、劳动保护</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=D" target="_blank"><span>D</span>矿业</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=E" target="_blank"><span>E</span>石油</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=F" target="_blank"><span>F</span>能源、核技术</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=G" target="_blank"><span>G</span>化工</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=H" target="_blank"><span>H</span>冶金</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=J" target="_blank"><span>J</span>机械</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=K" target="_blank"><span>K</span>电工</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=L" target="_blank"><span>L</span>电子元器件与信息技术</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=M" target="_blank"><span>M</span>通信、广播</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=N" target="_blank"><span>N</span>仪器、仪表</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=P" target="_blank"><span>P</span>土木、建筑</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=Q" target="_blank"><span>Q</span>建材</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=R" target="_blank"><span>R</span>公路、水路运输</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=S" target="_blank"><span>S</span>铁路</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=T" target="_blank"><span>T</span>车辆</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=U" target="_blank"><span>U</span>船舶</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=V" target="_blank"><span>V</span>航空、航天</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=W" target="_blank"><span>W</span>纺织</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=X" target="_blank"><span>X</span>食品</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=Y" target="_blank"><span>Y</span>轻工、文化与生活用品</a>
+</li>
+<li>
+<a href="/standard/type.php?type=ccs&ino=Z" target="_blank"><span>Z</span>环境保护</a>
+</li>
+</ul>
+</div>
+<!-- 标准end -->
+</div>
+</div>
+<!-- end -->
+</div>
+
+
+<!--人物专访-->
+<div class="content content-3">
+<div class="title">
+<h3>人物专访</h3>
+<a href="/news/729/ " target="_blank" class="more"><span>更多</span></a>
+</div>
+<div class="con-tag clearBoder">
+<ul class="Interview_ul"><li 
+>
+  <h4><a href="https://www.antpedia.com/news/71/n-2224071.html" target="_blank">中国质谱学术大会4大主题 质谱应用“顶天立地”</a></h4>
+  <div class="ycbd-img"><a href="https://www.antpedia.com/news/71/n-2224071.html" target="_blank"><img src="//i4.antpedia.com/space/attachments/2018/07/188126_201807120716461.jpg!w199x132.jpg" width="199" height="132"  alt=""/></a></div>
+  <P>近日，分析测试百科网对中国物理学会质谱分会副理事长再帕尔·阿不力孜教授进......</P>
+</li><li 
+>
+  <h4><a href="https://www.antpedia.com/news/29/n-2223729.html" target="_blank">张丽华：搭建蛋白质组学研究平台</a></h4>
+  <div class="ycbd-img"><a href="https://www.antpedia.com/news/29/n-2223729.html" target="_blank"><img src="//i4.antpedia.com/space/attachments/2018/07/171857_201807111504331.jpg!w199x132.jpg" width="199" height="132"  alt=""/></a></div>
+  <P>自然科学研究，原则上应该是理性思辨能力更强的男性占优；而从屠呦呦获得了诺......</P>
+</li><li 
+>
+  <h4><a href="https://www.antpedia.com/news/65/n-2223665.html" target="_blank">孙世刚院士寄语全国分子光谱会议40年（一） 需温故知新</a></h4>
+  <div class="ycbd-img"><a href="https://www.antpedia.com/news/65/n-2223665.html" target="_blank"><img src="//i4.antpedia.com/space/attachments/2018/07/83517_201807111121251.jpg!w199x132.jpg" width="199" height="132"  alt=""/></a></div>
+  <P>厦门大学、中科院院士孙世刚的采访报道第一篇: 需温故而知新。......</P>
+</li><li 
+>
+  <h4><a href="https://www.antpedia.com/news/75/n-2222875.html" target="_blank">刘虎威教授谈2018中国质谱学术大会：团结就是力量</a></h4>
+  <div class="ycbd-img"><a href="https://www.antpedia.com/news/75/n-2222875.html" target="_blank"><img src="//i4.antpedia.com/space/attachments/2018/07/83517_201807091825451.jpg!w199x132.jpg" width="199" height="132"  alt=""/></a></div>
+  <P>中国质谱学会副理事长、北京大学刘虎威教授，他畅谈了如何把“中国质谱学术大......</P>
+</li></ul>
+</div>
+</div>
+<!--end-->
+</div>
+
+<div class="tag-rightDiv">
+<div class="firmList">
+<!-- 安捷伦广告 -->
+<div class="firm">
+        <a href="//www.antpedia.com/antad/antadr.php?mid=2&p=1&url=http%3A%2F%2Fwww.agilent.com.cn%2Fhome" target="_blank" class="firm-logo" title="QuEChERS结合串联质谱分析植物源性食品农药多残留">        <img src="//i5.antpedia.com/space/images/manuf/1514445596-2242.jpg!w150x40.jpg" width="150" height="40"  alt="QuEChERS结合串联质谱分析植物源性食品农药多残留"/>       </a>       <p class="firm-txt">        <a href="//www.antpedia.com/antad/antadr.php?mid=2&p=2&url=https%3A%2F%2Fwww.agilent.com%2Fzh-cn%2Fpromotions%2Ffindgc" target="_blank" title="众里寻它 — 寻找中国进样次数最多的 GC">众里寻它 — 寻找中国进样次数最多的 GC</a>       </p>       <ul class="ul-1">        <li>         <a href="//www.antpedia.com/antad/antadr.php?mid=2&p=3&url=https%3A%2F%2Fibook.antpedia.com%2F85%2Fn%2F29572-n.html" target="_blank" title="安捷伦在 Dako Omnis 上启用 CISH 如今系统可以同时使用三种分析技术">安捷伦在 Dako Omnis 上启用 CISH 如今系统可</a>        </li>        <li>         <a href="//www.antpedia.com/antad/antadr.php?mid=2&p=4&url=https%3A%2F%2Fwww.agilent.com%2Fzh-cn%2Fpromotions%2Fgcmsms-emethod" target="_blank" title="气相色谱-三重四极杆气质联用电子方法（ e-Method）助力快速开启合规、多样化的食品中多农药残留分析" class="firm-a">气相色谱-三重四极杆气质联用电子方法（ e-Method）助</a>        </li>       </ul><a class="more" href="//www.antpedia.com/corp/2/" target="_blank"><span>更多</span></a>      </div>
+
+<!-- 岛津广告 -->
+<div class="firmbgF7">
+        <a href="//www.antpedia.com/antad/antadr.php?mid=7&p=1&url=http%3A%2F%2Fibook.antpedia.com%2F166%2F" target="_blank" class="firm-logo" title="岛津分析仪器售后服务网上线  为您呈现完美的服务品质">        <img src="//i5.antpedia.com/space/images/manuf/1514445803-1497.jpg!w150x40.jpg" width="150" height="40"  alt="岛津分析仪器售后服务网上线  为您呈现完美的服务品质"/>       </a>       <p class="firm-txt">        <a href="//www.antpedia.com/antad/antadr.php?mid=7&p=2&url=http%3A%2F%2Fwww.antpedia.com%2Fcustom%2Fshimadzu%2F20180124%2Findex.html" target="_blank" title="岛津遇见“双一流”">岛津遇见“双一流”</a>       </p>       <ul class="ul-1">        <li>         <a href="//www.antpedia.com/antad/antadr.php?mid=7&p=3&url=https%3A%2F%2Fibook.antpedia.com%2F166%2Fn%2F36740-n.html" target="_blank" title="岛津倾情赞助2018年中日分离科学双边会">岛津倾情赞助2018年中日分离科学双边会</a>        </li>        <li>         <a href="//www.antpedia.com/antad/antadr.php?mid=7&p=4&url=https%3A%2F%2Fibook.antpedia.com%2F166%2Fn%2F34439-n.html" target="_blank" title="开创世界研究之先河 验证抹茶对痴呆症的预防效果" class="firm-a">开创世界研究之先河 验证抹茶对痴呆症的预防效果</a>        </li>       </ul><a class="more" href="//www.antpedia.com/corp/7/" target="_blank"><span>更多</span></a>      </div>
+
+<!-- AB SCIEX广告 -->
+<div class="firm">
+        <a href="//www.antpedia.com/antad/antadr.php?mid=15&p=1&url=http%3A%2F%2Fsciex.com.cn%2F" target="_blank" class="firm-logo" title="QTRAP质谱 定性定量完美结合">        <img src="//i5.antpedia.com/space/images/manuf/1514445927-6746.jpg!w150x40.jpg" width="150" height="40"  alt="QTRAP质谱 定性定量完美结合"/>       </a>       <p class="firm-txt">        <a href="//www.antpedia.com/antad/antadr.php?mid=15&p=2&url=http%3A%2F%2Fsciex.com.cn%2F" target="_blank" title="QTRAP质谱 定性定量完美结合">QTRAP质谱 定性定量完美结合</a>       </p>       <ul class="ul-1">        <li>         <a href="//www.antpedia.com/antad/antadr.php?mid=15&p=3&url=https%3A%2F%2Fibook.antpedia.com%2F674%2Fn%2F31347-n.html" target="_blank" title="SCIEX特惠来袭，升级服务低至6折">SCIEX特惠来袭，升级服务低至6折</a>        </li>        <li>         <a href="//www.antpedia.com/antad/antadr.php?mid=15&p=4&url=https%3A%2F%2Fibook.antpedia.com%2F674%2Fn%2F28046-n.html" target="_blank" title="“检科学院”系列研讨会&即刻加群与专家互动！" class="firm-a">“检科学院”系列研讨会&即刻加群与专家互动！</a>        </li>       </ul><a class="more" href="//www.antpedia.com/corp/15/" target="_blank"><span>更多</span></a>      </div>
+
+<!-- 赛默飞广告 -->
+<div class="firmbgF7">
+        <a href="//www.antpedia.com/antad/antadr.php?mid=43&p=1&url=http%3A%2F%2Fibook.antpedia.com%2F1263%2F" target="_blank" class="firm-logo" title="">        <img src="//i5.antpedia.com/space/images/manuf/1526471903-0583.jpg!w150x40.jpg!w150x40.jpg" width="150" height="40"  alt=""/>       </a>       <p class="firm-txt">        <a href="//www.antpedia.com/antad/antadr.php?mid=43&p=2&url=https%3A%2F%2Fwww.thermofisher.com%2Fcn%2Fzh%2Fhome%2Findustrial%2Ffood-beverage%2Ffood-omics.html%3Fce%3DE.18CMD.CN133.11250.01%26cid%3DE.18CMD.CN133.11250.01%26iq%3DIQLAAGGADJFZZZMZZZ" target="_blank" title="还原食品最真实的模样，《赛默飞食品安全应用文集》免费申领中">还原食品最真实的模样，《赛默飞食品安全应用文集》免费申领中</a>       </p>       <ul class="ul-1">        <li>         <a href="//www.antpedia.com/antad/antadr.php?mid=43&p=3&url=http%3A%2F%2Fwww.thermofisher.com%2Fcn%2Fzh%2Fhome%2Fproducts-and-services%2Fpromotions%2Findustrial%2Ffreedom-explore-ion-chromatography.html%3Fce%3DE.18CMD.CN139.11516.01%26cid%3DE.18CMD.CN139.11516.01" target="_blank" title="全新离子色谱仪，挖掘亮点送好礼">全新离子色谱仪，挖掘亮点送好礼</a>        </li>        <li>         <a href="//www.antpedia.com/antad/antadr.php?mid=43&p=4&url=http%3A%2F%2Fwww.thermofisher.com%2Fcn%2Fzh%2Fhome%2Flife-science%2Fprecision-medicine%2Fprecision-medicine-leads-form.html%3Fcid%3Dcn-vm-dis-ant-leads-pm2018-txl-txl01-030518" target="_blank" title="两分钟填问卷,领取精准医疗解决方案及音箱!" class="firm-a">两分钟填问卷,领取精准医疗解决方案及音箱!</a>        </li>       </ul><a class="more" href="//www.antpedia.com/corp/43/" target="_blank"><span>更多</span></a>      </div>
+
+<!-- 普析广告 -->
+<div class="firm">
+        <a href="//www.antpedia.com/antad/antadr.php?mid=23&p=1&url=http%3A%2F%2Fibook.antpedia.com%2F655%2F" target="_blank" class="firm-logo" title="为了生活的安全和质量">        <img src="//i5.antpedia.com/space/images/manuf/1514445997-3562.jpg!w150x40.jpg" width="150" height="40"  alt="为了生活的安全和质量"/>       </a>       <p class="firm-txt">        <a href="//www.antpedia.com/antad/antadr.php?mid=23&p=2&url=http%3A%2F%2Fibook.antpedia.com%2F655%2F" target="_blank" title="为了生活的安全和质量">为了生活的安全和质量</a>       </p>       <ul class="ul-1"><li>        <a href='//www.antpedia.com/antad/antadr.php?mid=23&p=3&url=%2F%2Fibook.antpedia.com%2F655%2Fn%2F36537-%E6%99%AE%E6%9E%90%E5%85%AC%E5%8F%B82018%E5%B9%B48%E6%9C%886%E6%97%A5%E8%87%B38%E6%9C%889%E6%97%A5%E4%B8%BE%E5%8A%9E%E5%8E%9F%E5%AD%90%E5%90%B8%E6%94%B6%E5%88%86%E5%85%89%E5%85%89%E5%BA%A6%E8%AE%A1%E5%BA%94%E7%94%A8%E5%8F%8A%E7%BB%B4%E6%8A%A4%E5%9F%B9%E8%AE%AD%E7%8F%AD%EF%BC%8C%E6%95%AC%E8%AF%B7%E5%8F%82%E5%8A%A0%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%9E%82%E8%AF%A2.html' target=_blank title='普析公司2018年8月6日至8月9日举办原子吸收分光光度计应用及维护培训班，敬请参加，欢迎垂询'>普析公司2018年8月6日至8月9日举办原子吸收分光光度计应用及维护培训班，敬请参加，欢迎垂询</a>       </li>       <li>        <a href='//www.antpedia.com/antad/antadr.php?mid=23&p=4&url=%2F%2Fibook.antpedia.com%2F655%2Fn%2F31658-%E5%86%9C%E7%94%A8%E3%80%81%E5%BB%BA%E7%AD%91%E7%94%A8%E5%9C%B0%E5%9C%9F%E5%A3%A4%E6%96%B0%E8%A7%84%E5%8F%91%E5%B8%83%EF%BC%81%E6%99%AE%E6%9E%90%E5%8A%A9%E6%82%A8%E4%BB%AA%E5%99%A8%E5%8D%87%E7%BA%A7%EF%BC%81.html' target=_blank title='农用、建筑用地土壤新规发布！普析助您仪器升级！'  class='firm-a'>农用、建筑用地土壤新规发布！普析助您仪器升级！</a>       </li></ul><a class="more" href="//ibook.antpedia.com/655" target="_blank"><span>更多</span></a></div>
+
+<!-- 沃特世 -->
+<div class="firmbgF7">
+        <a href="//www.antpedia.com/antad/antadr.php?mid=1&p=1&url=http%3A%2F%2Fwww.waters.com%2Fwaters%2Fhome.htm%26xcid%3Dext2860" target="_blank" class="firm-logo" title="打破不可能的界限将科学付诸实现">        <img src="//i5.antpedia.com/space/images/manuf/1514446041-342.jpg!w150x40.jpg" width="150" height="40"  alt="打破不可能的界限将科学付诸实现"/>       </a>       <p class="firm-txt">        <a href="//www.antpedia.com/antad/antadr.php?mid=1&p=2&url=https%3A%2F%2Fibook.antpedia.com%2F672%2Fn%2F32040-n.html" target="_blank" title="“识旧交新 独具匠心” — 沃特世全新Xevo TQ-GC气质联用仪发布会隆重举行">“识旧交新 独具匠心” — 沃特世全新Xevo TQ-GC气质联用仪发布会隆重举行</a>       </p>       <ul class="ul-1">        <li>         <a href="//www.antpedia.com/antad/antadr.php?mid=1&p=3&url=http%3A%2F%2Fwww.waters.com%2Fwaters%2FnewsDetail.htm%3Flocale%3Dzh_CN%26id%3D134987252%26xcid%3Dext2860" target="_blank" title="沃特世ACQUITY UPLC PLUS系列首秀CPhI China">沃特世ACQUITY UPLC PLUS系列首秀CPhI C</a>        </li>        <li>         <a href="//www.antpedia.com/antad/antadr.php?mid=1&p=4&url=http%3A%2F%2Fwww.waters.com%2Fwaters%2FeventInstance.htm%3Flocale%3Dzh_CN%26eiid%3D134988642%26xcid%3Dext2860" target="_blank" title="沃特世7月26日“胆汁酸-肠道菌群互作在肝病中的发现与应用”网络讲座即将启动" class="firm-a">沃特世7月26日“胆汁酸-肠道菌群互作在肝病中的发现与应用”</a>        </li>       </ul><a class="more" href="//www.antpedia.com/corp/1/" target="_blank"><span>更多</span></a>      </div>
+</div>
+<!--应用-->
+<div class="content content-2 bgF7">
+<div class="title title-1">
+<h3>应用</h3>
+<a href="//ibook.antpedia.com/s/1/" target="_blank" class="more"><span>更多</span></a>
+</div>
+<div class="con-tag con-tag-1 clearBoder">
+<div class="n-img"><div><a href='//www.antpedia.com/antad/antadr.php?mid=470&url=https%3A%2F%2Fcbook.antpedia.com%2F6742%2F+' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-23/20180523114356.gif' width=326 height=90></a></div><a name=extsiteurl href='https://cbook.antpedia.com/6742/ '></a></div>
+<ul class="ul-2">
+<li><a href="//ibook.antpedia.com/s/4655.html" target=_blank title="傅里叶中红外光谱仪分析数据库建设的重要性及应用">傅里叶中红外光谱仪分析数据库建设的重要性及应用</a></li>
+<li><a href="//ibook.antpedia.com/s/4653.html" target=_blank title="在液相色谱方法开发中实施系统性筛选策略的全面解决方案">在液相色谱方法开发中实施系统性筛选策略的全面解决方案</a></li>
+<li><a href="//ibook.antpedia.com/s/4649.html" target=_blank title="使用Agilent 6120B 单四极杆LC/MS 和MassWorks 准确质量及元素组成测定软件分析聚合物中的添加剂">使用Agilent 6120B 单四极杆LC/MS 和MassWorks 准确质量及元素组成测定软件分析聚合物中的添加剂</a></li>
+<li><a href="//ibook.antpedia.com/s/4647.html" target=_blank title="Plasma Solutions for Optoelectronic Semiconductor Device Manufacture">Plasma Solutions for Optoelectronic Semiconductor Device Manufacture</a></li>
+<li><a href="//ibook.antpedia.com/s/4644.html" target=_blank title="细胞级超高分辨率质谱成像系统应用于小鼠肾脏组织中抗肿瘤药物分布研究">细胞级超高分辨率质谱成像系统应用于小鼠肾脏组织中抗肿瘤药物分布研究</a></li>
+<li><a href="//ibook.antpedia.com/s/4629.html" target=_blank title="车用尿素行业应用报告">车用尿素行业应用报告</a></li>
+<li><a href="//ibook.antpedia.com/s/4627.html" target=_blank title="全二维气相色谱/飞行时间质谱对赤松松针挥发油化学成分的分析">全二维气相色谱/飞行时间质谱对赤松松针挥发油化学成分的分析</a></li>
+</ul>
+</div>
+</div>
+<!--end-->
+
+<!--活动-->
+<div class="content content-2 bgF7 clearTboder">
+<div class="title title-1">
+<h3>精彩活动推荐</h3>
+<!--<a href="#" target="_blank" class="more"><span>更多</span></a>-->
+</div>
+<div class="con-tag con-tag-1 clearBoder">
+<div class="n-img"><div><a href='//www.antpedia.com/antad/antadr.php?mid=172&url=http%3A%2F%2Fwww.sheng-han.com%2F' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-07-10/20180710034758.jpg' width=326 height=90></a></div><a name=extsiteurl href='http://www.sheng-han.com/'></a></div>
+<ul class="ul-2">
+<li><a href="http://www.antpedia.com/custom/ThermoFisher/20180504/" target=_blank title="【好礼相送】寻找离子色谱新品5大亮点，即可获得礼品！">【好礼相送】寻找离子色谱新品5大亮点，即可获得礼品！</a></li>
+<li><a href="http://t.antpedia.com/jq/21954997.aspx" target=_blank title="免费下载石化行业定制化GC方案">免费下载石化行业定制化GC方案</a></li>
+<li><a href="http://t.antpedia.com/jq/20948785.aspx" target=_blank title="药代动力学研究试验和临床药物试验有奖问卷">药代动力学研究试验和临床药物试验有奖问卷</a></li>
+<li><a href="http://t.antpedia.com/jq/18976919.aspx" target=_blank title="注册中药图书馆，海量资料限时免费下载！">注册中药图书馆，海量资料限时免费下载！</a></li>
+</ul>
+</div>
+</div>
+<!--end-->
+</div>
+
+<!-- 人物专访下方三个广告-->
+<div class="tag-b4">
+<div class="tag-b4Left"><div><a href='//www.antpedia.com/antad/antadr.php?mid=13&url=http%3A%2F%2Fibook.antpedia.com%2F829%2F' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-03-19/20180319022556.gif' width=350 height=90></a></div><a name=extsiteurl href='http://ibook.antpedia.com/829/'></a></div>
+<div class="tag-b4Center"><div><a href='//www.antpedia.com/antad/antadr.php?mid=204&url=https%3A%2F%2Fibook.antpedia.com%2Fibookreg%2Findex.php' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-06-19/20180619035638.jpg' width=465 height=90></a></div><a name=extsiteurl href='https://ibook.antpedia.com/ibookreg/index.php'></a></div>
+<div class="tag-b4Right"><div><a href='//www.antpedia.com/antad/antadr.php?mid=204&url=http%3A%2F%2Fwww.antbuyhot.com%2Fshop%2Findex.php%3Fact%3Dspecial%26op%3Dspecial_detail%26special_id%3D114' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-06-01/20180601012523.jpg' width=350 height=90></a></div><a name=extsiteurl href='http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=114'></a></div>
+</div>
+<!--end-->
+</div>
+
+<!--Antop-->
+<div class="content">
+<div class="title title_h titleC10">
+<h3 class="h3C C10">ANTOP</h3>
+<ul class="s_nav08">
+<li>
+<a href="/antop/declare.html " target="_blank" title="我要申报ANTOP奖">我要申报ANTOP奖</a>
+</li>
+<li>
+<a href="/?action-antopdeclare-name-index2017" target="_blank" title="什么是ANTOP奖">什么是ANTOP奖</a>
+</li>
+
+<li>
+<a href="/antop/" target="_blank" title="去ANTOP频道">去ANTOP频道</a>
+</li>
+<li>
+<a href="/?action-antopdeclare-name-old2017" target="_blank" title="ANTOP2017">ANTOP2017</a>
+</li>
+</ul>
+</div>
+<div class="con-tag flexslider">
+<ul class="new_pro productUl slides">
+<li><div class="producList producList1">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/171.html" target="_blank" class="antop_a"><div class="antop_Img " style="display:" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525846705500.jpg!w270x200.jpg" alt="赛默飞世尔科技（中国）有限公司" />
+</div>
+<div class="antop_prize1">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525846698214.jpg!w270x200.jpg" alt="赛默飞世尔科技（中国）有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/106803.html" target=_blank><p class="antop_p">Dionex™ ICS-6000 HPIC高压离子色谱系统</p></a>
+</a>
+</div>
+</div><div class="producList producList2">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/170.html" target="_blank" class="antop_a"><div class="antop_Img1 " style="display:none" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525845234577.jpg!w270x200.jpg" alt="赛默飞世尔科技（中国）有限公司" />
+</div>
+<div class="antop_prize">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525845231961.jpg!w270x200.jpg" alt="赛默飞世尔科技（中国）有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/106114.html" target=_blank><p class="antop_p">TSQ™ 9000三重四极杆GC-MS/MS系统</p></a>
+</a>
+</div>
+</div><div class="producList producList1">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/169.html" target="_blank" class="antop_a"><div class="antop_Img " style="display:" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525845199431.jpg!w270x200.jpg" alt="赛默飞世尔科技（中国）有限公司" />
+</div>
+<div class="antop_prize1">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525845192451.jpg!w270x200.jpg" alt="赛默飞世尔科技（中国）有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/106113.html" target=_blank><p class="antop_p">ISQ™ 7000单四极杆GC-MS系统</p></a>
+</a>
+</div>
+</div><div class="producList producList2">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/144.html" target="_blank" class="antop_a"><div class="antop_Img1 " style="display:none" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525845165777.jpg!w270x200.jpg" alt="沃特世科技（上海）有限公司" />
+</div>
+<div class="antop_prize">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525845162537.jpg!w270x200.jpg" alt="沃特世科技（上海）有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/106458.html" target=_blank><p class="antop_p">Waters ACQUITY UPLC I-Class/Xevo TQ-S IVD系统</p></a>
+</a>
+</div>
+</div><div class="producList producList1">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/151.html" target="_blank" class="antop_a"><div class="antop_Img " style="display:" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525845108125.jpg!w270x200.jpg" alt="德国耶拿分析仪器股份公司" />
+</div>
+<div class="antop_prize1">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525845103258.jpg!w270x200.jpg" alt="德国耶拿分析仪器股份公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/1128.html" target=_blank><p class="antop_p">multi N/C 3100 TOC 顶级总有机碳/总氮分析仪</p></a>
+</a>
+</div>
+</div><div class="producList producList2">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/124.html" target="_blank" class="antop_a"><div class="antop_Img1 " style="display:none" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525844975291.jpg!w270x200.jpg" alt="上海安杰环保科技股份有限公司" />
+</div>
+<div class="antop_prize">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525844972404.jpg!w270x200.jpg" alt="上海安杰环保科技股份有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/76756.html" target=_blank><p class="antop_p">气相分子吸收光谱仪</p></a>
+</a>
+</div>
+</div><div class="producList producList1">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/128.html" target="_blank" class="antop_a"><div class="antop_Img " style="display:" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525844939100.jpg!w270x200.jpg" alt="上海爱博才思分析仪器贸易有限公司" />
+</div>
+<div class="antop_prize1">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525844935427.jpg!w270x200.jpg" alt="上海爱博才思分析仪器贸易有限公司" />
+</div>
+<a href="http://www.antpedia.com/instrument/9827/" target=_blank><p class="antop_p">SCIEX C100HT生物技术高通量糖谱分析平台</p></a>
+</a>
+</div>
+</div><div class="producList producList2">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/129.html" target="_blank" class="antop_a"><div class="antop_Img1 " style="display:none" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525844766818.jpg!w270x200.jpg" alt="上海爱博才思分析仪器贸易有限公司" />
+</div>
+<div class="antop_prize">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525844762260.jpg!w270x200.jpg" alt="上海爱博才思分析仪器贸易有限公司" />
+</div>
+<a href="http://www.antpedia.com/instrument/4931/" target=_blank><p class="antop_p">SCIEX Triple Quad™ 4500MD 临床串联质谱系统</p></a>
+</a>
+</div>
+</div></li>
+
+<li><div class="producList producList1">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/131.html" target="_blank" class="antop_a"><div class="antop_Img " style="display:" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525844724295.jpg!w270x200.jpg" alt="上海爱博才思分析仪器贸易有限公司" />
+</div>
+<div class="antop_prize1">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525844554383.jpg!w270x200.jpg" alt="上海爱博才思分析仪器贸易有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/674/" target=_blank><p class="antop_p">SCIEX质谱售前、售后和应用支持服务</p></a>
+</a>
+</div>
+</div><div class="producList producList2">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/132.html" target="_blank" class="antop_a"><div class="antop_Img1 " style="display:none" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525844493607.jpg!w270x200.jpg" alt="上海爱博才思分析仪器贸易有限公司" />
+</div>
+<div class="antop_prize">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525844489411.jpg!w270x200.jpg" alt="上海爱博才思分析仪器贸易有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/106226.html" target=_blank><p class="antop_p">高灵敏度定量微流质谱平台</p></a>
+</a>
+</div>
+</div><div class="producList producList1">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/127.html" target="_blank" class="antop_a"><div class="antop_Img " style="display:" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525844451155.jpg!w270x200.jpg" alt="珀金埃尔默企业管理（上海）有限公司" />
+</div>
+<div class="antop_prize1">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525844447433.jpg!w270x200.jpg" alt="珀金埃尔默企业管理（上海）有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/86786.html" target=_blank><p class="antop_p">PerkinElmer NexION 2000 ICP-MS</p></a>
+</a>
+</div>
+</div><div class="producList producList2">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/135.html" target="_blank" class="antop_a"><div class="antop_Img1 " style="display:none" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525844413456.jpg!w270x200.jpg" alt="常州磐诺仪器有限公司" />
+</div>
+<div class="antop_prize">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525844409894.jpg!w270x200.jpg" alt="常州磐诺仪器有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/106294.html" target=_blank><p class="antop_p">磐诺AMD10气相色谱质谱联用仪</p></a>
+</a>
+</div>
+</div><div class="producList producList1">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/142.html" target="_blank" class="antop_a"><div class="antop_Img " style="display:" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525844381623.jpg!w270x200.jpg" alt="浙江福立分析仪器股份有限公司" />
+</div>
+<div class="antop_prize1">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525844373956.jpg!w270x200.jpg" alt="浙江福立分析仪器股份有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/16256.html" target=_blank><p class="antop_p">福立仪器GC97系列气相色谱仪</p></a>
+</a>
+</div>
+</div><div class="producList producList2">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/143.html" target="_blank" class="antop_a"><div class="antop_Img1 " style="display:none" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525843288161.jpg!w270x200.jpg" alt="浙江福立分析仪器股份有限公司" />
+</div>
+<div class="antop_prize">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525843280615.jpg!w270x200.jpg" alt="浙江福立分析仪器股份有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/103885.html" target=_blank><p class="antop_p">福立仪器LC5090高效液相色谱仪</p></a>
+</a>
+</div>
+</div><div class="producList producList1">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/antop/list/146.html" target="_blank" class="antop_a"><div class="antop_Img " style="display:" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1525843213785.jpg!w270x200.jpg" alt="常州磐诺仪器有限公司" />
+</div>
+<div class="antop_prize1">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1525843208708.jpg!w270x200.jpg" alt="常州磐诺仪器有限公司" />
+</div>
+<a href="https://ibook.antpedia.com/p/92841.html" target=_blank><p class="antop_p">磐诺A91PLUS实验室高端气相色谱仪</p></a>
+</a>
+</div>
+</div><div class="producList producList2">
+<div class="AntopImg">
+<a href="http://www.antpedia.com/instrument/6624/" target="_blank" class="antop_a"><div class="antop_Img1 " style="display:none" >
+<img src="//i5.antpedia.com/space/admin/site_antop/image/product/1515147125378.jpg!w270x200.jpg" alt="赛默飞世尔科技(中国)有限公司" />
+</div>
+<div class="antop_prize">
+<img src="//i5.antpedia.com/space/admin/site_antop/image/1515147119309.jpg!w270x200.jpg" alt="赛默飞世尔科技(中国)有限公司" />
+</div>
+<a href="http://www.antpedia.com/instrument/6624/" target=_blank><p class="antop_p">TSQ Altis/TSQ Quantis三重四极杆质谱仪</p></a>
+</a>
+</div>
+</div></li>
+</ul>
+</div>
+</div>
+<!--end-->
+<div class="tag-2">
+<!--Webinar-->
+<div class="content">
+<div class="title title_h titleC01">
+<h3 class="h3C  C01">Webinar</h3>
+<ul class="s_nav s_nav01">
+<li>
+<a href="http://www.antbuyhot.com/shop/item-103193.html" target="_blank" title="我要主办">我要主办</a>
+</li>
+<li>
+<a href="/webinar/cat-4/" target="_blank" title="研讨会">研讨会</a>
+</li>
+<li>
+<a href="/webinar/cat-1/" target="_blank" title="按品牌">按品牌</a>
+</li>
+<li>
+<a href="/webinar/cat-3/" target="_blank" title="按行业">按行业</a>
+</li>
+<li>
+<a href="/webinar/cat-2/" target="_blank" title="按产品">按产品</a>
+</li>
+<li>
+<a href="/webinar/" target="_blank" class="ex" title="去Webinar频道">去Webinar频道</a>
+</li>
+</ul>
+</div>
+<div class="con-tag padd20">
+<div class="inTitle">
+<div class="inTitle_name C01"><span>产品经理推荐</span><i>必听课</i></div>
+<a href="javascript:void(0);" class="exchangeC01" id="hyp">换一换</a>
+</div>
+<ul class="recom_webinar" id="dyd"><li>
+<a class="workshop_a"  href="/webinar/871758711.html#weixinredpack" target="_blank">抢名额</a>
+<div class="workshop_lable workshop_lable02"></div>
+<div class="webinarImg">
+<a href="https://www.antpedia.com/webinar/871758711.html" target="_blank" title="20180808 2018药物分析主题研讨会"><div class="webinarTxt">2018药物分析主题研讨会</div>
+<img src="//i5.antpedia.com/space/images/webinar/a/coll_2018062610195012451.jpg!c270x150.jpg" alt="20180808 2018药物分析主题研讨会" />
+</a>
+</div>
+<p class="webinarP1">08-08 10:00  开始</p>
+<p class="webinarP2">倒计时：27天</p>
+<p class="webinarP1">主讲人：行业专家</p>
+</li>
+<li>
+<a class="workshop_a"  href="/webinar/296487632.html#weixinredpack" target="_blank">预约名额</a>
+<div class="workshop_lable workshop_lable01"></div>
+<div class="webinarImg">
+<a href="https://www.antpedia.com/webinar/296487632.html" target="_blank" title="20180713 贵金属检测新技术及应用 "><div class="webinarTxt">贵金属检测新技术及应用 </div>
+<img src="//i5.antpedia.com/space/images/webinar/a/coll_2018011816103821400.jpg!c270x150.jpg" alt="20180713 贵金属检测新技术及应用 " />
+</a>
+</div>
+<p class="webinarP1">07-13 09:30  开始</p>
+<p class="webinarP2">倒计时：1天</p>
+<p class="webinarP1">主讲人：冯先进</p>
+</li>
+<li>
+<a class="workshop_a"  href="/webinar/656557915.html#weixinredpack" target="_blank">预约名额</a>
+<div class="workshop_lable workshop_lable01"></div>
+<div class="webinarImg">
+<a href="https://www.antpedia.com/webinar/656557915.html" target="_blank" title="20180726 半导体制造工业和表面特征研究"><div class="webinarTxt">半导体制造工业和表面特征研究</div>
+<img src="//i5.antpedia.com/space/images/webinar/a/coll_2018062015262911456.jpg!c270x150.jpg" alt="20180726 半导体制造工业和表面特征研究" />
+</a>
+</div>
+<p class="webinarP1">07-26 09:30  开始</p>
+<p class="webinarP2">倒计时：14天</p>
+<p class="webinarP1">主讲人：行业专家</p>
+</li>
+<li>
+<a class="workshop_a" href="/webinar/123488762.html#weixinredpack" target="_blank">点击参会</a>
+<div class="webinarImg">
+<a href="https://www.antpedia.com/webinar/123488762.html" target="_blank" title="20180712 胆汁酸-肠道菌交互在胃肠癌发生中的作用"><div class="webinarTxt">胆汁酸-肠道菌交互在胃肠癌发生中的作用</div>
+<img src="//i5.antpedia.com/space/images/webinar/ibook/1529478442-6724.jpg!w285x200.jpg!c270x150.jpg" alt="20180712 胆汁酸-肠道菌交互在胃肠癌发生中的作用" />
+</a>
+</div>
+<p class="webinarP1">07-12 19:00  开始</p>
+<p class="webinarP4">正在直播中ing</p>
+<p class="webinarP1">主讲人：谢国祥</p>
+</li>
+<li>
+<a class="workshop_a"  href="http://vote.antpedia.com/index.php?sid=479136&lang=zh-Hans" target="_blank">预约名额</a>
+<div class="webinarImg">
+<a href="https://www.antpedia.com/webinar/479136.html" target="_blank" title="20180724 安捷伦1200HPLC实用工作坊——日常维护、技术升级指导"><div class="webinarTxt">安捷伦1200HPLC实用工作坊——日常维护、技术升级指导</div>
+<img src="//i5.antpedia.com/space/images/webinar/a/coll_2018062211315019618.png!c270x150.png" alt="20180724 安捷伦1200HPLC实用工作坊——日常维护、技术升级指导" />
+</a>
+</div>
+<p class="webinarP1">07-24 10:00  开始</p>
+<p class="webinarP2">倒计时：12天</p>
+<p class="webinarP1">主讲人：郭文杰 陈丽琴</p>
+</li>
+<li>
+<a class="workshop_a"  href="/webinar/423183218.html#weixinredpack" target="_blank">预约名额</a>
+<div class="webinarImg">
+<a href="https://www.antpedia.com/webinar/423183218.html" target="_blank" title="20180717 哈希实验室产品气体测量解决方案"><div class="webinarTxt">哈希实验室产品气体测量解决方案</div>
+<img src="//i5.antpedia.com/space/images/webinar/a/coll_2018060511311629053.jpg!c270x150.jpg" alt="20180717 哈希实验室产品气体测量解决方案" />
+</a>
+</div>
+<p class="webinarP1">07-17 10:00  开始</p>
+<p class="webinarP2">倒计时：5天</p>
+<p class="webinarP1">主讲人：宋博 高级应用工程师</p>
+</li>
+<li>
+<a class="workshop_a"  href="/webinar/527467598.html#weixinredpack" target="_blank">预约名额</a>
+<div class="webinarImg">
+<a href="https://www.antpedia.com/webinar/527467598.html" target="_blank" title="20180716 日立移动式直读光谱仪在金属材料领域的应用"><div class="webinarTxt">日立移动式直读光谱仪在金属材料领域的应用</div>
+<img src="//i5.antpedia.com/space/images/webinar/a/coll_2018070615065117608.jpg!c270x150.jpg" alt="20180716 日立移动式直读光谱仪在金属材料领域的应用" />
+</a>
+</div>
+<p class="webinarP1">07-16 14:00  开始</p>
+<p class="webinarP2">倒计时：4天</p>
+<p class="webinarP1">主讲人：陈翔</p>
+</li>
+<li>
+<a class="workshop_a"  href="/webinar/313583912.html#weixinredpack" target="_blank">预约名额</a>
+<div class="webinarImg">
+<a href="https://www.antpedia.com/webinar/313583912.html" target="_blank" title="20180718 GC-Orbitrap-MS在石油化工领域的应用研究进展"><div class="webinarTxt">GC-Orbitrap-MS在石油化工领域的应用研究进展</div>
+<img src="//i5.antpedia.com/space/images/webinar/ibook/1526439474-5135.jpg!w404x222.jpg!c270x150.jpg" alt="20180718 GC-Orbitrap-MS在石油化工领域的应用研究进展" />
+</a>
+</div>
+<p class="webinarP1">07-18 14:00  开始</p>
+<p class="webinarP2">倒计时：6天</p>
+<p class="webinarP1">主讲人：彭兴</p>
+</li>
+</ul>
+</div>
+</div>
+<!--end-->
+
+<!--新品速递-->
+<div class="content">
+<div class="title title_h titleC02">
+<h3 class="h3C  C02">新品速递</h3>
+<a href="//ibook.antpedia.com/newsproduct.php" target="_blank" class="more"><span>更多</span></a>
+</div>
+<div class="con-tag flexslider">
+<ul class="new_pro productUl slides">
+<li>
+<div class="producList a1">
+<div class="newImg">
+<a href="//ibook.antpedia.com/p/106114.html" target="_blank" title="赛默飞TSQ™ 9000三重四极杆GC-MS">
+<div class="newTxt">赛默飞TSQ™ 9000三重四极杆GC-MS</div>
+<img src="//i3.antpedia.com/instrument-library/attachments/product/562/1519871535-1914.jpg-650.jpg!w228x150.jpg" alt="赛默飞TSQ™ 9000三重四极杆GC-MS" />
+</a>
+</div>
+<div class="newCon">
+<div class="innewCon">
+<p>品牌：赛默飞</p>
+<p>型号：TSQ 9000</p>
+<p>上市日期：2018年3月</p>
+</div>
+<a href="http://ibook.antpedia.com/562/n/19798-n.html" target="_blank" title="赛默飞TSQ™ 9000三重四极杆GC-MS">新在哪？</a>
+</div>
+<a href="/?action-inquiry-type-2-pid-106114" target="_blank" class="new_inquiry">询价</a>
+<a href="/?action-showhow-type-2-pid-106114" target="_blank" class="new_demo">申请演示</a>
+</div>
+<div class="producList a1">
+<div class="newImg">
+<a href="//ibook.antpedia.com/p/106833.html" target="_blank" title="Restek电子检漏仪">
+<div class="newTxt">Restek电子检漏仪</div>
+<img src="//i3.antpedia.com/instrument-library/attachments/product/6937/1523519904-0145.jpg!w228x150.jpg" alt="Restek电子检漏仪" />
+</a>
+</div>
+<div class="newCon">
+<div class="innewCon">
+<p>品牌：瑞思泰康</p>
+<p>型号：22655</p>
+<p>上市日期：2015年10月</p>
+</div>
+<a href="https://ibook.antpedia.com/6937/p/106833-p.html" target="_blank" title="Restek电子检漏仪">新在哪？</a>
+</div>
+<a href="/?action-inquiry-type-2-pid-106833" target="_blank" class="new_inquiry">询价</a>
+<a href="/?action-showhow-type-2-pid-106833" target="_blank" class="new_demo">申请演示</a>
+</div>
+<div class="producList a1">
+<div class="newImg">
+<a href="//ibook.antpedia.com/p/106113.html" target="_blank" title="赛默飞ISQ 7000单四极杆GCMS">
+<div class="newTxt">赛默飞ISQ 7000单四极杆GCMS</div>
+<img src="//i3.antpedia.com/instrument-library/attachments/product/562/1519871319-572.jpg-650.jpg!w228x150.jpg" alt="赛默飞ISQ 7000单四极杆GCMS" />
+</a>
+</div>
+<div class="newCon">
+<div class="innewCon">
+<p>品牌：赛默飞</p>
+<p>型号：ISQ 7000</p>
+<p>上市日期：2018年3月</p>
+</div>
+<a href="http://ibook.antpedia.com/562/n/19798-n.html" target="_blank" title="赛默飞ISQ 7000单四极杆GCMS">新在哪？</a>
+</div>
+<a href="/?action-inquiry-type-2-pid-106113" target="_blank" class="new_inquiry">询价</a>
+<a href="/?action-showhow-type-2-pid-106113" target="_blank" class="new_demo">申请演示</a>
+</div>
+<div class="producList a1">
+<div class="newImg">
+<a href="https://www.antpedia.com/instrument/9068/" target="_blank" title="LC-80 ChroMini 高效液相色谱仪">
+<div class="newTxt">LC-80 ChroMini 高效液相色谱仪</div>
+<img src="//i5.antpedia.com/space/images/product/product_2017110115203626540.jpg!w220x150.jpg" alt="" />
+</a>
+</div>
+<div class="newCon">
+<div class="innewCon">
+<p>品牌：伍丰</p>
+<p>型号：LC-80 ChroMini</p>
+<p>上市日期：2017年10月</p>
+</div>
+<a href="http://www.antpedia.com/instrument/9068/" target="_blank" title="LC-80 ChroMini 高效液相色谱仪">新在哪？</a>
+</div>
+<a href="/?action-inquiry-type-2-pid-9068" target="_blank" class="new_inquiry">询价</a>
+<a href="/?action-showhow-type-2-pid-9068" target="_blank" class="new_demo">申请演示</a>
+</div>
+<div class="producList a1">
+<div class="newImg">
+<a href="//ibook.antpedia.com/p/95089.html" target="_blank" title="HGA-100直接进样测汞仪">
+<div class="newTxt">HGA-100直接进样测汞仪</div>
+<img src="//i3.antpedia.com/instrument-library/attachments/product/151/1504773664-6084.jpg!w228x150.jpg" alt="HGA-100直接进样测汞仪" />
+</a>
+</div>
+<div class="newCon">
+<div class="innewCon">
+<p>品牌：海光仪器</p>
+<p>型号：HGA-100</p>
+<p>上市日期：2017年9月</p>
+</div>
+<a href="http://ibook.antpedia.com/151/p/95089-p.html" target="_blank" title="HGA-100直接进样测汞仪">新在哪？</a>
+</div>
+<a href="/?action-inquiry-type-2-pid-95089" target="_blank" class="new_inquiry">询价</a>
+<a href="/?action-showhow-type-2-pid-95089" target="_blank" class="new_demo">申请演示</a>
+</div>
+</li>
+<li>
+<div class="producList a1">
+<div class="newImg">
+<a href="//ibook.antpedia.com/p/107740.html" target="_blank" title="scimaX™磁共振质谱仪">
+<div class="newTxt">scimaX™磁共振质谱仪</div>
+<img src="//i3.antpedia.com/instrument-library/attachments/product/253/1528255016-1727.png!w228x150.png" alt="scimaX™磁共振质谱仪" />
+</a>
+</div>
+<div class="newCon">
+<div class="innewCon">
+<p>品牌：布鲁克</p>
+<p>型号：scimaX</p>
+<p>上市日期：2018年6月</p>
+</div>
+<a href="https://ibook.antpedia.com/253/p/107740-p.html" target="_blank">新在哪？</a>
+</div>
+<a href="/?action-inquiry-type-2-pid-107740" target="_blank" class="new_inquiry">询价</a>
+<a href="/?action-showhow-type-2-pid-107740" target="_blank" class="new_demo">申请演示</a>
+</div>	
+<div class="producList a1">
+<div class="newImg">
+<a href="https://www.antpedia.com/instrument/6624/" target="_blank" title="TSQ Altis三重四极杆液质联用">
+<div class="newTxt">TSQ Altis三重四极杆液质联用</div>
+<img src="//i5.antpedia.com/space/images/product/product_2017070508284411148.jpg!w220x150.jpg" alt="" />
+</a>
+</div>
+<div class="newCon">
+<div class="innewCon">
+<p>品牌：赛默飞</p>
+<p>型号：TSQ Altis</p>
+<p>上市日期：2017年6月</p>
+</div>
+<a href="http://www.antpedia.com/instrument/6624/" target="_blank">新在哪？</a>
+</div>
+<a href="/?action-inquiry-type-2-pid-6624" target="_blank" class="new_inquiry">询价</a>
+<a href="/?action-showhow-type-2-pid-6624" target="_blank" class="new_demo">申请演示</a>
+</div>	
+<div class="producList a1">
+<div class="newImg">
+<a href="https://www.antpedia.com/instrument/6011/" target="_blank" title="安捷伦Ultivo三重四极杆LC/MS">
+<div class="newTxt">安捷伦Ultivo三重四极杆LC/MS</div>
+<img src="//i5.antpedia.com/space/images/product/product_2017060710471828432.jpg!w220x150.jpg" alt="" />
+</a>
+</div>
+<div class="newCon">
+<div class="innewCon">
+<p>品牌：安捷伦</p>
+<p>型号：安捷伦Ultivo</p>
+<p>上市日期：2017年6月</p>
+</div>
+<a href="http://www.antpedia.com/instrument/6011/" target="_blank">新在哪？</a>
+</div>
+<a href="/?action-inquiry-type-2-pid-6011" target="_blank" class="new_inquiry">询价</a>
+<a href="/?action-showhow-type-2-pid-6011" target="_blank" class="new_demo">申请演示</a>
+</div>	
+<div class="producList a1">
+<div class="newImg">
+<a href="//ibook.antpedia.com/p/104645.html" target="_blank" title="气相色谱质谱联用仪 GC-MS 6800 Premium ">
+<div class="newTxt">气相色谱质谱联用仪 GC-MS 6800 Premium </div>
+<img src="//i3.antpedia.com/instrument-library/attachments/product/109/1510898114-9405.jpg!w228x150.jpg" alt="气相色谱质谱联用仪 GC-MS 6800 Premium " />
+</a>
+</div>
+<div class="newCon">
+<div class="innewCon">
+<p>品牌：天瑞仪器</p>
+<p>型号：6800 Premium </p>
+<p>上市日期：2017年1月</p>
+</div>
+<a href="http://ibook.antpedia.com/109/p/104645-p.html" target="_blank">新在哪？</a>
+</div>
+<a href="/?action-inquiry-type-2-pid-104645" target="_blank" class="new_inquiry">询价</a>
+<a href="/?action-showhow-type-2-pid-104645" target="_blank" class="new_demo">申请演示</a>
+</div>	
+<div class="producList a1">
+<div class="newImg">
+<a href="//ibook.antpedia.com/p/91009.html" target="_blank" title="Cleanert V96 氮吹浓缩仪">
+<div class="newTxt">Cleanert V96 氮吹浓缩仪</div>
+<img src="//i3.antpedia.com/instrument-library/attachments/product/3/1495788023-3936.png!w228x150.png" alt="Cleanert V96 氮吹浓缩仪" />
+</a>
+</div>
+<div class="newCon">
+<div class="innewCon">
+<p>品牌：博纳艾杰尔</p>
+<p>型号：Cleanert V96</p>
+<p>上市日期：2017年9月</p>
+</div>
+<a href="https://ibook.antpedia.com/3/p/91009-p.html" target="_blank">新在哪？</a>
+</div>
+<a href="/?action-inquiry-type-2-pid-91009" target="_blank" class="new_inquiry">询价</a>
+<a href="/?action-showhow-type-2-pid-91009" target="_blank" class="new_demo">申请演示</a>
+</div>	
+</li>
+</ul>
+</div>
+</div>
+<!--end-->
+<!-- 新品速递下方广告 -->
+<div class="tag-b4"><div><a href='http://www.antpedia.com//lgcpt' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-02-06/20180206013640.gif' width=1190 height=90></a></div><a name=extsiteurl href='http://www.antpedia.com//lgcpt'></a></div>
+<!-- 新品速递下方广告end -->
+</div>
+<div class="tag-3">
+<!--安特百货-->
+<div class="content">
+<div class="title title_h titleC03">
+<h3 class="h3C  C03">安特百货</h3>
+<ul class="s_nav s_nav02">
+<li>
+<a href="http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=41" target="_blank" class="ex4" title="实验室一次性手套八折热卖">实验室一次性手套八折热卖</a>
+</li>
+</ul>
+</div>
+<div class="con-tag padd20">
+<div class="mall-left">
+
+<div class="searchContainer01">
+<input id="key01" value="请输入您要搜索的商品关键字..." onfocus="if(this.value=='请输入您要搜索的商品关键字...'){this.value='';}" onblur="if(this.value==''){this.value='请输入您要搜索的商品关键字...';}" type="text">
+<button class="searchbtn01" id="searchbtn01">
+<div class="anim"></div>
+<span>搜索</span>
+</button>
+</div>
+
+<h4>热门搜索：</h4>
+<div class="hot-search"><a href='http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=37' target='_blank' class='adv_oraurl'>片剂缓冲溶液</a><a name=extsiteurl href='http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=37'></a><a href='http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=36' target='_blank' class='adv_oraurl'>超纯水</a><a name=extsiteurl href='http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=36'></a><a href='//www.antpedia.com/antad/antadr.php?mid=4&url=http%3A%2F%2Fwww.antbuyhot.com%2Fshop%2Fshop-19.html' target='_blank' class='adv_oraurl'>混标</a><a name=extsiteurl href='http://www.antbuyhot.com/shop/shop-19.html'></a><a href='http://www.antbuyhot.com/shop/shop_view-40-494-0-0-0.html' target='_blank' class='adv_oraurl'>电镜耗材</a><a name=extsiteurl href='http://www.antbuyhot.com/shop/shop_view-40-494-0-0-0.html'></a><a href='//www.antpedia.com/antad/antadr.php?mid=5&url=http%3A%2F%2Fwww.antbuyhot.com%2Fshop%2F%3Fact%3Dsearch%26keyword%3DTOPAZ%25E8%25A1%25AC%25E7%25AE%25A1' target='_blank' class='adv_oraurl'>TOPAZ衬管</a><a name=extsiteurl href='http://www.antbuyhot.com/shop/?act=search&keyword=TOPAZ%E8%A1%AC%E7%AE%A1'></a><a href='//www.antpedia.com/antad/antadr.php?mid=5&url=http%3A%2F%2Fwww.antbuyhot.com%2Fshop%2Findex.php%3Fact%3Dspecial%26op%3Dspecial_detail%26special_id%3D116' target='_blank' class='adv_oraurl'>胎牛血清</a><a name=extsiteurl href='http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=116'></a><a href='//www.antpedia.com/antad/antadr.php?mid=6&url=http%3A%2F%2Fwww.antbuyhot.com%2Fshop%2Fcate-2137-0-0-0-0-0-0-0-0-0.html' target='_blank' class='adv_oraurl'>样品瓶</a><a name=extsiteurl href='http://www.antbuyhot.com/shop/cate-2137-0-0-0-0-0-0-0-0-0.html'></a><a href='//www.antpedia.com/antad/antadr.php?mid=6&url=http%3A%2F%2Fwww.antbuyhot.com%2Fshop%2Fcate-2043-0-0-0-0-0-0-0-0-0.html' target='_blank' class='adv_oraurl'>固相萃取柱</a><a name=extsiteurl href='http://www.antbuyhot.com/shop/cate-2043-0-0-0-0-0-0-0-0-0.html'></a></div>
+
+<!--广告-->
+<div class="tag-b5"><div><a href='//www.antpedia.com/antad/antadr.php?mid=204&url=http%3A%2F%2Fwww.antbuyhot.com%2F' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-11/20180511021802.png' width=288 height=86></a></div><a name=extsiteurl href='http://www.antbuyhot.com/'></a></div>
+<!--end-->
+
+<h4>促销信息：</h4>
+<ul>
+<li><a href='http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=4' target='_blank' class='adv_oraurl'>年中大促满额赠好礼</a><a name=extsiteurl href='http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=4'></a></li>
+<li><a href='//www.antpedia.com/antad/antadr.php?mid=204&url=https%3A%2F%2Fwww.antpedia.com%2Fnews%2F88%2Fn-2209788.html' target='_blank' class='adv_oraurl'>Restek TOPAZ气相色谱衬管上新 首单有礼</a><a name=extsiteurl href='https://www.antpedia.com/news/88/n-2209788.html'></a></li>
+<li><a href='https://www.antpedia.com/news/78/n-2213178.html' target='_blank' class='adv_oraurl'>Sin-QuEChERS Nano新型样品前处理 一步净化多残留</a><a name=extsiteurl href='https://www.antpedia.com/news/78/n-2213178.html'></a></li>
+<li><a href='http://www.antpedia.com/news/91/n-1473991.html' target='_blank' class='adv_oraurl'>进口品牌血清 新品上架7折起</a><a name=extsiteurl href='http://www.antpedia.com/news/91/n-1473991.html'></a></li>
+</ul>
+</div>
+<div class="mall-right">
+<div class="hot-mall">
+<div class="title">
+<ul class="title-list">
+<li class="on">疯狂抢购</li>
+<li>新品上架</li>
+<li>精品推荐</li>
+</ul>
+</div>
+<div class="mall-pro">
+<div class="mall show">
+<ul class="mallUl">
+<li>
+<div class="mall-img">
+<a href="http://www.antbuyhot.com/shop/item-557712.html" target="_blank" title="液体碳导电胶Leit-C碳导电胶液"><img src="//img.antpedia.com/images/ep/www.antbuyhot.com/90a0303c84e8bec705b20371c6e9d3de.jpg" alt="液体碳导电胶Leit-C碳导电胶液" height="261" width="226"></a>
+</div>
+<p class="mall-txt">
+<a href="http://www.antbuyhot.com/shop/item-557712.html" target="_blank" title="液体碳导电胶Leit-C碳导电胶液">液体碳导电胶Leit-C碳导电胶液</a>
+</p>
+<p class="market-price">市场价:￥985</p>
+<p class="mall-price">商城价：￥850</p>
+<div class="panic-buying">
+<a href="http://www.antbuyhot.com/shop/item-557712.html" target="_blank">立即抢购</a>
+</div>
+</li>
+<li>
+<div class="mall-img">
+<a href="http://www.antbuyhot.com/shop/item-507134.html" target="_blank" title="First Standard® 15种兽药标准品混标溶液"><img src="//img.antpedia.com/images/ep/www.antbuyhot.com/ed580d75c922f2ec93c16e3877cfee44.jpg" alt="First Standard® 15种兽药标准品混标溶液" height="261" width="226"></a>
+</div>
+<p class="mall-txt">
+<a href="http://www.antbuyhot.com/shop/item-507134.html" target="_blank" title="First Standard® 15种兽药标准品混标溶液">First Standard® 15种兽药标准品混标溶液</a>
+</p>
+<p class="market-price">市场价:￥3000</p>
+<p class="mall-price">商城价：￥2850</p>
+<div class="panic-buying">
+<a href="http://www.antbuyhot.com/shop/item-507134.html" target="_blank">立即抢购</a>
+</div>
+</li>
+<li>
+<div class="mall-img">
+<a href="http://www.antbuyhot.com/shop/item-330975.html" target="_blank" title="LabOS实验室物料管理系统—网络定制版"><img src="//img.antpedia.com/images/ep/www.antbuyhot.com/ca1c763f141290db8d73a4f60c87a06c.jpg" alt="LabOS实验室物料管理系统—网络定制版" height="261" width="226"></a>
+</div>
+<p class="mall-txt">
+<a href="http://www.antbuyhot.com/shop/item-330975.html" target="_blank" title="LabOS实验室物料管理系统—网络定制版">LabOS实验室物料管理系统—网络定制版</a>
+</p>
+<p class="market-price">市场价:￥1000</p>
+<p class="mall-price">商城价：￥0.1</p>
+<div class="panic-buying">
+<a href="http://www.antbuyhot.com/shop/item-330975.html" target="_blank">立即抢购</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="mall">
+<ul class="mallUl">
+ <li> 
+<div class="mall-img"><a href="http://www.antbuyhot.com/shop/item-562165.html" target="_blank" title="AusgeneX 优级胎牛血清（南美血源） 500ml 1瓶"><img src="//img.antpedia.com/images/ep/www.antbuyhot.com/966ac5b08c32961c525ba59756075cab.jpg" width="226" height="261"  alt="AusgeneX 优级胎牛血清（南美血源） 500ml 1瓶"/></a></div>
+<p class="mall-txt"><a href="http://www.antbuyhot.com/shop/item-562165.html" target="_blank" title="AusgeneX 优级胎牛血清（南美血源） 500ml 1瓶">AusgeneX 优级胎牛血清（南美血源） 500ml 1瓶</a></p>
+<p class="market-price">市场价:￥3000</p>
+<div class="mall-price01">
+  <p class="p1">商城价：</p>
+  <p class="p2">￥<span>270</span></p>
+</div>
+ </li>
+ 
+ <li> 
+<div class="mall-img"><a href="http://www.antbuyhot.com/shop/item-564207.html" target="_blank" title="Topaz衬管不分流单锥型4x6.5x78.5适用于Agilent"><img src="//img.antpedia.com/images/ep/www.antbuyhot.com/27eddf55106f19ba3b76a2a5e23ac727.jpg" width="226" height="261"  alt="Topaz衬管不分流单锥型4x6.5x78.5适用于Agilent"/></a></div>
+<p class="mall-txt"><a href="http://www.antbuyhot.com/shop/item-564207.html" target="_blank" title="Topaz衬管不分流单锥型4x6.5x78.5适用于Agilent">Topaz衬管不分流单锥型4x6.5x78.5适用于Agilent</a></p>
+<p class="market-price">市场价:￥1372</p>
+<div class="mall-price01">
+  <p class="p1">商城价：</p>
+  <p class="p2">￥<span>1029</span></p>
+</div>
+ </li>
+ 
+ <li> 
+<div class="mall-img"><a href="http://www.antbuyhot.com/shop/item-505522.html" target="_blank" title="LUMTECH Sin-QuEChERS Nano 农残专用净化柱"><img src="//img.antpedia.com/images/ep/www.antbuyhot.com/6e46d26b48213c3737a0888c7aef98c2.jpg" width="226" height="261"  alt="LUMTECH Sin-QuEChERS Nano 农残专用净化柱"/></a></div>
+<p class="mall-txt"><a href="http://www.antbuyhot.com/shop/item-505522.html" target="_blank" title="LUMTECH Sin-QuEChERS Nano 农残专用净化柱">LUMTECH Sin-QuEChERS Nano 农残专用净化柱</a></p>
+<p class="market-price">市场价:￥1494</p>
+<div class="mall-price01">
+  <p class="p1">商城价：</p>
+  <p class="p2">￥<span>1344.6</span></p>
+</div>
+ </li>
+ 
+</ul>
+</div>
+<div class="mall">
+<ul class="mallUl">
+<li>
+<div class="mall-img"><a href="http://www.antbuyhot.com/shop/item-505523.html" target="_blank" title="LUMTECH SinChERS-Nano 分散基质固相萃取适用于复杂基质"><img src="//img.antpedia.com/images/ep/www.antbuyhot.com/68442067d5acd10131e135d1222bdc4e.jpg" width="226" height="261"  alt="LUMTECH SinChERS-Nano 分散基质固相萃取适用于复杂基质"/></a></div>
+<p class="mall-txt"><a href="http://www.antbuyhot.com/shop/item-505523.html" target="_blank" title="LUMTECH SinChERS-Nano 分散基质固相萃取适用于复杂基质">LUMTECH SinChERS-Nano 分散基质固相萃取适用于复杂基质</a></p>
+<p class="market-price">市场价:￥1584</p>
+<div class="mall-price01">
+  <p class="p1">商城价：</p>
+  <p class="p2">￥<span>1425.6</span></p>
+</div>
+</li>
+<li>
+<div class="mall-img"><a href="http://www.antbuyhot.com/shop/item-469351.html" target="_blank" title="一次性耐用型丁腈手套 100只/盒"><img src="//img.antpedia.com/images/ep/www.antbuyhot.com/61cd17f4f121c898258f5bd0f770d819.jpg" width="226" height="261"  alt="一次性耐用型丁腈手套 100只/盒"/></a></div>
+<p class="mall-txt"><a href="http://www.antbuyhot.com/shop/item-469351.html" target="_blank" title="一次性耐用型丁腈手套 100只/盒">一次性耐用型丁腈手套 100只/盒</a></p>
+<p class="market-price">市场价:￥45</p>
+<div class="mall-price01">
+  <p class="p1">商城价：</p>
+  <p class="p2">￥<span>36</span></p>
+</div>
+</li>
+<li>
+<div class="mall-img"><a href="http://www.antbuyhot.com/shop/item-100039.html" target="_blank" title="2 mL 螺纹广口瓶 透明 12 x 32 mm, 9 mm 100个/盒"><img src="//img.antpedia.com/images/ep/www.antbuyhot.com/c39ebc7efa884bd13192ceef22e6bd74.jpg" width="226" height="261"  alt="2 mL 螺纹广口瓶 透明 12 x 32 mm, 9 mm 100个/盒"/></a></div>
+<p class="mall-txt"><a href="http://www.antbuyhot.com/shop/item-100039.html" target="_blank" title="2 mL 螺纹广口瓶 透明 12 x 32 mm, 9 mm 100个/盒">2 mL 螺纹广口瓶 透明 12 x 32 mm, 9 mm 100个/盒</a></p>
+<p class="market-price">市场价:￥100</p>
+<div class="mall-price01">
+  <p class="p1">商城价：</p>
+  <p class="p2">￥<span>55</span></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--end-->
+<div class="topBoder">
+<div class="star-lab">
+<!--明星实验室-->
+<div class="content star-con">
+<div class="title title_h">
+<h3 class="h3C  C04">明星实验室</h3>
+</div>
+<div class="con-tag bgF7 noBoder_r noBoder_b">
+<ul id="star-con-tag"><li class="col col0">
+  <div class="big todos-thumb">
+<div><a href="labs/87/" target="_blank" title="核工业北京地质研究院"><img src="//i5.antpedia.com/space/images/labs/lab_2014051415393120642.jpg!w70x61.jpg" alt="核工业北京地质研究院"> <span class="todos-thumb-span">核工业北京地质研究院</span></a></div>
+  </div>
+</li><li class="col col1">
+  <div class="big todos-thumb">
+<div><a href="labs/145/" target="_blank" title="美国扬格非损伤技术中心"><img src="//i5.antpedia.com/space/images/labs/lab_2008110810152326462.jpg!w70x61.jpg" alt="美国扬格非损伤技术中心"> <span class="todos-thumb-span">美国扬格非损伤技术中心</span></a></div>
+  </div>
+</li><li class="col col2">
+  <div class="big todos-thumb">
+<div><a href="labs/229/" target="_blank" title="中国广州分析测试中心"><img src="//i5.antpedia.com/space/images/labs/lab_2012021714121921394.jpg!w70x61.jpg" alt="中国广州分析测试中心"> <span class="todos-thumb-span">中国广州分析测试中心</span></a></div>
+  </div>
+</li><li class="col col3">
+  <div class="big todos-thumb">
+<div><a href="labs/586/" target="_blank" title="国际生物医药联合研究院分析测试平台-瀚盟生物分析测试中心"><img src="//i5.antpedia.com/space/images/labs/lab_2012020214363522810.jpg!w70x61.jpg" alt="国际生物医药联合研究院分析测试平台-瀚盟生物分析测试中心"> <span class="todos-thumb-span">国际生物医药联合研究院分析测试平台-瀚盟生物分析测试中心</span></a></div>
+  </div>
+</li><li class="col col4">
+  <div class="big todos-thumb">
+<div><a href="labs/776/" target="_blank" title="青岛科标检测研究院"><img src="//i5.antpedia.com/space/images/labs/lab_2014120811331515753.jpg!w70x61.jpg" alt="青岛科标检测研究院"> <span class="todos-thumb-span">青岛科标检测研究院</span></a></div>
+  </div>
+</li><li class="col col5">
+  <div class="big todos-thumb">
+<div><a href="labs/940/" target="_blank" title="苏州禾川化学技术服务有限公司"><img src="//i5.antpedia.com/space/images/labs/lab_2013080813374622469.jpg!w70x61.jpg" alt="苏州禾川化学技术服务有限公司"> <span class="todos-thumb-span">苏州禾川化学技术服务有限公司</span></a></div>
+  </div>
+</li><li class="col col6">
+  <div class="big todos-thumb">
+<div><a href="labs/1139/" target="_blank" title="塍田化学分析检测中心"><img src="//i5.antpedia.com/space/images/lab2/lab_2013121909242621917.jpg!w70x61.jpg" alt="塍田化学分析检测中心"> <span class="todos-thumb-span">塍田化学分析检测中心</span></a></div>
+  </div>
+</li><li class="col col7">
+  <div class="big todos-thumb">
+<div><a href="labs/1429/" target="_blank" title="SGS厦门分公司检测中心"><img src="//i5.antpedia.com/space/images/labs/lab_2015071716491916578.jpg!w70x61.jpg" alt="SGS厦门分公司检测中心"> <span class="todos-thumb-span">SGS厦门分公司检测中心</span></a></div>
+  </div>
+</li></ul>
+</div>
+</div>
+<!--end-->
+<!--实验室动态-->
+<div class="content lab-con">
+<div class="title title_h">
+<h3 class="h3C  C04">实验室动态</h3>
+<a href="/news/733/" target="_blank" class="more lab-conMore"><span>更多</span></a>
+</div>
+<div class="con-tag bgF7 noBoder_l noBoder_b">
+<ul class="ul-0">
+<li>
+<h4>
+<img src="/images/site_index/index_38.jpg" width="13" height="13"  alt="中科院与空中客车公司建立纳米复合材料实验室"/>
+<a href="https://www.antpedia.com/news/41/n-2221941.html" target="_blank" title="中科院与空中客车公司建立纳米复合材料实验室">中科院与空中客车公司建立纳米复合材料实验室</a>
+</h4>
+<p>中国科学院与全球飞机制造巨头空中客车公司共建的“纳米复合材料联合实验室”，5日在北京正式揭牌成立，双方将通过联合实验室开展应用于航空领域的纳米功能复合材料的相关......</p>
+</li>
+</ul>
+<ul class="ul-1">
+  <li><a href="https://www.antpedia.com/news/20/n-2221820.html" target="_blank" title="深圳再筹建诺奖科学家实验室 搭建国际一流脑科学平台">深圳再筹建诺奖科学家实验室 搭建国际一流脑科学平台</a></li>
+  <li><a href="https://www.antpedia.com/news/45/n-2221445.html" target="_blank" title="东南大学-智能监控联合实验室学术委员会成立">东南大学-智能监控联合实验室学术委员会成立</a></li>
+  <li><a href="https://www.antpedia.com/news/41/n-2221441.html" target="_blank" title="诺奖获得者来千岛湖建实验室">诺奖获得者来千岛湖建实验室</a></li>
+</ul>
+</div>
+</div>
+<!--end-->
+
+<!--最新留言 2017年和2018年首页都用这一个页面-->
+<script src="/labword_syzx2017.php"></script>
+<!--end-->
+
+</div>
+<!--项目成果-->
+<div class="content pro-con">
+<div class="title title_h">
+<h3 class="h3C  C04">项目成果</h3>
+<a href="/news/737/" target="_blank" class="more lab-conMore"><span>更多</span></a>
+</div>
+<div class="con-tag">
+<ul class="ul-6">
+<li>
+<h4><img src="/images/site_index_v9/index_38.png" width="13" height="13"  alt="科学家研制液态高灵敏分子光学压力传感器"/><a href="https://www.antpedia.com/news/49/n-2224149.html" target="_blank" title="科学家研制液态高灵敏分子光学压力传感器">科学家研制液态高灵敏分子光学压力传感器</a></h4>
+<p> 美因兹约翰尼斯古腾堡大学（JGU）和加拿大蒙特利尔大学的化学家开发了一种能...... </p>
+</li>
+<li>
+<h4><img src="/images/site_index_v9/index_38.png" width="13" height="13"  alt="世界首套超声技术水下两相湿气流量计研制成功"/><a href="https://www.antpedia.com/news/80/n-2223680.html" target="_blank" title="世界首套超声技术水下两相湿气流量计研制成功">世界首套超声技术水下两相湿气流量计研制成功</a></h4>
+<p>  天津7月9日电,记者9日从天津大学获悉，该校徐英教授课题组主持研发的世界...... </p>
+</li>
+<li>
+<h4><img src="/images/site_index_v9/index_38.png" width="13" height="13"  alt="美研究人员开发一种实验性药物 有望遏制帕金森症"/><a href="https://www.antpedia.com/news/79/n-2221979.html" target="_blank" title="美研究人员开发一种实验性药物 有望遏制帕金森症">美研究人员开发一种实验性药物 有望遏制帕金森症</a></h4>
+<p> 美国约翰·霍普金斯大学研究人员开发出一种名为NLY01的实验性药物，可以有...... </p>
+</li>
+</ul>
+</div>
+</div>
+<!--end-->
+</div>
+<!--广告-->
+<div class="tag-b4"><div><a href='http://t.antpedia.com/jq/25516598.aspx' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-07-04/20180704021848.jpg' width=1190 height=90></a></div><a name=extsiteurl href='http://t.antpedia.com/jq/25516598.aspx'></a></div>
+<!--end-->
+</div>
+<div class="tag-4">
+<!--仪器谱-->
+<div class="content instruments">
+<div class="title title_h titleC05">
+<h3 class="h3C  C05">仪器谱</h3>
+<ul class="s_nav s_nav03">
+<li>
+<a href="http://ichain.antpedia.com/" target="_blank" title="产业链">产业链</a>
+</li>
+<li>
+<a href="//ibook.antpedia.com/" target="_blank" title="网尽全球仪器">网尽全球仪器</a>
+</li>
+</ul>
+</div>
+<div class="con-tag padd10">
+<div class="layout-1">
+<h4 class="C05">品牌排行榜</h4>
+<div class="lay-con0">
+<div class="tab_box noBoder_l">
+<div class="lyz_tab_left">
+<div class="pro_con111">
+<ul>
+<li class="hover" id="one1" onMouseOver="setTab(&#39;one&#39;,1,5)">液相色谱</li>
+<li id="one2" onMouseOver="setTab(&#39;one&#39;,2,5)">气相色谱</li>
+<li id="one3" onMouseOver="setTab(&#39;one&#39;,3,5)">液质联用</li>
+<li id="one4" onMouseOver="setTab(&#39;one&#39;,4,5)">气质联用仪</li>
+<li id="one5" onMouseOver="setTab(&#39;one&#39;,5,5)">紫外</li>
+<!--<li id="one6" onMouseOver="setTab(&#39;one&#39;,6,5)">天平</li>-->
+<li id="one6" onMouseOver="setTab(&#39;one&#39;,6,5)">原子吸收光谱</li>
+<li id="one7" onMouseOver="setTab(&#39;one&#39;,7,5)">红外</li>
+<li id="one8" onMouseOver="setTab(&#39;one&#39;,8,5)">拉曼</li>
+</ul>
+</div>
+</div>
+
+<div class="lyz_tab_right">
+<div id="con_one_1">
+ <ul>
+<li><span class="q-o"><i>1</i></span><a href="http://ibook.antpedia.com/instrument/60" target="_blank">安捷伦</a></li>
+<li><span class="q-o"><i>2</i></span><a href="http://ibook.antpedia.com/instrument/60" target="_blank">沃特世</a></li>
+<li><span class="q-o"><i>3</i></span><a href="http://ibook.antpedia.com/instrument/60" target="_blank">岛津</a></li>
+<li><span class="q-b"><i>4</i></span><a href="http://ibook.antpedia.com/instrument/60" target="_blank">赛默飞</a></li>
+<li><span class="q-b"><i>5</i></span><a href="http://ibook.antpedia.com/instrument/60" target="_blank">大连依利特</a></li>
+<li><span class="q-b"><i>6</i></span><a href="http://ibook.antpedia.com/instrument/60" target="_blank">日立</a></li>
+<li><span class="q-b"><i>7</i></span><a href="http://ibook.antpedia.com/instrument/60" target="_blank">上海伍丰</a></li>
+<li><span class="q-b"><i>8</i></span><a href="http://ibook.antpedia.com/instrument/60" target="_blank">福立</a></li>
+<li><span class="q-b"><i>9</i></span><a href="http://ibook.antpedia.com/instrument/60" target="_blank">东西分析</a></li>
+<li><span class="q-b"><i>10</i></span><a href="http://ibook.antpedia.com/instrument/60" target="_blank">eksigent</a></li>
+  </ul>
+</div>
+<div id="con_one_2" style="display: none">
+<ul>
+<li><span class="q-o"><i>1</i></span><a href="http://ibook.antpedia.com/instrument/81" target="_blank">安捷伦</a></li>
+<li><span class="q-o"><i>2</i></span><a href="http://ibook.antpedia.com/instrument/81" target="_blank">岛津</a></li>
+<li><span class="q-o"><i>3</i></span><a href="http://ibook.antpedia.com/instrument/81" target="_blank">赛默飞</a></li>
+<li><span class="q-b"><i>4</i></span><a href="http://ibook.antpedia.com/instrument/81" target="_blank">上分/INESA</a></li>
+<li><span class="q-b"><i>5</i></span><a href="http://ibook.antpedia.com/instrument/81" target="_blank">东西分析</a></li>
+<li><span class="q-b"><i>6</i></span><a href="http://ibook.antpedia.com/instrument/81" target="_blank">福立</a></li>
+<li><span class="q-b"><i>7</i></span><a href="http://ibook.antpedia.com/instrument/81" target="_blank">普析通用</a></li>
+<li><span class="q-b"><i>8</i></span><a href="http://ibook.antpedia.com/instrument/81" target="_blank">天美</a></li>
+<li><span class="q-b"><i>9</i></span><a href="http://ibook.antpedia.com/instrument/81" target="_blank">PerkinElmer</a></li>
+<li><span class="q-b"><i>10</i></span><a href="http://ibook.antpedia.com/instrument/81" target="_blank">SCION</a></li>
+</ul>
+</div>
+<div id="con_one_3" style="display: none">
+<ul>
+<li><span class="q-o"><i>1</i></span><a href="http://ibook.antpedia.com/instrument/96" target="_blank">SCIEX</a></li>
+<li><span class="q-o"><i>2</i></span><a href="http://ibook.antpedia.com/instrument/96" target="_blank">安捷伦</a></li>
+<li><span class="q-o"><i>3</i></span><a href="http://ibook.antpedia.com/instrument/96" target="_blank">赛默飞</a></li>
+<li><span class="q-b"><i>4</i></span><a href="http://ibook.antpedia.com/instrument/96" target="_blank">Waters</a></li>
+<li><span class="q-b"><i>5</i></span><a href="http://ibook.antpedia.com/instrument/96" target="_blank">布鲁克</a></li>
+<li><span class="q-b"><i>6</i></span><a href="http://ibook.antpedia.com/instrument/96" target="_blank">岛津</a></li>
+<li><span class="q-b"><i>7</i></span><a href="http://ibook.antpedia.com/instrument/96" target="_blank">珀金埃尔默</a></li>
+<li><span class="q-b"><i>8</i></span><a href="http://ibook.antpedia.com/instrument/96" target="_blank">IonSense</a></li>
+<li><span class="q-b"><i>9</i></span><a href="http://ibook.antpedia.com/instrument/96" target="_blank">天瑞仪器</a></li>
+<li><span class="q-b"><i>10</i></span><a href="http://ibook.antpedia.com/instrument/96" target="_blank">吉尔森</a></li>
+</ul>		
+</div>
+<div id="con_one_4" style="display: none">
+<ul>
+<li><span class="q-o"><i>1</i></span><a href="http://ibook.antpedia.com/instrument/118" target="_blank">安捷伦</a></li>
+<li><span class="q-o"><i>2</i></span><a href="http://ibook.antpedia.com/instrument/118" target="_blank">赛默飞</a></li>
+<li><span class="q-o"><i>3</i></span><a href="http://ibook.antpedia.com/instrument/118" target="_blank">岛津</a></li>
+<li><span class="q-b"><i>4</i></span><a href="http://ibook.antpedia.com/instrument/118" target="_blank">珀金埃尔默</a></li>
+<li><span class="q-b"><i>5</i></span><a href="http://ibook.antpedia.com/instrument/118" target="_blank">布鲁克</a></li>
+<li><span class="q-b"><i>6</i></span><a href="http://ibook.antpedia.com/instrument/118" target="_blank">禾信</a></li>
+<li><span class="q-b"><i>7</i></span><a href="http://ibook.antpedia.com/instrument/118" target="_blank">LECO</a></li>
+<li><span class="q-b"><i>8</i></span><a href="http://ibook.antpedia.com/instrument/118" target="_blank">聚光科技</a></li>
+<li><span class="q-b"><i>9</i></span><a href="http://ibook.antpedia.com/instrument/118" target="_blank">普析通用</a></li>
+<li><span class="q-b"><i>10</i></span><a href="http://ibook.antpedia.com/instrument/118" target="_blank">天瑞仪器</a></li>
+</ul>
+</div>
+<div id="con_one_5" style="display: none">
+<ul>
+<li><span class="q-o"><i>1</i></span><a href="http://ibook.antpedia.com/instrument/108" target="_blank">岛津</a></li>
+<li><span class="q-o"><i>2</i></span><a href="http://ibook.antpedia.com/instrument/108" target="_blank">PerkinElmer</a></li>
+<li><span class="q-o"><i>3</i></span><a href="http://ibook.antpedia.com/instrument/108" target="_blank">赛默飞</a></li>
+<li><span class="q-b"><i>4</i></span><a href="http://ibook.antpedia.com/instrument/108" target="_blank">上海光谱</a></li>
+<li><span class="q-b"><i>5</i></span><a href="http://ibook.antpedia.com/instrument/108" target="_blank">普析通用</a></li>
+<li><span class="q-b"><i>6</i></span><a href="http://ibook.antpedia.com/instrument/108" target="_blank">棱光技术</a></li>
+<li><span class="q-b"><i>7</i></span><a href="http://ibook.antpedia.com/instrument/108" target="_blank">北分瑞利</a></li>
+<li><span class="q-b"><i>8</i></span><a href="http://ibook.antpedia.com/instrument/108" target="_blank">哈希</a></li>
+<li><span class="q-b"><i>9</i></span><a href="http://ibook.antpedia.com/instrument/108" target="_blank">美谱达</a></li>
+<li><span class="q-b"><i>10</i></span><a href="http://ibook.antpedia.com/instrument/108" target="_blank">仪电科学仪器</a></li>
+</ul>
+</div>
+<div id="con_one_6" style="display: none">
+<ul>
+<li><span class="q-o"><i>1</i></span><a href="http://ibook.antpedia.com/instrument/204" target="_blank">PerkinElmer</a></li>
+<li><span class="q-o"><i>2</i></span><a href="http://ibook.antpedia.com/instrument/204" target="_blank">岛津</a></li>
+<li><span class="q-o"><i>3</i></span><a href="http://ibook.antpedia.com/instrument/204" target="_blank">海光仪器</a></li>
+<li><span class="q-b"><i>4</i></span><a href="http://ibook.antpedia.com/instrument/204" target="_blank">上海光谱</a></li>
+<li><span class="q-b"><i>5</i></span><a href="http://ibook.antpedia.com/instrument/204" target="_blank">赛默飞</a></li>
+<li><span class="q-b"><i>6</i></span><a href="http://ibook.antpedia.com/instrument/204" target="_blank">耶拿</a></li>
+<li><span class="q-b"><i>7</i></span><a href="http://ibook.antpedia.com/instrument/204" target="_blank">东西分析</a></li>
+<li><span class="q-b"><i>8</i></span><a href="http://ibook.antpedia.com/instrument/204" target="_blank">安捷伦</a></li>
+<li><span class="q-b"><i>9</i></span><a href="http://ibook.antpedia.com/instrument/204" target="_blank">日立</a></li>
+<li><span class="q-b"><i>10</i></span><a href="http://ibook.antpedia.com/instrument/204" target="_blank">仪电科学仪器</a></li>
+</ul>
+</div>
+<div id="con_one_7" style="display: none">
+<ul>
+<li><span class="q-o"><i>1</i></span><a href="http://ibook.antpedia.com/instrument/64" target="_blank">布鲁克</a></li>
+<li><span class="q-o"><i>2</i></span><a href="http://ibook.antpedia.com/instrument/64" target="_blank">珀金埃尔默</a></li>
+<li><span class="q-o"><i>3</i></span><a href="http://ibook.antpedia.com/instrument/64" target="_blank">岛津</a></li>
+<li><span class="q-b"><i>4</i></span><a href="http://ibook.antpedia.com/instrument/64" target="_blank">赛默飞</a></li>
+<li><span class="q-b"><i>5</i></span><a href="http://ibook.antpedia.com/instrument/64" target="_blank">安捷伦</a></li>
+<li><span class="q-b"><i>6</i></span><a href="http://ibook.antpedia.com/instrument/64" target="_blank">北分瑞利</a></li>
+<li><span class="q-b"><i>7</i></span><a href="http://ibook.antpedia.com/instrument/64" target="_blank">港东</a></li>
+<li><span class="q-b"><i>8</i></span><a href="http://ibook.antpedia.com/instrument/64" target="_blank">萨特勒</a></li>
+<li><span class="q-b"><i>9</i></span><a href="http://ibook.antpedia.com/instrument/64" target="_blank">刘梅克斯</a></li>
+<li><span class="q-b"><i>10</i></span><a href="http://ibook.antpedia.com/instrument/64" target="_blank">萨特勒</a></li>
+ </ul>
+</div>
+<div id="con_one_8" style="display: none">
+<ul>
+<li><span class="q-o"><i>1</i></span><a href="http://ibook.antpedia.com/922/" target="_blank">雷尼绍</a></li>
+<li><span class="q-o"><i>2</i></span><a href="http://ibook.antpedia.com/192/" target="_blank">堀场</a></li>
+<li><span class="q-o"><i>3</i></span><a href="http://ibook.antpedia.com/5/" target="_blank">赛默飞</a></li>
+<li><span class="q-b"><i>4</i></span><a href="" target="_blank">必达泰克</a></li>
+<li><span class="q-b"><i>5</i></span><a href="http://ibook.antpedia.com/178/" target="_blank">万通</a></li>
+<li><span class="q-b"><i>6</i></span><a href="http://ibook.antpedia.com/189/" target="_blank">海洋光学</a></li>
+<li><span class="q-b"><i>7</i></span><a href="http://ibook.antpedia.com/106/" target="_blank">安东帕</a></li>
+<li><span class="q-b"><i>8</i></span><a href="http://ibook.antpedia.com/42/" target="_blank">珀金埃尔默</a></li>
+<li><span class="q-b"><i>9</i></span><a href="http://ibook.antpedia.com/128/" target="_blank">仪电</a></li>
+<li><span class="q-b"><i>10</i></span><a href="http://ibook.antpedia.com/166/" target="_blank">岛津</a></li>
+</ul>
+</div>
+</div>
+</div><!--最新求购信息-->
+<div class="buy">
+<div class="title-2">
+<h4 class="C05">最新求购信息</h4>
+<a href="//ibook.antpedia.com/demandIndex.php" target="_blank" class="more moreC05"><span>更多</span></a>
+</div>
+<ul class="ul-1">
+<li>
+<p ><a href="//ibook.antpedia.com/demandView.php?demandId=1332" target="_blank" title="火焰光度计">火焰光度计</a></p>
+<div><a href="//ibookadmin.antpedia.com/index.php?r=admin/demand/view&id=1332" target="_blank" title="火焰光度计">我也要响应</a></div>
+</li>
+<li>
+<p ><a href="//ibook.antpedia.com/demandView.php?demandId=1316" target="_blank" title="转矩流变仪、小高混锅等等">转矩流变仪、小高混锅等等</a></p>
+<div><a href="//ibookadmin.antpedia.com/index.php?r=admin/demand/view&id=1316" target="_blank" title="转矩流变仪、小高混锅等等">我也要响应</a></div>
+</li>
+<li>
+<p ><a href="//ibook.antpedia.com/demandView.php?demandId=1308" target="_blank" title="我是北方华创的，要采购红外光谱仪与纳米压痕仪">我是北方华创的，要采购红外光谱仪与纳米压痕仪</a></p>
+<div><a href="//ibookadmin.antpedia.com/index.php?r=admin/demand/view&id=1308" target="_blank" title="我是北方华创的，要采购红外光谱仪与纳米压痕仪">我也要响应</a></div>
+</li>
+<li>
+<p ><a href="//ibook.antpedia.com/demandView.php?demandId=1307" target="_blank" title="求购德国Simon Aldrich经典系列固相萃取柱">求购德国Simon Aldrich经典系列固相萃取柱</a></p>
+<div><a href="//ibookadmin.antpedia.com/index.php?r=admin/demand/view&id=1307" target="_blank" title="求购德国Simon Aldrich经典系列固相萃取柱">我也要响应</a></div>
+</li>
+<li>
+<p ><a href="//ibook.antpedia.com/demandView.php?demandId=1304" target="_blank" title="石墨消解仪">石墨消解仪</a></p>
+<div><a href="//ibookadmin.antpedia.com/index.php?r=admin/demand/view&id=1304" target="_blank" title="石墨消解仪">我也要响应</a></div>
+</li>
+<li>
+<p ><a href="//ibook.antpedia.com/demandView.php?demandId=1299" target="_blank" title="想采购风速仪">想采购风速仪</a></p>
+<div><a href="//ibookadmin.antpedia.com/index.php?r=admin/demand/view&id=1299" target="_blank" title="想采购风速仪">我也要响应</a></div>
+</li>
+</ul>
+</div>
+<!--end-->
+</div>
+</div>
+<div class="layout-2">
+<!--热点仪器推荐-->
+<div class="hot-tj">
+<h4 class="C05">热点仪器推荐</h4>
+<div class="lay-con">
+<ul class="ul-3">
+<!--仪器谱-->
+<li>
+<div class="hot-tj-img"><a href="//ibook.antpedia.com/p/78020.html" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/product/562/1460605931-9546.jpg!w178x107.jpg" width="178" height="107" alt="" /></a>
+</div>
+<p class="hot_title">
+<a href="//ibook.antpedia.com/p/78020.html" target="_blank">赛默飞iCAP RQ 电感耦合等离子体质谱仪 </a>
+</p>
+<p class="hot_brand">
+品牌：赛默飞 
+</p>
+<p class="hot_model">
+型号：iCAP RQ 
+</p>
+<a  class="hot_inquiry" href="/?action-inquiry-type-2-pid-78020" target="_blank">询价</a>
+<a  class="hot_demo" href="/?action-showhow-type-2-pid-78020" target="_blank">申请演示</a>
+</li>
+<!--导购-->
+<li>
+<div class="hot-tj-img"><a href="https://www.antpedia.com/instrument/9827/" target="_blank"><img src="//i3.antpedia.com/space/images/product/product_2018022118050829074.jpg!w178x107.jpg" width="178" height="107" alt="" /></a>
+</div>
+<p class="hot_title">
+<a href="https://www.antpedia.com/instrument/9827/" target="_blank">SCIEX C100 HT 生物制品分析系统、毛细管电泳</a>
+</p>
+<p class="hot_brand">
+品牌：SCIEX公司 
+</p>
+<p class="hot_model">
+型号：SCIEX C100 HT  
+</p>
+<a  class="hot_inquiry" href="/?action-inquiry-type-1-pid-9827" target="_blank">询价</a>
+<a  class="hot_demo" href="/?action-showhow-type-1-pid-9827" target="_blank">申请演示</a>
+
+</li>
+</ul>
+</div>
+</div>
+<!--end-->
+
+<div class="sales-tj">
+<!-- 促销仪器推荐 -->
+<h4 class="C05">促销仪器推荐</h4>
+<div class="comiis_wrapad " id="slideContainer">
+<div id="frameHlicAe " class="frame cl">
+<div class="temp"></div>
+<div class="block">
+<div class="cl">
+<ul class="slideshow" id="slidesImgs"><li>
+<a href="http://www.nimchina.com/" target="_blank" title="中计新科促销仪器推荐位">
+<img src="//i5.antpedia.com/space/attachments/2017/12/128685_201712281116301.jpg!w330x145.jpg" width="330" height="145" alt="中计新科促销仪器推荐位" /></a>
+</li><li>
+<a href="http://www.antbuyhot.com/shop/item-505181.html" target="_blank" title="兰格蠕动泵9.5折热卖">
+<img src="//i5.antpedia.com/space/attachments/2018/01/37643_201801181109051.jpg!w330x145.jpg" width="330" height="145" alt="兰格蠕动泵9.5折热卖" /></a>
+<span class="title">兰格蠕动泵9.5折热卖</span>
+</li></ul>
+</div>
+<div class="slidebar" id="slideBar">
+<ul>
+<li class="on">1</li>
+<li class="">2</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+SlideShow(3000);
+});
+</script>
+<!-- end -->
+
+<!--留言  2017年和2018年新首页共用一个文件-->
+<script src="/product_syzx2017.php"></script>
+<!--end-->
+</div>
+<!--end-->
+
+<!--分类-->
+<ul class="classify">
+<li>
+<h4><a href="//ibook.antpedia.com/fenlei2_zx.php?upid=0&catid=8" target="_blank" title="分析仪器">分析仪器</a></h4>
+<a href="//ibook.antpedia.com/instrument/108" target="_blank" title="分光光度计">分光光度计</a>
+<a href="//ibook.antpedia.com/instrument/81" target="_blank" title="气相色谱">气相色谱</a>
+<a href="//ibook.antpedia.com/instrument/60" target="_blank" title="液相色谱">液相色谱</a>
+<a href="//ibook.antpedia.com/instrument/204" target="_blank" title="原子吸收光谱">原子吸收光谱</a>
+<a href="//ibook.antpedia.com/instrument/64" target="_blank" title="红外光谱">红外光谱</a>
+<a href="//ibook.antpedia.com/instrument/118" target="_blank" title="气质联用">气质联用</a>
+</li>
+<li>
+<h4><a href="//ibook.antpedia.com/fenlei2_zx.php?upid=0&catid=5" target="_blank" title="物性测试">物性测试</a></h4>
+<a href="//ibook.antpedia.com/instrument/7" target="_blank" title="万能试验机">万能试验机</a>
+<a href="//ibook.antpedia.com/instrument/98" target="_blank" title="激光粒度仪">激光粒度仪</a>
+<a href="//ibook.antpedia.com/instrument/208" target="_blank" title="DSC">DSC</a>
+<a href="//ibook.antpedia.com/instrument/303" target="_blank" title="比表面">比表面</a>
+<a href="//ibook.antpedia.com/instrument/149" target="_blank" title="粘度计">粘度计</a>
+<a href="//ibook.antpedia.com/instrument/379" target="_blank" title="密度计">密度计</a>
+</li>
+<li>
+<h4><a href="//ibook.antpedia.com/fenlei2_zx.php?upid=0&catid=1" target="_blank" title="生命科学">生命科学</a></h4>
+<a href="//ibook.antpedia.com/instrument/870" target="_blank" title="培养箱">培养箱</a>
+<a href="//ibook.antpedia.com/instrument/883" target="_blank" title="摇床">摇床</a>
+<a href="//ibook.antpedia.com/instrument/3" target="_blank" title="基因扩增仪">基因扩增仪</a>
+<a href="//ibook.antpedia.com/instrument/325" target="_blank" title="酶标仪">酶标仪</a>
+<a href="//ibook.antpedia.com/instrument/450" target="_blank" title="凝胶成像">凝胶成像</a>
+<a href="//ibook.antpedia.com/instrument/261" target="_blank" title="电泳仪">电泳仪</a>
+</li>
+<li>
+<h4><a href="//ibook.antpedia.com/fenlei2_zx.php?upid=0&catid=22" target="_blank" title="实验室设备">实验室设备</a></h4>
+<a href="//ibook.antpedia.com/instrument/217" target="_blank" title="移液器">移液器</a>
+<a href="//ibook.antpedia.com/instrument/86" target="_blank" title="马弗炉">马弗炉</a>
+<a href="//ibook.antpedia.com/instrument/132" target="_blank" title="真空泵">真空泵</a>
+<a href="//ibook.antpedia.com/instrument/187" target="_blank" title="纯水器">纯水器</a>
+<a href="//ibook.antpedia.com/instrument/110" target="_blank" title="离心机">离心机</a>
+<a href="//ibook.antpedia.com/instrument/91" target="_blank" title="干燥箱">干燥箱</a>
+</li>
+<li>
+<h4><a href="//ibook.antpedia.com/fenlei2_zx.php?upid=0&catid=14" target="_blank" title="环境监测">环境监测</a></h4>
+<a href="//ibook.antpedia.com/instrument/139" target="_blank" title="COD">COD</a>
+<a href="//ibook.antpedia.com/instrument/38" target="_blank" title="水质分析仪">水质分析仪</a>
+<a href="//ibook.antpedia.com/instrument/162" target="_blank" title="气体采样器">气体采样器</a>
+<a href="//ibook.antpedia.com/instrument/252" target="_blank" title="TOC">TOC</a>
+<a href="//ibook.antpedia.com/instrument/21" target="_blank" title="烟气分析仪">烟气分析仪</a>
+<a href="//ibook.antpedia.com/instrument/31" target="_blank" title="水质重金属">水质重金属</a>
+</li>
+<li>
+<h4><a href="//ibook.antpedia.com/fenlei2_zx.php?upid=0&catid=32" target="_blank" title="光学仪器及设备">光学仪器及设备</a></h4>
+<a href="//ibook.antpedia.com/instrument/34" target="_blank" title="扫描电镜">扫描电镜</a>
+<a href="//ibook.antpedia.com/instrument/186" target="_blank" title="原子力显">原子力显</a>
+<a href="//ibook.antpedia.com/instrument/270" target="_blank" title="生物显微镜">生物显微镜</a>
+<a href="//ibook.antpedia.com/instrument/90" target="_blank" title="旋光仪">旋光仪</a>
+<a href="//ibook.antpedia.com/instrument/62" target="_blank" title="浊度仪">浊度仪</a>
+<a href="//ibook.antpedia.com/instrument/227" target="_blank" title="激光产品">激光产品</a>
+</li>
+</ul>
+<!--end-->
+</div>
+</div>
+</div>
+<!--end-->
+<!--试剂/耗材谱-->
+<div class="content sjp-hcp">
+<div class="title title_h titleC06">
+<h3 class="h3C C06">试剂/耗材谱</h3>
+<ul class="s_nav s_nav04">
+<li>
+<a href="http://cbook.antpedia.com/ " target="_blank" title="耗材谱">耗材谱</a>
+</li>
+<li>
+<a href="http://rbook.antpedia.com/ " target="_blank" title="试剂谱">试剂谱</a>
+</li>
+</ul>
+</div>
+<div class="con-tag padd15">
+<div class="layout-1">
+<div class="hc">
+<h4 class="C06">耗材谱分类</h4>
+<div class="lay-con">
+<a href="http://cbook.antpedia.com/cat/0/917/" target="_blank" title="色谱柱">色谱柱 &nbsp;|</a>
+<a href="http://cbook.antpedia.com/cat/0/942/" target="_blank" title="色谱耗材配件">色谱耗材配件 &nbsp;|</a>
+<a href="http://cbook.antpedia.com/cat/0/925/" target="_blank" title="仪器专用耗材配件">仪器专用耗材配件 &nbsp;|</a>
+<a href="http://cbook.antpedia.com/cat/0/945/" target="_blank" title="通用配件">通用配件 &nbsp;|</a>
+<a href="http://cbook.antpedia.com/cat/0/932/" target="_blank" title="玻璃器皿">玻璃器皿 &nbsp;|</a>
+<a href="http://cbook.antpedia.com/cat/0/919/" target="_blank" title="实验室常用耗材">实验室常用耗材 &nbsp;|</a>
+<a href="http://cbook.antpedia.com/cat/0/1082/" target="_blank" title="气体发生器">气体发生器 &nbsp;|</a>
+<a href="http://cbook.antpedia.com/cat/0/1272/" target="_blank" title="标准品">标准品 &nbsp;|</a>
+<a href="http://cbook.antpedia.com/cat/0/937/" target="_blank" title="其他">其他</a>
+</div>
+</div>
+<div class="sj">
+<h4 class="C06">试剂谱分类</h4>
+<div class="lay-con">
+<a href="http://rbook.antpedia.com/cat/0/922/" target="_blank" title="通用化学试剂">通用化学试剂 &nbsp;|</a>
+<a href="http://rbook.antpedia.com/cat/0/1111/" target="_blank" title="专用化学试剂">专用化学试剂 &nbsp;|</a>
+<a href="http://rbook.antpedia.com/cat/0/930/" target="_blank" title="生化试剂">生化试剂 &nbsp;|</a>
+<a href="http://rbook.antpedia.com/cat/0/1112/" target="_blank" title="微生物试剂">微生物试剂 &nbsp;|</a>
+<a href="http://rbook.antpedia.com/cat/0/1113/" target="_blank" title="生物大分子">生物大分子 &nbsp;|</a>
+<a href="http://rbook.antpedia.com/cat/0/957/" target="_blank" title="通用标准品">通用标准品 &nbsp;|</a>
+<a href="http://rbook.antpedia.com/cat/0/1114/" target="_blank" title="生物标准品">生物标准品 &nbsp;|</a>
+<a href="http://rbook.antpedia.com/cat/0/1115/" target="_blank" title="工业标准品">工业标准品</a>
+</div>
+</div>
+</div>
+<div class="layout-2">
+<!--热门促销产品-->
+<div class="hot-sale">
+<h4 class="C06">热门促销产品</h4>
+<div class="lay-con">
+<ul class="ul-3">
+<li>
+  <div class="hot-tj-img">
+<img src="//i5.antpedia.com/space/attachments/2017/01/8585_201701040929431.jpg!c155x91.jpg" width="160" height="94"  alt=""/>
+<div><a href="http://www.antpedia.com/antad/antadr.php?mid=61&url=http://event.hach.com.cn/shiji/index.html?utm_source=fenxiceshibaikewang&utm_medium=sjhcrmcx&utm_campaign=shiji" target="_blank" title="哈希预制试剂之总磷总氮">抢购</a></div>
+  </div>
+  <p><a href="http://www.antpedia.com/antad/antadr.php?mid=61&url=http://event.hach.com.cn/shiji/index.html?utm_source=fenxiceshibaikewang&utm_medium=sjhcrmcx&utm_campaign=shiji" target="_blank" title="哈希预制试剂之总磷总氮">哈希预制试剂之总磷总氮</a></p>
+</li>
+<li>
+  <div class="hot-tj-img">
+<img src="//i5.antpedia.com/images/cache/a/ce6351c50e4fc560e8807fcc4049d8f6.jpg" width="160" height="94"  alt=""/>
+<div><a href="http://www.antbuyhot.com/shop/shop-40.html" target="_blank" title="进口电镜耗材新品上架">抢购</a></div>
+  </div>
+  <p><a href="http://www.antbuyhot.com/shop/shop-40.html" target="_blank" title="进口电镜耗材新品上架">进口电镜耗材新品上架</a></p>
+</li>
+<li>
+  <div class="hot-tj-img">
+<img src="//i5.antpedia.com/space/images/cache/3/dec569817f4684bf16ea2374f5b8d17f.jpg!c155x91.jpg" width="160" height="94"  alt=""/>
+<div><a href="http://www.antbuyhot.com/shop/shop-22.html" target="_blank" title="东曹液相色谱柱">抢购</a></div>
+  </div>
+  <p><a href="http://www.antbuyhot.com/shop/shop-22.html" target="_blank" title="东曹液相色谱柱">东曹液相色谱柱</a></p>
+</li>
+<li>
+  <div class="hot-tj-img">
+<img src="//i5.antpedia.com/space/attachments/2017/10/170968_201710171027031.jpg!c155x91.jpg" width="160" height="94"  alt=""/>
+<div><a href="http://ibook.antpedia.com/3/n/18538-n.html" target="_blank" title="博纳艾杰尔 DA系列气相色谱柱">抢购</a></div>
+  </div>
+  <p><a href="http://ibook.antpedia.com/3/n/18538-n.html" target="_blank" title="博纳艾杰尔 DA系列气相色谱柱">博纳艾杰尔 DA系列气相色谱柱</a></p>
+</li>
+<li>
+  <div class="hot-tj-img">
+<img src="//i5.antpedia.com/space/attachments/2017/12/128685_201712271721261.jpg!c155x91.jpg" width="160" height="94"  alt=""/>
+<div><a href="http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=100" target="_blank" title="迪马色谱柱促销">抢购</a></div>
+  </div>
+  <p><a href="http://www.antbuyhot.com/shop/index.php?act=special&op=special_detail&special_id=100" target="_blank" title="迪马色谱柱促销">迪马色谱柱促销</a></p>
+</li>
+</ul>
+</div>
+</div>
+<!--end->
+<!--应用-->
+<div class="application">
+<h4 class="C06">应用</h4>
+<ul class="ul-1">
+<li><a href="http://cbook.antpedia.com/6329/s/38-0.html" target="_blank" title="离子色谱法—溴酸盐专项检测技术">离子色谱法—溴酸盐专项检测技术</a></li>
+<li><a href="http://cbook.antpedia.com/6329/s/37-0.html" target="_blank" title="离子色谱法测定环境水样中高氯酸根">离子色谱法测定环境水样中高氯酸根</a></li>
+<li><a href="http://cbook.antpedia.com/6329/d/4261-0.html" target="_blank" title="聚合物分析用TSKgel色谱柱快速选择指南">聚合物分析用TSKgel色谱柱快速选择指南</a></li>
+<li><a href="http://cbook.antpedia.com/6329/d/4255-0.html" target="_blank" title="疏水色谱法对抗体偶联药物的DAR分析">疏水色谱法对抗体偶联药物的DAR分析</a></li>
+</ul>
+</div>
+<!--end-->
+</div>
+</div>
+</div>
+<!--end-->
+<!--广告-->
+<div class="tag-b4"><div><a href='http://www.antpedia.com/custom/xbs/20170712/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2017-12-27/20171227044543.jpg' width=1190 height=90></a></div><a name=extsiteurl href='http://www.antpedia.com/custom/xbs/20170712/'></a></div>
+<!--end-->
+</div>
+<div class="tag-5">
+<!--社区-->
+<div class="content community">
+<div class="title title_h titleC07">
+<h3 class="h3C C07">社区</h3>
+</div>
+<div class="con-tag padd15">
+<div class="layout-1">
+<div class="groups">
+<div class="title-2">
+<h4 class="C07">科研矩阵</h4>
+<a href="# " target="_blank " class="more"></a>
+</div>
+<div class="lay-con">
+<ul class="ul-3">
+<li>
+<div class="hot-tj-img"><a href="http://www.antpedia.com/gwx/19.html" target="_blank" title="生物医药微探索"><img src="/attachments/2017/04/96559_201704141005501.jpg" width="135" height="89" alt="生物医药微探索" /></a></div>
+<p>
+<a href="http://www.antpedia.com/gwx/19.html" target="_blank" title="生物医药微探索">生物医药微探索</a>
+</p>
+</li>
+<li>
+<div class="hot-tj-img"><a href="http://www.antpedia.com/gwx/33.html" target="_blank" title="原子光谱专业委员会微群"><img src="/attachments/2017/04/96559_201704141012441.jpg" width="135" height="89" alt="原子光谱专业委员会微群" /></a></div>
+<p>
+<a href="http://www.antpedia.com/gwx/33.html" target="_blank" title="原子光谱专业委员会微群">原子光谱专业委员会微群</a>
+</p>
+</li>
+<li>
+<div class="hot-tj-img"><a href="http://www.antpedia.com/gwx/20.html" target="_blank" title="材料化工微群"><img src="/attachments/2017/04/96559_201704141017231.jpg" width="135" height="89" alt="材料化工微群" /></a></div>
+<p>
+<a href="http://www.antpedia.com/gwx/20.html" target="_blank" title="材料化工微群">材料化工微群</a>
+</p>
+</li>
+<li>
+<div class="hot-tj-img"><a href="http://www.antpedia.com/gwx/29.html" target="_blank" title="食品安全微群"><img src="/attachments/2017/04/96559_201704141030251.jpg" width="135" height="89" alt="食品安全微群" /></a></div>
+<p>
+<a href="http://www.antpedia.com/gwx/29.html" target="_blank" title="食品安全微群">食品安全微群</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="layout-2">
+<!--博文精华-->
+<div class="bowen">
+<div class="title-2">
+<h4 class="C07">博文精华</h4>
+<a href="/blog.html " target="_blank " class="more moreC07"><span>更多</span></a>
+</div>
+<div class="lay-con">
+<a href="https://www.antpedia.com/viewspace-2219026" target="_blank" title="孙子从国外寒假回国纪事，兼说职业生涯小结"  class="bowen_a">孙子从国外寒假回国纪事，兼说职业生涯小结</a>
+<ul class="ul-1">
+<li><a href="https://www.antpedia.com/viewspace-2218684" target="_blank" title="50年来实用光谱分析的变迁及推动力（原创）">50年来实用光谱分析的变迁及推动力（原创）</a></li>
+<li><a href="https://www.antpedia.com/viewspace-2216591" target="_blank" title="王真儿启示，兼说俄罗斯世界杯足球赛">王真儿启示，兼说俄罗斯世界杯足球赛</a></li>
+<li><a href="https://www.antpedia.com/viewspace-2214036" target="_blank" title="儿童节，兼说未来妈妈向福原爱学习">儿童节，兼说未来妈妈向福原爱学习</a></li>
+<li><a href="https://www.antpedia.com/viewspace-2213455" target="_blank" title="直面分析化学，兼说生命分析化学的新进展">直面分析化学，兼说生命分析化学的新进展</a></li>
+</ul>
+</div>
+</div>
+<!--end-->
+<!--下载-->
+<div class="download">
+<div class="title-2">
+<h4 class="C07">下载</h4>
+<a href="/download-file.html" target="_blank" class="more moreC07"><span>更多</span></a>
+</div>
+<div class="lay-con">
+<ul class="ul-1">
+<li><a href="https://www.antpedia.com/viewspace-1464114" target="_blank" title="ARWU2018“中国最好大学排名”(柳莺)">ARWU2018“中国最好大学排名”(柳莺)</a></li>
+<li><a href="https://ibook.antpedia.com/s/4656.html" target="_blank" title="傅里叶中红外光谱仪分析数据库建设的重要性及应用">傅里叶中红外光谱仪分析数据库建设的重要性及应用</a></li>
+<li><a href="https://www.antpedia.com/corp/data-4594.html" target="_blank" title="Tecansunrise酶标仪">Tecansunrise酶标仪</a></li>
+<li><a href="//www.antpedia.com/download_pdf.php?a100=ASME+PTB-8-2014&a104=US-ASME&elecfile=1&act=down" target="_blank" title="金属材料采购指南">金属材料采购指南</a></li>
+</ul>
+</div>
+</div>
+<!--end-->
+</div>
+<div class="layout-3">
+<!--论坛-->
+<div class="forum">
+<div class="title-2">
+<h4 class="C07">论坛</h4>
+<a href="/group-bbs.html" target="_blank" class="more moreC07"><span>更多</span></a>
+</div>
+<div class="lay-con">
+<div class="forum-img"><div><a href='http://www.antbuyhot.com/member/index.php?act=login&op=register' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-01-18/20180118030934.jpg' width=350 height=136></a></div><a name=extsiteurl href='http://www.antbuyhot.com/member/index.php?act=login&op=register'></a></div>
+<ul class="ul-1">
+<li><a href="http://bbs.antpedia.com/thread-836763-1-1.html" target="_blank" title="浅析几种常见的PCR技术">浅析几种常见的PCR技术</a></li>
+<li><a href="http://bbs.antpedia.com/thread-836338-1-1.html" target="_blank" title="浅析毕赤酵母细胞表达系统的优势及其问题">浅析毕赤酵母细胞表达系统的优势及其问题</a></li>
+<li><a href="http://bbs.antpedia.com/thread-836307-1-1.html" target="_blank" title="ECL发光液（Enlight）与五味子醇乙促进肝再生研究">ECL发光液（Enlight）与五味子醇乙促进肝再生研究</a></li>
+<li><a href="http://bbs.antpedia.com/thread-836293-1-1.html" target="_blank" title="DNA转染（Entranster）与谷胱甘肽过氧化物酶4研究">DNA转染（Entranster）与谷胱甘肽过氧化物酶4研究</a></li>
+<li><a href="http://bbs.antpedia.com/thread-836275-1-1.html" target="_blank" title="在转基因植物中使用乙醇可以进行重组蛋白表达优化">在转基因植物中使用乙醇可以进行重组蛋白表达优化</a></li>
+</ul>
+</div>
+</div>
+<!--end-->
+</div>
+</div>
+</div>
+<!--end-->
+<!--广告-->
+<div class="tag-b4"><div><a href='https://c.antpedia.com/meeting_20180425/web/index.php?r=site%2Fbrief-intro&mid=7873' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-06-08/20180608065646.jpg' width=1190 height=90></a></div><a name=extsiteurl href='https://c.antpedia.com/meeting_20180425/web/index.php?r=site%2Fbrief-intro&mid=7873'></a></div>
+<!--end-->
+<!--会议会展-->
+<div class="content c-e">
+<div class="title title_h titleC08">
+<ul class="title-list C08 meeting_ul">
+<li class="on">会议会展</li>
+<li>厂商技术交流会</li>
+<li>Webinar</li>
+</ul>
+<ul class="s_nav s_nav06">
+<li>
+<a href="http://c.antpedia.com/" target="_blank" title="搜罗天下展会">搜罗天下展会</a>
+</li>
+</ul>
+</div>
+<div class="con-tag padd15 hot-meeting">
+<div class="meeting show">
+<div class="layout-1">
+<!-- 会议会展 -->
+<ul class="ul-1">
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7593-events.html" target="_blank" title="2018中国材料大会暨国际材料工艺设备、科学器材、实验室设备展览会">2018中国材料大会暨国际材料工艺设备、科学器材、实验室设备展览会</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-07-13</span>
+<span class="span-add">厦门</span>
+<a href="/meetinglist-7593-events.html#baidumap" target="_blank">地图</a>
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7965-events.html" target="_blank" title="中国仪器仪表学会党建强会及创新驱动助力贵州白酒品质与安全检测培训班">中国仪器仪表学会党建强会及创新驱动助力贵州白酒品质与安全检测培训班</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-07-18</span>
+<span class="span-add">遵义</span>
+<a href="/meetinglist-7965-events.html#baidumap" target="_blank">地图</a>
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7844-events.html" target="_blank" title="第十次华北五省市电子显微学研讨会及2018年全国实验室协作服务交流会">第十次华北五省市电子显微学研讨会及2018年全国实验室协作服务交流会</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-07-21</span>
+<span class="span-add">烟台市</span>
+<a href="/meetinglist-7844-events.html#baidumap" target="_blank">地图</a>
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7847-events.html" target="_blank" title="“环境分析用标准物质研制技术及其应用”交流会">“环境分析用标准物质研制技术及其应用”交流会</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-07-23</span>
+<span class="span-add">合肥</span>
+<a href="/meetinglist-7847-events.html#baidumap" target="_blank">地图</a>
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7969-events.html" target="_blank" title="第十五届全国青年分析测试学术报告会">第十五届全国青年分析测试学术报告会</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-07-25</span>
+<span class="span-add">合肥</span>
+<a href="/meetinglist-7969-events.html#baidumap" target="_blank">地图</a>
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7550-events.html" target="_blank" title="2018年第五届中国分析仪器学术年会">2018年第五届中国分析仪器学术年会</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-08-07</span>
+<span class="span-add">苏州</span>
+<a href="/meetinglist-7550-events.html#baidumap" target="_blank">地图</a>
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7962-events.html" target="_blank" title="第五届中国计算蛋白质组学研讨会">第五届中国计算蛋白质组学研讨会</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-08-22</span>
+<span class="span-add">北京</span>
+<a href="/meetinglist-7962-events.html#baidumap" target="_blank">地图</a>
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7873-events.html" target="_blank" title="“LGC国际分析质量培训系列-方法验证”培训班">“LGC国际分析质量培训系列-方法验证”培训班</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-08-22</span>
+<span class="span-add">北京</span>
+<a href="/meetinglist-7873-events.html#baidumap" target="_blank">地图</a>
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7821-events.html" target="_blank" title="全国农产品质量安全风险评估学术研讨会">全国农产品质量安全风险评估学术研讨会</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-08-23</span>
+<span class="span-add">厦门</span>
+<a href="/meetinglist-7821-events.html#baidumap" target="_blank">地图</a>
+</div>
+</li>
+</ul>
+<!-- end -->
+</div>
+<div class="layout-3">
+<div class="lay-con">
+<ul class="ul-5">
+<li><div><a href='http://pptd.ncrm.org.cn​' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-23/20180423031443.gif' width=165 height=39></a></div><a name=extsiteurl href='http://pptd.ncrm.org.cn​'></a></li>
+<li><div><a href='http://www.analyticachina.com.cn/zh-cn/?ad_code=eEzdxNWjbh' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-06-29/20180629031937.04' width=165 height=39></a></div><a name=extsiteurl href='http://www.analyticachina.com.cn/zh-cn/?ad_code=eEzdxNWjbh'></a></li>
+<li><div><a href='https://c.antpedia.com/meetinglist-7778-events.html' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-27/20180427095518.gif' width=165 height=39></a></div><a name=extsiteurl href='https://c.antpedia.com/meetinglist-7778-events.html'></a></li>
+<li><div><a href='http://www.organic-ms.com/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-08/20180508044001.gif' width=165 height=39></a></div><a name=extsiteurl href='http://www.organic-ms.com/'></a></li>
+<li><div><a href='http://www.cioae.com.cn/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-07-02/20180702050720.jpg' width=165 height=39></a></div><a name=extsiteurl href='http://www.cioae.com.cn/'></a></li>
+<li><div><a href='https://c.antpedia.com/meetinglist-7821-academic.html' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-08/20180508044415.gif' width=165 height=39></a></div><a name=extsiteurl href='https://c.antpedia.com/meetinglist-7821-academic.html'></a></li>
+<li><div><a href='http://www.ciamite.com/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-11/20180411054004.ciamite' width=165 height=39></a></div><a name=extsiteurl href='http://www.ciamite.com/'></a></li>
+<li><div><a href='https://c.antpedia.com/meetinglist-7550-events.html' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-06-29/20180629053909.gif' width=165 height=39></a></div><a name=extsiteurl href='https://c.antpedia.com/meetinglist-7550-events.html'></a></li>
+<li><div><a href='http://www.cisile.com.cn/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-23/20180523103532.39' width=165 height=39></a></div><a name=extsiteurl href='http://www.cisile.com.cn/'></a></li>
+<li><div><a href='http://www.cfaschina.com/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-02/20180402034731.gif' width=165 height=39></a></div><a name=extsiteurl href='http://www.cfaschina.com/'></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="meeting" style="display: none;">
+<div class="layout-1">
+<ul class="ul-1">
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7916-events.html" target="_blank" title="紫外可见分光光度计应用及维护培训班（普析公司）">紫外可见分光光度计应用及维护培训班（普析公司）</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-07-16</span>
+<span class="span-add">北京市</span>
+<a href="/meetinglist-7916-events.html#baidumap" target="_blank">地图</a>
+<!--<a href="#" target="_blank" class="c-eTravel">出行</a>
+<a href="#" target="_blank" class="c-eWeChat">微信群</a>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7963-events.html" target="_blank" title="原子荧光形态分析仪应用及维护培训班（普析公司）">原子荧光形态分析仪应用及维护培训班（普析公司）</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-07-23</span>
+<span class="span-add">北京市</span>
+<a href="/meetinglist-7963-events.html#baidumap" target="_blank">地图</a>
+<!--<a href="#" target="_blank" class="c-eTravel">出行</a>
+<a href="#" target="_blank" class="c-eWeChat">微信群</a>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7964-events.html" target="_blank" title="原子荧光光度计应用及维护培训班（普析公司）">原子荧光光度计应用及维护培训班（普析公司）</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-07-23</span>
+<span class="span-add">北京市</span>
+<a href="/meetinglist-7964-events.html#baidumap" target="_blank">地图</a>
+<!--<a href="#" target="_blank" class="c-eTravel">出行</a>
+<a href="#" target="_blank" class="c-eWeChat">微信群</a>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="/meetinglist-7976-events.html" target="_blank" title="原子吸收分光光度计应用及维护培训班（普析公司）">原子吸收分光光度计应用及维护培训班（普析公司）</a>
+</div>
+<div class="c-e-map">
+<span class="span-time">2018-08-06</span>
+<span class="span-add">北京市</span>
+<a href="/meetinglist-7976-events.html#baidumap" target="_blank">地图</a>
+<!--<a href="#" target="_blank" class="c-eTravel">出行</a>
+<a href="#" target="_blank" class="c-eWeChat">微信群</a>-->
+</div>
+</li>
+</ul>
+</div>
+<div class="layout-3">
+<div class="lay-con">
+<ul class="ul-5">
+<li><div><a href='http://pptd.ncrm.org.cn​' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-23/20180423031443.gif' width=165 height=39></a></div><a name=extsiteurl href='http://pptd.ncrm.org.cn​'></a></li>
+<li><div><a href='http://www.analyticachina.com.cn/zh-cn/?ad_code=eEzdxNWjbh' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-06-29/20180629031937.04' width=165 height=39></a></div><a name=extsiteurl href='http://www.analyticachina.com.cn/zh-cn/?ad_code=eEzdxNWjbh'></a></li>
+<li><div><a href='https://c.antpedia.com/meetinglist-7778-events.html' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-27/20180427095518.gif' width=165 height=39></a></div><a name=extsiteurl href='https://c.antpedia.com/meetinglist-7778-events.html'></a></li>
+<li><div><a href='http://www.organic-ms.com/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-08/20180508044001.gif' width=165 height=39></a></div><a name=extsiteurl href='http://www.organic-ms.com/'></a></li>
+<li><div><a href='http://www.cioae.com.cn/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-07-02/20180702050720.jpg' width=165 height=39></a></div><a name=extsiteurl href='http://www.cioae.com.cn/'></a></li>
+<li><div><a href='https://c.antpedia.com/meetinglist-7821-academic.html' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-08/20180508044415.gif' width=165 height=39></a></div><a name=extsiteurl href='https://c.antpedia.com/meetinglist-7821-academic.html'></a></li>
+<li><div><a href='http://www.ciamite.com/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-11/20180411054004.ciamite' width=165 height=39></a></div><a name=extsiteurl href='http://www.ciamite.com/'></a></li>
+<li><div><a href='https://c.antpedia.com/meetinglist-7550-events.html' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-06-29/20180629053909.gif' width=165 height=39></a></div><a name=extsiteurl href='https://c.antpedia.com/meetinglist-7550-events.html'></a></li>
+<li><div><a href='http://www.cisile.com.cn/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-23/20180523103532.39' width=165 height=39></a></div><a name=extsiteurl href='http://www.cisile.com.cn/'></a></li>
+<li><div><a href='http://www.cfaschina.com/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-02/20180402034731.gif' width=165 height=39></a></div><a name=extsiteurl href='http://www.cfaschina.com/'></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="meeting" style="display: none;">
+<div class="layout-1">
+<ul class="ul-1">
+<li>
+<div class="c-e-txt">
+<a href="https://www.antpedia.com/webinar/123488762.html" target="_blank">20180712 胆汁酸-肠道菌交互在胃肠癌发生中的作用</a>
+</div>
+<div class="c-e-map"><span class="span-time">2018/07/12</span>
+<!--<span class="span-add">北京</span>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="https://www.antpedia.com/webinar/296487632.html" target="_blank">20180713 贵金属检测新技术及应用 </a>
+</div>
+<div class="c-e-map"><span class="span-time">2018/07/13</span>
+<!--<span class="span-add">北京</span>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="https://www.antpedia.com/webinar/527467598.html" target="_blank">20180716 日立移动式直读光谱仪在金属材料领域的应用</a>
+</div>
+<div class="c-e-map"><span class="span-time">2018/07/16</span>
+<!--<span class="span-add">北京</span>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="https://www.antpedia.com/webinar/423183218.html" target="_blank">20180717 哈希实验室产品气体测量解决方案</a>
+</div>
+<div class="c-e-map"><span class="span-time">2018/07/17</span>
+<!--<span class="span-add">北京</span>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="https://www.antpedia.com/webinar/313583912.html" target="_blank">20180718 GC-Orbitrap-MS在石油化工领域的应用研究进展</a>
+</div>
+<div class="c-e-map"><span class="span-time">2018/07/18</span>
+<!--<span class="span-add">北京</span>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="https://www.antpedia.com/webinar/479136.html" target="_blank">20180724 安捷伦1200HPLC实用工作坊——日常维护、技术升级指导</a>
+</div>
+<div class="c-e-map"><span class="span-time">2018/07/24</span>
+<!--<span class="span-add">北京</span>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="https://www.antpedia.com/webinar/656557915.html" target="_blank">20180726 半导体制造工业和表面特征研究</a>
+</div>
+<div class="c-e-map"><span class="span-time">2018/07/26</span>
+<!--<span class="span-add">北京</span>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="https://www.antpedia.com/webinar/465455865.html" target="_blank">20180802 农药/兽药残留检测及前处理新技术</a>
+</div>
+<div class="c-e-map"><span class="span-time">2018/08/02</span>
+<!--<span class="span-add">北京</span>-->
+</div>
+</li>
+<li>
+<div class="c-e-txt">
+<a href="https://www.antpedia.com/webinar/871758711.html" target="_blank">20180808 2018药物分析主题研讨会</a>
+</div>
+<div class="c-e-map"><span class="span-time">2018/08/08</span>
+<!--<span class="span-add">北京</span>-->
+</div>
+</li>
+</ul>
+</div>
+<div class="layout-3">
+<div class="lay-con">
+<ul class="ul-5">
+<li><div><a href='http://pptd.ncrm.org.cn​' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-23/20180423031443.gif' width=165 height=39></a></div><a name=extsiteurl href='http://pptd.ncrm.org.cn​'></a></li>
+<li><div><a href='http://www.analyticachina.com.cn/zh-cn/?ad_code=eEzdxNWjbh' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-06-29/20180629031937.04' width=165 height=39></a></div><a name=extsiteurl href='http://www.analyticachina.com.cn/zh-cn/?ad_code=eEzdxNWjbh'></a></li>
+<li><div><a href='https://c.antpedia.com/meetinglist-7778-events.html' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-27/20180427095518.gif' width=165 height=39></a></div><a name=extsiteurl href='https://c.antpedia.com/meetinglist-7778-events.html'></a></li>
+<li><div><a href='http://www.organic-ms.com/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-08/20180508044001.gif' width=165 height=39></a></div><a name=extsiteurl href='http://www.organic-ms.com/'></a></li>
+<li><div><a href='http://www.cioae.com.cn/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-07-02/20180702050720.jpg' width=165 height=39></a></div><a name=extsiteurl href='http://www.cioae.com.cn/'></a></li>
+<li><div><a href='https://c.antpedia.com/meetinglist-7821-academic.html' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-08/20180508044415.gif' width=165 height=39></a></div><a name=extsiteurl href='https://c.antpedia.com/meetinglist-7821-academic.html'></a></li>
+<li><div><a href='http://www.ciamite.com/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-11/20180411054004.ciamite' width=165 height=39></a></div><a name=extsiteurl href='http://www.ciamite.com/'></a></li>
+<li><div><a href='https://c.antpedia.com/meetinglist-7550-events.html' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-06-29/20180629053909.gif' width=165 height=39></a></div><a name=extsiteurl href='https://c.antpedia.com/meetinglist-7550-events.html'></a></li>
+<li><div><a href='http://www.cisile.com.cn/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-05-23/20180523103532.39' width=165 height=39></a></div><a name=extsiteurl href='http://www.cisile.com.cn/'></a></li>
+<li><div><a href='http://www.cfaschina.com/' target=_blank class='adv_oraurl'><img src='//i5.antpedia.com/images/advimages/2018-04-02/20180402034731.gif' width=165 height=39></a></div><a name=extsiteurl href='http://www.cfaschina.com/'></a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--end-->
+</div>
+<!--名企推荐-->
+<div class="content famous-enter">
+<div class="title title_h titleC09">
+<h3 class="h3C C09">名企推荐</h3>
+<ul class="s_nav s_nav07">
+<li>
+<a href="http://ibook.antpedia.com/company.php" target="_blank" title="厂商会员">有您参与更精彩</a>
+</li>
+</ul>
+</div>
+<div class="con-tag clearBoder">
+<div class="layout-4">
+<ul>
+<li>
+<a href="//ibook.antpedia.com/85/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/85/1509930872-1446.jpg!w158x46.jpg" alt="安捷伦科技有限公司"/>
+<div class="famous-name">安捷伦科技有限公司</div>
+</a> 
+<a href="//ibook.antpedia.com/85/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>1000</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/674/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/674/1423537378260.jpg!w158x46.jpg" alt="SCIEX公司"/>
+<div class="famous-name">SCIEX公司</div>
+</a> 
+<a href="//ibook.antpedia.com/674/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>8888</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/1263/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/5/1363661170976.jpg!w158x46.jpg" alt="赛默飞总部"/>
+<div class="famous-name">赛默飞总部</div>
+</a> 
+<a href="//ibook.antpedia.com/1263/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>7777</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/166/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/space/images/daojin_20160328_logo.jpg!w158x46.jpg" alt="岛津企业管理（中国）有限公司/岛津（香港）有限公司"/>
+<div class="famous-name">岛津企业管理（中国）有限公司/岛津（香港）有限公司</div>
+</a> 
+<a href="//ibook.antpedia.com/166/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>6666</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/109/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/109/1349947458604.jpg!w158x46.jpg" alt="江苏天瑞仪器股份有限公司"/>
+<div class="famous-name">江苏天瑞仪器股份有限公司</div>
+</a> 
+<a href="//ibook.antpedia.com/109/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>7000</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/151/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/151/1348050176965.gif!w158x46.gif" alt="北京海光仪器有限公司"/>
+<div class="famous-name">北京海光仪器有限公司</div>
+</a> 
+<a href="//ibook.antpedia.com/151/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>9898</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/193/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/193/1348710126191.png!w158x46.png" alt="北京莱伯泰科仪器股份有限公司"/>
+<div class="famous-name">北京莱伯泰科仪器股份有限公司</div>
+</a> 
+<a href="//ibook.antpedia.com/193/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>7878</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/655/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/655/1356923492955.gif!w158x46.gif" alt="北京普析通用仪器有限责任公司"/>
+<div class="famous-name">北京普析通用仪器有限责任公司</div>
+</a> 
+<a href="//ibook.antpedia.com/655/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>9896</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/253/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/253/1355205451366.jpg!w158x46.jpg" alt="美国布鲁克●道尔顿公司"/>
+<div class="famous-name">美国布鲁克●道尔顿公司</div>
+</a> 
+<a href="//ibook.antpedia.com/253/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>2005</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/672/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/672/1383627478637.jpg!w158x46.jpg" alt="沃特世科技（上海）有限公司(Waters)"/>
+<div class="famous-name">沃特世科技（上海）有限公司(Waters)</div>
+</a> 
+<a href="//ibook.antpedia.com/672/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>1000</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/829/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/829/1383013131449.png!w158x46.png" alt="北京东西分析仪器有限公司"/>
+<div class="famous-name">北京东西分析仪器有限公司</div>
+</a> 
+<a href="//ibook.antpedia.com/829/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>8839</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/190/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/190/1481176839-7188.png!w158x46.png" alt="德国耶拿分析仪器股份公司"/>
+<div class="famous-name">德国耶拿分析仪器股份公司</div>
+</a> 
+<a href="//ibook.antpedia.com/190/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>3849</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/878/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/878/1420003730362.jpg!w158x46.jpg" alt="上海光谱仪器有限公司"/>
+<div class="famous-name">上海光谱仪器有限公司</div>
+</a> 
+<a href="//ibook.antpedia.com/878/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>9666</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/124/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/124/1484119218-0513.jpg!w158x46.jpg" alt="哈希公司"/>
+<div class="famous-name">哈希公司</div>
+</a> 
+<a href="//ibook.antpedia.com/124/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>02986486791</i></p>
+  </div>
+</a> 
+</li>
+<li>
+<a href="//ibook.antpedia.com/42/" class="famous-logo" target="_blank"><img src="//i3.antpedia.com/instrument-library/attachments/logo/42/1356267012580.jpg!w158x46.jpg" alt="珀金埃尔默企业管理（上海）有限公司"/>
+<div class="famous-name">珀金埃尔默企业管理（上海）有限公司</div>
+</a> 
+<a href="//ibook.antpedia.com/42/" target="_blank">
+  <div class="dask">
+<p class="p-1">
+  
+<img src="/images/site_index_v8/calls-1.png" width="108" height="35"  alt=""/>
+  
+</p>
+<p class="p-2"><i>010-85170888<span>转</span>5858</i></p>
+  </div>
+</a> 
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!--end-->
+</div>
+<!--底部-->
+<div class="footer">
+<div class="foot">
+<div class="foot-con">
+<div class="friendlinks">
+<h3>友情链接</h3>
+<div class="links">
+<a href="http://www.caia.org.cn/index.html" target="_blank" title="中国分析测试协会">中国分析测试协会<span>|</span></a>
+<a href="http://www.ybzhan.cn" target="_blank" title="中国仪表网">中国仪表网<span>|</span></a>
+<a href="http://www.sinospectroscopy.org.cn/" target="_blank" title="中国光谱网">中国光谱网<span>|</span></a>
+<a href="http://www.sepu.net/" target="_blank" title="中国色谱网">中国色谱网<span>|</span></a>
+<a href="http://www.cssn.net.cn/" target="_blank" title="国家标准馆">国家标准馆<span>|</span></a>
+<a href="http://www.foodmate.net/" target="_blank" title="食品伙伴网">食品伙伴网<span>|</span></a>
+<a href="http://yq.jdjob88.com/" target="_blank" title="仪器英才网">仪器英才网<span>|</span></a>
+<a href="http://fxxh.org.cn/" target="_blank" title="分析仪器分会">分析仪器分会<span>|</span></a>
+<a href="http://www.sac.gov.cn/" target="_blank" title="国家标准化管理委员会">国家标准化管理委员会<span>|</span></a>
+<a href="http://www.gensinfo.com/" target="_blank" title="金信友达">金信友达<span>|</span></a>
+<a href="http://www.analchem.cn/" target="_blank" title="分析化学">分析化学<span>|</span></a>
+<a href="http://www.caigou.com.cn/" target="_blank" title="教育装备采购网">教育装备采购网<span>|</span></a>
+<a href="http://www.cmss.org.cn/" target="_blank" title="中国质谱学会">中国质谱学会<span>|</span></a>
+<a href="http://www.thutest.com/" target="_blank" title="清华原子光谱实验室">清华原子光谱实验室<span>|</span></a>
+<a href="http://www.casms.org/" target="_blank" title="美国华人质谱学会">美国华人质谱学会<span>|</span></a>
+<a href="http://www.cnfoodsafety.com/" target="_blank" title="食安中国">食安中国<span>|</span></a>
+<a href="http://www.labbase.net" target="_blank" title="来宝网">来宝网<span>|</span></a>
+<a href="http://www.ncrm.org.cn/" target="_blank" title="国家标准物质网">国家标准物质网<span>|</span></a>
+<a href="http://www.chinareagent.com.cn/" target="_blank" title="化学试剂">化学试剂<span>|</span></a>
+<a href="http://www.lab-bj.cn/" target="_blank" title="科研助手">科研助手<span>|</span></a>
+<a href="https://www.cxq-bj.cn/index.php?r=default/index" target="_blank" title="首都科技创新券申报系统">首都科技创新券申报系统<span>|</span></a>
+<a href="http://www.bio-equip.com/" target="_blank" title="中国生物器材网">中国生物器材网<span>|</span></a>
+<a href="http://www.yaofen.com/" target="_blank" title="药物分析网">药物分析网<span>|</span></a>
+<a href="http://www.yi7.com" target="_blank" title="仪器交易网">仪器交易网<span>|</span></a>
+</div>
+<a href="http://www.antpedia.com/aboutus/yqlj.html#section02" target="_blank" class="apply_friends">申请友情链接</a>
+<p>
+<a href="#" target="_blank" id="t2" onmouseover="javascript:show(this,'mydiv2');" onmouseout="hide(this,'mydiv2')"><img src="/images/site_index_2018/wei-x.png" alt="关注微信" height="18" width="25">关注微信</a>
+<a href="http://weibo.com/antpedia" target="_blank"><img src="/images/site_index_2018/wei-b.png" alt="关注微博" height="18" width="22">关注微博</a>
+</p>
+<div id="mydiv2">
+<img src="/images/site_index_2018/wx.jpg" alt="" height="100" width="100">
+</div>
+</div>
+<div class="foot-r">
+<a href="#" target="_blank"><img src="/images/site_index_2018/index_82.jpg" alt="" height="74" width="136"></a>
+<div class="two-d-code"><img src="/images/site_index_2018/index_86.jpg" alt="" height="139" width="107"></div>
+</div>
+</div>
+<div class="foot-nav">
+<div class="map-nav">
+<a target="_blank" href="/">分析测试百科网<span>|</span></a>
+<a target="_blank" href="https://www.antpedia.com/ns/">热门<span>|</span></a>
+<a target="_blank" href="/?action/site/type/panel">快捷面板<span>|</span></a>
+<a target="_blank" href="/aboutus/zddt.html">站点地图<span>|</span></a>
+<a target="_blank" href="/site-lawer.html">律师声明<span>|</span></a>
+<a target="_blank" href="/aboutus.html">关于我们<span>|</span></a>
+<a target="_blank" href="/aboutus_e.html">About Us<span>|</span></a>
+<a target="_blank" href="/advertise.html">广告服务<span>|</span></a>
+<a target="_blank" href="/suggestion.html">改善您的体验<span>|</span></a>
+<a target="_blank" href="/aboutus/yqlj.html">友情链接<span>|</span></a>
+<a target="_blank" href="/aboutus/lxwm.html">联系我们</a>
+</div>
+<div class="mov-nav"><img src="/images/site_index_2018/index_90.jpg" alt="" height="12" width="8">&nbsp;移动版：
+<a href="//m.antpedia.com/zixun/" target="_blank">资讯&nbsp;&nbsp;</a>
+<a href="/webinar/" target="_blank">Webinar&nbsp;&nbsp;</a>
+<a href="//m.antpedia.com/product" target="_blank">仪器谱</a>
+</div>
+<p>Copyright ©2007 ANTPedia, All Rights Reserved</p>
+<p>京ICP备07018254号 京公网安备1101085018 电信与信息服务业务经营许可证：京ICP证110310号</p>
+</div>
+</div>
+</div>
+</body>
+
+</html>

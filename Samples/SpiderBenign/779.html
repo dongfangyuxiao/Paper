@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>诗词名句网 -古诗词大全|诗歌|诗词鉴赏|古诗名句|诗句赏析！</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <meta name="description" content="诗词名句网———收录古诗词近30万首，诗句300万条；提供高速精准的诗词、诗句、句首、句尾等查询服务。同时还提供史书典籍、谜语、歇后语、对联、藏头诗制作等周边知识。" />
+    <link rel="stylesheet" href="/public/dist/css/layui.css">
+    <link rel="stylesheet" href="/public/css/www_v2.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_576092_m2icqcebp7evzpvi.css">
+    <script src="/public/js/device.js"></script>
+    <script type="text/javascript">
+        if(device.mobile()){
+            window.location = "http://m.shicimingju.com/";
+        }
+    </script>
+
+</head>
+<body>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<div class="www-main-bg www-shadow-bottom" id="header">
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md3 layui-col-sm4">
+                <a href="/"><img src="/public/image/logo.png" style="border: 0;"></a>
+            </div>
+            <form action="/chaxun/search" method="get" id="search_form">
+            <div class="layui-col-md5 layui-col-sm5 www-search-input-container">
+                <div class="search-tab-top">
+                    <ul>
+                        <li><a href="javascript:void(0)" class="search-tab-current" data-cate="all">综合</a> </li>
+                        <li><a href="javascript:void(0)" data-cate="zz_list">作者</a> </li>
+                        <li><a href="javascript:void(0)" data-cate="title">标题</a> </li>
+                        <li><a href="javascript:void(0)" data-cate="shiju">诗句</a> </li>
+                        <li><a href="javascript:void(0)" data-cate="first">句首</a> </li>
+                        <li><a href="javascript:void(0)" data-cate="end">句尾</a> </li>
+                        <li><a href="javascript:void(0)" data-cate="book">古籍</a> </li>
+                        <li><a href="javascript:void(0)" data-cate="chengyu">成语</a> </li>
+                    </ul>
+                </div>
+                <div class="www-search-input-container-input" id="search_input_container">
+                    <img src="/public/image/web_search.png" class="www-icon">
+                    <input type="text" name="kw" id="search_input" placeholder="(作者+空格+关键词)查询指定作者的结果" autocomplete="off" value="">
+                    <a href="javascript:void(0)" class="www-a-icon"><img src="/public/image/www_close.png" class="www-icon www-visibility-hidden" id="clear_input"></a>
+                    <div class="result-card">
+                    </div>
+                    <div class="sub-result-card">
+                    </div>
+                </div>
+            </div>
+            </form>
+            <div class="layui-col-md4 layui-col-sm3" style="height: 60px;">
+                <img src="/public/image/ddd/xcx.jpg"  class="xcx-img">
+            </div>
+        </div>
+        <div class="layui-row www-nav" id="top_nav">
+            <div class="">
+                <ul class="www-search-nav-ul">
+                    <li><a href="/" class='www-selected'>主页</a> </li>
+                    <li class="nav-xiala-father">
+                        <a href="javascript:void(0)"  class=''>作者</a>
+                        <div class="nav-xiala www-shadow-card">
+                            <ul>
+                                <li><a href="/category/all">作者大全</a></li>
+                                <li><a href="/hecheng/index.html">作者合称</a></li>
+                                <li><a href="/hecheng/chenghao.html">作者称号</a> </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-xiala-father">
+                        <a href="javascript:void(0)"   class=''>诗词</a>
+                        <div class="nav-xiala www-shadow-card">
+                            <ul>
+                                <li><a href="/shicimark">诗词分类</a></li>
+                                <li><a href="/chaxun/index.html">热门查询</a></li>
+                            </ul>
+                        </div>
+
+                    </li>
+                    <li><a href="/cipai/index.html" class=''>词牌名</a> </li>
+                    <li class="nav-xiala-father">
+                        <a href="/book/" class=''>史书典籍</a>
+                        <div class="nav-xiala www-shadow-card">
+                            <ul>
+                                <li><a href="/bookmark/sishu.html">四书</a></li>
+                                <li><a href="/bookmark/wujing.html">五经</a></li>
+                                <li><a href="/bookmark/yanyixiaoshuo.html">演义小说</a></li>
+                                <li><a href="/bookmark/sidamingzhu.html">四大名著</a></li>
+                                <li><a href="/bookmark/ershisishi.html">二十四史</a></li>
+                                <li><a href="/book/">全部</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-xiala-father"><a href="javascript:void(0)" class=''>其他</a>
+                        <div class="nav-xiala www-shadow-card">
+                            <ul>
+                                <li><a href="/category/story">诗人故事</a></li>
+                                <li><a href="/cangtoushi/index.html">藏头诗制作</a></li>
+                                <li><a href="/category/xiehouyu">歇后语</a></li>
+                                <li><a href="/category/miyu">谜语</a></li>
+                                <li><a href="/category/duilian">对联</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div id="search_result">-->
+    <!--<div class="layui-container">-->
+        <!--<div class="layui-row">-->
+            <!--<div class="layui-col-md5 layui-col-sm5 layui-col-md-offset3 layui-col-sm-offset4 result-card">-->
+
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+<div style="clear: both"></div>
+<div class="main-adjust"></div>
+
+<div class="layui-container">
+<div class="nav-top"></div><div class="layui-row layui-col-space10">
+    <div class="layui-col-md8 layui-col-sm7">
+        <div class="www-shadow-card www-main-container">
+            <div class="index-li min-width-100">
+                <h3>推荐作者</h3>
+                <ul>
+                    <li><a href="/chaxun/zuozhe/13046.html">诗经</a></li><li><a href="/chaxun/zuozhe/1.html">李白</a></li><li><a href="/chaxun/zuozhe/10.html">杜甫</a></li><li><a href="/chaxun/zuozhe/8.html">白居易</a></li><li><a href="/chaxun/zuozhe/3.html">岑参</a></li><li><a href="/chaxun/zuozhe/6.html">王维</a></li><li><a href="/chaxun/zuozhe/30.html">孟浩然</a></li><li><a href="/chaxun/zuozhe/32.html">贺知章</a></li><li><a href="/chaxun/zuozhe/25.html">王勃</a></li><li><a href="/chaxun/zuozhe/11.html">李商隐</a></li><li><a href="/chaxun/zuozhe/22.html">杜牧</a></li><li><a href="/chaxun/zuozhe/15.html">李贺</a></li><li><a href="/chaxun/zuozhe/50.html">柳宗元</a></li><li><a href="/chaxun/zuozhe/77.html">李清照</a></li><li><a href="/chaxun/zuozhe/96.html">黄庭坚</a></li><li><a href="/chaxun/zuozhe/9.html">苏轼</a></li><li><a href="/chaxun/zuozhe/26.html">王安石</a></li><li><a href="/chaxun/zuozhe/115.html">欧阳修</a></li><li><a href="/chaxun/zuozhe/220.html">梅尧臣</a></li><li><a href="/chaxun/zuozhe/69.html">文天祥</a></li><li><a href="/chaxun/zuozhe/54.html">杨万里</a></li><li><a href="/chaxun/zuozhe/37.html">范成大</a></li><li><a href="/chaxun/zuozhe/46.html">陆游</a></li><li><a href="/chaxun/zuozhe/129.html">范仲淹</a></li><li><a href="/chaxun/zuozhe/44.html">辛弃疾</a></li>
+                </ul>
+            </div>
+            <div class="line3"></div>
+            <div class="index-li">
+                <h3>作者合称</h3>
+                <ul>
+                    <li><a href="/hecheng/1.html" target="_blank">唐宋八大家</a></li>
+                    <li><a href="/hecheng/2.html" target="_blank">初唐四杰</a></li>
+                    <li><a href="/hecheng/3.html" target="_blank">南宋四大家</a></li>
+                    <li><a href="/hecheng/4.html" target="_blank">建安七子</a></li>
+                    <li><a href="/hecheng/5.html" target="_blank">大李杜</a></li>
+                    <li><a href="/hecheng/6.html" target="_blank">小李杜</a></li>
+                    <li><a href="/hecheng/7.html" target="_blank">元曲四大家</a></li>
+                    <li><a href="/hecheng/8.html" target="_blank">中国古代四大才女</a></li>
+                    <li><a href="/hecheng/9.html" target="_blank">竹林七贤</a></li>
+                    <li><a href="/hecheng/10.html" target="_blank">酒中八仙</a></li>
+                    <li><a href="/hecheng/11.html" target="_blank">苏门四学士</a></li>
+                    <li><a href="/hecheng/12.html" target="_blank">吴中四士</a></li>
+                    <li><a href="/hecheng/13.html" target="_blank">大历十才子</a></li>
+                    <li><a href="/hecheng/14.html" target="_blank">汉赋四大家</a></li>
+                    <li><a href="/hecheng/15.html" target="_blank">宋四家</a></li>
+                    <li><a href="/hecheng/16.html" target="_blank">元嘉三大家</a></li>
+                    <li><a href="/hecheng/17.html" target="_blank">前七子</a></li>
+                    <li><a href="/hecheng/18.html" target="_blank">后七子</a></li>
+                    <li><a href="/hecheng/19.html" target="_blank">公安三袁</a></li>
+                    <li><a href="/hecheng/20.html" target="_blank">南朝三谢</a></li>
+                    <li><a href="/hecheng/21.html" target="_blank">文章四友</a></li>
+                    <li><a href="/hecheng/22.html" target="_blank">三曹</a></li>
+                    <li><a href="/hecheng/23.html" target="_blank">永嘉四灵</a></li>
+                    <li><a href="/hecheng/24.html" target="_blank">岭南三家</a></li>
+                    <li><a href="/hecheng/25.html" target="_blank">江右三大家</a></li>
+                    <li><a href="/hecheng/26.html" target="_blank">江左三大家</a></li>
+                    <li><a href="/hecheng/27.html" target="_blank">晚清诗界革命二巨子</a></li>
+                    <li><a href="/hecheng/28.html" target="_blank">南袁北纪</a></li>
+                    <li><a href="/hecheng/29.html" target="_blank">皮陆</a></li>
+                    <li><a href="/hecheng/30.html" target="_blank">三苏</a></li>
+                    <li><a href="/hecheng/31.html" target="_blank">南施北宋</a></li>
+                    <li><a href="/hecheng/32.html" target="_blank">南朱北王</a></li>
+                    <li><a href="/hecheng/33.html" target="_blank">二程</a></li>
+                    <li><a href="/hecheng/34.html" target="_blank">苏黄</a></li>
+                    <li><a href="/hecheng/35.html" target="_blank">苏辛</a></li>
+                    <li><a href="/hecheng/36.html" target="_blank">苏李</a></li>
+                    <li><a href="/hecheng/37.html" target="_blank">元白</a></li>
+                    <li><a href="/hecheng/38.html" target="_blank">刘白</a></li>
+                    <li><a href="/hecheng/39.html" target="_blank">高岑</a></li>
+                    <li><a href="/hecheng/40.html" target="_blank">王孟</a></li>
+                    <li><a href="/hecheng/41.html" target="_blank">温韦</a></li>
+                    <li><a href="/hecheng/42.html" target="_blank">沈宋</a></li>
+                    <li><a href="/hecheng/43.html" target="_blank">苏梅</a></li>
+                    <li><a href="/hecheng/44.html" target="_blank">四大边塞诗人</a></li>
+                    <li><a href="/hecheng/45.html" target="_blank">济南二安</a></li>
+                </ul>
+            </div>
+            <div class="line3"></div>
+            <div class="index-li">
+                <h3>作者称号</h3>
+                <ul>
+                    <li><a href="/chaxun/zuozhe/1.html" target="_blank">李白（诗仙）</a> </li>
+                    <li><a href="/chaxun/zuozhe/6.html" target="_blank">王维（诗佛）</a> </li>
+                    <li><a href="/chaxun/zuozhe/8.html" target="_blank">白居易（诗魔）</a> </li>
+                    <li><a href="/chaxun/zuozhe/9.html" target="_blank">苏轼（诗神）</a> </li>
+                    <li><a href="/chaxun/zuozhe/10.html" target="_blank">杜甫（诗圣）</a> </li>
+                    <li><a href="/chaxun/zuozhe/15.html" target="_blank">李贺（诗鬼）</a> </li>
+                    <li><a href="/chaxun/zuozhe/22.html" target="_blank">杜牧（杜紫薇）</a> </li>
+                    <li><a href="/chaxun/zuozhe/25.html" target="_blank">王勃（诗杰）</a> </li>
+                    <li><a href="/chaxun/zuozhe/27.html" target="_blank">温庭筠（温八叉）</a> </li>
+                    <li><a href="/chaxun/zuozhe/31.html" target="_blank">孟郊（诗囚）</a> </li>
+                    <li><a href="/chaxun/zuozhe/32.html" target="_blank">贺知章（诗狂）</a> </li>
+                    <li><a href="/chaxun/zuozhe/42.html" target="_blank">刘禹锡（诗豪）</a> </li>
+                    <li><a href="/chaxun/zuozhe/56.html" target="_blank">王昌龄（诗家天子 七绝圣手）</a> </li>
+                    <li><a href="/chaxun/zuozhe/57.html" target="_blank">刘长卿（五言长城）</a> </li>
+                    <li><a href="/chaxun/zuozhe/62.html" target="_blank">贾岛（诗奴）</a> </li>
+                    <li><a href="/chaxun/zuozhe/151.html" target="_blank">陈子昂（诗骨）</a> </li>
+                    <li><a href="/chaxun/zuozhe/482.html" target="_blank">郑谷（郑鹧鸪）</a> </li>
+                    <li><a href="/chaxun/zuozhe/3180.html" target="_blank">崔珏（崔鸳鸯）</a> </li>
+                </ul>
+            </div>
+            <div class="line3"></div>
+            <div class="index-li min-width-100">
+                <h3>分类</h3>
+                <ul>
+                    <li><a href="/shicimark/tianyuanshi.html" target="_blank">田园诗</a></li><li><a href="/shicimark/sonbieshi.html" target="_blank">送别诗</a></li><li><a href="/shicimark/shanshuishi.html" target="_blank">山水诗</a></li><li><a href="/shicimark/aiqingshi.html" target="_blank">爱情诗</a></li><li><a href="/shicimark/lizhishi.html" target="_blank">励志诗</a></li><li><a href="/shicimark/biansaishi.html" target="_blank">边塞诗</a></li><li><a href="/shicimark/aiguoshi.html" target="_blank">爱国诗</a></li><li><a href="/shicimark/diaowangshi.html" target="_blank">悼亡诗</a></li><li><a href="/shicimark/zhanzhengshi.html" target="_blank">战争诗</a></li><li><a href="/shicimark/youqingshi.html" target="_blank">友情诗</a></li><li><a href="/shicimark/guiyuanshi.html" target="_blank">闺怨诗</a></li><li><a href="/shicimark/qingmingjie.html" target="_blank">清明节</a></li><li><a href="/shicimark/duanwujie.html" target="_blank">端午节</a></li><li><a href="/shicimark/zhongqiujie.html" target="_blank">中秋节</a></li><li><a href="/shicimark/qixijie.html" target="_blank">七夕节</a></li><li><a href="/shicimark/chongyangjie.html" target="_blank">重阳节</a></li><li><a href="/shicimark/hanshijie.html" target="_blank">寒食节</a></li><li><a href="/shicimark/yuanxiaojie.html" target="_blank">元宵节</a></li><li><a href="/shicimark/chunjie.html" target="_blank">春节</a></li><li><a href="/shicimark/miaoxiechuntian.html" target="_blank">描写春天</a></li><li><a href="/shicimark/miaoxiexiatiantian.html" target="_blank">描写夏天</a></li><li><a href="/shicimark/miaoxieqiutian.html" target="_blank">描写秋天</a></li><li><a href="/shicimark/miaoxiedongtian.html" target="_blank">描写冬天</a></li><li><a href="/shicimark/miaoxieyu.html" target="_blank">描写雨</a></li><li><a href="/shicimark/miaoxiexue.html" target="_blank">描写雪</a></li><li><a href="/shicimark/miaoxiefeng.html" target="_blank">描写风</a></li><li><a href="/shicimark/miaoxiehua.html" target="_blank">描写花</a></li><li><a href="/shicimark/miaoxiemeihua.html" target="_blank">描写梅花</a></li><li><a href="/shicimark/miaoxiehehua.html" target="_blank">描写荷花</a></li><li><a href="/shicimark/miaoxiejuhua.html" target="_blank">描写菊花</a></li><li><a href="/shicimark/miaoxieliu.html" target="_blank">描写柳</a></li><li><a href="/shicimark/miaoxieyueliang.html" target="_blank">描写月亮</a></li><li><a href="/shicimark/miaoxiema.html" target="_blank">描写马</a></li><li><a href="/shicimark/sixiangshi.html" target="_blank">思乡诗</a></li><li><a href="/shicimark/sinianshi.html" target="_blank">思念诗</a></li><li><a href="/shicimark/zhelishi.html" target="_blank">哲理诗</a></li><li><a href="/shicimark/tangshisanbaishou.html" target="_blank">唐诗三百首</a></li><li><a href="/shicimark/huaigushi.html" target="_blank">怀古诗</a></li><li><a href="/shicimark/gushishijiushou.html" target="_blank">古诗十九首</a></li><li><a href="/shicimark/jilvshi.html" target="_blank">羁旅诗</a></li><li><a href="/shicimark/songcisanbaishou.html" target="_blank">宋词三百首</a></li><li><a href="/shicimark/xiaoxue.html" target="_blank">小学</a></li><li><a href="/shicimark/chuzhong.html" target="_blank">初中</a></li><li><a href="/shicimark/gaozhong.html" target="_blank">高中</a></li><li><a href="/shicimark/wanyueshi.html" target="_blank">婉约诗</a></li><li><a href="/shicimark/haofangshi.html" target="_blank">豪放诗</a></li><li><a href="/shicimark/laoshi.html" target="_blank">老师</a></li><li><a href="/shicimark/muqin.html" target="_blank">母亲</a></li><li><a href="/shicimark/xishi.html" target="_blank">惜时</a></li><li><a href="/shicimark/dushu.html" target="_blank">读书</a></li><li><a href="/shicimark/yongshishi.html" target="_blank">咏史诗</a></li><li><a href="/shicimark/huaicaibuyu.html" target="_blank">怀才不遇</a></li><li><a href="/shicimark/yulishi.html" target="_blank">寓理诗</a></li><li><a href="/shicimark/youguoyoumin.html" target="_blank">忧国忧民</a></li><li><a href="/shicimark/rensheng.html" target="_blank">人生</a></li><li><a href="/shicimark/beifen.html" target="_blank">悲愤</a></li><li><a href="/shicimark/gudu.html" target="_blank">孤独</a></li><li><a href="/shicimark/fengcishi.html" target="_blank">讽刺诗</a></li><li><a href="/shicimark/zanmeishi.html" target="_blank">赞美诗</a></li><li><a href="/shicimark/laodong.html" target="_blank">劳动</a></li><li><a href="/shicimark/zhuangzhinanchou.html" target="_blank">壮志难酬</a></li>        </ul>
+            </div>
+            <div class="line3"></div>
+            <div class="index-li">
+                <h3>史书典籍</h3>
+                <ul>
+                    <li>《<a href="/book/sanguoyanyi.html" target="_blank">三国演义</a>》</li><li>《<a href="/book/shuihuzhuan.html" target="_blank">水浒传</a>》</li><li>《<a href="/book/xiyouji.html" target="_blank">西游记</a>》</li><li>《<a href="/book/hongloumeng.html" target="_blank">红楼梦</a>》</li><li>《<a href="/book/rulinwaishi.html" target="_blank">儒林外史</a>》</li><li>《<a href="/book/suitangyanyi.html" target="_blank">隋唐演义</a>》</li><li>《<a href="/book/dongzhoulieguozhi.html" target="_blank">东周列国志</a>》</li><li>《<a href="/book/yangjiajiang.html" target="_blank">杨家将</a>》</li><li>《<a href="/book/qianhanyanyi.html" target="_blank">前汉演义</a>》</li><li>《<a href="/book/houhanyanyi.html" target="_blank">后汉演义</a>》</li><li>《<a href="/book/liangjinyanyi.html" target="_blank">两晋演义</a>》</li><li>《<a href="/book/nanbeishiyanyi.html" target="_blank">南北史演义</a>》</li><li>《<a href="/book/wudaishiyanyi.html" target="_blank">五代史演义</a>》</li><li>《<a href="/book/cantangwudaishiyanyi.html" target="_blank">残唐五代史演义</a>》</li><li>《<a href="/book/suitangliangchaozhizhuan.html" target="_blank">隋唐两朝志传</a>》</li><li>《<a href="/book/yuanshiyanyi.html" target="_blank">元史演义</a>》</li><li>《<a href="/book/mingshiyanyi.html" target="_blank">明史演义</a>》</li><li>《<a href="/book/qingshiyanyi.html" target="_blank">清史演义</a>》</li><li>《<a href="/book/minguoyanyi.html" target="_blank">民国演义</a>》</li><li>《<a href="/book/maogongan.html" target="_blank">毛公案</a>》</li><li>《<a href="/book/penggongan.html" target="_blank">彭公案</a>》</li><li>《<a href="/book/sanxiawuyi.html" target="_blank">三侠五义</a>》</li><li>《<a href="/book/shiji.html" target="_blank">史记</a>》</li><li>《<a href="/book/hanshu.html" target="_blank">汉书</a>》</li><li>《<a href="/book/houhanshu.html" target="_blank">后汉书</a>》</li><li>《<a href="/book/sanguozhi.html" target="_blank">三国志</a>》</li><li>《<a href="/book/jinshu.html" target="_blank">晋书</a>》</li><li>《<a href="/book/songshu.html" target="_blank">宋书</a>》</li><li>《<a href="/book/nanqishu.html" target="_blank">南齐书</a>》</li><li>《<a href="/book/liangshu.html" target="_blank">梁书</a>》</li><li>《<a href="/book/chenshu.html" target="_blank">陈书</a>》</li><li>《<a href="/book/weishu.html" target="_blank">魏书</a>》</li><li>《<a href="/book/beiqishu.html" target="_blank">北齐书</a>》</li><li>《<a href="/book/zhoushu.html" target="_blank">周书</a>》</li><li>《<a href="/book/suishu.html" target="_blank">隋书</a>》</li><li>《<a href="/book/nanshi.html" target="_blank">南史</a>》</li><li>《<a href="/book/beishi.html" target="_blank">北史</a>》</li><li>《<a href="/book/jiutangshu.html" target="_blank">旧唐书</a>》</li><li>《<a href="/book/xintangshu.html" target="_blank">新唐书</a>》</li><li>《<a href="/book/jiuwudaishi.html" target="_blank">旧五代史</a>》</li><li>《<a href="/book/xinwudaishi.html" target="_blank">新五代史</a>》</li><li>《<a href="/book/songshi.html" target="_blank">宋史</a>》</li><li>《<a href="/book/liaoshi.html" target="_blank">辽史</a>》</li><li>《<a href="/book/jinshi.html" target="_blank">金史</a>》</li><li>《<a href="/book/yuanshi.html" target="_blank">元史</a>》</li><li>《<a href="/book/mingshi.html" target="_blank">明史</a>》</li><li>《<a href="/book/lunyu.html" target="_blank">论语</a>》</li><li>《<a href="/book/mengzi.html" target="_blank">孟子</a>》</li><li>《<a href="/book/daxue.html" target="_blank">大学</a>》</li><li>《<a href="/book/zhongyong.html" target="_blank">中庸</a>》</li><li>《<a href="/book/shangshu.html" target="_blank">尚书</a>》</li><li>《<a href="/book/liji.html" target="_blank">礼记</a>》</li><li>《<a href="/book/zhouyi.html" target="_blank">周易</a>》</li><li>《<a href="/book/chunqiuzuozhuan.html" target="_blank">春秋左氏传</a>》</li><li>《<a href="/book/shijing.html" target="_blank">诗经</a>》</li>        </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="layui-col-md4 layui-col-sm5">
+<script src="/scmjddd/pcAside?kw="></script>
+
+<div class="www-shadow-card ddd-div" style="padding: 30px;margin-top: 10px;">
+    <img src="/public/image/ddd/xcx.jpg" style="width: 100%;">
+</div>    </div>
+</div>
+
+
+</div>
+
+<script src="/public/dist/layui.js"></script>
+<script src="/public/js/www_v2_1.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4c1638db937a6ad4a0e6a8bdfa32146f";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<a href="javascript:void(0)" id="totop"><div class="totop"><i class="iconfont icon-up"></i></div></a>
+<footer class="layui-fluid footer">
+    Copyright &copy; 2010-2018 <a href="http://www.miibeian.gov.cn" target="_blank">粤ICP备09063030号-2</a> 邮箱：service@shicimingju.com
+</footer>
+</body>
+</html>

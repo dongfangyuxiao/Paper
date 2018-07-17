@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="robots" content="all">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <meta name="tencent-site-verification" content="5a5392da7a1b586d05c6c3fc9624ab1e"/>
+        <title>咪咕视频首页-咪咕视频，让生活更有戏</title>
+        <meta name="keywords" lang="zh-CN" content="咪咕视频，视频，视频网站，高清视频，电影，电视剧，综艺，动漫，原创，搞笑，CMCC">
+        <meta name="description" lang="zh-CN" content="咪咕视频超过500路的海量免费直播内容，无论是德甲、意甲各种甲；篮球、网球、排球各种赛；世界、欧洲各种杯；极速前进 ，花样男团， 我们来了各种真人秀……咪咕视频为您一一直播；并为您提供电视剧，电影，动漫，音乐，新闻，娱乐，游戏，原创搞笑等海量视频内容，高清流畅播放，极致使用体验。">   
+        <link rel="stylesheet" href="/wap/resource/pc/css/common.css" type="text/css">
+        <link rel="stylesheet" href="/wap/resource/pc/css/index.css" type="text/css">
+        <link rel="stylesheet" href="/wap/resource/pc/css/login.css" type="text/css">
+        <link rel="stylesheet" href="/wap/resource/miguPC_client/css/swiper.css" type="text/css">
+        <link rel="stylesheet" href="/wap/resource/miguPC_client/css/worldCup.css" type="text/css">
+        <script >             
+            var browser= {   
+                versions:function(){   
+                    var u = navigator.userAgent, app = navigator.appVersion;   
+                    return {   
+                        trident: u.indexOf('Trident') > -1, //IE内核   
+                        presto: u.indexOf('Presto') > -1, //opera内核   
+                        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核   
+                        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核   
+                        mobile: !!u.match(/AppleWebKit.*Mobile/i) || !!u.match(/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/), //是否为移动终端   
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端   
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器   
+                        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器   
+                        iPad: u.indexOf('iPad') > -1, //是否iPad   
+                        webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部   
+                    };  
+                }()  
+            }  
+            if ( browser.versions.mobile && !browser.versions.iPad ) {
+                window.location.href = "http://m.miguvideo.com/mobiletv.jsp";
+            }
+        </script>
+        <style>
+     .model {        
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .4);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 10000;
+        display: none;
+    }
+    .window {
+        width: 330px;
+        height: 220px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .sure {
+        position: absolute;
+        top: 86%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .main {width: 1080px;}
+ 
+    a:hover {
+        color: #2E8FD7 !important;
+    }
+
+        </style>
+    </head>
+
+    <body style="opacity: 0;">
+        <!--判断是否登录-->
+        <!-- 头部 -->
+        <!--判断是否登录-->
+<input type="hidden" id="isLogin" class="isLogin" value="0" />
+<input type="hidden" class="userId" value="" />
+<input type="hidden" id="isGkLogin" value=""/>
+
+<!-- 头部 -->
+<div class="header">
+  <div class="main">
+    <div class="header_box clearfix">
+      <div class="header_left"><a href="/wap/resource/pc/index.jsp"><img src="/wap/resource/pc/images/icon/logomigu.png" alt=""></a><a style="display: none" href=""><img src="/wap/resource/pc/images/icon/logo-G.png" alt=""></a></div>
+      <div class="middle">
+        <div class="serch_box">
+          <input type="text" class="serch_text" id="searchTxt" placeholder="请输入搜索内容">
+          <div class="serch_btn"><img src="/wap/resource/pc/images/icon-serch.png" alt="">搜索</div>
+        </div>
+      </div>
+      <div class="login">
+           <div class="user-logout"><a class="loginButton">登录</a><span class="seperate">|</span><a class="registerButton">注册</a></div>
+           </div>
+    </div>
+  </div>
+</div>
+<!-- 头部结束 -->
+<!-- 登录框 -->
+<div class="bg_box display-none" id="paysuccess">
+    <div class="modal-mask"></div>
+    <div class="migu-modal">
+        <div class="modal-show" id="close_ms">
+          <div class="iframe-box">
+            <div class="close" id="close"><img src="/wap/resource/pc/images/close_btn.png" alt=""></div>
+           <div class="iframe-ui"></div>
+          </div>
+        </div>
+    </div>
+</div>
+<!-- 登录框 -->
+
+<!--发布成功提示-->
+<div class="publishSuc display-none" id="publishSuc">发布成功</div><!-- 头部结束 -->
+        <!-- banner开始 -->
+        <div class="banner">
+            <div class="wrap" id="Carousel">
+             <div class="adv-banner" id="advBanner">
+               <div class="adv-cont"></div>
+               <div class="ad_time"><span id="t">6</span><div class="close-adv"></div></div>
+            </div>
+                <div class='bd'><ul>
+                <li style="display: none;">
+                            <a href='/wap/resource/pc/worldCup.jsp' title='' target='_blank'>
+                            </a><img src=/image/70/384/250.jpg alt='图片君失踪了'>
+                        </li>
+                    <li style="display: none;">
+                            <a href='/wap/resource/pc/detail/miguplay.jsp?cid=642419112' title='' target='_blank'>
+                                </a><img src=/image/70/368/651.jpg alt='图片君失踪了'>
+                            </li>
+                    <li style="display: none;">
+                            <a href='/wap/resource/pc/detail/miguplay.jsp?cid=642252779' title='' target='_blank'>
+                                </a><img src=/image/70/368/670.jpg alt='图片君失踪了'>
+                            </li>
+                    <li style="display: none;">
+                            <a href='/wap/resource/pc/detail/miguplay.jsp?cid=641340934' title='' target='_blank'>
+                                </a><img src=/image/70/379/615.jpg alt='图片君失踪了'>
+                            </li>
+                    <li style="display: none;">
+                            <a href='/wap/resource/pc/detail/miguplay.jsp?cid=642272792' title='' target='_blank'>
+                                </a><img src=/image/70/379/653.jpg alt='图片君失踪了'>
+                            </li>
+                    <li style="display: none;">
+                            <a href='/wap/resource/pc/detail/miguplay.jsp?cid=642833314' title='' target='_blank'>
+                                </a><img src=/image/70/379/592.jpg alt='图片君失踪了'>
+                            </li>
+                    <li style="display: none;">
+                            <a href='/wap/resource/pc/detail/miguplay.jsp?cid=637934182' title='' target='_blank'>
+                                </a><img src=/image/70/280/728.jpg alt='图片君失踪了'>
+                            </li>
+                    <li style="display: none;">
+                            <a href='/wap/resource/pc/detail/miguplay.jsp?cid=639847238' title='' target='_blank'>
+                                </a><img src=/image/70/333/227.jpg alt='图片君失踪了'>
+                            </li>
+                    <li style="display: none;">
+                            <a href='/wap/resource/pc/detail/miguplay.jsp?cid=639276820' title='' target='_blank'>
+                                </a><img src=/image/70/348/66.jpg alt='图片君失踪了'>
+                            </li>
+                    <li style="display: none;">
+                            <a href='/wap/resource/pc/detail/miguplay.jsp?cid=629336477' title='' target='_blank'>
+                                </a><img src=/image/70/276/384.png alt='图片君失踪了'>
+                            </li>
+                    </ul></div>
+                <div class='slide-nav-box'>
+                    <div class='slide-nav hd'>
+                        <ul class='tab lifl'>
+                            <li class='current'><a href="/wap/resource/pc/worldCup.jsp">2018俄罗斯世界杯</a></li>
+                                        <li class=''><a href="/wap/resource/pc/detail/miguplay.jsp?cid=642419112">环太平洋2：雷霆再起</a></li>
+                                        <li class=''><a href="/wap/resource/pc/detail/miguplay.jsp?cid=642252779">后来的我们</a></li>
+                                        <li class=''><a href="/wap/resource/pc/detail/miguplay.jsp?cid=641340934">引爆者</a></li>
+                                        <li class=''><a href="/wap/resource/pc/detail/miguplay.jsp?cid=642272792">昼颜</a></li>
+                                        <li class=''><a href="/wap/resource/pc/detail/miguplay.jsp?cid=642833314">诚忠堂</a></li>
+                                        <li class=''><a href="/wap/resource/pc/detail/miguplay.jsp?cid=637934182">和平饭店</a></li>
+                                        <li class=''><a href="/wap/resource/pc/detail/miguplay.jsp?cid=639847238">红海行动</a></li>
+                                        <li class=''><a href="/wap/resource/pc/detail/miguplay.jsp?cid=639276820">魔卡少女樱</a></li>
+                                        <li class=''><a href="/wap/resource/pc/detail/miguplay.jsp?cid=629336477">灵域第五季</a></li>
+                                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center;clear:both"> </div>
+        <!-- banner结束 -->
+        <!-- 导航开始 -->
+        <div class="nav-box">
+            <div class="nav">
+                <div class="main">
+                    <div class="navlist-box">
+                        <div class="list-box-left">
+                            <ul id="navBar">
+                                <li>
+                                <a href="/wap/resource/pc/worldCup.jsp" target="_blank"><img  src="/wap/resource/pc/images/world_exit.png"></a>
+                                </li> 
+                                <li>
+                                    <a href='/wap/resource/pc/index.jsp'><span>首页</span></a>
+                                </li>
+                               <li>
+                                <a href="/wap/resource/pc/worldCup.jsp" target="_blank">世界杯</a>
+                                </li> 
+                                <li>
+                                            <a href='/wap/resource/pc/channel.jsp?nodeId=70027513'>电视剧</a>
+                                        </li>
+                                    <li>
+                                            <a href='/wap/resource/pc/channel.jsp?nodeId=70027514'>综艺</a>
+                                        </li>
+                                    <li>
+                                            <a href='/wap/resource/pc/channel.jsp?nodeId=70027515'>电影</a>
+                                        </li>
+                                    <li>
+                                            <a href='/wap/resource/pc/channel.jsp?nodeId=70027517'>搞笑</a>
+                                        </li>
+                                    <li>
+                                            <a href='/wap/resource/pc/channel.jsp?nodeId=70027518'>娱乐</a>
+                                        </li>
+                                    <li>
+                                            <a href='/wap/resource/pc/channel.jsp?nodeId=70027519'>二次元</a>
+                                        </li>
+                                    <li>
+                                            <a href='/wap/resource/pc/channel.jsp?nodeId=70027520'>原创G客</a>
+                                        </li>
+                                    </ul>
+                        </div>
+                        <div class="list-box-right">
+                            <div class="menu"> 
+ 
+                                    <img src="/wap/resource/pc/images/icon-jilu.png" alt="">
+                                    <a class="loginButton">播放记录</a> 
+                                    <img src="/wap/resource/pc/images/icon-shoucang.png" alt="">
+                                    <a class="loginButton">收藏订阅</a>
+                                </div>
+                            <div class="download-btn" id="client"><span href=""><a href="/wap/resource/pc/download.jsp"><img src="/wap/resource/pc/images/download.png" alt=""></a></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 导航结束 -->
+        <div class="mainCont">
+            <div class="main">
+                <div class="containerCup" id="app">
+                    <div style="position: relative;">           
+                        <div class="module">            
+                            <div class="title_box">
+                                <div class="title_left">
+                                    <div class="title-text">
+                                        <img src="/wap/resource/miguPC_client/images/bgline.png" alt="图片君失踪了" />
+                                        <h3>世界杯赛程</h3>
+                                        <a href="/wap/resource/pc/match_detail.jsp" style="position:absolute; right:20px; top:8px; font-size:16px;">谁将问鼎大力神杯？</a>
+                               
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: block" class="content clearfix">
+                                <div id="dis">
+                                    <div class="prev" style="font-size: 30px; margin-top: 55px;">
+                                    </div>
+                                    <div class="swiper-container swiper-container2" id="swiper-container">
+                                        <div class="swiper-wrapper" id="swiper-wrapper2">
+                                            <div class="swiper-slide" v-if="infos" v-for="items in infos">
+                                                <div>
+                                                    <div class="title-world" v-html="items.monthDayTime"></div>
+                                                    <div class="country-world">
+                                                        <div class="country-one">
+                                                            <div id="left">
+                                                                <img :src="items.confrontTeams[0].image" alt="">
+                                                            </div>
+                                                            <p v-text="items.confrontTeams[0].name"></p>
+                                                        </div>
+                                                        <div class="start-time" v-html="items.formatTime" v-if="items.code == 2"></div>
+                                                        <div class="start-time" v-if="items.code == 1 || items.code == 3">{{items.confrontTeams[0].score*1 <= 0?0:items.confrontTeams[0].score}}&nbsp;&nbsp;:&nbsp;&nbsp;{{items.confrontTeams[1].score*1 <=0?0:items.confrontTeams[1].score}}</div>
+                                                        <div class="country-other">
+                                                            <div id="right">
+                                                                <img :src="items.confrontTeams[1].image" alt="">
+                                                            </div>
+                                                            <p v-text="items.confrontTeams[1].name"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="world-state">
+                                                        <a @click="aClick(items.pID ,1)">
+                                                            <img v-if="items.code == 1" src="/wap/resource/miguPC_client/images/btn-back.png" alt="">
+                                                            <img v-if="items.code == 2" src="/wap/resource/miguPC_client/images/btn-will.png" alt="">
+                                                            <img v-if="items.code == 3" src="/wap/resource/miguPC_client/images/btn-live.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="next" style="font-size: 30px; margin-top: 55px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main mainMain">
+            </div>
+        </div>
+        <footer>
+            <!-- 底部开始 -->
+<div class="foot_box">    
+  <div class="main">
+    <!--<div class="foot">
+      <ul>
+        <li>
+          <h3>加盟影院</h3>
+          <div class="list"> <a href="http://www.sohu.com/">搜狐视频</a> <a href="http://www.huayibrothersfashion.com/">华谊影业</a> <a href="http://www.tvb.com/">TVB剧场</a> <a href="http://www.1905.com/">M1905</a> <a href="http://www.paramount.com/">派拉蒙</a> <a href="http://meiyuanxian.lovev.com/">美院线</a> </div>
+        </li>
+        <li>
+          <h3>频道</h3>
+          <div class="list"> <a href="/wap/resource/pc/index.jsp">首页</a> <a href="/wap/resource/pc/channel.jsp?nodeId=70027515">电影</a> <a href="/wap/resource/pc/channel.jsp?nodeId=70027513">电视剧</a> <a href="/wap/resource/pc/channel.jsp?nodeId=70027514">综艺</a> <a style="display:none" href="/wap/resource/pc/detail/living.jsp">直播</a> <a href="/wap/resource/pc/channel.jsp?nodeId=70027519">二次元</a> <a href="/wap/resource/pc/channel.jsp?nodeId=70027518">娱乐</a> <a href="/wap/resource/pc/channel.jsp?nodeId=70027517">搞笑</a> <a href="/wap/resource/pc/channel.jsp?nodeId=70027520">原创G客</a> </div>
+        </li>
+        <li>
+          <h3>友情链接</h3>
+          <div class="list"> <a href="http://bbs.tianya.cn/">天涯社区</a> <a href="https://www.taobao.com/">淘宝网</a> <a href="http://ent.qq.com/">腾讯娱乐</a> <a href="http://video.sina.com.cn/">新浪视频</ a> <a href="https://www.dianping.com/citylist">大众点评</a> <a href="http://www.yoka.com/">YOKA时尚</a></div>
+        </li>
+        <li>
+          <h3>软件</h3>
+          <div class="list"> <a href="">多屏互动</a> <a href="">电脑版</a> <a href="">手机版</a> <a href="">ipad版</a> <a href="">TV版</a> </div>
+        </li>
+        <li>
+          <h3>支持</h3>
+          <div class="list"> <a href="">在线反馈</a> <a href="">用户帮助</a> <a href="">关于我们</a> <a href="">暴恐举报</a> </div>
+        </li>
+      </ul>
+    </div>-->
+    <div class="foot_bottom">
+      <p><a class="ft-notice" target="_blank" href="/wap/resource/pc/child_copyright.jsp">少儿版权内容征集公示材料</a>China Mobile Copyright 咪咕视讯科技有限公司 2013 沪ICP备15019882号-4</p>
+    </div>
+    <div class="police"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502003169" target="_blank">沪公网备:31011502003169</a></div>
+  </div>
+</div>
+
+
+
+<!-- IE党 >
+<!--[if lte IE 9]>
+<style>
+	:root .r-ie { display: block; }
+	.zt-pages { height: 300px; overflow: hidden; }
+	.nav-fixed{display:none}
+</style>
+<![endif]-->
+<div class="r-ie">
+	<div class="r-ie-vertical">
+		<i class="r-ie-logo"></i>
+		<div class="r-ie-box">
+			<i class="r-ie-cor1"></i>
+			<i class="r-ie-cor2"></i>
+			<p>当前浏览器不支持本活动<br>
+				请升级到最新版本后再尝试</p>
+		</div>
+		<div class="r-ie-up">
+			<a href="http://windows.microsoft.com/zh-cn/windows/downloads" class="r-ie-link"><i class="r-ie-icon-up"></i>点击这里升级</a>
+		</div>
+	</div>
+	<i class="r-ie-middle"></i>
+</div>
+<script src="/wap/resource/pc/memberCenter/gk/js/md5_min.js"></script></footer>
+        <div class="erweima_box">
+            <a href="#0" class="cd-top" style="margin-left: 48px;">回到顶部</a>
+            <div class="yijian">
+                <a href="">意见反馈</a>
+            </div>
+            <div class="erweima"><img src="/wap/resource/pc/images/cctv.png" alt="" style="width: 230px; margin: -25px 0 0 -15px;"></div>
+        </div>
+        <!-- 登录框 -->
+        <div class="bg_box display-none" id="paysuccess">
+            <div class="migu-modal">
+                <div class="modal-show">
+                    <!-- 登录 -->
+                    <div class="dneglu">
+                        <div class="modal-head">
+                            <div class="btn_login">
+                                <span>登录</span>
+                                <span>注册</span>
+                            </div>
+                            <img class="cancel" src="/wap/resource/pc/images/play-09.png" alt="图片已失效">
+                        </div>
+                        <div class="modal-body">
+                            <p id="tipMsg" class="display-none"></p>
+                            <!--登录-->
+                            <div class="mainmodal">
+                                <div class="user">
+                                    <div class="shuoming">账号</div><input type="text" class="userinput" id="mobile" placeholder="请输入手机号/用户名"></div>
+                                <div class="psword">
+                                    <div class="shuoming">密码</div><input type="password" name="password" class="pswordinput" id="passwd" placeholder="请输入密码"></div>
+                                <div class="remmber"><input type="checkbox" class="checkbox"><span>记住账号</span>
+                                    <a href="">忘记密码？</a>
+                                </div>
+                                <input type="button" class="login_btn" value="登录">
+                            </div>
+                            <!--注册-->
+                            <div class="mainmodal display-none">
+                                <div class="user">
+                                    <div class="shuoming">账号</div>
+                                    <input type="text" class="userinput" id="mobile2" placeholder="请输入手机号">
+                                </div>
+                                <div class="user">
+                                    <div class="shuoming">验证码</div>
+                                    <input type="text" class="yanzhenginput picCode1" id="picCode" placeholder="请输入验证码">
+                                    <div class="yanzhengtu"></div>
+                                </div>
+                                <div class="user">
+                                    <div class="shuoming">验证短信</div>
+                                    <input type="text" class="userinput" id="identyCode" placeholder="请输入收到的短信数字">
+                                    <span id="getCodeBtn">获取验证码</span>
+                                </div>
+                                <input type="hidden" name="sessionid" id="mobileSid" value="" />
+                                <div class="psword">
+                                    <div class="shuoming">密码</div>
+                                    <input type="password" name="password" class="pswordinput" id="pwd" placeholder="请输入6-20位密码">
+                                </div>
+                                <div class="psword">
+                                    <div class="shuoming">确认密码</div>
+                                    <input type="password" name="password" class="pswordinput" id="pwdAgain" placeholder="请输入6-20位密码">
+                                </div>
+                                <div class="remmber">
+                                    <input type="checkbox" checked class="checkbox" id="checkBox">
+                                    <h2>我已阅读并同意</h2>
+                                    <h3>《咪咕视频用户使用协议》</h3>
+                                </div>
+                                <input type="button" class="login_btn login_btnActive" id="registerBtn" value="注册">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="model">
+        <div class="window">
+            <img src="/wap/resource/pc/images/world_code.png" alt="">
+            <div class="sure" onclick="offWindow()">
+                <img src="/wap/resource/pc/images/world_sureBtn.png" alt="">
+            </div>
+        </div>
+        </div>
+        <!-- 登录框 -->
+        <script src="/wap/resource/pc/js/jquery-2.1.3.min.js" type="text/javascript"></script>
+        <!-- 轮播 -->
+        <script src="/wap/resource/pc/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+        <!--懒加载-->
+        <script src="/wap/resource/pc/js/plugins/jquery.lazyload.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/wap/resource/pc/js/webtrends.load.js"></script>
+        <script type="text/javascript" src="/wap/resource/pc/js/webtrends.min.js"></script> 
+        <script src="/wap/resource/migu/subject/js/plugins/vue.js"></script>
+        <!-- 返回顶部 -->
+        <script src="/wap/resource/pc/js/main.js"></script>
+        <script src="/wap/resource/pc/js/modernizr.js"></script>
+        <script type="text/javascript" src="/wap/resource/pc/js/common.js"></script>
+        <script type="text/javascript" src="/wap/resource/pc/js/index.js"></script>
+        <script src="/wap/resource/pc/js/user.js"></script>
+        <script src="/wap/resource/pc/js/login.js"></script>
+        <script src="/wap/resource/pc/js/register.js"></script>
+        <script src="/wap/resource/pc/js/modifyPwd.js"></script>
+        <script src="/wap/resource/pc/js/toSearch.js"></script>
+        <script src="/wap/resource/miguPC_client/js/swiper.js"></script>
+        <script src="/wap/resource/pc/js/index_world.js"></script>
+    </body>
+</html>

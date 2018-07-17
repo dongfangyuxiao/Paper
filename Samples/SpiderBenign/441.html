@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>思谋网_专注供应链管理</title>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="聚焦供应链管理(SCM)领域的自媒体平台，分享供应链管理人(SCMor)的才思与谋略，含业界动态、思想观点、实践案例、理论前沿、资源导航及个人专栏等。" />
+<meta name="keywords" content="供应链管理,供应链金融,供应链物流,供应链信息,供应链案例,供应链研究,供应链新闻,供应链媒体,供应链智库,运营管理" />
+<meta content="width=device-width,initial-scale=1.0" name="viewport">
+<link rel="stylesheet" href="http://www.scmor.com/themes/site/default/css/dev/core.css?v=20140228" />
+<link rel="stylesheet" href="http://www.scmor.com/themes/site/default/css/dev/style.css?v=20140228" />
+<script>
+//全局变量 Global Variables
+var GV = {
+	JS_ROOT : 'http://www.scmor.com/res/js/dev/',										//js目录
+	JS_VERSION : '20140228',											//js版本号(不能带空格)
+	JS_EXTRES : 'http://www.scmor.com/themes/extres',
+	TOKEN : '8ba0f55c3cd58c02',	//token $.ajaxSetup data
+	U_CENTER : 'http://www.scmor.com/index.php?m=space',		//用户空间(参数 : uid)
+	U_AVATAR_DEF : 'http://www.scmor.com/res/images/face/face_small.jpg',					//默认小头像
+	U_ID : parseInt('0'),									//uid
+	REGION_CONFIG : '',														//地区数据
+	CREDIT_REWARD_JUDGE : '',			//是否积分奖励，空值:false, 1:true
+	URL : {
+		LOGIN : 'http://www.scmor.com/index.php?m=u&c=login',										//登录地址
+		QUICK_LOGIN : 'http://www.scmor.com/index.php?m=u&c=login&a=fast',								//快速登录
+		IMAGE_RES: 'http://www.scmor.com/res/images',										//图片目录
+		CHECK_IMG : 'http://www.scmor.com/index.php?m=u&c=login&a=showverify',							//验证码图片url，global.js引用
+		VARIFY : 'http://www.scmor.com/index.php?m=verify&a=get',									//验证码html
+		VARIFY_CHECK : 'http://www.scmor.com/index.php?m=verify&a=check',							//验证码html
+		HEAD_MSG : {
+			LIST : 'http://www.scmor.com/index.php?m=message&c=notice&a=minilist'							//头部消息_列表
+		},
+		USER_CARD : 'http://www.scmor.com/index.php?m=space&c=card',								//小名片(参数 : uid)
+		LIKE_FORWARDING : 'http://www.scmor.com/index.php?c=post&a=doreply',							//喜欢转发(参数 : fid)
+		REGION : 'http://www.scmor.com/index.php?m=misc&c=webData&a=area',									//地区数据
+		SCHOOL : 'http://www.scmor.com/index.php?m=misc&c=webData&a=school',								//学校数据
+		EMOTIONS : "http://www.scmor.com/index.php?m=emotion&type=bbs",					//表情数据
+		CRON_AJAX : '',											//计划任务 后端输出执行
+		FORUM_LIST : 'http://www.scmor.com/index.php?c=forum&a=list',								//版块列表数据
+		CREDIT_REWARD_DATA : 'http://www.scmor.com/index.php?m=u&a=showcredit',					//积分奖励 数据
+		AT_URL: 'http://www.scmor.com/index.php?c=remind',									//@好友列表接口
+		TOPIC_TYPIC: 'http://www.scmor.com/index.php?c=forum&a=topictype'							//主题分类
+	}
+};
+</script>
+<script src="http://www.scmor.com/res/js/dev/wind.js?v=20140228"></script>
+<link href="http://www.scmor.com/themes/site/default/css/dev/forum.css?v=20140228" rel="stylesheet" />
+</head>
+<body>
+<style type="text/css">
+</style><div class="wrap">
+<header class="header_wrap">
+	<div id="J_header" class="header cc">
+		<div class="logo">
+			<a href="http://www.scmor.com/">
+								<img src="http://www.scmor.com/themes/site/default/images/logo.png" alt="思谋网">
+							</a>
+		</div>
+		<nav class="nav_wrap">
+			<div class="nav">
+				<ul>
+						<li class="current"><a href="http://www.scmor.com/">首页</a></li>
+						<li class=""><a href="http://www.scmor.com/cate/1">业界</a></li>
+						<li class=""><a href="http://www.scmor.com/cate/2">案例</a></li>
+						<li class=""><a href="http://www.scmor.com/cate/3">研究</a></li>
+						<li class=""><a href="http://www.scmor.com/cate/4">俱乐部</a></li>
+						<li class=""><a href="http://www.scmor.com/cate/30" target="_blank" style="color:#eccd26;">上网导航</a></li>
+					</ul>
+			</div>
+		</nav>
+		<div class="header_login">
+	<a rel="nofollow" href="http://www.scmor.com/index.php?m=u&c=login">登录</a><a rel="nofollow" href="http://www.scmor.com/index.php?m=u&c=register">注册</a>
+</div>
+	</div>
+</header>
+<div class="tac"> </div>
+	<div class="main_wrap">
+		
+		       
+		<div id="cloudwind_forum_top"></div>
+		<div class="main cc">
+			<div class="main_body">
+				<div class="main_content cc">
+					
+					 
+					<div class="box_wrap thread_page J_check_wrap">
+						<!--公告-->
+						<div class="core_announce_wrap">
+	<div class="core_announce">
+		<ul class="J_slide_auto cc">
+				 <li><a href="http://www.scmor.com/view/1789" target=_blank>【网站投稿须知】</a><span>2014-07-31</span></li>
+		 		</ul>
+	</div>
+</div>
+						<!--公告结束-->
+												<div class="thread_posts_list">
+							<table width="100%" id="J_posts_list">
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2532" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/6" class="st">[会议活动]</a>
+																						<a href="http://www.scmor.com/view/2532" class="st" style="" title="2018年中国管理科学与工程学会年会将在昆明市召开">2018年中国管理科学与工程学会年会将在昆明市召开</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">       “管理科学与工程学会2018年年会暨第十六届中国管理科学与工程论坛”定于2018年10月19日-10月21日在昆明举行。大会由管理科学与工程学会主办，云南财经大学承办...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/1">admin</a><span itemprop="dateCreated">2018-06-29</span>
+                                            浏览：<span>934</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2531" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/29" class="st">[前沿论坛]</a>
+																						<a href="http://www.scmor.com/view/2531" class="st" style="" title="刘德：有偿广告浏览的经济分析">刘德：有偿广告浏览的经济分析</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">        讲座题目：有偿广告浏览的经济分析（Economic Analysis of Reward Advertising）       主 讲 人：Liu De（刘德），U...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/1">admin</a><span itemprop="dateCreated">2018-06-28</span>
+                                            浏览：<span>845</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2530" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/29" class="st">[前沿论坛]</a>
+																						<a href="http://www.scmor.com/view/2530" class="st" style="" title="陈祎伟：防止信息泄露的供应链契约研究">陈祎伟：防止信息泄露的供应链契约研究</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">        讲座题目：防止信息泄露的供应链契约研究（Supply Chain Contracts that Prevent Information Leakage）      ...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-06-27</span>
+                                            浏览：<span>2010</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2529" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/29" class="st">[前沿论坛]</a>
+																						<a href="http://www.scmor.com/view/2529" class="st" style="" title="复旦大学：数据驱动的运营创新国际研讨会">复旦大学：数据驱动的运营创新国际研讨会</a>
+											<span class="posts_icon"><i class="icon_img" title="图片帖"></i></span>										</p>
+                                        <p class="info f14" style="text-indent:2em">数据驱动的运营创新国际研讨会时间：2018年7月18日地点：复旦大学管理学院李达三楼104教室（上海市国顺路670号）主办单位：复旦大学商务分析与运营创新研究中心上海财经大学商务分...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-06-21</span>
+                                            浏览：<span>1144</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2528" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/29" class="st">[前沿论坛]</a>
+																						<a href="http://www.scmor.com/view/2528" class="st" style="" title="冯有翼：W串行结构按订单装配(ATO)系统的最优调度问题">冯有翼：W串行结构按订单装配(ATO)系统的最优调度问题</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">深圳大学管理科学前沿论坛（第74期）       讲座题目：Optimal Scheduling Problem for a Serial W Assemble-to-Order ...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-06-21</span>
+                                            浏览：<span>1460</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2527" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/28" class="st">[机构通讯]</a>
+																						<a href="http://www.scmor.com/view/2527" class="st" style="" title="武汉大学现代物流与供应链管理研究中心介绍">武汉大学现代物流与供应链管理研究中心介绍</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">        武汉大学现代物流与供应链管理研究中心是集教学、科研、政府规划与企业咨询于一体的综合性研究机构，以物流管理教研室老师为研究主体。现有在职专业教师16名，其中4名教授(...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-06-20</span>
+                                            浏览：<span>1428</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2526" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/29" class="st">[前沿论坛]</a>
+																						<a href="http://www.scmor.com/view/2526" class="st" style="" title="李茁新: 基于慈善捐赠平台的捐赠人与慈善项目匹配">李茁新: 基于慈善捐赠平台的捐赠人与慈善项目匹配</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">讲座题目：Matching Donors to Projects on Charitable Giving Platforms主讲人：李茁新 助理教授（美国波士顿学院卡罗尔管理学院...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-06-20</span>
+                                            浏览：<span>2242</span>
+                                            回复: <span>1</span>
+                                            											最后回复：<a href="http://www.scmor.com/user/0">游客</a><span><a href="http://www.scmor.com/view/2526/e#a" rel="nofollow" aria-label="最后回复时间">06-27 22:38</a></span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2525" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/22" class="st">[知名学者]</a>
+																						<a href="http://www.scmor.com/view/2525" class="st" style="" title="哥伦比亚大学工业工程与运筹学教授姚大卫">哥伦比亚大学工业工程与运筹学教授姚大卫</a>
+											<span class="posts_icon"><i class="icon_img" title="图片帖"></i></span>										</p>
+                                        <p class="info f14" style="text-indent:2em">        姚大卫，工业工程、运营管理和运筹学专家，美国国家工程院院士，哥伦比亚大学工业工程与运筹学Piyasombatkul家族基金讲席教授。        1978年姚大卫...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-06-14</span>
+                                            浏览：<span>1364</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2524" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/29" class="st">[前沿论坛]</a>
+																						<a href="http://www.scmor.com/view/2524" class="st" style="" title="姚大卫：数据、风险和分析——供应链管理的重新思考">姚大卫：数据、风险和分析——供应链管理的重新思考</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">        应学校邀请，哥伦比亚大学工业工程与运筹学Piyasombatkul家族基金讲席教授、IEEE会士、INFORMS会士，美国国家工程院院士姚大卫教授将于6月14日来中...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-06-14</span>
+                                            浏览：<span>1251</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2523" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/29" class="st">[前沿论坛]</a>
+																						<a href="http://www.scmor.com/view/2523" class="st" style="" title="中大工作坊：学术大数据、人工智能、元分析与metabu">中大工作坊：学术大数据、人工智能、元分析与metabu</a>
+											<span class="posts_icon"><i class="icon_img" title="图片帖"></i></span>										</p>
+                                        <p class="info f14" style="text-indent:2em">        大数据和人工智能正在逐渐改变人们的生活与工作方式。人类社会正在面临这一场深刻的革命：信息技术革命推动能源驱动型社会向数据驱动型社会过渡。技术的终极目标是满足人类自身...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-06-14</span>
+                                            浏览：<span>1522</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2522" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/29" class="st">[前沿论坛]</a>
+																						<a href="http://www.scmor.com/view/2522" class="st" style="" title="廖坤：供应链中的行为科学：信任和激励">廖坤：供应链中的行为科学：信任和激励</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">讲座题目：供应链中的行为科学：信任和激励主讲人：廖坤教授（美国中央华盛顿大学供应链管理终身教授）　 时间： 2018年6月15日（周五） 地点： 深圳大学文科楼 1400，10:2...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-06-12</span>
+                                            浏览：<span>1710</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2521" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/29" class="st">[前沿论坛]</a>
+																						<a href="http://www.scmor.com/view/2521" class="st" style="" title="关旭：需求信息不对称时的策略性库存与价格披露策略">关旭：需求信息不对称时的策略性库存与价格披露策略</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">讲座题目：Strategic Inventory and Price Signaling with DemandInformation Asymmetry主讲人：关旭 教授（武汉大...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-06-12</span>
+                                            浏览：<span>1662</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2519" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/12" class="st">[战略整合]</a>
+																						<a href="http://www.scmor.com/view/2519" class="st" style="" title="从&quot;赋权&quot;到&quot;赋能&quot;: 韩都衣舍的组织创新与供应链体系">从&quot;赋权&quot;到&quot;赋能&quot;: 韩都衣舍的组织创新与供应链体系</a>
+											<span class="posts_icon"><i class="icon_img" title="图片帖"></i></span>										</p>
+                                        <p class="info f14" style="text-indent:2em">        2006 年正式创立的韩都衣舍无疑是快时尚服装业的新来者，五位创始合伙人都不是来自服装行业，缺乏从业经验和相关的知识积累，然而都对互联网和信息技术所引致的生产方式变...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-05-04</span>
+                                            浏览：<span>5376</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2518" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/22" class="st">[知名学者]</a>
+																						<a href="http://www.scmor.com/view/2518" class="st" style="" title="北京交通大学交通运输学院教授高自友">北京交通大学交通运输学院教授高自友</a>
+											<span class="posts_icon"><i class="icon_img" title="图片帖"></i></span>										</p>
+                                        <p class="info f14" style="text-indent:2em">        高自友，系统科学研究所所长，长江学者特聘教授，973计划项目首席科学家， 国家杰出青年科学基金获得者，新世纪百千万人才工程国家级人选，教育部“长江学者与创新团队计划...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-05-04</span>
+                                            浏览：<span>4009</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2517" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/13" class="st">[供应链信息]</a>
+																						<a href="http://www.scmor.com/view/2517" class="st" style="" title="海晶集团实施供应链管理系统，提高管控能力">海晶集团实施供应链管理系统，提高管控能力</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">【案例企业简介】天津长芦海晶集团有限公司（天津长芦塘沽盐场）是国家大型海盐生产重点骨干企业。公司东临渤海，毗邻天津港、天津港保税区、天津经济技术开发区、天津自贸区，处于天津滨海新区...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-05-04</span>
+                                            浏览：<span>3889</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2515" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/28" class="st">[机构通讯]</a>
+																						<a href="http://www.scmor.com/view/2515" class="st" style="" title="【Tradeshift】供应链：变革与创新的新平台">【Tradeshift】供应链：变革与创新的新平台</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">        Tradeshift亚太地区商业开发副总裁Vince Guidotti于3月26日出席了ECV International在深圳举行的“2018亚洲数字化供应链国际...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/1243">ECV</a><span itemprop="dateCreated">2018-05-03</span>
+                                            浏览：<span>3619</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2514" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/6" class="st">[会议活动]</a>
+																						<a href="http://www.scmor.com/view/2514" class="st" style="" title="2018第三届中国数字化供应链国际峰会">2018第三届中国数字化供应链国际峰会</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">        由上海希为投资管理有限公司（ECV International）主办的2018第三届中国数字化供应链国际峰会将于9月11-12日在上海举行，此次峰会的主题是“供应链...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/1243">ECV</a><span itemprop="dateCreated">2018-05-02</span>
+                                            浏览：<span>4169</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2512" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/28" class="st">[机构通讯]</a>
+																						<a href="http://www.scmor.com/view/2512" class="st" style="" title="【SAP华明】物联网与数字化供应链在数字化转型中的角色扮演">【SAP华明】物联网与数字化供应链在数字化转型中的角色扮演</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">        SAP物联网与数字化供应链总经理华明于3月26日出席了ECV International在深圳举行的“2018亚洲数字化供应链国际峰会”，揭秘了数字经济和数字化供应...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/1243">ECV</a><span itemprop="dateCreated">2018-04-28</span>
+                                            浏览：<span>3630</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2508" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/21" class="st">[思想观点]</a>
+																						<a href="http://www.scmor.com/view/2508" class="st" style="" title="GPO改革如何走向公平竞争？继深圳之后上海再次遭遇GPO垄断案">GPO改革如何走向公平竞争？继深圳之后上海再次遭遇GPO垄断案</a>
+											<span class="posts_icon"><i class="icon_img" title="图片帖"></i></span>										</p>
+                                        <p class="info f14" style="text-indent:2em">        近日，上海市工商局的一纸《垄断案件中止调查决定书》，又将上海GPO推到了风口浪尖：上海GPO涉嫌垄断被立案调查！        与此相似,去年国家发改委调查深圳GP...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-02-11</span>
+                                            浏览：<span>9599</span>
+                                            回复: <span>2</span>
+                                            											最后回复：<a href="http://www.scmor.com/user/4">scmnews</a><span><a href="http://www.scmor.com/view/2508/e#a" rel="nofollow" aria-label="最后回复时间">02-11 13:02</a></span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.scmor.com/view/2507" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.scmor.com/cate/21" class="st">[思想观点]</a>
+																						<a href="http://www.scmor.com/view/2507" class="st" style="" title="S2b模式:服务于中小企业的供应链平台模式">S2b模式:服务于中小企业的供应链平台模式</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">        在2017年5月26日的首届阿里巴巴供应链开放日活动中，阿里巴巴集团学术委员会主席、湖畔大学教务长曾鸣表示，未来五年最有可能领先的商业模式是S2b（Supply c...</p>
+										<p class="info">
+											楼主：<a href="http://www.scmor.com/user/4">scmnews</a><span itemprop="dateCreated">2018-02-05</span>
+                                            浏览：<span>10171</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+															</table>
+						</div>
+											</div>
+					<div class="J_page_wrap cc" data-key="true">
+						<div class="pages">
+	<strong>1</strong>
+	<a href="http://www.scmor.com/index.php?page=2&amp;order=postdate">2</a>
+		<a href="http://www.scmor.com/index.php?page=3&amp;order=postdate">3</a>
+		<a href="http://www.scmor.com/index.php?page=4&amp;order=postdate">4</a>
+		<a href="http://www.scmor.com/index.php?page=20&amp;order=postdate">...20</a>
+		<a href="http://www.scmor.com/index.php?page=2&amp;order=postdate" class="pages_next J_pages_next">下一页&nbsp;&raquo;</a>
+</div>
+					</div>
+					
+										 
+				</div>
+			</div>
+			<div class="main_sidebar">
+                <div class="box_wrap">
+                    <a href="http://www.scmor.com/view/1" title="分享供应链管理人的才思与谋略">
+                    <img style="margin-top:10px;border:2px solid #dedede" src="/res/file/scm.jpg" width="256" alt="供应链管理网">
+                    </a>                    
+                </div>       
+                                <div class="box_wrap">
+                    <h2 class="box_title">新鲜资讯</h2>
+                    <div class="tags_hot">
+                        <ul class="cc">
+                                               
+                        <li><a href="http://finance.china.com.cn/roll/20180104/4496565.shtml" rel="nofollow" title="步森股份与步森集团筹建纺织供应链管理公司" class="title" target="_blank">步森股份与步森集团筹建纺织供应链管理公司</a></li>
+                                               
+                        <li><a href="http://news.ctocio.com.cn/csgg/91/14402591.shtml" rel="nofollow" title="区块链供应链应用 带大家了解一下" class="title" target="_blank">区块链供应链应用 带大家了解一下</a></li>
+                                               
+                        <li><a href="http://www.nx.xinhuanet.com/newscenter/2018-01/04/c_1122207737.htm" rel="nofollow" title="宁夏首家国有独资供应链公司开业" class="title" target="_blank">宁夏首家国有独资供应链公司开业</a></li>
+                                               
+                        <li><a href="http://news.sosd.com.cn/newsshow-89093.html" rel="nofollow" title="好车贷积极响应政策号召 推动供应链金融服务实体经济" class="title" target="_blank">好车贷积极响应政策号召 推动供应链金融服务实体经济</a></li>
+                                               
+                        <li><a href="http://auto.sohu.com/20180104/n527141568.shtml" rel="nofollow" title="汽配供应链平台八大门派,谁的招式更胜一筹? | 年终专稿" class="title" target="_blank">汽配供应链平台八大门派,谁的招式更胜一筹? | 年终专稿</a></li>
+                                               
+                        <li><a href="http://news.sina.com.cn/o/2018-01-04/doc-ifyqiwuw6026277.shtml" rel="nofollow" title="服务实体经济,供应链金融助力平行进口车" class="title" target="_blank">服务实体经济,供应链金融助力平行进口车</a></li>
+                                               
+                        <li><a href="http://smart.huanqiu.com/roll/2018-01/11496327.html" rel="nofollow" title="果小美供应链能力升级提速 40亿战略合作中商惠民" class="title" target="_blank">果小美供应链能力升级提速 40亿战略合作中商惠民</a></li>
+                                               
+                        <li><a href="http://www.chinawuliu.com.cn/zixun/201801/04/327620.shtml" rel="nofollow" title="盘点|2017那些改变中国供应链的历史事件" class="title" target="_blank">盘点|2017那些改变中国供应链的历史事件</a></li>
+                                               
+                        <li><a href="http://info.ec.hc360.com/2018/01/040927923511.shtml" rel="nofollow" title="打造业内领先的电子生态供应链系统 奥特姆斩获品牌大奖" class="title" target="_blank">打造业内领先的电子生态供应链系统 奥特姆斩获品牌大奖</a></li>
+                                               
+                        <li><a href="http://news.chemnet.com/detail-2606668.html" rel="nofollow" title="热烈祝贺山东派尼新材料有限公司获批2000万供应链核心额度" class="title" target="_blank">热烈祝贺山东派尼新材料有限公司获批2000万供应链核心额度</a></li>
+                                                </ul>
+                    </div>
+                </div>
+                	<div class="box_wrap sidebar_login">
+    <button type="button" onclick="location.href='http://www.scmor.com/index.php?m=u&c=login'" class="btn btn_big btn_submit">登录</button><a class="btn btn_big btn_error" href="http://www.scmor.com/index.php?m=u&c=register" rel="nofollow">立即注册</a>        
+	</div>
+<!--advertisement id='Site.Sider.User' sys='1'/-->
+
+				<div class="box_wrap" aria-label="版块列表" role="tablist">
+			<h2 class="box_title J_sidebar_box_toggle">版块列表</h2>
+			<div class="forum_menu" >
+							<dl class=" current">
+					<dt class="J_sidebar_forum_toggle"><a href="http://www.scmor.com/cate/1">业界资讯</a></dt>
+					<dd role="tabpanel">
+												<p><a class="" href="http://www.scmor.com/cate/5">新闻观察</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/21">思想观点</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/6">会议活动</a></p>
+											</dd>
+				</dl>
+								<dl class="">
+					<dt class="J_sidebar_forum_toggle"><a href="http://www.scmor.com/cate/2">案例分析</a></dt>
+					<dd role="tabpanel">
+												<p><a class="" href="http://www.scmor.com/cate/9">供应链金融</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/13">供应链信息</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/11">供应链物流</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/8">采购策略</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/10">营销策略</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/12">战略整合</a></p>
+											</dd>
+				</dl>
+								<dl class="">
+					<dt class="J_sidebar_forum_toggle"><a href="http://www.scmor.com/cate/3">供应链研究</a></dt>
+					<dd role="tabpanel">
+												<p><a class="" href="http://www.scmor.com/cate/7">理论前沿</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/15">研究论文</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/16">数据报告</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/17">文献综述</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/18">基金申请</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/14">研究方法</a></p>
+											</dd>
+				</dl>
+								<dl class="">
+					<dt class="J_sidebar_forum_toggle"><a href="http://www.scmor.com/cate/4">思谋俱乐部</a></dt>
+					<dd role="tabpanel">
+												<p><a class="" href="http://www.scmor.com/cate/29">前沿论坛</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/27">资源分享</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/28">机构通讯</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/22">知名学者</a></p>
+											</dd>
+				</dl>
+								<dl class="">
+					<dt class="J_sidebar_forum_toggle"><a href="http://www.scmor.com/cate/23">站务办公室</a></dt>
+					<dd role="tabpanel">
+												<p><a class="" href="http://www.scmor.com/cate/25">黑板报</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/24">内部交流</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/26">意见反馈</a></p>
+												<p><a class="" href="http://www.scmor.com/cate/31">回收站</a></p>
+											</dd>
+				</dl>
+							</div>
+		</div>
+<div class="box_wrap">
+	<h2 class="box_title">热门话题</h2>
+	<div class="tags_hot">
+	<ul class="cc">
+				<li><a href="http://www.scmor.com/tag/%E5%BF%AB%E6%97%B6%E5%B0%9A" class="title">快时尚</a></li>
+				<li><a href="http://www.scmor.com/tag/%E6%9C%8D%E8%A3%85%E4%B8%9A" class="title">服装业</a></li>
+				<li><a href="http://www.scmor.com/tag/%E9%9F%A9%E9%83%BD%E8%A1%A3%E8%88%8D" class="title">韩都衣舍</a></li>
+				<li><a href="http://www.scmor.com/tag/endnote" class="title">endnote</a></li>
+				<li><a href="http://www.scmor.com/tag/mto" class="title">mto</a></li>
+				<li><a href="http://www.scmor.com/tag/%E8%B0%B7%E6%AD%8C%E5%AD%A6%E6%9C%AF" class="title">谷歌学术</a></li>
+				<li><a href="http://www.scmor.com/tag/%E7%A0%94%E7%A9%B6%E6%9C%BA%E6%9E%84" class="title">研究机构</a></li>
+				<li><a href="http://www.scmor.com/tag/%E5%86%AF%E6%9C%89%E7%BF%BC" class="title">冯有翼</a></li>
+				<li><a href="http://www.scmor.com/tag/%E5%9B%9B%E5%B7%9D%E5%A4%A7%E5%AD%A6" class="title">四川大学</a></li>
+				<li><a href="http://www.scmor.com/tag/%E9%99%88%E7%A5%8E%E4%BC%9F" class="title">陈祎伟</a></li>
+			</ul>
+	</div>
+</div>
+ 
+
+ 
+<!--design role="segment" id="linkdemo"/-->
+			</div>
+		</div>
+		<div id="cloudwind_forum_bottom"></div>
+	</div>
+<!--.main-wrap,#main End-->
+<div class="tac">
+ <br />
+ 
+</div>
+<div class="footer_wrap">
+	<div class="footer">
+		
+		<div class="bottom">
+		<a href="http://www.scmor.com/view/1">关于思谋网</a><a href="http://www.scmor.com/view/4">俱乐部介绍</a><a href="http://www.scmor.com/cate/26">意见反馈</a><a href="http://www.scmor.com/view/5">捐助本站</a><a href="http://www.scmor.com/view/2">联系方式</a>		</div>
+		<p>&copy;2013-2016 <a href="http://www.scmor.com/" target="_blank">思谋网</a> 版权所有. <a href="https://www.beian.gov.cn/" target="_blank" nofollow>渝ICP备15001688号</a></p>
+		<div style=" display:block; text-align:center">
+        <div style="display:none"><script src="https://s96.cnzz.com/z_stat.php?id=5600686&web_id=5600686" language="JavaScript"></script></div> </div>
+	</div>
+	 
+	 
+	 
+	<div id="cloudwind_common_bottom"></div>
+	</div>
+
+<!--返回顶部-->
+<a href="#" rel="nofollow" role="button" id="back_top" tabindex="-1">返回顶部</a>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=0&amp;pos=right&amp;uid=0" ></script><script type="text/javascript" id="bdshell_js"></script>
+<!-- Baidu Button END -->
+</div>
+<script>
+var FID = '';
+Wind.use('jquery', 'global', function(){
+	if(GV.U_ID) {
+		Wind.js(GV.JS_ROOT +'pages/bbs/threadManage.js?v=' + GV.JS_VERSION);
+	}
+});
+</script>
+
+</body>
+</html>

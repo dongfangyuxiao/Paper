@@ -1,0 +1,477 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> <meta name="renderer" content="webkit"> <meta name="author" content="leslie"> <title>企查查-企业信息查询_公司查询_工商信息查询_企业信用信息查询系统</title> <meta name="keywords" content="企查查,企业查询,公司查询,工商查询,企业信用信息查询系统,企业工商信息查询,企业财务信息查询,企业失信信息查询,启信宝,天眼查,天眼通"> <meta name="description" content="企查查为您提供企业信息查询,工商查询,信用查询,公司查询等相关信息查询；帮您快速了解企业信息,企业工商信息,企业信用信息,企业失信信息等企业经营和人员投资状况,查询更多企业信息就到企查查官网！"> <link rel="icon" href="/material/theme/chacha/cms/v2/images/favicon.png"> <link rel="stylesheet" href="/material/theme/chacha/cms/v2/css/bootstrap.css" type="text/css" /> <link rel="stylesheet" href="/material/theme/chacha/cms/v2/css/font-awesome.min.css" type="text/css" /> <link rel="stylesheet" href="/material/theme/chacha/cms/v2/css/icon.css" type="text/css" /> <link rel="stylesheet" href="/material/theme/chacha/cms/v2/css/font.css" type="text/css" /> <link rel="stylesheet" href="/material/theme/chacha/cms/v2/css/app.css?time=20180711" type="text/css" /> <!--[if lt IE 9]>
+    <link rel="stylesheet" href="/material/theme/chacha/cms/v2/css/app_ie8.css?time=1508428800" type="text/css" />
+    <script src="https://mos.meituan.com/media/lib/html5shiv.js"></script>
+    <script src="https://mos.meituan.com/media/lib/respond.js"></script>
+    <![endif]--> <script type="text/javascript" src="/material/js/siteconfig.js"></script> <script src="/material/theme/chacha/cms/v2/js/jquery.min.js"></script> <script type="text/javascript" src="/material/theme/chacha/cms/v2/js/qrcode.min.js"></script> <script type="text/javascript" src="/material/theme/chacha/cms/v2/js/jquery.scrollTo.js"></script> <script src="/material/theme/chacha/cms/v2/js/bootstrap.js"></script> <script type="text/javascript" src="/material/js/echarts.min.js"></script> <script type="text/javascript" src="/material/theme/chacha/cms/v2/js/china.js?time=1508428800"></script> <link rel="stylesheet" href="/material/theme/chacha/cms/v2/css/toastr.css" /> <script type="text/javascript" src="/material/theme/chacha/cms/v2/js/chartsUtil.js?time=20180711"></script> <script src="/material/theme/chacha/cms/v2/js/toastr.js" type="text/javascript"></script> <script src="/material/theme/chacha/cms/v2/js/custom.js?time=20180711"></script> <script type="text/javascript">
+    //window.onerror=function(e){console.error(e);return true;}
+    window.zhuge = window.zhuge || [];window.zhuge.methods = "_init debug identify track trackLink trackForm page".split(" ");
+    window.zhuge.factory = function(b) {return function() {var a = Array.prototype.slice.call(arguments);a.unshift(b);
+        window.zhuge.push(a);return window.zhuge;}};for (var i = 0; i < window.zhuge.methods.length; i++) {
+        var key = window.zhuge.methods[i];window.zhuge[key] = window.zhuge.factory(key);}window.zhuge.load = function(b, x) {
+        if (!document.getElementById("zhuge-js")) {var a = document.createElement("script");var verDate = new Date();
+            var verStr = verDate.getFullYear().toString()+ verDate.getMonth().toString() + verDate.getDate().toString();
+            a.type = "text/javascript";a.id = "zhuge-js";a.async = !0;a.src = (location.protocol == 'http:' ? "http://tongji.qichacha.com/zhuge.js" : 'https://tongji.qichacha.com/zhuge.js');
+            a.onerror = function(){window.zhuge.identify = window.zhuge.track = function(ename, props, callback){if(callback && Object.prototype.toString.call(callback) === '[object Function]')callback();};};
+            var c = document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a, c);window.zhuge._init(b, x)}};
+    window.zhuge.load('de1d1a35bfa24ce29bbf2c7eb17e6c4f',{
+        visualizer: true,
+        autoTrack:false
+    });
+                // window.zhuge.track('首页');
+        // 
+    function zhugeTrack(event,config){
+        try{
+            if(config){
+                window.zhuge.track(event,config);
+            }else{
+                window.zhuge.track(event);
+            }
+        }catch(e){
+            console.info(e);
+        }
+        
+    }
+</script> <script type="text/javascript">
+        var qrcodePolling = false;
+    </script> </head> <body> <header class="header navi-header box-shadow"> <div class="container "> <div class="navi-brand"> <a onclick="zhugeTrack('网站顶部-企查查Logo')" href="/" > <img src="/material/theme/chacha/cms/v2/images/logo4.png" class="m-r-sm" alt="企查查"> </a> </div> <ul class="navi-nav"> <li class="active"><a onclick="zhugeTrack('网站顶部-查企业')" href="/">查企业</a></li> <li class=""><a onclick="zhugeTrack('网站顶部-搜老板')" href="/boss">搜老板</a></li> <li class=""><a onclick="zhugeTrack('网站顶部-找关系')" href="/more_analysis">找关系</a></li> <li class="dropdown"> <a onclick="zhugeTrack('网站顶部-应用')" href="#" class="dropdown-toggle" data-toggle="dropdown"> <div class="icon-new" style="margin-top: -8px;margin-left: 26px;"></div>
+                    应用 <i class="caret"></i> </a> <section class="dropdown-menu app-box"> <div class="row m-l-none m-r-none m-t m-b text-center"> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-雷达监控')" href="/radar" class="header-icon-text"> <span class="m-b-xs block"> <i class="header-icon1"></i> </span> <span>雷达监控</span> </a> </div> </div> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-千寻地图')" href="/map" class="header-icon-text"> <span class="m-b-xs block"> <i class="header-icon3"></i> </span> <span>千寻地图</span> </a> </div> </div> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-网址导航')" href="/daohang" class="header-icon-text"> <span class="m-b-xs block"> <i class="header-icon2"></i> </span> <span>网址导航</span> </a> </div> </div> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-批量查询')" href="/more_batchsearch" class="header-icon-text"> <span class="m-b-xs block"> <i class="header-icon5"></i> </span> <span>批量查询</span> </a> </div> </div> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-情报局')" href="/more_post" class="header-icon-text"> <span class="m-b-xs block"> <i class="header-icon6"></i> </span> <span>情报局</span> </a> </div> </div> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-企业库')" href="/elib" class="header-icon-text"> <span class="m-b-xs block"> <i class="header-icon7"></i> </span> <span>企业库</span> </a> </div> </div> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-流量分析')" href="/more_flowanaly" class="header-icon-text"> <span class="m-b-xs block"> <i class="header-icon8"></i> </span> <span>流量分析</span> </a> </div> </div> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-企业管家')" href="/qiyemd" class="header-icon-text"> <div class="icon-new" style="margin-left: 45px;margin-top: -5px;"></div> <span class="m-b-xs block"> <i class="header-icon9"></i> </span> <span>企业管家</span> </a> </div> </div> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-接口平台')" target="_blank" href="http://yjapi.com/" class="header-icon-text"> <span class="m-b-xs block"> <i class="header-icon10"></i> </span> <span>接口平台</span> </a> </div> </div> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-企风控')" target="_blank" href="http://qifengkong.com" class="header-icon-text"> <span class="m-b-xs block"> <i class="header-icon11"></i> </span> <span>企风控</span> </a> </div> </div> <div class="col-xs-4"> <div class="padder-v"> <a onclick="zhugeTrack('网站顶部-企风控')" href="/media_cert" class="header-icon-text"> <div class="icon-new" style="margin-left: 45px;margin-top: -5px;"></div> <span class="m-b-xs block"> <i class="header-icon12"></i> </span> <span>媒体认证</span> </a> </div> </div> </section> </li> </ul> <script type="text/javascript">
+                var pathname_ = window.location.pathname; 
+                if(pathname_ == '/search_riskinfo' || pathname_ == '/search_intellectualinfo'){
+                    $('#tpsearch').attr('action', pathname_);
+                }
+            </script> <ul class="navi-nav pull-right"> <li> <a onclick="zhugeTrack('网站顶部-APP下载')" href="/app" class="dropdown-toggle header-qrcode">
+                    APP下载
+                  </a> <section class="dropdown-menu qrcode-box"> <img src="/material/theme/chacha/cms/v2/images/header_qrcode@2x.png?t=2"> </section> </li> <li class="head-line">|</li> <li class=""><a onclick="zhugeTrack('网站顶部-会员服务')" href="/vip">会员服务</a></li> <li class="head-line">|</li> <li class=""><a onclick="zhugeTrack('网站顶部-企业版')" href="/qiye">企业版</a></li> <li class="head-line">|</li> <li><a onclick="zhugeTrack('网站顶部-登录')" href="/user_login">登录</a></li> <li  class="head-line">|</li> <li><a onclick="zhugeTrack('网站顶部-免费注册')" href="/user_register">免费注册</a></li> </ul> </div> </header> <section id="search"> <div class="intro"> <div class=""> <div class="container" style="width: 100%;max-width: 1250px;"> <div class="col-md-12"> <h1 id="V3_index_search_h1" class="text-center heading m-b-lg text-white">
+							查企业，就上企查查！
+						</h1> <div class="col-md-10 col-md-offset-1"> <div class="search-nav hidden-xs"> <ul class="V3_index_search_item"> <li class="search-type active" data-index="0">全部</li> <li> </li> <li class="search-type" data-index="2">企业名</li> <li> </li> <li class="search-type" data-index="4">法人/股东 </li> <li> </li> <li class="search-type" data-index="6">高管</li> <li> </li> <li class="search-type" data-index="8">品牌/产品 </li> <li> </li> <li class="search-type" data-index="10">地址/电话</li> <li> </li> <li class="search-type" data-index="12"> 经营范围 </li> </ul> </div> <div class="clearfix"></div> <form action="/search" id="V3_Index_S" style="padding-right: 60px;"> <div class="input-group"> <input type="text" value="" id="searchkey" autocomplete="off" placeholder="请输入企业名称、人名，产品名等，多关键词用空格隔开，如“小米 雷军”" name="key" class="form-control input-lg" required="required" onkeydown="searchKeydown(event,1);"> <input type="hidden" id="index" name="index" value="0"/> <span class="input-group-btn"> <input onclick="zhugeTrack('web主页-搜索区-搜索框搜索')" id="V3_Search_bt" type="submit" class="btn-lg" value="查一下" required="required"> </span> </div> <a onclick="zhugeTrack('web主页-搜索区-高级搜索')" class="hidden-md hidden-sm" href="/user_login?back=/search_adsearch" style="display: block;position: absolute;right: -10px;color: #fff;top: 70px;font-size: 16px;">高级搜索</a> </form> <section class="panel hidden-md" id="search-list"> </section> </div> <div class="col-md-10 col-md-offset-1"> <div class="row"> <div class="col-md-10 col-md-offset-1"> <p class="index-hot"> <span id="hot_data_label">热搜：</span> <span id="hot_data"> <a onclick="zhugeTrack('web主页-搜索区-热搜')" class="index-hot-company" href="/firm_CN_917720a16d08bdde171681983391aed0.html" target="_blank">许家印买下FF</a> <a onclick="zhugeTrack('web主页-搜索区-热搜')" class="index-hot-company" href="/firm_CN_6d5107a8707406cbb4836fb29ef88e7d.html" target="_blank">红罐加多宝</a> <a onclick="zhugeTrack('web主页-搜索区-热搜')" class="index-hot-company" href="/firm_CN_bd2305954dbfe7a0d57a6235cfe113a0.html" target="_blank">华谊兄弟</a> <a onclick="zhugeTrack('web主页-搜索区-热搜')" class="index-hot-company" href="/firm_CN_6130602eba45cce23757e20787e9cadf.html" target="_blank">创造101</a> <a onclick="zhugeTrack('web主页-搜索区-热搜')" class="index-hot-company" href="/firm_CN_84c17a005a759a5e0d875c1ebb6c9846.html" target="_blank">乐视股票</a> </span> <a onclick="zhugeTrack('web主页-搜索区-热搜换一批')" class="index-hot-company" style="color:white;" id="refresh_hot"> <span class="c_icon ca_refresh" style="position:relative;top:4px;"></span>&nbsp;换一批</a> </p> </div> </div> </div> <script type="text/javascript">
+							function hotSearchHTML(hot){
+								var html='';
+								for(var i=0;i<hot.length;i++){
+									html=html+"<a class='index-hot-company'  href='"+INDEX_URL+"/"+ hot[i].url+".html'  target='_blank'>"+hot[i].title+"</a>";
+								}
+								return html;
+							}
+							$('#refresh_hot').on('click',function(){
+								$.ajax({ 
+									type: 'POST',
+									url: INDEX_URL + '/index_getHotSearch',
+									success: function(rs) {
+										if (rs == "null") {
+											return false
+										} else {
+											var data = JSON.parse(rs);
+											if (data) {
+												var show_ = hotSearchHTML(data);
+												$('#hot_data').html(show_)
+											}
+										}
+									}
+								})
+							});
+
+							$(function(){
+							   $("#searchkey").focus();
+							})    
+														 
+						</script> </div> </div> </div> </div> </section> <nav id="V3_Index_M_Nav"> <div class="container"> <a onclick="zhugeTrack('web主页-推荐功能区-查商标')" href="/more_brands"> <h2>查商标</h2> <small>2400万+商标</small> </a> <a onclick="zhugeTrack('web主页-推荐功能区-查专利')" href="/more_zhuanlis"> <h2>查专利</h2> <small>2000万+专利</small> </a> <a onclick="zhugeTrack('web主页-推荐功能区-查失信')" href="/more_shixins"> <h2>查失信</h2> <small>2000万+失信信息</small> </a> <a onclick="zhugeTrack('web主页-推荐功能区-查裁判文书')" href="/more_wenshus"> <h2>查裁判文书</h2> <small>3000万+裁判文书</small> </a> <a onclick="zhugeTrack('web主页-推荐功能区-投融资查询')" href="/elib"> <h2>投融资查询</h2> <small>30万+创业公司</small> </a> </div> </nav> <div class="container m-t-md"> <div id="indexCarousel" data-ride="carousel" data-interval="4000" class="carousel slide"> <ol class="carousel-indicators" style="bottom: -5px;"> <li data-target="#indexCarousel" data-slide-to="0" class="active"></li> <li data-target="#indexCarousel" data-slide-to="1" class=""></li> <li data-target="#indexCarousel" data-slide-to="2" class=""></li> </ol> <div class="carousel-inner"> <a  href="https://www.qichacha.com/company_cert" target="_blank" onclick="zhugeTrack('web主页-banner')" class="item active"> <img src="https://co-image.qichacha.com/upload/chacha/img/20180609/152851437818746.png" alt="企查查"> </a> <a  href="https://www.qichacha.com/more_analysis" target="_blank" onclick="zhugeTrack('web主页-banner')" class="item "> <img src="https://co-image.qichacha.com/upload/chacha/img/20180622/1529632057187713.png" alt="企查查"> </a> <a  href="http://www.qifengkong.com/a/index_benefit" target="_blank" onclick="zhugeTrack('web主页-banner')" class="item "> <img src="https://co-image.qichacha.com/upload/chacha/img/20180711/1531296214385061.png" alt="企查查"> </a> </div> </div> </div> <div class="container m-t-md no-padding"> <div class="col-sm-6  no-padding-right"> <section class="panel b-a"> <div class="panel-heading b-b"> <span class="pull-right"><a href="/news" class="text-muted v3e_more">查看更多></a></span> <span class="font-bold font-15 text-dark">热门头条</span> </div> <div class="panel-body" style="height: 594px; overflow: hidden;"> <ul class="list-group alt"> <li class="v3e_index_fixLeft"> <div class="v3ef_left"> <img src="https://co-image.qichacha.com/upload/chacha/img/20180711/1531275470338727.jpg" title="壹佰金融“爆雷” 银河天成忙澄清：收购已终止" alt="壹佰金融“爆雷” 银河天成忙澄清：收购已终止_企查查" class=""> </div> <div class="v3ef_right"> <a onclick="zhugeTrack('web主页-热门头条')" href="/p_48215306.html" target="_blank">
+                                壹佰金融“爆雷” 银河天成忙澄清：收购已终止
+                            </a> <small> <div class="pull-left">来源：每经网</div> <div class="pull-right">1天前</div> </small> </div> </li> <li class="v3e_index_fixLeft"> <div class="v3ef_left"> <img src="https://co-image.qichacha.com/upload/chacha/img/20180710/1531189127232973.jpg" title="高德憋了个大招，“打包”所有网约车平台" alt="高德憋了个大招，“打包”所有网约车平台_企查查" class=""> </div> <div class="v3ef_right"> <a onclick="zhugeTrack('web主页-热门头条')" href="/p_48215303.html" target="_blank">
+                                高德憋了个大招，“打包”所有网约车平台
+                            </a> <small> <div class="pull-left">来源：投资界——新芽NewSeed</div> <div class="pull-right">2天前</div> </small> </div> </li> <li class="v3e_index_fixLeft"> <div class="v3ef_left"> <img src="https://co-image.qichacha.com/upload/chacha/img/20180709/1531101035181718.jpg" title="这些原因 让美国投资机构对小米IPO兴致不高" alt="这些原因 让美国投资机构对小米IPO兴致不高_企查查" class=""> </div> <div class="v3ef_right"> <a onclick="zhugeTrack('web主页-热门头条')" href="/p_48215301.html" target="_blank">
+                                这些原因 让美国投资机构对小米IPO兴致不高
+                            </a> <small> <div class="pull-left">来源：投资界——腾讯科技</div> <div class="pull-right">3天前</div> </small> </div> </li> <li class="v3e_index_fixLeft"> <div class="v3ef_left"> <img src="https://co-image.qichacha.com/upload/chacha/img/20180706/1530843794383341.jpg" title="欢喜传媒亏损了三年，猫眼为什么还是喜欢上了它？" alt="欢喜传媒亏损了三年，猫眼为什么还是喜欢上了它？_企查查" class=""> </div> <div class="v3ef_right"> <a onclick="zhugeTrack('web主页-热门头条')" href="/p_48215297.html" target="_blank">
+                                欢喜传媒亏损了三年，猫眼为什么还是喜欢上了它？
+                            </a> <small> <div class="pull-left">来源：投资界——无冕财经</div> <div class="pull-right">6天前</div> </small> </div> </li> </ul> </div> </section> </div> <div class="col-sm-6  no-padding-left"> <section class="panel b-a" id="album"> <div class="panel-heading b-b"> <span class="pull-right"><a href="/album" class="text-muted v3e_more">查看更多></a></span> <span class="font-bold font-15 text-dark">热门专辑</span> </div> <div class="panel-body" style="height: 594px; overflow: hidden;"> <ul class="list-group alt"> <li class="v3e_index_fixLeft"> <div class="v3ef_left"> <img src="https://co-image.qichacha.com/upload/chacha/img/20180706/1530858254246196.jpg" title="小龙虾互联网餐饮品牌" alt="小龙虾互联网餐饮品牌_企查查" class=""> </div> <div class="v3ef_right"> <a onclick="zhugeTrack('web主页-热门专辑')" href="/album_view_id_14715.html" target="_blank">
+                                小龙虾互联网餐饮品牌
+                            </a> <small>
+                                收录 21 家公司  创建于 5天前
+                            </small> </div> </li> <li class="v3e_index_fixLeft"> <div class="v3ef_left"> <img src="https://co-image.qichacha.com/upload/chacha/img/20180625/1529907502135125.jpg" title="提供足球数据、赛事分析的公司" alt="提供足球数据、赛事分析的公司_企查查" class=""> </div> <div class="v3ef_right"> <a onclick="zhugeTrack('web主页-热门专辑')" href="/album_view_id_14713.html" target="_blank">
+                                提供足球数据、赛事分析的公司
+                            </a> <small>
+                                收录 26 家公司  创建于 2018-06-25
+                            </small> </div> </li> <li class="v3e_index_fixLeft"> <div class="v3ef_left"> <img src="https://co-image.qichacha.com/upload/chacha/img/20180601/1527840742600519.jpg" title="中国ICO领域的创业公司" alt="中国ICO领域的创业公司_企查查" class=""> </div> <div class="v3ef_right"> <a onclick="zhugeTrack('web主页-热门专辑')" href="/album_view_id_14712.html" target="_blank">
+                                中国ICO领域的创业公司
+                            </a> <small>
+                                收录 9 家公司  创建于 2018-06-01
+                            </small> </div> </li> <li class="v3e_index_fixLeft"> <div class="v3ef_left"> <img src="https://co-image.qichacha.com/upload/chacha/img/20180511/1526019426552881.jpg" title="电动智能汽车领域探索的中国创业公司" alt="电动智能汽车领域探索的中国创业公司_企查查" class=""> </div> <div class="v3ef_right"> <a onclick="zhugeTrack('web主页-热门专辑')" href="/album_view_id_14711.html" target="_blank">
+                                电动智能汽车领域探索的中国创业公司
+                            </a> <small>
+                                收录 22 家公司  创建于 2018-05-11
+                            </small> </div> </li> </ul> </div> </section> </div> <div id="V3_Index_Con_Tab" class="col-md-12 hidden-xs"> <section class="panel b-a"> <div class="panel-heading b-b"> <ul class="nav nav-tabs nav-justified"> <li class="active"><a onclick="zhugeTrack('web主页-最新注册公司')" class="font-bold font-15 text-dark" href="#new" data-toggle="tab"><h2 class="font-bold font-15 text-dark">最新注册公司</h2></a></li> <li class=""><a onclick="zhugeTrack('web主页-最新认证公司')" class="font-bold font-15 text-dark" href="#cert" data-toggle="tab"><h2 class="font-bold font-15 text-dark">最新认证公司</h2></a></li> <li class=""><a onclick="zhugeTrack('web主页-按区域查公司')" class="font-bold font-15 text-dark" href="#area" data-toggle="tab"><h2 class="font-bold font-15 text-dark">按区域查公司</h2></a></li> <li class=""><a onclick="zhugeTrack('web主页-按行业查公司')" class="font-bold font-15 text-dark" href="#hangye" data-toggle="tab"><h2 class="font-bold font-15 text-dark">按行业查公司</h2></a></li> </ul> </div> <div class="panel-body"> <div class="tab-content m-t"> <div class="tab-pane fade active in" id="new"> <div class="col-md-3  no-padding "> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_5d8b7ee26ced002435eb74d9cc8907c4.html" target="_blank" >宜兴诚汇捷电子商务有限公司</a> <p class="text-muted m-t-xs text-xs">成立日期：2018-07-12</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_f1465a003c9d64c4d0b9947553238c4c.html" target="_blank" >国茂商业保理有限公司</a> <p class="text-muted m-t-xs text-xs">成立日期：2018-07-11</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_ea98af93324aa91d668356f4aa4f4a07.html" target="_blank" >深圳市聚美优宝网络科技有限公司</a> <p class="text-muted m-t-xs text-xs">成立日期：2018-07-11</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_26217095c2afd72599dd65b849913447.html" target="_blank" >京洲控股(深圳)有限公司</a> <p class="text-muted m-t-xs text-xs">成立日期：2018-07-11</p> </div> </section> </div> <div class="col-md-3  no-padding "> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_ca0c8593a79970b7092bff7610baef94.html" target="_blank" >浙银利星(深圳)供应链管理有限...</a> <p class="text-muted m-t-xs text-xs">成立日期：2018-07-11</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_bc20ccf3ff94809300e6ceda197722a1.html" target="_blank" >南陵县升汇利农业有限公司</a> <p class="text-muted m-t-xs text-xs">成立日期：2018-07-11</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_43c47d39e1b541403ba9570a025fa4d3.html" target="_blank" >深圳市前海潜湾投资合伙企业(有...</a> <p class="text-muted m-t-xs text-xs">成立日期：2018-07-11</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_b31a3362b72499e70792bdfdb7ac0998.html" target="_blank" >深圳市富必康健康管理有限公司</a> <p class="text-muted m-t-xs text-xs">成立日期：2018-07-11</p> </div> </section> </div> </div> <div class="tab-pane fade" id="cert"> <div class="col-md-3  no-padding "> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_6dae120e45f5883f342cb41cf11e1b7d.html" target="_blank" >杭州翱江文化创意有限公司</a> <p class="text-muted m-t-xs text-xs">认证人：</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_022856d4170a1a70fd959205c50ac212.html" target="_blank" >阳城县城学亮副食批发部</a> <p class="text-muted m-t-xs text-xs">认证人：</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_7c076263063b598366d6ec7642292203.html" target="_blank" >四川鸿堃建设工程有限公司</a> <p class="text-muted m-t-xs text-xs">认证人：</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_45a02aa1e6905d9f96f8c645dc7c23d6.html" target="_blank" >平潭好太太家居有限公司</a> <p class="text-muted m-t-xs text-xs">认证人：</p> </div> </section> </div> <div class="col-md-3  no-padding "> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_7f6be881a4acba72ea8fc26fd7bf8b60.html" target="_blank" >厦门市台晋科技有限公司</a> <p class="text-muted m-t-xs text-xs">认证人：</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_b7e484ad1a69a1123cf8b2ed61c38fd8.html" target="_blank" >河南慧诺教育咨询有限公司</a> <p class="text-muted m-t-xs text-xs">认证人：</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_20c141c8111f2a017ec21c3c6adcfda0.html" target="_blank" >武汉炜朗德自动化有限公司</a> <p class="text-muted m-t-xs text-xs">认证人：</p> </div> </section> </div> <div class="col-md-3 no-padding-right"> <section class="panel panel-default"> <div class="panel-body m_ahover"> <a href="/firm_a9eca3b7295b491dc134ef3394995408.html" target="_blank" >内蒙古中允投资管理有限公司</a> <p class="text-muted m-t-xs text-xs">认证人：</p> </div> </section> </div> </div> <div class="tab-pane fade" id="area"> <ul class="sidebar-hangye-list"> <li class="area  text-center"> <a  href="/g_AH">安徽 </a> </li> <li class="area  text-center"> <a  href="/g_BJ">北京 </a> </li> <li class="area  text-center"> <a  href="/g_CQ">重庆 </a> </li> <li class="area  text-center"> <a  href="/g_FJ">福建 </a> </li> <li class="area  text-center"> <a  href="/g_GS">甘肃 </a> </li> <li class="area  text-center"> <a  href="/g_GD">广东 </a> </li> <li class="area  text-center"> <a  href="/g_GX">广西 </a> </li> <li class="area  text-center"> <a  href="/g_GZ">贵州 </a> </li> <li class="area  text-center"> <a  href="/g_HAIN">海南 </a> </li> <li class="area  text-center"> <a  href="/g_HB">河北 </a> </li> <li class="area  text-center"> <a  href="/g_HLJ">黑龙江 </a> </li> <li class="area  text-center"> <a  href="/g_HEN">河南 </a> </li> <li class="area  text-center"> <a  href="/g_HUB">湖北 </a> </li> <li class="area  text-center"> <a  href="/g_HUN">湖南 </a> </li> <li class="area  text-center"> <a  href="/g_JS">江苏 </a> </li> <li class="area  text-center"> <a  href="/g_JX">江西 </a> </li> <li class="area  text-center"> <a  href="/g_JL">吉林 </a> </li> <li class="area  text-center"> <a  href="/g_LN">辽宁 </a> </li> <li class="area  text-center"> <a  href="/g_NMG">内蒙古 </a> </li> <li class="area  text-center"> <a  href="/g_NX">宁夏 </a> </li> <li class="area  text-center"> <a  href="/g_QH">青海 </a> </li> <li class="area  text-center"> <a  href="/g_SD">山东 </a> </li> <li class="area  text-center"> <a  href="/g_SH">上海 </a> </li> <li class="area  text-center"> <a  href="/g_SX">山西 </a> </li> <li class="area  text-center"> <a  href="/g_SAX">陕西 </a> </li> <li class="area  text-center"> <a  href="/g_SC">四川 </a> </li> <li class="area  text-center"> <a  href="/g_TJ">天津 </a> </li> <li class="area  text-center"> <a  href="/g_XJ">新疆 </a> </li> <li class="area  text-center"> <a  href="/g_XZ">西藏 </a> </li> <li class="area  text-center"> <a  href="/g_YN">云南 </a> </li> <li class="area  text-center"> <a  href="/g_ZJ">浙江 </a> </li> <li class="area"> <a  href="/g_CN">总局</a> </li> </ul> </div> <div class="tab-pane fade" id="hangye"> <div class="col-md-12 "> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_A.html"> 农、林、牧、渔业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_A_01.html">农业</a></li> <li><a href="/industry_A_02.html">林业</a></li> <li><a href="/industry_A_03.html">畜牧业</a></li> <li><a href="/industry_A_04.html">渔业</a></li> <li><a href="/industry_A_05.html">农、林、牧、渔专业及辅助性活动</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_B.html"> 采矿业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_B_06.html">煤炭开采和洗选业</a></li> <li><a href="/industry_B_07.html">石油和天然气开采业</a></li> <li><a href="/industry_B_08.html">黑色金属矿采选业</a></li> <li><a href="/industry_B_09.html">有色金属矿采选业</a></li> <li><a href="/industry_B_10.html">非金属矿采选业</a></li> <li><a href="/industry_B_11.html">开采专业及辅助性活动</a></li> <li><a href="/industry_B_12.html">其他采矿业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_C.html"> 制造业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_C_13.html">农副食品加工业</a></li> <li><a href="/industry_C_14.html">食品制造业</a></li> <li><a href="/industry_C_15.html">酒、饮料和精制茶制造业</a></li> <li><a href="/industry_C_16.html">烟草制品业 </a></li> <li><a href="/industry_C_17.html">纺织业</a></li> <li><a href="/industry_C_18.html">纺织服装、服饰业</a></li> <li><a href="/industry_C_19.html">皮革、毛皮、羽毛及其制品和制鞋业</a></li> <li><a href="/industry_C_20.html">木材加工和木、竹、藤、棕、草制品业</a></li> <li><a href="/industry_C_21.html">家具制造业 </a></li> <li><a href="/industry_C_22.html">造纸和纸制品业 </a></li> <li><a href="/industry_C_23.html">印刷和记录媒介复制业</a></li> <li><a href="/industry_C_24.html">文教、工美、体育和娱乐用品制造业</a></li> <li><a href="/industry_C_25.html">石油、煤炭及其他燃料加工业</a></li> <li><a href="/industry_C_26.html">化学原料和化学制品制造业</a></li> <li><a href="/industry_C_27.html">医药制造业 </a></li> <li><a href="/industry_C_28.html">化学纤维制造业</a></li> <li><a href="/industry_C_29.html">橡胶和塑料制品业</a></li> <li><a href="/industry_C_30.html">非金属矿物制品业</a></li> <li><a href="/industry_C_31.html">黑色金属冶炼和压延加工业 </a></li> <li><a href="/industry_C_32.html">有色金属冶炼和压延加工业 </a></li> <li><a href="/industry_C_33.html">金属制品业 </a></li> <li><a href="/industry_C_34.html">通用设备制造业</a></li> <li><a href="/industry_C_35.html">专用设备制造业 </a></li> <li><a href="/industry_C_36.html">汽车制造业</a></li> <li><a href="/industry_C_37.html">铁路、船舶、航空航天和其他运输设备制造业</a></li> <li><a href="/industry_C_38.html">电气机械和器材制造业 </a></li> <li><a href="/industry_C_39.html">计算机、通信和其他电子设备制造业</a></li> <li><a href="/industry_C_40.html">仪器仪表制造业</a></li> <li><a href="/industry_C_41.html">其他制造业</a></li> <li><a href="/industry_C_42.html">废弃资源综合利用业  </a></li> <li><a href="/industry_C_43.html">金属制品、机械和设备修理业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_D.html"> 电力、热力、燃气及水生产和供应业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_D_44.html">电力、热力生产和供应业</a></li> <li><a href="/industry_D_45.html">燃气生产和供应业  </a></li> <li><a href="/industry_D_46.html">水的生产和供应业  </a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_E.html"> 建筑业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_E_47.html">房屋建筑业</a></li> <li><a href="/industry_E_48.html">土木工程建筑业</a></li> <li><a href="/industry_E_49.html">建筑安装业</a></li> <li><a href="/industry_E_50.html">建筑装饰、装修和其他建筑业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_F.html"> 批发和零售业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_F_51.html">批发业</a></li> <li><a href="/industry_F_52.html">零售业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_G.html"> 交通运输、仓储和邮政业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_G_53.html">铁路运输业</a></li> <li><a href="/industry_G_54.html">道路运输业</a></li> <li><a href="/industry_G_55.html">水上运输业</a></li> <li><a href="/industry_G_56.html">航空运输业 </a></li> <li><a href="/industry_G_57.html">管道运输业 </a></li> <li><a href="/industry_G_58.html">多式联运和运输代理业</a></li> <li><a href="/industry_G_59.html">装卸搬运和仓储业</a></li> <li><a href="/industry_G_60.html">邮政业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_H.html"> 住宿和餐饮业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_H_61.html">住宿业</a></li> <li><a href="/industry_H_62.html">餐饮业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_I.html"> 信息传输、软件和信息技术服务业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_I_63.html">电信、广播电视和卫星传输服务</a></li> <li><a href="/industry_I_64.html">互联网和相关服务</a></li> <li><a href="/industry_I_65.html">软件和信息技术服务业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_J.html"> 金融业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_J_66.html">货币金融服务</a></li> <li><a href="/industry_J_67.html">资本市场服务</a></li> <li><a href="/industry_J_68.html">保险业</a></li> <li><a href="/industry_J_69.html">其他金融业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_K.html"> 房地产业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_K_70.html">房地产业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_L.html"> 租赁和商务服务业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_L_71.html">租赁业</a></li> <li><a href="/industry_L_72.html">商务服务业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_M.html"> 科学研究和技术服务业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_M_73.html">研究和试验发展</a></li> <li><a href="/industry_M_74.html">专业技术服务业</a></li> <li><a href="/industry_M_75.html">科技推广和应用服务业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_N.html"> 水利、环境和公共设施管理业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_N_76.html">水利管理业</a></li> <li><a href="/industry_N_77.html">生态保护和环境治理业</a></li> <li><a href="/industry_N_78.html">公共设施管理业</a></li> <li><a href="/industry_N_79.html">土地管理业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_O.html"> 居民服务、修理和其他服务业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_O_80.html">居民服务业</a></li> <li><a href="/industry_O_81.html">机动车、电子产品和日用产品修理业</a></li> <li><a href="/industry_O_82.html">其他服务业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_P.html"> 教育 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_P_83.html">教育</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_Q.html"> 卫生和社会工作 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_Q_84.html">卫生</a></li> <li><a href="/industry_Q_85.html">社会工作</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_R.html"> 文化、体育和娱乐业 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_R_86.html">新闻和出版业</a></li> <li><a href="/industry_R_87.html">广播、电视、电影和录音制作业</a></li> <li><a href="/industry_R_88.html">文化艺术业</a></li> <li><a href="/industry_R_89.html">体育</a></li> <li><a href="/industry_R_90.html">娱乐业</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_S.html"> 公共管理、社会保障和社会组织 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_S_91.html">中国共产党机关</a></li> <li><a href="/industry_S_92.html">国家机构</a></li> <li><a href="/industry_S_93.html">人民政协、民主党派</a></li> <li><a href="/industry_S_94.html">社会保障</a></li> <li><a href="/industry_S_95.html">群众团体、社会团体和其他成员组织</a></li> <li><a href="/industry_S_96.html">基层群众自治组织及其他组织</a></li> </ul> </div> </div> <div class="col-md-12 m-t-lg"> <div class="col-md-4 columns"> <h4 class="parent-jobs-category"><a href="/industry_T.html"> 国际组织 </a></h4> </div> <div class="col-md-8 columns"> <ul> <li><a href="/industry_T_97.html">国际组织</a></li> </ul> </div> </div> </div> </div> </div> </section> </div> </div> <script type="text/javascript">
+    $('#V3_Index_S').submit(function(e){
+        e.preventDefault();
+        indexHashJump();
+    });   
+</script> <link rel="stylesheet" href="/material/theme/chacha/cms/v2/css/footer.css?time=20180711" type="text/css"/> <link rel="stylesheet" href="/material/theme/chacha/cms/v2/css/animate.css?time=1508428800" type="text/css"/> <footer class="bg-dark" id="footer" style="position: relative;"> <div class="dk"> <div class="container"> <div class="row m-t-lg m-b-lg"> <footer class="footer "> <div class="row footer-top"> <div class="col-xs-12"> <div class="row about"> <div class="col-xs-2" style="width: 132px;"> <h4>关于我们</h4> <ul class="list-unstyled"> <li><a href="/cms?id=13">联系我们</a></li> <li><a href="/cms?id=14">用户协议</a></li> <li><a href="/cms?id=15">用户隐私权</a></li> <li><a href="/cms?id=16">友情链接</a></li> <li><a href="/cms?id=892">关于我们</a></li> <li><a href="/cms?id=14578">用户帮助</a></li> <li><a href="/cms?id=146498">名词百科</a></li> <li><a href="/cms?id=146499">产品标签</a></li> <li><a href="/cms?id=146500">更新记录</a></li> <li><a href="/yellowpage">公司黄页</a></li> <li><a href="/cms_dirhot">人员名录</a></li> <li><a href="http://open.qichacha.com" target="_blank"> 开放平台</a></li> </ul> </div> <div class="col-xs-3" style="width: 260px;"> <h4>联系方式</h4> <ul class="list-unstyled"> <li>企查查官方电话：400-928-2212</li> <li>官方客服QQ：4009985212</li> <li>客服邮箱：kf@qichacha.com</li> <li>微信客服：qccgf1234</li> <li>微信公众号：qcc365</li> <li>地址：江苏省苏州市工业园区东长路88号2.5产业园C1幢5楼</li> </ul> </div> <div class="col-xs-4" style="width: 380px;"> <h4>查查服务</h4> <ul class="list-unstyled m_frilink"> <li> <a href="http://qifengkong.com/" target="_blank" >企风控</a> <a href="http://www.qichacha.com/elib" target="_blank" >企业库</a> <a href="http://www.qichacha.com/more_wenshus" target="_blank" >裁判文书查询</a> <a href="http://sanban.qichacha.com" target="_blank" >新三板企业查询</a> <a href="http://ipo.qichacha.com/" target="_blank" >上市企业查询</a> <a href="http://www.qichacha.com/gongsi" target="_blank" >企查查企业查询</a> <a href="http://m.qichacha.com" target="_blank" >企查查移动版</a> <a href="http://www.qichacha.com/dianping" target="_blank" >企查查社区</a> <a href="http://www.qichacha.com/more_shixins" target="_blank" >企业风险搜索</a> <a href="http://www.qichacha.com/more_brands" target="_blank" >商标专利搜索</a> <a href="http://www.qichacha.com/daohang" target="_blank" >企业网址导航</a> <a href="http://www.qichacha.com/boss" target="_blank" >企业高管查询</a> <a href="http://www.qichacha.com/tax" target="_blank" >企业税号查询</a> <a href="http://www.qichacha.com/news" target="_blank" >企业新闻头条</a> <a href="http://hao.qichacha.com" target="_blank" >企业大数据导航</a> <a href="http://www.qichacha.com/weixin" target="_blank" >企查查下载</a> <a href="http://www.qichacha.com/more_shixins" target="_blank" >企业失信查询</a> <a href="http://www.yjapi.com/?from=qichacha" target="_blank" rel="nofollow">企查查接口平台</a> </li> </ul> </div> <div class="col-xs-3" style="width: 470px;text-align: right;margin-top:10px;"> <div class="row m_codeimg"> <div class="col-xs-4"> <span class="ma_wx">微信公众号</span> <img src="/material/theme/chacha/cms/v2/images/v3/code_wx.png" alt="企查查微信公众号" style="width:117px;"> </div> <div class="col-xs-4"> <span class="ma_app">扫码下载APP</span> <img src="/material/theme/chacha/cms/v2/images/v3/code_app.png?t=2" alt="企查查APP下载" style="width:117px;"> </div> <div class="col-xs-4"> <span class="ma_xcx" style="left: 60px;">小程序</span> <img src="/material/theme/chacha/cms/v2/images/v3/code_xcx.png?t=2" alt="企查查APP下载" style="width:117px;"> </div> </div> </div> </div> </div> </div> <hr style="border-top: 1px solid #5f6d8f;"> <div class="row footer-bottom text-center"> <div class="text-muted m-t-sm">
+                                友情链接：
+                                                                    <span> <a href="https://www.zhipin.com" target="_blank" >BOSS直聘</a> </span>
+                                                                            &nbsp;|
+                                                                                                        <span> <a href="https://www.liepin.com/" target="_blank" rel="nofollow">猎聘网</a> </span>
+                                                                            &nbsp;|
+                                                                                                        <span> <a href="http://www.tmkoo.com/" target="_blank" rel="nofollow">标库网</a> </span>
+                                                                            &nbsp;|
+                                                                                                        <span> <a href="http://www.767stock.com/" target="_blank" rel="nofollow">乐晴智库</a> </span>
+                                                                            &nbsp;|
+                                                                                                        <span> <a href="https://www.fxiaoke.com/" target="_blank" rel="nofollow">纷享销客</a> </span>
+                                                                            &nbsp;|
+                                                                                                        <span> <a href="http://www.kuaifawu.com/" target="_blank" rel="nofollow">快法务</a> </span>
+                                                                            &nbsp;|
+                                                                                                        <span> <a href="http://www.ipzhiku.com/" target="_blank" rel="nofollow"> i智库</a> </span> </div> </div> <div class="row footer-bottom text-center"> <div class="text-muted m-t-sm">
+                                数据来源：
+                                <span>全国企业信用信息公示系统</span>&nbsp;|
+                                <span>中国裁判文书网</span>&nbsp;|
+                                <span>中国执行信息公开网</span>&nbsp;|
+                                <span>国家知识产权局</span>&nbsp;|
+                                <span>商标局</span>&nbsp;|
+                                <span>版权局</span> </div> </div> <div class="row footer-bottom text-center"> <div class="text-muted m-t-sm">
+                                热点省份：
+                                                                <a href="http://ah.qichacha.com" target="_blank">安徽企业</a>&nbsp;|
+                                                                <a href="http://bj.qichacha.com" target="_blank">北京企业</a>&nbsp;|
+                                                                <a href="http://cq.qichacha.com" target="_blank">重庆企业</a>&nbsp;|
+                                                                <a href="http://fj.qichacha.com" target="_blank">福建企业</a>&nbsp;|
+                                                                <a href="http://gs.qichacha.com" target="_blank">甘肃企业</a>&nbsp;|
+                                                                <a href="http://gd.qichacha.com" target="_blank">广东企业</a>&nbsp;|
+                                                                <a href="http://gx.qichacha.com" target="_blank">广西企业</a>&nbsp;|
+                                                                <a href="http://gz.qichacha.com" target="_blank">贵州企业</a>&nbsp;|
+                                                                <a href="http://hain.qichacha.com" target="_blank">海南企业</a>&nbsp;|
+                                                                <a href="http://hb.qichacha.com" target="_blank">河北企业</a>&nbsp;|
+                                                                <a href="http://hlj.qichacha.com" target="_blank">黑龙江企业</a>&nbsp;|
+                                                                <a href="http://hen.qichacha.com" target="_blank">河南企业</a>&nbsp;|
+                                                                <a href="http://hub.qichacha.com" target="_blank">湖北企业</a>&nbsp;|
+                                                                <a href="http://hun.qichacha.com" target="_blank">湖南企业</a>&nbsp;|
+                                                                <a href="http://js.qichacha.com" target="_blank">江苏企业</a>&nbsp;|
+                                                                <a href="http://jx.qichacha.com" target="_blank">江西企业</a>&nbsp;|
+                                                                <a href="http://jl.qichacha.com" target="_blank">吉林企业</a>&nbsp;|
+                                                                <a href="http://ln.qichacha.com" target="_blank">辽宁企业</a>&nbsp;|
+                                                                <a href="http://nmg.qichacha.com" target="_blank">内蒙古企业</a>&nbsp;|
+                                                                <a href="http://nx.qichacha.com" target="_blank">宁夏企业</a>&nbsp;|
+                                                                <a href="http://qh.qichacha.com" target="_blank">青海企业</a>&nbsp;|
+                                                                <a href="http://sd.qichacha.com" target="_blank">山东企业</a>&nbsp;|
+                                                                <a href="http://sh.qichacha.com" target="_blank">上海企业</a>&nbsp;|
+                                                                <a href="http://sx.qichacha.com" target="_blank">山西企业</a>&nbsp;|
+                                                                <a href="http://sax.qichacha.com" target="_blank">陕西企业</a>&nbsp;|
+                                                                <a href="http://sc.qichacha.com" target="_blank">四川企业</a>&nbsp;|
+                                                                <a href="http://tj.qichacha.com" target="_blank">天津企业</a>&nbsp;|
+                                                                <a href="http://xj.qichacha.com" target="_blank">新疆企业</a>&nbsp;|
+                                                                <a href="http://xz.qichacha.com" target="_blank">西藏企业</a>&nbsp;|
+                                                                <a href="http://yn.qichacha.com" target="_blank">云南企业</a>&nbsp;|
+                                                                <a href="http://zj.qichacha.com" target="_blank">浙江企业</a>&nbsp;|
+                                                            </div> </div> <div class="row footer-bottom text-center"> <div class="text-muted m-t-sm"> <span> <a href="javascript:void(0)" title="企查查">&copy;2014-2018</a> <a href="http://www.miibeian.gov.cn/" target="_blank"> 苏ICP备15042526号-4</a>
+                                    版权所有&nbsp;苏州朗动网络科技有限公司
+                                    &nbsp;增值电信业务经营许可证：<a href="http://jscainfo.miitbeian.gov.cn/state/outPortal/loginPortal.action" rel="nofollow" target="_blank">苏B2-20180251</a> </span> </div> </div> </footer> <div class="col-sm-12 text-center"> <div class="text-muted m-t-sm"> <span>交流QQ群：467569586  369254293  257048933  259189047  371601207  374037798</span> <a href="https://ss.knet.cn/verifyseal.dll?sn=e17091132050068868mhtm000000&comefrom=trust" rel="nofollow" target="_blank"> <img class="m-l-sm" style="width: 80px" src="/material/theme/chacha/cms/v2/images/dependable.png"/> </a> <a href="http://www.jsdsgsxt.gov.cn/mbm/entweb/elec/certView.shtml?siteId=2f2c5b85a5154355a56eb3dee98ad8a3" rel="nofollow" target="_blank"> <img class="m-l-sm" style="width: 40px" src="/material/theme/chacha/cms/v2/images/jsdsgsxt.png"/> </a> <a href="https://v.pinpaibao.com.cn/cert/site/?site=www.qichacha.com&at=official" rel="nofollow" target="_blank"> <img class="m-l-sm" style="height: 32.5px;" src="https://static.anquan.org/static/outer/image/gw_124x47.png"/> </a> </div> </div> </div> </div> </div> </footer> <div class="modal fade" id="feedModal" tabindex="-1" role="dialog" style="overflow: hidden;" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">x</span></button> <h4 class="modal-title" id="myModalLabel">意见反馈</h4> </div> <div class="modal-body"> <form class="form-horizontal" role="form"> <div class="form-group"> <label for="inputEmail3" class="col-sm-2">反馈内容</label> <div class="col-sm-10"> <textarea class="form-control content" rows="5"  name="content" placeholder="亲爱的用户：请在这里直接填写您遇到的问题或意见建议，您的意见是我们前进的动力"></textarea> <span class="contentmsg text-danger"></span> </div> </div> <div class="form-group"> <label for="inputPassword3" class="col-sm-2">联系方式</label> <div class="col-sm-10"> <input type="text" class="form-control email" name="email" placeholder="请输入邮箱，方便我们联系您。"> <span class="emailmsg text-danger"></span> </div> </div> <div class="form-group m-t-lg"> <label for="inputPassword3" class="col-sm-2"></label> <div class="col-sm-10  text-center"> <span class="btn btn-primary btn-guest btn-block">提交反馈</span> </div> </div> </form> </div> </div> </div> </div> <div style="display:none;"> <script src="https://s4.cnzz.com/z_stat.php?id=1254842228&web_id=1254842228" language="JavaScript"></script> <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?3456bee468c83cc63fb5147f119f1075";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script> <script>(function(){
+        var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?db135ad770b0860a90c3a2ca38cf577c":"https://jspassport.ssl.qhimg.com/11.0.1.js?db135ad770b0860a90c3a2ca38cf577c";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+    })();
+    </script> </div> <script type="text/javascript">
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script> <link rel="stylesheet" type="text/css" href="/material/theme/chacha/cms/v2/css/rnav.css?timestamp=1497542400"> <div id="RNav" class="visible-lg i_hide"> <div class="i_menu"> <ul class="i_bts-outer" style="bottom:69px;"> <li class="i_bt_sm i_bt_xcx"><i></i> <label>小程序</label><img src="/material/theme/chacha/cms/v2/images/leftnav/bg_xcx.png?t=2" alt="企查查"></li> <li class="i_bt_sm i_bt_wx"><i></i> <label>公众号</label><img src="/material/theme/chacha/cms/v2/images/leftnav/bg_wx.png?t=2" alt="企查查"></li> <li class="i_bt_sm i_bt_dow"><i></i> <label>下载</label><img src="/material/theme/chacha/cms/v2/images/leftnav/bg_app.png?t=3" alt="企查查"></li> <script type="text/javascript" src="/material/js/jquery.cookie.js"></script> <script type="text/javascript" src="/material/js/jquery.validate.min.js"></script> <script type="text/javascript" src="/material/js/jquery.form.min.js"></script> <script type="text/javascript" src="/material/js/global.js?t=33"></script> <li id="RNBack" class="i_bt_sm i_bt_back" data-toggle="modal" data-target="#loginModal" onclick="getCaptcha()"><i></i> <label>反馈</label></li> <li id="RNTop" class="i_bt_sm i_bt_top"><i></i> <label>置顶</label></li> </ul> </div> <div class="i_container"> <div class="i_nodata">暂无数据</div> <div id="RNFoc" class="i_wrap"> <div class="i_title">我的关注</div> <div class="i_com-wrap"> <div style="height:1px;width:240px;"></div> </div> <div class="i_botbt"> <a href="/user_follow">打开全部</a> </div> </div> <div id="RNCom" class="i_wrap"> <div class="i_title">企业对比</div> <div class="i_toast">
+				还可以添加<span id="ComLastCount">5</span>家企业 
+				<a id="ClearCompares" class="c_a">清空</a> </div> <div class="i_com-wrap"> <div class="i_com i_addcom" data-toggle="modal" data-target="#loginModal" onclick="getCaptcha()"> <img src="/material/theme/chacha/cms/v2/images/leftnav/icon-add.png" alt="企查查"/> <a class="c_a" href="javascript:;">添加企业</a> </div> <div style="height:1px;width:240px;"></div> </div> <div class="i_botbt"> <a href="javascript:;" data-toggle="modal" data-target="#loginModal" onclick="getCaptcha()">对比企业</a> </div> </div> <div id="RNRel" class="i_wrap"> <div class="i_title">找关系</div> <div class="i_toast">
+				还可以添加<span id="RelLastCount">5</span>家企业 
+				<a class="c_a" id="ClearRels">清空</a> </div> <div class="i_com-wrap"> <div class="i_com i_addcom" data-toggle="modal" data-target="#loginModal" onclick="getCaptcha()"> <img src="/material/theme/chacha/cms/v2/images/leftnav/icon-add.png" alt="企查查"/> <a class="c_a" href="javascript:;">添加企业或个人</a> </div> <div style="height:1px;width:240px;"></div> </div> <div class="i_botbt"> <a href="javascript:;" data-toggle="modal" data-target="#loginModal" onclick="getCaptcha()">找关系</a> </div> </div> </div> <div class="modal fade" id="qaddComPanel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog"> <div class="modal-content" style="width:600px;"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">x</span></button> <h4 class="modal-title">添加企业</h4> </div> <div class="modal-body" style="height: 330px"> <form class="form-horizontal" role="form"> <div class="form-group"> <div class="col-sm-12 m-t-md"> <input type="text" id="qcomName" name="comName" class="form-control" value="" placeholder="请输入公司/人" autocomplete="off" oninput="qsearchCom(event,this)"/> <section class="panel hidden-xs" id="qsearchList" style="position: absolute;width: 560px;z-index: 10;display: none;"></section> </div> <div class="col-sm-12 text-center m-t-lg" style="padding-left: 18px;padding-right: 18px;"> <span id="qaddComPanelConfirm" class="btn-primary btn-guest btn-block" style="padding-top: 5px;padding-bottom: 5px;cursor:pointer;">添加企业</span> </div> </div> </form> </div> </div> </div> </div> <div class="modal fade" id="addRelPanel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog"> <div class="modal-content" style="width:600px;"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">x</span></button> <h4 class="modal-title">添加企业或个人</h4> </div> <div class="modal-body" style="height: 445px"> <form class="form-horizontal" role="form"> <div class="form-group"> <div class="col-sm-12 m-t-md"> <input type="text" id="qrcomName" name="comName" class="form-control" value="" placeholder="请输入公司名称" autocomplete="off" oninput="qrsearchCom(event,this)"/> <section class="panel hidden-xs" id="qrsearchList" style="position: absolute;width: 560px;z-index: 10;display: none;"></section> </div> </div> </form> </div> </div> </div> </div> </div> <script type="text/javascript">
+	 /*rightNav.js 使用变量*/
+	 var personImg =  "/material/theme/chacha/cms/v2/images/leftnav/person.png";
+	 var frimUrl = "";
+	 var comDefaultImg = "/material/theme/chacha/cms/v2/images/company.jpg"
+          if(!cookie.get('hasShow')){
+        $("#RNav .i_bt_dow").addClass('i_btn_show');
+         $(document.body).click(function(e){
+          $("#RNav .i_btn_show").removeClass('i_btn_show');
+        });
+        $('#RNav .i_bts-outer').hover(function(){
+            $("#RNav .i_btn_show").removeClass('i_btn_show');
+        });
+        cookie.set('hasShow',1,1000*3600*12);
+     }
+         
+    function jumpTax(){
+        window.location.href=encodeURI(INDEX_URL+"tax");
+    }       
+</script> <script src="/material/theme/chacha/cms/v2/js/rightNav.js?timestamp=1497542400"></script> <link type="text/css" href="/material/theme/chacha/cms/v2/css/login.css?version=20180711" rel="stylesheet" /> <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static"> <div class="modal-dialog login-madal-dialog"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">x</span></button> <h4 class="modal-title" id="myModalLabel">登录企查查</h4> </div> <div class="modal-body"> <div class="login-sao-panel"> <div class="title">扫码登录请使用<br> <a href="/app" target="_blank" class="text-primary">企查查APP</a> > 我的 > 扫一扫</div> <div class="qrcodewrap"> <div class="qrcode" id='qrcodeModalLogin'></div> <img class="qrcodets" src="/material/theme/chacha/cms/v2/images/qrcode_ts.png"> </div> <div class="tip"><span></span> 扫一扫功能支持企查查 APP11.0.6 及以上版本</div> </div> <div class="login-panel" style="display: none;" id="normalLoginPanel"> <div class="login-panel-head clearfix"> <div class="login-tab"> <a href="javascript:;" id="verifyLogin">快捷登录</a> </div> <div class="login-tab"> <a href="javascript:;" class="active">密码登录</a> </div> </div> <div class="login-panel-body"> <form class="form-group login-form" role="form" id="user_login_normal"> <div class="form-group"> <input type='hidden' class='phone_prefix_input' value="+86" name='phone_prefix' /> <div class="phone-select dropdown"> <a class="phone_prefix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> 中国 +86<b class="caret text-primary"></b></a> <div class="phoneline"></div> <ul class="phone_prefix_ul dropdown-menu"></ul> </div> <input id="nameNormal" name="nameNormal" type="text" class="form-control form-control-error" placeholder="请输入手机号码"> <span msgfor="nameNormal"></span> </div> <div class="form-group m-t-md"> <div class="show-pwd"></div> <input id="pwdNormal" name="pwdNormal" type="password" class="form-control form-control-error" placeholder="请输入密码"> <span msgfor="pwdNormal"></span> </div> <div class="form-group m-t-md"> <div id="dom_id_one"></div> </div> <div class="checkbox m-t-md"> <label class="text-dark-lter"> <input type="checkbox" name="keep" checked="checked" value="option1"> 一周内保持登录状态
+                                </label> </div> <button type="submit" class="btn btn-primary btn-block m-t-md login-btn"> <strong>立即登录</strong></button> <input type='hidden' id='csessionid_one' name='csessionid_one' /> <input type='hidden' id='sig_one' name='sig_one' /> <input type='hidden' id='token_one' name='token_one' /> <input type='hidden' id='scene_one' name='scene_one' /> <input type='hidden' name='verify_type' value="1" /> </form> <div class="login-other m-t-md"> <div class="clearfix"> <div class="pull-left"> <a href="/user_register" class="text-primary">账号注册</a> </div> <div class="pull-left text-dark-lt m-l-sm"> <a href="/user_forgetpassword">忘记密码？</a> </div> <div class="pull-right"> <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wx9b26295cdfab4175&redirect_uri=http://www.qichacha.com/user_wxloginok?back=&response_type=code&scope=snsapi_login&state=#wechat_redirect" class="btn-wx"></a> <a href="/user_qqlogin?back=&replace=1" class="btn-qq m-l-xs"> </a> <a href="/user_weiboLogin" class="btn-weibo m-l-xs"> </a> </div> </div> </div> </div> </div> <div class="login-panel" id="verifyLoginPanel"> <div class="login-panel-head clearfix"> <div class="login-tab"> <a href="javascript:;" class="active">快捷登录</a> </div> <div class="login-tab"> <a href="javascript:;" id="normalLogin">密码登录</a> </div> </div> <div class="login-panel-body"> <form class="form-group login-form" role="form" id="user_login_verify"> <div class="form-group"> <input type='hidden' class='phone_prefix_input' value="+86" name='phone_prefix' /> <div class="phone-select dropdown"> <a class="phone_prefix" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> 中国 +86<b class="caret text-primary"></b></a> <div class="phoneline"></div> <ul class="phone_prefix_ul dropdown-menu"></ul> </div> <input id="nameVerify" name="nameVerify" onkeyup="phoneKeyup()" oninput="phoneKeyup()" type="text" class="form-control form-control-error" placeholder="请输入手机号码"> <span msgfor="nameVerify"></span> </div> <div class="form-group m-t-md"> <div id="dom_id_two"></div> </div> <div class="form-group m-t-md"> <input id="vcodeNormal" maxlength="6" name="codeVerify" type="text" class="form-control form-control-error" placeholder="短信验证码"> <a href="javascript:;" class="text-primary vcode-btn get-mobile-code">
+                         获取验证
+                      </a> <span msgfor="codeVerify"> </span> </div> <div class="checkbox m-t-md"> <label class="text-dark-lter"> <input type="checkbox" name="keep" checked="checked" value="option1"> 一周内保持登录状态
+                                </label> </div> <button type="submit" class="btn btn-primary btn-block m-t-md login-btn"> <strong>立即登录</strong></button> <input type='hidden' id='csessionid_two' name='csessionid_two' /> <input type='hidden' id='sig_two' name='sig_two' /> <input type='hidden' id='token_two' name='token_two' /> <input type='hidden' id='scene_two' name='scene_two' /> </form> <div class="login-other m-t-md"> <div class="clearfix"> <div class="pull-left"> <a onclick="zhugeTrack('登录弹框-账号注册')" href="/user_register" class="text-primary">账号注册</a> </div> <div class="pull-left text-dark-lt m-l-sm"> <a onclick="zhugeTrack('登录弹框-忘记密码')" href="/user_forgetpassword">忘记密码？</a> </div> <div class="pull-right"> <a onclick="zhugeTrack('登录弹框-微信登录')" href="https://open.weixin.qq.com/connect/qrconnect?appid=wx9b26295cdfab4175&redirect_uri=http://www.qichacha.com/user_wxloginok?back=&response_type=code&scope=snsapi_login&state=#wechat_redirect" class="btn-wx"></a> <a onclick="zhugeTrack('登录弹框-qq登录')" href="/user_qqlogin?back=&replace=1" class="btn-qq m-l-xs"> </a> <a onclick="zhugeTrack('登录弹框-微博登录')" routerLink="/user" class="btn-weibo m-l-xs"> </a> </div> </div> </div> </div> </div> </div> </div> </div> </div> <link type="text/css" href="//g.alicdn.com/sd/ncpc/nc.css?t=1520579483" rel="stylesheet" /> <script type="text/javascript" src="//g.alicdn.com/sd/ncpc/nc.js?t=1520579483"></script> <div id="_umfp" style="display:inline;width:1px;height:1px;overflow:hidden"></div> <script type="text/javascript" src="/material/theme/chacha/cms/v2/js/login.js?version=20180711"></script> <script>
+
+    //普通登录
+    formset({
+        "id":"user_login_normal",
+        "url":"user_loginaction",
+        "rule":{
+            "nameNormal":{
+                required:true,
+            },
+            "pwdNormal":{
+                required:true,
+                minlength:6
+            }
+        },
+
+        "messages":{
+            "nameNormal":{
+                required:"请输入手机号",
+            },
+            "pwdNormal":{
+                required:"请输入密码",
+                minlength:"密码最少6位"
+            }
+        },
+        "sucfunc":function(rs){
+            $('#loginModalClose').click();
+            location.reload();
+        },
+        "falfunc":function(rs){
+            faldia({'content':'登录失败：'+rs.msg});
+            getAliCaptcha('one');
+            document.getElementById('csessionid_one').value = '';
+            document.getElementById('sig_one').value = '';
+            document.getElementById('token_one').value = '';
+            document.getElementById('scene_one').value = '';
+        }
+    });
+    //手机验证码登录
+    formset({
+        "id":"user_login_verify",
+        "url":"user_loginbyverify",
+        "rule":{
+            "nameVerify":{
+                required:true,
+            },
+            "codeVerify":{
+                required:true,
+                minlength:6
+            }
+        },
+
+        "messages":{
+            "nameVerify":{
+                required:"请输入手机号",
+            },
+            "codeVerify":{
+                required: "请输入手机激活码",
+                minlength: "手机激活码最少{0}个字"
+            }
+        },
+        "sucfunc":function(rs){
+            $('#loginModalClose').click();
+            location.reload();
+        },
+        "falfunc":function(rs){
+            faldia({'content':'登录失败：'+rs.msg});
+            getAliCaptcha('two');
+            document.getElementById('csessionid_two').value = '';
+            document.getElementById('sig_two').value = '';
+            document.getElementById('token_two').value = '';
+            document.getElementById('scene_two').value = '';
+        }
+    });
+
+    var codeStatus = true;//状态
+    var waitSec = 60; //设置秒数(单位秒)
+    var i = 1;
+    var clock;
+
+    function sTimer() {
+        var r = waitSec - i;
+        if (r == 0) {
+            clearInterval(clock);
+            $(".get-mobile-code").html("重新获取");
+            codeStatus = true;
+            $(".get-mobile-code").data('clicked', false).removeClass('disabled');
+        } else {
+            $(".get-mobile-code").html("(" + r + ")秒重新发送");
+            i++;
+        }
+    };
+    function startClock(t) {
+        codeStatus = false;
+        i = parseInt(t);
+        clock = setInterval(sTimer, 1000);
+    }
+
+    function phoneKeyup(){
+      
+    }
+
+    
+
+    //获取手机验证码
+    function mobileCode() {
+        $(".get-mobile-code").bind('click', function () {
+            if ($(this).data('clicked')) return false;
+            var phone = $("input[name=nameVerify]").val();
+            var scene = $("input[name='scene_two']").val();
+            var token = $("input[name='token_two']").val();
+            var sig = $("input[name='sig_two']").val();
+            var csessionid = $("input[name='csessionid_two']").val();
+            var phone_prefix = $("input[name='phone_prefix']").val();
+            var afsFlag = '';
+
+            if ($("input[name=nameVerify]").hasClass('validate-error')) {
+                faldia('请重新输入手机号码！');
+                return false;
+            }
+
+            if (!phone) {
+                faldia('手机号码不能为空！');
+                return false;
+            }
+
+            if(afsFlag){
+                if(!scene || !token || !sig || !csessionid){
+                    faldia('请先拖动滑块！');
+                    return false;
+                }
+            }
+
+            $.post(INDEX_URL + '/user_regmobileCode', {
+                scene:scene,
+                token:token,
+                sig:sig,
+                csessionid:csessionid,
+                phone: phone,
+                type: 4,
+                verify_type:1,
+                phone_prefix:phone_prefix
+            }, function (data) {
+                if (data.success) {
+                    $("input[name=mobilecode]").removeAttr('disabled');
+                    startClock(1);
+                    $(".get-mobile-code").data('clicked', true).addClass('disabled').html("(" + waitSec + ")秒重新发送");
+                } else {
+                    faldia(data.msg);
+                    getAliCaptcha('two');
+                    $("input[name=mobilecode]").removeAttr('disabled');
+                    $(".get-mobile-code").html("重新获取").data('clicked', false).removeClass('disabled');
+                }
+            }, 'json');
+            return false;
+        });
+    }
+
+    mobileCode();
+</script> <script>
+
+    function getCaptcha() {
+        getAliCaptcha('two');
+        zhugeTrack('登录弹框-登录弹出框');
+        
+    }
+
+    function getAliCaptcha(num){
+        var renderDom = '#dom_id_'+num;
+        var csessionidDom = 'csessionid_'+num;
+        var sigDom = 'sig_'+num;
+        var tokenDom = 'token_'+num;
+        var sceneDom = 'scene_'+num;
+        var nc = new noCaptcha();
+        var nc_appkey = 'QNYX';  // 应用标识,不可更改
+        var nc_scene = 'login';  //场景,不可更改
+        var nc_token = [nc_appkey, (new Date()).getTime(), Math.random()].join(':');
+        var nc_option = {
+            renderTo: renderDom,
+            appkey: nc_appkey,
+            scene: nc_scene,
+            token: nc_token,
+            callback: function (data) {
+                document.getElementById(csessionidDom).value = data.csessionid;
+                document.getElementById(sigDom).value = data.sig;
+                document.getElementById(tokenDom).value = nc_token;
+                document.getElementById(sceneDom).value = nc_scene;
+            }
+        };
+        nc.init(nc_option);
+    }
+    
+    $('#verifyLogin').on('click',function(){
+        getAliCaptcha('two');
+        if($("input[name=nameNormal]").val()){
+          $("input[name=nameVerify]").val($("input[name=nameNormal]").val());
+        }else{
+          setTimeout(function() {$("input[name=nameVerify]").focus();}, 10);
+        }
+        $('#verifyLoginPanel').show();
+        $('#normalLoginPanel').hide();
+        window.localStorage.setItem('logintype',0);
+        zhugeTrack('登录弹框-快捷登录'); 
+    });
+    $('#normalLogin').on('click',function(){
+        getAliCaptcha('one');
+        if($("input[name=nameVerify]").val()){
+          $("input[name=nameNormal]").val($("input[name=nameVerify]").val());
+        }
+        $('#normalLoginPanel').show();
+        $('#verifyLoginPanel').hide();
+        window.localStorage.setItem('logintype',1);
+        zhugeTrack('登录弹框-密码登录'); 
+    });
+
+    $.ajax({
+        type: "get",
+        url: "/material/theme/chacha/cms/v2/images/phoneCode.json",
+        dataType: "json",
+        success: function(data) {
+            $('.phone_prefix_ul').empty();
+            $('.phone_prefix_ul').append('<li onclick="pSelect(this)" value="+86"><span> 中国</span>+86</li>');
+            $.each(data,function(i,v){
+                $('.phone_prefix_ul').append('<li onclick="pSelect(this)" value="+'+v.country_code+'"><span> '+v.country_name_cn+'</span>+'+v.country_code+'</li>');
+            })
+        }
+    });
+    function pSelect(dom){
+      var tname = $(dom).find('span').text();
+      if(tname.length>5){
+        tname = tname.substr(0,6)+'…';
+      }
+      $('.phone_prefix').html(tname+' +'+dom.value+'<b class="caret text-primary"></b>');
+      $('.phone_prefix_input').val('+'+dom.value);
+      var width = 58;
+      if($('#verifyLoginPanel').is(':visible')){
+        width = $('#verifyLoginPanel .phone_prefix').width();
+      }else{
+        width = $('#normalLoginPanel .phone_prefix').width();
+      }
+      $('.phoneline').css('left',width+18);
+      $('.login-panel .phone-select+input').css('padding-left',width+27);
+      zhugeTrack('登录弹框-国际区号');
+    }
+    $('.show-pwd').click(function(){
+        if($('.show-pwd').hasClass('active')){
+            $('.show-pwd').removeClass('active');
+            $('.show-pwd').next().attr('type','password');
+        }else{
+            $('.show-pwd').addClass('active');
+            $('.show-pwd').next().attr('type','text');
+        }
+    });
+    var loginJumpUrl;
+    $('#loginModal').on('show.bs.modal', function (e) {
+        loginQrcodeGenerate('qrcodeModalLogin');
+        loginQrcodePoll('qrcodeModalLogin');
+    })
+    $('#loginModal').on('hidden.bs.modal', function (e) {
+        clearInterval(loginQrcodePollTimer);
+    })
+    setLoginType();
+</script> <div id="openSuspend" class="openSuspend" style="cursor:pointer;"></div> <div class="bottomSuspend" id="bottomSuspend" style="margin-left: -100%;background-image: url('https://co-image.qichacha.com/upload/chacha/img/20180629/1530238613996220.png');"> <div id="attendDownload" class="attendDownload" data-href="https://www.qichacha.com/weixin_jump?from=web"></div> <div id="closeSuspend" class="closeSuspend"></div> </div> <script type="text/javascript">
+    bottomSus();
+</script> </body> </html>

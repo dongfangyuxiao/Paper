@@ -1,0 +1,2628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Language" content="zh-cn" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <meta name="google-site-verification" content="qhNWlO87EpYobkWeZm_6d2ybEHbJMQLJhgp5sSZuO3E" />
+  <title>GameRes游资网-游戏开发者门户</title> 
+  <meta name="description" content="GameRes游资网成立于2001年，是一家面向游戏业从业者的一线行业媒体。网站不以盈利为首要目的，十余年来的不懈坚持旨在为全球华语游戏制作人提供游戏研发、游戏运营、渠道信息、行业新闻、项目合作等综合信息。" /> 
+  <meta name="keywords" content="GameRes,游资网,游戏制作人,游戏研发,游戏开发,独立游戏,游戏运营,游戏策划,游戏产业,游戏招聘" /> 
+
+ <script>
+
+function mouseOver(object)
+{ object.style.background="#eee"; }
+function mouseOut(object)
+{ object.style.background="#FFFFFF";} 
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?da15d801c31af4462f4da256d5cf95e8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+ 
+ <script type="text/javascript" src="http://img.gameres.com/images2013/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://di.gameres.com/cache/style_1_common.css?9xA" />
+  <style type="text/css">
+
+body { background-color:#EDEDED; }
+html,body {background-color:#EDEDED;}
+
+a {
+	color: #474747;
+	text-decoration: none;
+}
+
+a:active {
+	color: #474747;
+	text-decoration: none;
+}
+a:hover {
+	color: #474747;
+	text-decoration: underline;
+}
+a  img
+{
+	border-radius:10px;
+}
+.style45 {
+				line-height: 30px;
+				font-size: 15px;
+				margin-top: 0;
+				margin-bottom: 0;
+}
+
+.style61 {
+				border: 1px solid #FFFFFF;
+				background-color: #FFFFFF;
+}
+
+.style82 {
+				color: #808080;
+				font-size: 12px;
+				text-decoration: none;
+}
+
+.style80 {
+				color: #808080;
+				font-size: 12px;
+				text-decoration: none;
+}
+
+
+
+.style99 {
+	color: #808080;
+}
+
+
+.pic_font{
+	color: #FFFFFF;
+	font-size:14px;
+	line-height:30px;
+	margin:4px;
+}
+
+.button_mouseout { BORDER-RIGHT: #2C597A 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #2C597A 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BORDER-LEFT: #2C597A 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #2C597A 1px solid }
+.button_mouseover {BORDER-RIGHT: #2C597A 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #2C597A 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#D7E7FA); BORDER-LEFT: #2C597A 2px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #2C597A 1px solid}
+.button_mousedown{BORDER-RIGHT: #FFE400 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #FFE400 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BORDER-LEFT: #FFE400 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #FFE400 1px solid}
+.button_mouseup {BORDER-RIGHT: #2C597A 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #2C597A 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BORDER-LEFT: #2C597A 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 1px; BORDER-BOTTOM: #2C597A 1px solid}
+
+form {
+margin:0
+}
+
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+
+
+
+		.title{
+			height:32px;
+			line-height:32px;
+			}
+		.title a{
+			color:black;
+			font-size:14px;
+			
+			text-decoration:none;
+			text-align:center;
+			}
+		.content .c1{
+			margin-top:10px;
+			margin-bottom:10px;
+			margin-left:10px;
+			display:none;
+			}
+			
+		.title a{
+			/*border-left:1px solid #cfcfcf;*/
+			border-top:0px;
+			display:block;
+			font-size:16px;
+			width:40px;
+			float:left;
+			}	
+		/*.title span:hover{
+			color:red;
+			}*/
+
+		.title a {
+			width:25%;
+			}
+		
+		.title span:hover{
+			border-top:2px solid rgb(187, 17, 17);
+			}
+		/*hover style*/
+		.focus_style{
+			border-bottom:0px;	
+			}	
+	
+
+
+
+
+
+.content_right
+{float:left;
+	left:0;}
+.content_right .ad { 
+	float:left;
+	left:0;
+	margin:0;
+	width:1000px; 
+	height:320px; 
+	overflow:hidden;
+	position:relative;
+	background-color: black;
+}
+.content_right .slider,.content_right .num{
+	position:absolute;
+}
+
+.content_right .num{ 
+	right:5px; 
+	bottom:5px;
+}
+.content_right .num li{
+	float: left;
+	left:0;
+	width: 100px;
+	height: 50px;
+	cursor: pointer;
+	overflow: hidden;
+	margin: 6px 12px;
+	border: 0px;
+	opacity:0.8;filter:alpha(opacity=80);
+}
+.content_right .num li.on{
+	width: 100px;
+	height: 50px;
+	margin: 0px 10px;
+	border: 3px solid #ff9805;
+	opacity:1;filter:alpha(opacity=100);
+}
+
+.content_right .slider,{
+	position:absolute;
+	margin: 0;
+	padding:0;
+	list-style: none;
+	left:0;
+}
+.content_right .num
+{
+	position:absolute;
+	margin: 0;
+	padding:0;
+	list-style: none;
+}
+.slider  img{
+ margin:0;
+ padding:0; 
+ border:0;
+}
+.content_right .slider li{ 
+	float:left;
+	left:0;
+	list-style-type: none;
+	display:inline;
+	position:absolute;
+}
+
+.round { 
+border-radius: 5px; /* 所有角都使用半径为5px的圆角，此属性为CSS3标准属性 */ 
+-moz-border-radius: 5px; /* Mozilla浏览器的私有属性 */ 
+-webkit-border-radius: 5px; /* Webkit浏览器的私有属性 */ 
+border-radius: 5px 5px 5px 5px; /* 四个半径值分别是左上角、右上角、右下角和左下角 */ 
+/*behavior: url(img/pie/PIE.htc);*/
+} 
+
+
+
+*{word-wrap:break-word;}ul,ol,li
+.pc{margin:0;padding:0;}
+
+
+ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+
+.menulist  li{
+	float:left;
+	width:100px;
+	text-align:center;
+	line-height:36px;
+	list-style-type: none;
+}
+.menulist  li a{
+	display:block;
+	color:#ffffff;
+	text-decoration:none;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.menulist  li a:hover{
+	color: #FFFFFF;
+	font-weight:bold;
+	text-decoration: none;
+}
+
+.menulist li a:hover ul{
+	display:block;
+	font-weight:bold;
+	position:absolute;left:0;top:35px; width:805px;
+	}
+
+.menulist .sub ul{
+	display:none;
+}
+
+#cp_nav li{
+	width:100px;
+	text-align:center;
+	
+	white-space:nowrap;
+	overflow:hidden;
+	}
+.menuitmeli
+{
+	background:url('http://img.gameres.com/images2015/menu_bg.png');font-size:14px;height:28px;line-height:28px;
+}
+
+</style> 
+  <script>
+	jQuery(document).ready(function(){
+		var id = jQuery("a")[0].id;
+		jQuery(".title a").click(function(){
+			
+			id = jQuery(this)[0].id;
+			//jQuery(this).css({"text-decoration":"none"});
+			jQuery(".title a").each(function(){
+			//jQuery(this).css({"border-top":"solid 0px #cfcfcf"});
+			jQuery(this).css({"background-color":"#fff"});
+			jQuery(this).css({"color":"#000"});
+			});
+			
+			//jQuery(this).css({"border-top":"solid 2px #cfcfcf"});
+			jQuery(this).css({"background-color":"rgb(187, 17, 17)"});
+			jQuery(this).css({"color":"#fff"});
+			jQuery(".content .c1").each(function(){
+				
+				jQuery(this).css("display","none");
+				
+				});
+			
+			jQuery("#content_"+id).css("display","block");
+			
+		});
+
+
+		jQuery("body").click(function(){
+		
+			var id = $(this);
+			
+		});
+		
+	});
+
+
+
+var index = 0;
+var adTimer;
+jQuery(document).ready(function(){
+    jQuery(".num li").hover(
+       function() {
+          index = jQuery(".num li").index(this);
+          var len = jQuery(".num > li").length;      
+          jQuery(".slider li").eq(index).siblings().fadeOut(1000);
+		  jQuery(".slider li").eq(index).stop(false,true).fadeIn(1000).css("display","block");   
+          jQuery(".num li").eq(index).addClass("on").siblings().removeClass("on");
+          });
+
+	jQuery(".ad").hover(function(){
+       	clearInterval(adTimer);
+       		},
+       		function(){
+       			adTimer = setInterval(sliderFun,4000);
+       		}).trigger("mouseleave");
+			sliderFun();
+        }); 
+		
+		function sliderFun()
+       			{
+       			var len = jQuery(".num > li").length;
+          		jQuery(".slider li").eq(index).siblings().fadeOut(1000);
+				jQuery(".slider li").eq(index).stop(false,true).fadeIn(1000).css("display","block");   
+            	jQuery(".num li").eq(index).addClass("on").siblings().removeClass("on");
+				index++;
+          		if(index >= len) {index = 0;}
+       			}
+</script> 
+  <script type="text/javascript">
+    $(function(){
+        $(".menulist li").hover(function(){
+            $(this).children(".menulist ul").show(0).css({"display":"block"});
+        },function(){
+            $(this).children(".menulist ul").hide(0);
+      });
+    });
+</script> 
+  <!-- base href="http://www.gameres.com/" -->
+ </head> 
+ <body>
+  <div style="
+	left:50%;
+	margin-left:-500px;
+	width:1000px;
+	height:36px;
+	position:fixed;
+	background:url('http://img.gameres.com/images2015/menu_bg.png');
+	z-index:4;" class="menulist"> 
+   <table style="width:1000px;" cellspacing="0" cellpadding="0" align="center"> 
+    <tbody>
+     <tr>
+      <td> 
+       <ul id="nav" class="sub"> 
+        <li style="width:200px;"><a href="http://www.gameres.com/" target="_self"><span style="font-size:22px;font-weight: bold;">GameRes游资网</span></a> </li> 
+        <li style="font-size:16px;"><a href="http://bbs.gameres.com/">开发论坛</a> 
+         <ul style="width: 100px; display: none;"> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_6_1.html">游戏策划</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_1_1.html">游戏程序</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_55_1.html">游戏运营</a></li> 
+          <li class="menuitmeli"><a href="#">——————</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_20_1.html">行业消息</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_45_1.html">游戏职场</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_122_1.html">游戏八卦</a></li> 
+          <li class="menuitmeli"><a href="#">——————</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_47_1.html">人才招聘</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_49_1.html">投资交易</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_111_1.html">游戏外包</a></li> 
+         </ul> </li> 
+        <li style="font-size:16px;"><a href="http://www.gameres.com/zuixin_1.html">行业资讯</a> 
+         <ul style="width: 100px; display: none;"> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/changshang_1.html">游戏厂商</a></li> 
+		  <li class="menuitmeli"><a href="http://www.gameres.com/qukuailian_1.html"><b>区块链</b></a></li>
+          <li class="menuitmeli"><a href="http://www.gameres.com/guancha_1.html">观察/分析</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/zhuanfang_1.html">人物/专访</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/shichang_1.html">市场动态</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/dianjing_1.html">电子竞技</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/bagua_1.html">游戏八卦</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/chanpindongtai_1.html">产品动态</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/shouyou_1.html">手机游戏</a></li> 
+		  <li class="menuitmeli"><a href="http://www.gameres.com/steam_1.html">Steam</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/vr_1.html">虚拟/VR</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/yeyou_1.html">网页游戏</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/duanyou_1.html">端游/微端</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/danji_1.html">单机游戏</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/zhuji_1.html">游戏机</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/huodong_1.html">展会/活动</a></li>
+		   
+
+         </ul> </li> 
+        <li style="font-size:16px;"><a href="http://www.gameres.com/yanfa_1.html">经验文档</a> 
+         <ul style="width: 100px; display: none;"> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/chanpinfenxi_1.html">产品分析</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_28.html">独立游戏</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/yanfa_1.html">游戏研发</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/yinqing_1.html">游戏引擎</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/cehua_1.html">游戏策划</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/chengxu_1.html">游戏程序</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/yunying_1.html">游戏运营</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/baogao_1.html">产业报告</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/shuju_1.html">游戏数据</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/zhichang_1.html">游戏职场</a></li> 
+          <li class="menuitmeli"><a href="http://www.gameres.com/chuangye_1.html">游戏创业</a></li> 
+         </ul> </li> 
+        <li style="font-size:16px;"><a href="http://bbs.gameres.com/forum_47_1.html">人才招聘</a> </li> 
+        <li style="font-size:16px;"><a href="http://bbs.gameres.com/forum_124.html">CP平台</a> 
+         <ul style="width:100px;"> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_124.html">找产品</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_126.html">找外包</a></li> 
+          <li class="menuitmeli"><a href="http://bbs.gameres.com/forum_125.html">找渠道</a></li> 
+         </ul> </li> 
+        <li style="font-size:16px;">　 </li> 
+        <li style="font-size:16px;width:100px;"><span style="color:#fff">公众号</span> 
+         <ul style="width:100px;"> 
+          <li style="background:url('http://img.gameres.com/images2015/menu_bg.png');width:200px;height:190px;padding-top:10px;text-align:center;"> <img src="http://img.gameres.com/images2015/G.jpg" style="width:180px;height:180px;" /> </li> 
+         </ul> </li> 
+        <li style="font-size:16px;"><a href="http://www.gameres.com/fabu.html">投稿</a> </li> 
+       </ul> </td>
+     </tr> 
+    </tbody>
+   </table> 
+  </div> 
+  
+  
+  <!-- 背投 --> 
+<!--
+
+<a href="http://xinyue.qq.com/act/m/ams/a20171218popu-H5/index.html" target="_blank" rel="nofollow">
+<div align="center" id="miman" style="
+	left:50%;
+	margin-left:-900px;
+	position:fixed;
+	z-index:0;
+	width:400px;
+	height:800px;
+">
+<table width="400" height="800" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+<img src="http://img.gameres.com/thome/2017/12/26/f4fb74.jpg" width="400" height="800" border="0">
+</td>
+</tr>
+</table>
+</div>
+</a>
+
+
+<a href="http://xinyue.qq.com/act/m/ams/a20171218popu-H5/index.html" target="_blank" rel="nofollow">
+<div id="miman1" style="
+	left:50%;
+	margin-left:500px;
+	position:fixed;
+	z-index:1000;
+	width:400px;
+	height:800px;
+">
+<table width="400" height="800" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+<img src="http://img.gameres.com/thome/2017/12/26/b4f55a.jpg" width="400" height="800" border="0">
+</td>
+</tr>
+</table>
+</div>
+</a>
+-->
+
+
+
+  <table style="width:1000px;height:36px;" cellspacing="0" cellpadding="0" align="center"> 
+   <tbody>
+    <tr>
+     <td> </td>
+    </tr> 
+   </tbody>
+  </table> 
+ <table style="width:1000px;height:320px;" cellspacing="0" cellpadding="0" align="center">
+<tr><td>
+
+<div class="content_right" style="z-index:1;">
+  <div class="ad" >
+    <ul class="slider" >
+	 <li style="display:block;"><a href="http://www.gameres.com/813394.html" target="_blank">
+      	<img src="http://img.gameres.com/thome/2018/07/09/47b8a6.jpg" width="1000" height="320" style="border-radius:0px;"/>
+      	<div style='overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1001px; height: 109px; left: 0px; bottom: 0px; text-align: right;' ><span class="pic_font" style="font-size:24px;color:#000;font-weight:bold;">库克青睐的独立游戏团队Lucky Kat下载量超千万，新作下月推出</span>　　　　　　</div>
+		<div style="background:url('http://img.gameres.com/images/top_img/shadow.png');overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1000px; height: 110px; left: 0px; bottom: 0px; text-align: right;" ><span class="pic_font" style="font-size:24px;color:#fff;font-weight:bold;">库克青睐的独立游戏团队Lucky Kat下载量超千万，新作下月推出</span>　　　　　　</div>
+		</a>
+		</li><li style="display:block;"><a href="http://www.gameres.com/813146.html" target="_blank">
+      	<img src="http://img.gameres.com/thome/2018/07/09/92e63f.jpg" width="1000" height="320" style="border-radius:0px;"/>
+      	<div style='overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1001px; height: 109px; left: 0px; bottom: 0px; text-align: right;' ><span class="pic_font" style="font-size:24px;color:#000;font-weight:bold;">机械组装Roguelike《冷械岛》获App Store新游推荐</span>　　　　　　</div>
+		<div style="background:url('http://img.gameres.com/images/top_img/shadow.png');overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1000px; height: 110px; left: 0px; bottom: 0px; text-align: right;" ><span class="pic_font" style="font-size:24px;color:#fff;font-weight:bold;">机械组装Roguelike《冷械岛》获App Store新游推荐</span>　　　　　　</div>
+		</a>
+		</li><li style="display:block;"><a href="http://www.gameres.com/813402.html" target="_blank">
+      	<img src="http://img.gameres.com/thome/2018/07/09/3a7d6c.jpg" width="1000" height="320" style="border-radius:0px;"/>
+      	<div style='overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1001px; height: 109px; left: 0px; bottom: 0px; text-align: right;' ><span class="pic_font" style="font-size:24px;color:#000;font-weight:bold;">反转颠覆自成一派 falcom社长近藤季洋的剧本观</span>　　　　　　</div>
+		<div style="background:url('http://img.gameres.com/images/top_img/shadow.png');overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1000px; height: 110px; left: 0px; bottom: 0px; text-align: right;" ><span class="pic_font" style="font-size:24px;color:#fff;font-weight:bold;">反转颠覆自成一派 falcom社长近藤季洋的剧本观</span>　　　　　　</div>
+		</a>
+		</li><li style="display:block;"><a href="http://www.gameres.com/812473.html" target="_blank">
+      	<img src="http://img.gameres.com/thome/2018/07/02/5189ea.jpg" width="1000" height="320" style="border-radius:0px;"/>
+      	<div style='overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1001px; height: 109px; left: 0px; bottom: 0px; text-align: right;' ><span class="pic_font" style="font-size:24px;color:#000;font-weight:bold;">号称Steam平台的贪玩蓝月是如何将鼠标点击体验发挥到极致？</span>　　　　　　</div>
+		<div style="background:url('http://img.gameres.com/images/top_img/shadow.png');overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1000px; height: 110px; left: 0px; bottom: 0px; text-align: right;" ><span class="pic_font" style="font-size:24px;color:#fff;font-weight:bold;">号称Steam平台的贪玩蓝月是如何将鼠标点击体验发挥到极致？</span>　　　　　　</div>
+		</a>
+		</li><li style="display:block;"><a href="http://www.gameres.com/813083.html" target="_blank">
+      	<img src="http://img.gameres.com/thome/2018/07/09/4ad40f.jpg" width="1000" height="320" style="border-radius:0px;"/>
+      	<div style='overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1001px; height: 109px; left: 0px; bottom: 0px; text-align: right;' ><span class="pic_font" style="font-size:24px;color:#000;font-weight:bold;">无厘头的《非人学园》，不止步于MOBA的探索</span>　　　　　　</div>
+		<div style="background:url('http://img.gameres.com/images/top_img/shadow.png');overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1000px; height: 110px; left: 0px; bottom: 0px; text-align: right;" ><span class="pic_font" style="font-size:24px;color:#fff;font-weight:bold;">无厘头的《非人学园》，不止步于MOBA的探索</span>　　　　　　</div>
+		</a>
+		</li><li style="display:block;"><a href="http://www.gameres.com/812168.html" target="_blank">
+      	<img src="http://img.gameres.com/thome/2018/06/28/7a469f.jpg" width="1000" height="320" style="border-radius:0px;"/>
+      	<div style='overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1001px; height: 109px; left: 0px; bottom: 0px; text-align: right;' ><span class="pic_font" style="font-size:24px;color:#000;font-weight:bold;">解析《底特律：成为人类》玩家情感故事背后的叙事魔法和体验设计</span>　　　　　　</div>
+		<div style="background:url('http://img.gameres.com/images/top_img/shadow.png');overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1000px; height: 110px; left: 0px; bottom: 0px; text-align: right;" ><span class="pic_font" style="font-size:24px;color:#fff;font-weight:bold;">解析《底特律：成为人类》玩家情感故事背后的叙事魔法和体验设计</span>　　　　　　</div>
+		</a>
+		</li><li style="display:block;"><a href="http://www.gameres.com/812075.html" target="_blank">
+      	<img src="http://img.gameres.com/thome/2018/06/28/017271.jpg" width="1000" height="320" style="border-radius:0px;"/>
+      	<div style='overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1001px; height: 109px; left: 0px; bottom: 0px; text-align: right;' ><span class="pic_font" style="font-size:24px;color:#000;font-weight:bold;">手游还需要评测？！那我们来聊聊基本思路与方法</span>　　　　　　</div>
+		<div style="background:url('http://img.gameres.com/images/top_img/shadow.png');overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1000px; height: 110px; left: 0px; bottom: 0px; text-align: right;" ><span class="pic_font" style="font-size:24px;color:#fff;font-weight:bold;">手游还需要评测？！那我们来聊聊基本思路与方法</span>　　　　　　</div>
+		</a>
+		</li><li style="display:block;"><a href="http://www.gameres.com/811917.html" target="_blank">
+      	<img src="http://img.gameres.com/thome/2018/06/28/097f3d.jpg" width="1000" height="320" style="border-radius:0px;"/>
+      	<div style='overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1001px; height: 109px; left: 0px; bottom: 0px; text-align: right;' ><span class="pic_font" style="font-size:24px;color:#000;font-weight:bold;">更强探索乐趣，多人联网合作的Roguelike游戏要如何设计？</span>　　　　　　</div>
+		<div style="background:url('http://img.gameres.com/images/top_img/shadow.png');overflow-x:hidden;overFlow-y:hidden;position: absolute; width: 1000px; height: 110px; left: 0px; bottom: 0px; text-align: right;" ><span class="pic_font" style="font-size:24px;color:#fff;font-weight:bold;">更强探索乐趣，多人联网合作的Roguelike游戏要如何设计？</span>　　　　　　</div>
+		</a>
+		</li>
+	
+
+
+
+
+
+     </ul>
+
+    <ul class="num" > 
+	<li >
+	   	  <a href="http://www.gameres.com/813394.html" target="_blank"><img src="http://img.gameres.com/thome/2018/07/09/47b8a6.jpg" width="200" height="64" style="border-radius:0px;"/></a>
+	  </li><li >
+	   	  <a href="http://www.gameres.com/813146.html" target="_blank"><img src="http://img.gameres.com/thome/2018/07/09/92e63f.jpg" width="200" height="64" style="border-radius:0px;"/></a>
+	  </li><li >
+	   	  <a href="http://www.gameres.com/813402.html" target="_blank"><img src="http://img.gameres.com/thome/2018/07/09/3a7d6c.jpg" width="200" height="64" style="border-radius:0px;"/></a>
+	  </li><li >
+	   	  <a href="http://www.gameres.com/812473.html" target="_blank"><img src="http://img.gameres.com/thome/2018/07/02/5189ea.jpg" width="200" height="64" style="border-radius:0px;"/></a>
+	  </li><li >
+	   	  <a href="http://www.gameres.com/813083.html" target="_blank"><img src="http://img.gameres.com/thome/2018/07/09/4ad40f.jpg" width="200" height="64" style="border-radius:0px;"/></a>
+	  </li><li >
+	   	  <a href="http://www.gameres.com/812168.html" target="_blank"><img src="http://img.gameres.com/thome/2018/06/28/7a469f.jpg" width="200" height="64" style="border-radius:0px;"/></a>
+	  </li><li >
+	   	  <a href="http://www.gameres.com/812075.html" target="_blank"><img src="http://img.gameres.com/thome/2018/06/28/017271.jpg" width="200" height="64" style="border-radius:0px;"/></a>
+	  </li><li >
+	   	  <a href="http://www.gameres.com/811917.html" target="_blank"><img src="http://img.gameres.com/thome/2018/06/28/097f3d.jpg" width="200" height="64" style="border-radius:0px;"/></a>
+	  </li>      <!-- style="margin-top:-8px;margin-left:-50px;" -->
+     
+    </ul>
+  </div>
+</div>
+
+
+</td></tr>
+</table>
+
+  <table style="width: 1000px;height:40px;" cellspacing="0" cellpadding="0" align="center"> 
+   <tbody>
+    <tr> 
+     <td style="background-color: #FFFFFF;text-align: left"> <font style="font-size: 14px;">　<span style="color:#999">论坛快捷入口：</span> <a href="http://bbs.gameres.com/forum_166.html"  style="color:#0000b0"><b>区块链<b></a>　<a href="http://bbs.gameres.com/forum_6.html"><span style="color:#ff000;">游戏策划</span></a>　<a href="http://bbs.gameres.com/forum_142.html" style="color:#FF3333">安利墙</a>　<b>|</b>　<b><a href="http://bbs.gameres.com/forum_55.html">游戏运营</a></b>　<a href="http://bbs.gameres.com/forum_28.html" style="color:#009944">独立游戏</a>　<b>|</b>　<a href="http://bbs.gameres.com/forum_20.html">行业消息</a>　<a href="http://bbs.gameres.com/forum_45.html">游戏职场</a>　<a href="http://bbs.gameres.com/forum_122.html">游戏八卦</a>　<b>|</b>　<b><a href="http://bbs.gameres.com/forum_49.html">投资交易</a></b>　<a href="http://bbs.gameres.com/forum_111.html">项目外包</a>　<b>|</b>　<a href="http://bbs.gameres.com/forum_47.html" style="color:#a40000">人才招聘</a> </font> </td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <table style="width: 1000px;" cellspacing="0" cellpadding="0" align="center"> 
+   <tbody>
+    <tr> 
+     <td style="background-color: #FFFFFF; width:728px;height:16px;" valign="top"> </td> 
+     <td style="background-color: #FFFFFF; width:262px;height:16px;" valign="top"> </td> 
+    </tr> 
+    <tr> 
+     <td style="background-color: #FFFFFF; width:728px;" valign="top"> 
+      <!-- Main --> 
+      <table style="width: 100%" cellspacing="0" cellpadding="0" align="center"> 
+       <tbody>
+        <tr> 
+         <td style="width:10px;"> </td> 
+          <td style="width:40%;" valign="top"> 
+          <!-- 视野 --> 
+          <table style="width: 100%;height:100%" class="style61" cellspacing="0" cellpadding="0" align="left"> 
+           <!-- 1 --> 
+           <tbody>
+            <tr> 
+             <td style="height: 136px;" valign="top" align="center">
+
+
+
+<a href="http://www.gameres.com/812060.html"><img src="http://img.gameres.com/thome/2018/07/06/ffdd88.jpg" width="260" height="120"></a>
+<!--  <a href="http://www.gameres.com/fabu.html"><img src="http://img.gameres.com/images/data/tougao.jpg" width="260" height="120"></a>  -->
+
+</td> 
+            </tr> 
+            <!-- 2 --> 
+            <!-- <tr>  -->
+             <!-- <td style="height: 36px;border-bottom:1px dashed #888;"><span style="font-size:16px;color:#bb1111"><b>手游动态</b>　<a href="http://www.gameres.com/chanpindongtai_1.html"><span class="style80">更多</span></a></span> </td>  -->
+            <!-- </tr>  -->
+            <!-- 3 --> 
+            <tr> 
+             <td style="height:336px" valign="bottom"> 
+			 <div style="height:600px;overflow:hidden;position:relative;">
+			 <link rel="stylesheet" href="/thome/ngtest/Public/css/testgame.css?v=dfdfsdddd">
+  <!-- <link rel="stylesheet" href="/thome/ngtest/Public/css/bootstrap.min.css">  -->
+  <style>
+  html {
+    width:auto;
+}
+@media screen and (min-width: 800px) {
+	body
+	{
+		/* background:#ececec;*/
+	}
+}
+.info_title
+{
+	font-size:14px;
+	margin-top: 4px;
+}
+.info_mark
+{
+  margin-top: 0px;
+}
+.leftside img
+{
+	margin: 5px 0px;
+	height:40px;
+	
+}
+div.item {
+ height:50px;
+}
+.leftside
+{
+	height:100%;
+	width:40px;
+}
+.rightside{
+height:100%;
+}
+.date_div
+{
+	position:absolute;left:8px;top:3px;text-align:center;
+	width:auto;
+	height:20px;
+	line-height:20px;
+	font-size: 12px;
+}
+.one_day_div
+{
+	margin:10px 0 0 0 ;
+}
+.date_panel
+{
+	height:25px;
+}
+.mark_tag
+{
+   font-size:12px; 
+   line-height: 30px;
+ 
+  padding:2px; 
+}
+  </style>
+	<script type="text/javascript" src="/thome/ngtest/Public/jquery-easyui-ngtest/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="/thome/ngtest/Public/jquery-easyui-ngtest/jquery.easyui.min.js"></script> -->
+<!-- <script src="/thome/ngtest/Public/jquery/jquery.min.js"></script> -->
+<script src="/thome/ngtest/Public/jquery/jquery.lazyload.min.js"></script> 
+<!-- <script type="text/javascript" src="/thome/ngtest/Public/js/endlesspage.js?id=344" charset="utf-8"></script> -->
+<script>
+$(document).ready(function(){
+	$('img.lazy').lazyload({
+	   effect : "fadeIn",
+	threshold:100,
+   
+});	  
+	
+});
+</script>
+<div>
+<div class="one_day_div" id="2018-07-12" style="position:relative;">
+<div style="">
+<div class="date_panel"  >
+<div class="dashed" style="border-bottom:1px dashed #ddd;height:12px;"></div>
+<div class="date_div" style="">
+
+
+  <span class="" style="display:inline-block;text-align:left;">2018-07-12</span>
+  <span class="" style="display:inline-block;text-align:center;">今日</span>
+  <!-- <span class="" style="display:block;height:50%;width:100%;background-color:#ddd;vertical-align:middle;text-align:center;"></span> -->
+
+</div>
+
+</div>
+</div>
+
+<div class="gamelist">
+<div class="gamepanel"  >
+<!-- href="info?id=6033" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="6033" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6033">
+<div class="subdiv leftside" data-id="6033" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6033">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/07/11/a39f5d.png">
+</div><div class="subdiv rightside" data-id="6033" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6033">
+<div class="info_title">
+<span>奇葩战斗家</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">RPG</em>
+	<span class="mark_tag" >删档测试</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;猫爪工作室&nbsp;&nbsp;&nbsp;</span>      
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=6029" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="6029" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6029">
+<div class="subdiv leftside" data-id="6029" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6029">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/01/15/d89145.png">
+</div><div class="subdiv rightside" data-id="6029" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6029">
+<div class="info_title">
+<span>战舰世界闪击战</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">TPS</em>
+	<span class="mark_tag" >首测</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;恺英网络&nbsp;&nbsp;&nbsp;</span>   <span class="">发行&nbsp;:&nbsp;网易游戏&nbsp;&nbsp;&nbsp;</span>   
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=6027" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="6027" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6027">
+<div class="subdiv leftside" data-id="6027" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6027">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/07/08/612484.png">
+</div><div class="subdiv rightside" data-id="6027" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6027">
+<div class="info_title">
+<span>逃出实验室</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">休闲娱乐</em>
+	<span class="mark_tag" >公测</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;游道易网络&nbsp;&nbsp;&nbsp;</span>      
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=6026" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="6026" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6026">
+<div class="subdiv leftside" data-id="6026" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6026">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/07/08/24d511.png">
+</div><div class="subdiv rightside" data-id="6026" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6026">
+<div class="info_title">
+<span>青之战纪</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">RPG</em>
+	<span class="mark_tag" >初回测试</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;Wright Flyer Studios&nbsp;&nbsp;&nbsp;</span>   <span class="">发行&nbsp;:&nbsp;V comic：次元游戏社&nbsp;&nbsp;&nbsp;</span>   
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=6021" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="6021" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6021">
+<div class="subdiv leftside" data-id="6021" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6021">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/07/08/b486e4.png">
+</div><div class="subdiv rightside" data-id="6021" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6021">
+<div class="info_title">
+<span>仙剑奇侠传·六界情缘</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">RPG</em>
+	<span class="mark_tag" >删档内测</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;玩蟹科技&nbsp;&nbsp;&nbsp;</span>   <span class="">发行&nbsp;:&nbsp;天马时空网络&nbsp;&nbsp;&nbsp;</span>   
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=6013" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="6013" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6013">
+<div class="subdiv leftside" data-id="6013" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6013">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/05/03/4c5f32.png">
+</div><div class="subdiv rightside" data-id="6013" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6013">
+<div class="info_title">
+<span>镇魂无双</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">RPG</em>
+	<span class="mark_tag" >删档封测</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;盛游信息科技&nbsp;&nbsp;&nbsp;</span>      
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=6002" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="6002" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6002">
+<div class="subdiv leftside" data-id="6002" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6002">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/07/05/333dd3.png">
+</div><div class="subdiv rightside" data-id="6002" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6002">
+<div class="info_title">
+<span>流浪者小岛</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">RPG</em>
+	<span class="mark_tag" >测试</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+       <span class="">发行&nbsp;:&nbsp;盛大游戏&nbsp;&nbsp;&nbsp;</span>   
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=5995" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="5995" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5995">
+<div class="subdiv leftside" data-id="5995" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5995">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/01/25/9d5ab0.png">
+</div><div class="subdiv rightside" data-id="5995" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5995">
+<div class="info_title">
+<span>契约勇士</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">SLG</em>
+	<span class="mark_tag" >公测</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;盘狮游戏&nbsp;&nbsp;&nbsp;</span>   <span class="">发行&nbsp;:&nbsp;妙聚网络&nbsp;&nbsp;&nbsp;</span>   
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=5994" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="5994" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5994">
+<div class="subdiv leftside" data-id="5994" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5994">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/07/05/29ba09.png">
+</div><div class="subdiv rightside" data-id="5994" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5994">
+<div class="info_title">
+<span>天盛长歌</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">RPG</em>
+	<span class="mark_tag" >删档封测</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;爱奇艺科技&nbsp;&nbsp;&nbsp;</span>      
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=5993" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="5993" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5993">
+<div class="subdiv leftside" data-id="5993" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5993">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/01/25/53206a.png">
+</div><div class="subdiv rightside" data-id="5993" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5993">
+<div class="info_title">
+<span>乱煮江湖</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">SLG</em>
+	<span class="mark_tag" >不删档内测</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+       <span class="">发行&nbsp;:&nbsp;探娱互动&nbsp;&nbsp;&nbsp;</span>   
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=5992" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="5992" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5992">
+<div class="subdiv leftside" data-id="5992" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5992">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/06/08/3aa5b3.png">
+</div><div class="subdiv rightside" data-id="5992" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5992">
+<div class="info_title">
+<span>那一剑江湖</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">RPG</em>
+	<span class="mark_tag" >删档内测</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+       <span class="">发行&nbsp;:&nbsp;畅游天下&nbsp;&nbsp;&nbsp;</span>   
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=5991" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="5991" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5991">
+<div class="subdiv leftside" data-id="5991" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5991">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/06/14/4e4ef6.png">
+</div><div class="subdiv rightside" data-id="5991" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5991">
+<div class="info_title">
+<span>超级英雄联盟</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">RPG</em>
+	<span class="mark_tag" >二次计费删档测试</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+       <span class="">发行&nbsp;:&nbsp;英雄互娱&nbsp;&nbsp;&nbsp;</span>   
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=5975" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="5975" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5975">
+<div class="subdiv leftside" data-id="5975" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5975">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/02/27/9e1033.png">
+</div><div class="subdiv rightside" data-id="5975" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5975">
+<div class="info_title">
+<span>荣耀战国</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">SLG</em>
+	<span class="mark_tag" >删档计费测试</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;烽子网络&nbsp;&nbsp;&nbsp;</span>   <span class="">发行&nbsp;:&nbsp;初见科技&nbsp;&nbsp;&nbsp;</span>   
+   </div>
+</div>
+</div></div>
+</div><div class="gamepanel"  >
+<!-- href="info?id=5880" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="5880" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5880">
+<div class="subdiv leftside" data-id="5880" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5880">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/05/17/f6c2d9.png">
+</div><div class="subdiv rightside" data-id="5880" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=5880">
+<div class="info_title">
+<span>风之大陆</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">RPG</em>
+	<span class="mark_tag" >公测</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/ios.png"><img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;简悦科技&nbsp;&nbsp;&nbsp;</span>   <span class="">发行&nbsp;:&nbsp;紫龙游戏&nbsp;&nbsp;&nbsp;</span>   
+   </div>
+</div>
+</div></div>
+</div>
+
+</div>
+</div><div class="one_day_div" id="2018-07-13" style="position:relative;">
+<div style="">
+<div class="date_panel"  >
+<div class="dashed" style="border-bottom:1px dashed #ddd;height:12px;"></div>
+<div class="date_div" style="">
+
+
+  <span class="" style="display:inline-block;text-align:left;">2018-07-13</span>
+  <span class="" style="display:inline-block;text-align:center;">星期五</span>
+  <!-- <span class="" style="display:block;height:50%;width:100%;background-color:#ddd;vertical-align:middle;text-align:center;"></span> -->
+
+</div>
+
+</div>
+</div>
+
+<div class="gamelist">
+<div class="gamepanel"  >
+<!-- href="info?id=6024" -->
+<!-- <div class="kc_game "></div> -->
+<div class="item" data-id="6024" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6024">
+<div class="subdiv leftside" data-id="6024" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6024">
+<img class="lazy" data-original="http://img.gameres.com/thome/2018/07/08/3c3e5c.png">
+</div><div class="subdiv rightside" data-id="6024" data-toggle="modal" data-target="#myModal" data-remote="/thome/ngtest/info?id=6024">
+<div class="info_title">
+<span>战双：帕弥什</span>
+<em style="color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+	padding:3px 0px;display:inline;
+	">RPG</em>
+	<span class="mark_tag" >技术测试</span>	</div>
+<div class="info_mark">
+  <span class="plat_icon" >
+  <img class="platform_icon" src="http://www.gameres.com/thome/ngtest/Public/images/android.png">   
+  </span>
+   <div style="display:block;vertical-align:middle;text-align:left;line-height:17px;">
+    <span class="">研发&nbsp;:&nbsp;库洛游戏&nbsp;&nbsp;&nbsp;</span>      
+   </div>
+</div>
+</div></div>
+</div>
+
+</div>
+</div><!-- <div style="position:absolute;bottom:0;"><a>查看更多</a></div> -->
+</div>			 <div style="position:absolute;bottom:0;text-align:center;width:100%;">
+			 <div style="
+			 background: -webkit-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1)); /* Safari 5.1 - 6.0 */
+			  background: -o-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1)); /* Opera 11.1 - 12.0 */
+			  background: -moz-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1)); /* Firefox 3.6 - 15 */
+			  background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1)); /* 标准的语法 */
+			  padding:18px 0;
+			 "></div>
+			 <div style="background:#FFF;font-weight:bold;"><a href="http://www.gameres.com/newgame" target="_blank">查看更多</a></div>
+			 </div>
+			 </div >
+              </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+         <td valign="top"> 
+          <!-- 最新 --> 
+          <div style="border:0px solid #cfcfcf;width:100%;margin:auto;position:relative"> 
+           <div class="title" style="border-bottom:1px dashed #888;position:relative"> 
+            <a  style="cursor:pointer;width:20%;border-bottom:0px;background-color:rgb(187, 17, 17);color:#fff;" " id="1"><span>最新</span></a> 
+            <!-- <a style="width:20%;" target="_self" href="javascript:void(0);" id="2"><span>虚拟VR</span></a>  -->
+			<a style="cursor:pointer;width:20%;"  id="2"><span>Steam</span></a> 
+            <a style="cursor:pointer;width:20%;"  id="3"><span>手游</span></a> 
+            <a style="cursor:pointer;width:20%;"  id="4"><span>观察</span></a> 
+            <a style="cursor:pointer;width:20%;"  id="5"><span>产品</span></a> 
+           </div> 
+           <div class="content" style="width:99%;"> 
+            <!--输出内容--> 
+            <div class="c1" id="content_1" style="display:inline-block;position:relative;width:99%;"> 
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/baogao_1.html"><span class="style80">[报告]</span></a>
+              <a style=";" href="http://www.gameres.com/813955.html" title="应用宝6月手游报告：RPG新游吸量又吸金 经典IP续作表现亮眼"><font color="">应用宝6月手游报告：RPG新游吸量又吸金 经典IP续作表现亮眼</font></a>
+              <span class="style80"> 12</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/guancha_1.html"><span class="style80">[观察]</span></a>
+              <a style=";" href="http://www.gameres.com/813934.html" title="沙盒游戏的魅力在于自由的玩法，也在于玩家的创造"><font color="">沙盒游戏的魅力在于自由的玩法，也在于玩家的创造</font></a>
+              <span class="style80"> 12</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/cehua_1.html"><span class="style80">[策划]</span></a>
+              <a style=";" href="http://www.gameres.com/813922.html" title="EEA：目标拆分的重要性"><font color="">EEA：目标拆分的重要性</font></a>
+              <span class="style80"> 12</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/chanpindongtai_1.html"><span class="style80">[产品]</span></a>
+              <a style=";" href="http://www.gameres.com/813916.html" title="背上行囊上路吧，《边境之旅》带我回忆一路风景"><font color="">背上行囊上路吧，《边境之旅》带我回忆一路风景</font></a>
+              <span class="style80"> 12</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/cehua_1.html"><span class="style80">[策划]</span></a>
+              <a style=";" href="http://www.gameres.com/813915.html" title="从多维角度解构《战争机器人》的游戏设计和商业植入"><font color="">从多维角度解构《战争机器人》的游戏设计和商业植入</font></a>
+              <span class="style80"> 12</span>
+             </div>
+			 <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/cehua_1.html"><span class="style80">[策划]</span></a>
+              <a style=";" href="http://www.gameres.com/813913.html" title="《愤怒的小鸟2》底层关卡设计中可以借鉴学习哪些因素？"><font color="">《愤怒的小鸟2》底层关卡设计中可以借鉴学习哪些因素？</font></a>
+              <span class="style80"> 12</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/cehua_1.html"><span class="style80">[策划]</span></a>
+              <a style=";" href="http://www.gameres.com/813911.html" title="1.7亿DAU背后，《跳一跳》踩过了那些坑（下）"><font color="">1.7亿DAU背后，《跳一跳》踩过了那些坑（下）</font></a>
+              <span class="style80"> 12</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/changshang_1.html"><span class="style80">[厂商]</span></a>
+              <a style=";" href="http://www.gameres.com/813848.html" title="西门孟：你说游戏是假的，但谁告诉你人生是真的呢"><font color="">西门孟：你说游戏是假的，但谁告诉你人生是真的呢</font></a>
+              <span class="style80"> 11</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/chanpindongtai_1.html"><span class="style80">[产品]</span></a>
+              <a style=";" href="http://www.gameres.com/813840.html" title="《王者荣耀》边境突围开测，“MOBA+吃鸡”会是全新品类吗？"><font color="">《王者荣耀》边境突围开测，“MOBA+吃鸡”会是全新品类吗？</font></a>
+              <span class="style80"> 11</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/shichang_1.html"><span class="style80">[市场]</span></a>
+              <a style=";" href="http://www.gameres.com/813813.html" title="H5游戏渠道运营必读：现状，困境与未来"><font color="">H5游戏渠道运营必读：现状，困境与未来</font></a>
+              <span class="style80"> 11</span>
+             </div>
+			 <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/guancha_1.html"><span class="style80">[观察]</span></a>
+              <a style=";" href="http://www.gameres.com/813806.html" title="独立游戏启示录时代 留给天才们的时间不多了"><font color="">独立游戏启示录时代 留给天才们的时间不多了</font></a>
+              <span class="style80"> 11</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/baogao_1.html"><span class="style80">[报告]</span></a>
+              <a style=";" href="http://www.gameres.com/813797.html" title="6月韩国手游市场最新动态, 中国手游《奇迹MU：觉醒》的崛起!"><font color="">6月韩国手游市场最新动态, 中国手游《奇迹MU：觉醒》的崛起!</font></a>
+              <span class="style80"> 11</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/yanfa_1.html"><span class="style80">[研发]</span></a>
+              <a style=";" href="http://www.gameres.com/813787.html" title="鹅厂公开课：游戏服务器，了解一下？"><font color="">鹅厂公开课：游戏服务器，了解一下？</font></a>
+              <span class="style80"> 11</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/shejiao_1.html"><span class="style80">[社交]</span></a>
+              <a style=";" href="http://www.gameres.com/813781.html" title="从Journey看游戏社交性"><font color="">从Journey看游戏社交性</font></a>
+              <span class="style80"> 11</span>
+             </div>
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;
+			  
+              <a href="http://www.gameres.com/huodong_1.html"><span class="style80">[活动]</span></a>
+              <a style=";" href="http://www.gameres.com/813765.html" title="在48小时的CiGA Game Jam 2018中，收获的不止是游戏"><font color="">在48小时的CiGA Game Jam 2018中，收获的不止是游戏</font></a>
+              <span class="style80"> 11</span>
+             </div>
+			 <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" />            </div> 
+            <div class="c1" id="content_2"> 
+			 <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813865.html"><font color="">V社内部数据流出 《军团要塞2》玩家数量最多超5000万</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813838.html"><font color="">别因媒体的低分，就错过这款艺术品般的独立游戏</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813613.html"><font color="">Steam平台最热门的1000款游戏：前十你都玩过吗</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813575.html"><font color="">Steam泄露了13281个游戏的销售记录，揭露Steam的真相</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813554.html"><font color="">Steam平台游戏对应玩家数量泄露 绝地求生居第三</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813550.html"><font color="">叱咤风云的Steam进军中国市场：功成名就or铩羽而归</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813535.html"><font color="">Steam夏促到底对欧洲游戏销量产生了多大影响？</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813320.html"><font color="">社交软件将成为Steam的潜在威胁</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813279.html"><font color="">Steam的“夏促特卖星人”活动让G胖赔了吗？</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813194.html"><font color="">Steam发布2018上半年各项最佳榜单，国产游戏《波西亚时光》入榜</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813095.html"><font color="">Steam「2018上半年最佳」榜单公布</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813092.html"><font color="">Steam2018年上半年最佳游戏榜单公布：《彩虹六号：围攻》、《孤岛惊魂5》位列铂金</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/812634.html"><font color="">Valve或将推出官方版“SteamSpy”统计工具</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/812632.html"><font color="">Steam月均访问用户达375万，平均每周新游戏数量180款</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/812473.html"><font color="">号称Steam平台的贪玩蓝月是如何将鼠标点击体验发挥到极致？</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" />            </div> 
+            <div class="c1" id="content_3"> 
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813597.html"><font color="">The Sims Mobile游戏制作者谈移动产品迭代</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813474.html"><font color="">手游《FGO》发行商2017-18财年收入18亿美元，同比接近翻番</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813443.html"><font color="">忍者必须死3：跑酷突破堪称惊艳 却也有“致命”问题</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813426.html"><font color="">7月9日—7月15日共有45款游戏开测｜GameRes</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813146.html"><font color="">机械组装Roguelike《冷械岛》获App Store新游推荐</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/812879.html"><font color="">开发者谈手游开发过程中需要注意的几大因素</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/812538.html"><font color="">7月2日—7月8日共有52款游戏开测｜GameRes</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/812349.html"><font color="">任天堂掌门人交接：老社长看好中国市场，新社长要做更多手游</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/812164.html"><font color="">“新英雄是如何诞生的！”《魂武》开发日志</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/812140.html"><font color="">从2018年上半年的新游中，我们看到了游戏市场的一些新打法</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/812075.html"><font color="#F23022">手游还需要评测？！那我们来聊聊基本思路与方法</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/811612.html"><font color="">《绝地求生》开发商将收购一间手游工作室，加快布局移动游戏市场</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/811579.html"><font color="">6月25日—7月1日共有29款游戏开测｜GameRes</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/811563.html"><font color="">B社起诉华纳兄弟手游 疑因《西部世界》盗用代码</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/811437.html"><font color="">AppStore上线首日免费榜第3 《非人学园》因何吸睛</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" />            </div> 
+            <div class="c1" id="content_4"> 
+              <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813934.html"><font color="">沙盒游戏的魅力在于自由的玩法，也在于玩家的创造</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813926.html"><font color="">如果要氪金，你更愿意变强还是变漂亮？</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813866.html"><font color="">韩游戏对华出口数据难堪 被压制还是自身不足</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813864.html"><font color="">镜子、名字与自我——漫谈《异域镇魂曲》</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813853.html"><font color="">关心联机体验？在PC上玩MHW应该这样选平台</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813806.html"><font color="">独立游戏启示录时代 留给天才们的时间不多了</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813749.html"><font color="">欧美独立黄油面临下架危机，我们采访了几位开发者</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813720.html"><font color="">传统2D动作游戏的变革</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813718.html"><font color="">腾讯WeGame港服开发中：对标Steam火药味渐浓</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813670.html"><font color="">玩家与游戏设定间微妙的平衡点——认可度与代入感</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813639.html"><font color="">松田洋祐的东西交融的开发战略以及AR和VR技术在游戏中的应用</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813585.html"><font color="">Dota2被攻陷后，AI与玩家只能拼个“你死我活”吗？</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813572.html"><font color="">你理想中的武侠主题MMORPG应该是什么样的？</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813558.html"><font color="">人名翻译、语音汉化，游戏的中文化是否用力过度？</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813536.html"><font color="">Amy Hennig：单人游戏成本越来越高，维持当前售价不现实</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" />            </div> 
+            <div class="c1" id="content_5"> 
+              <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813953.html"><font color="">腾讯游戏发行《冒险岛2》7月12日觉醒公测</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813950.html"><font color="">预约破100万 《三十六计》手游七月底公测</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813949.html"><font color="">微漫互娱发行《青之战纪》7月12日初回测试</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813948.html"><font color="">《海姆达尔》：用有限的篇幅，做出一部“大片”</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813938.html"><font color="">《鬼语迷城》月流水破亿，三七互娱国内手游业务“核心+多元化”布局初成</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813933.html"><font color="">遇到事故除了围观还能做什么？“交通事故模拟器”了解一下</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813923.html"><font color="">《绝地求生》微信充值入口曝光:即将上线</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813916.html"><font color="">背上行囊上路吧，《边境之旅》带我回忆一路风景</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813885.html"><font color="">2018年动漫改编游戏汇总 动漫迷的专属盛宴</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813880.html"><font color="">“造人陪客”的模拟经营了解一下？《西部世界》评测</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813840.html"><font color="">《王者荣耀》边境突围开测，“MOBA+吃鸡”会是全新品类吗？</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813835.html"><font color="">13小时9.6分问鼎TAPTAP预约双榜，《江湖求生》拿什么打动了玩家？</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813833.html"><font color="">《海盗来了》成首款月流水破亿的微信小游戏</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813830.html"><font color="">武侠独立游戏《武林志》今日首曝</font></a>
+             </div>
+             <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+              &nbsp;&nbsp;
+              <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+              <a style=";" href="http://www.gameres.com/813828.html"><font color="">《大圣归来 游戏版》确认出展ChinaJoy 2018</font></a>
+             </div>
+             <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" />            </div> 
+           </div> 
+          </div> <p align="right"><a href="http://www.gameres.com/zuixin_1.html"><span style="line-height:19px;">-&gt;更多</span></a>　</p> <br /> 
+          <table style="width: 100%" class="style61" cellspacing="0" cellpadding="0" align="right"> 
+           <tbody>
+            <tr> 
+             <td style="height: 22px"> 
+              <table style="width: 100%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 22px; border-bottom:1px dashed #888;"><span style="font-size:16px;color:#bb1111"><b>一周热点</b></span></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+            <tr> 
+             <td> 
+              <table style="width: 95%; height: 86px" cellspacing="0" cellpadding="0" align="center"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 100px"> <p class="style45"> </p>
+				 <div style="position:relative;height:26px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:26px;">
+                   &nbsp;&nbsp;
+                   <img src="http://bbs.gameres.com/static/image/common/hot_1.gif" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813463.html" title="百万销量的《空洞骑士》，地图是怎么设计出来的？"><font color="">百万销量的《空洞骑士》，地图是怎么设计出来的？</font></a>
+                  </div><div style="position:relative;height:26px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:26px;">
+                   &nbsp;&nbsp;
+                   <img src="http://bbs.gameres.com/static/image/common/hot_1.gif" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813164.html" title="6月小程序Top200：75款小游戏入围 半年数量激增8.25倍"><font color="">6月小程序Top200：75款小游戏入围 半年数量激增8.25倍</font></a>
+                  </div><div style="position:relative;height:26px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:26px;">
+                   &nbsp;&nbsp;
+                   <img src="http://bbs.gameres.com/static/image/common/hot_1.gif" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813146.html" title="机械组装Roguelike《冷械岛》获App Store新游推荐"><font color="">机械组装Roguelike《冷械岛》获App Store新游推荐</font></a>
+                  </div><div style="position:relative;height:26px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:26px;">
+                   &nbsp;&nbsp;
+                   <img src="http://bbs.gameres.com/static/image/common/hot_1.gif" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813287.html" title="开发出成功游戏（过程）是世界上最难的工作之一"><font color="">开发出成功游戏（过程）是世界上最难的工作之一</font></a>
+                  </div><div style="position:relative;height:26px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:26px;">
+                   &nbsp;&nbsp;
+                   <img src="http://bbs.gameres.com/static/image/common/hot_1.gif" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813225.html" title="回顾暴雪起诉刀塔传奇"><font color="">回顾暴雪起诉刀塔传奇</font></a>
+                  </div>
+                  
+                 
+				  <p></p></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+        </tr> 
+       </tbody>
+      </table> 
+	  
+	  
+<br /> <a title="chinajoy" href="http://www.gameres.com/zt/jump_cj.htm" rel="nofollow"><img src="http://img.gameres.com/thome/2018/07/09/8e3dbe.jpg" style="width:728px;height:90px;" /></a><br /> <br /> 
+
+
+      <!-- 游戏运营 游戏策划 --> 
+      <table style="width: 100%" cellspacing="0" cellpadding="0" align="center"> 
+       <tbody>
+        <tr> 
+         <td style="width:10px;"> </td> 
+         <td style="width:358px;" valign="top"> 
+          <!-- 运营 --> 
+          <table style="width: 100%" class="style61" cellspacing="0" cellpadding="0" align="right"> 
+           <tbody>
+            <tr> 
+             <td style="height: 22px"> 
+              <table style="width: 100%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 22px; border-bottom:1px dashed #888;"><a href="http://www.gameres.com/yunying_1.html" target="_blank"><span style="font-size:16px;color:#bb1111"><b>游戏运营</b></span></a></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+            <tr> 
+             <td> 
+              <table style="width: 100%; height: 86px" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 340px"> <p class="style45"> </p>
+                  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813969.html"><font color="">2018年Q2中国游企版图产业报告：电竞进入混战时代</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813963.html"><font color="">不拿版权、不分流水、还掏钱导量推产品 “第三代发行”怎么玩？</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813955.html"><font color="">应用宝6月手游报告：RPG新游吸量又吸金 经典IP续作表现亮眼</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813813.html"><font color="">H5游戏渠道运营必读：现状，困境与未来</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813807.html"><font color="">2018中国区块链移动应用发展研究报告</font></a>
+                  </div>
+				  <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813797.html"><font color="">6月韩国手游市场最新动态, 中国手游《奇迹MU：觉醒》的崛起!</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813725.html"><font color="">移动游戏成为上海网络游戏“出海”主力</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813714.html"><font color="">AppAnnie：6月全球综合下载量及收入榜单</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813642.html"><font color="">2018电竞产业报告：用户将达到4.3亿人 市场规模将超880亿元</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813607.html"><font color="">发行多，买量热，CP少，那研发又是怎样看发行与买量的？</font></a>
+                  </div>
+				                    <p></p></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+         <td style="width:358px;"> 
+          <!-- 策划 --> 
+          <table style="width: 100%" class="style61" cellspacing="0" cellpadding="0" align="center"> 
+           <tbody>
+            <tr> 
+             <td style="height: 22px"> 
+              <table style="width: 100%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 22px;border-bottom:1px dashed #888;"> <a href="http://bbs.gameres.com/forum_6_1.html" target="_blank"><span style="font-size:16px;color:#bb1111"><b>游戏策划</b></span></a> </td>
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+           <tr> 
+             <td> 
+              <table style="width: 100%; height: 86px" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 340px"> <p class="style45"> </p>
+                  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813922.html"><font color="">EEA：目标拆分的重要性</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813915.html"><font color="">从多维角度解构《战争机器人》的游戏设计和商业植入</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813913.html"><font color="">《愤怒的小鸟2》底层关卡设计中可以借鉴学习哪些因素？</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813911.html"><font color="">1.7亿DAU背后，《跳一跳》踩过了那些坑（下）</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813884.html"><font color="">1.7亿DAU背后，《跳一跳》踩过了那些坑（上）</font></a>
+                  </div>
+				  <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813860.html"><font color="">对游戏中各种技能分类的简要总结（主要为MMO和MOBA）</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813559.html"><font color="">关于去流程化的应用和思考</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813529.html"><font color="">《女神异闻录5》碎碎念和设计笔记</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813471.html"><font color="">游策入门须知（二）—游策有哪些岗位？平时在做什么？</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813469.html"><font color="">数值设计从0到1（一）——职业数值设计</font></a>
+                  </div>
+				                    <p></p></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+        </tr> 
+       </tbody>
+      </table>
+
+<br /> <a title="绯雨音乐" href="http://www.gameres.com/zt/jump_lightrain.htm" rel="nofollow"><img src="http://img.gameres.com/images/data/feiyu_100audio.gif" style="width:728px;height:90px;" /></a><br /> <br /> 
+
+
+      <!-- 游戏八卦 游戏职场 --> 
+      <table style="width: 100%" cellspacing="0" cellpadding="0" align="center"> 
+       <tbody>
+        <tr> 
+         <td style="width:10px;"> </td> 
+         <td style="width:358px" valign="top"> 
+          <!-- 游戏八卦 --> 
+          <table style="width: 100%" class="style61" cellspacing="0" cellpadding="0" align="right"> 
+           <tbody>
+            <tr> 
+             <td style="height: 22px"> 
+              <table style="width: 100%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                  <td style="height: 22px;border-bottom:1px dashed #888;"> <a href="http://www.gameres.com/bagua_1.html" target="_blank"><span style="font-size:16px;color:#bb1111"><b>八卦</b></span></a></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+            <tr> 
+             <td> 
+              <table style="width: 100%; height: 86px" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 340px"> <p class="style45"> </p>
+                  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813158.html"><font color="">腾讯游戏消费提醒被指标准太高 防沉迷机制形同虚设</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812865.html"><font color="">《寂静岭P.T.》被人在PC上重制了，作者是个17岁少年</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812636.html"><font color="">黑公关在行动：恶意曲解报告观点 “虎牙抹黑斗鱼”谣言横行网络</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812411.html"><font color="">死亡搁浅山寨手游竟是一个换皮游戏？外国手游也爱玩虚假宣传</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812215.html"><font color="">头条腾讯大力整治行业“黑公关” 虎牙入选黑公关事件“30强”</font></a>
+                  </div>
+				  <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812076.html"><font color="">法治周末报：网瘾成病之后</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811892.html"><font color="">上海网游公司服务器被攻击 警方赴青岛抓黑客</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811875.html"><font color="">心动CEO黄一孟控诉百度上架“诈骗游戏”，实名Diss侵权行径</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811813.html"><font color="">PC玩家必看指南：如何将自己伪装成一名硬核玩家</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811803.html"><font color="">内马尔世界杯期间玩《绝地求生》：赢球又吃鸡</font></a>
+                  </div>
+				                    <p></p></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+         <td style="width:358px;"> 
+          <!-- 游戏职场 --> 
+          <table style="width: 100%" class="style61" cellspacing="0" cellpadding="0" align="right"> 
+           <tbody>
+            <tr> 
+             <td style="height: 22px"> 
+              <table style="width: 100%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 22px; border-bottom:1px dashed #888;"><a href="http://www.gameres.com/zhichang_1.html" target="_blank"><span style="font-size:16px;color:#bb1111"><b>游戏职场</b></span></a> </td>
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+             <tr> 
+             <td> 
+              <table style="width: 100%; height: 86px" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 340px"> <p class="style45"> </p>
+                  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813795.html"><font color="">雷军敲钟，“金山帮”的创业浮沉</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813759.html"><font color="">开发者：自由表达时代如何应对粉丝的社交情绪？</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813501.html"><font color="">GameJam的SOLO型选手希罗：6大做好游戏的心得</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813471.html"><font color="">游策入门须知（二）—游策有哪些岗位？平时在做什么？</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813287.html"><font color="">开发出成功游戏（过程）是世界上最难的工作之一</font></a>
+                  </div>
+				  <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812569.html"><font color="">从高玩到游戏策划再到独立开发者，他如何理解高玩与游戏制作的关系？</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812389.html"><font color="">可爱的猫与宇宙飞船：《Stardrop》的创作者如何克服职业倦怠</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812149.html"><font color="">与朋友关于游戏开发的夜谈和感悟</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811741.html"><font color="">The world at your fingertips — 天涯明月刀幕后20（繁星）</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811371.html"><font color="#163EE0">《仙剑四外传•回到起点》有没有做出来？</font></a>
+                  </div>
+				                    <p></p></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr>
+           </tbody>
+          </table> </td> 
+        </tr> 
+       </tbody>
+      </table> <br />
+	  
+	  
+<!-- 
+	  
+	  
+<br />
+
+<a title="chianjoy" href="https://zhongchou.modian.com/item/11084.html?_mdsf=home_czpro_web&_mpos=h_czpro_web&_ga=2.59706029.1426204182.1525245079-1770868672.1518332027" rel="nofollow"> 
+
+<br /> <br /> 
+	  -->
+	  
+	  
+	  
+	  
+	  
+      <!-- 独立游戏 --> 
+      <table style="width: 100%" cellspacing="0" cellpadding="0" align="center"> 
+       <tbody>
+        <tr> 
+         <td style="width:10px;"> </td> 
+         <td style="width:716px" valign="top"> 
+          <!-- 独立游戏 --> 
+          <table style="width: 100%" class="style61" cellspacing="0" cellpadding="0" align="right"> 
+           <tbody>
+            <tr> 
+             <td style="height: 22px"> 
+              <table style="width: 100%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 22px;border-bottom:1px dashed #888;"><a href="http://bbs.gameres.com/forum_28.html" target="_blank"><span style="font-size:16px;color:#bb1111"><b>独立游戏</b></span></a></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+            <tr> 
+             <td> 
+              <table style="width: 100%; height: 86px" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 340px"> 
+                 <table style='width:100%' cellspacing='1' cellpadding='2' align='center'><tr><td style='width:151px;height:160px;'><a href='http://www.gameres.com/813874.html' title='Dig or Die'><div style='width:151px;'><img  width='150'  style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/4f/cb/813874.jpg) scroll center center /cover;height:100px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 1px solid #608f9f'/><br><div style='border-bottom-left-radius:10px;border-bottom-right-radius:10px;width:152px; height: 22px; left: 0px; bottom: 0px; background-color:#608f9f;line-height:22px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#ffffff;'>&nbsp;Dig or Die</span></div></div></a></td><td style='width:151px;height:160px;'><a href='http://www.gameres.com/813871.html' title='无尽之路（Endless Road）'><div style='width:151px;'><img  width='150'  style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/f1/64/813871.jpg) scroll center center /cover;height:100px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 1px solid #608f9f'/><br><div style='border-bottom-left-radius:10px;border-bottom-right-radius:10px;width:152px; height: 22px; left: 0px; bottom: 0px; background-color:#608f9f;line-height:22px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#ffffff;'>&nbsp;无尽之路（Endless Road）</span></div></div></a></td><td style='width:151px;height:160px;'><a href='http://www.gameres.com/813852.html' title='锈湖：旅馆'><div style='width:151px;'><img  width='150'  style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/d5/76/813852.jpg) scroll center center /cover;height:100px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 1px solid #608f9f'/><br><div style='border-bottom-left-radius:10px;border-bottom-right-radius:10px;width:152px; height: 22px; left: 0px; bottom: 0px; background-color:#608f9f;line-height:22px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#ffffff;'>&nbsp;锈湖：旅馆</span></div></div></a></td><td style='width:151px;height:160px;'><a href='http://www.gameres.com/813845.html' title='暴风雪俱乐部'><div style='width:151px;'><img  width='150'  style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/a9/57/813845.jpg) scroll center center /cover;height:100px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 1px solid #608f9f'/><br><div style='border-bottom-left-radius:10px;border-bottom-right-radius:10px;width:152px; height: 22px; left: 0px; bottom: 0px; background-color:#608f9f;line-height:22px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#ffffff;'>&nbsp;暴风雪俱乐部</span></div></div></a></td></tr><tr><td style='width:151px;height:160px;'><a href='http://www.gameres.com/813680.html' title='Remyadry'><div style='width:151px;'><img  width='150'  style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/c6/9d/813680.jpg) scroll center center /cover;height:100px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 1px solid #608f9f'/><br><div style='border-bottom-left-radius:10px;border-bottom-right-radius:10px;width:152px; height: 22px; left: 0px; bottom: 0px; background-color:#608f9f;line-height:22px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#ffffff;'>&nbsp;Remyadry</span></div></div></a></td><td style='width:151px;height:160px;'><a href='http://www.gameres.com/813676.html' title='MagiCats Builder (Crazy Dreamz)'><div style='width:151px;'><img  width='150'  style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/56/4e/813676.jpg) scroll center center /cover;height:100px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 1px solid #608f9f'/><br><div style='border-bottom-left-radius:10px;border-bottom-right-radius:10px;width:152px; height: 22px; left: 0px; bottom: 0px; background-color:#608f9f;line-height:22px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#ffffff;'>&nbsp;MagiCats Builder (Crazy Dreamz)</span></div></div></a></td><td style='width:151px;height:160px;'><a href='http://www.gameres.com/813659.html' title='VA-11 Hall-A: 赛博朋克酒保行动'><div style='width:151px;'><img  width='150'  style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/0d/02/813659.jpg) scroll center center /cover;height:100px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 1px solid #608f9f'/><br><div style='border-bottom-left-radius:10px;border-bottom-right-radius:10px;width:152px; height: 22px; left: 0px; bottom: 0px; background-color:#608f9f;line-height:22px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#ffffff;'>&nbsp;VA-11 Hall-A: 赛博朋克酒保行动</span></div></div></a></td><td style='width:151px;height:160px;'><a href='http://www.gameres.com/813506.html' title='Easy Red'><div style='width:151px;'><img  width='150'  style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/74/2d/813506.jpg) scroll center center /cover;height:100px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 1px solid #608f9f'/><br><div style='border-bottom-left-radius:10px;border-bottom-right-radius:10px;width:152px; height: 22px; left: 0px; bottom: 0px; background-color:#608f9f;line-height:22px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#ffffff;'>&nbsp;Easy Red</span></div></div></a></td></tr><tr></table>				 </td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+		  <!-- 游戏程序 --> 
+         <!-- <td style="width:358px;">  -->
+          
+          <!-- <table style="width: 100%" class="style61" cellspacing="0" cellpadding="0" align="right">  -->
+           <!-- <tbody> -->
+            <!-- <tr>  -->
+             <!-- <td style="height: 22px">  -->
+              <!-- <table style="width: 100%" cellspacing="0" cellpadding="0">  -->
+               <!-- <tbody> -->
+                <!-- <tr>  -->
+                 <!-- <td style="height: 22px;border-bottom:1px dashed #888;"><a href="http://www.gameres.com/chengxu_1.html" target="_blank"><span style="font-size:16px;color:#bb1111"><b>游戏程序</b></span></a></td>  -->
+                <!-- </tr>  -->
+               <!-- </tbody> -->
+              <!-- </table> </td>  -->
+            <!-- </tr>  -->
+            <!-- <tr>  -->
+                 <!-- <td style="height: 340px"> <p class="style45"> </p> -->
+                  <!-- -->
+				  <!-- <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;"> -->
+                   <!-- &nbsp;&nbsp; -->
+                   <!-- <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp; -->
+                   <!-- <a style=";" href="http://www.gameres.com/813686.html"><font color="">《Dead Cells》，通过3D工具制作2D动画</font></a> -->
+                  <!-- </div> -->
+				  <!--  -->
+				  <!---->
+				  <!-- <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;"> -->
+                   <!-- &nbsp;&nbsp; -->
+                   <!-- <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp; -->
+                   <!-- <a style=";" href="http://www.gameres.com/813274.html"><font color="">教你利用工具将单机游戏改造成对战网游</font></a> -->
+                  <!-- </div> -->
+				  <!--  -->
+				  <!---->
+				  <!-- <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;"> -->
+                   <!-- &nbsp;&nbsp; -->
+                   <!-- <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp; -->
+                   <!-- <a style=";" href="http://www.gameres.com/813231.html"><font color="">关于低分辨率像素游戏下显示非防锯齿中文 / 汉字的研究</font></a> -->
+                  <!-- </div> -->
+				  <!--  -->
+				  <!---->
+				  <!-- <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;"> -->
+                   <!-- &nbsp;&nbsp; -->
+                   <!-- <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp; -->
+                   <!-- <a style=";" href="http://www.gameres.com/813032.html"><font color="">《Exploring in UE4》多线程机制详解[原理分析]</font></a> -->
+                  <!-- </div> -->
+				  <!--  -->
+				  <!---->
+				  <!-- <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;"> -->
+                   <!-- &nbsp;&nbsp; -->
+                   <!-- <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp; -->
+                   <!-- <a style=";" href="http://www.gameres.com/812928.html"><font color="">Unity MMORPG游戏优化经验分享</font></a> -->
+                  <!-- </div> -->
+				  <!-- <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /> -->
+				  <!---->
+				  <!-- <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;"> -->
+                   <!-- &nbsp;&nbsp; -->
+                   <!-- <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp; -->
+                   <!-- <a style=";" href="http://www.gameres.com/812873.html"><font color="">使用Unity从零点五开始，做半个不能玩的小游戏（完）</font></a> -->
+                  <!-- </div> -->
+				  <!--  -->
+				  <!---->
+				  <!-- <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;"> -->
+                   <!-- &nbsp;&nbsp; -->
+                   <!-- <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp; -->
+                   <!-- <a style=";" href="http://www.gameres.com/812751.html"><font color="">一种基于游戏引擎的AR模式探讨（下）</font></a> -->
+                  <!-- </div> -->
+				  <!--  -->
+				  <!---->
+				  <!-- <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;"> -->
+                   <!-- &nbsp;&nbsp; -->
+                   <!-- <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp; -->
+                   <!-- <a style=";" href="http://www.gameres.com/812663.html"><font color="">【GPU精粹与Shader编程】(一) 全系列核心知识点总览</font></a> -->
+                  <!-- </div> -->
+				  <!--  -->
+				  <!---->
+				  <!-- <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;"> -->
+                   <!-- &nbsp;&nbsp; -->
+                   <!-- <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp; -->
+                   <!-- <a style=";" href="http://www.gameres.com/812174.html"><font color="">如何用行为树开发游戏AI以及任务系统？</font></a> -->
+                  <!-- </div> -->
+				  <!--  -->
+				  <!---->
+				  <!-- <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;"> -->
+                   <!-- &nbsp;&nbsp; -->
+                   <!-- <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp; -->
+                   <!-- <a style=";" href="http://www.gameres.com/811980.html"><font color="">《最后的守护者》的开发技术猜想</font></a> -->
+                  <!-- </div> -->
+				  <!--  -->
+				  <!-- -->
+                  <!-- <p></p></td>  -->
+                <!-- </tr>  -->
+           <!-- </tbody> -->
+          <!-- </table> </td>  -->
+        </tr> 
+       </tbody>
+      </table> <br /> 
+      <!-- 新闻分类 --> 
+	  
+	  
+      <br /> 
+
+      <table style="width: 100%" cellspacing="0" cellpadding="0" align="center"> 
+       <tbody>
+        <tr> 
+         <td style="width:10px;"> </td> 
+         <td style="width:358px;" valign="top"> 
+          <!-- 分类1 --> 
+          <table style="width: 100%" class="style61" cellspacing="0" cellpadding="0" align="center"> 
+           <tbody>
+            
+           
+            <tr> 
+             <td style="height: 22px"> 
+              <table style="width: 100%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 22px;border-bottom:1px dashed #888;"><a href="http://www.gameres.com/chengxu_1.html" target="_blank"><span style="font-size:16px;color:#bb1111"><b>游戏程序</b></span></a></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+            <tr> 
+                 <td style="height: 340px"> <p class="style45"> </p>
+                  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813686.html"><font color="">《Dead Cells》，通过3D工具制作2D动画</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813274.html"><font color="">教你利用工具将单机游戏改造成对战网游</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813231.html"><font color="">关于低分辨率像素游戏下显示非防锯齿中文 / 汉字的研究</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813032.html"><font color="">《Exploring in UE4》多线程机制详解[原理分析]</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812928.html"><font color="">Unity MMORPG游戏优化经验分享</font></a>
+                  </div>
+				  <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812873.html"><font color="">使用Unity从零点五开始，做半个不能玩的小游戏（完）</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812751.html"><font color="">一种基于游戏引擎的AR模式探讨（下）</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812663.html"><font color="">【GPU精粹与Shader编程】(一) 全系列核心知识点总览</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812174.html"><font color="">如何用行为树开发游戏AI以及任务系统？</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811980.html"><font color="">《最后的守护者》的开发技术猜想</font></a>
+                  </div>
+				                    <p></p></td> 
+                </tr> 
+				
+			<tr> 
+             <td style="height: 22px"> 
+              <table style="width: 100%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 22px; border-bottom:1px dashed #888;"> <a href="http://www.gameres.com/qita_1.html"><span style="font-size:16px;color:#bb1111"><b>综合</b></span></a></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+             <tr> 
+                 <td style="height: 340px"> <p class="style45"> </p>
+                  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813225.html"><font color="">回顾暴雪起诉刀塔传奇</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813055.html"><font color="">北京日报：鼓励研发具有传统文化特色和自主知识产权的网游</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812843.html"><font color="">5天时间，国内近16万款App下架，苹果清理持续进行</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812821.html"><font color="">十家上市游戏公司收到年报问询函 监管部门关注哪些问题？</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812231.html"><font color="">移动端已成玩家最喜爱游戏平台 但付费比例却最低</font></a>
+                  </div>
+				  <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811821.html"><font color="">张乾首次讲述TapTap至暗时刻：整改、质疑、竞争…</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811169.html"><font color="">淘宝网宣布6月27日起关闭手游第三方代充服务</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811165.html"><font color="">棋牌游戏警钟长鸣 北京、湖北多地已开始专项整治</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811042.html"><font color="">游戏版号7月将下放一批 同时游戏公司资质审查又开始了</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811040.html"><font color="">苹果宣布部分地区竞价广告需缴税，中国开发者小心被交“苹果税”！</font></a>
+                  </div>
+				                    <p></p></td> 
+                </tr> 
+           </tbody>
+          </table> </td> 
+         <td style="width:358px;"> 
+          <!-- 分类2 --> 
+          <table style="width: 100%" class="style61" cellspacing="0" cellpadding="0" align="center"> 
+           <tbody>
+             
+           <tr> 
+             <td style="height: 22px"> 
+              <table style="width: 100%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 22px;border-bottom:1px dashed #888;"> <a href="http://www.gameres.com/changshang_1.html" target="_blank"><span style="font-size:16px;color:#bb1111"><b>厂商资讯</b></span></a></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+             <tr> 
+                 <td style="height: 340px"> <p class="style45"> </p>
+                  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813965.html"><font color="">指尖悦动成功赴港上市 对话刘杰：绸缪远虑，守正出奇</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813848.html"><font color="">西门孟：你说游戏是假的，但谁告诉你人生是真的呢</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813843.html"><font color="">抖音结束整改恢复广告业务，承诺双倍预算补偿</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813829.html"><font color="">网易陈俊雄：《梦幻西游》手游有责任传承文化纽带</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813824.html"><font color="">腾讯计划把WeGame带到香港，然后拓展至全球</font></a>
+                  </div>
+				  <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813796.html"><font color="">微信王泓渊：小游戏已开放200个API，100项能力在路上</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813779.html"><font color="">《热血大灌篮》胡斌：四人小团队如何开发小游戏、实现百万DAU？</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813773.html"><font color="">微信李卿：小游戏突破2000款，安卓内购和广告齐头并进</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813768.html"><font color="">微信黄咪咪详解”小游戏平台规则”：这些坑千万别踩！</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813743.html"><font color="">EA宣布收购手机游戏开发商Industrial Toys</font></a>
+                  </div>
+				                    <p></p></td> 
+                </tr> 
+            <tr> 
+             <td style="height: 22px"> 
+              <table style="width: 100%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 22px;border-bottom:1px dashed #888;"> <a href="http://www.gameres.com/huodong_1.html" target="_blank"><span style="font-size:16px;color:#bb1111"><b>游戏活动</b></span></a></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+             <tr> 
+                 <td style="height: 340px"> <p class="style45"> </p>
+                  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813765.html"><font color="">在48小时的CiGA Game Jam 2018中，收获的不止是游戏</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813526.html"><font color="">第一届移动游戏产品分享会活动介绍</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/813446.html"><font color="">虽然亏本了，但格斗大会EVO Japan明年还办</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812920.html"><font color="">第十八届游戏项目交易会8月2日在上海举办，报名正式开始</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812853.html"><font color="">CiGA Game Jam本周8大城市同时开启，你准备好了吗？</font></a>
+                  </div>
+				  <hr style="width:95%;border:1px dashed #ddd;border-bottom:1px #ffffff;" /><div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812309.html"><font color="">2018 indiePlay报名还有两周截止！错过报名又要在等一年！</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812252.html"><font color="">全球游戏开发者大会11月首次登陆中国内地</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812113.html"><font color="">7月5日【智汇零接触·走向世界】沙龙：读懂“手游出海”这门必修课！</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/812060.html"><font color="#F23022">2018ChinaJoy会议活动跑会指南-正在火热收集中</font></a>
+                  </div>
+				  <div style="position:relative;height:30px;width:99%;overflow:hidden;text-overflow:clip;font-size:16px;line-height:30px;">
+                   &nbsp;&nbsp;
+                   <img src="http://www.gameres.com/static/image/common/folder_common.gif" width="17" height="17" />&nbsp;
+                   <a style=";" href="http://www.gameres.com/811975.html"><font color="">福利待遇豪华升级 只为决战征途全系列嘉年华</font></a>
+                  </div>
+				                    <p></p></td> 
+                </tr> 
+           </tbody>
+          </table> </td> 
+        </tr> 
+       </tbody>
+      </table> 
+      <table style="width: 728px" cellspacing="0" cellpadding="0" align="center"> 
+       <tbody>
+        <tr> 
+         <td style="height: 10px"> 
+          <table style="width: 100%" class="style61" cellspacing="0" cellpadding="0" align="center"> 
+           <tbody>
+            <tr> 
+             <td style="height: 30px"> 
+              <table style="width: 99%" cellspacing="0" cellpadding="0"> 
+               <tbody>
+                <tr> 
+                 <td style="height: 22px;border-bottom:1px dashed #888;"><span style="font-size:16px;color:#bb1111"><b>&nbsp;友情链接</b></span> <span style="color:#888888">欢迎PR≥5交换链接 QQ:295888889</span></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+            <tr> 
+             <td> <p class="style45"> <span class="style82" style="line-height: 120%;"> 
+			 &middot;<a class="style99" href="http://game.open.uc.cn/">阿里游戏开放平台</a> 
+			 &middot;<a class="style99" href="http://www.16p.com/">游戏行</a> 
+			 &middot;<a class="style99" href="http://www.youdingjiang.com/" rel="nofollow">游鼎奖</a> 
+			 &middot;<a class="style99" href="http://www.gamethk.com/">游戏智库</a> 
+			 &middot;<a class="style99" href="http://www.4399.cn/">4399手机游戏网</a> 
+			 &middot;<a class="style99" href="http://chanye.07073.com/">07073产业频道</a> 
+			 &middot;<a class="style99" href="http://news.gamedog.cn/">手机游戏新闻</a> 
+			 &middot;<a class="style99" href="http://www.zf3d.com/">3dmax</a>
+			 &middot;<a class="style99" href="http://www.sfw.cn/">上方网</a> 
+			 &middot;<a class="style99" href="http://www.hly.com/">欢乐园游戏</a>
+			 &middot;<a class="style99" href="http://www.sjwyx.com/">手游之家</a> 
+			 &middot;<a class="style99" href="http://www.58game.com/">58game游戏网</a> 
+			 &middot;<a class="style99" href="http://www.a9vg.com/">A9VG</a> 
+			 &middot;<a class="style99" href="http://www.361games.com/">361游戏网</a> 
+			 &middot;<a class="style99" href="http://www.99danji.com/zt/">单机游戏大全</a> 
+			 &middot;<a class="style99" href="http://www.nadianshi.com/">手游那点事</a> 
+			 &middot;<a class="style99" href="http://www.8868.cn/">手游交易平台</a> 
+			 &middot;<a class="style99" href="http://www.youxichaguan.com/">游戏茶馆</a> 
+			 &middot;<a class="style99" href="http://gamerboom.com/">游戏邦</a> 
+			 &middot;<a class="style99" href="http://www.appying.com/">APPYING</a>
+			 &middot;<a class="style99" href="http://www.putaogame.com/">葡萄游戏厅</a>
+			 &middot;<a class="style99" href="http://www.9game.cn/topic/">热门手机游戏</a> 
+			 &middot;<a class="style99" href="http://wetest.qq.com/?from=links_gameres">WeTest腾讯质量开放平台</a>
+			 &middot;<a class="style99" href="http://www.dospy.com">dospy智能手机网</a> 
+			 &middot;<a class="style99" href="http://gad.qq.com/">腾讯GAD</a> 
+			 &middot;<a class="style99" href="http://www.foxuc.cn/">棋牌游戏开发</a> 
+			 &middot;<a class="style99" href="https://www.youme.im" rel="nofollow">游密音视频SDK</a> 
+			 </span> </p></td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+        </tr> 
+       </tbody>
+      </table> </td> 
+     <td style="background-color: #FFFFFF;width:262px;" valign="top"> 
+      <!-- 右边AD --> 
+	
+
+
+
+
+
+
+<!-- 右边AD -->
+
+
+<left>
+
+<form action="http://zhannei.baidu.com/cse/search" target="_blank">
+<input type="hidden" name="s" value="13698104158759869988">
+<input type="text" name="q" size="16" maxlength="98" style="font-size:18px;height:22px;width:200px;padding-left:6px;vertical-align:middle;">
+<input type="submit" value=" 搜 索 "  style="height:28px;vertical-align:middle;" class=button_mouseout onmouseover="this.className='button_mouseover'" onmouseout="this.className='button_mouseout'" onmousedown="this.className='button_mousedown'" onmouseup="this.className='button_mouseup'">
+</form>
+
+<center>
+
+<br>
+<table >
+<tr>
+<td ><span style="font-size:12px;color:gray;">微信扫一扫<br>关注我们→</span></td>
+<td>
+<a href="http://img.gameres.com/images2015/G.jpg" rel="nofollow"><img src="http://img.gameres.com/images2015/G.jpg" style="width:100px;height:100px;"></a>
+</td>
+<td style="width:5px;">
+</td>
+<td>
+<center>
+<span style="font-size:12px;color:gray;">微博↓</span><br>
+<a href="http://weibo.com/gamerescom" rel="nofollow"><img src="http://img.gameres.com/images/data/weibo.png" style="width:64px;height:64px;"></a>
+</td>
+</tr>
+</table>
+</div>
+
+
+
+
+<hr style='width:98%;border:1px dashed #888;border-bottom:1px #ffffff;'>
+
+
+<table style="width:100%;" cellspacing="0" cellpadding="0" >
+<tr><td style="border-bottom:1px dashed #888;">
+<p class="style45" style="text-align: left;">
+&nbsp;<a target="_blank" href="http://bbs.gameres.com/forum_47_1.html"><span style="color:#888888;font-size:12px;">招聘信息</span></a>&nbsp;&nbsp;<a target="_blank" href="http://bbs.gameres.com/forum.php?mod=post&action=newthread&fid=47"><span style="color:#888888;font-size:12px;">免费发布</span></a><img src="http://img.gameres.com/images/hot.gif"><br>
+<center><b>
+<span style="font-size:15px;">
+[<a target="_blank" href="http://bbs.gameres.com/forum.php?mod=forumdisplay&fid=47&filter=typeid&typeid=1">北京</a>] 
+[<a target="_blank" href="http://bbs.gameres.com/forum.php?mod=forumdisplay&fid=47&filter=typeid&typeid=3">上海</a>] 
+[<a target="_blank" href="http://bbs.gameres.com/forum.php?mod=forumdisplay&fid=47&filter=typeid&typeid=6">杭州</a>]
+[<a target="_blank" href="http://bbs.gameres.com/forum.php?mod=forumdisplay&fid=47&filter=typeid&typeid=5">成都</a>]<br/> 
+
+[<a target="_blank" href="http://bbs.gameres.com/forum.php?mod=forumdisplay&fid=47&filter=typeid&typeid=4">广州</a>]
+[<a target="_blank" href="http://bbs.gameres.com/forum.php?mod=forumdisplay&fid=47&filter=typeid&typeid=8">深圳</a>]
+[<a target="_blank" href="http://bbs.gameres.com/forum.php?mod=forumdisplay&fid=47&filter=typeid&typeid=9">厦门</a>]
+</span>
+[<a target="_blank" href="http://job.gameres.com/">更多</a>] 
+</b></p>
+
+</td>
+</tr>
+
+</table>
+
+<!--
+<hr style='width:90%;border:1px dashed #999;border-bottom:1px #ffffff;'>
+
+-->
+
+<br>
+<!--
+<a title="游戏行-下载" href="http://www.16p.com/app/" target="_blank" rel="nofollow"><img src="http://img.gameres.com/images/data/16p.jpg" width="260" height="120"></a><br>
+<br>
+-->
+<table style="width: 100%" align="center" cellspacing="0" cellpadding="0">
+<tr>
+<td style="width:6px;">
+</td>
+<td style="height: 32px;border-bottom:1px dashed #888;"><a href="http://bbs.gameres.com/forum_124.html"><span style="font-size:16px;color:#bb1111"><b>找产品</b></a>　<span class='style80' >已入库：<span style="color:#ff0000">5249</span>款产品　　<a href="http://www.gameres.com/808871.html">如何入库?</span></a></span>
+</td>
+</tr>
+<tr>
+<td style="width:6px;">
+</td>
+<td style="height:420px;" >
+
+
+
+<div style="width:260px;Min-Height:100px; ">
+<table id='main_tab' class='round' style='width:230px;' cellspacing='0' cellpadding='8' align='center'><tr><td class='round' style='width:'214'px;margin-left:10px;' onMouseOver='mouseOver(this);' onMouseOut='mouseOut(this);'><div id='stamp_813640'><a target='_blank' href='http://www.gameres.com/813640.html' title='大城小筑' style='text-decoration:none;'><div style='width:214px;'><img  width='214' style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/f8/36/813640.jpg) scroll center center /cover;height:160px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 0px;'/><br><div id='813640' style='width:214px; height: 22px; left: 0px; bottom: 0px; background-color:rgb(187, 17, 17);border-bottom-left-radius:10px;border-bottom-right-radius:10px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#fff'>&nbsp;<b>大城小筑</b></span></div><span style='color:rgb(141, 140, 140);font-size:12px;width:214'>玩法：社交游戏<br>找独代|独立游戏</span></div></a></div></div></div></td></tr><tr><td class='round' style='width:'214'px;margin-left:10px;' onMouseOver='mouseOver(this);' onMouseOut='mouseOut(this);'><div id='stamp_808542'><a target='_blank' href='http://www.gameres.com/808542.html' title='时空召唤师' style='text-decoration:none;'><div style='width:214px;'><img  width='214' style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/ee/9f/808542.jpg) scroll center center /cover;height:160px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 0px;'/><br><div id='808542' style='width:214px; height: 22px; left: 0px; bottom: 0px; background-color:rgb(187, 17, 17);border-bottom-left-radius:10px;border-bottom-right-radius:10px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#fff'>&nbsp;<b>时空召唤师</b></span></div><span style='color:rgb(141, 140, 140);font-size:12px;width:214'>玩法：竞技游戏|角色扮演 ...<br>找独代</span></div></a></div></div></div></td></tr><tr><td class='round' style='width:'214'px;margin-left:10px;' onMouseOver='mouseOver(this);' onMouseOut='mouseOut(this);'><div id='stamp_813879'><a target='_blank' href='http://www.gameres.com/813879.html' title='小镇物语' style='text-decoration:none;'><div style='width:214px;'><img  width='214' style='background:#FFF url(http://di.gameres.com/./attachment/forum/threadcover/12/25/813879.jpg) scroll center center /cover;height:160px;
+			border-bottom-left-radius:0px;border-bottom-right-radius:0px;border: 0px;'/><br><div id='813879' style='width:214px; height: 22px; left: 0px; bottom: 0px; background-color:rgb(187, 17, 17);border-bottom-left-radius:10px;border-bottom-right-radius:10px; text-align: left;overflow-x:hidden;overFlow-y:hidden;' ><span style='color:#fff'>&nbsp;<b>小镇物语</b></span></div><span style='color:rgb(141, 140, 140);font-size:12px;width:214'>玩法：社交游戏|模拟游戏 ...<br>仅展示</span></div></a></div></div></div></td></tr><tr></table></div>
+
+</td>
+</tr>
+</table>
+
+
+
+
+
+<br>
+
+<a title="游戏行_APP" href="http://www.16p.com/app/"  target="_blank"><img src="http://img.gameres.com/images/data/yxx_540x240.jpg" ></a><br>
+<br>
+
+<a title="GAD" href="http://gameinstitute.qq.com/gameshow" target="_blank" rel="nofollow"><img src="http://img.gameres.com/thome/2018/04/27/041f0b.png" style="" width="260" height="120"></a><br>
+<a title="绯雨音乐" href="http://www.gameres.com/zt/jump_lightrain.htm" rel="nofollow" target="_blank"><img src="http://img.gameres.com/images/data/feiyu_260_120.gif" width="260"></a><br>
+<a title="indienova" href="https://indienova.com/trip" rel="nofollow" target="_blank"><img src="http://img.gameres.com/thome/2018/03/05/de40c5.jpg" width="260"></a><br>
+<a title="chinajoy" href="http://www.gameres.com/zt/jump_cj.htm" target="_blank"><img src="http://img.gameres.com/thome/2018/07/09/4d036e.jpg" width="260"></a><br>
+
+
+<br>
+<table style="width: 100%" align="center" cellspacing="0" cellpadding="0">
+<tr>
+<td style="width:6px;">
+</td>
+<td style="height: 32px;border-bottom:1px dashed #888;"><span style="font-size:16px;color:#bb1111"><b>参考</b></span>
+</td>
+<td style="width:6px;">
+</td>
+</tr>
+<tr>
+<td style="width:6px;">
+</td>
+<td >
+
+
+<a href="http://www.gameres.com/754227.html">2017年App Store审核指南(官方)</a><br>
+<a href="http://www.gameres.com/667125.html">移动游戏上架App Store之前须审批才可发布</a><br>
+<a href="http://www.gameres.com/666652.html">版号申请雷区：题材 内容 美术 IP</a><br>
+<a href="http://www.gameres.com/497212.html">Steam产品提交条例解读</a><br>
+<a href="http://www.gameres.com/493853.html">iOS APP提交上架流程</a><br>
+<a href="http://www.gameres.com/322857.html">揭秘：手游渠道评测详细评分表（详细）</a><br>
+<a href="http://www.gameres.com/211571.html">如何向App Store提交应用</a><br>
+
+
+</td>
+<td style="width:6px;">
+</td>
+</tr>
+</table>
+
+
+<br>
+<!--
+<img src="http://img.gameres.com/images2015/G.jpg" width="220"><br>
+关注我们官方微信公众号<br>
+<br>
+
+
+-->
+<br>
+     </td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <script type="text/javascript">
+//回顶部功能实现
+$(function(){
+		$(window).scroll(function(){
+			if($(window).scrollTop() > 300){
+				$("#top").attr("display","block").fadeIn(600,0);
+			}
+			else{
+				$("#top").attr("display","none").fadeOut(600,0);
+			}
+		});
+
+	//回顶部动画实现$("body,html").animate({scrollTop:0},1000);
+	$("#top").click(function()
+			{
+				$("body,html").animate({scrollTop:0},500);
+			});
+        });
+</script> 
+  <div id="top" title="回顶部" style="cursor:pointer;width:50px;height:60px;position:fixed !important; bottom:1px;position:absolute; z-index:10; right:20px; display:none;"> 
+  <img src="http://img.gameres.com/images/top.png">
+  </div> 
+  <table style="width: 1000px;background-image: url('http://img.gameres.com/images2013/2013_new_bottom.jpg');" cellspacing="0" cellpadding="0" align="center"> 
+   <tbody>
+    <tr> 
+     <td class="style73" style="width:240px;height:90px;"> </td> 
+     <td style="color:#ffffff;text-align: right;"> <a style="color:#ffffff" href="http://www.gameres.com/about.html" target="_blank">关于本站</a> | <a style="color:#ffffff" href="http://www.gameres.com/fabu.html" target="_blank">信息发布</a> | <a style="color:#ffffff" href="http://www.gameres.com/ad.html" target="_blank">广告投放</a> | <a style="color:#ffffff" href="http://www.gameres.com/about.html" target="_blank">联系本站</a>&nbsp;&nbsp; <br /> &copy; 2001-2017 <a style="color:#ffffff" href="http://www.gameres.com/">GameRes游资网</a> <a style="color:#ffffff" href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">闽ICP备05005107号</a>&nbsp;&nbsp; </td> 
+     <td class="style73" style="width:140px;height:90px;"> </td> 
+    </tr> 
+   </tbody>
+  </table> 
+ </body>
+</html>
+<script type="text/javascript">
+var aLink=document.getElementsByTagName('a');
+for(var i=0;i<aLink.length;i++)
+{
+    aLink[i].target='_blank';
+}
+</script> 
+<!-- completeFlag -->

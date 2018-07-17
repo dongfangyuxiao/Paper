@@ -1,0 +1,877 @@
+
+
+<!DOCTYPE html>
+<html>
+<head><script src="//assets.geilicdn.com/v-components/hawk/1.2.0/index.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="applicable-device" content="pc">
+    <title>口袋购物 - 最智能的手机购物软件</title>
+    <meta name="keywords" content="口袋购物,网上购物,购物app,团购网站,团购" />
+    <meta name="description" content="口袋购物是中国最大、最安全的网上交易平台，提供各类服饰、美容美体、生活家居、母婴玩具、运动户外、美食特产、数码家电等潮流商品，在这里可以让广大消费者发现时尚精品，分享消费体验，全面安心享受随时随地网上购物的乐趣!" />
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://m.koudai.com/"/>
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.koudai.com/"/>
+    <link rel="canonical" href="http://www.koudai.com/" />
+    <link rel="Shortcut Icon" href="./images/koudai.ico">
+    <style type="text/css">
+        /* 兼容 */
+        body, div, ul, li, h1, h2, h3, h4, h5, h6, p{
+            margin: 0;
+            padding: 0;
+        }
+        ul, li{
+            list-style: none;
+        }
+        img{
+            vertical-align: top;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        /* 公共 */
+        html {
+            color: #000;
+            background-color: #F9F9F9;
+        }
+        body {
+            font: 12px/1.5 hiragino sans gb,microsoft yahei,simsun;
+        }
+
+        #m-header{
+            width: 1000px;
+            height: 76px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 9;
+        }
+        #m-header .header-log{
+            width: 390px;
+            height: 76px;
+            background-image: url("https://si.geilicdn.com/636a1ac3d17acc4f605d775a085c645d.png");
+            background-size: 390px 76px;
+        }
+        #m-header ul{
+            width: 355px;
+            position: absolute;
+            top: 27px;
+            right: 0;
+            font-size: 14px;
+            color: #68390e;
+        }
+        #m-header li{
+            width: 86px;
+            height: 14px;
+            float: left;
+            margin-right: 8px;
+            padding: 10px 0 0;
+            border: 1px solid transparent;
+            overflow: hidden;
+            position: relative;
+        }
+        #m-header li a{
+            display: block;
+            text-indent: 6px;
+            line-height: 1;
+            border-left: 2px solid #68390e;
+            color: inherit;
+        }
+        #m-header li i{
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 14px;
+            right: 8px;
+            border: 4px solid transparent;
+            border-top-color: #68390e;
+
+        }
+        #m-header li .header-qr{
+            width: 70px;
+            height: 70px;
+            margin: 5px 8px;
+            background-image: url("https://si.geilicdn.com/0a72485067d90e30c6f67b68ce21b114.png");
+            background-size: 70px 70px;
+        }
+        #m-header li .header-download{
+            width: 70px;
+            height: 9px;
+            margin: 0 auto;
+            background-image: url("https://si.geilicdn.com/54699cc8e12d30f8c4b2c29504d20945.png");
+            background-size: 70px 9px;
+        }
+
+
+        #m-header li:first-child a{
+            border-left-color: transparent;
+        }
+
+        #m-header li.transition:hover{
+            height: 110px;
+            border-color: #68390e;
+            background-color: #fff;
+            -webkit-transition: all .5s ease-out 0s;
+            -moz-transition: all .5s ease-out 0s;
+            -o-transition: all .5s ease-out 0s;
+            transition: all .5s ease-out 0s;
+        }
+        #m-header li.transition:hover a{
+            border-color: transparent;
+        }
+        #m-header li.transition:hover i{
+            top: 9px;
+            border-top-color: transparent;
+            border-bottom-color: #68390e;
+            -webkit-transition: all .5s ease-out 0s;
+            -moz-transition: all .5s ease-out 0s;
+            -o-transition: all .5s ease-out 0s;
+            transition: all .5s ease-out 0s;
+        }
+
+        #m-banner{
+            width: 100%;
+            min-width: 1000px;
+            height: 554px;
+            background-color: #e5e5e5;
+            position: relative;
+            z-index: 1;
+        }
+        #m-banner .banner-item{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            -webkit-transition: all 1s ease-out 0s;
+            -moz-transition: all 1s ease-out 0s;
+            -o-transition: all 1s ease-out 0s;
+            transition: all 1s ease-out 0s;
+        }
+        #m-banner .banner-item-1{
+            z-index: 6;
+            background: url("https://si.geilicdn.com/4e0c67a196263f3a0d3708ec754181ce.png") bottom center repeat-x #fff500;
+            background-size: 61px 9px;
+        }
+        /*
+        #m-banner .banner-item-2{
+            z-index: 5;
+            background-color: #930082;
+        }
+        */
+        #m-banner .banner-item-wrap{
+            width: 100%;
+            height: 100%;
+            background: url("https://si.geilicdn.com/47ea767f0692006465068d6733532ffa.png") center center repeat transparent;
+            background-size: 1920px 554px;
+        }
+        #m-banner .banner-cell{
+            width: 1000px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        #m-banner .bannerL{
+            width: 243px;
+            height: 494px;
+            float: left;
+            margin: 25px 0 0 45px;
+            display: inline;
+            background-image: url("https://si.geilicdn.com/27251ba09b939952b1863af6cda11235.png");
+            background-size: 243px 494px;
+        }
+        #m-banner .bannerC{
+            width: 230px;
+            height: 293px;
+            float: left;
+            margin: 190px 0 0 0;
+            display: inline;
+            background-image: url("https://si.geilicdn.com/31060f465e9d274d16c8c5b931346dba.png");
+            background-size: 230px 293px;
+        }
+        #m-banner .bannerR{
+            width: 385px;
+            float: right;
+            margin-right: 55px;
+            display: inline;
+        }
+        #m-banner .bannerR-log{
+            width: 307px;
+            height: 91px;
+            margin-top: 70px;
+            background-image: url("https://si.geilicdn.com/8e401357180c265f58c1dbe0939f6c17.png");
+            background-size: 307px 91px;
+        }
+        #m-banner .bannerR-button{
+            width: 100%;
+            overflow: hidden;
+            margin-top: 35px;
+        }
+        #m-banner .bannerR-button a{
+            width: 177px;
+            height: 46px;
+            display: block;
+            float: left;
+            background: url("https://si.geilicdn.com/bfb40fa2b515ca34a058a981f30cf7cb.png") -207px 0 no-repeat;
+            background-size: 385px 92px;
+        }
+        #m-banner .bannerR-button a:first-child{
+            width: 197px;
+            margin-right: 10px;
+            display: inline;
+            background-position: 0 0;
+        }
+        #m-banner .bannerR-button a:hover{
+            background-position: -207px -46px;
+        }
+        #m-banner .bannerR-button a:first-child:hover{
+            background-position: 0 -46px;
+        }
+        #m-banner .bannerR-qr{
+            width: 164px;
+            height: 164px;
+            margin-top: 22px;
+            background: url("https://si.geilicdn.com/16059cb7ee16ea053135244825fd48c6.png") center center no-repeat #fff;
+            background-size: 140px 140px;
+        }
+        #m-banner .bannerR-download{
+            width: 164px;
+            height: 30px;
+            background: url("https://si.geilicdn.com/97a9f9e1857ec134686b3e9a9e7c0fc1.png") center top no-repeat #fff;
+            background-size: 106px 17px;
+        }
+        #m-banner .banner-handle{
+            width: auto;
+            height: 7px;
+            margin-left: -32px;
+            position: absolute;
+            left: 50%;
+            bottom: 22px;
+            z-index: 8;
+        }
+        #m-banner .banner-handle li{
+            width: 17px;
+            height: 100%;
+            float: left;
+            margin-right: 15px;
+            background-color: #000;
+            -webkit-transition: all 1s ease-out 0s;
+               -moz-transition: all 1s ease-out 0s;
+                 -o-transition: all 1s ease-out 0s;
+                    transition: all 1s ease-out 0s;
+            filter: "alpha(opacity=10)";
+            filter: alpha(opacity=10);
+            -khtml-opacity: 0.1;
+              -moz-opacity: 0.1;
+                   opacity: 0.1;
+            cursor: pointer;
+        }
+        #m-banner .banner-handle li.handle-cell{
+            background-color: #fff;
+            cursor: default;
+            filter: "alpha(opacity=100)";
+            filter: alpha(opacity=100);
+            -khtml-opacity: 1;
+            -moz-opacity: 1;
+            opacity: 1;
+        }
+
+        #m-content{
+            min-width: 1000px;
+            border-bottom: 1px dashed #8c6949;
+        }
+        #m-content #content-wrap{
+            width: 1000px;
+            height: 2230px;
+            margin: 20px auto 0;
+            background: url("https://si.geilicdn.com/1663cc263a1cb7618a77c56736a6a30c.png") center 140px no-repeat;
+            background-size: 951px 1891px;
+            position: relative;
+        }
+        #m-content .content-item{
+            width: 600px;
+            height: 515px;
+            margin: 0 5px;
+            position: absolute;
+        }
+        #m-content .content-item-1{
+            top: 10px;
+            right: 0;
+            background: url("https://si.geilicdn.com/3d36b9d714b8407f9c62e1db2e7db322.png") right top no-repeat;
+            background-size: 546px 511px;
+        }
+        #m-content .content-item-2{
+            top: 570px;
+            left: 0;
+            background: url("https://si.geilicdn.com/da30b60e547f305b1f155c815967f403.png") left top no-repeat;
+            background-size: 546px 513px;
+        }
+        #m-content .content-item-3{
+            top: 1123px;
+            right: 0;
+            background: url("https://si.geilicdn.com/dfd32ed534361a67bad6b036f05aedc3.png") right top no-repeat;
+            background-size: 546px 510px;
+        }
+        #m-content .content-item-4{
+            top: 1660px;
+            left: 0;
+            background: url("https://si.geilicdn.com/e85b74580393208299c491bb889b5468.png") left top no-repeat;
+            background-size: 546px 515px;
+        }
+
+        #m-footer{
+            min-width: 1000px;
+            height: 340px;
+            border-top: 1px dashed #8c6949;
+            background-color: #fff220;
+        }
+        #m-footer > ul,
+        #m-footer > p{
+            width: 560px;
+            padding: 0 220px;
+            margin: 0 auto;
+        }
+        #m-footer > ul{
+            height: 180px;
+            margin-top: 45px;
+        }
+        #m-footer > ul > li{
+            width: 165px;
+            float: left;
+        }
+        #m-footer > ul > li.shortLi{
+            width: 65px;
+        }
+        #m-footer > p{
+            color: #484848;
+            text-align: center;
+        }
+        #m-footer h2{
+            color: #484848;
+            font-size: 14px;
+        }
+        #m-footer li ul{
+            margin-top: 6px;
+        }
+        #m-footer li li {
+            height: 24px;
+            line-height: 24px;
+        }
+        #m-footer a{
+            color: #727272;
+        }
+        #m-footer a:hover{
+            color: #68390e;
+        }
+        #m-footer .footer-item{
+            text-indent: 25px;
+        }
+        #m-footer .footer-item-1{
+            background: url("https://si.geilicdn.com/3c31ed348e5f9f71500f909da4b96e2d.png") left center no-repeat;
+            background-size: 21px 72px;
+        }
+        #m-footer .footer-item-2{
+            background: url("https://si.geilicdn.com/2f4812dc9833ada36aee55233e6ebc5d.png") left center no-repeat;
+            background-size: 21px 120px;
+        }
+
+        #m-overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .6);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
+            display: none;
+        }
+        #m-overlay .overlay-content{
+            width: 410px;
+            height: 296px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -205px;
+            margin-top: -148px;
+        }
+        #m-overlay .header{
+            height: 53px;
+            background-color: #feea0a;
+            border: 1px solid #feea0a;
+            -webkit-border-radius: 2px 2px 0 0;
+            -moz-border-radius: 2px 2px 0 0;
+            -o-border-radius: 2px 2px 0 0;
+            border-radius: 2px 2px 0 0;
+        }
+        #m-overlay .header h3{
+            width: auto;
+            font-size: 16px;
+            color: #643805;
+            line-height: 55px;
+            text-indent: 10px;
+        }
+        #m-overlay .header i{
+            display: block;
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-image: url("https://si.geilicdn.com/eacca901b6aba651095020a3d634297f.png");
+            background-size: 35px 35px;
+            cursor: pointer;
+        }
+        #m-overlay .content{
+            height: 239px;
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #fff;
+            -webkit-border-radius: 0 0 2px 2px;
+            -moz-border-radius: 0 0 2px 2px;
+            -o-border-radius: 0 0 2px 2px;
+            border-radius: 0 0 2px 2px;
+        }
+        #m-overlay .content p{
+            color: #999;
+            font-size: 14px;
+            line-height: 1;
+            margin: 14px auto 20px;
+        }
+        #m-overlay .content div{
+            width: 165px;
+            height: 165px;
+            margin: 0 auto;
+            background-image: url("https://si.geilicdn.com/819fc3f9ed70a0e9c2266bd1f1000384.png");
+            background-size: 165px 165px;
+        }
+
+        /* retina屏 */
+        @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), (-webkit-min-device-pixel-ratio: 144), (min-resolution: 144dppx){
+            #m-header .header-log{
+                background-image: url("https://si.geilicdn.com/edeba27d421fc4491a54b8e6a0998efb.png");
+            }
+            #m-header li .header-qr{
+                background-image: url("https://si.geilicdn.com/16059cb7ee16ea053135244825fd48c6.png");
+            }
+            #m-header li .header-download{
+                background-image: url("https://si.geilicdn.com/dce83b4e61d436a49f97a1f42a52eb76.png");
+            }
+            #m-banner .banner-item-1{
+                background-image: url("https://si.geilicdn.com/ea5f211ecef58ca46b7414afc243d02a.png");
+            }
+            #m-banner .banner-item-wrap{
+                background-image: url("https://si.geilicdn.com/c27eaaca7653b690217021c4bebb2274.png");
+            }
+            #m-banner .bannerL{
+                background-image: url("https://si.geilicdn.com/cbf47430a5f617cd08f0a899bcd19072.png");
+            }
+            #m-banner .bannerC{
+                background-image: url("https://si.geilicdn.com/a4ba89fa17572f1151d3093863c766b0.png");
+            }
+            #m-banner .bannerR-log{
+                background-image: url("https://si.geilicdn.com/6e5a9a40dd775d0d9746707ac1841ac7.png");
+            }
+            #m-banner .bannerR-button a{
+                background-image: url("https://si.geilicdn.com/781f601a37bdd945bb0a63fd56209bfd.png");
+            }
+            #m-banner .bannerR-qr{
+                background-image: url("https://si.geilicdn.com/0457aeef6e5b01eeb320b24a1f60649d.png");
+            }
+            #m-banner .bannerR-download{
+                background-image: url("https://si.geilicdn.com/501587fa3219299f255554e4734fe2c2.png");
+            }
+            #m-content #content-wrap{
+                background-image: url("https://si.geilicdn.com/7538c61b8aa89777e27019bbede444bb.png");
+            }
+            #m-content .content-item-1{
+                background-image: url("https://si.geilicdn.com/a5b6b8d036c4e5e3183a6a1c470f1885.png");
+            }
+            #m-content .content-item-2{
+                background-image: url("https://si.geilicdn.com/33f68efe047acb2ba96bd89868f39936.png");
+            }
+            #m-content .content-item-3{
+                background-image: url("https://si.geilicdn.com/4ec2f5389e6696b165872418cb5d48e3.png");
+            }
+            #m-content .content-item-4{
+                background-image: url("https://si.geilicdn.com/7e8cd2dcc8f4dfcd97f837ddc6a8594a.png");
+            }
+            #m-footer .footer-item-1{
+                background-image: url("https://si.geilicdn.com/c5dba9812fa4cdb4fbff7ec0969baf9c.png");
+            }
+            #m-footer .footer-item-2{
+                background-image: url("https://si.geilicdn.com/ca33b22b0d7ee7dd94d392bfd69eb215.png");
+            }
+            #m-overlay .header i{
+                background-image: url("https://si.geilicdn.com/f29265345da4f437f9db51b6fcc8a7c2.png");
+            }
+            #m-overlay .content div{
+                background-image: url("https://si.geilicdn.com/a8471328fc22edfa9df480a74dddd283.png");
+            }
+        }
+        #m-footer .footer-beian{
+            display: inline-block;
+            height: 20px;
+            margin-right: 0;
+            padding-left: 25px;
+            background: url(//s.geilicdn.com/official/20171/images/bei_an.67ef009d.png) left center no-repeat;
+            background-size: 20px 20px;
+            color: #484848;
+        }
+        #m-footer a{
+            color: #484848;
+        }
+    </style>
+</head>
+<body>
+    <div id="m-header">
+        <div class="header-log"></div>
+        <ul>
+            <li class="transition">
+                <a>我的订单</a>
+                <div class="header-qr"></div>
+                <div class="header-download"></div>
+                <i></i>
+            </li>
+            <li class="transition">
+                <a>我的收藏</a>
+                <div class="header-qr"></div>
+                <div class="header-download"></div>
+                <i></i>
+            </li>
+            <li>
+                <a href="http://sell.koudai.com">商家平台</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="m-banner">
+        <div class="banner-item banner-item-1">
+            <div class="banner-item-wrap">
+                <div class="banner-cell">
+                    <div class="bannerL"></div>
+                    <div class="bannerC"></div>
+                    <div class="bannerR">
+                        <div class="bannerR-log"></div>
+                        <div class="bannerR-button">
+                            <a href="https://itunes.apple.com/cn/app/kou-dai-gou-wu-zui-hao-yong/id461626184?mt=8" target="_blank"></a>
+                            <!--<a href="http://d.koudai.com/kdgw/1018x/koudaigouwu_1018x.apk"></a>-->
+                            <a href='http://vap.gw.weidian.com/h5/commonserver/publish.redirectApkCdnUrl/1.0?request={appName:"maimai",channel:"1017n"}'></a>
+                        </div>
+                        <div class="bannerR-qr"></div>
+                        <div class="bannerR-download"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="banner-item banner-item-2">-->
+        <!--<div class="banner-cell"></div>-->
+        <!--</div>-->
+
+        <ul class="banner-handle">
+            <li class="handle-cell"></li>
+            <!--<li></li>-->
+        </ul>
+    </div>
+
+    <div id="m-content">
+        <div id="content-wrap">
+            <div class="content-item content-item-1"></div>
+            <div class="content-item content-item-2"></div>
+            <div class="content-item content-item-3"></div>
+            <div class="content-item content-item-4"></div>
+        </div>
+    </div>
+
+    <div id="m-footer">
+        <ul>
+            <li>
+                <h2>关于微店</h2>
+                <ul>
+                    <li><a href="http://hr.koudai.com/hr/hiring/about.do" >关于口袋购物/微店</a></li>
+                    <li><a href="http://hr.koudai.com/join/joinus.html" >招聘信息</a></li>
+                </ul>
+            </li>
+            <li>
+                <h2>关注我们</h2>
+                <ul class="footer-item footer-item-1">
+                    <li><a href="http://weibo.com/koudaigouwu" >新浪微博</a></li>
+                    <li><a href="http://user.qzone.qq.com/1464915393" >QQ空间</a></li>
+                    <li><a href="javascript:" id="J_overlay">微信</a></li>
+                </ul>
+            </li>
+            <li>
+                <h2>手机应用</h2>
+                <ul class="footer-item footer-item-2">
+                    <li><a href="http://www.weidian.com" >微店</a></li>
+                    <li><a href="#" >口袋购物</a></li>
+                    <li><a href="https://h5.weidian.com/m/weidian-buyer/down-buyer/index.html" >微店买家版</a></li>
+                    <li><a href="http://banjia.koudai.com/index_pc.html" >今日半价</a></li>
+                    <li><a href="https://go.weidian.com/download/index.html" >微店全球购</a></li>
+                </ul>
+            </li>
+            <li class="shortLi">
+                <h2>友情链接</h2>
+                <ul>
+                    <li><a href="http://cps.weidian.com" >微店联盟</a></li>
+                    <li><a href="http://bbs.weidian.com/portal.php?mod=index" >微店社区</a></li>
+                </ul>
+            </li>
+        </ul>
+        <p>
+            <span style="font-size: 14px; line-height: 1.8;">Copyright 2017 北京口袋时尚科技有限公司</span><br />
+            京ICP备11022687号-3 |
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502032089" class="footer-beian">京公网安备 11010502032089号</a> |
+            <a target="_blank" href="https://www.weidian.com/pc/privacy.php">隐私声明</a> |
+            <a target="_blank" href="https://www.weidian.com/pc/instance.php">出版物经营许可证</a>
+            <br />
+            互联网药品信息服务资格证书编号(京)-非经营性-2015-0087
+            <br />
+            投诉举报电话 : 4008-933-557
+        </p>
+    </div>
+
+    <div id="m-overlay">
+        <div class="overlay-content">
+            <div class="header">
+                <h3>关注我们</h3>
+                <i></i>
+            </div>
+            <div class="content">
+                <p>扫描二维码加<span style="color: #643805;">“口袋购物”</span>为微信好友</p>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (function(window){
+            var util = {
+                queryClass : function(baseElement, classname){
+                    var elements = baseElement.getElementsByTagName('*'),
+                            resultArr = [];
+                    for(var i = 0, len = elements.length; i < len; i++){
+                        var classnameArr = elements[i].className.split(' ');
+                        for(var j = classnameArr.length - 1; j >= 0; j--){
+                            if(classnameArr[j] === classname){
+                                resultArr.push(elements[i]);
+                                break;
+                            }
+                        }
+                    }
+                    return resultArr;
+                },
+                addEventListener : function(element, type, fn){
+                    if(element.addEventListener){
+                        element.addEventListener(type, fn, false);
+                    }else if(element.attachEvent){
+                        element.attachEvent('on' + type, fn);
+                    }else{
+                        element['on' + type] = fn;
+                    }
+                },
+                removeEventListener : function(element, type, fn){
+                    if(element.removeEventListener){
+                        element.removeEventListener(type, fn, false);
+                    }else if(element.detachEvent){
+                        element.detachEvent('on' + type, fn);
+                    }else{
+                        element['on' + type] = null;
+                    }
+                },
+                getViewSize: function(){
+                    var view = {};
+                    if (window.innerWidth){
+                        view.width = window.innerWidth;
+                    }else if(document.body && document.body.clientWidth){
+                        view.width = document.body.clientWidth;
+                    }
+
+                    if (window.innerHeight){
+                        view.height = window.innerHeight;
+                    }else if(document.body && document.body.clientHeight){
+                        view.height = document.body.clientHeight;
+                    }
+
+                    if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth){
+                        view.width = document.documentElement.clientWidth;
+                        view.height = document.documentElement.clientHeight;
+                    }
+
+                    return view;
+                },
+                getScroll: function(){
+                    var scrollPos = 0;
+                    if (window.pageYOffset) {
+                        scrollPos = window.pageYOffset;
+                    } else if (document.compatMode && document.compatMode != 'BackCompat') {
+                        scrollPos = document.documentElement.scrollTop;
+                    } else if (document.body) {
+                        scrollPos = document.body.scrollTop;
+                    }
+                    return scrollPos;
+                },
+            };
+
+            /* slide */
+            var Slide = function(baseTag, wrapTag, handleTag){
+                var baseTag = baseTag ? baseTag : 'm-banner',
+                        wrapTag = wrapTag ? wrapTag : 'banner-item',
+                        handleTag = handleTag ? handleTag : 'banner-handle';
+
+                this.slideBase = document.getElementById(baseTag);
+                this.slideItem = util.queryClass(this.slideBase, wrapTag);
+                this.handleBase = util.queryClass(this.slideBase, handleTag);
+                this.handleItem = this.handleBase[0].getElementsByTagName('li');
+
+                var lenSlide = this.slideItem.length,
+                        lenHandle = this.handleItem.length;
+                if(lenHandle !== lenSlide){
+                    console.log('slide图个数应该等于handle块的个数');
+                    return;
+                }else{
+                    this.slideNum = lenSlide;
+                }
+
+                this.counter = 0;   // 从第一个slide图开始切换
+                this.init();
+            };
+            Slide.prototype = {
+                constructor: Slide,
+                init: function(){
+                    this.handleEventer();
+                    this.addTimer();
+                },
+                addTimer : function(){
+                    var self = this;
+
+                    this._timer = setInterval(function(){
+                        self.iteratee();
+                    }, 2500);
+                },
+                clearTimer : function(){
+                    clearInterval(this._timer);
+                },
+                iteratee : function(){
+                    for(var i = this.slideItem.length - 1; i >= 0; i--){
+                        if(i === this.counter){
+                            this.slideItem[i].style.display = 'block';
+                        }else{
+                            this.slideItem[i].style.display = 'none';
+                        }
+                    }
+
+                    for(var j = this.handleItem.length - 1; j >= 0; j--){
+                        if(j === this.counter){
+                            this.handleItem[j].className = 'handle-cell';
+                        }else{
+                            this.handleItem[j].className = '';
+                        }
+                    }
+
+                    if(this.counter === this.slideNum - 1){
+                        this.counter = 0;
+                    }else{
+                        this.counter++;
+                    }
+                },
+                handleEventer : function(){
+                    var self = this;
+                    util.addEventListener(this.slideBase, 'mouseover', function(){      // mouseover比mouseenter更合适
+                        self.clearTimer();
+                    });
+                    util.addEventListener(this.slideBase, 'mouseout', function(){
+                        self.addTimer();
+                    });
+
+                    for(var i = this.handleItem.length-1; i >= 0; i--){
+                        (function(currentI){    // 创建闭包保存实时i
+                            util.addEventListener(self.handleItem[currentI], 'click', function(){
+                                if(self.handleItem[currentI].className === ''){
+                                    self.counter = currentI;
+                                    self.iteratee();
+                                }
+                            });
+                        }(i));
+                    }
+                }
+            };
+            new Slide();
+
+            /* Xmove */
+            var Xmove = function(baseTag, targetClass){
+                var baseTag = baseTag ? baseTag : 'm-content',
+                    targetClass = targetClass ? targetClass : 'content-item';
+
+                this.moveBase = document.getElementById(baseTag);
+                this.moveItem = util.queryClass(this.moveBase, targetClass);
+
+                this.iteratee();
+                this.init();
+            };
+            Xmove.prototype = {
+                constructor: Xmove,
+                init: function(){
+                    var self = this;
+                    util.addEventListener(window, 'scroll', function(){
+                        self.iteratee();
+                    });
+                    util.addEventListener(window, 'resize', function(){
+                        self.iteratee();
+                    });
+                },
+                iteratee: function(){
+                    for(var i = this.moveItem.length-1; i >= 0; i--){
+                        this.setPosition.call(this.moveItem[i]);
+                    }
+                },
+                setPosition: function(){
+                    var moveX = 0,     // 相对默认位置最远可移动的距离
+                            self = this,
+                            getTop= function(){ // 距离页面顶部的距离
+                                return self.offsetTop + self.parentNode.offsetTop;
+                            },
+                            getLeft= function(){
+                                return self.offsetLeft;
+                            },
+                            view = util.getViewSize(),
+                            viewWidth = view.width,
+                            viewHeight = view.height,
+                            thisToTop  = getTop(),
+                            thisToLeft = getLeft(),
+                            scroll     = util.getScroll(),
+                            relative   = thisToTop - scroll - viewHeight/2; // 当前元素相对view中心点的垂直距离
+
+                    if(viewWidth <= 1000){
+                        thisToLeft > 100 ? this.style.right = 0 : this.style.left = 0;
+                        return;
+                    }else{
+                        moveX = (viewWidth-1000)/2;
+                        moveX = moveX <=100 ? moveX : 100;
+                    }
+
+                    if(relative <=0 ){
+                        thisToLeft > 100 ? this.style.right = 0 : this.style.left = 0;
+                    }else if(relative >= viewHeight/2){
+                        thisToLeft > 100 ? this.style.right = -moveX + 'px' : this.style.left = -moveX + 'px';
+                    }else{
+                        thisToLeft > 100 ? this.style.right = -moveX * relative / viewHeight * 2 + 'px' : this.style.left = -moveX * relative / viewHeight * 2 + 'px';
+                    }
+                }
+            };
+            new Xmove();
+
+            /* 弹出窗 */
+            var overlay_trigger = document.getElementById('J_overlay'),
+                overlay_layer   = document.getElementById('m-overlay'),
+                overlay_close   = overlay_layer.getElementsByTagName('i')[0];
+            util.addEventListener(overlay_trigger, 'click', function(){
+                overlay_layer.style.display = 'block';
+            });
+            util.addEventListener(overlay_close, 'click', function(){
+                overlay_layer.style.display = 'none';
+            })
+
+        }(window))
+    </script>
+</body>
+</html>

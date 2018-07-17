@@ -1,0 +1,1282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<Link rel="Shortcut Icon" href="/favicon.ico" />
+        <title>国家体育总局体育彩票管理中心官方网站</title>
+        <meta name="keywords" content="唯一,官方,最快开奖,大奖,巨奖,竞彩,体育彩票,七星彩,排列三,排列五,足彩胜负,足彩进球,足彩半全场,篮球彩票,即开彩,即开型彩票,顶呱刮,省市体彩,无线体彩,体彩数据,22选5,31选7,媒体擂台,专家推荐,彩民俱乐部,彩民论坛,大乐透,超级大乐透,推荐,精推,公益"/>
+        <meta name="description" content="国家体育总局体育彩票管理中心唯一指定官方网站，为彩民提供超级大乐透、排列三、排列五、七星彩、足彩、22选5、31选7等彩种官方准确中奖公告及各种资讯服务。"/>
+<meta charset="utf-8" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache"> 
+<meta http-equiv="expires" content="0"> 
+<link href="/res/css/style_index.css" rel="stylesheet" type="text/css">
+<script src="/res/js/jquery-1.12.2.min.js" type="text/javascript"></script>
+<script src="/res/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="/res/js/slides.min.jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="/res/js/index.js"></script>
+<script type="text/javascript" src="/res/js/bdtj.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="/res/js/index_select.js"></script>
+<!-- 首页头文件 -->
+<script src="/res/js/user_cookie.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	var str;
+	if(window.location.pathname=="/" || window.location.pathname == "/index.html"){
+		str = "<font style='cursor:pointer;' onclick='SetHome(window.location)' >设为首页</font>　　<font onclick='AddFavorite(window.location,document.title)' style='cursor:pointer;'>加入收藏</font>　　中国体育彩票客服热线：<font style='font-weight:bold; color:#D80018;'>95086</font>";
+	}else{
+		str = "<a href='/index.html'>中国体彩网首页</a>　　中国体育彩票客服热线：<font style='font-weight:bold; color:#D80018;'>95086</font>";
+	}
+	$("#isIndex").html(str);
+	
+            var u=GetCookie("userName");
+            
+             if(u != null){
+                     $("#no_login").attr("style", "display: none");
+                     $("#is_login").attr("style", "display: block");  
+                     $("#l_name").text(u);
+                    }else{
+                    $("#is_login").attr("style", "display: none");
+                    $("#no_login").attr("style", "display: block");
+              }
+});
+
+
+</script>
+
+<div class="t01">
+	<div class="c01">
+		<div class="t02 black wryh">
+			<div class="t03" style="width:360px;" id="isIndex"></div>
+			<div id="is_login" style="display: none">
+				<div class="t031" style="cursor: pointer; padding:0 40px 0 0;"><a href="/logout.jspx" onclick="DeleteCookie();" target="_blank"><img src="/res/images/b051.png"></a></div>
+				<div class="t031" style=" padding:0 20px 0 0;">您好，<a href="/memberCenter.jspx" target="_blank"><font color="#cd0100" id="l_name"></font></a></div>
+			</div>
+			<div id="no_login" >
+				<div class="t031" style="cursor: pointer; padding:0 40px 0 0;display:none;"><a href="/login.jspx" alt="中国体彩网会员登录" title="中国体彩网会员登录" target="_blank"><img src="/res/images/b03.png"></a></div>
+				<div class="t031"  style=" padding:0 20px 0 0;display:none;"><a href="/register.jspx" alt="中国体彩网会员注册" title="中国体彩网会员注册" target="_blank">注册</a></div>
+		    </div>
+			<div id="yu_sjsm" class="t031"><img class="img" src="/res/images/b02.png"><span>手机版</span><img id="yu_sjmask" src="/res/images/mobile.png"/></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	
+	//加入收藏
+	function AddFavorite(sURL, sTitle) {
+		sURL = encodeURI(sURL);
+		try {
+			window.external.addFavorite(sURL, sTitle);
+		} catch (e) {
+			try {
+				window.sidebar.addPanel(sTitle, sURL, "");
+			} catch (e) {
+				alert("您的浏览器不支持自动加入收藏功能，请使用Ctrl+D进行添加，或手动在浏览器里进行设置！");
+			}
+		}
+	}
+	//设为首页
+	function SetHome(url) {
+		if (document.all) {
+			document.body.style.behavior = 'url(#default#homepage)';
+			document.body.setHomePage(url);
+		} else {
+			alert("您的浏览器不支持自动设置页面为首页功能，请您手动在浏览器里设置该页面为首页！");
+		}
+	}
+	$("#yu_sjsm span,#yu_sjsm .img").click(function(){
+		var ul = $("#yu_sjmask");
+		if(ul.css("display")=="none"){
+			ul.slideDown("fast");
+		}else{
+			ul.slideUp("fast");
+		}
+		//点空白弹窗消失
+		$(document).mouseup(function(e){
+			var _con = $('#yu_sjmask');   // 设置目标区域
+			if(!_con.is(e.target) && _con.has(e.target).length === 0){ // Mark 1
+				ul.slideUp("fast");
+			}
+		});
+	});
+</script><div class="c01">
+	<div class="t04">
+		<div class="t05"><a href="	http://www.lottery.gov.cn/"><img alt="中国体彩网" title="中国体彩网" src="/res/images/sp.gif"></a></div>
+		<div class="t06">
+		<form action="/search.jspx" id="searchForm">
+			<div class="t07">
+				<div class="t09">
+				  
+				  <input type="text" style="border:0px; line-height:23px; width:200px; height:23px; font-size:14px;" id="keywordInput" name="keyword" placeholder="请输入关键词">
+				  
+				</div>
+			</div>
+			<div class="t08"><img src="/res/images/n01_07.gif" id="searchSubmit"></div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- 首页头文件 end -->
+<!-- 导航 -->
+<!-- 十九大结束
+<div class="nd01">
+	<div class="nd02 white">
+	<a href="/index.html" target="_blank">首页</a>&nbsp;&nbsp;　<a href="/xxgk/index.html" target="_blank">信息公开</a>&nbsp;&nbsp;　<a href="/xwzx/index.html" target="_blank">新闻资讯</a>&nbsp;&nbsp;　<a href="/ygkj/index.html" target="_blank">阳光开奖</a>&nbsp;&nbsp;　<a href="/gywh/index.html" target="_blank">公益・文化</a>&nbsp;&nbsp;　<a href="/dfdt/index.html" target="_blank">地方动态</a>&nbsp;&nbsp;　<a href="/jcsp/index.html" target="_blank">精彩视频</a>&nbsp;&nbsp;　<a href="/ztbd/index.html" target="_blank">专题报道</a>&nbsp;&nbsp;　<a href="/fwgj/index.html" target="_blank">服务・工具</a>&nbsp;&nbsp;　<a href="http://chart.lottery.gov.cn/" target="_blank">数据</a>
+	</div>
+</div>
+ 十九大结束-->
+ 
+ <div class="c01">
+	<div class="nd19_01 white"><a href="/index.html" target="_blank">首页</a>&nbsp;&nbsp;　<a href="/xxgk/index.html" target="_blank">信息公开</a>&nbsp;&nbsp;　<a href="/xwzx/index.html" target="_blank">新闻资讯</a>&nbsp;&nbsp;　<a href="/ygkj/index.html" target="_blank">阳光开奖</a>&nbsp;&nbsp;　<a href="/gywh/index.html" target="_blank">公益·文化</a>&nbsp;&nbsp;　<a href="/dfdt/index.html" target="_blank">地方动态</a>&nbsp;&nbsp;　<a href="/jcsp/index.html" target="_blank">精彩视频</a>&nbsp;&nbsp;　<a href="/ztbd/index.html" target="_blank">专题报道</a>&nbsp;&nbsp;　<a href="/fwgj/index.html" target="_blank">服务·工具</a>&nbsp;&nbsp;　<a href="http://chart.lottery.gov.cn/chart_tc2/" target="_blank">数据</a></div>
+</div> 
+ 
+<div class="c01">
+	<div class="nd03 black">
+			<div class="nd04"><a href="/dlt/index.html" target="_blank" alt="超级大乐透" title="超级大乐透"><img src="/res/images/dh_01.png" alt="超级大乐透" title="超级大乐透"></a></div><H1 class="nd05 h1"><a href="/dlt/index.html" target="_blank" alt="超级大乐透" title="超级大乐透">超级大乐透</a></H1>
+			<div class="nd04"><a href="/gp/index.html" target="_blank" alt="高频" title="高频"><img src="/res/images/dh_02.png" alt="高频" title="高频"></a></div><H1 class="nd05 h1"><a href="/gp/index.html" target="_blank" alt="高频" title="高频">高频</a></H1>
+			<div class="nd04"><a href="/jc/index.html" target="_blank" alt="竞彩" title="竞彩"><img src="/res/images/dh_03.png" alt="竞彩" title="竞彩"></a></div><H1 class="nd05 h1"><a href="/jc/index.html" target="_blank" alt="竞彩" title="竞彩">竞彩</a></H1>
+			<div class="nd04"><a href="/zc/index.html" target="_blank" alt="传统足彩" title="传统足彩"><img src="/res/images/dh_04.png" alt="传统足彩" title="传统足彩"></a></div><H1 class="nd05 h1"><a href="/zc/index.html" target="_blank" alt="传统足彩" title="传统足彩">传统足彩</a></H1>
+			<div class="nd04"><a href="/dgg/index.html" target="_blank" alt="顶呱刮" title="顶呱刮"><img src="/res/images/dh_05.png" alt="顶呱刮" title="顶呱刮"></a></div><H1 class="nd05 h1"><a href="/dgg/index.html" target="_blank" alt="顶呱刮" title="顶呱刮">顶呱刮</a></H1>
+			<div class="nd04"><a href="/plwf/index.html" target="_blank" alt="排列" title="排列"><img src="/res/images/dh_06.png" alt="排列" title="排列"></a></div><H1 class="nd05 h1"><a href="/plwf/index.html" target="_blank" alt="排列" title="排列">排列</a></H1>
+			<div class="nd04"><a href="/qxc/index.html" target="_blank" alt="7星彩" title="7星彩"><img src="/res/images/dh_07.png" alt="7星彩" title="7星彩"></a></div><H1 class="nd05 h1"><a href="/qxc/index.html" target="_blank" alt="7星彩" title="7星彩">7星彩</a></H1>
+			<div class="nd04"><a href="https://learning.lottery.gov.cn/static/htmls/login.html" target="_blank" alt="培训平台" title="培训平台"><img src="/res/images/dh_09.png" alt="培训平台" title="培训平台"></a></div><H1 class="nd05 h1"><a href="https://learning.lottery.gov.cn/static/htmls/login.html" target="_blank" alt="培训平台" title="培训平台">培训平台</a></H1>
+			
+	</div>
+</div>
+<!-- 导航 end -->
+<!-- 新闻头条 -->
+<div class="c01">
+	<div class="nt">
+		<div class="nt01 blue">
+		<a href="/xwhy/20180711/67230.html" title="世界杯竞猜型游戏累计销售384亿" target="_blank">8.31亿！世界杯单场销量再创新高</a>
+		</div>
+		<div class="nt02 gray2">
+		<a href="/zd/20180706/67099.html" title="前国家女足队员卖彩票：每天只睡两小时" target="_blank">前国家女足队员投身体彩</a>　|　
+		<a href="/ssxw/20180711/67231.html" title="畅享世界杯 三地体彩为足球爱好者办比赛" target="_blank">畅享世界杯乐趣 有体彩助力</a>　|　
+		<a href="/gyjb/20180711/67239.html" title="助力精准扶贫 关爱弱势群体 体彩为困难群体办实事" target="_blank">体彩助力精准扶贫</a>　|　
+		<a href="/gyjb/20180711/67228.html" title="河南337所学校报名“快乐操场”  评选工作结束" target="_blank">河南337所学校报名快乐操场</a>　|　
+		<a href="/dltljl/20180711/67267.html" title="6注头奖分落五地 大乐透奖池高达59.5亿元" target="_blank">大乐透爆6注头奖</a>
+		</div>
+	</div>
+</div>
+<!-- 新闻头条 end -->
+<!-- 通栏1 -->
+<div class="c01">
+	<div class="nb1">
+		<div class="nb11">
+			<!-- <div class="nb11_01"><a href="#" target="_blank"><img src="/res/images/630394.jpg"></a></div>
+			<div class="nb11_02 white"><a href="#" target="_blank">为公益爱心出发 “快乐操场”活动欢乐进行中</a></div> -->
+			<div id="slides" class="banner_main">
+				<ul class="slides_container" style="padding-left:0;margin-left:40px;margin:0px;">
+				<li><a href="/xwhy/20180711/67230.html" title="世界杯竞猜型游戏累计销售384亿" target="_blank">
+							<img src="/upload/20180712/20180712083712840.jpg" alt="世界杯竞猜型游戏累计销售384亿" title="世界杯竞猜型游戏累计销售384亿" />
+							<div class="zm"><div class="zmn">
+							<p>世界杯竞猜型游戏累计销售384亿</p>
+							</div></div>
+						</a></li>
+				<li><a href="/xwhy/20180709/67149.html" title="一张图看懂2017年国家体育总局本级体彩公益金去向" target="_blank">
+							<img src="/upload/20180709/20180709090607689.jpg" alt="一张图看懂2017年国家体育总局本级体彩公益金去向" title="一张图看懂2017年国家体育总局本级体彩公益金去向" />
+							<div class="zm"><div class="zmn">
+							<p>一张图看懂2017年国家体育总局本级体彩公益金去向</p>
+							</div></div>
+						</a></li>
+				<li><a href="/gyhd/20180704/67053.html" title="健身新时代 体彩益起来" target="_blank">
+							<img src="/upload/20180704/20180704153039613.jpg" alt="健身新时代 体彩益起来" title="健身新时代 体彩益起来" />
+							<div class="zm"><div class="zmn">
+							<p>健身新时代 体彩益起来</p>
+							</div></div>
+						</a></li>
+				<li><a href="/yxcp/20180614/66426.html" title="世界杯 玩竞彩 等你上场！" target="_blank">
+							<img src="/upload/20180614/20180614165100855.jpg" alt="世界杯 玩竞彩 等你上场！" title="世界杯 玩竞彩 等你上场！" />
+							<div class="zm"><div class="zmn">
+							<p>世界杯 玩竞彩 等你上场！</p>
+							</div></div>
+						</a></li>
+				<li><a href="/gyhd/20180605/66152.html" title="燃情世界杯 公益动起来" target="_blank">
+							<img src="/upload/20180605/20180605095645294.jpg" alt="燃情世界杯 公益动起来" title="燃情世界杯 公益动起来" />
+							<div class="zm"><div class="zmn">
+							<p>燃情世界杯 公益动起来</p>
+							</div></div>
+						</a></li>
+				<li><a href="/yxcp/20180530/65959.html" title="探秘体彩大乐透 阳光开奖全流程" target="_blank">
+							<img src="/upload/20180530/20180530093138320.jpg" alt="探秘体彩大乐透 阳光开奖全流程" title="探秘体彩大乐透 阳光开奖全流程" />
+							<div class="zm"><div class="zmn">
+							<p>探秘体彩大乐透 阳光开奖全流程</p>
+							</div></div>
+						</a></li>
+				<li><a href="/tcgy/20171129/61125.html" title="揭秘:开奖背后的故事" target="_blank">
+							<img src="/upload/20171129/20171129184548277.jpg" alt="揭秘:开奖背后的故事" title="揭秘:开奖背后的故事" />
+							<div class="zm"><div class="zmn">
+							<p>揭秘:开奖背后的故事</p>
+							</div></div>
+						</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="nb12">
+			<div class="nb12_01" id="Kj_lottery"></div>
+			<div class="b11_02">
+		<div class="b11_03" alt="中国体育彩票" title="中国体育彩票">开奖公告</div>
+				<div class="b11_04">
+					<div class="b11_05">
+					<input type="hidden" id="_ltype" value="9"/>
+						<div class="b11_051" alt="全国联网彩票" title="全国联网彩票">全国联网</div><div class="b11_052" alt="胜负彩" title="胜负彩">胜负彩</div><div class="b11_052" alt="半全场" title="半全场">半全场</div><div class="b11_052" alt="进球彩" title="进球彩">进球彩</div><div class="b11_052" alt="地方彩" title="地方彩">地方彩</div>
+					</div>
+				  <div id="kj_1" >
+ <div class="b11_06">
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr><td width="45" style="background:#ECECEC; line-height:30px; height:24px;">玩法</td>
+    <td width="45" style="background:#ECECEC; line-height:30px; height:24px;">期号</td>
+    <td width="204" style="background:#ECECEC; line-height:30px; height:24px;">开奖号</td>
+    <td width="30" style="background:#ECECEC; line-height:30px; height:24px;">详情</td>
+    <td width="30" style="background:#ECECEC; line-height:30px; height:24px;">历史</td>
+    <td width="32" style="background:#ECECEC; line-height:30px; height:24px;">图表</td>
+  </tr>
+ 
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" alt="超级大乐透" title="超级大乐透"><a href="/dlt/index.html" target="_blank" alt="超级大乐透" title="超级大乐透">大乐透</a></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_dlt_term"></td>
+    <td width="198" style="background:url(/res/images/d.gif) repeat-x bottom left;">
+	<div class="b11_07" id="index_dlt_code">
+	
+	<div class="b11_071" style="background: url('/res/images/tcdlt/chengse.png') no-repeat;"> </div><div class="b11_071" style="background: url('/res/images/tcdlt/chengse.png') no-repeat;"></div><div style="background: url('/res/images/tcdlt/chengse.png') no-repeat;" class="b11_071"></div><div style="background: url('/res/images/tcdlt/chengse.png') no-repeat;" class="b11_071"></div><div style="background: url('/res/images/tcdlt/chengse.png') no-repeat;" class="b11_071"></div><div style="background: url('/res/images/tcdlt/lvse.png') no-repeat;" class="b11_072"></div><div style="background: url('/res/images/tcdlt/lvse.png') no-repeat;" class="b11_072"></div>
+	
+	</div>	</td>
+    <td width="30" style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_dlt_href">
+  
+    <a href="" target="_blank" alt="超级大乐透开奖结果" title="超级大乐透开奖结果"><img src="/res/images/16_01.gif" alt="超级大乐透开奖结果" title="超级大乐透开奖结果"></a>
+   
+    </td>
+    <td width="30" style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=dlt" target="_blank" alt="超级大乐透开奖历史" title="超级大乐透开奖历史"><img src="/res/images/16_02.gif"></a></td>
+    <td  style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="http://chart.lottery.gov.cn/chart_tc2/chart.shtml?LotID=23529&ChartID=0&_StatType=1&MinIssue=&MaxIssue=&IssueTop=30&ChartType=0&param=0&tab=0" target="_blank" alt="超级大乐透开奖号码分布图" title="超级大乐透开奖号码分布图"><img src="/res/images/16_03.gif"></a></td>
+  </tr>
+  
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" alt="排列3" title="排列3"><a href="/plwf/index.html" target="_blank" alt="排列" title="排列">排列3</a></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_pls_term"></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><div class="b11_07" id="index_pls_code">
+   
+    <div class="b11_074"></div><div class="b11_074"></div><div class="b11_074"></div>
+   
+    </div></td>
+    <td width="30" style="background:url(/res/images/d.gif) repeat-x bottom left;"  id="index_pls_href">
+   
+    <a href="" target="_blank"  alt="排列3开奖结果" title="排列3开奖结果"><img src="/res/images/16_01.gif" alt="排列3开奖结果" title="排列3开奖结果"></a>
+   
+     </td>
+    <td width="30" style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=pls" target="_blank"  alt="排列3开奖历史" title="排列3开奖历史"><img src="/res/images/16_02.gif"></a></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="http://chart.lottery.gov.cn/chart_tc2/chart.shtml?LotID=33&ChartID=0&_StatType=1&MinIssue=&MaxIssue=&IssueTop=30&ChartType=0&param=0&tab=0" target="_blank"  alt="排列3开奖号码分布图" title="排列3开奖号码分布图"><img src="/res/images/16_03.gif"></a></td>
+  </tr>
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" alt="排列5" title="排列5"><a href="/plwf/index.html" target="_blank" alt="排列" title="排列">排列5</a></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_plw_term"></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><div class="b11_07" id="index_plw_code">
+   
+    <div class="b11_074"></div><div class="b11_074"></div><div class="b11_074"></div><div class="b11_074"></div><div class="b11_074"></div>
+  
+    </div></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_plw_href">
+    
+     <a  href="" target="_blank" alt="排列5开奖结果" title="排列5开奖结果"><img src="/res/images/16_01.gif" alt="排列5开奖结果" title="排列5开奖结果"></a>
+    
+     </td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=plw" target="_blank" alt="排列5开奖历史" title="排列5开奖历史"><img src="/res/images/16_02.gif"></a></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="http://chart.lottery.gov.cn/chart_tc2/chart.shtml?LotID=35&ChartID=0&_StatType=1&MinIssue=&MaxIssue=&IssueTop=30&ChartType=0&param=0&tab=0" target="_blank"  alt="排列5开奖号码分布图" title="排列5开奖号码分布图"><img src="/res/images/16_03.gif"></a></td>
+  </tr>
+  <tr>
+    <td alt="7星彩" title="7星彩"><a href="/qxc/index.html" target="_blank" alt="7星彩" title="7星彩">7星彩</a></td>
+    <td id="index_qxc_term"></td>
+    <td><div class="b11_07" id="index_qxc_code">
+   
+    <div class="b11_071"></div><div class="b11_071"></div><div class="b11_071"></div><div class="b11_071"></div><div class="b11_071"></div><div class="b11_071"></div><div class="b11_071"></div>
+  
+    </div></td>
+    <td id="index_qxc_href" >
+    
+     <a href="" target="_blank" alt="7星彩开奖结果" title="7星彩开奖结果"><img src="/res/images/16_01.gif" alt="7星彩开奖结果" title="7星彩开奖结果"></a>
+     
+     </td>
+    <td><a href="/historykj/history.jspx?_ltype=qxc" target="_blank" alt="7星彩开奖历史" title="7星彩开奖历史"><img src="/res/images/16_02.gif"></a></td>
+    <td><a href="http://chart.lottery.gov.cn/chart_tc2/chart.shtml?LotID=10022&ChartID=0&_StatType=1&MinIssue=&MaxIssue=&IssueTop=30&ChartType=0&param=0&tab=0" target="_blank"  alt="7星彩开奖号码分布图" title="7星彩开奖号码分布图"><img src="/res/images/16_03.gif"></a></td>
+  </tr>
+</table>
+ </div>
+	 <div class="b11_08">
+					超级大乐透 <font style="font-size:16px; color:#C90302" id="index_dlt_pool"></font> <font style="color:#C90302">亿元</font>　　7星彩 <font style="font-size:16px; color:#C90302"  id="index_qxc_pool"></font> <font style="color:#C90302">万元</font>
+	 </div>
+				    </div>
+				    <div class="b11_t2" id="kj_2" style="display: none;">
+<!-- 胜负彩 -->
+					
+						<div class="b11_t201">
+							<div class="b11_t202">第</div>
+							<div class="b11_t202">
+							<select style="width:70px; height:20px; margin:0px 0 0 0;" id="selectAge_sfc_kj">
+							
+							</select></div>
+							<div class="b11_t202">期</div>
+							<div class="b11_t202" style="padding:0 0 0 20px;" id="_openTime_kj_sfc"></div>
+						</div>
+						<div class="b11_t203" id="match_result_sfc">
+						   
+						</div>
+						<div class="b11_t205">
+						    
+						    <div class="b11_t206" style="width:200px;" id="detail_kj_sfc"></div>
+							
+							<div class="b11_t206" style=" width:80px; text-align:right;">
+							
+							<a id="kj_sfc_news" target="_blank">
+							
+							<img src="/res/images/xq.gif" style="padding:41px 0 15px 0px;"></a></div>
+						</div>
+						
+		
+ <!-- 胜负彩 end -->				    </div>
+				   <div class="b11_t3" id="kj_3"  style="display: none;">
+<!-- 半全场 -->
+					
+						<div class="b11_t201">
+							<div class="b11_t202">第</div>
+							<div class="b11_t202"><select id="selectAge_bqc_kj" style="width:70px; height:20px; margin:0px 0 0 0;">
+							
+							</select></div>
+							<div class="b11_t202">期</div>
+							<div class="b11_t202" style="padding:0 0 0 20px;" id="_openTime_kj_10"></div>
+						</div>
+						<div class="b11_t303" id="match_result_10">
+					     	<div class="b11_t304">半<font style="color:#D20000; font-weight:bold;">-</font></div>
+							<div class="b11_t304">全<font style="color:#D20000; font-weight:bold;">-</font></div>
+							
+							<div class="b11_t304">半<font style="color:#D20000; font-weight:bold;">-</font></div>
+							<div class="b11_t304">全<font style="color:#D20000; font-weight:bold;">-</font></div>
+							
+							<div class="b11_t304">半<font style="color:#D20000; font-weight:bold;">-</font></div>
+							<div class="b11_t304">全<font style="color:#D20000; font-weight:bold;">-</font></div>
+							
+							<div class="b11_t304">半<font style="color:#D20000; font-weight:bold;">-</font></div>
+							<div class="b11_t304">全<font style="color:#D20000; font-weight:bold;">-</font></div>
+							
+							<div class="b11_t304">半<font style="color:#D20000; font-weight:bold;">-</font></div>
+							<div class="b11_t304">全<font style="color:#D20000; font-weight:bold;">-</font></div>
+							
+						    <div class="b11_t304">半<font style="color:#D20000; font-weight:bold;">-</font></div>
+							<div class="b11_t304">全<font style="color:#D20000; font-weight:bold;">-</font></div>
+							</div>
+						<div class="b11_t205">
+							  <div class="b11_t206" style="width:200px;" id="detail_kj_10"> 0注 </font><font style="color:#C90302">0</font>元</div>
+							<div class="b11_t206" style=" width:80px; text-align:right;">
+							
+							<a id="kj_10_news" target="_blank"><img src="/res/images/xq.gif" style="padding:2px 0 2px 0px;"></a></div>
+						</div>
+					
+	 <!-- 半全场 end -->				    </div>
+				    <div class="b11_t3" id="kj_4" style="display: none;">
+<!-- 进球彩 -->
+						<div class="b11_t201">
+							<div class="b11_t202">第</div>
+							<div class="b11_t202"><select id="selectAge_jqc_kj" style="width:70px; height:20px; margin:0px 0 0 0;">
+							  
+							</select></div>
+							<div class="b11_t202">期</div>
+							<div class="b11_t202" style="padding:0 0 0 20px;" id="_openTime_kj_11"></div>
+						</div>
+						<div class="b11_t403" id="match_result_11">
+					
+						      <div class="b11_t404"><font style="color:#D20000; font-weight:bold;">-</font></div>
+						      <div class="b11_t404"><font style="color:#D20000; font-weight:bold;">-</font></div>
+						      <div class="b11_t404"><font style="color:#D20000; font-weight:bold;">-</font></div>
+						      <div class="b11_t404"><font style="color:#D20000; font-weight:bold;">-</font></div>
+						      <div class="b11_t404"><font style="color:#D20000; font-weight:bold;">-</font></div>
+						      <div class="b11_t404"><font style="color:#D20000; font-weight:bold;">-</font></div>
+						      <div class="b11_t404"><font style="color:#D20000; font-weight:bold;">-</font></div>
+						      <div class="b11_t404"><font style="color:#D20000; font-weight:bold;">-</font></div>
+							</div>
+						<div class="b11_t205">
+						   
+							   <div class="b11_t206" style="width:200px;" id="detail_kj_11"> 0注 <font style="color:#C90302">0</font>元</div>
+							<div class="b11_t206" style=" width:80px; text-align:right;">
+							
+							<a id="kj_11_news" target="_blank">
+						
+							<img src="/res/images/xq.gif" style="padding:2px 0 2px 0px;"></a></div>
+						</div>
+
+					<!-- 进球彩 end -->				    </div>
+				    <div class="b11_t5" id="kj_5" style="display: none;">
+	<!-- 地方彩 -->
+					
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr><td width="87" style="background:#ECECEC; line-height:30px; height:24px;">玩法</td>
+    <td width="48" style="background:#ECECEC; line-height:30px; height:24px;">期号</td>
+    <td width="216" style="background:#ECECEC; line-height:30px; height:24px;">开奖号</td>
+    <td width="35" style="background:#ECECEC; line-height:30px; height:24px;">详情</td>
+  </tr>
+ 
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;">黑龙江6+1</td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_hlj61_term"></td>
+   <td style="background:url(/res/images/d.gif) repeat-x bottom left; text-align:left; font-size:14px; font-family:'宋体';" id="index_hlj61_code"><font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#003399; font-weight:bold; padding:0 2px;"></font></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=hlj61" target="_blank"><img src="/res/images/16_01.gif"></a></td>
+  </tr>
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;">福建36选7</td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_fj367_term"></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;  text-align:left; font-size:14px; font-family:'宋体';" id="index_fj367_code" ><font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font> <font style="color:#003399; font-weight:bold; padding:0 2px;"></font></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=fj367" target="_blank"><img src="/res/images/16_01.gif"></a></td>
+  </tr>
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;">福建31选7</td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_fj317_term"></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left; text-align:left; font-size:14px; font-family:'宋体';" id="index_fj317_code"><font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#003399; font-weight:bold; padding:0 2px;"></font></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=fj317" target="_blank"><img src="/res/images/16_01.gif"></a></td>
+  </tr>
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;">福建31选7附加</td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_ffj317_term"></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left; text-align:left; font-size:14px; font-family:'宋体';" id="index_ffj317_code"><font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#003399; font-weight:bold; padding:0 2px;"></font></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=fj317fj" target="_blank"><img src="/res/images/16_01.gif"></a></td>
+  </tr>
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;">福建22选5</td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_fj225_term"></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left; text-align:left; font-size:14px; font-family:'宋体';" id="index_fj225_code"><font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=fj225" target="_blank"><img src="/res/images/16_01.gif"></a></td>
+  </tr>
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;">浙江20选5</td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_zj205_term"></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left; text-align:left; font-size:14px; font-family:'宋体';" id="index_zj205_code"><font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=zj205" target="_blank"><img src="/res/images/16_01.gif"></a></td>
+  </tr>
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;">浙江6+1</td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_zj61_term"></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left; text-align:left; font-size:14px; font-family:'宋体';" id="index_zj61_code"><font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font><font style="color:#003399; font-weight:bold; padding:0 5px;"></font></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=zj61" target="_blank"><img src="/res/images/16_01.gif"></a></td>
+  </tr>
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;">海南4+1</td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_hn41_term"></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left; text-align:left; font-size:14px; font-family:'宋体';" id="index_hn41_code"><font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font>+<font style="color:#003399; font-weight:bold; padding:0 2px;"></font></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=hn41" target="_blank"><img src="/res/images/16_01.gif"></a></td>
+  </tr>
+  <tr>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;">江苏7位数</td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;" id="index_js7_term"></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left; text-align:left; font-size:14px; font-family:'宋体';" id="index_js7_code"><font style="color:#cd0100; font-weight:bold; padding:0 2px;"></font></td>
+    <td style="background:url(/res/images/d.gif) repeat-x bottom left;"><a href="/historykj/history.jspx?_ltype=js7" target="_blank"><img src="/res/images/16_01.gif"></a></td>
+  </tr>
+	
+
+	
+</table>
+ 
+					<!-- 地方彩 end -->				    </div>
+				
+				</div>
+			</div>
+			<div class="b11_09">
+				<div class="b11_10">
+					<div class="b11_11" style="line-height:30px; height:30px; width:55px;">开奖查询</div>
+					<div class="b11_11" style=" height:30px; width:130px;">
+					<select style="width:125px; height:20px; margin:6px 0 0 0;" id="select_search_type">
+					    <option value="0">选择彩种</option>
+					  <option value="4">大乐透</option>
+					  <option value="5">排列三</option>
+					  <option value="6">排列五</option>
+					  <option value="8">七星彩</option>
+					  <option value="9">胜负彩</option>
+					  <option value="10">半全场</option>
+					  <option value="11">进球彩</option>
+					</select>
+					</div>
+					<div class="b11_11" style=" height:30px;">
+					  <select name="select" id="select_search_term" style="width:125px; height:20px; margin:6px 0 0 0;">
+                	    <option value="0">期号选择...</option>
+          
+                 	 </select>
+					</div>
+					<div class="b11_11" style="line-height:30px; height:24px; padding:6px 0 0 0; cursor:pointer;" id="search_term_detail"><img src="/res/images/a02.gif"></div>
+				</div>
+		  </div>
+		</div>
+	</div>
+</div>
+<!-- 通栏1 end -->
+<!-- 通栏2 -->
+<div class="c01">
+	<div class="nb2">
+		<div class="nb21">
+			<div class="nb21_01 dgray">
+				<div class="b21_16">热点</div>
+				<div class="b21_19" id="notice" style="cursor: pointer;">通知</div>
+				<div class="b21_18" id="zx" style="cursor: pointer;">资讯</div>
+			</div>
+			<div class="nb21_02">
+				<div class="nb21_03">
+				<div class="nb21_05 blue"><a href="/ssxw/20180711/67249.html" title="体彩店业主怎样才能做得更好？" target="_blank"><img src="/upload/20180711/2018071115265604.jpg" alt="体彩店业主怎样才能做得更好？" title="体彩店业主怎样才能做得更好？" /><br>《湖北体彩销售示范》专题片出笼</a></div>
+				<div class="nb21_05 blue"><a href="/dltljl/20180629/66853.html" title="大乐透摇奖意外不用怕 应急预案来保障" target="_blank"><img src="/upload/20180629/2018062908082268.jpg" alt="大乐透摇奖意外不用怕 应急预案来保障" title="大乐透摇奖意外不用怕 应急预案来保障" /><br>大乐透摇奖应急预案</a></div>
+				</div>
+				<div class="nb21_04" id="hotZX">
+					<div class="nb21_06">
+						<div class="nb21_07 blue">
+						<a href="/ssxw/20180712/67272.html" title="冠名校园联赛 河北体彩支持青少年足球" target="_blank">冠名校园联赛 河北体彩支持青少年足球</a>
+						</div>
+						<div class="nb21_08 dgray">
+						<a href="/ssxw/20180712/67271.html" title="湖南“体彩嘉年华”活动 宣传公益品牌" target="_blank">[湖南] 湖南“体彩嘉年华”活动 宣传公益品牌</a><br>
+						<a href="/gyjb/20180712/67284.html" title="全民健身看体彩  青海体彩带你领略北嘎" target="_blank">[青海] 全民健身看体彩  青海体彩带你领略北嘎</a><br>
+						<a href="/ssxw/20180711/67231.html" title="畅享世界杯 三地体彩为足球爱好者办比赛" target="_blank">[全国] 畅享世界杯 三地体彩为足球爱好者办比赛</a><br>
+						<a href="/gyjb/20180711/67228.html" title="河南337所学校报名“快乐操场”  评选工作结束" target="_blank">[河南] 河南337所学校报名“快乐操场”  评选工作结束</a><br>
+						<a href="/gyjb/20180711/67239.html" title="助力精准扶贫 关爱弱势群体 体彩为困难群体办实事" target="_blank">[全国] 助力精准扶贫 关爱弱势群体 体彩为困难群体办实事</a>
+						</div>
+					</div>
+					<div class="nb21_06">
+						<div class="nb21_07 blue">
+						<a href="/xwhy/20180711/67230.html" title="世界杯竞猜型游戏累计销售384亿" target="_blank">世界杯竞猜型游戏累计销售384亿</a>
+						</div>
+						<div class="nb21_08 dgray">
+						<a href="/zqzjxw/20180711/67238.html" title="巾帼不让须眉 厦门女彩友单期揽奖521万" target="_blank">[竞彩] 巾帼不让须眉 厦门女彩友单期揽奖521万</a><br>
+						<a href="/zqzjxw/20180711/67253.html" title="1000倍！福建莆田牛人拿走竞彩半全场222万" target="_blank">[竞彩] 1000倍！福建莆田牛人拿走竞彩半全场222万</a><br>
+						<a href="/dltljl/20180709/67158.html" title="经典单式票发力！三人领大乐透头奖" target="_blank">[大乐透] 经典单式票发力！三人领大乐透头奖</a><br>
+						<a href="/jczq/20180704/67039.html" title="竞彩世界杯：投注淘汰赛有妙招" target="_blank">[竞彩] 竞彩世界杯：投注淘汰赛有妙招</a><br>
+						<a href="/jczq/20180704/67037.html" title="普及讲座 竞彩奖金计算方法及最高限额" target="_blank">[竞彩] 普及讲座 竞彩奖金计算方法及最高限额</a>
+						</div>
+					</div>
+				</div>
+				<div class="nb21_04" id="hotNotice" style="display: none;">
+					<div class="nb21_06">
+						<div class="nb21_07 blue">
+						<a href="/tzgg/20180613/66381.html" title="关于6月13日业务陆续恢复的公告 " target="_blank">关于6月13日业务陆续恢复的公告 </a>
+						</div>
+						<div class="nb21_08 dgray">
+						<a href="/zctz/20180708/67145.html" title="关于足球彩票7月6日奖期计奖有关事宜的通知" target="_blank">关于足球彩票7月6日奖期计奖有关事宜的通知</a><br>
+						<a href="/tzgg/20180613/66382.html" title="关于6月13日体彩开奖视频直播情况的补充说明" target="_blank">关于6月13日体彩开奖视频直播情况的补充说明</a><br>
+						<a href="/tzgg/20180613/66377.html" title="关于6月13日体彩开奖视频直播问题的说明" target="_blank">关于6月13日体彩开奖视频直播问题的说明</a><br>
+						<a href="/infos/20180528/65914.html" title="关于中国体育彩票超级大乐透一等奖派奖活动结束的公告" target="_blank">关于中国体育彩票超级大乐透一等奖派奖活动结束的公告</a><br>
+						<a href="/tzgg/20180413/64293.html" title="国家体育总局体育彩票管理中心部门预算（2018年）" target="_blank">国家体育总局体育彩票管理中心部门预算</a><br>
+						</div>
+						</div>
+						<div class="nb21_06">
+						<div class="nb21_07 blue">
+						<a href="/tzgg/20180411/64216.html" title="国家体育总局体育彩票管理中心公告" target="_blank">国家体育总局体育彩票管理中心公告</a>
+						</div>
+						<div class="nb21_08 dgray">
+						<a href="/infos/20180512/65354.html" title="关于中国体育彩票超级大乐透固定奖派奖结束及乐善奖派奖启动的公告" target="_blank">关于大乐透固定奖派奖结束及乐善奖派奖启动的公告</a><br>
+						<a href="/zctz/20180709/67153.html" title="关于下发足球彩票7月10日奖期竞猜场次的通知" target="_blank">关于下发足球彩票7月10日奖期竞猜场次的通知</a><br>
+						<a href="/zctz/20180709/67152.html" title="关于调整足球彩票7月12日奖期竞猜场次的通知" target="_blank">关于调整足球彩票7月12日奖期竞猜场次的通知</a><br>
+						<a href="/tzgg/20171225/61764.html" title="2018年中国体育彩票全国区域销售游戏开奖信息发布渠道公告" target="_blank">2018体彩开奖信息发布渠道公告</a><br>
+						<a href="/zctz/20180709/67156.html" title="关于下发7月足球彩票部分竞猜球队队名全简称的通知" target="_blank">关于下发7月足球彩票部分竞猜球队队名全简称的通知</a><br>
+						</div>
+						</div>
+				</div>
+			</div>
+			<div class="nb21_09 black">
+			<a href="/wfjsltyx/20140424/899.html" title="关于变更体彩超级大乐透游戏规则的公告" target="_blank">关于变更体彩超级大乐…</a>　|　
+			<a href="lxwm/1611.htm" title="联系我们" target="_blank">联系我们</a>　|　
+			<a href="/wfjsctzq/20110122/920.html" title="胜负彩玩法介绍" target="_blank">胜负彩玩法介绍</a>
+			</div>
+		</div>
+		<div class="nb22">
+			<div class="nb22_01">
+				<div class="nb22_02 dred"><a href="/jcsp/index.html" target="_blank">精彩视频</a></div>
+				<div class="nb22_03">
+					<div class="nb22_04">
+						<div class="nb22_05 white"><a href="/ygkj/index.html" target="_blank"><img src="/res/images/n200125.jpg"><br>每天晚上20:30开始</a></div>
+					</div>
+					<div class="nb22_07 dgray">
+					<script type="text/javascript">
+						function formatDate(date, type) {
+							var m = "0" + (date.getMonth() + 1);
+							m = m.substring(m.length - 2);
+							var d = "0" + date.getDate();
+							d = d.substring(d.length - 2);
+							if(type == 1) {
+								return date.getFullYear()+m+d;
+							}else {
+								return m+"月"+d+"日";
+							}
+						}
+						var today = new Date();
+						var day = today.getDate();
+						if(today.getHours() < 22) {
+							today.setDate(today.getDate()-1);
+						}
+						var str = "";
+						for(var i=0; i<5; i++) {
+							if(i>0) today.setDate(today.getDate()-1);
+							 if(today.getMonth()==1 && today.getDate()==2){
+							 today.setDate(today.getDate()-7);
+							 }
+							str += "<b>・</b> <a href='/live/Default.jspx?live="+formatDate(today,1)+"' target='_blank' alt='"+formatDate(today,0)+"体彩开奖' title='"+formatDate(today,0)+"体彩开奖'>"+formatDate(today,0)+"体彩开奖</a><br />";
+						}
+						document.write(str);
+			</script>
+					</div>
+				</div>
+				<div class="nb22_08">
+				<div class="nb22_09 white">
+						<a href="/jcspjc/20180601/66057.html" title="竞彩 激情篇" target="_blank" rel="nofollow">
+							<img width="160px" height="100px" src="/upload/20180601/20180601165836673.jpg" alt="竞彩 激情篇" title="竞彩 激情篇" /><br>竞彩 激情篇
+							<div class="bz"></div>
+						</a>
+				</div>
+				<div class="nb22_09 white">
+						<a href="/jcspjc/20180528/65878.html" title="世界杯 玩竞彩 等你上场" target="_blank" rel="nofollow">
+							<img width="160px" height="100px" src="/upload/20180528/20180528153905109.jpg" alt="世界杯 玩竞彩 等你上场" title="世界杯 玩竞彩 等你上场" /><br>世界杯 玩竞彩 等你上场
+							<div class="bz"></div>
+						</a>
+				</div>
+				</div>
+				<div class="nb22_08">
+				<div class="nb22_09 white">
+						<a href="/jk/20180405/64062.html" title="相信自己顶呱刮" target="_blank" rel="nofollow">
+							<img width="160px" height="100px" src="/upload/20180405/20180405230539188.jpg" alt="相信自己顶呱刮" title="相信自己顶呱刮" /><br>相信自己顶呱刮
+							<div class="bz"></div>
+						</a>
+				</div>
+				<div class="nb22_09 white">
+						<a href="/tcgy/20171129/61125.html" title="揭秘:开奖背后的故事" target="_blank" rel="nofollow">
+							<img width="160px" height="100px" src="/upload/20171129/20171129184548277.jpg" alt="揭秘:开奖背后的故事" title="揭秘:开奖背后的故事" /><br>揭秘:开奖背后的故事
+							<div class="bz"></div>
+						</a>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 通栏2 end -->
+<!-- 广告 -->
+<div class="c01">
+	<div class="ad"><div class="ad"><script type="text/javascript" src="/res/js/ad_169_index.js"></script></div></div>
+</div>
+<!-- 广告 end -->
+<!-- 通栏3 -->
+<div class="c01">
+	<div class="nb3">
+		<div class="nb31">
+			<div class="nb21_01 dgray">
+				<div class="b21_16" id="ltTitle" style="cursor: pointer;">乐透游戏</div>
+				<div class="b21_19" id="qxcTitle" style="cursor: pointer;" onclick="window.open('/qxc/index.html','_blank')" alt="7星彩" title="7星彩">7星彩</div>
+				<div class="b21_19" id="plTitle" style="cursor: pointer;" onclick="window.open('/plwf/index.html','_blank')" alt="排列玩法" title="排列玩法">排列玩法</div>
+				<div class="b21_19" id="gpTitle" style="cursor: pointer;" onclick="window.open('/gp/index.html','_blank')" alt="高频" title="高频">高频</div>
+				<div class="b21_19" id="dltTitle" style="cursor: pointer;" onclick="window.open('/dlt/index.html','_blank')" alt="大乐透" title="大乐透">大乐透</div>
+			</div>
+			<!-- lt -->
+			<div class="nb31_01" id="lt">
+				<div class="nb31_02">
+					<div class="nb31_04 yylClear">
+					<a href="/dltljl/20180705/67082.html" title="佛系大叔淡定领走体彩大乐透1985万大奖" alt="佛系大叔淡定领走体彩大乐透1985万大奖"  target="_blank"><img src="/upload/20180705/20180705100301288.jpg" alt="佛系大叔淡定领走体彩大乐透1985万大奖" title="佛系大叔淡定领走体彩大乐透1985万大奖" />
+					<div class="btbj"></div>
+					<p>佛系大叔领走1985万大奖</p>
+					</a>
+					<a href="/dltljl/20180703/66992.html" title="买大乐透缓解压力，没料逮住千万大奖" alt="买大乐透缓解压力，没料逮住千万大奖"  target="_blank"><img src="/upload/20180703/20180703140001255.jpg" alt="买大乐透缓解压力，没料逮住千万大奖" title="买大乐透缓解压力，没料逮住千万大奖" />
+					<div class="btbj"></div>
+					<p>透缓解压力逮千万大奖</p>
+					</a>
+					</div>
+					<div class="nb31_05 gray">
+					<b>・</b> <a href="/qxczxfx/20180712/67270.html" title="7星彩第18080期分析：关注中区大小出号" alt="7星彩第18080期分析：关注中区大小出号" target="_blank">7星彩第18080期分析：关注中区大小出号</a><br>
+					<b>・</b> <a href="/zxfx/20180712/67268.html" title="大乐透第18081期分析：后期看好2路1路号码" alt="大乐透第18081期分析：后期看好2路1路号码" target="_blank">大乐透第18081期分析：后期看好2路1路号码</a><br>
+					<b>・</b> <a href="/plzxfx/20180712/67273.html" title="排列5近期综合分析：偶数号码前期热出" alt="排列5近期综合分析：偶数号码前期热出" target="_blank">排列5近期综合分析：偶数号码前期热出</a>
+					</div>
+				</div>
+				<div class="nb31_03">
+					<div class="nb31_06 blue">
+					<a href="/dltljl/20180712/67290.html" title="广东佛山购彩者4元单式票揽大乐透头奖781万元" alt="广东佛山购彩者4元单式票揽大乐透头奖781万元" target="_blank">广东佛山购彩者4元单式票揽大乐透头奖781万元</a>
+					</div>
+					<div class="nb31_07 dgray">
+					<a href="/dltljl/20180711/67250.html" title="宁夏彩民又中体彩大乐透一等奖659万！" alt="宁夏彩民又中体彩大乐透一等奖659万！" target="_blank">[宁夏] 宁夏彩民又中体彩大乐透一等奖659万！</a><br>
+					<a href="/dltljl/20180711/67245.html" title="海南澄迈彩民喜中大乐透637万  笑称中奖秘籍" alt="海南澄迈彩民喜中大乐透637万  笑称中奖秘籍" target="_blank">[海南] 海南澄迈彩民喜中大乐透637万  笑称中奖秘籍</a><br>
+					<a href="/dltljl/20180710/67216.html" title="体彩大乐透劲爆9注头奖 盐城购彩者领走991万" alt="体彩大乐透劲爆9注头奖 盐城购彩者领走991万" target="_blank">[江苏] 体彩大乐透劲爆9注头奖 盐城购彩者领走991万</a><br>
+					<a href="/dltljl/20180709/67158.html" title="经典单式票发力！三人领大乐透头奖" alt="经典单式票发力！三人领大乐透头奖" target="_blank">[全国] 经典单式票发力！三人领大乐透头奖</a><br>
+					<a href="/dltljl/20180702/66952.html" title="浙江游客厦门旅游 机选喜揽大乐透1100万巨奖" alt="浙江游客厦门旅游 机选喜揽大乐透1100万巨奖" target="_blank">[浙江] 浙江游客厦门旅游 机选喜揽大乐透1100万巨奖</a>
+					</div>
+				</div>
+			</div>
+			<!-- lt end -->
+			<!-- dlt -->
+			<div class="nb31_01" id="dlt" style="display: none;">
+				<div class="nb31_02">
+					<div class="nb31_04 yylClear">
+					<a href="/dltljl/20180705/67082.html" title="佛系大叔淡定领走体彩大乐透1985万大奖" alt="佛系大叔淡定领走体彩大乐透1985万大奖" target="_blank"><img src="/upload/20180705/20180705100301288.jpg" alt="佛系大叔淡定领走体彩大乐透1985万大奖" title="佛系大叔淡定领走体彩大乐透1985万大奖" />
+					<div class="btbj"></div>
+					<p>佛系大叔领走1985万大奖</p>
+					</a>
+					<a href="/dltljl/20180703/66992.html" title="买大乐透缓解压力，没料逮住千万大奖" alt="买大乐透缓解压力，没料逮住千万大奖" target="_blank"><img src="/upload/20180703/20180703140001255.jpg" alt="买大乐透缓解压力，没料逮住千万大奖" title="买大乐透缓解压力，没料逮住千万大奖" />
+					<div class="btbj"></div>
+					<p>透缓解压力逮千万大奖</p>
+					</a>
+					</div>
+					<div class="nb31_05 gray">
+					<b>・</b> <a href="/qxczxfx/20180712/67270.html" title="7星彩第18080期分析：关注中区大小出号" alt="7星彩第18080期分析：关注中区大小出号" target="_blank">7星彩第18080期分析：关注中区大小出号</a><br>
+					<b>・</b> <a href="/zxfx/20180712/67268.html" title="大乐透第18081期分析：后期看好2路1路号码" alt="大乐透第18081期分析：后期看好2路1路号码" target="_blank">大乐透第18081期分析：后期看好2路1路号码</a><br>
+					<b>・</b> <a href="/plzxfx/20180712/67273.html" title="排列5近期综合分析：偶数号码前期热出" alt="排列5近期综合分析：偶数号码前期热出" target="_blank">排列5近期综合分析：偶数号码前期热出</a>
+					</div>
+				</div>
+				<div class="nb31_03">
+					<div class="nb31_06 blue">
+					<a href="/dltljl/20180709/67158.html" title="经典单式票发力！三人领大乐透头奖" target="_blank">经典单式票发力！三人领大乐透头奖</a>
+					</div>
+					<div class="nb31_07 dgray">
+					<a href="/dltljl/20180702/66952.html" title="浙江游客厦门旅游 机选喜揽大乐透1100万巨奖" alt="浙江游客厦门旅游 机选喜揽大乐透1100万巨奖" target="_blank">[浙江] 浙江游客厦门旅游 机选喜揽大乐透1100万巨奖</a><br>
+					<a href="/dltljl/20180702/66951.html" title="福建彩友一期狂揽8注体彩大乐透二等奖" alt="福建彩友一期狂揽8注体彩大乐透二等奖" target="_blank">[福建] 福建彩友一期狂揽8注体彩大乐透二等奖</a><br>
+					<a href="/dltljl/20180702/66949.html" title="上海松江购彩者“捡漏”中大乐透头奖775万" alt="上海松江购彩者“捡漏”中大乐透头奖775万" target="_blank">[上海] 上海松江购彩者“捡漏”中大乐透头奖775万</a><br>
+					<a href="/dltljl/20180629/66868.html" title="体彩大乐透头奖给力 老手新手都能中" alt="体彩大乐透头奖给力 老手新手都能中" target="_blank">[全国] 体彩大乐透头奖给力 老手新手都能中</a><br>
+					<a href="/dltljl/20180630/66892.html" title="陈埭10445体彩旺站与大乐透情之深切" alt="陈埭10445体彩旺站与大乐透情之深切" target="_blank">[福建] 陈埭10445体彩旺站与大乐透情之深切</a>
+					</div>
+				</div>
+			</div>
+			<!-- dlt end -->
+			<!-- gp -->
+			<div class="nb31_01" id="gp" style="display: none;">
+				<div class="nb31_02">
+					<div class="nb31_04 yylClear">
+					<a href="/dltljl/20180705/67082.html" title="佛系大叔淡定领走体彩大乐透1985万大奖" alt="佛系大叔淡定领走体彩大乐透1985万大奖" target="_blank"><img src="/upload/20180705/20180705100301288.jpg" alt="佛系大叔淡定领走体彩大乐透1985万大奖" title="佛系大叔淡定领走体彩大乐透1985万大奖" />
+					<div class="btbj"></div>
+					<p>佛系大叔领走1985万大奖</p>
+					</a>
+					<a href="/dltljl/20180703/66992.html" title="买大乐透缓解压力，没料逮住千万大奖" alt="买大乐透缓解压力，没料逮住千万大奖" target="_blank"><img src="/upload/20180703/20180703140001255.jpg" alt="买大乐透缓解压力，没料逮住千万大奖" title="买大乐透缓解压力，没料逮住千万大奖" />
+					<div class="btbj"></div>
+					<p>透缓解压力逮千万大奖</p>
+					</a>
+					</div>
+					<div class="nb31_05 gray">
+					<b>・</b> <a href="/qxczxfx/20180712/67270.html" title="7星彩第18080期分析：关注中区大小出号" alt="7星彩第18080期分析：关注中区大小出号" target="_blank">7星彩第18080期分析：关注中区大小出号</a><br>
+					<b>・</b> <a href="/zxfx/20180712/67268.html" title="大乐透第18081期分析：后期看好2路1路号码" alt="大乐透第18081期分析：后期看好2路1路号码" target="_blank">大乐透第18081期分析：后期看好2路1路号码</a><br>
+					<b>・</b> <a href="/plzxfx/20180712/67273.html" title="排列5近期综合分析：偶数号码前期热出" alt="排列5近期综合分析：偶数号码前期热出" target="_blank">排列5近期综合分析：偶数号码前期热出</a>
+					</div>
+				</div>
+				<div class="nb31_03">
+					<div class="nb31_06 blue">
+					<a href="/gpzjzx/20180629/66855.html" title="江西吉安11选5胆拖高手巧获上万元奖金" alt="江西吉安11选5胆拖高手巧获上万元奖金" target="_blank">江西吉安11选5胆拖高手巧获上万元奖金</a>
+					</div>
+					<div class="nb31_07 dgray">
+					<a href="/gpzjzx/20180705/67091.html" title="福建诏安彩友喜揽11选5乐选五54000元" alt="福建诏安彩友喜揽11选5乐选五54000元" target="_blank">[福建] 福建诏安彩友喜揽11选5乐选五54000元</a><br>
+					<a href="/gpzjzx/20180620/66544.html" title="11选5改变投注方式 中奖立竿见影" alt="11选5改变投注方式 中奖立竿见影" target="_blank">[福建] 11选5改变投注方式 中奖立竿见影</a><br>
+					<a href="/gpzjzx/20180530/66000.html" title="淄博技术型彩民斩获“11选5”奖金近20万" alt="淄博技术型彩民斩获“11选5”奖金近20万" target="_blank">[山东] 淄博技术型彩民斩获“11选5”奖金近20万</a><br>
+					<a href="/gpzjzx/20180606/66178.html" title="福建泉州彩友一期斩获“11选5”58200元" alt="福建泉州彩友一期斩获“11选5”58200元" target="_blank">[福建] 福建泉州彩友一期斩获“11选5”58200元</a><br>
+					<a href="/gpzjzx/20180529/65947.html" title="南安亲们喜揽11选5奖金26030元" alt="南安亲们喜揽11选5奖金26030元" target="_blank">[福建] 南安亲们喜揽11选5奖金26030元</a>
+					</div>
+				</div>
+			</div>
+			<!-- gp end -->
+			<!-- pl -->
+			<div class="nb31_01" id="pl" style="display: none;">
+				<div class="nb31_02">
+					<div class="nb31_04 yylClear">
+					<a href="/dltljl/20180705/67082.html" title="佛系大叔淡定领走体彩大乐透1985万大奖" alt="佛系大叔淡定领走体彩大乐透1985万大奖" target="_blank"><img src="/upload/20180705/20180705100301288.jpg" alt="佛系大叔淡定领走体彩大乐透1985万大奖" title="佛系大叔淡定领走体彩大乐透1985万大奖" />
+					<div class="btbj"></div>
+					<p>佛系大叔领走1985万大奖</p>
+					</a>
+					<a href="/dltljl/20180703/66992.html" title="买大乐透缓解压力，没料逮住千万大奖" alt="买大乐透缓解压力，没料逮住千万大奖" target="_blank"><img src="/upload/20180703/20180703140001255.jpg" alt="买大乐透缓解压力，没料逮住千万大奖" title="买大乐透缓解压力，没料逮住千万大奖" />
+					<div class="btbj"></div>
+					<p>透缓解压力逮千万大奖</p>
+					</a>
+					</div>
+					<div class="nb31_05 gray">
+					<b>・</b> <a href="/qxczxfx/20180712/67270.html" title="7星彩第18080期分析：关注中区大小出号" alt="7星彩第18080期分析：关注中区大小出号" target="_blank">7星彩第18080期分析：关注中区大小出号</a><br>
+					<b>・</b> <a href="/zxfx/20180712/67268.html" title="大乐透第18081期分析：后期看好2路1路号码" alt="大乐透第18081期分析：后期看好2路1路号码" target="_blank">大乐透第18081期分析：后期看好2路1路号码</a><br>
+					<b>・</b> <a href="/plzxfx/20180712/67273.html" title="排列5近期综合分析：偶数号码前期热出" alt="排列5近期综合分析：偶数号码前期热出" target="_blank">排列5近期综合分析：偶数号码前期热出</a>
+					</div>
+				</div>
+				<div class="nb31_03">
+					<div class="nb31_06 blue">
+					<a href="/plxw/20180705/67093.html" title="湖北武汉彩民终于等到300万大奖，还好没放弃！" alt="湖北武汉彩民终于等到300万大奖，还好没放弃！" target="_blank">湖北武汉彩民终于等到300万大奖，还好没放弃！</a>
+					</div>
+					<div class="nb31_07 dgray">
+					<a href="/plxw/20180704/67058.html" title="排列五大奖得主兑奖室里喜相逢，均为守号建功" alt="排列五大奖得主兑奖室里喜相逢，均为守号建功" target="_blank">[湖北] 排列五大奖得主兑奖室里喜相逢，均为守号建功</a><br>
+					<a href="/plxw/20180703/67004.html" title="百万算什么？这个乡镇彩票店还中过排列一等奖" alt="百万算什么？这个乡镇彩票店还中过排列一等奖" target="_blank">[湖北] 百万算什么？这个乡镇彩票店还中过排列一等奖</a><br>
+					<a href="/plxw/20180628/66828.html" title="广东80后小哥4元揽获“排列5”20万" alt="广东80后小哥4元揽获“排列5”20万" target="_blank">[广东] 广东80后小哥4元揽获“排列5”20万</a><br>
+					<a href="/plxw/20180627/66755.html" title="余江彩友中出5注排列5力取奖金50万" alt="余江彩友中出5注排列5力取奖金50万" target="_blank">[江西] 余江彩友中出5注排列5力取奖金50万</a><br>
+					<a href="/plxw/20180627/66794.html" title="湖北恩施章先生独揽10注 收获奖金100万" alt="湖北恩施章先生独揽10注 收获奖金100万" target="_blank">[湖北] 湖北恩施章先生独揽10注 收获奖金100万</a>
+					</div>
+				</div>
+			</div>
+			<!-- pl end -->
+			<!-- qxc -->
+			<div class="nb31_01" id="qxc" style="display: none;">
+				<div class="nb31_02">
+					<div class="nb31_04  yylClear">
+					<a href="/dltljl/20180705/67082.html" title="佛系大叔淡定领走体彩大乐透1985万大奖" alt="佛系大叔淡定领走体彩大乐透1985万大奖" target="_blank"><img src="/upload/20180705/20180705100301288.jpg" alt="佛系大叔淡定领走体彩大乐透1985万大奖" title="佛系大叔淡定领走体彩大乐透1985万大奖" />
+					<div class="btbj"></div>
+					<p>佛系大叔领走1985万大奖</p>
+					</a>
+					<a href="/dltljl/20180703/66992.html" title="买大乐透缓解压力，没料逮住千万大奖" alt="买大乐透缓解压力，没料逮住千万大奖" target="_blank"><img src="/upload/20180703/20180703140001255.jpg" alt="买大乐透缓解压力，没料逮住千万大奖" title="买大乐透缓解压力，没料逮住千万大奖" />
+					<div class="btbj"></div>
+					<p>透缓解压力逮千万大奖</p>
+					</a>
+					</div>
+					<div class="nb31_05 gray">
+					<b>・</b> <a href="/qxczxfx/20180712/67270.html" title="7星彩第18080期分析：关注中区大小出号" alt="7星彩第18080期分析：关注中区大小出号" target="_blank">7星彩第18080期分析：关注中区大小出号</a><br>
+					<b>・</b> <a href="/zxfx/20180712/67268.html" title="大乐透第18081期分析：后期看好2路1路号码" alt="大乐透第18081期分析：后期看好2路1路号码" target="_blank">大乐透第18081期分析：后期看好2路1路号码</a><br>
+					<b>・</b> <a href="/plzxfx/20180712/67273.html" title="排列5近期综合分析：偶数号码前期热出" alt="排列5近期综合分析：偶数号码前期热出" target="_blank">排列5近期综合分析：偶数号码前期热出</a>
+					</div>
+				</div>
+				<div class="nb31_03">
+					<div class="nb31_06 blue">
+					<a href="/qxcxw/20180615/66436.html" title="两个500万同日被领 均为10元机选单式票" alt="两个500万同日被领 均为10元机选单式票" target="_blank">两个500万同日被领 均为10元机选单式票</a>
+					</div>
+					<div class="nb31_07 dgray">
+					<a href="/qxcxw/20180612/66341.html" title="海南体彩为7星彩500万中奖投注站庆祝" alt="海南体彩为7星彩500万中奖投注站庆祝" target="_blank">[海南] 海南体彩为7星彩500万中奖投注站庆祝</a><br>
+					<a href="/qxcxw/20180608/66239.html" title="安徽宿州20317网点 十年老店中出7星彩1000万" alt="安徽宿州20317网点 十年老店中出7星彩1000万" target="_blank">[安徽] 安徽宿州20317网点 十年老店中出7星彩1000万</a><br>
+					<a href="/qxcxw/20180518/65584.html" title="德阳31043网点 一彩友中7星彩1500万" alt="德阳31043网点 一彩友中7星彩1500万" target="_blank">[四川] 德阳31043网点 一彩友中7星彩1500万</a><br>
+					<a href="/qxcxw/20180525/65813.html" title="复制旧票献爱心 德阳彩友领7星彩1500万" alt="复制旧票献爱心 德阳彩友领7星彩1500万" target="_blank">[四川] 复制旧票献爱心 德阳彩友领7星彩1500万</a><br>
+					<a href="/qxcxw/20180507/65140.html" title="天津老店中出7星彩500万" alt="天津老店中出7星彩500万" target="_blank">[天津] 天津老店中出7星彩500万</a>
+					</div>
+				</div>
+			</div>
+			<!-- qxc end -->
+			
+			
+			<div class="nb21_01 dgray">
+				<div class="b21_16" id="jcyx" style="cursor: pointer;">竞猜游戏</div>
+				<div class="b21_19" id="zqTitle" style="cursor: pointer;" onclick="window.open('/zc/index.html','_blank')" alt="足球" title="足球">足球</div>
+				<div class="b21_19" id="jcTitle" style="cursor: pointer;" onclick="window.open('/jc/index.html','_blank')" alt="竞彩" title="竞彩">竞彩</div>
+			</div>
+			<!-- jcyx -->
+			<div class="nb31_01" id="jcyxList">
+				<div class="nb31_02">
+					<div class="nb31_04 yylClear">
+					<a href="/zqzjxw/20180702/66940.html" title="竞彩世界杯 江西崇义彩友屡屡中奖" alt="竞彩世界杯 江西崇义彩友屡屡中奖" target="_blank"><img src="/upload/20180702/20180702112238529.gif" alt="竞彩世界杯 江西崇义彩友屡屡中奖" title="竞彩世界杯 江西崇义彩友屡屡中奖" />
+					<div class="btbj"></div>
+					<p>竞彩世界杯 江西崇义彩友屡屡中奖</p>
+					</a>
+					<a href="/mxyz/20180702/66939.html" title="世界杯激战正酣 江西南昌网点忙不停" alt="世界杯激战正酣 江西南昌网点忙不停" target="_blank"><img src="/upload/20180702/20180702111851809.gif" alt="世界杯激战正酣 江西南昌网点忙不停" title="世界杯激战正酣 江西南昌网点忙不停" />
+					<div class="btbj"></div>
+					<p>世界杯激战正酣 江西南昌网点忙不停</p>
+					</a>
+					</div>
+					<div class="nb31_05 gray">
+					<b>・</b> <a href="/zqzx/20180712/67288.html" title="周四104：克利夫实力欠缺 北西兰可信" alt="周四104：克利夫实力欠缺 北西兰可信" target="_blank">周四104：克利夫实力欠缺 北西兰可信</a><br>
+					<b>・</b> <a href="/zqzx/20180712/67287.html" title="周四101：库普斯或爆冷 哥本哈难占优" alt="周四101：库普斯或爆冷 哥本哈难占优" target="_blank">周四101：库普斯或爆冷 哥本哈难占优</a><br>
+					<b>・</b> <a href="/zqzx/20180712/67286.html" title="周四103：索尔纳状态佳 沙姆洛难爆冷" alt="周四103：索尔纳状态佳 沙姆洛难爆冷" target="_blank">周四103：索尔纳状态佳 沙姆洛难爆冷</a>
+					</div>
+				</div>
+				<div class="nb31_03">
+					<div class="nb31_06 blue">
+					<a href="/jczq/20180711/67224.html" title="竞彩世界杯：军团比拼90分钟分高低" alt="竞彩世界杯：军团比拼90分钟分高低" target="_blank">竞彩世界杯：军团比拼90分钟分高低</a>
+					</div>
+					<div class="nb31_07 dgray">
+					<a href="/zqzjxw/20180702/66950.html" title="福建宁德彩民投注比分喜揽竞彩35万超值奖" alt="福建宁德彩民投注比分喜揽竞彩35万超值奖" target="_blank">[福建] 福建宁德彩民投注比分喜揽竞彩35万超值奖</a><br>
+					<a href="/jczq/20180711/67225.html" title="竞彩黄历：三狮一吼，精神抖擞" alt="竞彩黄历：三狮一吼，精神抖擞" target="_blank">[全国] 竞彩黄历：三狮一吼，精神抖擞</a><br>
+					<a href="/mxyz/20180702/66941.html" title="江西吉安市女业主带动彩友玩转世界杯" alt="江西吉安市女业主带动彩友玩转世界杯" target="_blank">[江西] 江西吉安市女业主带动彩友玩转世界杯</a><br>
+					<a href="/mxyz/20180702/66939.html" title="世界杯激战正酣 江西南昌网点忙不停" alt="世界杯激战正酣 江西南昌网点忙不停" target="_blank">[江西] 世界杯激战正酣 江西南昌网点忙不停</a><br>
+					<a href="/zqzjxw/20180702/66935.html" title="江西抚州市彩民倍投世界杯 三战获奖21万" alt="江西抚州市彩民倍投世界杯 三战获奖21万" target="_blank">[江西] 江西抚州市彩民倍投世界杯 三战获奖21万</a>
+					</div>
+				</div>
+			</div>
+			<!-- jcyx end -->
+			<!-- zqTitle -->
+			<div class="nb31_01" id="zqList" style="display: none;">
+				<div class="nb31_02">
+					<div class="nb31_04 yylClear">
+					<a href="/zqzjxw/20180702/66940.html" title="竞彩世界杯 江西崇义彩友屡屡中奖" alt="竞彩世界杯 江西崇义彩友屡屡中奖" target="_blank"><img src="/upload/20180702/20180702112238529.gif" alt="竞彩世界杯 江西崇义彩友屡屡中奖" title="竞彩世界杯 江西崇义彩友屡屡中奖" />
+					<div class="btbj"></div>
+					<p>竞彩世界杯 江西崇义彩友屡屡中奖</p>
+					</a>
+					<a href="/mxyz/20180702/66939.html" title="世界杯激战正酣 江西南昌网点忙不停" alt="世界杯激战正酣 江西南昌网点忙不停" target="_blank"><img src="/upload/20180702/20180702111851809.gif" alt="世界杯激战正酣 江西南昌网点忙不停" title="世界杯激战正酣 江西南昌网点忙不停" />
+					<div class="btbj"></div>
+					<p>世界杯激战正酣 江西南昌网点忙不停</p>
+					</a>
+					</div>
+					<div class="nb31_05 gray">
+					<b>・</b> <a href="/zqzx/20180712/67288.html" title="周四104：克利夫实力欠缺 北西兰可信" alt="周四104：克利夫实力欠缺 北西兰可信" target="_blank">周四104：克利夫实力欠缺 北西兰可信</a><br>
+					<b>・</b> <a href="/zqzx/20180712/67287.html" title="周四101：库普斯或爆冷 哥本哈难占优" alt="周四101：库普斯或爆冷 哥本哈难占优" target="_blank">周四101：库普斯或爆冷 哥本哈难占优</a><br>
+					<b>・</b> <a href="/zqzx/20180712/67286.html" title="周四103：索尔纳状态佳 沙姆洛难爆冷" alt="周四103：索尔纳状态佳 沙姆洛难爆冷" target="_blank">周四103：索尔纳状态佳 沙姆洛难爆冷</a>
+					</div>
+				</div>
+				<div class="nb31_03">
+					<div class="nb31_06 blue">
+					<a href="/zczx/20180628/66838.html" title="神预测！辽宁沈阳“购彩者联盟”拿下400万大奖" alt="神预测！辽宁沈阳“购彩者联盟”拿下400万大奖" target="_blank">神预测！辽宁沈阳“购彩者联盟”拿下400万大奖</a>
+					</div>
+					<div class="nb31_07 dgray">
+					<a href="/zczx/20180702/66943.html" title="江西抚州市彩民倍投世界杯 三战获奖21万" alt="江西抚州市彩民倍投世界杯 三战获奖21万" target="_blank">[江西] 江西抚州市彩民倍投世界杯 三战获奖21万</a><br>
+					<a href="/zqzjxw/20180627/66758.html" title="猜中“单固”比分 世界杯“成都赢家”斩获19.8万" alt="猜中“单固”比分 世界杯“成都赢家”斩获19.8万" target="_blank">[四川] 猜中“单固”比分 世界杯“成都赢家”斩获19.8万</a><br>
+					<a href="/zczx/20180627/66779.html" title="分析 判断 幸运加持 ——四川彩民的世界杯故事" alt="分析 判断 幸运加持 ——四川彩民的世界杯故事" target="_blank">[四川] 分析 判断 幸运加持 ——四川彩民的世界杯故事</a><br>
+					<a href="/zczx/20180625/66692.html" title="“冷门世界杯”  有人中了450万" alt="“冷门世界杯”  有人中了450万" target="_blank">[全国] “冷门世界杯”  有人中了450万</a><br>
+					<a href="/zczx/20180702/66945.html" title="竞彩世界杯 江西崇义彩友屡屡中奖" alt="竞彩世界杯 江西崇义彩友屡屡中奖" target="_blank">[江西] 竞彩世界杯 江西崇义彩友屡屡中奖</a>
+					</div>
+				</div>
+			</div>
+			<!-- zqTitle end -->
+			<!-- jcTitle -->
+			<div class="nb31_01" id="jcList" style="display: none;">
+				<div class="nb31_02">
+					<div class="nb31_04 yylClear">
+					<a href="/zqzjxw/20180702/66940.html" title="竞彩世界杯 江西崇义彩友屡屡中奖" alt="竞彩世界杯 江西崇义彩友屡屡中奖" target="_blank"><img src="/upload/20180702/20180702112238529.gif" alt="竞彩世界杯 江西崇义彩友屡屡中奖" title="竞彩世界杯 江西崇义彩友屡屡中奖" />
+					<div class="btbj"></div>
+					<p>竞彩世界杯 江西崇义彩友屡屡中奖</p>
+					</a>
+					<a href="/mxyz/20180702/66939.html" title="世界杯激战正酣 江西南昌网点忙不停" alt="世界杯激战正酣 江西南昌网点忙不停" target="_blank"><img src="/upload/20180702/20180702111851809.gif" alt="世界杯激战正酣 江西南昌网点忙不停" title="世界杯激战正酣 江西南昌网点忙不停" />
+					<div class="btbj"></div>
+					<p>世界杯激战正酣 江西南昌网点忙不停</p>
+					</a>
+					</div>
+					<div class="nb31_05 gray">
+					<b>・</b> <a href="/zqzx/20180712/67288.html" title="周四104：克利夫实力欠缺 北西兰可信" alt="周四104：克利夫实力欠缺 北西兰可信" target="_blank">周四104：克利夫实力欠缺 北西兰可信</a><br>
+					<b>・</b> <a href="/zqzx/20180712/67287.html" title="周四101：库普斯或爆冷 哥本哈难占优" alt="周四101：库普斯或爆冷 哥本哈难占优" target="_blank">周四101：库普斯或爆冷 哥本哈难占优</a><br>
+					<b>・</b> <a href="/zqzx/20180712/67286.html" title="周四103：索尔纳状态佳 沙姆洛难爆冷" alt="周四103：索尔纳状态佳 沙姆洛难爆冷" target="_blank">周四103：索尔纳状态佳 沙姆洛难爆冷</a>
+					</div>
+				</div>
+				<div class="nb31_03">
+					<div class="nb31_06 blue">
+					<a href="/jczq/20180627/66766.html" title="感受世界杯 体彩助威团亮相世界杯赛场" alt="感受世界杯 体彩助威团亮相世界杯赛场" target="_blank">感受世界杯 体彩助威团亮相世界杯赛场</a>
+					</div>
+					<div class="nb31_07 dgray">
+					<a href="/jczq/20180627/66761.html" title="世界杯专版：强弱对决  挑战高难玩法" alt="世界杯专版：强弱对决  挑战高难玩法" target="_blank">[全国] 世界杯专版：强弱对决  挑战高难玩法</a><br>
+					<a href="/zqzjxw/20180702/66950.html" title="福建宁德彩民投注比分喜揽竞彩35万超值奖" alt="福建宁德彩民投注比分喜揽竞彩35万超值奖" target="_blank">[福建] 福建宁德彩民投注比分喜揽竞彩35万超值奖</a><br>
+					<a href="/zqzjxw/20180702/66935.html" title="江西抚州市彩民倍投世界杯 三战获奖21万" alt="江西抚州市彩民倍投世界杯 三战获奖21万" target="_blank">[江西] 江西抚州市彩民倍投世界杯 三战获奖21万</a><br>
+					<a href="/zqzjxw/20180628/66827.html" title="泉州一位彩友喜中两期胜负彩超值头奖" alt="泉州一位彩友喜中两期胜负彩超值头奖" target="_blank">[福建] 泉州一位彩友喜中两期胜负彩超值头奖</a><br>
+					<a href="/jczq/20180627/66772.html" title="根据世界杯历史预测冠军 墨西哥力争不败" alt="根据世界杯历史预测冠军 墨西哥力争不败" target="_blank">[全国] 根据世界杯历史预测冠军 墨西哥力争不败</a>
+					</div>
+				</div>
+			</div>
+			<!-- jcTitle end -->
+			<div class="nb21_01 dgray">
+				<div class="b21_16"><a href="/dgg/index.html" target="_blank">即开游戏</a></div>
+			</div>
+			<div class="nb31_01">
+				<div class="nb31_02">
+					<div class="nb31_04 yylClear">
+					<a href="/dggzjxx/20180630/66894.html" title="奉贤购彩者专注顶呱刮 终获“三重钻石”头奖25万" alt="奉贤购彩者专注顶呱刮 终获“三重钻石”头奖25万" target="_blank"><img src="/upload/20180630/20180630100105913.jpg" alt="奉贤购彩者专注顶呱刮 终获“三重钻石”头奖25万" title="奉贤购彩者专注顶呱刮 终获“三重钻石”头奖25万" />
+					<div class="btbj"></div>
+					<p>奉贤购彩者获“三重钻石”头奖25万</p>
+					</a>
+					<a href="/dggzjxx/20180627/66796.html" title="年轻男子仅刮一张“十二生肖” 幸运中得25万元" alt="年轻男子仅刮一张“十二生肖” 幸运中得25万元" target="_blank"><img src="/upload/20180627/20180627154830819.png" alt="年轻男子仅刮一张“十二生肖” 幸运中得25万元" title="年轻男子仅刮一张“十二生肖” 幸运中得25万元" />
+					<div class="btbj"></div>
+					<p>年轻男子仅刮一张“十二生肖” 幸运中得25万元</p>
+					</a>
+					</div>
+					<div class="nb31_05 gray">
+					<b>・</b> <a href="/dggzjxx/20180627/66775.html" title="“西游记”闪耀上市 河南中出头奖100万元" alt="“西游记”闪耀上市 河南中出头奖100万元" target="_blank">“西游记”闪耀上市 河南中出头奖100万元</a><br>
+					<b>・</b> <a href="/dggzjxx/20180627/66780.html" title="福建连先生边玩11选5边刮顶呱刮喜揽25万" alt="福建连先生边玩11选5边刮顶呱刮喜揽25万" target="_blank">福建连先生刮顶呱刮喜揽25万</a><br>
+					<b>・</b> <a href="/dgghyxw/20180615/66447.html" title="“我与体彩顶呱刮的故事”征集作品展 十年相遇 一生守候" alt="“我与体彩顶呱刮的故事”征集作品展 十年相遇 一生守候" target="_blank">“我与体彩顶呱刮的故事”征集作品展</a>
+					</div>
+				</div>
+				<div class="nb31_03">
+					<div class="nb31_06 blue">
+					<a href="/dgghyxw/20180702/66956.html" title="相信自己乐享生活 “顶呱刮”伴我一路前行" alt="相信自己乐享生活 “顶呱刮”伴我一路前行" target="_blank">相信自己乐享生活 “顶呱刮”伴我一路前行</a>
+					</div>
+					<div class="nb31_07 dgray">
+					<a href="/dggzjxx/20180702/66955.html" title="黑龙江佳木斯彩民喜中“麻辣6”10万元" alt="黑龙江佳木斯彩民喜中“麻辣6”10万元" target="_blank">[黑龙江] 黑龙江佳木斯彩民喜中“麻辣6”10万元</a><br>
+					<a href="/dggzjxx/20180702/66954.html" title="黑龙江牡丹江军人中顶呱刮20万大奖" alt="黑龙江牡丹江军人中顶呱刮20万大奖" target="_blank">[黑龙江] 黑龙江牡丹江军人中顶呱刮20万大奖</a><br>
+					<a href="/dggzjxx/20180630/66894.html" title="奉贤购彩者专注顶呱刮 终获“三重钻石”头奖25万" alt="奉贤购彩者专注顶呱刮 终获“三重钻石”头奖25万" target="_blank">[上海] 奉贤购彩者专注顶呱刮 终获“三重钻石”头奖25万</a><br>
+					<a href="/dggzjxx/20180627/66796.html" title="年轻男子仅刮一张“十二生肖” 幸运中得25万元" alt="年轻男子仅刮一张“十二生肖” 幸运中得25万元" target="_blank">[吉林] 年轻男子仅刮一张“十二生肖” 幸运中得25万元</a><br>
+					<a href="/dggzjxx/20180627/66775.html" title="“西游记”闪耀上市 河南中出头奖100万元" alt="“西游记”闪耀上市 河南中出头奖100万元" target="_blank">[河南] “西游记”闪耀上市 河南中出头奖100万元</a>
+					</div>
+				</div>
+			</div>
+			<div class="nb21_01 dgray">
+				<div class="b21_16"><a href="/dfdt/index.html" target="_blank">地方动态</a></div>
+				<div class="b21_17" style="margin-right:40px;" onclick="javascript:getPro();" id="selectedPlace">北京</div>
+			</div>
+			<div class="nb31_01">
+			 <div class="nb31_08 blue" id="p1"></div>
+				<div class="nb31_03">
+					<div class="nb31_06 blue" id="p2"></div>
+					<div class="nb31_07 dgray" id="p0">
+					</div>
+				</div>
+				<!--弹窗-->
+				<div class="mask2 yylClear" id="selectPro">
+					<a style="cursor: pointer;" onclick="javascript:changePro('北京');" title="北京体彩动态" alt="北京体彩动态">北京</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('天津');" title="天津体彩动态" alt="天津体彩动态">天津</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('上海');" title="上海体彩动态" alt="上海体彩动态}">上海</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('重庆');" title="重庆体彩动态" alt="重庆体彩动态">重庆</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('河北');" title="河北体彩动态" alt="河北体彩动态">河北</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('山西');" title="山西体彩动态" alt="山西体彩动态">山西</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('内蒙古');" title="内蒙古体彩动态" alt="内蒙古体彩动态">内蒙古</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('山东');" title="山东体彩动态" alt="山东体彩动态">山东</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('江苏');" title="江苏体彩动态" alt="江苏体彩动态">江苏</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('浙江');" title="浙江体彩动态" alt="浙江体彩动态">浙江</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('安徽');" title="安徽体彩动态" alt="安徽体彩动态">安徽</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('福建');" title="福建体彩动态" alt="福建体彩动态">福建</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('江西');" title="江西体彩动态" alt="江西体彩动态">江西</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('辽宁');" title="辽宁体彩动态" alt="辽宁体彩动态">辽宁</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('吉林');" title="吉林体彩动态" alt="吉林体彩动态">吉林</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('黑龙江');" title="黑龙江体彩动态" alt="黑龙江体彩动态">黑龙江</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('湖北');" title="湖北体彩动态" alt="湖北体彩动态">湖北</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('湖南');" title="湖南体彩动态" alt="湖南体彩动态">湖南</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('河南');" title="河南体彩动态" alt="河南体彩动态">河南</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('广东');" title="广东体彩动态" alt="广东体彩动态">广东</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('广西');" title="广西体彩动态" alt="广西体彩动态">广西</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('海南');" title="海南体彩动态" alt="海南体彩动态">海南</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('云南');" title="云南体彩动态" alt="云南体彩动态">云南</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('贵州');" title="贵州体彩动态" alt="贵州体彩动态">贵州</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('宁夏');" title="宁夏体彩动态" alt="宁夏体彩动态">宁夏</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('新疆');" title="新疆体彩动态" alt="新疆体彩动态">新疆</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('陕西');" title="陕西体彩动态" alt="陕西体彩动态">陕西</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('甘肃');" title="甘肃体彩动态" alt="甘肃体彩动态">甘肃</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('青海');" title="青海体彩动态" alt="青海体彩动态">青海</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('四川');" title="四川体彩动态" alt="四川体彩动态">四川</a>
+					<a style="cursor: pointer;" onclick="javascript:changePro('西藏');" title="西藏体彩动态" alt="西藏体彩动态">西藏</a>
+				</div>
+				<!--弹窗 end-->
+			</div>
+		</div>
+		<div class="nb32">
+			<div class="nb32_01">
+				<div class="nb32_02">
+					<div class="nb32_03 dred" id="gywhTitle" style="cursor: pointer;" onclick="window.open('/gywh/index.html','_blank')">公益・文化</div>
+					<div class="nb32_05" id="whTitle" style="cursor: pointer;">文化</div>
+					<div class="nb32_05" id="ggTitle" style="cursor: pointer;">公告</div>
+					<div class="nb32_05" id="dtTitle" style="cursor: pointer;">动态</div>
+				</div>
+				<!-- gywh  -->
+				<div class="nb32_06" id="gywhList1">
+					<div class="nb32_07">
+					<a href="/gyjb/20180709/67157.html" title="下地市 进社区 体彩把公益活动送到家门口" target="_blank"><img src="/upload/20180709/2018070910053833.jpg" alt="下地市 进社区 体彩把公益活动送到家门口" title="下地市 进社区 体彩把公益活动送到家门口" /></a>
+					</div>
+					<div class="nb32_08">
+						<div class="nb32_09 blue"><a href="/gyjb/20180709/67157.html" title="下地市 进社区 体彩把公益活动送到家门口" target="_blank">体彩把公益活动送到家门口</a></div>
+						<div class="nb32_10 gray"><a href="/gyjb/20180709/67157.html" title="下地市 进社区 体彩把公益活动送到家门口" target="_blank">　　为了让更多人成为体彩公益的受益者，感受到体彩公益的温暖，各地体彩把公益活动送进……</a></div>
+					</div>
+				</div>
+				<div class="nb32_11 dgray" id="gywhList2">
+						<a href="/gyjb/20180709/67154.html" title="体彩赛事多地掀高潮 专业与业余赛事动起来！" target="_blank">[公益脚步] 体彩赛事多地掀高潮 专业与业余赛事动起来！</a><br>
+						<a href="/gyjb/20180707/67137.html" title="山东体彩爱心助学再启航 60万资助贫困大学新生 " target="_blank">[公益脚步] 山东体彩爱心助学再启航 60万资助贫困大学新生 </a><br>
+						<a href="/gyjb/20180706/67105.html" title="内蒙古赤峰体彩支持全国竞走冠军赛 " target="_blank">[公益脚步] 内蒙古赤峰体彩支持全国竞走冠军赛 </a><br>
+						<a href="/gyjb/20180702/66933.html" title="公益体彩在你身边 与你一起守望幸福 " target="_blank">[公益脚步] 公益体彩在你身边 与你一起守望幸福 </a><br>
+						<a href="/gyjb/20180702/66932.html" title="世界杯狂欢季 乐享足球盛宴 公益体彩相伴" target="_blank">[公益脚步] 世界杯狂欢季 乐享足球盛宴 公益体彩相伴</a><br>
+				</div>
+				<!-- gywh end -->
+				<!-- wh  -->
+				<div class="nb32_06" id="whList1" style="display: none;">
+					<div class="nb32_07">
+					<a href="/gyjb/20180709/67157.html" title="下地市 进社区 体彩把公益活动送到家门口" target="_blank"><img src="/upload/20180709/2018070910053833.jpg" alt="下地市 进社区 体彩把公益活动送到家门口" title="下地市 进社区 体彩把公益活动送到家门口" /></a>
+					</div>
+					<div class="nb32_08">
+						<div class="nb32_09 blue"><a href="/gyjb/20180709/67157.html" title="下地市 进社区 体彩把公益活动送到家门口" target="_blank">体彩把公益活动送到家门口</a></div>
+						<div class="nb32_10 gray"><a href="/gyjb/20180709/67157.html" title="下地市 进社区 体彩把公益活动送到家门口" target="_blank">　　为了让更多人成为体彩公益的受益者，感受到体彩公益的温暖，各地体彩把公益活动送进……</a></div>
+					</div>
+				</div>
+				<div class="nb32_11 dgray" id="whList2" style="display: none;">
+						<a href="/gyjb/20180709/67154.html" title="体彩赛事多地掀高潮 专业与业余赛事动起来！" target="_blank">[公益脚步] 体彩赛事多地掀高潮 专业与业余赛事动起来！</a><br>
+						<a href="/gyjb/20180706/67110.html" title="帮扶弱势群体 弘扬社会正能量" target="_blank">[公益脚步] 帮扶弱势群体 弘扬社会正能量</a><br>
+						<a href="/gyjb/20180629/66857.html" title="江西举行“世界杯，该你上场”公益推广活动" target="_blank">[公益脚步] 江西举行“世界杯，该你上场”公益推广活动</a><br>
+						<a href="/gyjb/20180628/66823.html" title="宣传公益 宣传玩法 西藏布达拉宫广场上体彩热 " target="_blank">[公益脚步] 宣传公益 宣传玩法 西藏布达拉宫广场上体彩热 </a><br>
+						<a href="/gyjb/20180628/66849.html" title="黑龙江大庆体彩携手奥运冠军走进“快乐操场”" target="_blank">[公益脚步] 黑龙江大庆体彩携手奥运冠军走进“快乐操场”</a><br>
+				</div>
+				<!-- wh end -->
+				<!-- dt  -->
+				<div class="nb32_06" id="dtList1" style="display: none;">
+					<div class="nb32_07">
+					<a href="/gyjb/20180630/66891.html" title="趣味运动会走进常青花园" target="_blank"><img src="/upload/20180630/20180630091943765.jpg" alt="趣味运动会走进常青花园" title="趣味运动会走进常青花园" /></a>
+					</div>
+					<div class="nb32_08">
+						<div class="nb32_09 blue"><a href="/gyjb/20180630/66891.html" title="趣味运动会走进常青花园" target="_blank">趣味运动会走进常青花园</a></div>
+						<div class="nb32_10 gray"><a href="/gyjb/20180630/66891.html" title="趣味运动会走进常青花园" target="_blank">　　6月29日下午5点钟开始，武汉常青花园七村的居民们，便被一场妙趣横生的趣味运动会深……</a></div>
+					</div>
+				</div>
+				<div class="nb32_11 dgray" id="dtList2" style="display: none;">
+						<a href="/gyjb/20180709/67154.html" title="体彩赛事多地掀高潮 专业与业余赛事动起来！" target="_blank">[公益脚步] 体彩赛事多地掀高潮 专业与业余赛事动起来！</a><br>
+						<a href="/gyjb/20180702/66933.html" title="公益体彩在你身边 与你一起守望幸福 " target="_blank">[公益脚步] 公益体彩在你身边 与你一起守望幸福 </a><br>
+						<a href="/gyjb/20180702/66930.html" title="世界杯狂欢 公益体彩与足球的交集不只是在竞猜 " target="_blank">[公益脚步] 世界杯狂欢 公益体彩与足球的交集不只是在竞猜 </a><br>
+						<a href="/gyjb/20180702/66926.html" title="单项比赛加综合赛事 体彩为青少年搭建比赛平台" target="_blank">[公益脚步] 单项比赛加综合赛事 体彩为青少年搭建比赛平台</a><br>
+				</div>
+				<!-- dt end -->
+				<!-- gg -->
+				<div class="nb32_111 dgray" id="ggList" style="display: none;">
+					<a href="/gyjdfgg/20170714/57290.html" title="甘肃省体育局2016年度体育彩票公益金使用情况公告" target="_blank">[地方公告] 甘肃2016体彩公益金使用情况</a><br>
+					<a href="/gyjdfgg/20170708/57083.html" title="关于2016年新疆彩票公益金筹集分配及使用情况的公告" target="_blank">[地方公告] 2016年新疆彩票公益金使用情况的公告</a><br>
+					<a href="/gyjdfgg/20170708/57082.html" title="2016年陕西省体育彩票公益金筹集使用情况的公告" target="_blank">[地方公告] 2016年陕西体彩公益金使用情况</a><br>
+					<a href="/gyjdfgg/20170708/57081.html" title="云南省财政厅关于2016年全省彩票公益金筹集分配使用情况的公告" target="_blank">[地方公告] 云南财政厅2016年彩票公益金使用情况</a><br>
+					<a href="/gyjdfgg/20170801/57080.html" title="海南省关于2016年体育彩票公益金收支情况公告" target="_blank">[地方公告] 海南2016年体彩公益金收支情况公告</a><br>
+					<a href="/gyjdfgg/20170708/57079.html" title="2016年度浙江省体育彩票公益金筹集分配使用情况公告" target="_blank">[地方公告] 2016年浙江体彩公益金使用情况公告</a><br>
+					<a href="/gyjdfgg/20170708/57078.html" title="2016年度上海市彩票公益金筹集、分配及使用情况公告" target="_blank">[地方公告] 2016年上海彩票公益金使用情况公告</a><br>
+					<a href="/gyjdfgg/20170707/57063.html" title="西藏自治区体育局2016年度本级体育彩票公益金使用情况公告" target="_blank">[地方公告] 西藏2016年体彩公益金使用情况公告</a><br>
+					<a href="/gyjdfgg/20170707/57054.html" title="青海省体育局关于2016年体育彩票公益金收支情况的公告" target="_blank">[地方公告] 青海省体育局2016年体彩公益金收支情况</a><br>
+				</div>
+				<!-- gg end -->
+			</div>
+			<div class="nb32_12">
+				<div class="nb32_02">
+					<div class="nb32_03 dred"><a href="/tzgl/index.html" target="_blank">投注攻略</a></div>
+				</div>
+				<div class="nb32_13 dgray">
+				  <a href="/zqzx/20180712/67288.html" title="周四104：克利夫实力欠缺 北西兰可信" target="_blank">[竞彩] 周四104：克利夫实力欠缺 北西兰可信</a><br />
+				  <a href="/zqzx/20180712/67287.html" title="周四101：库普斯或爆冷 哥本哈难占优" target="_blank">[竞彩] 周四101：库普斯或爆冷 哥本哈难占优</a><br />
+				  <a href="/zqzx/20180712/67286.html" title="周四103：索尔纳状态佳 沙姆洛难爆冷" target="_blank">[竞彩] 周四103：索尔纳状态佳 沙姆洛难爆冷</a><br />
+				  <a href="/plzxfx/20180712/67285.html" title="排列3近期综合分析：两码设防48、34、69" target="_blank">[排列] 排列3近期综合分析：两码设防48、34、69</a><br />
+				</div>
+			</div>
+			<div class="nb32_14">
+				<div class="nb32_02">
+					<div class="nb32_03 dred"><a href="/fwgj/index.html" target="_blank">服务・工具</a></div>
+				</div>
+				<div class="nb32_16 dgray">
+					<a href="/fwgj/index.html" target="_blank" alt="体彩玩法介绍" title="玩法介绍"><div class="nb32_17"><img src="/res/images/20_01.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">玩法介绍</div></a>
+					<a href="http://chart.lottery.gov.cn/chart_tc2/" alt="体彩图表数据" title="体彩图表数据" target="_blank"><div class="nb32_17"><img src="/res/images/20_02.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">图表数据</div></a>
+					<a href="/fwgj/index.html#sydq"  alt="体彩术语大全" title="体彩术语大全" target="_blank"><div class="nb32_17"><img src="/res/images/20_04.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">术语大全</div></a>
+				</div>
+				<div class="nb32_16 dgray">
+					<a href="/infos/1619.htm" alt="体彩常见问题" title="体彩常见问题" target="_blank"><div class="nb32_17"><img src="/res/images/20_06.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">常见问题</div></a>
+					<a href="http://zhuanti.lottery.gov.cn/diaocha/index.html" alt="体彩在线调查" title="体彩在线调查"  target="_blank"><div class="nb32_17"><img src="/res/images/20_07.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">在线调查</div></a>
+					<a href="/infos/1620.htm" alt="体彩客服热线" title="体彩客服热线" target="_blank"><div class="nb32_17"><img src="/res/images/20_08.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">客服热线</div></a>
+				</div>
+				<div class="nb32_16 dgray">
+					<a href="/infos/1607.htm" alt="体彩兑奖须知" title="体彩兑奖须知" target="_blank"><div class="nb32_17"><img src="/res/images/20_09.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">兑奖须知</div></a>
+					<a href="/xxqtfg/index.html" alt="体彩彩票法规" title="体彩彩票法规" target="_blank"><div class="nb32_17"><img src="/res/images/20_10.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">彩票法规</div></a>
+					<a href="/infos/1605.htm" alt="体彩站点申请" title="体彩站点申请" target="_blank"><div class="nb32_17"><img src="/res/images/20_11.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">站点申请</div></a>
+				</div>
+				<div class="nb32_16 dgray">
+					<a href="/zcsc/index.html" alt="体彩足彩赛程" title="体彩足彩赛程" target="_blank"><div class="nb32_17"><img src="/res/images/20_14.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">足彩赛程</div></a>
+					<a href="/football/match_list.jspx" alt="体彩竞彩赛程" title="体彩竞彩赛程" target="_blank"><div class="nb32_17"><img src="/res/images/20_13.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">竞彩赛程</div></a>
+					<a href="/football/result.jspx" alt="体彩竞彩赛果" title="体彩竞彩赛果" target="_blank"><div class="nb32_17"><img src="/res/images/20_21.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">竞彩赛果</div></a>
+				</div>
+				<div class="nb32_16 dgray">
+					<a href="/football/counter.jspx" alt="体彩竞彩计算器" title="体彩竞彩计算器" target="_blank"><div class="nb32_17"><img src="/res/images/20_22.png"></div><div class="nb32_17" style="padding:0 14px 0 0;">竞彩计算器</div></a>
+					<a href="/tool/dltjsq.jspx" alt="体彩大乐透计算器" title="体彩大乐透计算器" target="_blank"><div class="nb32_17"><img src="/res/images/20_23.png"></div><div class="nb32_17" style="padding:0 28px 0 0;">大乐透计算器</div></a>
+				</div>
+			</div>
+			<div class="nb32_18">
+				<div class="nb32_02">
+					<div class="nb32_03 dred"><a href="/ztbd/index.html" target="_blank">专题</a></div>
+				</div>
+				<div class="nb32_19">
+				<a href="/yxcp/20180530/65959.html" title="探秘体彩大乐透 阳光开奖全流程" target="_blank"><img src="/upload/20180530/20180530093111348.jpg" alt="探秘体彩大乐透 阳光开奖全流程" title="探秘体彩大乐透 阳光开奖全流程" /></a>
+				<a href="/gyhd/20180704/67053.html" title="健身新时代 体彩益起来" target="_blank"><img src="/upload/20180704/20180704153033904.jpg" alt="健身新时代 体彩益起来" title="健身新时代 体彩益起来" /></a>
+		
+				</div>
+			</div>
+			<div class="nb32_20">
+				<div class="nb32_02">
+					<div class="nb32_03 dred">互动体验</div>
+				</div>
+			<!--<div class="nb32_21 white">
+					<div class="nb32_22" style="background:#82AEE4;"><a alt="大乐透 虚拟擂台" title="大乐透 虚拟擂台"  onclick="alert('敬请期待');" target="_blank">大乐透 虚拟擂台</a></div>
+					<div class="nb32_22" style="background:#F1B581;"><a alt="大乐透 模拟摇奖" title="大乐透 模拟摇奖"  onclick="alert('敬请期待');" target="_blank">大乐透 模拟摇奖</a></div>
+				</div>
+				<div class="nb32_21 white">
+					<div class="nb32_22" style="background:#ED9494;"><a href="/newsgty/index.html" alt="顶呱刮 试刮游戏" title="顶呱刮 试刮游戏" target="_blank">顶呱刮 试刮游戏</a></div>
+					<div class="nb32_22" style="background:#79CD8D;"><a onclick="alert('敬请期待');" alt="11选5模拟投注" title="11选5模拟投注" target="_blank">11选5&nbsp;&nbsp;模拟投注</a></div>
+				</div> -->
+				<div class="nb32_23 white"><a href="http://www.lottery.gov.cn/newsgty/index.html" target="_blank"><img src="/res/images/17091835060.png" alt="顶呱刮 试刮游戏" border="0"></a> </div> 
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 通栏3 end -->
+
+<!-- 通栏03 -->
+<div class="c01">
+	<div class="b3">
+		<div class="b3_01">
+			<div class="b3_02"><a href="javascript:void(0);" target="_blank">微媒体</a></div>
+		</div>
+		<div class="b3_03">
+			<div class="b3_04">
+				<div class="b3_05">官方微博</div>
+				<div class="b3_06 dgray"><a href="http://weibo.com/p/1002063072038031/" target="_blank" rel="nofollow"><img src="/res/images/wb.jpg"><br>公益体彩</a></div>
+				<div class="b3_06 dgray"><a href="http://weibo.com/lotterygovcn/home?wvr=5" target="_blank" rel="nofollow"><img src="/res/images/wb.jpg"><br>中国体彩网</a></div>
+			</div>
+			<div class="b3_07">
+				<div class="b3_08">官方微信</div>
+				<div class="b3_09 dgray"><img src="/res/images/2w_01.jpg" alt="中国体育彩票" title="中国体育彩票"><br>中国体育彩票</div>
+				<div class="b3_09 dgray"><img src="/res/images/2w_02.jpg" alt="公益体彩" title="公益体彩"><br>公益体彩</div>
+				<div class="b3_09 dgray"><img src="/res/images/2w_03.jpg" alt="中国体彩网" title="中国体彩网"><br>中国体彩网</div>
+			</div>
+		</div>
+	</div>
+</div><!-- 通栏03 end -->
+<!-- 友情 -->
+<!-- 友情 -->
+<div class="c01">
+	<div class="b4">
+		<div class="b4_01 dgray">
+			<div class="b4_02"><font style="color:#cd0100; font-weight:bold;">相关机构　</font><a target="_blank" rel="nofollow"  href="http://www.mof.gov.cn/index.htm">中华人民共和国财政部　</a><a target="_blank" rel="nofollow"  href="http://www.sport.gov.cn/">国家体育总局　</a></div>
+						<div class="b4_04"><font style="color:#cd0100; font-weight:bold;">各地体彩　</font><a href="http://www.bjlot.com/" alt="北京体彩网" title="北京体彩网"  target="_blank" rel="nofollow">北京体彩网</a> │ 
+					
+						<a href="http://www.tjlottery.gov.cn/" alt="天津体彩网" title="天津体彩网" target="_blank" rel="nofollow">天津体彩网</a> │ 
+					
+						<a href="http://www.hbtcw.com/" alt="河北体彩网" title="河北体彩网" target="_blank" rel="nofollow">河北体彩网</a> │ 
+					
+						<a href="http://www.sxlottery.net/" alt="山西体彩网" title="山西体彩网" target="_blank" rel="nofollow">山西体彩网</a> │ 
+					
+						<a href="http://www.lntycp.com/" alt="辽宁体彩网" title="辽宁体彩网" target="_blank" rel="nofollow">辽宁体彩网</a> │ 
+					
+						<a href="http://www.jlstycp.com/" alt="吉林体彩网" title="吉林体彩网" target="_blank" rel="nofollow">吉林体彩网</a> │ 
+					
+						<a href="http://www.sclottery.gov.cn/" alt="四川体彩网" title="四川体彩网" target="_blank" rel="nofollow">四川体彩网</a> │ 
+					
+						<a href="http://www.shlottery.gov.cn/" alt="上海体彩网" title="上海体彩网" target="_blank" rel="nofollow">上海体彩网</a> │ 
+					
+						<a href="http://www.js-lottery.com/" alt="江苏体彩网" title="江苏体彩网" target="_blank" rel="nofollow">江苏体彩网</a> │ 
+					
+						<a href="http://www.zjlottery.com/" alt="浙江体彩网" title="浙江体彩网" target="_blank" rel="nofollow">浙江体彩网</a> │ 
+					
+					<a href="http://nmtc.lottery.gov.cn/" alt="内蒙古体彩网" title="内蒙古体彩网" target="_blank" rel="nofollow">内蒙古体彩网</a></div>
+						<div class="b4_04"><font style="color:#cd0100; font-weight:bold;">各地体彩　</font><a href="http://www.ahtc.gov.cn/" alt="安徽体彩网" title="安徽体彩网"  target="_blank" rel="nofollow">安徽体彩网</a> │ 
+					
+						<a href="http://www.fjtc.com.cn/" alt="福建体彩网" title="福建体彩网" target="_blank" rel="nofollow">福建体彩网</a> │ 
+					
+						<a href="http://www.jxlottery.cn/" alt="江西体彩网" title="江西体彩网" target="_blank" rel="nofollow">江西体彩网</a> │ 
+					
+						<a href="http://www.sdticai.com/" alt="山东体彩网" title="山东体彩网" target="_blank" rel="nofollow">山东体彩网</a> │ 
+					
+						<a href="http://www.hnlottery.com.cn/" alt="河南体彩网" title="河南体彩网" target="_blank" rel="nofollow">河南体彩网</a> │ 
+					
+						<a href="http://www.hbtycp.com/" alt="湖北体彩网" title="湖北体彩网" target="_blank" rel="nofollow">湖北体彩网</a> │ 
+					
+						<a href="http://www.hnticai.com/" alt="湖南体彩网" title="湖南体彩网" target="_blank" rel="nofollow">湖南体彩网</a> │ 
+					
+						<a href="http://www.gdlottery.cn/" alt="广东体彩网" title="广东体彩网" target="_blank" rel="nofollow">广东体彩网</a> │ 
+					
+						<a href="http://www.tc.hainan.net/" alt="海南体彩网" title="海南体彩网" target="_blank" rel="nofollow">海南体彩网</a> │ 
+					
+						<a href="http://www.cqlottery.gov.cn/" alt="重庆体彩网" title="重庆体彩网" target="_blank" rel="nofollow">重庆体彩网</a> │ 
+					
+					<a href="http://www.hljtycp.org.cn/" alt="黑龙江体彩网" title="黑龙江体彩网" target="_blank" rel="nofollow">黑龙江体彩网</a></div>
+						<div class="b4_04"><font style="color:#cd0100; font-weight:bold;">各地体彩　</font><a href="http://www.gztcw.com.cn/" alt="贵州体彩网" title="贵州体彩网"  target="_blank" rel="nofollow">贵州体彩网</a> │ 
+					
+						<a href="http://www.yntc8.cn/" alt="云南体彩网" title="云南体彩网" target="_blank" rel="nofollow">云南体彩网</a> │ 
+					
+						<a href="http://www.sxtc.com.cn/" alt="陕西体彩网" title="陕西体彩网" target="_blank" rel="nofollow">陕西体彩网</a> │ 
+					
+						<a href="http://www.gstc.org.cn/" alt="甘肃体彩网" title="甘肃体彩网" target="_blank" rel="nofollow">甘肃体彩网</a> │ 
+					
+						<a href="http://www.nxtcw.com.cn/" alt="宁夏体彩网" title="宁夏体彩网" target="_blank" rel="nofollow">宁夏体彩网</a> │ 
+					
+						<a href="http://www.xjlottery.gov.cn/" alt="新疆体彩网" title="新疆体彩网" target="_blank" rel="nofollow">新疆体彩网</a> │ 
+					
+						<a href="http://www.lottery.gx.cn/" alt="广西体彩网" title="广西体彩网" target="_blank" rel="nofollow">广西体彩网</a> │ 
+					
+						<a href="http://www.qhtycp.com/" alt="青海体彩网" title="青海体彩网" target="_blank" rel="nofollow">青海体彩网</a> │ 
+					
+						<a href="http://www.sporttery.cn/" alt="中国竞彩网" title="中国竞彩网" target="_blank" rel="nofollow">中国竞彩网</a></div>
+					
+			<div class="b4_03">
+			    <font style="color:#cd0100; font-weight:bold;">体彩网联系电话：</font> 
+			    <font style="color:#cd0100; font-weight:bold;">010-80456356</font> &nbsp;&nbsp;&nbsp;&nbsp;       
+			    <font style="color:#cd0100; font-weight:bold;"> 中国体育彩票客服电话</font>&nbsp;&nbsp;<font style="color:#cd0100; font-weight:bold;">95086</font>(9:00-17:00)
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 友情 end --><!-- 友情 end -->
+<!-- 尾 -->
+<!-- 尾 -->
+<div class="c01">
+	<div style="float:left; width:1040px; height:18px; line-height:18px; text-align:center; color:#fff; font-family:Verdana;padding:0px 0 0 0; background:#CE2A33; margin-top:0px;" class="dgray">
+    购彩有节制，请理性投注！未满18周岁的未成年人不得购买彩票及兑奖！
+	</div>
+	<div style="float:left; width:1040px; height:120px; line-height:28px; text-align:center; color:#222222; font-family:Verdana;padding:10px 0 0 0; background:#fff;" class="dgray">
+    <a href="javascript:void(0);" onclick='SetHome(window.location)'>设为首页</a> | <a href="/map/index.html" target="_blank">网站地图</a> | <a href="/gywm2/1610.htm" target="_blank">关于我们</a> | <a href="/lxwm/1611.htm" target="_blank">联系我们</a> | <a href="/yhfwmztk/5.htm" target="_blank">用户服务及免责条款</a><br>
+国家体育总局体育彩票管理中心 Copyright &copy; 2017 www.lottery.gov.cn  ICP经营许可证：京ICP证030713号 京公网安备110101002608号<br>
+本网站赛程、赛果、奖金等数据由国家体育总局体育彩票管理中心发布   由新华网股份有限公司承办 
+  </div>
+</div>
+<!-- 尾 end -->
+<!-- 尾 end -->
+<!--  <script src="/res/js/ad.js" type="text/javascript"></script>  -->
+</body>
+<script src="/res/js/jquery_live.js" type="text/javascript"></script>
+<script src="/res/js/lottery/kj_index_news.js" type="text/javascript"></script>
+<script src="/res/js/lunbotu.js" type="text/javascript"></script>
+
+</html>

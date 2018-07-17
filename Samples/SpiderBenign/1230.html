@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- <meta name="format-detection" content="telephone=no" /> -->
+<title>问卷网_领先的网络调查平台,问卷调查,市场调查,网络调查,表单设计</title>
+<meta name="keywords" content="问卷调查,调查问卷,网络调查,市场调查,市场调研,问卷,问卷网,表单设计,报名表,登记表">
+<meta name="description" content="问卷网(www.wenjuan.com)是中国领先的免费网络调查平台,拥有创新的编辑界面和结果分析界面,海量的问卷和表单模板,支持十余种常见题型和多种问卷发布渠道.专注于为企业和个人提供问卷表单的创建,发布,管理,收集及分析服务.">
+<meta property="wb:webmaster" content="58027bec4efd670e" />
+<meta property="qc:admins" content="1253647677675625166375" />
+<meta name="mobile-agent"content="format=xhtml; url=http://www.wenjuan.com">
+<meta http-equiv="Cache-Control" content="no-transform " />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="/static/v3/index/css/home.css?v=63d21368ed293abaa3d03179975dfacc">
+<script type="text/javascript" src="/static/js/jquery_1.8.js?v=1d14cd3798bc4d6aaf65dd625870723f"></script>
+<script src="/static/js/jquery.cookie.js?v=d5528dde0006c78be04817327c2f9b6f"></script>
+<script src="/static/js/tools.js?v=b48cd672a8e18aec2cc22009b2a1cc8a"></script>
+<script src="/static/js/base_utils.js?v=69b531514b56d22c5c0f04c9ca0c97e8"></script>
+<script src="/static/js/captcha.js?v=c5ffee99562645064bb178b5de466f0b"></script>
+<script src="/static/js/third_party_stat.js?v=4f2e8a03ee522a5491c46967c20d44ea"></script>
+<script src="/static/js/iscroll.js?v=ca9af4b78b0290f09594e9e4d02a7aaa"></script>
+<script src="/static/v3/index/js/jquery.lazyload.min.js?v=89c45121934ed4664ff3ca811a008226"></script>
+<script src="/static/v3/index/js/main.js?v=04d7b488661dba77c89c833e1a61a28f"></script>
+<script>
+$(function(){
+var scnBreakPoint = 640;
+var $homePageWrapper = $('.homePage .inner-wrapper'),
+$homePageSec = $('.homePage .home-section-first .section-content'),
+$homePageWjBtn = $('.homePage .wj-btn-free-use'),
+$btnStyle = $('.btn_logic_style');
+var isWx = function(){
+var ua = navigator.userAgent.toLowerCase();
+if(ua.match(/MicroMessenger/i) && ua.match(/MicroMessenger/i)[0] === "micromessenger") {
+return true;
+} else {
+return false;
+}
+}
+var isQQ = function () {
+var ua = navigator.userAgent.toLowerCase();
+if (ua.match(/QQ/i) && ua.match(/QQ/i)[0] === "qq") {
+return true;
+} else {
+return false;
+}
+}
+var isMobile = function(){
+return window.document.body.clientWidth<=scnBreakPoint
+}
+if(isMobile()){
+if(isWx()){
+$homePageWrapper.find('.login_qq,.login_wx').addClass('hide_logic_btn');
+$homePageWrapper.find('.btn-member>.btn-free-use').css({display:"block"});
+$btnStyle.css({display:"block"});
+$homePageSec.find('.btn-free-use').css({display:"none",});
+$homePageWrapper.find('.btn-member>.login_wx').css({display:"block"});
+$homePageWjBtn.css({"box-shadow":"none"});
+}else if(isQQ()){
+$homePageWrapper.find('.login_qq,.login_wx').addClass('hide_logic_btn');
+$homePageWrapper.find('.btn-member>.btn-free-use').css({display:"block"});
+$btnStyle.css({display:"block"});
+$homePageSec.find('.btn-free-use').css({display:"none",});
+$homePageWrapper.find('.btn-member>.login_qq').css({display:"block"});
+$homePageWjBtn.css({"box-shadow":"none"});
+}else{
+$homePageWrapper.find('.btn-member>.login_wx').css({display:"none"});
+$homePageWrapper.find('.btn-member>.login_qq').css({display:"none"});
+}
+}
+$('.btn-free-use').click(function () {
+var maps = [
+["wj-btn-free-use-s1", "new_home_s1_free_use_btn"],
+["wj-btn-free-use-s2", "new_home_s2_free_use_btn"],
+["wj-btn-free-use-s3", "new_home_s3_free_use_btn"],
+["wj-btn-free-use-s4", "new_home_s4_free_use_btn", function () {
+window.location.href = '/lib/app/';
+}],
+["wj-btn-free-use-app-introduce", "new_home-app-introduce", function () {
+window.location.href = '/app/';
+}],
+["wj-btn-free-use-footer", "new_home_footer_free_use_btn"],
+["wj-btn-free-use-fs", "new_home_first_screen_free_use_btn"]
+];
+for(var i=0;i<maps.length;i++){
+var map = maps[i];
+if($(this).hasClass(map[0])){
+_hmt.push('_trackEvent', '/index', 'click',map[1]+(isMobile()?"_mobile":""))
+if (map[2]){
+map[2]();
+return;
+}
+break;
+}
+}
+// if(isWx()){
+// window.location.href = '/weixin/auth/?scope=snsapi_base';
+// return
+// }
+
+window.location.href = '/register_login/?utm_rb_source=1&quicklogin=1&emailorusername=';
+
+});
+});
+</script>
+</head>
+<body class="homePage">
+<link rel="stylesheet" href="/static/v3/index/css/header.css?v=c7bd0ee8aeb0cc7017379e7cc2be6ef2">
+<style media="screen">
+.home-header-v3 {
+z-index: 200;
+font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Segoe UI","Helvetica Neue","PingFang SC","Noto Sans","Noto Sans CJK SC","Microsoft YaHei",微软雅黑,sans-serif;
+}
+</style>
+<div class="home-header-v3">
+<div class="inner-wrapper clearfix">
+<div class="h1">
+<a href="/" class="index_logo">
+<img src="/static/v3/index/img/logo.png?v=367021ab49ed9bd682a49fd410d5c9c5" alt="问卷网_领先的网络调查平台，问卷调查，报名表、考试测验">
+</a>
+</div>
+<div class="head-nav ">
+<ul class="head-list clearfix">
+<li class="a subset_a scene_a">
+<a href="javascript:;" class="subset_title">
+<span>产品介绍</span>
+<img class="arrow-down" src="/static/v3/index/img/head-arrow-down.png?v=14a75821bb7c9c3b4641c6c63d6fda98" alt="">
+</a>
+<div class="subset_nav scene_nav">
+<dl>
+<dd><a href="/survey?utm_rp_source=survey" target="_blank">问卷调研</a></dd>
+<dd><a href="/survey?utm_rp_source=survey" target="_blank">满意度调查</a></dd>
+<dd><a href="/form?utm_rp_source=form" target="_blank">报名登记表</a></dd>
+<dd><a href="/assess?utm_rp_source=assess" target="_blank">考试测评</a></dd>
+<dd><a href="/survey?utm_rp_source=survey" target="_blank">投票评选</a></dd>
+<dd><a href="/survey?utm_rp_source=survey" target="_blank">学术调研</a></dd>
+</dl>
+</div>
+</li>
+<li class="subset_a solution_a">
+<a href="javascript:;" >
+<span>企业服务</span>
+<img class="arrow-down" src="/static/v3/index/img/head-arrow-down.png?v=14a75821bb7c9c3b4641c6c63d6fda98" alt="">
+</a>
+<div class="subset_nav solution_nav subset_nav_xt">
+<dl>
+<dd><a href="http://cem.wenjuan.com/" target="_blank">顾客体验管理系统<img class="recommend" src="/static/v3/index/img/recommend.png?v=71669edb73f366e79c2f3ff2b8ec076c" /></a></dd>
+<dd><a href="/senior_user?utm_rp_source=senior_user" target="_blank">高级版</a></dd>
+<dd><a target="_blank" href="/open/v3" target="_blank">开放平台</a></dd>
+<dd><a href="http://biz.wenjuan.com/" target="_blank">其他企业服务</a></dd>
+</dl>
+</div>
+</li>
+<li>
+<a href="/collect_post/" target="_blank">
+<span>样本收集</span>
+</a>
+</li>
+<li>
+<a href="/lib" target="_blank">
+<span>免费模板</span>
+</a>
+</li>
+<li>
+<a href="/helpcenter/" target="_blank">
+<span>帮助中心</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="btn-member">
+
+<a class="btn btn-border btn-free-use wj-btn-free-use wj-btn-free-use-fs" style="display:none">快速登录</a>
+<a class="sso-login-btn login_qq" rel="nofollow">QQ登录</a>
+<a class="sso-login-btn login_wx" rel="nofollow">微信登录</a>
+<a class="login_dj_cq" rel="nofollow">登录</a>
+<span>|</span>
+<a class="head_register" rel="nofollow">注册</a>
+
+</div>
+</div>
+</div>
+<script>
+$(function () {
+var scnBreakPoint = 640;
+var $header = $('body>.home-header-v3');
+var isWx = function(){
+var ua = navigator.userAgent.toLowerCase();
+if(ua.match(/MicroMessenger/i) && ua.match(/MicroMessenger/i)[0] === "micromessenger") {
+return true;
+} else {
+return false;
+}
+}
+var isMobile = function(){
+return window.document.body.clientWidth<=scnBreakPoint
+}
+// 用于上次登录方式
+var last_login_way = '';
+var $wxlogin_btn = $header.find('.btn-member .sso-login-btn.login_wx');
+var $qqlogin_btn = $header.find('.btn-member .sso-login-btn.login_qq');
+if(!isMobile()){
+last_login_way = getCookie('last_login_mode');
+}
+switch (last_login_way){
+case 'weixin':
+$wxlogin_btn.html('微信登录<span>(上次)</span>').addClass('last_login').siblings().removeClass('last_login');
+break;
+case 'qq':
+$qqlogin_btn.html('QQ登录<span>(上次)</span>').addClass('last_login').siblings().removeClass('last_login');
+break;
+}
+// 用于百度统计
+var bodyClassList = $('body').attr('class');
+var bodyClassArr = bodyClassList ? bodyClassList.split(' ') : [] ;
+var bodyClass;
+for(var i = 0; i < bodyClassArr.length; i++){
+if(bodyClassArr[i].indexOf('Page') >= 0){
+bodyClass = bodyClassArr[i];
+break;
+}
+}
+bodyClass = bodyClass || 'unkownPage';
+// console.log(bodyClass);
+if(isWx()){
+$header.find('.login_qq').hide();
+$header.find('.login_wx').show().css({display:"block"});
+}
+$header.find('.templates_a').hover(function () {
+$(this).find('.templates_nav').stop(true, true).fadeIn(150);
+}, function () {
+$(this).find('.templates_nav').stop(true, true).fadeOut(150);
+});
+$header.find('.solution_a').hover(function () {
+$(this).find('.solution_nav').stop(true, true).fadeIn(150);
+}, function () {
+$(this).find('.solution_nav').stop(true, true).fadeOut(150);
+});
+$header.find('.scene_a').hover(function () {
+$(this).find('.scene_nav').stop(true, true).fadeIn(150);
+}, function () {
+$(this).find('.scene_nav').stop(true, true).fadeOut(150);
+});
+$header.find('li a').click(function(){
+_hmt.push(['_trackEvent', 'head', 'click', bodyClass+'new_head'+$(this).text()]);
+});
+$header.find('.login_qq').click(function () {
+if(isMobile()){
+_hmt.push(['_trackEvent', 'head', 'click', bodyClass+'new_head_qq_login_mobile']);
+window.location.href = '/openapi/qq/?furl=';
+// login_form_openapi('qq');
+}else{
+_hmt.push(['_trackEvent', 'head', 'click', bodyClass+'new_head_qq_login']);
+login_form_openapi('qq');
+}
+});
+$header.find('.login_wx').click(function () {
+if(isMobile()){
+_hmt.push(['_trackEvent','head', 'click', bodyClass+'new_head_wx_login_mobile']);
+window.location.href = '/weixin/auth/?scope=snsapi_base&back_url=https://www.wenjuan.com/weixin/login/';
+}else{
+_hmt.push(['_trackEvent','head', 'click', bodyClass+'new_head_wx_login']);
+login_form_openapi('weixin');
+}
+});
+$header.find('.tc_login_cq .close_tc').click(function () {
+$('.tc_login_cq').animate({
+'opacity': '0'
+}, 300, function () {
+$('.tc_login_cq').hide();
+$('.bg_ceng').fadeOut(100);
+});
+});
+$header.find('.login_dj_cq').click(function () {
+_hmt.push(['_trackEvent', '/index', 'click', bodyClass+'new_head_login']);
+window.location.href = '/register_login/?utm_rb_source=1&is_login=1';
+});
+$header.find('.head_register').click(function () {
+_hmt.push(['_trackEvent', '/index', 'click', bodyClass+'new_head_register']);
+window.location.href = '/register_login/?utm_rb_source=1&emailorusername=';
+});
+$(window).scroll(function () {
+var homeScrollTop = $(window).scrollTop();
+// console.log(homeScrollTop);
+if(homeScrollTop>0){
+$header.addClass('scrolled');
+}else{
+$header.removeClass('scrolled');
+}
+});
+var $footerNav = $('.home-footer .row-2>ul');
+if($footerNav.length>0){
+$footerNav.find('a').click(function(){
+_hmt.push(['_trackEvent', '/index', 'click', bodyClass+'new_footer_'+$(this).text()]);
+})
+}
+});
+</script>
+
+<div class="home-section home-section-first">
+<div class="bg-wrapper">
+<!-- <img class="desktop-only normal" src="/static/v3/index/img/fs-desktop.jpg?v=84947f8eb8e647ea5aac9b929ff4091d" alt=""> -->
+<img class="desktop-only wide" src="/static/v3/index/img/fs-desktop-wide.jpg?v=03963740d7e413d6bb6764ea1b18a9d9" alt="">
+<img class="mobile-only" src="/static/v3/index/img/fs-mobile.jpg?v=1460c1209ee8aa9202c7b22a1b4f2d99" alt="">
+</div>
+<div class="section-content">
+<div class="slogan-wrapper desktop-only">
+<img src="/static/v3/index/img/slogan-desktop.png?v=52d8389f57eddd07ec7b7598784ed648" alt="">
+</div>
+<div class="slogan-wrapper tablet-only">
+<img class="tablet-only" src="/static/v3/index/img/slogan-tablet.png?v=68ecb1d2e70638726fef966248356664" alt="">
+</div>
+<div class="slogan-wrapper mobile-only">
+<img src="/static/v3/index/img/slogan-mobile.png?v=519b4edfd7141904bccf38758bda96b9" alt="">
+</div>
+<div class="btn btn-border btn-free-use wj-btn-free-use wj-btn-free-use-fs">免费使用</div>
+<div class="btn_logic_style" style="display:none">
+
+<a class="sso-login-btn login_qq" rel="nofollow"><img class="qq_icon" src="/static/v3/index/img/qq_icon.png?v=a6787f5ca747b91a17f8347008dab460" alt="">免费使用</a>
+
+
+
+</div>
+<div class="statics">
+<span class="desktop-only">
+<span class="number">4,884,885</span>
+个用户使用问卷网收集了
+<span class="number">461,598,805</span>
+份数据
+</span>
+<span class="mobile-only">
+已有
+<span class="number">488万</span>用户使用问卷网收集了
+<span class="number">4.6亿</span>份问卷
+</span>
+</div>
+<!-- <div class="desktop-only pc-img-wrapper">
+<img src="/static/v3/index/img/fs-pc-desktop.png?v=7b23532e1adc9202995822f210780e02" alt="">
+</div> -->
+</div>
+</div>
+<div class="home-section biz-type">
+<h2 class="section-title">
+满足你更多的业务场景
+</h2>
+<div class="section-content">
+<ul>
+<li class="biz-1">
+<div class="link" href="/survey?utm_rp_source=survey" target="_blank">
+<div class="img-wrapper"></div>
+<div class="text-wrapper">
+<h3 class="title">
+问卷调查
+</h3>
+<div class="description desktop-only">
+<span>消费者调研</span>
+<span>市场调研</span>
+<span>产品调查</span>
+</div>
+<div class="description mobile-only">
+<span>消费者调研/市场调研/产品调查</span>
+</div>
+</div>
+</div>
+</li>
+<li class="biz-2">
+<div class="link" href="/survey?utm_rp_source=survey" target="_blank">
+<div class="img-wrapper"></div>
+<div class="text-wrapper">
+<h3 class="title">满意度调查</h3>
+<div class="description desktop-only">
+<span>服务质量</span>
+<span>教学质量</span>
+<span>物业后勤</span>
+</div>
+<div class="description mobile-only">
+<span>服务质量/教学质量/物业后勤</span>
+</div>
+</div>
+</div>
+</li>
+<li class="biz-3">
+<div class="link" href="/form?utm_rp_source=form" target="_blank">
+<div class="img-wrapper"></div>
+<div class="text-wrapper">
+<h3 class="title">报名登记表</h3>
+<div class="description desktop-only">
+<span>活动报名</span>
+<span>人员登记</span>
+<span>加盟申请</span>
+</div>
+<div class="description mobile-only">
+<span>活动报名/人员登记/加盟申请</span>
+</div>
+</div>
+</div>
+</li>
+<li class="biz-4">
+<div class="link" href="/assess?utm_rp_source=assess" target="_blank">
+<div class="img-wrapper"></div>
+<div class="text-wrapper">
+<h3 class="title">考试测评</h3>
+<div class="description desktop-only">
+<span>学生考试</span>
+<span>员工测评</span>
+<span>民意测评</span>
+</div>
+<div class="description mobile-only">
+<span>学生考试/员工测评/民意测评</span>
+</div>
+</div>
+</div>
+</li>
+<li class="biz-5">
+<div class="link" href="/survey?utm_rp_source=survey" target="_blank">
+<div class="img-wrapper"></div>
+<div class="text-wrapper">
+<h3 class="title">投票评选</h3>
+<div class="description desktop-only">
+<span>才艺比赛</span>
+<span>优秀员工</span>
+<span>最佳人气</span>
+</div>
+<div class="description mobile-only">
+<span>才艺比赛/优秀员工/最佳人气</span>
+</div>
+</div>
+</div>
+</li>
+<li class="biz-6">
+<div class="link" href="/survey?utm_rp_source=survey" target="_blank">
+<div class="img-wrapper"></div>
+<div class="text-wrapper">
+<h3 class="title">学术调研</h3>
+<div class="description desktop-only">
+<span>毕业论文</span>
+<span>学术课题</span>
+<span>教学调查</span>
+</div>
+<div class="description mobile-only">
+<span>毕业论文/学术课题/教学调查</span>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="home-seperator">
+<div class="text">编辑、收集、报表，一切都轻而易举</div>
+</div>
+<div class="home-section home-section-step home-section-step-1">
+<!-- <img data-original="/static/v3/index/img/step-1-bg.png?v=59b5a962e96cc3193d0a356e17b4184f" class="bg-img desktop-only lazy" alt=""> -->
+<div class="section-content clearfix">
+<div class="img-wrapper">
+<img src="/static/v3/index/img/step-1.png?v=5ed43061a88f9724ab4ad5ec9b7cf573" alt="">
+</div>
+<div class="setp-list">
+<div class="section-title">
+<h2 class="text">快速轻松创建问卷</h2>
+<img src="/static/v3/index/img/1.png?v=696f06402986802b73c536319c29caa9" class="desktop-only" alt="">
+</div>
+<ul>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 27种题型涵盖各种问卷设计需求</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 200000+精品模板供引用</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 逻辑设置可以设置题目间的逻辑关系</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 快速导入已有问卷</li>
+</ul>
+<div class="btn btn-border btn-free-use wj-btn-free-use-s1">免费使用</div>
+</div>
+</div>
+</div>
+<div class="home-section home-section-step home-section-step-2">
+<div class="section-content clearfix">
+<div class="img-wrapper">
+<img src="/static/v3/index/img/step-2.png?v=c990de95ec223715e1b9bf40e6336713" alt="">
+</div>
+<div class="step-list">
+<div class="section-title">
+<h2 class="text">多种渠道分享</h2>
+<img src="/static/v3/index/img/2.png?v=e4dc42ba4d2f6c0bee1f362dbf921586" class="desktop-only " alt="">
+</div>
+<ul>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 不限答卷收集数量</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 发红包、引导关注等强大的微信匹配功能</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 28种免费的精美主题供选用</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 支持百万级用户同时在线答题</li>
+</ul>
+<div class="btn btn-border btn-free-use wj-btn-free-use-s2">免费使用</div>
+</div>
+</div>
+</div>
+<div class="home-section home-section-step home-section-step-3">
+<!-- <img data-original="/static/v3/index/img/step-3-bg.png?v=d8a08784aebaa9d97a6e0561e13bbf1a" class="bg-img desktop-only lazy" alt=""> -->
+<div class="section-content clearfix">
+<div class="img-wrapper">
+<img src="/static/v3/index/img/step-3.png?v=134cae7dd03ebc8e30972bf0fef78ebf" alt="">
+</div>
+<div class="step-list">
+<div class="section-title">
+<h2 class="text">实时的分析图表</h2>
+<img src="/static/v3/index/img/3.png?v=317e71bf028f41e09d0cfe24459f0dc0" class="desktop-only " alt="">
+</div>
+<ul>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 直接生成各种精美报表</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 问卷数据永久保存和免费下载</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 数据可直接导入SPSS进行分析</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 交叉分析和数据筛选</li>
+</ul>
+<div class="btn btn-border btn-free-use wj-btn-free-use-s3">免费使用</div>
+</div>
+</div>
+</div>
+<div class="home-section home-section-step home-section-step-4">
+<div class="section-content clearfix">
+<div class="img-wrapper">
+<img src="/static/v3/index/img/step-4.png?v=96c1dc1ab71836ff60acbb78e658553d" alt="">
+</div>
+<div class="step-list">
+<div class="section-title">
+<h2 class="text">模版库</h2>
+<img src="/static/v3/index/img/3.png?v=317e71bf028f41e09d0cfe24459f0dc0" class="desktop-only " alt="">
+</div>
+<ul>
+<li>200000＋精品模板供搜索</li>
+<li>所有模板均可免费一键引用</li>
+<li>官方审核每一份模板确保高质量</li>
+</ul>
+<div class="btn btn-border btn-free-use wj-btn-free-use-s4">立即查看</div>
+</div>
+</div>
+</div>
+<div class="home-section app-store">
+<img src="/static/v3/index/img/app-bg.png?v=96a14931decc6c35e2f6dffc358162fa" class="desktop-only" alt="">
+<img src="/static/v3/index/img/app-store-mobile.jpg?v=3b4c50e3210243a60460989b42e8bb42" class="mobile-only" alt="">
+<div class="section-content">
+<div class="inner">
+<h2 class="section-title">
+随时创建问卷 实时查看数据
+</h2>
+<p>
+随时随地，轻轻松松创建、修改和设置问卷
+<br/> 一键分发，快速分享到微信、QQ、微博
+<br/> 数据共享，手机查看分析报告并分享给好友
+</p>
+<div class="desktop-only download-wrapper">
+<div class="text-wrapper">
+<div class="t1">
+<img src="/static/v3/index/img/apple-logo.png?v=aea1c2077dbbac3ee45e2e1ab988a6d4" alt="">
+<span>iPhone</span>
+<img src="/static/v3/index/img/android-logo.png?v=45ecc916860760a24454db3f80f5356b" alt="">
+<span>Android</span>
+</div>
+<div class="t2">
+立即扫码下载APP
+</div>
+<div class="btn btn-border btn-free-use wj-btn-free-use-app-introduce desktop-only">查看详情</div>
+</div>
+<div class="qr-wrapper">
+<img src="/static/v3/index/img/ios-qr.png?v=82555c300060bfb623a26174e4fba2fe" alt="">
+</div>
+</div>
+<div class="btn-group mobile-only mobile-btn-group">
+<!-- <a class="btn btn-download ios" href="javascript:;">
+<img src="/static/v3/index/img/app-btn-ios.png?v=cc527e151375aac6d58819ccab7c64d1" class="" alt="">
+</a>
+<a class="btn btn-download" href="#">
+<img data-original="" src="/static/v3/index/img/app-btn-android.png?v=ec33ef21b7e35c03c1acbaafb18c0ff4" class="" alt="">
+</a> -->
+<a class="btn btn-download ios mobile-btn" href="javascript:;">
+<i></i>
+<span>免费下载</span>
+</a>
+<a class="btn btn-download mobile-btn android" href="javascript:;">
+<i></i>
+<span>免费下载</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="home-section template-lib">
+<div class="section-title">
+<h2>强大的模板库</h2>
+<small>没有好的选题？不知道怎么设计问卷？</small>
+</div>
+<div class="btn-prev disable"></div>
+<div class="btn-next"></div>
+<div class="section-content">
+<div class="scroll template-scroll">
+<ul>
+<li>
+<h3>问卷调研</h3>
+<ul>
+<li><a href="/lib_detail_full/547d805df7405b0f18e9ae8f" target="_blank">消费者消费喜好调查</a></li>
+<li><a href="/lib_detail_full/5519207df7405b033509ca12" target="_blank">餐饮消费者分析</a></li>
+<li><a href="/lib_detail_full/51dfd6899b9fbe6fc37051e9" target="_blank">大学生消费观调查问卷</a></li>
+<li><a href="/lib_detail_full/5577dec6f7405b45320a420f" target="_blank">舒肤佳市场调研</a></li>
+<li><a href="/lib_detail_full/578362e2a320fc279c630f08" target="_blank">外卖产品需求调研</a></li>
+</ul>
+<a href="/lib" class="view-more" target="_blank">还有85368个类似模板 ></a>
+</li>
+<li>
+<h3>满意度调查</h3>
+<ul>
+<li><a href="/lib_detail_full/52451f4e89c09717b88e8741" target="_blank">餐厅满意度调查问卷</a></li>
+<li><a href="/lib_detail_full/57ecb6b8a320fc8fa8ef2a41" target="_blank">星巴克服务满意度调查</a></li>
+<li><a href="/lib_detail_full/553f1df6f7405b779792c290" target="_blank">月嫂服务满意度调查</a></li>
+<li><a href="/lib_detail_full/53744be5f7405b1f8df8897e" target="_blank">物业服务满意度调研</a></li>
+<li><a href="/lib_detail_full/56988870a320fc9a2b63be4f" target="_blank">携程丽江出行群问卷调查</a></li>
+</ul>
+<a href="/lib" class="view-more" target="_blank">还有10717个类似模板 ></a>
+</li>
+<li>
+<h3>报名登记表</h3>
+<ul>
+<li><a href="/lib_detail_full/5420cfcdf7405b373f021bd5" target="_blank">参会报名表</a></li>
+<li><a href="/lib_detail_full/5583768af7405b1d9fa3c2b2" target="_blank">南阳市实验中学小升初报名信息登记表</a></li>
+<li><a href="/lib_detail_full/536b65e06db0e71a656d2b8c" target="_blank">简历登记</a></li>
+<li><a href="/lib_detail_full/54a3adfaf7405b11b207f5bf" target="_blank">问卷网年会节目登记表</a></li>
+<li><a href="/lib_detail_full/55d16e50f7405b5d23f51aaf" target="_blank">商户加盟申请</a></li>
+</ul>
+<a href="/form_lib" class="view-more" target="_blank">还有22600个类似模板 ></a>
+</li>
+<li>
+<h3>考试测评</h3>
+<ul>
+<li><a href="/lib_detail_full/54f7f97bf7405b45cb4b53d9" target="_blank">哈佛大学智商测试，你能答对几道？</a></li>
+<li><a href="/lib_detail_full/5555532bf7405b455c527df9" target="_blank">小学六年级语文单元测试（人教版）</a></li>
+<li><a href="/lib_detail_full/54fd5ae1f7405b49f0bebaa9" target="_blank">注意力测试（孩子）</a></li>
+<li><a href="/lib_detail_full/57a9966fa320fc4efb8fda6b" target="_blank">盖洛普职业测试</a></li>
+<li><a href="/lib_detail_full/54b764d6f7405b34bd54b5fa" target="_blank">客房服务员培训考评</a></li>
+</ul>
+<a href="/assess_lib" class="view-more" target="_blank">还有10700个类似模板 ></a>
+</li>
+<li>
+<h3>投票评选</h3>
+<ul>
+<li><a href="/lib_detail_full/54bcd536f7405b1a0c9dfee0" target="_blank">员工之星投票</a></li>
+<li><a href="/lib_detail_full/54cf4b5af7405b37bb318f88" target="_blank">最佳节目投票</a></li>
+<li><a href="/lib_detail_full/567cf923a320fc87cc1cc0ad" target="_blank">ACFUN音乐投票新趋周榜2016年第1期在线投票</a></li>
+<li><a href="/lib_detail_full/5459f547f7405b0bcf43bdc5" target="_blank">第一届书画大赛投票</a></li>
+<li><a href="/lib_detail_full/54f97baff7405b2e23ac043b" target="_blank">班级聚会时间投票</a></li>
+</ul>
+<a href="/lib" class="view-more" target="_blank">还有9579个类似模板 ></a>
+</li>
+<li>
+<h3>学术调研</h3>
+<ul>
+<li><a href="/lib_detail_full/53fea327f7405b6e7eef5bb9" target="_blank">大学生消费水平和消费心理调查问卷</a></li>
+<li><a href="/lib_detail_full/5317dbdaf7405b26f3b95aaa" target="_blank">行政伦理影响因素调查问卷</a></li>
+<li><a href="/lib_detail_full/5347b3e2f7405b54d0c8532d" target="_blank">嬉戏谷发展影响因素</a></li>
+<li><a href="/lib_detail_full/53957af3f7405b5f5c05ba94" target="_blank">临床思维影响因素</a></li>
+<li><a href="/lib_detail_full/58be4495a320fc30fa196a42" target="_blank">教师教学质量评价调查问卷</a></li>
+</ul>
+<a href="/lib" class="view-more" target="_blank">还有34235个类似模板 ></a>
+</li>
+<li>
+<h3>其它问卷模板</h3>
+<ul>
+
+<li>
+<a class="list_text" title="福州物业公司2018年上半年行政工作满意度调查问卷" href="/lib_detail_full/5b3c5e81a320fc3a25333734" target="_blank">福州物业公司2018年上半年行政工作满意度调查问...</a>
+</li>
+
+<li>
+<a class="list_text" title="关于办公室员工电脑使用的问卷调查" href="/lib_detail_full/5b3c5e82a320fc3a25333735" target="_blank">关于办公室员工电脑使用的问卷调查</a>
+</li>
+
+<li>
+<a class="list_text" title="关于英语口语的调查问卷" href="/lib_detail_full/5b3c5e82a320fc3a25333736" target="_blank">关于英语口语的调查问卷</a>
+</li>
+
+<li>
+<a class="list_text" title="深航EAP需求调研问卷" href="/lib_detail_full/5b3c5e84a320fc3a25333737" target="_blank">深航EAP需求调研问卷</a>
+</li>
+
+<li>
+<a class="list_text" title="雪莲冻干粉原液面膜试用问卷" href="/lib_detail_full/5b3c5e85a320fc3a25333738" target="_blank">雪莲冻干粉原液面膜试用问卷</a>
+</li>
+
+</ul>
+<a href="/share/more_share_1" target="_blank" class="view-more">还有186710个类似模板</a>
+</li>
+<li>
+<h3>其它表单模板</h3>
+<ul>
+
+<li>
+<a class="list_text" title="乐退族第二期模特研修班报名表" href="/lib_detail_full/5b42f61ba320fcab8069ee2f" target="_blank">乐退族第二期模特研修班报名表</a>
+</li>
+
+<li>
+<a class="list_text" title="暑假职工子女志愿者报名表" href="/lib_detail_full/5b42f61ba320fcab8069ee30" target="_blank">暑假职工子女志愿者报名表</a>
+</li>
+
+<li>
+<a class="list_text" title="外语研究生报考报名" href="/lib_detail_full/5b42f61ba320fcab8069ee31" target="_blank">外语研究生报考报名</a>
+</li>
+
+<li>
+<a class="list_text" title="康无忧“糖尿病饮食干预 · 百院联动”报名表" href="/lib_detail_full/5b42f61ca320fcab8069ee32" target="_blank">康无忧“糖尿病饮食干预 · 百院联动”报名表</a>
+</li>
+
+<li>
+<a class="list_text" title="学大教育暑期课程预报名" href="/lib_detail_full/5b42f61ca320fcab8069ee33" target="_blank">学大教育暑期课程预报名</a>
+</li>
+
+</ul>
+<a href="/form_share/more_share_1" target="_blank" class="view-more">还有22600个类似模板</a>
+</li>
+<li>
+<h3>其它测评模板</h3>
+<ul>
+
+<li>
+<a class="list_text" title="测试你的身体体质Ayurveda Dosha" href="/lib_detail_full/5b3dc56aa320fc2e6f3834c2" target="_blank">测试你的身体体质Ayurveda Dosha</a>
+</li>
+
+<li>
+<a class="list_text" title="护士礼仪及职业素养测培训后测试题" href="/lib_detail_full/5b3dc56ba320fc2e6f3834c3" target="_blank">护士礼仪及职业素养测培训后测试题</a>
+</li>
+
+<li>
+<a class="list_text" title="胰岛素随堂测验" href="/lib_detail_full/5b3dc56ba320fc2e6f3834c4" target="_blank">胰岛素随堂测验</a>
+</li>
+
+<li>
+<a class="list_text" title="口服降糖药物随堂测试" href="/lib_detail_full/5b3dc56ca320fc2e6f3834c5" target="_blank">口服降糖药物随堂测试</a>
+</li>
+
+<li>
+<a class="list_text" title="膝关节镜手术后护理、急性腰扭伤的护理考核试题" href="/lib_detail_full/5b3dc56ca320fc2e6f3834c6" target="_blank">膝关节镜手术后护理、急性腰扭伤的护理考核试题</a>
+</li>
+
+</ul>
+<a href="/assess_share/more_share_1" target="_blank" class="view-more">还有10700个类似模板</a>
+</li>
+<li>
+<h3>心测评</h3>
+<ul>
+
+<li><a class="list_text" title="你怎样结识更多异性" href="https://www.xinceping.cn/archives/11394" target="_blank">你怎样结识更多异性</a></li>
+
+<li><a class="list_text" title="从乐器看掌控欲" href="https://www.xinceping.cn/archives/11463" target="_blank">从乐器看掌控欲</a></li>
+
+<li>
+<a href="https://www.xinceping.cn/topics/character" target="_blank" class="more2">心理测试</a>
+</li>
+<li>
+<a href="https://www.xinceping.cn/topics/taste" target="_blank" class="more2" >趣味测试</a>
+</li>
+<li>
+<a href="https://www.xinceping.cn/topics/love" target="_blank" class="more2" >爱情测试</a>
+</li>
+</ul>
+<div class="view-more">
+<a href="https://www.xinceping.cn/" target="_blank" class="view-more">还有13700个类似模板 ></a>
+</div>
+</li>
+</ul>
+</div>
+<div class="view-more">
+<a href="/lib" target="_blank">查看更多模板 ></a>
+</div>
+</div>
+</div>
+<div class="home-section solution">
+<div class="section-content clearfix">
+<div class="solution-list">
+<h2 class="section-title">
+顾客体验解决方案
+</h2>
+<div class="memo">为您的企业和品牌提供整套的顾客体验管理解决方案</div>
+<ul>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 全方位地收集顾客反馈</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 多维可视化 持续监测 洞察全局</li>
+<li><span class="desktop-only-inline" style="color:#484848">• </span> 自动预警 提升体验 口碑传播</li>
+</ul>
+<div class="btn btn-border wj-btn-free-use">
+了解更多
+</div>
+<!-- <div class="wj-button">
+<img src="/static/v3/index/img/btn-footer-free.png?v=d5a4b521595bd2d9d680f51e141baf0d" alt="">
+</div> -->
+</div>
+<div class="img-wrapper">
+<img src="/static/v3/index/img/solution.jpg?v=3e1c92332431e6fbd21d021bbd4c882e" alt="">
+</div>
+</div>
+</div>
+<div class="home-section partner">
+<div class="section-title">
+<h2>他们正在使用问卷网</h2>
+</div>
+<div class="section-content">
+<div class="tab-panels">
+<div class="tabs">
+<div class="tab active">高校</div>
+<div class="tab">银行</div>
+<div class="tab">互联网</div>
+<div class="tab">酒店服务</div>
+<div class="tab">超市</div>
+<div class="tab">教育辅导</div>
+<div class="tab">其他</div>
+</div>
+<div class="line-wrapper">
+<div class="line"></div>
+</div>
+<div class="panels">
+<div class="panel active">
+<img src="/static/v3/index/img/partners/gx.png?v=c4ab8541b2c6726593fe6c32fdda81b4" alt="" width="986">
+</div>
+<div class="panel">
+<img src="/static/v3/index/img/partners/yh.png?v=eac2ae1bb98101806443331550e1f64f" alt="" width="986">
+</div>
+<div class="panel">
+<img src="/static/v3/index/img/partners/hlw.png?v=e6a7cf241db4534f8c5b2f326ba7f208" alt="" width="986">
+</div>
+<div class="panel">
+<img src="/static/v3/index/img/partners/jdfw.png?v=b1d3a5f4431b6102484ad9646536b9e0" alt="" width="986">
+</div>
+<div class="panel">
+<img src="/static/v3/index/img/partners/cs.png?v=11e61d3dfde76e31a4c4bfb0a6b4cc9a" alt="" width="986">
+</div>
+<div class="panel">
+<img src="/static/v3/index/img/partners/fdjy.png?v=6c63fc3459dfec0e13ea35f957d9cdaa" alt="" width="986">
+</div>
+<div class="panel">
+<img src="/static/v3/index/img/partners/qt.png?v=04cf8ee9b7700ad9bf912fbaa12d7dfc" alt="" width="986">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="home-footer lalal">
+<div class="row-1">
+<div class="title">
+赶快创建您的第一个项目吧
+</div>
+<div class="memo">
+400万用户正在使用问卷网
+</div>
+<div class="btn btn-border btn-free-use wj-btn-free-use wj-btn-free-use-footer" style="margin: 0 auto 0px;">免费使用</div>
+</div>
+</div>
+
+<style media="screen">
+@media (min-width: 1680px) and (max-width: 1440px) {
+.content-4 {
+margin-right: 106px;
+}
+}
+.left, .right {
+display: inline-block;
+float: left;
+}
+#mobile-footer-index {
+display: none;
+}
+@media (min-width: 641px) {
+.id-footer>.foot-title a {
+color: #aaa;
+padding: 0 10px;
+display: inline;
+}
+.mobile-only {
+display: none;
+}
+.wx-gzh .wx-text {
+position: absolute;
+top: 42px;
+left: 80px;
+font-weight: 300;
+}
+.id-footer {
+min-width: 1225px;
+background: black;
+height: 437px;
+background: #46454a;
+font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Segoe UI","Helvetica Neue","PingFang SC","Noto Sans","Noto Sans CJK SC","Microsoft YaHei",微软雅黑,sans-serif;
+}
+#footer-index {
+color: white;
+width: 1100px;
+margin: 0 auto;
+height: 100%;
+}
+.left:after {
+content:".";
+display:block;
+height:0;
+visibility:hidden;
+clear:both;
+}
+.id-footer>.foot-title {
+clear: both;
+text-align: center;
+font-size: 12px;
+color: #aaa;
+position: relative;
+top: -61px;
+padding: 22px;
+line-height: 17px;
+}
+.left-content {
+float: left;
+height: inherit;
+margin-top: 78px;
+}
+.right-content {
+float: left;
+height: inherit;
+margin-top: 78px;
+margin-left: 91px;
+}
+.title {
+font-size: 16px;
+margin: 0px 0 17px;
+}
+.item {
+font-size: 14px;
+line-height: 33px;
+display: block;
+color: #aaa;
+text-decoration: none;
+}
+.content-0 {
+width: 70px;
+margin-right: 91px;
+}
+.content-1 {
+width: 148px;
+margin-right: 80px;
+}
+.content-2 {
+width: 56px;
+margin-right: 90px;
+}
+.content-3 {
+width: 70px;
+margin-right: 90px;
+}
+.content-4 {
+width: 70px;
+}
+.content-5 {
+margin-right: 20%;
+}
+.item > img {
+top: 3px;
+left: 6px;
+position: relative;
+width: 30px;
+height: 16px;
+}
+.phone-number {
+font-size: 24px;
+line-height: 32px;
+}
+.time-period {
+font-size: 12px;
+color: #aaa;
+margin-bottom: 30px;
+}
+.wx-gzh {
+position: relative;
+width: 200px;
+}
+.wx-gzh .gzh-qr {
+width: 72px;
+}
+.wx-gzh .wx-logo {
+position: absolute;
+top: 12px;
+left: 80px;
+width: 30px;
+}
+}
+@media (max-width: 640px) {
+#footer-index {
+display: none!important;
+}
+#mobile-footer-index {
+display: block;
+}
+.id-footer {
+background: white;
+text-align: center;
+min-width: 256px;
+}
+.contact-us .title {
+font-size: 24px;
+margin-bottom: 8px;
+}
+.contact-us .phone-number {
+font-size: 24px;
+line-height: 32px;
+text-decoration: none;
+color: #484848;
+margin-bottom: 5px;
+}
+.contact-us .time-period {
+font-size: 12px;
+color: #aaa;
+margin-bottom: 30px;
+}
+.contact-us .gzh-qr {
+width: 144px;
+margin: 0 auto 19px;
+}
+.contact-us .wx-gzh {
+position: relative;
+margin: 0 auto;
+}
+.contact-us .wx-gzh .wx-logo {
+margin: 0 auto;
+display: block;
+margin-bottom: 8px;
+width: 30px;
+}
+.contact-us .wx-gzh .wx-text {
+display: block;
+font-size: 14px;
+}
+.id-footer>.foot-title {
+text-align: center;
+font-size: 12px;
+padding: 19px 0;
+color: #aaa !important;
+padding: 19px 0 50px;
+margin: 45px 0 0px;
+}
+.id-footer>.foot-title span {
+padding: 0 5px;
+}
+}
+.id-footer>.foot-title a {
+color: #aaa;
+padding: 0 10px;
+}
+.id-footer .item:hover {
+color: #ffffff;
+}
+</style>
+<div class="id-footer">
+<div id="footer-index">
+<div class="left">
+<div class="left-content content-0">
+<div class="title">
+产品介绍
+</div>
+<div class="items">
+<a class="item" href="/survey?utm_rp_source=survey" class="recommend-a" target="_blank">问卷调研</a>
+<a class="item" href="/survey?utm_rp_source=survey" target="_blank">满意度调查</a>
+<a class="item" href="/form?utm_rp_source=form" target="_blank">报名登记表</a>
+<a class="item" href="/assess?utm_rp_source=assess" target="_blank">考试测评</a>
+<a class="item" href="/survey?utm_rp_source=survey" target="_blank">投票评选</a>
+<a class="item" href="/survey?utm_rp_source=survey" target="_blank">学术调研</a>
+</div>
+</div>
+<div class="left-content content-1">
+<div class="title">
+企业服务
+</div>
+<div class="items">
+<a class="item" href="http://cem.wenjuan.com/" class="recommend-a" target="_blank">顾客体验管理系统<img class="recommend" src="/static/v3/index/img/recommend.png?v=71669edb73f366e79c2f3ff2b8ec076c" /></a>
+<a class="item" href="/senior_user?utm_rp_source=senior_user" target="_blank">高级版</a>
+<a class="item" href="/open" target="_blank">开放平台</a>
+<a class="item" href="/collect_post/" target="_blank">样本收集</a>
+<a class="item" href="http://biz.wenjuan.com/" target="_blank">其他企业服务</a>
+</div>
+</div>
+<div class="left-content content-2">
+<div class="title">
+支持
+</div>
+<div class="items">
+<a class="item" href="/helpcenter/" target="_blank">帮助中心</a>
+<a class="item" href="/about/zxzx/" target="_blank">咨询反馈</a>
+<a class="item" href="/service" target="_blank">人工服务</a>
+<a class="item" href="https://bbs.wenjuan.com/" target="_blank">论坛</a>
+</div>
+</div>
+<div class="left-content content-3">
+<div class="title">
+公司
+</div>
+<div class="items">
+<a class="item" href="/about" target="_blank">关于我们</a>
+<a class="item" href="/about/partner" target="_blank">合作伙伴</a>
+<a class="item" href="/blog/" target="_blank">资讯中心</a>
+</div>
+</div>
+<div class="left-content content-4">
+<div class="title">
+其他
+</div>
+<div class="items">
+<a class="item" href="http://www.idiaoyan.com/" target="_blanket">爱调研社区</a>
+<a class="item" href="https://www.xinceping.cn/" target="_blanket">心测评</a>
+</div>
+</div>
+</div>
+<div class="right">
+<div class="right-content">
+<div class="title">联系我们</div>
+<div class="phone-number">
+4006-188-166
+</div>
+<div class="time-period">
+周一至周五 9:00~18:00
+</div>
+<div class="wx-gzh">
+<img class="gzh-qr desktop-only" src="/static/v3/index/img/wx-gzh-qr.png?v=78aab5bcfeffa90d5be8a325327e4b21" alt="">
+<img class="wx-logo" src="/static/v3/index/img/wx.png?v=8184d7bb5ad1d1875c0c0ef0a98d0a25" alt="">
+<span class="wx-text">问卷网公众号</span>
+</div>
+</div>
+</div>
+</div>
+<div id="mobile-footer-index">
+<div class="contact-us">
+<div class="title">联系我们</div>
+<div class="phone-number">
+4006-188-166
+</div>
+<div class="time-period">
+周一至周五 9:00~18:00
+</div>
+<div class="wx-gzh">
+<img class="gzh-qr" src="/static/v3/index/img/wx-gzh-qr-mobile.png?v=bf6b77ad41655a809601fc3dc09c2a9d" alt="">
+<img class="wx-logo" src="/static/v3/index/img/wx.png?v=8184d7bb5ad1d1875c0c0ef0a98d0a25" alt="">
+<span class="wx-text">问卷网公众号</span>
+</div>
+</div>
+</div>
+<div class="foot-title">
+<span>©2013-2017 众言网络</span>
+<span>ICP证：合字B2-20160010</span>
+<br class="mobile-only">
+<a href='http://www.miitbeian.gov.cn' target='_blank'>沪ICP备10013448</a>
+<a class="foot_down_lg" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402000149">沪公网安备 31010402000149号</a>
+</div>
+</div>
+
+</body>
+<!-- CheckPoint:dbb513322f4eff84b61483f77fa87245 -->
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>全球邮轮旅游预订中心—环世邮轮网 官方网站</title>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="keywords" content="环世邮轮，环世游轮，环世邮轮网，环世游轮网，邮轮，游轮，邮轮旅游，游轮旅游">
+    <meta name="description" content="环世邮轮网是中国地区领先的邮轮旅游服务品牌，专业的全球邮轮旅游预订机构。为您提供全球各地豪华邮轮旅行的预订及更多的旅行服务">
+    <link type="image/x-icon" rel="icon" href="/favicon.ico">
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
+    <link href="/Content/Site.min.css?v=1" rel="stylesheet" type="text/css" />
+    <link href="/Content/lightbox/css/lightbox.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.lazyload.min.js" type="text/javascript"></script>
+    <script src="/Content/lightbox/jquery.lightbox.js" type="text/javascript"></script>
+    <script src="/Scripts/MyScripts/Main.min.js?v=1" type="text/javascript"></script>
+    <script>
+        var _hmt = _hmt || []; //百度统计
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?d95e05364da5ea23fab55ad890942f99";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body ondragstart="return false;" oncontextmenu="return false" onselectstart="return false">
+    
+    <script src="/Scripts/ClassLib/MSClass.js" type="text/javascript"></script>
+    <style type="text/css">
+        select {
+            padding: 6px 12px;width:154px;
+        }
+        .carousel-control {
+            position:absolute;top:0px;bottom:0px;width:36px;height:200px;opacity:0.5;
+        }
+        .carousel-control:hover {
+            opacity:1;cursor:pointer;
+        }
+        .left {
+            left:0px;
+        }
+        .right {
+            right:0px;
+        }
+        img {
+            border:none;
+        }
+    </style>
+<script type="text/javascript">
+    try {
+        var urlhash = window.location.hash;
+        if (!urlhash.match("fromapp")) {
+            if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i))) {
+                window.location = "http://m.66cruises.com/";
+            }
+        }
+    }
+    catch (err) {
+    }
+</script>
+
+    
+<div class="wrap" style="text-align:center">
+    <div>
+        <img src="/Content/Images/Index_Top.jpg" />
+    </div>
+</div>
+
+    <div class="wrap navigationBG">
+    <div class="mainNavigation">
+        <div class="navigationBar">
+            <a href="http://www.66cruises.com/">首页</a>
+            
+            <a href="/tz.html">套装航线</a>
+            <a href="/qq.html">全部航线</a>
+            <a href="/cruises.html">邮轮公司</a>
+            <a href="/destination.html">目的地介绍</a>
+            <a href="/video.html">邮轮视频</a>
+            
+            
+            <a href="http://m.66cruises.com/">手机版</a>
+            <input type="text" id="txtKeyWords" style="background-color:white;border:none;width:120px;margin-left:30px;padding:5px" placeholder="目的地/港口/关键字" title="多个关键字以空格分隔" />
+            <input type="button" onclick="mainJS.searchByKeyword($('#txtKeyWords').val()); return false;" value="搜索" style="background:none repeat scroll 0 0 green;border:none;color:white;cursor:pointer;padding:6px;">
+        </div>
+    </div>
+</div>
+
+    <div class="wrap" style="margin:0 auto;width:1200px;">
+        <div style="margin-top:1px;"><a href="http://www.66cruises.com/destination.html"><img style="width:1200px;border:none;" src="http://img.66cruises.com/Advertises/1_41_6.jpg" /></a></div>
+        <div style="margin-top:10px;"><table style="height:140px;text-align:center;" border="0" cellspacing="0" cellpadding="0"><tr>
+            <td style="width:230px;background-color:#c96801;">
+                <div style="color:white;font-family:微软雅黑;font-size:16px;margin-bottom:10px;"><b>关键词搜索</b></div>
+                <div><input id="txtKeyWord" type="text" style="width:80%;height:35px;text-align:center;" title="多个关键字以空格分隔" placeholder="目的地/港口/关键字" /></div>
+                <div>
+                    <button type="button" style="background-color:#099cc8;color:white;border:none;width:52px;height:32px;margin-top:10px;" onclick="mainJS.searchByKeyword($('#txtKeyWord').val())">搜索</button>
+                </div>
+            </td>
+            <td style="width:6px;"></td>
+            <td style="width:160px;background-color:#f6d183;">
+                <div>当前共有</div>
+                <div style="font-family:Arial;color:#ff0202;font-size:28px;font-weight:bold;padding:5px 0;">14320 <span style="font-size:12px;">条</span></div>
+                <div style="">可选择航线产品</div>
+            </td>
+            <td style="width:4px;"></td>
+            <td style="width:800px;background-color:#f6d183;">
+                <table style="height:140px;text-align:center;" border="0" cellspacing="0" cellpadding="0"><tr>
+                    <td style="width:5px;"></td>
+                    <td style="width:160px;">
+                        <div style="color:#0f6f95;font-size:16px;font-family:微软雅黑;font-weight:bold;">按目的地搜索</div>
+                        <div style="line-height:30px;color:black;">您想去哪里？</div>
+                        <div style="margin-top:8px;">
+                            <select id="sTags">
+                                <option value="0">- 选择目的地 -</option><option value="0">- 选择目的地 -</option>
+                                <option value="8">日韩</option>
+                                <option value="9">东南亚</option>
+                                <option value="19">阿拉斯加</option>
+                                <option value="10">澳洲新西兰</option>
+                                <option value="15">巴拿马运河</option>
+                                <option value="7">百慕大</option>
+                                <option value="3">北欧北极</option>
+                                <option value="1">大溪地</option>
+                                <option value="17">环球</option>
+                                <option value="14">加勒比海</option>
+                                <option value="4">美国东海岸</option>
+                                <option value="6">美国西海岸</option>
+                                <option value="18">南极</option>
+                                <option value="2">南美南极</option>
+                                <option value="12">欧洲及地中海</option>
+                                <option value="5">夏威夷</option>
+                                <option value="16">中东非洲</option>
+                                <option value="11">中国</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td style="width:160px;">
+                        <div style="color:#0f6f95;font-size:16px;font-family:微软雅黑;font-weight:bold;">按出发日期搜索</div>
+                        <div style="line-height:30px;color:black;">您想什么时候出发？</div>
+                        <div style="margin-top:8px;">
+                            <select id="sSaillings">
+                                <option value="">- 选择起航日期 -</option>
+                                    <option value="2018年07月">2018年07月</option>
+                                    <option value="2018年08月">2018年08月</option>
+                                    <option value="2018年09月">2018年09月</option>
+                                    <option value="2018年10月">2018年10月</option>
+                                    <option value="2018年11月">2018年11月</option>
+                                    <option value="2018年12月">2018年12月</option>
+                                    <option value="2019年01月">2019年01月</option>
+                                    <option value="2019年02月">2019年02月</option>
+                                    <option value="2019年03月">2019年03月</option>
+                                    <option value="2019年04月">2019年04月</option>
+                                    <option value="2019年05月">2019年05月</option>
+                                    <option value="2019年06月">2019年06月</option>
+                                    <option value="2019年07月">2019年07月</option>
+                                    <option value="2019年08月">2019年08月</option>
+                                    <option value="2019年09月">2019年09月</option>
+                                    <option value="2019年10月">2019年10月</option>
+                                    <option value="2019年11月">2019年11月</option>
+                                    <option value="2019年12月">2019年12月</option>
+                                    <option value="2020年01月">2020年01月</option>
+                                    <option value="2020年02月">2020年02月</option>
+                                    <option value="2020年03月">2020年03月</option>
+                                    <option value="2020年04月">2020年04月</option>
+                                    <option value="2020年05月">2020年05月</option>
+                                    <option value="2020年06月">2020年06月</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td style="width:160px;">
+                        <div style="color:#0f6f95;font-size:16px;font-family:微软雅黑;font-weight:bold;">按出发港口搜索</div>
+                        <div style="line-height:30px;color:black;">您想从哪个港口登船？</div>
+                        <div style="margin-top:8px;">
+                            <select id="sDeparturePorts">
+                                <option value="0">- 选择上船地点 -</option>
+                                <option value="87">中国（宝山）</option>
+                                <option value="220">中国（大连）</option>
+                                <option value="1898">中国（广州）</option>
+                                <option value="356">中国（海口）</option>
+                                <option value="1793">中国（南沙）</option>
+                                <option value="817">中国（青岛）</option>
+                                <option value="897">中国（三亚）</option>
+                                <option value="917">中国（上海）</option>
+                                <option value="1905">中国（深圳）</option>
+                                <option value="1010">中国（天津）</option>
+                                <option value="1091">中国（厦门）</option>
+                                <option value="388">中国（香港）</option>
+                                <option value="132">澳大利亚（布里斯班）</option>
+                                <option value="601">澳大利亚（墨尔本）</option>
+                                <option value="981">澳大利亚（悉尼）</option>
+                                <option value="841">巴西（里约热内卢）</option>
+                                <option value="1720">大溪地（帕皮提）</option>
+                                <option value="363">德国（汉堡）</option>
+                                <option value="463">德国（基尔）</option>
+                                <option value="151">法国（戛纳）</option>
+                                <option value="596">法国（马赛）</option>
+                                <option value="290">美国（罗德岱堡）</option>
+                                <option value="605">美国（迈阿密）</option>
+                                <option value="89">西班牙（巴塞罗那）</option>
+                                <option value="390">夏威夷（火奴鲁鲁/檀香山）</option>
+                                <option value="922">新加坡（新加坡）</option>
+                                <option value="188">意大利（奇维塔韦基亚（罗马））</option>
+                                <option value="1060">意大利（威尼斯）</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td style="width:160px;">
+                        <div style="color:#0f6f95;font-size:16px;font-family:微软雅黑;font-weight:bold;">按邮轮公司搜索</div>
+                        <div style="line-height:30px;color:black;">您想选择哪家邮轮公司？</div>
+                        <div style="margin-top:8px;">
+                            <select id="sCompanys"><option value="0">- 选择邮轮公司 -</option><option value="1">丽星邮轮</option><option value="2">歌诗达邮轮</option><option value="3">皇家加勒比邮轮</option><option value="4">公主邮轮</option><option value="5">银海邮轮</option><option value="6">水晶邮轮</option><option value="7">何美邮轮</option><option value="8">诺唯真游轮</option><option value="9">地中海邮轮</option><option value="10">精致游轮</option><option value="11">迪斯尼邮轮</option><option value="12">冠达邮轮</option><option value="13">保罗高更邮轮</option><option value="14">精钻游轮</option><option value="15">嘉年华游轮</option><option value="16">海达路德游轮</option><option value="17">世邦邮轮</option><option value="18">天海邮轮</option><option value="19">大洋邮轮</option><option value="20">丽晶七海邮轮</option><option value="21">星梦邮轮</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td style="width:150px;">
+                        <div style="height:55px;">&nbsp;</div>
+                        <button type="button" style="background-color:#b00000;color:white;border:none;width:52px;height:32px;" onclick="mainJS.indexPageRedirect()">搜索</button>
+                    </td>
+                    <td style="width:5px;"></td>
+                </tr></table>
+            </td>
+        </tr></table></div>
+        <div style="margin-top:12px;">
+            <table style="width:100%;"><tr>
+                <td style="width:52%;padding-right:20px;"><div style="float:right;width:160px;height:50px;background: url(../Content/Images/HomeTitle.jpg) no-repeat;background-position:0px 0px;"></div><div class="clear"></div></td>
+                <td style="width:48%;"><table><tr><td style="width:13px;height:13px;background-color:#0cab00;"></td><td style="padding-left:10px;"><a href="destination.html">查看更多 >></a></td></tr></table></td>
+            </tr></table>
+        </div>
+        <div style="position:relative;margin-top:10px;"><div id="MarqueeDestination">
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td><a href="destination_8_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes1.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_9_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes2.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_14_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes3.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_12_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes4.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_3_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes5.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_19_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes6.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_10_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes7.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_2_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes8.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_16_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes9.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_6_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes10.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_1_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes11.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                    <td><a href="destination_5_intro.html"><img style="width:224px;height:195px;" src="../Content/Images/HomePage/HomeDes12.jpg" /></a></td>
+                    <td><div style="width:20px;"></div></td>
+                </tr>
+            </table>
+            </div>
+            <div id="desLeft" class="carousel-control left"><img style="border:none;margin-top:80px;" src="../Content/Images/arrowL.png"></div>
+            <div id="desRight" class="carousel-control right"><img style="border:none;margin-top:80px;" src="../Content/Images/arrowR.png"></div>
+            <script type="text/javascript">
+                var marqueeDestination = new Marquee("MarqueeDestination", 2, 5, 1198, 200, 20, 3000, 2000, 244);
+                $("#desLeft").click(function () { marqueeDestination.Run(3); }); //跳过等待时间向右滚动后保持原向运动
+                $("#desRight").click(function () { marqueeDestination.Run(2); }); //跳过等待时间向左滚动后保持原向运动
+            </script>
+        </div>
+        <div style="margin-top:10px;">
+            <table style="width:100%;"><tr>
+                <td style="width:52%;padding-right:20px;"><div style="float:right;width:180px;height:50px;background: url(../Content/Images/HomeTitle.jpg) no-repeat;background-position:0px -60px;"></div><div class="clear"></div></td>
+                <td style="width:48%;"><table><tr><td style="width:13px;height:13px;background-color:#0cab00;"></td><td style="padding-left:10px;"><a href="cruises.html">查看更多 >></a></td></tr></table></td>
+            </tr></table>
+        </div>
+        <div style="position:relative;margin-top:10px;"><div id="MarqueeCompany">
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td><a href="cruise_8_info.html"><img style="width:180px;height:146px;" src="http://img.66cruises.com/Companies/LabelNorwegian.jpg" /></a></td>
+                    <td><div style="width:24px;"></div></td>
+                    <td><a href="cruise_11_info.html"><img style="width:180px;height:146px;" src="http://img.66cruises.com/Companies/LabelDisney.jpg" /></a></td>
+                    <td><div style="width:24px;"></div></td>
+                    <td><a href="cruise_3_info.html"><img style="width:180px;height:146px;" src="http://img.66cruises.com/Companies/LabelRoyalCaribbean.jpg" /></a></td>
+                    <td><div style="width:24px;"></div></td>
+                    <td><a href="cruise_4_info.html"><img style="width:180px;height:146px;" src="http://img.66cruises.com/Companies/LabelPrincess.jpg" /></a></td>
+                    <td><div style="width:24px;"></div></td>
+                    <td><a href="cruise_5_info.html"><img style="width:180px;height:146px;" src="http://img.66cruises.com/Companies/LabelSliverSea.jpg" /></a></td>
+                    <td><div style="width:24px;"></div></td>
+                    <td><a href="cruise_6_info.html"><img style="width:180px;height:146px;" src="http://img.66cruises.com/Companies/LabelCrystal.jpg" /></a></td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        
+    </div>
+    <div style="margin-top:25px;padding:20px 0;background-color:#f6f6f6;text-align:center;color:#666666;line-height:20px;">
+        环世邮轮网是目前中国地区领先的专业邮轮旅游网站，全球各知名邮轮公司在中国地区的邮轮船票合作销售平台。<br />
+        其涵盖了全球20多家国际上市及著名邮轮公司，邮轮旅游航程遍及全球18大主要地区，115个国际港口目的地，横跨五大洲四大洋以及南北极地区。<br />
+        从2008年至今，环世邮轮网在已经为上万国内外邮轮游客提供邮轮船票及邮轮旅行定制服务，连续多年获得邮轮公司的嘉奖，并成为国际邮轮公司在中国地区的主要平台。
+        <table style="margin:0 auto;width:800px;margin-top:10px;color:#11559c;text-align:left;"><tbody><tr>
+            <td style="vertical-align:top;width:20%;">
+                <b>关于环世邮轮网</b><br />
+                <a href="help_473.html" target="_blank" style="color:#11559c;">环世历程</a><br />
+                <a href="help_203.html" target="_blank" style="color:#11559c;">关于我们</a><br />
+                <a href="help_208.html" target="_blank" style="color:#11559c;">联系我们</a><br />
+                <a href="help_207.html" target="_blank" style="color:#11559c;">如何预订</a><br />
+                <a href="help_209.html" target="_blank" style="color:#11559c;">同业合作</a><br />
+                <a href="help_203.html" target="_blank" style="color:#11559c;">更多 >></a>
+            </td>
+            <td style="vertical-align:top;width:30%;">
+                <b>最新邮轮新闻</b><br />
+                <a href="news_87.html" target="_blank" style="color:#11559c;" title="更杀火的魔毯邮轮来啦！">更杀火的魔毯邮轮来啦！</a><br />
+                <a href="news_86.html" target="_blank" style="color:#11559c;" title="2018年荷美邮轮将迎新成员新史特丹号">2018年荷美邮轮将迎新...</a><br />
+                <a href="news_85.html" target="_blank" style="color:#11559c;" title="挪威邮轮：为阿拉斯加邮轮旅游设计新船">挪威邮轮：为阿拉斯加邮轮...</a><br />
+                <a href="news_84.html" target="_blank" style="color:#11559c;" title="皇家加勒比将推出世界最大邮轮">皇家加勒比将推出世界最大...</a><br />
+                <a href="news_83.html" target="_blank" style="color:#11559c;" title="邮轮旅游途中被要求关灯">邮轮旅游途中被要求关灯</a><br />
+                <a href="news.html" target="_blank" style="color:#11559c;">更多 >></a>
+            </td>
+            <td style="vertical-align:top;width:25%;">
+                <b>寻找你的目的地</b><br />
+                <a href="destination_Japan-Korea.html" target="_blank" style="color:#11559c;">日韩邮轮旅游</a><br />
+                <a href="destination_SouthEastAsia.html" target="_blank" style="color:#11559c;">东南亚邮轮旅游</a><br />
+                <a href="destination_Caribbean.html" target="_blank" style="color:#11559c;">加勒比海邮轮旅游</a><br />
+                <a href="destination_Alaska.html" target="_blank" style="color:#11559c;">阿拉斯加邮轮旅游</a><br />
+                <a href="destination_Mediterranean-Europe.html" target="_blank" style="color:#11559c;">欧洲地中海邮轮旅游</a><br />
+                <a href="destination.html" target="_blank" style="color:#11559c;">更多 >></a>
+            </td>
+            <td style="vertical-align:top;width:25%;">
+                <b>你关注的邮轮公司</b><br />
+                <a href="PrincessCruises_info.html" target="_blank" style="color:#11559c;">公主邮轮公司</a><br />
+                <a href="StarCruises_info.html" target="_blank" style="color:#11559c;">丽星邮轮公司</a><br />
+                <a href="RoyalCaribbean_info.html" target="_blank" style="color:#11559c;">皇家加勒比邮轮公司</a><br />
+                <a href="CostaCruises_info.html" target="_blank" style="color:#11559c;">歌诗达邮轮公司</a><br />
+                <a href="CarnivalCruiseLines_info.html" target="_blank" style="color:#11559c;">嘉年华邮轮公司</a><br />
+                <a href="cruises.html" target="_blank" style="color:#11559c;">更多 >></a>
+            </td>
+        </tr></tbody></table>
+    </div>
+    <div class="wrap footerBG">
+    <div class="footerContainer">
+        <table style="width:100%;"><tr>
+            <td class="footerBar">
+            <a style="" href="http://m.66cruises.com/" target="_blank">移动站点</a>&nbsp;
+            <a href="/help_203.html">关于我们</a>&nbsp;
+            <a href="/help_208.html">联系我们</a>&nbsp;
+            <a href="/help_209.html">同行合作</a>&nbsp;
+            <a href="javacript:void(0)">版权所有  2014  Copyright</a>&nbsp;&nbsp;
+            <a href="http://www.beianbeian.com/beianxinxi/34870f46-5b93-455d-a5ef-50309bf1ffe7.html" target="_blank">沪ICP备11024714号</a>
+            </td>
+            <td>
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010602000062" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="http://www.beian.gov.cn/file/ghs.png" style="float:left;border:none;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:white;">沪公网安备 31010602000062号</p></a>
+            </td>
+            <td style="padding-top:2px;padding-right:20px;">
+            <a style="margin-left:20px;" class="bottomA" target="_blank" href="http://www.beianbeian.com/beianxinxi/ce8b58b0-9aec-4935-8b45-0d504a2246a3.html">
+                <img style="border:0px;height:40px;" src="/Content/Images/HomePage/indexbottom12061.jpg">
+            </a>
+            <a class="bottomA" target="_blank" href="http://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&entyId=20111229165634151">
+                <img style="border:0px;height:40px;" src="/Content/Images/HomePage/indexbottom12062.jpg">
+            </a>
+            
+            <a class="bottomA" target="_blank" href="http://pinggu.zx110.org/review_url_www.66cruises.com">
+                <img style="border:0px;height:40px;" src="/Content/Images/HomePage/indexbottom12064.jpg">
+            </a>
+            <a class="bottomA" target="_blank" href="http://pinggu.zx110.org/review_url_www.66cruises.com">
+                <img style="border:0px;height:40px;" src="/Content/Images/HomePage/indexbottom12065.jpg">
+            </a>
+            </td>
+        </tr></table>
+    </div>
+</div>
+<div style="height:10px;">&nbsp;</div>
+    <div class="wrap" style="margin:0 auto 0 auto;width:980px;color:#888888;line-height:18px;">
+        友情链接：
+        <a style="color:#888888;" href="http://www.2500tour.com/" target="_blank">苏州康辉旅行社</a>
+        <a style="color:#888888;" href="http://www.gohuitang.com/" target="_blank">宁乡灰汤温泉旅游酒店</a>
+        <a style="color:#888888;" href="http://www.bashangyangzi.com/" target="_blank">坝上草原自驾游</a>
+        <a style="color:#888888;" href="http://www.mdjiaqi.com/" target="_blank">马尔代夫</a>
+        <a style="color:#888888;" href="http://www.zrai.net/" target="_blank">常州国旅官网</a>
+        <a style="color:#888888;" href="http://ditu.kmguolv.com/" target="_blank">中国旅游地图</a>
+        <a style="color:#888888;" href="http://www.v315.net/" target="_blank">地图卫星地图</a>
+        <a style="color:#888888;" href="http://www.hwtrip.com/" target="_blank">邮轮旅游</a>
+        <a style="color:#888888;" href="http://www.jinzhilv.cn/" target="_blank">研学旅行</a>
+        <a style="color:#888888;" href="http://www.gllx100.com/" target="_blank">桂林旅游报价</a>
+        <a style="color:#888888;" href="http://www.lgoing.com/" target="_blank">美国自由行</a>
+        <a style="color:#888888;" href="http://www.bjljy.net/" target="_blank">龙景园旅游规划设计院</a>
+        <a style="color:#888888;" href="http://www.tuankezhan.com/" target="_blank">酒店公寓预订</a>
+        <a style="color:#888888;" href="http://www.7ly.com/" target="_blank">成都旅行社</a>
+        <a style="color:#888888;" href="http://www.weihk.cn/" target="_blank">香港购物攻略2016</a>
+        <a style="color:#888888;" href="http://www.hnyea.com/" target="_blank">河南旅游</a>
+        <a style="color:#888888;" href="http://www.57023.com/" target="_blank">重庆旅行社</a>
+        <a style="color:#888888;" href="http://sh.52njl.com/" target="_blank">上海农家乐旅游</a>
+        <a style="color:#888888;" href="http://www.yjldp.com/lvyou/ " target="_blank">长岛旅游攻略</a>
+        <a style="color:#888888;" href="http://www.dlkhgl.com/" target="_blank">大连旅行社</a>
+        <a style="color:#888888;" href="http://bbs.3798.com/" target="_blank">积友之家常旅客</a>
+        <a style="color:#888888;" href="http://www.zjj616.com/" target="_blank">张家界旅游</a>
+        <a style="color:#888888;" href="http://www.haotour.com.cn/" target="_blank">深圳旅行社</a>
+        <a style="color:#888888;" href="http://www.ptotour.com/" target="_blank">深圳旅游公司</a>
+        <a style="color:#888888;" href="http://www.5usg.net/" target="_blank">西冲旅游</a>
+        <a style="color:#888888;" href="http://www.bashang.net/" target="_blank">坝上草原旅游网</a>
+        <a style="color:#888888;" href="http://www.usitrip.com/" target="_blank">美国旅游</a>
+        <a style="color:#888888;" href="http://www.tripbaba.com/" target="_blank">厦门周边游</a>
+        <a style="color:#888888;" href="http://www.01nz.com.cn/" target="_blank">上海农家乐旅游</a>
+    </div>
+    <div style="height:10px;">&nbsp;</div>
+    
+</body>
+</html>

@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="zh_cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="API数据接口,免费API数据调用">
+  <meta name="description" content="免费向开发者提供全国车辆违章查询API，天气API，基站数据，移动联通基站，电信基站，覆盖国内外1000多个主要城市公共交通信息数据，衣食住行，金融，LBS数据以及其他各种有效合法资讯类信息数据。API调用灵活方便，支持开发者数据定制服务。聚合数据，您身边的数据方案解决专家">
+  <title>API数据接口_免费数据调用-聚合数据</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="stylesheet" href="https://juhecdn.oss-cn-hangzhou.aliyuncs.com/css/reset.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_537271_s805sx9yri0jxlxr.css">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?5d12e2b4eed3b554ae941c0ac43c330a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>  <link rel="stylesheet" href="/css/v6/headerFooter/header-black.css">
+  <link rel="stylesheet" href="/css/v6/home/index/index.css?v=1.4">
+  <script>
+  (function(){
+    var fontSize = document.documentElement.clientWidth > 800 ? '16px' : document.documentElement.clientWidth / 10.8 + 'px';
+    document.documentElement.style.fontSize = fontSize;
+  })();
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/themes/v5/public/js/html5shiv.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/themes/v5/public/js/respond.min.js" type="text/javascript" charset="utf-8"></script>
+  <![endif]-->
+</head>
+<body>
+<input type="hidden" value="300001" id="page-index">
+
+  <header class="header">
+  <div class="header-nav">
+    <div class="header-logo">
+      <a class="header-logo-pic" href="https://www.juhe.cn">
+                <h1>聚合数据-基础数据API接口提供商，一家数据银行</h1>
+              </a>
+    </div>
+    <div class="header-menu">
+                      <div class="header-menu-item active">
+                          <a class="header-title site_home click-report-log" log-data="area=100001&index_id=300001"
+             href="https://www.juhe.cn/" rel="noopener noreferrer">首页</a>
+                </div>
+                      <div class="header-menu-item">
+                          <a class="header-title site_data_service click-report-log" log-data="area=100001&index_id=210000"
+             href="https://www.juhe.cn/docs" rel="noopener noreferrer">数据服务</a>
+                </div>
+                      <div class="header-menu-item">
+                          <a class="header-title site_product click-report-log" log-data="area=100001&index_id=310000"
+             href="javascript:void(0)">产品&amp;解决方案</a>
+                </div>
+                      <div class="header-menu-item">
+                          <a class="header-title site_vip click-report-log" log-data="area=100001&index_id=300005"
+             href="https://www.juhe.cn/vip" rel="noopener noreferrer">聚合会员</a>
+                </div>
+                      <div class="header-menu-item">
+                          <a class="header-title site_data_point click-report-log" log-data="area=100001&index_id=300007"
+             href="https://www.juhe.cn/points" rel="noopener noreferrer">数据积分</a>
+                </div>
+          </div>
+    <div class="header-action">
+      <div class="header-search">
+        <div class="header-search-container">
+          <input type="hidden" id="devalutKeyword" value="身份证实名">
+          <input class="search-input" type="text" id="search-input-v6" name="q" value="" placeholder="身份证实名" autocomplete="off" maxlength="12">
+        </div>
+        <div class="header-search-btn" id="header-search-v6">
+          <i class="iconfont icon-search click-report-log" log-data="area=100001&index_id=300004"></i>
+          <!--[if lt IE 9]>
+          <span>搜索</span>
+          <![endif]-->
+        </div>
+      </div>
+      <div class="header-line"></div>
+      <div class="header-status">
+        <!-- <a class="header-btn1" href="/login">登录</a>
+        <a class="header-btn2" href="/register">注册</a>
+        <a class="header-btn2" href="/account">个人中心</a>
+        <a class="header-btn1" href="javascript:void(0)">退出</a> -->
+      </div>
+    </div>
+  </div>
+  <div class="header-dropdown">
+    <div class="header-submenu">
+      <div class="submenu-container">
+        <div class="submenu-data clearfix">
+                    <div class="submenu-data-item">
+            <a class="submenu-data-type click-report-log" log-data="area=100002&index_id=210004"
+               href="https://www.juhe.cn/docs/index/cid/4" target="_blank" rel="noopener noreferrer">
+              <strong>金融征信</strong>
+            </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200213"
+               href="https://www.juhe.cn/docs/api/id/213" target="_blank" title="银行卡四元素校验API" rel="noopener noreferrer">
+              <span class="submenu-data-text">银行卡四元素校验</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200103"
+               href="https://www.juhe.cn/docs/api/id/208" target="_blank" title="三网手机实名认证API" rel="noopener noreferrer">
+              <span class="submenu-data-text">三网手机实名认证</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200021"
+               href="https://www.juhe.cn/docs/api/id/21" target="_blank" title="股票数据API" rel="noopener noreferrer">
+              <span class="submenu-data-text">股票数据</span>
+                            <span class="submenu-data-hot">HOT</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=210004"
+               href="https://www.juhe.cn/docs/index/cid/4" target="_blank" title="更多 &gt;&gt;API" rel="noopener noreferrer">
+              <span class="submenu-data-text">更多 &gt;&gt;</span>
+                          </a>
+                      </div>
+                    <div class="submenu-data-item">
+            <a class="submenu-data-type click-report-log" log-data="area=100002&index_id=210001"
+               href="https://www.juhe.cn/docs/index/cid/1" target="_blank" rel="noopener noreferrer">
+              <strong>生活常用</strong>
+            </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200043"
+               href="https://www.juhe.cn/docs/api/id/43" target="_blank" title="常用快递API" rel="noopener noreferrer">
+              <span class="submenu-data-text">常用快递</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200039"
+               href="https://www.juhe.cn/docs/api/id/39" target="_blank" title="全国天气预报API" rel="noopener noreferrer">
+              <span class="submenu-data-text">全国天气预报</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200300"
+               href="https://www.juhe.cn/docs/api/id/300" target="_blank" title="彩票开奖结果查询API" rel="noopener noreferrer">
+              <span class="submenu-data-text">彩票开奖结果查询</span>
+                            <span class="submenu-data-new">NEW</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=210001"
+               href="https://www.juhe.cn/docs/index/cid/1" target="_blank" title="更多  &gt;&gt;API" rel="noopener noreferrer">
+              <span class="submenu-data-text">更多  &gt;&gt;</span>
+                          </a>
+                      </div>
+                    <div class="submenu-data-item">
+            <a class="submenu-data-type click-report-log" log-data="area=100002&index_id=210010"
+               href="https://www.juhe.cn/docs/index/cid/10" target="_blank" rel="noopener noreferrer">
+              <strong>车辆服务</strong>
+            </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200036"
+               href="https://www.juhe.cn/docs/api/id/36" target="_blank" title="全国车辆违章API" rel="noopener noreferrer">
+              <span class="submenu-data-text">全国车辆违章</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200182"
+               href="https://www.juhe.cn/docs/api/id/182" target="_blank" title="尾号限行API" rel="noopener noreferrer">
+              <span class="submenu-data-text">尾号限行</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200007"
+               href="https://www.juhe.cn/docs/api/id/7" target="_blank" title="全国加油站API" rel="noopener noreferrer">
+              <span class="submenu-data-text">全国加油站</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=210010"
+               href="https://www.juhe.cn/docs/index/cid/10" target="_blank" title="更多 &gt;&gt;API" rel="noopener noreferrer">
+              <span class="submenu-data-text">更多 &gt;&gt;</span>
+                          </a>
+                      </div>
+                    <div class="submenu-data-item">
+            <a class="submenu-data-type click-report-log" log-data="area=100002&index_id=200013"
+               href="https://www.juhe.cn/docs/index/cid/13" target="_blank" rel="noopener noreferrer">
+              <strong>短信服务</strong>
+            </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200054"
+               href="https://www.juhe.cn/docs/api/id/54" target="_blank" title="短信API服务API" rel="noopener noreferrer">
+              <span class="submenu-data-text">短信API服务</span>
+                            <span class="submenu-data-hot">HOT</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200061"
+               href="https://www.juhe.cn/docs/api/id/61" target="_blank" title="语音验证码API" rel="noopener noreferrer">
+              <span class="submenu-data-text">语音验证码</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200288"
+               href="https://www.juhe.cn/docs/api/id/288" target="_blank" title="金融短信API" rel="noopener noreferrer">
+              <span class="submenu-data-text">金融短信</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=210013"
+               href="https://www.juhe.cn/docs/index/cid/13" target="_blank" title="更多 &gt;&gt;API" rel="noopener noreferrer">
+              <span class="submenu-data-text">更多 &gt;&gt;</span>
+                          </a>
+                      </div>
+                    <div class="submenu-data-item">
+            <a class="submenu-data-type click-report-log" log-data="area=100002&index_id=210003"
+               href="https://www.juhe.cn/docs/index/cid/3" target="_blank" rel="noopener noreferrer">
+              <strong>位置服务</strong>
+            </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200016"
+               href="https://www.juhe.cn/docs/api/id/16" target="_blank" title="电信基站API" rel="noopener noreferrer">
+              <span class="submenu-data-text">电信基站</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200015"
+               href="https://www.juhe.cn/docs/api/id/32" target="_blank" title="地图坐标服务API" rel="noopener noreferrer">
+              <span class="submenu-data-text">地图坐标服务</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200008"
+               href="https://www.juhe.cn/docs/api/id/8" target="_blank" title="移动联通基站API" rel="noopener noreferrer">
+              <span class="submenu-data-text">移动联通基站</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=210003"
+               href="https://www.juhe.cn/docs/index/cid/3" target="_blank" title="更多 &gt;&gt;API" rel="noopener noreferrer">
+              <span class="submenu-data-text">更多 &gt;&gt;</span>
+                          </a>
+                      </div>
+                    <div class="submenu-data-item">
+            <a class="submenu-data-type click-report-log" log-data="area=100002&index_id=210015"
+               href="https://www.juhe.cn/docs/index/cid/15" target="_blank" rel="noopener noreferrer">
+              <strong>应用开发</strong>
+            </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200153"
+               href="https://www.juhe.cn/docs/api/id/153" target="_blank" title="证件识别API" rel="noopener noreferrer">
+              <span class="submenu-data-text">证件识别</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200296"
+               href="https://www.juhe.cn/docs/api/id/296" target="_blank" title="二维码生成API" rel="noopener noreferrer">
+              <span class="submenu-data-text">二维码生成</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=200178"
+               href="https://www.juhe.cn/docs/api/id/178" target="_blank" title="商标信息查询API" rel="noopener noreferrer">
+              <span class="submenu-data-text">商标信息查询</span>
+                          </a>
+                        <a class="submenu-data-name click-report-log" log-data="area=100002&index_id=210015"
+               href="https://www.juhe.cn/docs/index/cid/15" target="_blank" title="更多 &gt;&gt;API" rel="noopener noreferrer">
+              <span class="submenu-data-text">更多 &gt;&gt;</span>
+                          </a>
+                      </div>
+                  </div>
+        <div class="submenu-banner clearfix">
+                    <a class="submenu-banner-item click-report-log" log-data="area=100003&index_id=210010"
+             href="https://www.juhe.cn/docs/index/cid/10" target="_blank" rel="noopener noreferrer" title="夏季出行指南"
+             style="background: url(https://juheimgs.oss-cn-beijing.aliyuncs.com/banner/201807/5b3f27b4dca16.png) center center no-repeat"></a>
+                    <a class="submenu-banner-item click-report-log" log-data="area=100003&index_id=210000"
+             href="https://www.juhe.cn/docs/index/otherid/1" target="_blank" rel="noopener noreferrer" title="免费数据专区"
+             style="background: url(https://juheimgs.oss-cn-beijing.aliyuncs.com/banner/201802/5a7401876d3b0.png) center center no-repeat"></a>
+                    <a class="submenu-banner-item click-report-log" log-data="area=100003&index_id=210020"
+             href="https://www.juhe.cn/trade/finance" target="_blank" rel="noopener noreferrer" title="金融API解决方案"
+             style="background: url(https://juheimgs.oss-cn-beijing.aliyuncs.com/banner/201804/5ac9b600b5721.png) center center no-repeat"></a>
+                  </div>
+      </div>
+    </div>
+    <div class="header-submenu">
+      <div class="submenu-container clearfix">
+                <div class="submenu-product clearfix">
+          <p class="submenu-title">产品和解决方案/Products and Solutions</p>
+          <div class="submenu-product-container">
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310007"
+                 href="https://zx.juhe.cn" target="_blank" rel="noopener noreferrer">
+                              <strong>> 金融征信解决方案</strong>
+              </a>
+              <p class="submenu-product-item-desc">金融风控、人脸对比、反欺诈</p>
+            </div>
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310008"
+                 href="https://www.juhe.cn/trade/carscheme" target="_blank" rel="noopener noreferrer">
+                              <strong>> 汽车征信解决方案</strong>
+              </a>
+              <p class="submenu-product-item-desc">汽车服务行业一站式解决方案</p>
+            </div>
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310009"
+                 href="https://www.juhe.cn/activity/analysis" target="_blank" rel="noopener noreferrer">
+                              <strong>> 企业数据分析</strong>
+              </a>
+              <p class="submenu-product-item-desc">挖掘企业商业数据价值</p>
+            </div>
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310010"
+                 href="https://www.juhe.cn/trade" target="_blank" rel="noopener noreferrer">
+                              <strong>> 商业地产分析</strong>
+              </a>
+              <p class="submenu-product-item-desc">智能选址、活动检测、环境分析</p>
+            </div>
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310006"
+                 href="https://www.juhe.cn/trade/analysis" target="_blank" rel="noopener noreferrer">
+                              <strong>> 行业分析报告</strong>
+              </a>
+              <p class="submenu-product-item-desc">洞察数据背后隐藏的商业价值</p>
+            </div>
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310011"
+                 href="https://chongzhi.juhe.cn" target="_blank" rel="noopener noreferrer">
+                              <strong>> 充值技术接入营销解决方案</strong>
+              </a>
+              <p class="submenu-product-item-desc">产品变现最好的解决方案</p>
+            </div>
+                      </div>
+        </div>
+                <div class="submenu-product clearfix">
+          <p class="submenu-title">工具/Tools</p>
+          <div class="submenu-product-container">
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310001"
+                 href="https://www.juhe.cn/agent" target="_blank" rel="noopener noreferrer">
+                              <strong>> 聚合·合作伙伴</strong>
+              </a>
+              <p class="submenu-product-item-desc">成为聚合合作商、供应商</p>
+            </div>
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310002"
+                 href="https://activity.juhe.cn/batch-recharge" target="_blank" rel="noopener noreferrer">
+                              <strong>> 在线批量充值服务</strong>
+              </a>
+              <p class="submenu-product-item-desc">价格合理、方便快捷、无手续费</p>
+            </div>
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310003"
+                 href="https://activity.juhe.cn/exchange/index" target="_blank" rel="noopener noreferrer">
+                              <strong>> 聚合交易所</strong>
+              </a>
+              <p class="submenu-product-item-desc">预约您的油卡专属库存</p>
+            </div>
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310004"
+                 href="https://www.juhe.cn/cellmap/gsm" target="_blank" rel="noopener noreferrer">
+                              <strong>> 基站定位</strong>
+              </a>
+              <p class="submenu-product-item-desc">移动联通电信，轻松帮你定位位置</p>
+            </div>
+                        <div class="submenu-product-item">
+                            <a class="submenu-product-item-name click-report-log" log-data="area=100002&index_id=310005"
+                 href="https://www.juhe.cn/box" target="_blank" rel="noopener noreferrer">
+                              <strong>> 聚盒子</strong>
+              </a>
+              <p class="submenu-product-item-desc">API接口测试工具</p>
+            </div>
+                      </div>
+        </div>
+              </div>
+    </div>
+  </div>
+</header>  <div class="header-dropdown-m">
+                          <a href="https://www.juhe.cn/docs" rel="noopener noreferrer">数据API</a>
+                                          <a href="https://www.juhe.cn/vip" rel="noopener noreferrer">聚合会员</a>
+                                        <a href="https://www.juhe.cn/points" rel="noopener noreferrer">数据积分</a>
+                    </div>
+  <div class="nav-mobile">
+    <div class="nav-top">
+      <div class="nav-logo"></div>
+      <div class="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-login"></div>
+    </div>
+    <div class="nav-menu-hide">
+      <div class="nav-search-container">
+        <i class="iconfont icon-search nav-search-icon"></i>
+        <form action="" class="nav-search-form" onsubmit="return false">
+          <input id="nav-search-input" type="search" autocomplete="off" name="" placeholder="搜索">
+        </form>
+      </div>
+      <div class="nav-container">
+                                                <a class="nav-item" href="https://www.juhe.cn/docs">
+            <div class="nav-item-name">数据服务</div>
+            <div class="nav-item-link"><span></span></div>
+          </a>
+                                                    <a class="nav-item" href="javascript:void(0);">
+            <div class="nav-item-name">产品&amp;解决方案</div>
+            <div class="nav-item-action open"><span></span></div>
+          </a>
+          <div class="nav-slide">
+                                                          <a class="nav-slide-item" href="https://zx.juhe.cn" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">金融征信解决方案</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                              <a class="nav-slide-item" href="https://www.juhe.cn/trade/carscheme" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">汽车征信解决方案</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                              <a class="nav-slide-item" href="https://www.juhe.cn/activity/analysis" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">企业数据分析</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                              <a class="nav-slide-item" href="https://www.juhe.cn/trade" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">商业地产分析</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                              <a class="nav-slide-item" href="https://www.juhe.cn/trade/analysis" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">行业分析报告</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                              <a class="nav-slide-item" href="https://chongzhi.juhe.cn" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">充值技术接入营销解决方案</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                                                        <a class="nav-slide-item" href="https://www.juhe.cn/agent" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">聚合·合作伙伴</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                              <a class="nav-slide-item" href="https://activity.juhe.cn/batch-recharge" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">在线批量充值服务</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                              <a class="nav-slide-item" href="https://activity.juhe.cn/exchange/index" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">聚合交易所</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                              <a class="nav-slide-item" href="https://www.juhe.cn/cellmap/gsm" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">基站定位</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                              <a class="nav-slide-item" href="https://www.juhe.cn/box" target="_blank" rel="noopener noreferrer">
+                  <div class="nav-slide-item-name">聚盒子</div>
+                  <div class="nav-slide-item-link"><span></span></div>
+                </a>
+                                                    </div>
+                                                    <a class="nav-item" href="https://www.juhe.cn/vip">
+            <div class="nav-item-name">聚合会员</div>
+            <div class="nav-item-link"><span></span></div>
+          </a>
+                                                    <a class="nav-item" href="https://www.juhe.cn/points">
+            <div class="nav-item-name">数据积分</div>
+            <div class="nav-item-link"><span></span></div>
+          </a>
+                              </div>
+    </div>
+    <div class="nav-login-hide">
+      <a class="nav-item" href="https://www.juhe.cn/account">
+        <div class="nav-item-name">个人中心</div>
+        <div class="nav-item-link"><span></span></div>
+      </a>
+      <div class="nav-login-container">
+      </div>
+    </div>
+  </div>
+  <div class="home-container">
+    <canvas id="space"></canvas>
+    <div class="home-page banner">
+      <img class="banner-bg bg1" src="https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/v6/home/1.png" alt="">
+      <img class="banner-bg bg2" src="https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/v6/home/2.png" alt="">
+      <img class="banner-bg bg3" src="https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/v6/home/3.png" alt="">
+      <img class="banner-bg bg4" src="https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/v6/home/4.png" alt="">
+      <img class="banner-bg bg5" src="https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/v6/home/5.png" alt="">
+    </div>
+    <div class="home-page technique">
+      <div class="tech-page1">
+        <div class="tech-container">
+          <div class="tech-item first">
+            <div class="tech-icon tech-icon1"></div>
+            <p class="tech-title">
+              <span>指标体系</span>
+              <i class="iconfont icon-tishi"></i>
+            </p>
+          </div>
+          <div class="tech-item second">
+            <div class="tech-icon tech-icon2"></div>
+            <p class="tech-title">
+              <span>风控模型</span>
+              <i class="iconfont icon-tishi"></i>
+            </p>
+          </div>
+          <div class="tech-item third">
+            <div class="tech-icon tech-icon3"></div>
+            <p class="tech-title">
+              <span>图形数据库</span>
+              <i class="iconfont icon-tishi"></i>
+            </p>
+          </div>
+          <div class="tech-item fourth">
+            <div class="tech-icon tech-icon4"></div>
+            <p class="tech-title">
+              <span>数据资源引擎</span>
+              <i class="iconfont icon-tishi"></i>
+            </p>
+          </div>
+          <div class="tech-item fifth">
+            <div class="tech-icon tech-icon5"></div>
+            <p class="tech-title">
+              <span>专业技术支撑</span>
+              <i class="iconfont icon-tishi"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="tech-page tech-page2">
+        <div class="tech-page-bg"></div>
+        <div class="tech-content">
+          <div class="tech-intro">
+            <p class="tech-intro-title">聚合的技术优势 / Technical advantages of juhe</p>
+            <p class="tech-intro-name">指标体系</p>
+            <p class="tech-intro-desc">通过海量数据挖掘、提取相互关联的统计指标,
+              <br>从而构建的风险指标体系让企业对于风险评估和认知更加全面、直观、易懂。</p>
+          </div>
+          <div class="tech-img"></div>
+        </div>
+      </div>
+      <div class="tech-page tech-page3">
+        <div class="tech-page-bg"></div>
+        <div class="tech-content">
+          <div class="tech-intro">
+            <p class="tech-intro-title">聚合的技术优势 / Technical advantages of juhe</p>
+            <p class="tech-intro-name">AI风控模型</p>
+            <p class="tech-intro-desc">将实例数据输入并运用机器学习的技术手段从而获得风控模型，
+              <br>让企业风险评估降低成本、提高效率、评估结果更加客观、准确。</p>
+          </div>
+          <div class="tech-img"></div>
+        </div>
+      </div>
+      <div class="tech-page tech-page4">
+        <div class="tech-page-bg"></div>
+        <div class="tech-content">
+          <div class="tech-intro">
+            <p class="tech-intro-title">聚合的技术优势 / Technical advantages of juhe</p>
+            <p class="tech-intro-name">图形数据库</p>
+            <p class="tech-intro-desc">通过海量社交关系数据等，所构成的知识图谱，
+              <br>让企业更为直观的了解相互关联的社交关系和计算、分析挖掘的数据。</p>
+          </div>
+          <div class="tech-img"></div>
+        </div>
+      </div>
+      <div class="tech-page tech-page5">
+        <div class="tech-page-bg"></div>
+        <div class="tech-content">
+          <div class="tech-intro">
+            <p class="tech-intro-title">聚合的技术优势 / Technical advantages of juhe</p>
+            <p class="tech-intro-name">数据资源引擎</p>
+            <p class="tech-intro-desc">独立自主研发的数据采集和评估体系
+              <br>市场需求和用户反馈优化的数据体系
+              <br>专业细化的资源调用分析系统</p>
+          </div>
+          <div class="tech-img"></div>
+        </div>
+      </div>
+      <div class="tech-page tech-page6">
+        <div class="tech-page-bg"></div>
+        <div class="tech-content">
+          <div class="tech-intro">
+            <p class="tech-intro-title">聚合的技术优势 / Technical advantages of juhe</p>
+            <p class="tech-intro-name">专业技术支撑</p>
+            <p class="tech-intro-desc">专业分布式架构和防DDOS攻击系统
+              <br>安全稳定运营API调用超过六年
+              <br>日累计调用超亿次，服务数亿终端用户</p>
+          </div>
+          <div class="tech-img"></div>
+        </div>
+      </div>
+    </div>
+    <div class="home-page user">
+      <div class="user-container">
+        <p class="user-title">谁在使用我们 / Who are using us</p>
+        <div class="user-list"></div>
+      </div>
+      <div class="user-container-m"></div>
+    </div>
+    <div class="home-page news">
+      <div class="news-container">
+        <div class="news-content">
+          <p class="news-type">聚合新闻 / News</p>
+          <ul class="news-list">
+                        <li>
+              <span class="news-date">05-15</span>
+              <p class="news-title">
+                <a href="/news/index/id/2805" target="_blank" rel="noopener noreferrer">聚合数据独家发布身份核实接口</a>
+              </p>
+            </li>
+                        <li>
+              <span class="news-date">05-15</span>
+              <p class="news-title">
+                <a href="/news/index/id/2804" target="_blank" rel="noopener noreferrer">全球智博会，聚合数据斩获创新产品银奖</a>
+              </p>
+            </li>
+                        <li>
+              <span class="news-date">05-08</span>
+              <p class="news-title">
+                <a href="/news/index/id/2800" target="_blank" rel="noopener noreferrer">聚合数据平台通过国家信息安全等保三级认证</a>
+              </p>
+            </li>
+                        <li>
+              <span class="news-date">04-28</span>
+              <p class="news-title">
+                <a href="/news/index/id/2797" target="_blank" rel="noopener noreferrer">高朋云集，多家单位领导莅临聚合数据走访调研</a>
+              </p>
+            </li>
+                        <li>
+              <span class="news-date">04-24</span>
+              <p class="news-title">
+                <a href="/news/index/id/2796" target="_blank" rel="noopener noreferrer">聚合数据入选《中国硬独角兽TOP100》</a>
+              </p>
+            </li>
+                      </ul>
+          <a class="news-more" href="/news/listview/cid/4" target="_blank" rel="noopener noreferrer">更多新闻></a>
+        </div>
+        <div class="news-content">
+          <p class="news-type">行业资讯 / Industry information</p>
+          <ul class="news-list">
+                        <li>
+              <span class="news-date">05-10</span>
+              <p class="news-title">
+                <a href="/news/index/id/2803" target="_blank" rel="noopener noreferrer">droidcon上海2018安卓技术大会将于6月亮相魔都</a>
+              </p>
+            </li>
+                        <li>
+              <span class="news-date">05-09</span>
+              <p class="news-title">
+                <a href="/news/index/id/2801" target="_blank" rel="noopener noreferrer">万物互联 | 从智慧城市的智慧，看物联网的基石作用</a>
+              </p>
+            </li>
+                        <li>
+              <span class="news-date">05-09</span>
+              <p class="news-title">
+                <a href="/news/index/id/2802" target="_blank" rel="noopener noreferrer">个推大数据观察：不一样的程序员们</a>
+              </p>
+            </li>
+                        <li>
+              <span class="news-date">05-04</span>
+              <p class="news-title">
+                <a href="/news/index/id/2799" target="_blank" rel="noopener noreferrer">智能运维 | 百度自动化运维是怎么做的（上）——概念以及标准从何而来？</a>
+              </p>
+            </li>
+                        <li>
+              <span class="news-date">04-27</span>
+              <p class="news-title">
+                <a href="/news/index/id/2792" target="_blank" rel="noopener noreferrer">哇，今天才发现eoLinker这个接口管理神器！</a>
+              </p>
+            </li>
+                      </ul>
+          <a class="news-more" href="/news/listview/cid/99" target="_blank" rel="noopener noreferrer">更多资讯></a>
+        </div>
+      </div>
+    </div>
+    <div class="home-page home-footer">
+      <div class="home-footer-link">
+                <dl>
+          <dt>联系与支持</dt>
+                                  <dd><a href="https://www.juhe.cn/contact#section4" target="_blank" rel="noopener noreferrer">400-882-7715</a></dd>
+                                              <dd><a href="https://www.juhe.cn/contact" target="_blank" rel="noopener noreferrer">售前咨询</a></dd>
+                                              <dd><a href="https://www.juhe.cn/contact#section2" target="_blank" rel="noopener noreferrer">客服&amp;售后</a></dd>
+                                              <dd><a href="https://www.juhe.cn/qa" target="_blank" rel="noopener noreferrer">常见问题</a></dd>
+                                              <dd><a href="https://www.juhe.cn/workOrder" target="_blank" rel="noopener noreferrer">工单后台</a></dd>
+                                              <dd><a href="https://www.juhe.cn/complaints" target="_blank" rel="noopener noreferrer">投诉与建议</a></dd>
+                              </dl>
+                <dl>
+          <dt>关于聚合</dt>
+                                  <dd><a href="https://www.juhe.cn/links" target="_blank" rel="noopener noreferrer">合作伙伴</a></dd>
+                                              <dd><a href="https://www.juhe.cn/legal" target="_blank" rel="noopener noreferrer">服务条款</a></dd>
+                                              <dd><a href="https://www.juhe.cn/privacy" target="_blank" rel="noopener noreferrer">隐私政策</a></dd>
+                                              <dd><a href="https://www.juhe.cn/contact#section3" target="_blank" rel="noopener noreferrer">市场合作</a></dd>
+                                              <dd><a href="https://www.lagou.com/gongsi/j11021.html" target="_blank" rel="noopener noreferrer">加入我们</a></dd>
+                              </dl>
+                <dl>
+          <dt>快速入口</dt>
+                                  <dd><a href="https://www.juhe.cn/docs" target="_blank" rel="noopener noreferrer">API数据</a></dd>
+                                              <dd><a href="https://www.juhe.cn/vip" target="_blank" rel="noopener noreferrer">聚合会员</a></dd>
+                                              <dd><a href="https://www.juhe.cn/vipintegral" target="_blank" rel="noopener noreferrer">聚合积分</a></dd>
+                                              <dd><a href="https://www.juhe.cn/news/listview" target="_blank" rel="noopener noreferrer">新闻动态</a></dd>
+                                              <dd><a href="https://www.juhe.cn/contact" target="_blank" rel="noopener noreferrer">联系我们</a></dd>
+                              </dl>
+                <dl>
+          <dt>产品服务</dt>
+                                  <dd><a href="https://recharge.juhe.cn" target="_blank" rel="noopener noreferrer">在线批量充值服务</a></dd>
+                                              <dd><a href="https://activity.juhe.cn/exchange/index" target="_blank" rel="noopener noreferrer">聚合交易所</a></dd>
+                                              <dd><a href="https://www.juhe.cn/cellmap/gsm" target="_blank" rel="noopener noreferrer">基站定位</a></dd>
+                                              <dd><a href="https://www.juhe.cn/box" target="_blank" rel="noopener noreferrer">聚盒子</a></dd>
+                                              <dd><a href="https://www.juhe.cn/trade/analysis" target="_blank" rel="noopener noreferrer">行业分析报告</a></dd>
+                              </dl>
+                <dl>
+          <dt>解决方案</dt>
+                                  <dd><a href="https://zx.juhe.cn" target="_blank" rel="noopener noreferrer">金融征信解决方案</a></dd>
+                                              <dd><a href="https://www.juhe.cn/trade/carscheme" target="_blank" rel="noopener noreferrer">汽车征信解决方案</a></dd>
+                                              <dd><a href="https://www.juhe.cn/trade" target="_blank" rel="noopener noreferrer">商业地产分析</a></dd>
+                                              <dd><a href="https://www.juhe.cn/activity/analysis" target="_blank" rel="noopener noreferrer">企业数据分析</a></dd>
+                                              <dd><a href="https://chongzhi.juhe.cn/" target="_blank" rel="noopener noreferrer">充值技术解决方案</a></dd>
+                              </dl>
+              </div>
+      <div class="home-footer-bottom">
+        <div class="footer-bottom clearfix"><div class="footer-bottom-left"><a href="http://www.jsdsgsxt.gov.cn/mbm/entweb/elec/certView.shtml?siteId=301146c087f2499ca507bfa91ab143ec" target="_blank" rel="noopener noreferrer"> <span class="footer-pic1"></span>  </a>  <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32059002001776" target="_blank" rel="noopener noreferrer"> <span class="footer-pic2"></span> <span>苏公网安备 32059002001776号</span>  </a>  <span class="footer-license">增值电信业务经营许可证：苏B2-20140496</span>  <a class="footer-icp" href="http://www.miitbeian.gov.cn" target="_blank" rel="noopener noreferrer">    <span>苏ICP备14006450号-3</span>  </a></div><div class="footer-bottom-right"><span>天聚地合（苏州）数据股份有限公司&copy;版权所有</span></div></div>
+      </div>
+      <div class="home-footer-m">
+        <ul>
+                                                        <li><a href="https://www.juhe.cn/links" target="_blank" rel="noopener noreferrer">合作伙伴</a></li>
+                    <li><a href="https://www.juhe.cn/legal" target="_blank" rel="noopener noreferrer">服务条款</a></li>
+                    <li><a href="https://www.juhe.cn/privacy" target="_blank" rel="noopener noreferrer">隐私政策</a></li>
+                    <li><a href="https://www.juhe.cn/contact#section3" target="_blank" rel="noopener noreferrer">市场合作</a></li>
+                    <li><a href="https://www.lagou.com/gongsi/j11021.html" target="_blank" rel="noopener noreferrer">加入我们</a></li>
+                                                                                          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="home-nav">
+    <ul>
+      <li class="active">
+        <span>TOP</span>
+      </li>
+      <li>
+        <span>聚合技术</span>
+      </li>
+      <li>
+        <span>谁在使用我们</span>
+      </li>
+      <li class="home-nav-news">
+        <span>新闻动态</span>
+      </li>
+      <li>
+        <span>快速入口</span>
+      </li>
+    </ul>
+  </div>
+  <div class="home-nav-hide">
+    <div class="home-nav-container">
+      <ul class="home-nav-list">
+        <li class="active">Top</li>
+        <li>聚合技术</li>
+        <li>谁在使用我们</li>
+        <li class="home-nav-news">新闻动态</li>
+        <li>快速入口</li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom-page">
+    <span class="current-page">1</span>
+    <span class="total-page-pc">/ 5</span>
+    <span class="total-page-m">/ 4</span>
+  </div>
+  <div class="bottom-scroll-icon">
+    <div class="scroll-arrow"></div>
+  </div>
+  <div class="bottom-contact">
+    <div class="contact-icon">
+      <i class="iconfont icon-lianxiwomen"></i>
+    </div>
+    <div class="contact-container">
+      <a class="contact-item" href="/contact" target="_blank" rel="noopener noreferrer">
+        <div class="contact-icon1">
+          <i class="iconfont icon-lianxidianhua"></i>
+        </div>
+        <div class="contact-text">
+          <p class="contact-title">联系电话</p>
+          <p class="contact-phone">400-882-7715</p>
+        </div>
+      </a>
+      <a class="contact-item" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA3NjA2NV80ODI3NzdfODAwMDc2MDY1XzJf" target="_blank" rel="noopener noreferrer">
+        <div class="contact-icon2">
+          <i class="iconfont icon-zaixianzixun"></i>
+        </div>
+        <div class="contact-text">
+          <p class="contact-title">在线咨询</p>
+          <p class="contact-desc">QQ在线响应及时</p>
+        </div>
+      </a>
+      <a class="contact-item" href="/workOrder" target="_blank" rel="noopener noreferrer">
+        <div class="contact-icon3">
+          <i class="iconfont icon-gongdanguanli"></i>
+        </div>
+        <div class="contact-text">
+          <p class="contact-title">工单管理</p>
+          <p class="contact-desc">专业解答产品疑问</p>
+        </div>
+      </a>
+      <a class="contact-item" href="/qa" target="_blank" rel="noopener noreferrer">
+        <div class="contact-icon4">
+          <i class="iconfont icon-changjianwenti"></i>
+        </div>
+        <div class="contact-text">
+          <p class="contact-title">常见问题</p>
+          <p class="contact-desc">解答一般常见问题</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="bottom-contact-hide">
+    <div class="bottom-contact-container">
+      <a class="bottom-contact-item" href="tel:400-882-7715">
+        <i class="iconfont icon-lianxidianhua"></i>
+        <span class="bottom-contact-title">联系电话</span>
+        <span class="bottom-contact-phone">400-882-7715</span>
+        <span class="bottom-contact-link"></span>
+      </a>
+      <a class="bottom-contact-item" href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzgwMDA3NjA2NV80ODI3NzdfODAwMDc2MDY1XzJf" target="_blank" rel="noopener noreferrer">
+        <i class="iconfont icon-zaixianzixun"></i>
+        <span class="bottom-contact-title">在线咨询</span>
+        <span class="bottom-contact-desc">QQ在线响应及时</span>
+        <span class="bottom-contact-link"></span>
+      </a>
+      <a class="bottom-contact-item" href="/workOrder" target="_blank" rel="noopener noreferrer">
+        <i class="iconfont icon-gongdanguanli"></i>
+        <span class="bottom-contact-title">工单管理</span>
+        <span class="bottom-contact-desc">专业解答产品疑问</span>
+        <span class="bottom-contact-link"></span>
+      </a>
+      <a class="bottom-contact-item" href="/qa" target="_blank" rel="noopener noreferrer">
+        <i class="iconfont icon-changjianwenti"></i>
+        <span class="bottom-contact-title">常见问题</span>
+        <span class="bottom-contact-desc">解答一般常见问题</span>
+        <span class="bottom-contact-link"></span>
+      </a>
+    </div>
+  </div>
+  <div class="tech-page-m">
+    <div class="tech-content-m1">
+      <p class="tech-m-title">聚合的技术优势 / Technical advantages of juhe</p>
+      <div class="tech-m-text">
+        <p class="tech-m-name">指标体系</p>
+        <p class="tech-m-desc">通过海量数据挖掘、提取相互关联的统计指标,
+          <br>从而构建的风险指标体系让企业对于风险评估
+          <br>和认知更加全面、直观、易懂。</p>
+      </div>
+    </div>
+    <div class="tech-content-m2">
+      <p class="tech-m-title">聚合的技术优势 / Technical advantages of juhe</p>
+      <div class="tech-m-text">
+        <p class="tech-m-name">AI风控模型</p>
+        <p class="tech-m-desc">将实例数据输入并运用机器学习的技术手段
+          <br>从而获得风控模型，让企业风险评估降低成本、
+          <br>提高效率、评估结果更加客观、准确。</p>
+      </div>
+    </div>
+    <div class="tech-content-m3">
+      <p class="tech-m-title">聚合的技术优势 / Technical advantages of juhe</p>
+      <div class="tech-m-text">
+        <p class="tech-m-name">图形数据库</p>
+        <p class="tech-m-desc">通过海量社交关系数据等，所构成的知识图谱，
+          <br>让企业更为直观的了解相互关联的社交关系和
+          <br>计算、分析挖掘的数据。</p>
+      </div>
+    </div>
+    <div class="tech-content-m4">
+      <p class="tech-m-title">聚合的技术优势 / Technical advantages of juhe</p>
+      <div class="tech-m-text">
+        <p class="tech-m-name">数据资源引擎</p>
+        <p class="tech-m-desc">独立自主研发的数据采集和评估体系
+            <br>市场需求和用户反馈优化的数据体系
+            <br>专业细化的资源调用分析系统</p>
+      </div>
+    </div>
+    <div class="tech-content-m5">
+      <p class="tech-m-title">聚合的技术优势 / Technical advantages of juhe</p>
+      <div class="tech-m-text">
+        <p class="tech-m-name">专业技术支撑</p>
+        <p class="tech-m-desc">专业分布式架构和防DDOS攻击系统
+            <br>安全稳定运营API调用超过六年
+            <br>天累计调用超亿次，服务数百万终端用户</p>
+      </div>
+    </div>
+  </div>
+  <div class="mask"></div>
+      <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://juhecdn.oss-cn-hangzhou.aliyuncs.com/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://juhecdn.oss-cn-hangzhou.aliyuncs.com/jquery/reportLog.js?v=1.1"></script>
+  <script src="/js/v6/home/main.js?v=1.2"></script>
+
+  <script type="text/javascript">
+    var siteHost = "https://www.juhe.cn";
+    var _token = "R1dbKCC1m6vjpzRU8du9hmXnKZ4SpT3DZNpLHLJn";
+    ;
+  </script>
+  <div class="barrage">
+  <a class="barrage-icon" href="https://www.juhe.cn/register?barrage" target="_blank" rel="noopener noreferrer">
+    <div class="barrage-close"></div>
+  </a>
+</div>
+<style>
+.barrage{
+  width: 100%;
+  height: 51px;
+  position: fixed;
+  top: 50%;
+  margin-top: -25px;
+  z-index: 9999;
+  overflow: hidden;
+  display: none;
+}
+.barrage-icon{
+  display: block;
+  width: 443px;
+  height: 51px;
+  background: url(https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/activity/201807/barrage1.png) no-repeat;
+  position: absolute;
+  right: 0;
+}
+.barrage-close{
+  width: 27px;
+  height: 29px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+</style>
+<script src="https://juhecdn.oss-cn-hangzhou.aliyuncs.com/jquery/jquery.cookie.js" type="text/javascript"></script>
+<script>
+(function (){
+  $.getJSON('/loginStatus', function(data) {
+    if (data.code == 0) {
+      $('.barrage').hide();
+    } else {
+      barrage();
+    }
+  });
+  function barrage () {
+    if ($.cookie('RmBarrage')) {
+      $('.barrage').hide();
+    } else {
+      var width = document.documentElement.clientWidth - 443;
+      var time = Math.round((width + 443) / 0.1);
+      $('.barrage').show();
+      $('.barrage-icon').css({left: width + 'px'});
+      $('.barrage-icon').animate({left: '-443px'}, time, 'linear', function () {
+        $('.barrage').hide();
+      });
+      $('.barrage-icon').click(function () {
+        $('.barrage').fadeOut();
+        $.cookie('RmBarrage', true, { expires: 30, path: '/' });
+      });
+      $('.barrage-close').click(function (e) {
+        e.preventDefault();
+        $('.barrage').fadeOut();
+      });
+      $('.barrage-icon').hover(function (){
+        $('.barrage-icon').stop();
+      }, function (){
+        var newTime = Math.round(($('.barrage-icon').offset().left + 443) / 0.1);
+        $('.barrage-icon').animate({left: '-443px'}, newTime, 'linear', function () {
+          $('.barrage').hide();
+        });
+      });
+    }
+  }
+})()
+</script>
+</body>
+</html>

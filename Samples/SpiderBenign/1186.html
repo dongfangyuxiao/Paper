@@ -1,0 +1,1988 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>DoNews-IT门户-移动互联网新闻-电子商务新闻-游戏新闻-风险投资新闻-IT社交网络社区</title>
+    <meta name="author" content="DoNews"/>
+    <meta name="keywords" content="DoNews IT门户 移动互联网新闻 电子商务新闻 游戏新闻 风险投资新闻 IT社交网络社区"/>
+    <meta name="description"
+          content="中国最早的web2.0网站，中国互联网行业的风向标。提供互联网行业资讯、数据分析报告、社区互动、线下交流等服务。是中国互联网从业人士交流最权威的平台，是了解中国互联网行业最重要的窗口。"/>
+    <meta name=”renderer” content=”webkit” />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <link href="http://www.donews.com/static/css/common.css" rel="stylesheet" media="screen"/>
+    <!--<link href="<?/*= _STATIC */?>/css/focues.css" rel="stylesheet" media="screen"/>-->
+    <link href="http://www.donews.com/static/css/" rel="stylesheet" type="text/css" id="css" />
+    <link href="http://www.donews.com/static/css/index.css" rel="stylesheet" media="screen"/>
+    <link href="http://www.donews.com/static/css/base.css" rel="stylesheet" media="screen"/>
+    <link href="http://www.donews.com/static/css/scrollr.css" rel="stylesheet" media="screen"/>
+    <link href="http://www.donews.com/static/css/dtv.css" rel="stylesheet" media="screen"/>
+    <!-- 滚动条样式　-->
+    <link rel="stylesheet" href="http://www.donews.com/static/css/bin/style.css">
+    <link href="http://www.donews.com/static/css/bin/jquery.mCustomScrollbar.css" rel="stylesheet" media="screen"/>
+    <link rel="shortcut icon" type="image/x-icon" href="http://www.donews.com/static/image/favicon.ico" media="screen" />
+    <script type="text/javascript" charset="utf-8" src="http://yuntv.letv.com/player/vod/bcloud.js"></script>
+    <script type="text/javascript">
+        function getParameterByName(name,query) {
+            var match = RegExp('[?&]' + name + '=([^&]*)')
+                .exec(query);
+            return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+        }
+
+        function get_url_params(url) {
+            if(!url) {
+                return false;
+            }
+            var query = url.split('?')[1];
+            var urlParams = {};
+            var itmes = query.split('&');
+
+            for (var i = 0; i < itmes.length; i++)
+            {
+                var p=itmes[i].split('=');
+                if (p.length != 2) continue;
+                urlParams[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+
+            return urlParams;
+        }
+        var player = new CloudVodPlayer();
+        var conf_list = [];
+
+
+    </script>
+
+    <style>
+        .play {
+            width: 100%;
+            height: 429px;
+            display: none;
+            float: left;
+        }
+
+        /*
+        #DTV{height:500px; width:500px; position: relative;}
+        @media screen and (max-width: 600px) {
+            #DTV{height:300px; width:100%; position: relative;}
+        }*/
+
+        .content .gallery-picture #DTV {
+            height: 350px;
+            width: 700px;
+            position: relative;
+        }
+
+        @media screen and (max-width: 600px) {
+            .content .gallery-picture #DTV {
+                height: 300px;
+                width: 100%;
+                position: relative;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+	        if(navigator.userAgent.match(/(iPhone|iPod|Android|ios|SymbianOS|Windows Phone)/i)){
+            window.location.replace('http://3g.donews.com/')
+        }
+	    </script>
+</head>
+
+<body ng-app="my_app" ng-controller="NewsCtrl">
+
+<!--mars 大赛 start-->
+<!-- <div class="rl-modal" id="rl-modal">
+    <div id="star" class="mars-com star">
+        <img src="http://www.donews.com/static/image/pic/niuer.jpg" alt="主视觉-背景">
+    </div>
+    <div id="fighting" class="mars-com fighting">
+        <a href="http://www.donews.com/special/award/" target="_blank">
+            <img src="http://www.donews.com/static/image/pic/niuer.jpg" alt="主视觉-文字">
+        </a>
+    </div>
+    <button type="button" class="rl-close" id="rl-close"></button>
+</div>
+<div class="modal-backdrop" id="modal-backdrop" ></div> -->
+<!--mars 大赛 end-->
+
+<script>
+    // (function() {
+    //     function $(id) {return !!id?document.getElementById(id):id};
+    //     $('rl-close').onclick = function () {
+    //         $('rl-modal').style.display = 'none';
+    //         $('modal-backdrop').style.display = 'none';
+    //     }
+    // })()
+</script>
+<input type="hidden" value="http://www.donews.com/static"  id="static">
+<!--header start-->
+
+<link rel="shortcut icon" type="image/x-icon" href="http://www.donews.com/static/image/favicon.ico" media="screen" />
+<div class="all_w bcolor01">
+    <div class="nav w1200 margin-auto">
+       <div class="search pr">
+         <form id="search_news_form" action="http://www.donews.com/search/search_word">
+           <input name="" type="submit" value="" class="btn-search" />
+            <input name="keyword" value="搜索" type="text" />
+          </form>
+        </div>
+        <h1 class="logo" style="cursor: pointer" onclick="location.href='http://www.donews.com'"></h1>
+        <p>
+            <a style="margin-right:22px;" class="current" href="http://www.donews.com">首页</a>
+            <a style="margin-right:22px;" class="" href="http://www.donews.com/company/index">商业</a>
+            <a style="margin-right:22px;" class="" href="http://www.donews.com/business/index">创业</a>
+            <a style="margin-right:22px;" class="" href="http://www.donews.com/ent/index">互娱</a>
+            <a style="margin-right:22px;" class="" href="http://www.donews.com/technology/index">科技</a>
+            <a style="margin-right:22px;" class="" href="http://www.donews.com/idonews">专栏</a>
+            <a style="margin-right:22px;" class=" tv" href="http://www.donews.com/dtv/index">DTV</a>
+            <a style="margin-right:22px;" class=" " href="http://www.donews.com/special/grand/" target="_blank" >牛耳奖</a>
+            <!-- <a style="margin-right:22px;" class=" " href="http://qx.donews.com/" target="_blank" >MARS大赛</a> -->
+            <a style="margin-right:22px;" href="http://www.g.com.cn/" target="_blank" >引力资讯</a>
+            <a style="margin-right:22px;" href="http://ent.donews.com/list.asp?classid=1" target="_blank" >星游戏</a>
+            <!-- <a style="margin-right:22px;" href="http://ent.donews.com/" target="_blank" >文娱产品专区</a> -->
+            <!--<a class="<?/*= $menu1_class[6] */?> last" href="<?/*=_BASE_URL*/?>/Article/index">投稿爆料</a>-->
+        </p>
+    </div>
+</div>
+
+<div class="clear"></div>
+<!--header end-->
+<div class="focues hide">
+    <ul>
+                    <li class="init" style="background:url(http://img3.donews.com/uploads/adm/img_pic_1531361278.jpg) no-repeat center top;">
+                <p></p>
+                <div class="titBox"><span class="f_01 ">美商务部与中兴通讯达成协议 取消制裁</span></div>
+                <a href="http://www.donews.com/news/detail/1/3011606.html" target="_blank"></a>
+                <div class="focues_detail clearfix" data-focues-url="http://www.donews.com/news/detail/1/3011606.html">
+                                        <h3 class="f_01">美商务部与中兴通讯达成协议 取消制裁</h3>
+                    <p class="explain">禁令将在中兴向美国支付4亿保证金之后解除。</p>
+                </div>
+                <p class="background_c"></p>
+            </li>
+                    <li class="init" style="background:url(http://img3.donews.com/uploads/adm/img_pic_1531361232.jpg) no-repeat center top;">
+                <p></p>
+                <div class="titBox"><span class="f_02 ">奉佑生上市致辞：映客用三年时间成为港交所娱乐直播第一股</span></div>
+                <a href="http://www.donews.com/news/detail/1/3011609.html" target="_blank"></a>
+                <div class="focues_detail clearfix" data-focues-url="http://www.donews.com/news/detail/1/3011609.html">
+                                        <h3 class="f_02">奉佑生上市致辞：映客用三年时间成为港交所娱乐直播第一股</h3>
+                    <p class="explain">映客正式登陆港交所，股票代码为“03700”，开盘价4.32港元，较3.85港元的发行价上涨12.21%。</p>
+                </div>
+                <p class="background_c"></p>
+            </li>
+                    <li class="init" style="background:url(http://img3.donews.com/uploads/adm/img_pic_1531271588.jpg) no-repeat center top;">
+                <p></p>
+                <div class="titBox"><span class="f_03 ">外媒：ofo将逐步退出澳大利亚 已裁员印度市场员工</span></div>
+                <a href="http://www.donews.com/news/detail/1/3011367.html" target="_blank"></a>
+                <div class="focues_detail clearfix" data-focues-url="http://www.donews.com/news/detail/1/3011367.html">
+                                        <h3 class="f_03">外媒：ofo将逐步退出澳大利亚 已裁员印度市场员工</h3>
+                    <p class="explain">ofo小黄车宣布将在未来60天内逐步结束公司在澳大利亚的运营业务。</p>
+                </div>
+                <p class="background_c"></p>
+            </li>
+            </ul>
+</div>
+<div class="clear"></div>
+<div class=" w1200 margin-auto clearfix">
+    <div id="ad2" class="w1200 h100 blueBox mb20">
+      <!--广告02-->
+    </div>
+    <!--内容右侧　start-->
+    <div class="fr w320">
+        <!-- 快讯 start -->
+        <!-- <div id="kuaixun" class="clearfix mb20" ng-init="get_news_flash(0)">
+            <h3 class="h50 bcolor04 fc05 line-h50 p15 fon20 clearfix"><a class="fr fon14 cf refresh" title="刷新" ng_click="get_news_flash(1)">刷新</a>快讯</h3>
+            <div id="content-2" class="content p15 w320 pt15 content-index border01 over-hidden">
+                <div class="fast-item" ng-repeat="data in newsflash">
+                    <div class="item-inner" data-id="{{data.items.id}}" data-logtime="{{data.items.logtime}}">
+                        <div class="item-title {{data.items.three}}"><a ng-bind="data.items.title"></a></div>
+                        <div class="item-time" ng-bind="data.items.timeFormat"></div>
+                        <div class="item-info hide">
+                            <span ng-bind="data.items.description"></span>
+                            <a target="_blank" href="{{data.items.url}}">[详情]</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div id="kuaixun" class="clearfix mb20">
+            <h3 class="h50 bcolor04 fc05 line-h50 p15 fon20 clearfix"><a class="fr fon14 cf refresh" title="刷新">刷新</a>快讯</h3>
+            <div id="content-2" class="content p15 w320 pt15 content-index border01 over-hidden">
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49991719" data-logtime="2018-07-12 11:19:43">
+                                                        <div class="item-title three">转债市场率先表现出止跌反弹的迹象,大盘或将突破！突破！</div>
+                                                        <div class="item-time">18秒前</div>
+                            <div class="item-info hide">
+                                <span>A股仍在震荡寻底，隔壁的转债市场却悄然走出一波反弹行情。6月29日以来，中证转债指数已上涨2.28%，且个券抗跌和跟涨的能力增强。经历前期的正股和估值双杀后，转债已经处于底部震荡区间，既然未来下跌的空间不大，那现在需要考虑的是何时加仓。从中</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49991719/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49991717" data-logtime="2018-07-12 11:18:56">
+                                                        <div class="item-title three">金执峰：7.12原油带头下跌，黄金本周三次探底，后市行情如何布局？</div>
+                                                        <div class="item-time">1分钟前</div>
+                            <div class="item-info hide">
+                                <span>文章摘要：2018.7.12是不是美元涨黄金就跌？7.12做单过程中止盈止损有多重要？7.12贸易战对黄金有没有直接影响？7.12锁仓的情况下需要注意什么？新手炒黄金需要哪些心态？7月12号黄金在什么情况下会爆仓？7月12日昨晚黄金原油暴跌</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49991717/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49991216" data-logtime="2018-07-12 11:18:18">
+                                                        <div class="item-title three">激动！A股市场进入上市公司密集分红期！</div>
+                                                        <div class="item-time">1分钟前</div>
+                            <div class="item-info hide">
+                                <span>A股市场进入上市公司密集分红期。一项统计显示，7月份A股市场将实施超过500份分红方案。工商银行、建设银行、中国银行、交通银行、上汽集团、宁沪高速、中国中车等现金分红比例较高的公司将在7月中下旬分红派息。上市公司业绩持续提升，现金分红再创新</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49991216/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49991718" data-logtime="2018-07-12 11:14:09">
+                                                        <div class="item-title">富贵险中求 直捣《光明勇士》BOSS巢穴</div>
+                                                        <div class="item-time">5分钟前</div>
+                            <div class="item-info hide">
+                                <span>&nbsp;今日，盛大游戏旗下起源工作室独立研发，腾讯游戏代理发行的旗舰级手游《光明勇士》曝光萌新系列副本并且带来一些副本游戏内BOSS的设计图。各种Q萌BOSS齐齐登场，相信会给喜爱可爱，热爱副本的萌主们带来非同一般的乐趣。【黎明之子号】</span>
+                                <a target="_blank" href="http://www.g.com.cn/play/49991718/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49991212" data-logtime="2018-07-12 11:13:56">
+                                                        <div class="item-title">A股就是没有硝烟的战场</div>
+                                                        <div class="item-time">6分钟前</div>
+                            <div class="item-info hide">
+                                <span>资本市场就如没有硝烟的战场，这里只有资金的博弈，不相信眼泪、更不同情弱者，在当前这样跌跌不休惨烈的行情中，任何口号式的利好都是难于改变趋势的，只有真金白银入场干，才能够给人树立信心让人看到希望，就如美的集团那样，看到股价近期持续杀跌，二话不</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49991212/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49991004" data-logtime="2018-07-12 11:08:34">
+                                                        <div class="item-title">红阳论金：7月12黄金重归底部，能否筑底反弹？</div>
+                                                        <div class="item-time">11分钟前</div>
+                            <div class="item-info hide">
+                                <span>水满则溢，月满则亏，自满则败，自矜则愚，回避现实的人，未来将更加不理想，市场洗刷，唯强者风采主流而行已经成为常态，当很多人看空的时候依旧，市场多变，逆，可能多头正即将要到来，多空的快速转换，总是令人措手不及，强弱的转换只在那一瞬间，交易就是</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49991004/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49991204" data-logtime="2018-07-12 11:06:43">
+                                                        <div class="item-title">毛衣摩擦有升级趋势，A股低开，尾盘有所拉升！</div>
+                                                        <div class="item-time">13分钟前</div>
+                            <div class="item-info hide">
+                                <span>毛衣摩擦有升级趋势，A股低开，尾盘有所拉升，但市场人气还是太弱。好不容易盼来一个反弹，今天一个低开应该就把昨前天入场的大部分人又套里面了。比较好的是，这次下跌好像不如前面几次那么厉害了，前面几次一旦遇到毛衣占就会直接跳空破位，这一次仅仅是一</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49991204/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49994428" data-logtime="2018-07-12 11:04:19">
+                                                        <div class="item-title">一夜暴富卖百度的背后   中年惰性天才出走</div>
+                                                        <div class="item-time">15分钟前</div>
+                            <div class="item-info hide">
+                                <span>在过去将近十年的时间里，我们提到中国的互联网企业无外乎只有三个“BAT”，百度、阿里巴巴、腾讯这三家确实是当时国内互联网巨头，可是在十年时间过去了，阿里巴巴和腾讯的巨大成功让人们都看到了中国人的互联网实力和前景，但是当年意气风发的李彦宏和他</span>
+                                <a target="_blank" href="http://www.g.com.cn/tech/49994428/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49997810" data-logtime="2018-07-12 10:58:25">
+                                                        <div class="item-title">庆阳市2018年定向培养士官体检及面试双合格人员名单公示</div>
+                                                        <div class="item-time">21分钟前</div>
+                            <div class="item-info hide">
+                                <span>　　各位考生及家长：　　7月4日至6日，市征办组织全市定向培养士官考生在庆阳市第二人民医院进行了体格检查，体检当天一并组织面试，现将体检和面试双合格人员名单进行公示，并接受广大群众监督(监 督举报电话0934-8624032)。　　庆阳市人</span>
+                                <a target="_blank" href="http://www.g.com.cn/edu/49997810/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49998499" data-logtime="2018-07-12 10:57:38">
+                                                        <div class="item-title">人工智能新‘’玩法‘’—让人类假扮机器人？！</div>
+                                                        <div class="item-time">22分钟前</div>
+                            <div class="item-info hide">
+                                <span>01人工智能扫描技术其实是人自己录入据报道，一家开发商业费用管理 App 的公司 Expensify 被发现是利用人力而非人工智能机器来完成工作。事情的起因是这样的，该公司旗下有一款叫智能扫描技术的app，号称通过人工智能技术，自动识别用户</span>
+                                <a target="_blank" href="http://www.g.com.cn/tech/49998499/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49997342" data-logtime="2018-07-12 10:56:24">
+                                                        <div class="item-title">前线 | 嘀嗒出行正式推出出租车企业用车服务“嘀嗒企业付”</div>
+                                                        <div class="item-time">23分钟前</div>
+                            <div class="item-info hide">
+                                <span>凤凰网科技讯 （作者/孙洪）7月12日上午消息，嘀嗒出行宣布正式上线出租车企业用车服务——嘀嗒企业付，为企业提供正规出租车服务，解决企业员工、差旅等公务用车需求。据介绍，嘀嗒企业付是国内首个针对出租车业务的企业付功能，旨在让企业能够为员工提</span>
+                                <a target="_blank" href="http://www.g.com.cn/tech/49997342/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49995279" data-logtime="2018-07-12 10:55:24">
+                                                        <div class="item-title">《怪物猎人》将推出3D动画，2019年上映</div>
+                                                        <div class="item-time">24分钟前</div>
+                            <div class="item-info hide">
+                                <span>原标题：《怪物猎人》将推出3D动画，2019年上映卡普空官方公布与Pure Imagination Studios合作，将推出“怪物猎人”系列3D动画《Monster Hunter: Legends of the Guild（暂译怪物猎人：</span>
+                                <a target="_blank" href="http://www.g.com.cn/movie/49995279/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49997053" data-logtime="2018-07-12 10:55:05">
+                                                        <div class="item-title">盛运环保上演“地天板” 换手率高达32%</div>
+                                                        <div class="item-time">24分钟前</div>
+                            <div class="item-info hide">
+                                <span>原标题：盛运环保上演“地天板” 换手率高达32%中国证券网讯 7月12日消息，盛运环保今日以跌停价开盘，盘中上演“地天板”走势，盘中最高价报3.92元，逼近涨停。截至10:48，盛运环保涨3.35%，报3.70元，换手率高达32%，成交额超</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49997053/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49997192" data-logtime="2018-07-12 10:54:58">
+                                                        <div class="item-title">永存感恩心，常敬师长威 ——给那些润物无声的一中老师们</div>
+                                                        <div class="item-time">25分钟前</div>
+                            <div class="item-info hide">
+                                <span>原标题:永存感恩心，常敬师长威 ——给那些润物无声的一中老师们图：李永威我的儿子李永威今年的高考成绩是706分，斩获厦门市理科状元，全省第二名。在得知喜讯的第一时间我最想感谢的就是厦门一中的老师们。图：郑辉龙老师犹记得2015年的那年中考结</span>
+                                <a target="_blank" href="http://www.g.com.cn/edu/49997192/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49997356" data-logtime="2018-07-12 10:53:17">
+                                                        <div class="item-title">富轩集团为何要从门窗转到整装?他是这样说的</div>
+                                                        <div class="item-time">26分钟前</div>
+                            <div class="item-info hide">
+                                <span>装修房子总要烦恼：装修设计、材料选购、工程施工、家具购买等！装完了还要担心：装修公司偷工减料，没有售后服务，家具货不对板！你所烦恼的、所担心的装修问题，在富轩怡家都能得到解决！从毛坯到拎包入住，从硬装到全屋家居配置，从材料供应商到家居服务商</span>
+                                <a target="_blank" href="http://www.g.com.cn/tech/49997356/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49994340" data-logtime="2018-07-12 10:53:13">
+                                                        <div class="item-title">午后大盘会暴涨吗？</div>
+                                                        <div class="item-time">26分钟前</div>
+                            <div class="item-info hide">
+                                <span>冒充我的有不少。要注意识别！我不会主动发私信要分成的。如有遇到的，举报拉黑！一、早盘简述大盘早盘在外围的影响下低开。不过低开之后迅速翻红上拉。通讯股全线大爆发，带动市场人气。大盘一扫黑色星期四的阴影。个股呈普涨态势。大盘终于硬气了一回。别总</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49994340/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49996828" data-logtime="2018-07-12 10:52:40">
+                                                        <div class="item-title">常德小伙向40家网络平台贷款,家人遭暴力催收</div>
+                                                        <div class="item-time">27分钟前</div>
+                            <div class="item-info hide">
+                                <span>近日，常德市民邓先生向尚一网爆料，称因自己的儿子网贷无力偿还利息，家人遭到了催收公司密集的短信和电话“轰炸”，被迫长期关闭手机。他希望通过媒体提醒广大市民不要轻易网贷。家住常德市武陵区的邓先生介绍，他儿子邓某去年在一家网络借贷公司借了4万元</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49996828/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49995207" data-logtime="2018-07-12 10:52:40">
+                                                        <div class="item-title">《王者荣耀》信念之刃阿轲，阿轲帅气一笑，我的心突然被击中了</div>
+                                                        <div class="item-time">27分钟前</div>
+                            <div class="item-info hide">
+                                <span>在王者荣耀中，阿轲被定义为一位突进、收割、战士的英雄，coser@三泽瑞尔给我们带来了《王者荣耀》信念之刃阿轲，阿轲的帅气一笑，我的心突然被击中了啦！！！原作：王者荣耀角色：阿珂           cn：三泽瑞尔摄影＆后期：摄影师-万小也</span>
+                                <a target="_blank" href="http://www.g.com.cn/play/49995207/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49996881" data-logtime="2018-07-12 10:51:43">
+                                                        <div class="item-title">找跑跑上生活通，即安全，又快速</div>
+                                                        <div class="item-time">28分钟前</div>
+                            <div class="item-info hide">
+                                <span>原标题:找跑跑上生活通，即安全，又快速召唤跑跑日常生活中我们会遇到这样的问题：在XXX商家买了东西自己没时间去拿，人到了办公室才发现钥匙忘带，想送一束鲜花给女朋友但自己在出差，家中父母粮油米面快吃完了，自己又忙不过来送、商家会遇到这样的问题</span>
+                                <a target="_blank" href="http://www.g.com.cn/tech/49996881/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49998027" data-logtime="2018-07-12 10:51:23">
+                                                        <div class="item-title">超实用！暑期到了，学车的你需要get这个！</div>
+                                                        <div class="item-time">28分钟前</div>
+                            <div class="item-info hide">
+                                <span>原标题:超实用！暑期到了，学车的你需要get这个！暑期来了，又到学车的高峰期。信心满满准备驾考的你却发现，停车居然比开车还难？好不容易拿到驾照却又怕停不好车、把握不好车距不敢上路？侧方位停车、倒车入库、后视镜调节、车距把握、避免倒车事故……</span>
+                                <a target="_blank" href="http://www.g.com.cn/auto/49998027/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49998937" data-logtime="2018-07-12 10:50:01">
+                                                        <div class="item-title">国轩高科发布《关于变更部分募集资金投资项目实施内容的公告》</div>
+                                                        <div class="item-time">30分钟前</div>
+                            <div class="item-info hide">
+                                <span>7月10日，国轩高科发布《关于变更部分募集资金投资项目实施内容的公告》。此次国轩高科变更募投资金的项目正是其2017年11月路演募投总额不超36亿元的项目，目前全部资金已经到位。公告显示，为提高募集资金的使用效率，满足公司经营发展及市场变化</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49998937/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49999090" data-logtime="2018-07-12 10:50:00">
+                                                        <div class="item-title">571文件仅限地面电站 分布式光伏政策仍需等待</div>
+                                                        <div class="item-time">30分钟前</div>
+                            <div class="item-info hide">
+                                <span>昨日，一份落款为国家电网有限公司下发的《关于贯彻落实2018年光伏发电相关政策的通知》的文件在网上流传，而该文件也被一些光伏人解读为终于明确了有关分布式630的说法，但实际上真的是这样吗?国家电网有限公司的这份文件中明确，2018年以前在国</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49999090/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49997212" data-logtime="2018-07-12 10:49:15">
+                                                        <div class="item-title">北京西站4天2210元天价停车费引热议  我国停车市场发展趋势分析</div>
+                                                        <div class="item-time">30分钟前</div>
+                            <div class="item-info hide">
+                                <span>中商情报网讯：7月4日，北京一位车主将车停在北京西站后出京，8日回来发现，四天停车费竟高达2210元。此外，有报道北京西站还曾有过“停车56小时，收费1115元”的天价停车费事件。北京物价局对此回应，从2016年1月1日起，地下停车场或者露</span>
+                                <a target="_blank" href="http://www.g.com.cn/auto/49997212/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49995500" data-logtime="2018-07-12 10:48:28">
+                                                        <div class="item-title">2018中国儿童用药市场规模有望破1500亿 儿药市场发展趋势分析</div>
+                                                        <div class="item-time">31分钟前</div>
+                            <div class="item-info hide">
+                                <span>中商情报网讯：儿童用药指应用于0-14岁未成年患病者所使用的药物，包括专门针对儿童的专用药品或药品说明书中标明儿童使用用法用量的药品。儿童机体尚未发育成熟，与成人在生理上具有显著不同，不适合直接使用成人用药。儿童用药分类我国儿童用药市场发展</span>
+                                <a target="_blank" href="http://www.g.com.cn/tech/49995500/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49996291" data-logtime="2018-07-12 10:47:52">
+                                                        <div class="item-title">成人高考两年能拿到毕业证吗</div>
+                                                        <div class="item-time">32分钟前</div>
+                            <div class="item-info hide">
+                                <span>成人高考两年能拿到毕业证吗报考成人高考的考生大部分都是在职人员，怕时间长了会影响工作，那么成人高考几年能毕业，网络上传说“成人高考两年就能毕业”是真的吗?从近年成招规定来看，依据学习层次和学习形式不同，成人高考最低学习年限也不同。其中，脱产</span>
+                                <a target="_blank" href="http://www.g.com.cn/edu/49996291/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49996027" data-logtime="2018-07-12 10:47:35">
+                                                        <div class="item-title">教育提升看行动：腾讯智慧校园大讲堂激活河源幼教市场</div>
+                                                        <div class="item-time">32分钟前</div>
+                            <div class="item-info hide">
+                                <span>中视新媒体讯（新闻观察员吉祥）7月9日，广西河源市微看宝宝科技有限公司联合腾讯智慧校园和河源市源城区民办学前教育协会在河源市共同举办了“大数据智能化校园安全知识讲座”。陈老师现场已开讲：在现场，河源市微看宝宝科技有限公司与河源市源城区民办学</span>
+                                <a target="_blank" href="http://www.g.com.cn/edu/49996027/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49994582" data-logtime="2018-07-12 10:47:26">
+                                                        <div class="item-title">从没得选到挑花眼，你有多久没看过国产漫画了？</div>
+                                                        <div class="item-time">32分钟前</div>
+                            <div class="item-info hide">
+                                <span>你有多久没看过国产漫画了？曾几何时，国产漫画就像一个笑话，除了寥寥几部作品外，整个行业仿佛隐身，游离于80\90后的视野。当影视口号一年喊得比一年响亮，漫画这一细分市场始终被日漫占据。国产漫画在很多人心里，就像一个孩子一样，不堪一击。不过，</span>
+                                <a target="_blank" href="http://www.g.com.cn/tech/49994582/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49998615" data-logtime="2018-07-12 10:47:25">
+                                                        <div class="item-title">7月2日—8日 全市各县区环境空气质量综合排名公布</div>
+                                                        <div class="item-time">32分钟前</div>
+                            <div class="item-info hide">
+                                <span>说明：1.表中“＋”“－”分别表示上升或下降。2.综合指数反映空气质量优劣，综合指数同比变化率反映空气质量改善程度。3.综合得分=综合指数排名×0.4＋综合指数同比变化率排名×0.6，得分越高，说明空气质量越差、改善程度越小、排名越靠后。</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49998615/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49995738" data-logtime="2018-07-12 10:46:47">
+                                                        <div class="item-title">29.97亿！从东亚博览会看电商新型跨境贸易趋势</div>
+                                                        <div class="item-time">33分钟前</div>
+                            <div class="item-info hide">
+                                <span>原标题：29.97亿！从东亚博览会看电商新型跨境贸易趋势为期3天的东亚博览会在济南舜耕会展中心落下帷幕，近500家境外企业携带上万种特色商品盛装亮相，各类交易额逾3.86亿元(人民币，下同)，意向合作额达29.97亿元！就数据来看，近年来，</span>
+                                <a target="_blank" href="http://www.g.com.cn/tech/49995738/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                                    <div class="fast-item">
+                        <div class="item-inner" data-id="49996504" data-logtime="2018-07-12 10:46:45">
+                                                        <div class="item-title">截至6月底山西生产煤矿共605处；唐山11月底前压减500万吨炼钢产能</div>
+                                                        <div class="item-time">33分钟前</div>
+                            <div class="item-info hide">
+                                <span>截至6月底山西共有生产煤矿605处 产能94605万吨/年山西省煤炭工业厅7月9日发布的《关于公告山西省2018年上半年生产煤矿能力情况的通知》显示，截至2018年6月底山西省共有生产煤矿605处，合计产能94605万吨/年。根据《通知》可</span>
+                                <a target="_blank" href="http://www.g.com.cn/finance/49996504/">[详情]</a>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+        <!-- 快讯 end -->
+        <div class="clear"></div>
+        <div class="clearfix pr mb20">
+            <h3 class="h50 bcolor06 fc08 line-h50 p15 fon20 clearfix border01">
+                <span class="v_line pr">热点专题</span>
+            </h3>
+            <div class="clearfix over-hidden w320">
+                <div class="clearfix hot-topics">
+                                            <dl class="current">
+                            <dt>
+                            <a href="http://www.donews.com/special/shandagames/" target="_blank"><img src="http://img3.donews.com/uploads/adm/img_pic_1518339046.jpg" alt="以匠心延续顶级IP价值  以创新拓展二次元赛道"/></a>
+                            </dt>
+                            <dd>
+                                <a href="http://www.donews.com/special/shandagames/" target="_blank"><h4>以匠心延续顶级IP价值  以创新拓展二次元赛道</h4></a>
+                                <p>
+                                    盛大游戏是中国领先的互动娱乐内容运营平台。利用便捷的销售网络、完善的付费系统、广                                    <a href="http://www.donews.com/special/index" target="_blank"> 更多>></a>
+                                </p>
+                            </dd>
+                        </dl>
+                                            <dl class="current">
+                            <dt>
+                            <a href="http://www.donews.com/special/award/" target="_blank"><img src="http://img3.donews.com/uploads/adm/img_pic_1509096994.jpg" alt="2017年互联网第八届牛耳奖颁奖盛典"/></a>
+                            </dt>
+                            <dd>
+                                <a href="http://www.donews.com/special/award/" target="_blank"><h4>2017年互联网第八届牛耳奖颁奖盛典</h4></a>
+                                <p>
+                                    2017年是人工智能元年，更多新技术正走出实验室，面向社会并产生巨大价值，在全新                                    <a href="http://www.donews.com/special/index" target="_blank"> 更多>></a>
+                                </p>
+                            </dd>
+                        </dl>
+                                            <dl class="current">
+                            <dt>
+                            <a href="http://www.donews.com/special/homesickness/" target="_blank"><img src="http://img3.donews.com/uploads/adm/img_pic_1518340524.jpg" alt="《记住乡愁》第四季媒体报道专题"/></a>
+                            </dt>
+                            <dd>
+                                <a href="http://www.donews.com/special/homesickness/" target="_blank"><h4>《记住乡愁》第四季媒体报道专题</h4></a>
+                                <p>
+                                    《记住乡愁第四季》是由中宣部、住房和城乡建设部、国家新闻出版广电总局、国家文物局                                    <a href="http://www.donews.com/special/index" target="_blank"> 更多>></a>
+                                </p>
+                            </dd>
+                        </dl>
+                                            <dl class="current">
+                            <dt>
+                            <a href="http://www.donews.com/special/year2017/" target="_blank"><img src="http://img3.donews.com/uploads/adm/img_pic_1516156144.jpg" alt="DoNews2017年度—互联网行业年终盘点"/></a>
+                            </dt>
+                            <dd>
+                                <a href="http://www.donews.com/special/year2017/" target="_blank"><h4>DoNews2017年度—互联网行业年终盘点</h4></a>
+                                <p>
+                                    热点杂乱、方向不一、充满困惑，大约是2017年中国互联网给大家留下的主要印象。                                    <a href="http://www.donews.com/special/index" target="_blank"> 更多>></a>
+                                </p>
+                            </dd>
+                        </dl>
+                                    </div>
+                <ul class="ul-hotdot">
+                    <li class="current"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <!--		<div class="clearfix mb20">
+                    <a href="http://www.donews.com/special/grand/" target="_blank"><img src="/static/image/pic/ad_04.jpg" style=" width:320px;"/> </a>
+                </div>-->
+        <div class="clear"></div>
+        <div id="ad4" class="w320 h260 blueBox mb20">
+            <!-- 广告04  -->
+        </div>
+        <div id="ad5" class="w320 h260 blueBox mb20">
+            <!-- 广告05  -->
+        </div>
+    </div>
+    <!--内容右侧　end-->
+    <!--内容左侧　start-->
+    <div class="fl w840">
+        <div class="recom_news border01 h256">
+            <h3><a href="http://www.donews.com/article/show_recommend"></a>推荐</h3>
+            <ul>
+                                    <li><a href="http://www.donews.com/news/detail/4/3011620.html" target="_blank">网贷暴雷不断：投资者追债股东甩锅 千家平台将淘汰?</a></li>
+                                        <li><a href="http://www.donews.com/news/detail/4/3011619.html" target="_blank">人民日报评论：广告平台不能成“网络世界的电线杆”</a></li>
+                                        <li><a href="http://www.donews.com/news/detail/4/3011618.html" target="_blank">同程艺龙上市一波三折 私有化弃A股抱团转投港股</a></li>
+                                        <li><a href="http://www.donews.com/news/detail/4/3011617.html" target="_blank">博通确认189亿美元收购软件公司CA：每股44.5</a></li>
+                                        <li><a href="http://www.donews.com/news/detail/4/3011616.html" target="_blank">Facebook被指延长俄罗斯公司收集用户数据时间</a></li>
+                                        <li><a href="http://www.donews.com/news/detail/4/3011615.html" target="_blank">马斯克接受新挑战：出资解决美国弗林特水危机</a></li>
+                                        <li><a href="http://www.donews.com/news/detail/4/3011610.html" target="_blank">网易云创大会7月31日举行，将发布重磅数字化产品</a></li>
+                                        <li><a href="http://www.donews.com/news/detail/4/3011373.html" target="_blank">苹果合并Siri和人工智能业务 前谷歌高管将统领</a></li>
+                                        <li><a href="http://www.donews.com/news/detail/4/3011372.html" target="_blank">比特币价格上月底跌至6000美元以下 落差近“10</a></li>
+                                        <li><a href="http://www.donews.com/news/detail/4/3011371.html" target="_blank">豪赌小米千亿美元估值 投资者高价入局等待“解套”</a></li>
+                                </ul>
+        </div>
+        <div class="block">
+            <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                                    <span class="small_icon"></span>
+                                                <a href="http://www.donews.com/article/detail/4383/12226.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531365766.jpg" alt="从费正清、基辛格到班农">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/article/detail/4383/12226.html" target="_blank">从费正清、基辛格到班农</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">你很难用善意或恶意去揣测那些观点，它们都是出于各自的价值、知识体系，并烙有强烈的历史当下性和国家利益诉求。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">79</span-->
+                        <span class="fl zl-detail">
+                          <a href="http://www.donews.com/Ent/search_by_tag?tag_str=贸易战&bg=bgc15&from=index"
+                             target="_blank">
+                              <em class="bgc15">贸易战</em>
+                          </a>
+                            ｜
+                          <a href="http://www.donews.com/author/person?id=4383" class="fc07" target="_blank">
+                              吴晓波                          </a><label>5分钟前</label>
+                        </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                            <span class="small_icon"></span>
+                                        <a href="http://www.donews.com/article/detail/4859/12224.html" target="_blank">
+                        <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531363112.jpg" 对于AI与假新闻， 苹果和Facebook为何会各执一词？>
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/article/detail/4859/12224.html" target="_blank">对于AI与假新闻， 苹果和Facebook为何会各执一词？</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">俗话说“耳听为虚，眼见为实”。只不过如今随着AI技术的发展，耳听和眼见都可能难以为实了。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">112</span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=人工智能&bg=bgc12&from=index"
+                           target="_blank">
+                            <em class="bgc12">人工智能</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/author/person?id=4859" class="fc07" target="_blank">
+                            懂懂笔记                        </a><label>50分钟前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/1/3011611.html" target="_blank">
+                        <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531360604.jpg" 京东金融签署130亿元B轮融资协议   投后估值1330亿人民币>
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/1/3011611.html" target="_blank">京东金融签署130亿元B轮融资协议   投后估值1330亿人民币</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">京东金融近期已与中金资本、中银投资、中信建投和中信资本等投资人签署了具有约束力增资协议计划，预计将在2018年第三季度完成。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">121</span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=京东金融&bg=bgc00&from=index"
+                           target="_blank">
+                            <em class="bgc00">京东金融</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/84" class="fc07" target="_blank">
+                            费倩文                        </a><label>1小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/1/3011608.html" target="_blank">
+                        <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531361575.jpg" 映客港交所挂牌上市：开盘价4.32港元 较发行价上涨12.21%>
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/1/3011608.html" target="_blank">映客港交所挂牌上市：开盘价4.32港元 较发行价上涨12.21%</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">手机直播平台映客正式登陆港交所，股票代码为“03700”，开盘价4.32港元，较3.85港元的发行价上涨12.21%。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">125</span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=映客&bg=bgc21&from=index"
+                           target="_blank">
+                            <em class="bgc21">映客</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/34" class="fc07" target="_blank">
+                            向密                        </a><label>1小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/1/3011606.html" target="_blank">
+                        <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531358700.jpg" 美商务部与中兴通讯达成协议 取消制裁>
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/1/3011606.html" target="_blank">美商务部与中兴通讯达成协议 取消制裁</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">该协议是中兴上月与美国商务部达成的14亿美元和解协议的一部分，目的是重新获得与美国供应商做生意的权利。中兴智能手机和网络设备的零部件依赖于美国供应商。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">402</span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=中兴&bg=bgc09&from=index"
+                           target="_blank">
+                            <em class="bgc09">中兴</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/84" class="fc07" target="_blank">
+                            费倩文                        </a><label>2小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/1/3011605.html" target="_blank">
+                        <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531358090.jpg" 苹果秋季新品不止iPhone 将带来全线产品的升级换代>
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/1/3011605.html" target="_blank">苹果秋季新品不止iPhone 将带来全线产品的升级换代</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">苹果将带来支持Face ID的iPad以及更大显示屏的Apple Watch等产品。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">309</span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=苹果&bg=bgc14&from=index"
+                           target="_blank">
+                            <em class="bgc14">苹果</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/92" class="fc07" target="_blank">
+                            赵晋杰                        </a><label>2小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                    </div>
+    </div>
+    <!--内容左侧　end-->
+</div>
+<div class="clear"></div>
+<div class="clearfix h530 bcolor05 pt76 mb35 pr dtvbox">
+    <div class="dtv" style="cursor: pointer" onClick="window.open('http://www.donews.com/dtv/index')">DTV</div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filters hidden">
+        <defs>
+            <filter id="blur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="0,0"/>
+            </filter>
+        </defs>
+    </svg>
+    <div class="container">
+        <div class="content wauto">
+            <div class="gallery h527 over-hidden">
+                <ul class="gallery-pictures">
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_xingluyan/2944556.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=c0746348bf&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_xingluyan/2944556.html">【星路演】彩果智能老年健康枕：远程关注爸妈健康的枕头</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1481681445.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_xingluyan/2944708.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=344d5796d9&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_xingluyan/2944708.html">【星路演】传奇扑克：打造扑克联赛新生态</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1481860712.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_xingluyan/2946402.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=95cedee3ce&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_xingluyan/2946402.html">【星路演 】钛搏：结合好莱坞顶级IP的超级PC</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1484547202.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_huikeshi/2946801.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=eee0bb4634&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_huikeshi/2946801.html">【DoNews会客室】因果树CEO滕放：金融科技的新玩法</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1485165750.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_huikeshi/2947345.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=6c9b50b0ed&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_huikeshi/2947345.html">【会客室】爱加密CEO郭训平：移动互联网背后的护航者</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1486697809.png" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_xingluyan/2947825.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=64ac2da1e8&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_xingluyan/2947825.html">【星路演】天衍科技：利用VR/AR技术体验丰富人生</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1487814013.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_huikeshi/2948542.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=1e38c31250&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_huikeshi/2948542.html">【DoNews会客室】乐视云麦庆强：寻找一站式视频解决的最佳方案</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1489140380.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_huikeshi/2948301.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=e0baa6b357&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_huikeshi/2948301.html">乐驾科技CEO马斌斌：互联网老兵“死磕”HUD创业</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1488778754.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_xingluyan/2947788.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=af49b3f855&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_xingluyan/2947788.html">【星路演】高手APP： 打造“教”与“学”的需求精准匹配平台</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1487733349.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_xingluyan/2947122.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=e749ddcaa8&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_xingluyan/2947122.html">【星路演】玩童：让父母放下手机和孩子一起玩耍</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1486347072.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_huikeshi/2946793.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=96f5674ce5&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_huikeshi/2946793.html">掌贝CEO宿凯：智慧店铺的升级之路</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1485158057.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_xingluyan/2946141.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=800e869873&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_xingluyan/2946141.html">【星路演】极限元：人工智能技术整体解决方案提供商</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1484123072.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                        <li class="gallery-picture" target="_blank">
+                        <a href="http://www.donews.com/dtv/detail/dtv_kejiquan/2944664.html" target="_blank">
+                            <p v_num="0" data-videourl="http://yuntv.letv.com/bcloud.swf?uu=00fa69a535&vu=4fe255cfd0&pu=bcca8747fc&auto_play=1&gpcflag=1&lang=zh_CN" data-url="http://www.donews.com/dtv/detail/dtv_kejiquan/2944664.html">【科技圈】MINIEYE发布一代ADAS后装产品</p>
+                            <span><img style="width:700px; height:429px" src="http://img3.donews.com/uploads/adm/img_pic_1481790185.jpg" /></span>
+                            <a class="bg0"></a>
+                        </a>
+                    </li>
+                                    </ul>
+                <div id="DTV"></div>
+                <div class="clear"></div>
+                <div class="gallery-pagination">
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                        <button class="gallery-pagination-dot"><span></span></button>
+                                    </div>
+                <ul class="dtv-text">
+                                        <li>【星路演】彩果智能老年健康枕：远程关注爸妈健康的枕头</li>
+                                        <li>【星路演】传奇扑克：打造扑克联赛新生态</li>
+                                        <li>【星路演 】钛搏：结合好莱坞顶级IP的超级PC</li>
+                                        <li>【DoNews会客室】因果树CEO滕放：金融科技的新玩法</li>
+                                        <li>【会客室】爱加密CEO郭训平：移动互联网背后的护航者</li>
+                                        <li>【星路演】天衍科技：利用VR/AR技术体验丰富人生</li>
+                                        <li>【DoNews会客室】乐视云麦庆强：寻找一站式视频解决的最佳方案</li>
+                                        <li>乐驾科技CEO马斌斌：互联网老兵“死磕”HUD创业</li>
+                                        <li>【星路演】高手APP： 打造“教”与“学”的需求精准匹配平台</li>
+                                        <li>【星路演】玩童：让父母放下手机和孩子一起玩耍</li>
+                                        <li>掌贝CEO宿凯：智慧店铺的升级之路</li>
+                                        <li>【星路演】极限元：人工智能技术整体解决方案提供商</li>
+                                        <li>【科技圈】MINIEYE发布一代ADAS后装产品</li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+<div class="w1200 margin-auto clearfix">
+    <!--文章排名 start-->
+    <div class="fr w320">
+        <div class="clearfix border01  mb20">
+            <h3 class="h50 bcolor06 fc08 line-h50 p15 fon20 clearfix">
+                <!-- <a class="fr fon14 fc09 fw-n" href="#">查看所有</a> --><span class="v_line pr">文章排名</span></h3>
+            <ul class="article_sort">
+                                    <li class="clearfix">
+                        <h4><a href="http://www.donews.com/article/detail/4660/12211.html" target="_blank">斐讯0元购出事的责任到底在谁？</a></h4>
+                        <p>
+                          <span>
+                            maomaobear                          </span>
+                            <span>|</span>
+                            <span>23小时前</span>
+                        </p>
+                    </li>
+                                    <li class="clearfix">
+                        <h4><a href="http://www.donews.com/news/detail/1/3011458.html" target="_blank">百度证实原网易市场部总经理袁佛玉已加盟 向副总裁王路汇报</a></h4>
+                        <p>
+                          <span>
+                            向密                          </span>
+                            <span>|</span>
+                            <span>22小时前</span>
+                        </p>
+                    </li>
+                                    <li class="clearfix">
+                        <h4><a href="http://www.donews.com/article/detail/4820/12215.html" target="_blank">中国的进口抗癌药，为什么全世界最贵？</a></h4>
+                        <p>
+                          <span>
+                            每日人物                          </span>
+                            <span>|</span>
+                            <span>19小时前</span>
+                        </p>
+                    </li>
+                                    <li class="clearfix">
+                        <h4><a href="http://www.donews.com/news/detail/1/3011606.html" target="_blank">美商务部与中兴通讯达成协议 取消制裁</a></h4>
+                        <p>
+                          <span>
+                            费倩文                          </span>
+                            <span>|</span>
+                            <span>2小时前</span>
+                        </p>
+                    </li>
+                                    <li class="clearfix">
+                        <h4><a href="http://www.donews.com/news/detail/1/3011605.html" target="_blank">苹果秋季新品不止iPhone 将带来全线产品的升级换代</a></h4>
+                        <p>
+                          <span>
+                            赵晋杰                          </span>
+                            <span>|</span>
+                            <span>2小时前</span>
+                        </p>
+                    </li>
+                                    <li class="clearfix">
+                        <h4><a href="http://www.donews.com/article/detail/4351/12218.html" target="_blank">揭秘90后渡鸦创始人离职百度真相！</a></h4>
+                        <p>
+                          <span>
+                            国仁                          </span>
+                            <span>|</span>
+                            <span>17小时前</span>
+                        </p>
+                    </li>
+                                    <li class="clearfix">
+                        <h4><a href="http://www.donews.com/news/detail/3/3011524.html" target="_blank">《绝地求生》端手游加入微信钱包充值列表 或在近期商业化</a></h4>
+                        <p>
+                          <span>
+                            刘胜军                          </span>
+                            <span>|</span>
+                            <span>18小时前</span>
+                        </p>
+                    </li>
+                                    <li class="clearfix">
+                        <h4><a href="http://www.donews.com/article/detail/4875/12216.html" target="_blank">不做金融？今日头条上线现金贷，TMD最后一个巨头加入战场</a></h4>
+                        <p>
+                          <span>
+                            馨金融                          </span>
+                            <span>|</span>
+                            <span>19小时前</span>
+                        </p>
+                    </li>
+                            </ul>
+        </div>
+        <div id="ad6" class="w320 h540 blueBox mb20">
+            <!-- 广告06  -->
+        </div>
+    </div>
+    <!--文章排名 end-->
+    <!--文章排名左侧 start-->
+    <div class="fl w840">
+        <div class="block putdldown">
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/3/3011604.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531356545.jpg" alt="Tony大神：以3D化为前提的纸片人美少女创作之道">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/3/3011604.html" target="_blank">Tony大神：以3D化为前提的纸片人美少女创作之道</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">为什么中国风美少女是团子头？人气画师画的不同人物脸大多相似？电玩巴士独家专访Tony先生，不要错过。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">96</span-->
+                        <span class="fl zl-detail">
+                          <a href="http://www.donews.com/Ent/search_by_tag?tag_str=CCG&bg=bgc12&from=index"
+                             target="_blank">
+                              <em class="bgc12">CCG</em>
+                          </a>
+                          ｜
+                          <a href="http://www.donews.com/editor/person/308" class="fc07" target="_blank">
+                              TGBUS                          </a><label>2小时前</label>
+                        </span>
+                    </p>
+                </dd>
+            </dl>
+                        <div id="ad3" class="w840 h160 blueBox pb30 mb30 line_b">
+                <!-- 广告03  -->
+<!--                <div style="cursor:pointer" onclick="window.open('http://www.h5mo.com/open/tools/clickstat/code/cc67e6136311985e?tar_foid=C-28');return false;">
+                    <canvas width="992" height="567" id="testCanvas"></canvas>
+                </div>-->
+            </div>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                            <span class="small_icon"></span>
+                                        <a href="http://www.donews.com/article/detail/4859/12222.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531304788.jpg" alt="被低估的小米和映客“后劲”有多大"></a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/article/detail/4859/12222.html" target="_blank">被低估的小米和映客“后劲”有多大</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">从小米到映客，资本市场不只是讲故事。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">234</span-->
+                        <span class="fl zl-detail">
+                          <a href="http://www.donews.com/Ent/search_by_tag?tag_str=映客&bg=bgc21&from=index"
+                             target="_blank">
+                              <em class="bgc21">映客</em>
+                          </a>
+                          ｜
+                          <a href="http://www.donews.com/author/person?id=4859" class="fc07" target="_blank">
+                              懂懂笔记                          </a><label>17小时前</label>
+                        </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                            <span class="small_icon"></span>
+                                        <a href="http://www.donews.com/article/detail/4859/12220.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531303736.jpg" alt="二手车第一股之“忧”"></a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/article/detail/4859/12220.html" target="_blank">二手车第一股之“忧”</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">二手车电商的第一股，优信同样也没逃出这个怪圈，而且似乎越陷越深。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">167</span-->
+                        <span class="fl zl-detail">
+                          <a href="http://www.donews.com/Ent/search_by_tag?tag_str=优信二手车&bg=bgc20&from=index"
+                             target="_blank">
+                              <em class="bgc20">优信二手车</em>
+                          </a>
+                          ｜
+                          <a href="http://www.donews.com/author/person?id=4859" class="fc07" target="_blank">
+                              懂懂笔记                          </a><label>17小时前</label>
+                        </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/3/3011559.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531302398.png" alt="新版《流星花园》7.13上线Netflix"></a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/3/3011559.html" target="_blank">新版《流星花园》7.13上线Netflix</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">柴智屏重制的内地版《流星花园》将于7月13日上线Netflix，每周五更新6集。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">210</span-->
+                        <span class="fl zl-detail">
+                          <a href="http://www.donews.com/Ent/search_by_tag?tag_str=流星花园&bg=bgc16&from=index"
+                             target="_blank">
+                              <em class="bgc16">流星花园</em>
+                          </a>
+                          ｜
+                          <a href="http://www.donews.com/editor/person/303" class="fc07" target="_blank">
+                              王诗诗                          </a><label>17小时前</label>
+                        </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/3/3011555.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531302109.jpg" alt="腾讯动漫漫画《帝王侧》将推动态漫画 7.14上线"></a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/3/3011555.html" target="_blank">腾讯动漫漫画《帝王侧》将推动态漫画 7.14上线</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">腾讯动漫独家签约作品，点击量86亿的漫画《帝王侧》将推出同名动态漫画，该作确定于7月14日上线腾讯视频、B站以及酷燃视频。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">170</span-->
+                        <span class="fl zl-detail">
+                          <a href="http://www.donews.com/Ent/search_by_tag?tag_str=动漫&bg=bgc25&from=index"
+                             target="_blank">
+                              <em class="bgc25">动漫</em>
+                          </a>
+                          ｜
+                          <a href="http://www.donews.com/editor/person/303" class="fc07" target="_blank">
+                              王诗诗                          </a><label>17小时前</label>
+                        </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/3/3011549.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531301730.jpg" alt="使徒子3部新作漫画上线腾讯动漫"></a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/3/3011549.html" target="_blank">使徒子3部新作漫画上线腾讯动漫</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">11日，网络红人漫画家使徒子3部新作漫画同天上线腾讯动漫。这三作品分别是《三界厨房》、《除了帅一无是处的我》以及《暗月代理人》。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">137</span-->
+                        <span class="fl zl-detail">
+                          <a href="http://www.donews.com/Ent/search_by_tag?tag_str=动漫&bg=bgc25&from=index"
+                             target="_blank">
+                              <em class="bgc25">动漫</em>
+                          </a>
+                          ｜
+                          <a href="http://www.donews.com/editor/person/303" class="fc07" target="_blank">
+                              王诗诗                          </a><label>17小时前</label>
+                        </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                            <span class="small_icon"></span>
+                                        <a href="http://www.donews.com/article/detail/4351/12218.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531301660.jpg" alt="揭秘90后渡鸦创始人离职百度真相！"></a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/article/detail/4351/12218.html" target="_blank">揭秘90后渡鸦创始人离职百度真相！</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">陆奇的离开，也宣告着渡鸦团队的危亡。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">291</span-->
+                        <span class="fl zl-detail">
+                          <a href="http://www.donews.com/Ent/search_by_tag?tag_str=人工智能&bg=bgc12&from=index"
+                             target="_blank">
+                              <em class="bgc12">人工智能</em>
+                          </a>
+                          ｜
+                          <a href="http://www.donews.com/author/person?id=4351" class="fc07" target="_blank">
+                              国仁                          </a><label>17小时前</label>
+                        </span>
+                    </p>
+                </dd>
+            </dl>
+                    </div>
+    </div>
+    <!--文章排名左侧 end-->
+</div>
+<div class="clear"></div>
+<div class="clearfix bcolor05 pt80 mb30 pr h220 over-hidden keybox">
+    <ul class="key-tab" id="data_tab0">
+        <li class="current" style="cursor: pointer" onClick="window.open('http://www.365key.com/')">365Key</li>
+        <!-- <li>活动</li> -->
+    </ul>
+    <div class="clearfix pr" id="data_box0_0">
+        <div class="key-pro clearfix key_pro over-hidden ">
+            <ul class="ul-pro ul_pro clearfix">
+                                <li>
+                                        <a href="http://www.donews.com/home/out_link/1202" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58d1ce6827c03.jpg" alt="小筑理"/>
+                        </p>
+                        <h4>小筑理</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1201" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58d07aa87d498.jpg" alt="微位科技"/>
+                        </p>
+                        <h4>微位科技</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1200" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58cf2a744c833.jpg" alt="一起写"/>
+                        </p>
+                        <h4>一起写</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1199" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58cb3e653ecbe.jpg" alt="微跑小蛙"/>
+                        </p>
+                        <h4>微跑小蛙</h4>
+                    </a>
+                                    </li>
+                                <li>
+                                        <a href="http://www.donews.com/home/out_link/1198" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58c9ef983d24a.jpg" alt="扫货特卖APP"/>
+                        </p>
+                        <h4>扫货特卖APP</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1197" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58c8949b6dc24.jpg" alt="木兰仓"/>
+                        </p>
+                        <h4>木兰仓</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1196" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58c73bd81431d.jpg" alt="领环"/>
+                        </p>
+                        <h4>领环</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1195" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58c5f00e87063.jpg" alt="兼职乐"/>
+                        </p>
+                        <h4>兼职乐</h4>
+                    </a>
+                                    </li>
+                                <li>
+                                        <a href="http://www.donews.com/home/out_link/1194" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58c20851d8ab5.jpg" alt="FUNX青年社区"/>
+                        </p>
+                        <h4>FUNX青年社区</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1193" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58c0afeee4d66.jpg" alt="Flitto"/>
+                        </p>
+                        <h4>Flitto</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1192" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58bf5375e7524.jpg" alt="营康科技"/>
+                        </p>
+                        <h4>营康科技</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1191" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58be48d4c4bc4.jpg" alt="儒伽医疗"/>
+                        </p>
+                        <h4>儒伽医疗</h4>
+                    </a>
+                                    </li>
+                                <li>
+                                        <a href="http://www.donews.com/home/out_link/1189" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58bcc203c062f.jpg" alt="才云科技"/>
+                        </p>
+                        <h4>才云科技</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1188" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58bcb37f3fb12.jpg" alt="MagicNurse"/>
+                        </p>
+                        <h4>MagicNurse</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1186" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58b8d3125fd05.jpg" alt="向上影业"/>
+                        </p>
+                        <h4>向上影业</h4>
+                    </a>
+                                        <a href="http://www.donews.com/home/out_link/1185" target="_blank">
+                        <p><img style="width:238px; height:140px;"
+                               src="http://www.365key.com/adm2015/static/uploads/58b8be2339eed.jpg" alt="石云科技"/>
+                        </p>
+                        <h4>石云科技</h4>
+                    </a>
+                                    </li>
+                            </ul>
+        </div>
+        <span class="btn-l pro_l">left</span>
+        <span class="btn-r pro_r">right</span>
+    </div>
+    <div class="clearfix pr" id="data_box0_1">
+        <div class="key-act n_kuan over-hidden">
+            <ul class="key-actbox ul_nk">
+                            </ul>
+        </div>
+        <span class="btn-l n_l">left</span>
+        <span class="btn-r n_r">right</span>
+    </div>
+</div>
+<div class="clear"></div>
+<div class=" w1200 margin-auto clearfix">
+    <!--内容右侧　start-->
+    <div class="fr w320">
+        <div class="clearfix border01  mb20">
+            <h3 class="h50 bcolor06 fc08 line-h50 p15 fon20 clearfix" style="cursor: pointer" onClick="location.href='http://www.donews.com/author/index'">
+                <!-- <a class="fr fon14 fc09 fw-n" href="#">查看所有</a> -->
+                <span class="v_line pr">自媒体专栏作者</span>
+            </h3>
+            <div class="medio_author">
+                                    <a href="http://www.donews.com/idonews/maomaobear" target="_blank">
+                        <span>01</span>
+                        <span><img src="http://img3.donews.com/col_article/thumbs/AI-VuMHmJRr3v.jpg" onerror="this.src='http://www.donews.com/static/image/mr.png'" alt="maomaobear"/></span>
+                        <h3>maomaobear</h3>
+                    </a>
+                                    <a href="http://www.donews.com/idonews/kejihaowenzhang" target="_blank">
+                        <span>02</span>
+                        <span><img src="http://img3.donews.com/col_article/thumbs/AI-W771lZuHIy.jpg" onerror="this.src='http://www.donews.com/static/image/mr.png'" alt="科技好文章"/></span>
+                        <h3>科技好文章</h3>
+                    </a>
+                                    <a href="http://www.donews.com/idonews/jiangbojing" target="_blank">
+                        <span>03</span>
+                        <span><img src="http://img3.donews.com/col_article/thumbs/AI-J2HgDTRCZI.jpg" onerror="this.src='http://www.donews.com/static/image/mr.png'" alt="姜伯静"/></span>
+                        <h3>姜伯静</h3>
+                    </a>
+                                    <a href="http://www.donews.com/idonews/gengbiao" target="_blank">
+                        <span>04</span>
+                        <span><img src="http://img3.donews.com/col_article/thumbs/AI-Ife2M3vecX.jpg" onerror="this.src='http://www.donews.com/static/image/mr.png'" alt="耿彪"/></span>
+                        <h3>耿彪</h3>
+                    </a>
+                                    <a href="http://www.donews.com/idonews/chifei" target="_blank">
+                        <span>05</span>
+                        <span><img src="http://img3.donews.com/col_article/thumbs/AI-69PZpaq45f.jpg" onerror="this.src='http://www.donews.com/static/image/mr.png'" alt="姜洪智"/></span>
+                        <h3>姜洪智</h3>
+                    </a>
+                                    <a href="http://www.donews.com/idonews/sunyongjie" target="_blank">
+                        <span>06</span>
+                        <span><img src="http://img3.donews.com/col_article/thumbs/AI-abXf5l0H42.jpg" onerror="this.src='http://www.donews.com/static/image/mr.png'" alt="孙永杰"/></span>
+                        <h3>孙永杰</h3>
+                    </a>
+                                    <a href="http://www.donews.com/idonews/eping" target="_blank">
+                        <span>07</span>
+                        <span><img src="http://www.donews.com/static/image/mr.png" onerror="this.src='http://www.donews.com/static/image/mr.png'" alt="腾讯锐评"/></span>
+                        <h3>腾讯锐评</h3>
+                    </a>
+                                    <a href="http://www.donews.com/idonews/lijunhui" target="_blank">
+                        <span>08</span>
+                        <span><img src="http://img3.donews.com/col_article/thumbs/AI-Z3J9a2XWtu.jpg" onerror="this.src='http://www.donews.com/static/image/mr.png'" alt="李俊慧"/></span>
+                        <h3>李俊慧</h3>
+                    </a>
+                            </div>
+        </div>
+<!--        <div class="clearfix border01  mb20">-->
+<!--            <h3 class="h50 bcolor06 fc08 line-h50 p15 fon20 zhihai clearfix line_b" style="cursor: pointer"-->
+<!--                onclick="window.open('http://www.smarthey.com/')">-->
+<!--                <a class="fr fon14 fw-n fc09" >查看所有</a>-->
+<!--            </h3>-->
+<!--            <div class="zhihai-r">-->
+<!--                --><!--                    <dl class="clearfix">-->
+<!--                      <dt><a href="--><?//= $z['url'] ?><!--" target="_blank"><img src="--><?//= $z['pic'] ?><!--" alt="--><?//= $z['title'] ?><!--"/></a></dt>-->
+<!--                        <dd>-->
+<!--                            <h3><a href="--><?//= $z['url'] ?><!--" target="_blank">--><?//= $z['title'] ?><!--</a></h3>-->
+<!--                            <p>--><?//= $z['logtime'] ?><!--</p>-->
+<!--                        </dd>-->
+<!--                    </dl>-->
+<!--                --><!--            </div>-->
+<!--        </div>-->
+<!--        <div class="clearfix border01  mb20">-->
+<!--            <h3 class="h50 bcolor06 fc08 line-h50 p15 fon20 jng clearfix line_b" style="cursor: pointer" onClick="window.open('http://www.jinniugong.com/')">-->
+<!--                <a class="fr fon14 fw-n fc09" >查看所有</a>-->
+<!--            </h3>-->
+<!--            <div class="jng-r">-->
+<!--                --><!--                <dl class="clearfix">-->
+<!--                  <dt><a href="--><?//= $s['url'] ?><!--" target="_blank"><img src="--><?//= $s['pic'] ?><!--" alt="--><?//= $s['title'] ?><!--"/></a></dt>-->
+<!--                    <dd>-->
+<!--                        <h3><a href="--><?//= $s['url'] ?><!--" target="_blank">--><?//= $s['title'] ?><!--</a></h3>-->
+<!--                        <p>--><?//= $s['logtime'] ?><!--</p>-->
+<!--                    </dd>-->
+<!--                </dl>-->
+<!--                --><!--            </div>-->
+<!--        </div>-->
+    </div>
+    <!--内容右侧　end-->
+    <!--内容左侧　start-->
+    <div class="fl w840">
+        <div class="block getdldown" ng-init="init( )">
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                            <span class="small_icon"></span>
+                                        <a href="http://www.donews.com/article/detail/4878/12217.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531300295.jpg" alt="DocuSign市值最高突破百亿美元，中国电子签约的春天来了吗？">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/article/detail/4878/12217.html" target="_blank">DocuSign市值最高突破百亿美元，中国电子签约的春天来了吗？</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">小米上市，接下来美团、拼多多等也要陆续IPO，很多人感叹这将是中国互联网的最后一波造富故事。那么，中国还有哪些领域值得创业者All In？</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=电子签约&bg=bgc28&from=index"
+                           target="_blank">
+                            <em class="bgc28">电子签约</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/author/person?id=4878" class="fc07" target="_blank">
+                            吴怼怼                        </a><label>18小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/3/3011529.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531299845.jpg" alt="《海盗来了》月流水过亿 研发商强调玩法社群运营和买量">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/3/3011529.html" target="_blank">《海盗来了》月流水过亿 研发商强调玩法社群运营和买量</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">微信小游戏《海盗来了》月流水过1亿元，研发商北京豪腾嘉科分享了产品在玩法、运营商的三点经验。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=微信小游戏&bg=bgc08&from=index"
+                           target="_blank">
+                            <em class="bgc08">微信小游戏</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/285" class="fc07" target="_blank">
+                            刘胜军                        </a><label>18小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/3/3011524.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531298700.png" alt="《绝地求生》端手游加入微信钱包充值列表 或在近期商业化">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/3/3011524.html" target="_blank">《绝地求生》端手游加入微信钱包充值列表 或在近期商业化</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">腾讯旗下两款《绝地求生》手游正式加入微信钱包游戏充值列表，游戏可能将在近期过审并开始商业化。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=绝地求生&bg=bgc11&from=index"
+                           target="_blank">
+                            <em class="bgc11">绝地求生</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/285" class="fc07" target="_blank">
+                            刘胜军                        </a><label>18小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                            <span class="small_icon"></span>
+                                        <a href="http://www.donews.com/article/detail/4820/12215.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531295024.jpg" alt="中国的进口抗癌药，为什么全世界最贵？">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/article/detail/4820/12215.html" target="_blank">中国的进口抗癌药，为什么全世界最贵？</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">国产仿制药存在哪些问题？中国的慢粒患者面对的最大困境究竟是什么？</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=仿制药&bg=bgc23&from=index"
+                           target="_blank">
+                            <em class="bgc23">仿制药</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/author/person?id=4820" class="fc07" target="_blank">
+                            每日人物                        </a><label>19小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                            <span class="small_icon"></span>
+                                        <a href="http://www.donews.com/article/detail/4745/12213.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531292549.jpg" alt="顺丰王卫：你如果不愿意吃亏，那么永远都不会做大">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/article/detail/4745/12213.html" target="_blank">顺丰王卫：你如果不愿意吃亏，那么永远都不会做大</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">「我做企业，是想让企业长期发展，让一批人得到有尊严的生活。」</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=顺丰控股&bg=bgc20&from=index"
+                           target="_blank">
+                            <em class="bgc20">顺丰控股</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/author/person?id=4745" class="fc07" target="_blank">
+                            冯仑                        </a><label>20小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/3/3011463.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531291102.jpg" alt="漫画家于彦舒新作漫画《踢球吧，太阳！》上线微漫画">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/3/3011463.html" target="_blank">漫画家于彦舒新作漫画《踢球吧，太阳！》上线微漫画</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">在少年漫画领域颇有建树，被誉为中国漫画“少年王”的漫画家于彦舒，推出足球题材新作漫画《踢球吧，太阳！》。漫画现已上线微漫画，更新一话。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=动漫&bg=bgc25&from=index"
+                           target="_blank">
+                            <em class="bgc25">动漫</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/303" class="fc07" target="_blank">
+                            王诗诗                        </a><label>20小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/3/3011462.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531289820.jpg" alt="网文改编动画《盛世妆娘》7.24独家上线腾讯视频">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/3/3011462.html" target="_blank">网文改编动画《盛世妆娘》7.24独家上线腾讯视频</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">根据晋江文学城荔箫同名网络小说改编的动画《盛世妆娘》确定将于7月24日在腾讯视频独播，动画由企鹅影视出品。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=动漫&bg=bgc25&from=index"
+                           target="_blank">
+                            <em class="bgc25">动漫</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/303" class="fc07" target="_blank">
+                            王诗诗                        </a><label>21小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/1/3011458.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531286127.jpg" alt="百度证实原网易市场部总经理袁佛玉已加盟 向副总裁王路汇报">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/1/3011458.html" target="_blank">百度证实原网易市场部总经理袁佛玉已加盟 向副总裁王路汇报</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">百度方面证实，原网易公司市场部总经理袁佛玉已正式加入百度，向百度公司副总裁王路汇报。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=百度&bg=bgc13&from=index"
+                           target="_blank">
+                            <em class="bgc13">百度</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/34" class="fc07" target="_blank">
+                            向密                        </a><label>22小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/1/3011457.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531284502.jpg" alt="​映客CEO奉佑生内部信：没有BAT加持，我们却笑到千播大战最后">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/1/3011457.html" target="_blank">​映客CEO奉佑生内部信：没有BAT加持，我们却笑到千播大战最后</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">映客CEO奉佑生发布内部信，称“映客没有BAT的加持和站队，凭借自己不断进步的产品和技术创新能力，在最惨烈的千播大战中笑到了最后。”</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=映客&bg=bgc21&from=index"
+                           target="_blank">
+                            <em class="bgc21">映客</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/34" class="fc07" target="_blank">
+                            向密                        </a><label>22小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/3/3011456.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531283896.png" alt="暴鸡电竞完成1500万美元A+轮融资 将用以提高平台社交性">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/3/3011456.html" target="_blank">暴鸡电竞完成1500万美元A+轮融资 将用以提高平台社交性</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">游戏陪玩平台暴鸡电竞宣布完成1500万美元A+轮融资，本轮资金将主要用于搭建产品矩阵和工会体系，提升平台的社交性。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=暴鸡电竞&bg=bgc17&from=index"
+                           target="_blank">
+                            <em class="bgc17">暴鸡电竞</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/285" class="fc07" target="_blank">
+                            刘胜军                        </a><label>22小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                            <span class="small_icon"></span>
+                                        <a href="http://www.donews.com/article/detail/4660/12211.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531281574.jpg" alt="斐讯0元购出事的责任到底在谁？">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/article/detail/4660/12211.html" target="_blank">斐讯0元购出事的责任到底在谁？</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">这次损失惨重的并不是斐讯路由器的购买者，而是购买了斐讯路由器然后有重金投资联璧金融的投资者。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=斐讯&bg=bgc26&from=index"
+                           target="_blank">
+                            <em class="bgc26">斐讯</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/author/person?id=4660" class="fc07" target="_blank">
+                            maomaobear                        </a><label>23小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                                        <a href="http://www.donews.com/news/detail/1/3011424.html" target="_blank">
+                      <img style="width:240px; height:151px;" src="http://img3.donews.com/uploads/adm/img_pic_1531280584.png" alt="菜鸟控股即时物流平台点我达 注资2.9亿美元">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix">
+                        <a href="http://www.donews.com/news/detail/1/3011424.html" target="_blank">菜鸟控股即时物流平台点我达 注资2.9亿美元</a>
+                    </h3>
+                    <p class="block line-h22  fon14 fc07">菜鸟网络宣布，用众包业务和其他业务资源及2.9亿美元现金战略投资最大即时物流平台点我达，成为其控股股东。</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                      <!--span class="fr eye"></span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str=菜鸟&bg=bgc18&from=index"
+                           target="_blank">
+                            <em class="bgc18">菜鸟</em>
+                        </a>
+                         ｜
+                        <a href="http://www.donews.com/editor/person/115" class="fc07" target="_blank">
+                            翟继茹                        </a><label>23小时前</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+                        <dl ng-repeat="new in more_news" class="block pb30 mb30 line_b clearfix">
+                <dt class="fl w240">
+                    <a href="{{new.url}}" target="_blank">
+                      <img style="width:240px; height:151px;" ng-src="{{new.pic}}" alt="{{ new.title }}">
+                    </a>
+                </dt>
+                <dd class="fl w570 ml25 pr h151">
+                    <h3 class="block fc06 fon20 mb15 clearfix"><a href="{{new.url}}" target="_blank">{{ new.title }}</a></h3>
+                    <p class="block line-h22  fon14 fc07">{{ new.description }}</p>
+                    <p class="block fc07 line-h22 fon14 clearfix pa lb0">
+                        <!--span class="fr eye">{{ new.read_count }}</span-->
+                      <span class="fl zl-detail">
+                        <a href="http://www.donews.com/Ent/search_by_tag?tag_str={{ new.tags_str.split(' ')[0] }}&bg={{new.tag_color}}&from=index" target="_blank">
+                            <em class="{{new.tag_color}}">{{ new.tags_str.split(' ')[0] }}</em>
+                        </a>
+                         ｜
+                        <a href="{{ new.author_url }}" class="fc07" target="_blank">{{ new.author }}</a>
+                        <label>{{ new.logtime }}</label>
+                      </span>
+                    </p>
+                </dd>
+            </dl>
+            <div id="loadmore" class="loadmore" ng-click="loadmore()">查看更多......</div>
+        </div>
+    </div>
+    <!--内容左侧　end-->
+</div>
+<div class="clear"></div>
+<script language="javascript" src="http://www.donews.com/static/js/bin/jquery-1.11.1.min.js"></script>
+<div class="all_w bcolor07 clearfix fx">
+    <div class="w1200 margin-auto">
+        <div class="footer">
+            <div class="clearfix mb35">
+                <p class="wenxin clearfix"><a href="http://weibo.com/donewsoffice?is_hot=1" target="_blank"></a><a class="wx"><span class="hide"></span></a></p><h2 class="logo"></h2></div>
+            <ul>
+                  <li class="clearfix">
+                    <strong>热门频道：</strong>
+                    <a href="http://www.donews.com/company/index" target="_blank">商业资讯</a>
+                    <a href="http://www.donews.com/business/index" target="_blank">创业资讯</a>
+                    <a href="http://www.donews.com/ent/index" target="_blank">互娱资讯</a>
+                    <a href="http://www.donews.com/idonews" target="_blank">专栏资讯</a>
+                    <a href="http://www.donews.com/dtv/index" target="_blank">DTV</a>
+                    <a href="http://www.donews.com/special/grand/" target="_blank" >牛耳奖</a>
+                  </li>
+                  <li class="clearfix">
+                      <strong>友情链接：</strong>
+                      <a href="http://www.sfw.cn/" target="_blank">上方网</a>
+                      <a href="http://beijing.liebiao.com/" target="_blank">北京分类信息</a>
+                      <a href="http://www.mayi.com/" target="_blank">北京短租房</a>
+                      <a href="http://www.zgsydw.com/" target="_blank">事业单位招聘网</a>
+                      <a href="http://www.dolanzz.com/" target="_blank">多蓝数字营销</a>
+                      <a href="http://www.cnmo.com/" target="_blank">手机</a>
+                      <a href="http://www.slanmedia.com/seo/" target="_blank">北京SEO</a>
+                      <a href="http://www.g.com.cn/" target="_blank">引力资讯</a>
+                      <a href="http://news.gzw.net/" target="_blank">贵州网资讯</a>
+                      <a href="http://news.680.com/" target="_blank">威客创意资讯</a>
+                      <a href="http://yl.szhk.com/" target="_blank">娱乐新闻</a>
+                      <a href="http://www.prettyfeather.cn/" target="_blank">漂漂羽毛</a>
+                  </li>
+            </ul>
+            <div class="clear"></div>
+            <p class="footer_nav mb20 clearfix"><a href="http://www.donews.com/commom/aboutus">关于我们</a><a href="http://www.donews.com/commom/agree">电子协议</a><a href="http://www.donews.com/commom/contact">合作联系</a><a href="http://www.donews.com/about">加入我们</a><a href="http://3g.donews.com/" target="_blank">移动端</a>
+            </p>
+            <p style="text-align: center;">Copyright © DoNews 2000-2018 All Rights Reserved  版权所有：北京斗牛士文化传媒有限公司  <a href="http://www.miibeian.gov.cn" target="_blank" style="color: #fff">京ICP备15062447号-2</a></p>
+            <p style="text-align: center;">联系地址：北京市西城区建学胡同36号2幢150 联系电话：010-60845018 邮箱：ggb@donews.com</p>
+            <p style="display:inline-block;">
+              <a id='___szfw_logo___' href='https://credit.szfw.org/CX20180122037827260316.html' target='_blank'><img src='http://icon.szfw.org/cert.png' border='0' /></a>
+              <script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+              <a id='___szfw_logo___' href='https://credit.szfw.org/CX20180122037827320938.html' target='_blank'><img src='http://icon.szfw.org/silver.jpg' border='0' /></a>
+              <script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Jquery -->
+<script language="javascript" src="http://www.donews.com/static/js/bin/jquery-1.11.1.min.js"></script>
+<script src="http://www.donews.com/static/js/public.js"></script>
+<!-- Donews -->
+<script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//123.57.227.67/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', 7]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-88236828-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<script language="javascript" src="http://www.donews.com/static/js/sdk/lib/consumption-1.1.min.js"></script>
+<script type="text/javascript">
+    var app_key = app_key || "donews_website"; // 分配的app_key
+    (function() {
+        var jssdk = document.createElement('script');
+        jssdk.type = 'text/javascript';
+        jssdk.src = 'http://www.donews.com/static/js/sdk/lib/JSSDK-1.3.3.min.js'; // jssdk.js 文件的位置
+        var sArr = document.getElementsByTagName('script');
+        var s = document.getElementsByTagName('script')[sArr.length - 1];
+        s.parentNode.insertBefore(jssdk,s);
+    })();
+</script>
+<noscript><p><img src="//123.57.227.67/piwik.php?idsite=7" style="border:0;" alt="" /></p></noscript>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7d59aec813a782c631c32b1803b12e53";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- End Donews Code --><!--<script language="javascript" src="<?/*= _STATIC */?>/js/sdk/lib/jquery-1.11.1.min.js"></script>-->
+<script language="javascript" src="http://www.donews.com/static/js/bin/jquery.easing.1.3.js"></script>
+<script language="javascript" src="http://www.donews.com/static/js/bin/jquery.mCustomScrollbar.min.js"></script>
+<script language="javascript" src="http://www.donews.com/static/js/bin/jquery.mousewheel.min.js"></script>
+<script language="javascript" src="http://www.donews.com/static/js/bin/dtvTweenMax.min.js"></script>
+<script language="javascript" src="http://www.donews.com/static/js/dtv.js"></script>
+<script language="javascript" src="http://www.donews.com/static/js/public.js"></script>
+<script language="javascript" src="http://www.donews.com/static/js/scrollclick.js"></script>
+<script language="javascript" src="http://www.donews.com/static/js/focueshead.js"></script>
+<script language="javascript" src="http://www.donews.com/static/js/focues.js"></script>
+<script type="text/javascript" src="http://www.donews.com/static/lib/angular_1.2.29.min.js"></script>
+<script type="text/javascript" src="http://www.donews.com/static/lib/ng-infinite-scroll.min.js"></script>
+<!--script language="javascript" src="http://www.donews.com/static/js/sdk/lib/md5.min.js"></script>
+<script language="javascript" src="http://www.donews.com/static/js/sdk/lib/js.cookie.min.js"></script>
+<script language="javascript" src="http://www.donews.com/static/js/sdk/lib/consumption-1.1.min.js"></script-->
+
+<script language="javascript" src="http://www.donews.com/static/js/sdk/lib/consumption-1.1.min.js"></script>
+
+<script type='text/javascript' src='http://www.donews.com/static/video/fanvas3-min.js'></script>
+<script type='text/javascript' src='http://www.donews.com/static/video/swfData.js'></script>
+<script>
+    (function($){
+        $(window).load(function(){
+            $("#content-2").mCustomScrollbar({
+                autoHideScrollbar:true,
+                theme:"rounded"
+            });
+        });
+    })(jQuery);
+
+    function init_ad() {
+        fanvas.play("testCanvas", swfData, {
+            cache: false, autoPlay: true,
+            onFrame: function (index) {
+
+            },
+            imagePath: "http://www.donews.com/static/video/"
+        });
+    }
+
+    $(function() {
+        init_ad();
+        //banner 广告
+        for(var i = 2; i <= 6; i++) {
+            (function (i) {
+                $.get("http://www.donews.com/Advert/get_ads", {pos: '1000' + i}, function (data){
+                    if(data == 0 || data == ''||data.indexOf("nexturl=&") != -1) {
+//                        if(i != 3) {
+                            $('#ad' + i).hide();
+//                        }
+                        return true;
+                    }
+                    $("#ad" + i).append(data);
+                    if(i == 3) {
+                        $(".getdldown").prepend($(".putdldown dl:last"));
+                    }
+                });
+            }(i))
+        }
+    });
+</script>
+<script type="text/javascript">
+    var jscope = {};
+    var my_app = angular.module('my_app', ['infinite-scroll']);
+    my_app.controller('NewsCtrl', function ($scope, $http, $timeout) {
+        $scope.more_news = [];
+        $scope.loading_more = false;
+        $scope.order_no = 1531280583;
+        $scope.init = function () {
+            $scope.loading_more = false;
+        }
+        $scope.loadmore = function () {
+            var data = {order_no: $scope.order_no};
+            $http.post('http://www.donews.com/home/more_news_ajax', data).then(function (result) {
+                if (result.data.length < 1) {
+                    $('.loadmore').hide();
+                    $('#loadmore').attr('style', 'display:none;');
+                    return false;
+                }
+                $scope.order_no = result.data[result.data.length - 1]['order_no'];
+                $scope.more_news = $scope.more_news.concat(result.data);
+            });
+        };
+
+        //快讯数据
+        $scope.newsflash = [];
+        jscope = $scope;
+        $scope.get_news_flash = function (type) {
+            var data = {datetime: '', type: type};
+            var len = $scope.newsflash.length-1;
+            if(len > 0) {
+                var first = $scope.newsflash[0].items.pubtime;
+                var last = $scope.newsflash[len].items.pubtime;
+                if(type === 1) {
+                    data.datetime = first;
+                }
+                if(type === -1) {
+                    data.datetime = last;
+                }
+                //先去掉前三个添加红点
+                if($scope.newsflash.hasOwnProperty(0)) { $scope.newsflash[0].items.three = ''; }
+                if($scope.newsflash.hasOwnProperty(1)) { $scope.newsflash[1].items.three = ''; }
+                if($scope.newsflash.hasOwnProperty(2)) { $scope.newsflash[2].items.three = ''; }
+            }
+
+            $http.post('http://www.donews.com/column/get_news_flash', data).then(function (res) {
+                var key = Object.keys(res.data);
+                if(type === 1) {
+                    for (var i = key.length - 1; i >= 0; i--) {
+                        res.data[key[i]].three = '';
+                        $scope.newsflash.unshift({items: res.data[key[i]]});
+                    }
+                } else {
+                    for (var i = 0; i < key.length; i++) {
+                        res.data[key[i]].three = '';
+                        $scope.newsflash.push({items: res.data[key[i]]});
+                    }
+                }
+
+                //前三个添加红点
+                if($scope.newsflash.hasOwnProperty(0)) { $scope.newsflash[0].items.three = 'three'; }
+                if($scope.newsflash.hasOwnProperty(1)) { $scope.newsflash[1].items.three = 'three'; }
+                if($scope.newsflash.hasOwnProperty(2)) { $scope.newsflash[2].items.three = 'three'; }
+            });
+        };
+
+    })
+
+</script>
+
+<!-- Donews -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//123.57.227.67/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 6]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//123.57.227.67/piwik.php?idsite=6" style="border:0;" alt="" /></p></noscript>
+<!-- End Donews Code -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90206022-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?48fb7b5e78d9300c4d8cdc2ba837b207";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript">
+    var app_key_home = app_key_home || "urlobtxi5fjlm6m1";
+    (function() {
+        var jssdk = document.createElement('script');
+        jssdk.type = 'text/javascript';
+        jssdk.src = 'http://www.donews.com/static/js/sdk/lib/JSSDK-home_1.3.min.js'; // jssdk.js 文件的位置
+        var sArr = document.getElementsByTagName('script');
+        var s = document.getElementsByTagName('script')[sArr.length - 1];
+        s.parentNode.insertBefore(jssdk,s);
+    })();
+</script>
+</body>
+</html>

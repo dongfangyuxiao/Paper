@@ -1,0 +1,2352 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>中华讲师网-直接对接一万多名讲师-找讲师-培训师-培训讲师好网站</title>
+    <meta name="keywords" content="讲师,培训师,培训讲师,中华讲师网,讲师网" />
+    <meta name="description" content="找讲师,培训师,上中华讲师网，直接对接10000多名优秀讲师,去中介,省时省力省钱，公开培训师联系方式、培训讲师简介、培训讲师视频、讲师课程大纲及培训师电话。" />
+    <meta property="qc:admins" content="241102452762116730167277" desc="qq_connect" />
+    <meta property="wb:webmaster" content="44e1f35cf5c4122a" desc="weibo_connect" />
+     
+ 
+     
+<script type="text/javascript">
+    function pc_mobile_check() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile"; 
+        var bIsMobile = sUserAgent.match(/mobile/i) == "mobile";//
+
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM  || bIsMobile) {
+            /*mobile*/
+            /*讲师个人网站、关键词 等 二级域名 特殊处理*/
+            var host = window.location.host.toLowerCase();  
+            if (host == "www.jiangshi.org")
+                window.location.href = window.location.href.replace(host, "m.jiangshi.org");
+            else {
+                /*二级域名的情况*/
+                var path = window.location.pathname;
+                if (path.length > 2)
+                    window.location.href = window.location.href.replace(host, "m.jiangshi.org");
+                else {
+                    /*讲师主页的首页 、 关键词二级域名 ，需要到后端代码处理（获取对应的讲师ID或者关键词）*/
+                    /* do something*/
+                }
+            }
+        }
+        else {
+            /*pc*/
+        }
+    }
+    pc_mobile_check();
+</script>
+
+    <link rel="stylesheet" href="http://css.jiangshi.org/css/common.css?v=1.314608" />
+    <link rel="stylesheet" href="http://css.jiangshi.org/css/style.css?v=1.314608" />
+    <link href="http://css.jiangshi.org/js/jqueryplus/poshytip/tip-yellowsimple/tip-yellowsimple.css?v=1.314608" rel="stylesheet" type="text/css" />
+    
+    <link href="http://css.jiangshi.org/js/jqueryplus/jquery-ui/themes/smoothness/jquery-ui.min.css?v=1.314608" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://css.jiangshi.org/css/index_20160112/common-2016.css?v=1.314608" />
+    <link rel="stylesheet" href="http://css.jiangshi.org/css/index_20160112/style-2016.css?v=1.314608" /> 
+
+    <!--JSConfig 开始-->
+    
+
+<script type="text/javascript">    
+    var JSCONFIG = {};
+    JSCONFIG["UserID"] = 0; 
+    JSCONFIG["NickName"] = ""; 
+    JSCONFIG["Position"] = "homepage";
+    JSCONFIG["OperationMD"] = "B3989F04683049EEFCE48F49CDC1E4D0735C37CF17D49B27"; 
+    JSCONFIG["ServerTime"] = 1531365973661; 
+    JSCONFIG["SiteHost"] = "www.jiangshi.org"; 
+    JSCONFIG["ResHost"] = "http://css.jiangshi.org"; 
+</script>
+
+
+    <!--JSConfig 开始-->
+    <!--public res begin-->
+    <script src="http://css.jiangshi.org/js/jquery/jquery-1.9.0.min.js?v=1.314608" type="text/javascript"></script>
+    <script src="http://css.jiangshi.org/js/jqueryplus/poshytip/jquery.poshytip.min.js?v=1.314608" type="text/javascript"></script>
+    <script src="http://css.jiangshi.org/js/layer/layer.js?v=1.314608" type="text/javascript"></script>
+    <!--public res end-->
+     
+    <script src="http://css.jiangshi.org/js/jqueryplus/jquery-ui/jquery-ui.min.js?v=1.314608" type="text/javascript"></script>
+    <script src="http://css.jiangshi.org/js/member/search.js?v=1.314608" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            var index = 0;
+            var interval = null;
+            var sliders = $('.slides_control li');
+            var paginations = $('.pagination li');
+            var count = sliders.length;
+            $('.slideControl').css('width', 35 + 90 * count + 'px');
+            paginations.parent().css('width', count * 92 + "px");
+            slider();
+            sliders.hover(function () {
+                clearInterval(interval);
+            }, function () {
+                slider();
+            });
+            paginations.each(function (i) {
+                $(this).click(function () {
+                    clearInterval(interval);
+                    index = i;
+                    sliders.hide('slow');
+                    sliders.eq(index).show('slow');
+                    slider();
+                    paginations.removeClass('current').eq(index).addClass('current');
+                });
+            });
+            $('.subsite-btn a').hover(function () {
+                var span = $(this).children('.icons48');
+                span.addClass(span.attr('data-hover'));
+            }, function () {
+                var span = $(this).children('.icons48');
+                span.removeClass(span.attr('data-hover'));
+            });
+            $('#btnSearch').click(function () {
+                Search.SearchLectByKeyword($.trim($('#kw').val()));
+            });
+            function slider() {
+                interval = setInterval(function () {
+                    index = index >= count - 1 ? 0 : index + 1;
+                    sliders.hide('slow');
+                    sliders.eq(index).show('slow');
+                    paginations.removeClass('current').eq(index).addClass('current');
+                }, 5000);
+            }
+        });
+        window.onload = function () {
+            document.onkeydown = function (event) {
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if (e && e.keyCode == 13) {
+                    if ($(document.activeElement).is('#kw')) {
+                        $("#btnSearch").trigger('click');
+                    }
+                }
+            };
+        };
+    </script>
+
+</head>
+<body>
+    <!-- B 头部 -->
+    <div id="m_header">
+        
+<!--消息条：begin-->
+
+<!--消息条：begin-->
+<div id="m_header">
+    
+    <!--未登录-->
+    <div class="nav-Box">
+        <div class="naver">
+            <p class="nv-login-info"><em>中华讲师网，欢迎您</em><a class="nv-login" href="/account/login">讲师登录</a> | <a class="nv-register" href="/account/reg4lect">讲师免费入驻</a></p>
+            <ul class="nv-quick-menu">
+                <li><a href="/home/demand_create">发布需求</a></li>
+                <li class="mobileshow"><i>
+                    <img class="wapicon" src="http://css.jiangshi.org/images/wapicon.png" /></i><a href="#">手机版</a>
+                    <div class="nv-qrcode" style="display: none;">
+                        <div class="nv-qrcode-content"></div>
+                        <b></b>
+                    </div>
+                </li>
+                <li class="nv-separator"></li>
+                
+            </ul>
+        </div>
+    </div>
+    <!--未登录-->
+    
+    <div class="header-Box">
+        <div class="header">
+            <div class="logo fl_l">
+                <a href="http://www.jiangshi.org" title="中华讲师网">
+                    <img alt="中华讲师网" src="http://css.jiangshi.org/images/logo.png" />
+                </a>
+            </div>
+            <ul class="fl_l">
+                <li><a href="http://www.jiangshi.org"  class='current2'>首页</a> </li>
+                <li><a href="http://www.jiangshi.org/search" >讲师</a> </li>
+                <li><a href="/video/search" >视频</a> </li>
+                <li><a href="/course/search" >课程</a> </li>
+                <li><a href="/blog/search" >授课见证</a> </li>
+                <li><a href="http://www.jiangshi.org/demand" >培训需求</a> </li>
+                <li><a href="http://www.jiangshi.org/home" >管理中心</a> </li>
+                <li><a href="http://mr.jiangshi.org" style="color: #fd740c;" target="_blank">名人名家</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    (function (jq) {
+        jq(function () {
+            jq('.name_box span.easy').hover(function () {
+                var parent = jq(this).parent();
+                var top = (parent.offset().top + parent.outerHeight()) + 'px';
+                jq('.drop-tips').css('top', top).show();
+                jq(this).children('.name').addClass('current');
+            }, function () {
+                jq('.drop-tips').hide();
+                jq(this).children('.name').removeClass('current');
+            });
+            //
+            jq('.mobileshow').hover(function () {
+                jq('.mobileshow .nv-qrcode').show();
+            }, function () {
+                jq('.mobileshow .nv-qrcode').hide();
+            });
+            //
+            jq('.nv-welcom,.per-menu-item').hover(function () {
+                jq('.per-menu-item').show();
+            }, function () {
+                jq('.per-menu-item').hide();
+            });
+            //
+            if (JSCONFIG["UserID"] > 0) {
+                setInterval(function () {
+                    jq.post('/tool/notreadmsgcount', function (data) {
+                        data = jq.parseJSON(data);
+                        if (data.success) {
+                            if (data.data > 0) {
+                                jq('#notreadcount').text(data.data);
+                                title = "【您有新消息】" + msg;
+                                leng = title.length;
+                                $('#messageImg').attr('src', 'http://css.jiangshi.org/images/newicon.png');
+                                interval = setInterval("titlemove()", 240);
+                            } else {
+                                document.title = msg;
+                                jq('#notreadcount').text('');
+                                $('#messageImg').attr('src', 'http://css.jiangshi.org/images/newicon.png');
+                                clearInterval(interval);
+                                interval = null;
+                            }
+                        }
+                    });
+                }, 1000 * 30);
+            }
+        });
+    })(jQuery);
+    var msg = document.title;
+    var title = document.title;
+    var leng = title.length;
+    var start = 1;
+    var interval = null;
+    function titlemove() {
+        var titl = title.substring(start, leng) + title.substring(0, start);
+        document.title = titl;
+        start++
+        if (start == leng + 1) {
+            start = 0;
+            clearInterval(interval);
+            interval = null;
+        }
+    }
+</script>
+
+    </div>
+    <!-- E 头部 -->
+    <!-- B 内容 -->
+    <div id="m_content">
+        
+    <style>   
+        
+        #quotation {
+            overflow:hidden;
+            height: 45px;
+            padding: 0;
+        }
+        #quotation ul {
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        #quotation ul li {
+            display: list-item;
+        }
+        #quotation ul li span {
+            height:45px;
+            line-height: 45px;
+        }
+
+/*关键词*/
+       
+		.banner .tab-keyword{position: relative;width: 1080px;margin: 0px auto;}
+		.banner .keyword {position: absolute;	z-index: 999;top: 0px;	left: 0px;}
+
+        .banner .keyword > div {
+            height: 100%;
+        }
+        .keyword ul, .keyword li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .keyword .bigclass {
+            /*position: relative;*/
+            height: 100%;
+            width: 260px;
+            background: rgba(0,0,0,0.5) none repeat scroll 0 0 !important;/*实现FF背景透明，文字不透明*/
+filter:Alpha(opacity=50);
+background:#000000;/*实现IE背景透明*/
+			
+        }
+        .keyword .bigclass > li {
+            height: 16.66666666666666666666666%;
+            /*float: left;*/
+        }
+        .keyword .bigclass > li > a {
+            font-size: 16px;
+            font-family: "微软雅黑", 'Microsoft Yahei';
+            color: #ddd;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            width: 70%;
+            line-height: 50px;
+            padding: 0 15%;
+        }
+        .keyword .bigclass > li ul.detailsclass {
+            display: none;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 260px;
+            width: 450px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background: rgba(250,250,250,0.95) none repeat scroll 0 0 !important;/*实现FF背景透明，文字不透明*/
+filter:Alpha(opacity=95); 
+background:#FFFFFF;/*实现IE背景透明*/
+        }
+        .keyword .bigclass > li ul.dc-right {
+            left: 750px;
+            width: 260px;
+            padding: 0;
+        }
+        .keyword .bigclass > li ul.detailsclass > li {
+            float: left;
+            margin: 15px 10px;
+            font-size: 14px;
+        }
+        .keyword .bigclass > li ul.dc-right > li {
+            margin: 0;
+        }
+		
+        .keyword .bigclass > span.bctitle > a {
+			 font-family: "微软雅黑", 'Microsoft Yahei';
+			 font-weight: bold;
+            padding-left: 40px;
+			 line-height: 49px;
+            font-size: 20px;
+            color: #fff;
+        }
+        .keyword .bigclass > li:hover {
+            background: rgba(250,250,250,0.95) none repeat scroll 0 0 !important;/*实现FF背景透明，文字不透明*/
+filter:Alpha(opacity=95);
+background:#FFFFFF;/*实现IE背景透明*/	
+        }
+        .keyword .bigclass > span.bctitle:hover {
+            background: transparent;
+        }
+        .keyword .bigclass > li:hover > a {
+            color: #333;
+        }
+        .keyword .bigclass > span.bctitle:hover > a {
+            color: #fff;
+        }
+        .keyword .bigclass > li:hover ul.detailsclass {
+            display: inline-block;
+        }
+        .keyword .bigclass > li:hover ul.detailsclass a:hover {
+            color: #eb5405;
+        }
+        .keyword .bigclass > li:hover span.float-right {
+            display: none;
+        }
+        .keyword .float-right {
+            float: right;
+        }
+<!-- 关键词 style end  -->
+
+
+    </style>
+
+
+<!--全屏广告-->
+
+<div class="banner">
+<!--关键词-->
+     <div class="tab-keyword">
+        <div class="keyword">
+            <div>
+                <ul class="bigclass">
+                    <span class="bctitle">
+                        <a>讲师分类导航</a>
+                    </span>
+                    <li>
+                        <a>战略·管理·财务·生产&nbsp;<span class="float-right">&gt;</span></a>
+                        <ul class="detailsclass">
+                            
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%AE%A1%E7%90%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">管理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%88%98%E7%95%A5_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">战略</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BC%81%E4%B8%9A%E6%96%87%E5%8C%96_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">企业文化</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%85%AC%E5%8F%B8%E6%B2%BB%E7%90%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">公司治理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%82%A1%E6%9D%83_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">股权</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%82%A1%E6%9D%83%E6%BF%80%E5%8A%B1_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">股权激励</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">商业模式</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%9B%A2%E9%98%9F_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#F74C0E;font-weight:bold; ">团队</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%9B%A2%E9%98%9F%E6%89%93%E9%80%A0_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">团队打造</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_8090_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">8090</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%9B%A2%E9%98%9F%E5%BB%BA%E8%AE%BE_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">团队建设</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%B8%AD%E5%B1%82%E7%AE%A1%E7%90%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">中层管理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%A2%86%E5%AF%BC%E5%8A%9B_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#F74E0F;font-weight:bold; ">领导力</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%89%A7%E8%A1%8C%E5%8A%9B_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">执行力</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%B2%9F%E9%80%9A%E6%8A%80%E5%B7%A7_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">沟通技巧</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%B2%9F%E9%80%9A_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">沟通</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">项目管理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%B5%81%E7%A8%8B%E7%AE%A1%E7%90%86_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">流程管理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%B2%99%E7%9B%98%E6%A8%A1%E6%8B%9F_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">沙盘模拟</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8D%B1%E6%9C%BA%E7%AE%A1%E7%90%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">危机管理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%A7%E5%93%81%E5%BC%80%E5%8F%91_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">产品开发</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">产品经理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%88%9B%E6%96%B0_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#F15015;font-weight:bold; ">创新</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%A0%94%E5%8F%91_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">研发</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%95%99%E7%BB%83%E6%8A%80%E6%9C%AF_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">教练技术</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%B9%9D%E5%9E%8B%E4%BA%BA%E6%A0%BC_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">九型人格</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">目标管理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%B2%BE%E7%BB%86%E5%8C%96_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">精细化</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%9D%9E%E8%B4%A2%E7%AE%A1%E7%90%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">非财管理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%B4%A2%E5%8A%A1_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">财务</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%BA%B3%E7%A8%8E%E7%AD%B9%E5%88%92_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">纳税筹划</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%8A%95%E8%B5%84_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">投资</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%90%86%E8%B4%A2_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">理财</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%9E%8D%E8%B5%84_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">融资</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%88%9B%E4%B8%9A_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#ED4F14;font-weight:bold; ">创业</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%B5%84%E6%9C%AC%E8%BF%90%E4%BD%9C_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">资本运作</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%8F%AD%E7%BB%84%E9%95%BF_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">班组长</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%94%9F%E4%BA%A7_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">生产</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%8E%B0%E5%9C%BA%E7%AE%A1%E7%90%86_order_0_costmin_0_costmax_0_area_0_page_0.html" style="color:#000000; ">现场管理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BE%9B%E5%BA%94%E9%93%BE_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">供应链</a></li>
+
+                        </ul>
+                        <ul class="detailsclass dc-right">
+                            <li>
+                                <a href="http://www.jiangshi.org/532949" target="_blank" title="张维为"><img src="http://img1.jiangshi.org/rsi/20160329/290929524159_1395.jpg"  style="width:260px;height:300px;" alt="张维为" /></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>营销·销售·人力·服务&nbsp;<span class="float-right">&gt;</span></a>
+                        <ul class="detailsclass">
+                            
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%AD%96%E5%88%92_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">策划</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%90%A5%E9%94%80_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">营销</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%BB%8F%E9%94%80%E5%95%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">经销商</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%93%81%E7%89%8C_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">品牌</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%BB%88%E7%AB%AF_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">终端</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%9B%B6%E5%94%AE_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">零售</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%97%A8%E5%BA%97_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">门店</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%A4%A7%E5%AE%A2%E6%88%B7_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">大客户</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%9C%8D%E5%8A%A1_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">服务</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%AE%A2%E6%88%B7%E6%9C%8D%E5%8A%A1_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">客户服务</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%A4%96%E8%B4%B8_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">外贸</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%9B%BD%E9%99%85%E8%B4%B8%E6%98%93_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">国际贸易</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%95%86%E5%8A%A1%E8%B0%88%E5%88%A4_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">商务谈判</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%BF%9E%E9%94%81_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">连锁</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8A%A0%E7%9B%9F_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">加盟</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%94%80%E5%94%AE_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#F54F11;font-weight:bold; ">销售</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%94%80%E5%94%AE%E6%8A%80%E5%B7%A7_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">销售技巧</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%94%B5%E8%AF%9D%E9%94%80%E5%94%AE_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">电话销售</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%8B%9B%E8%81%98_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">招聘</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%9D%A2%E8%AF%95_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">面试</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%BB%A9%E6%95%88_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">绩效</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%96%AA%E9%85%AC_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">薪酬</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%9F%B9%E8%AE%AD%E7%AE%A1%E7%90%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">培训管理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%9F%B9%E8%AE%AD%E5%B8%88%E5%9F%B9%E8%AE%AD_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#F1541A;font-weight:bold; ">培训师培训</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_TTT_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">TTT</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%9F%B9%E8%AE%AD%E5%B8%88_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">培训师</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%BC%94%E8%AE%B2_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">演讲</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8F%A3%E6%89%8D_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">口才</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%BC%94%E8%AF%B4_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">演说</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">职业规划</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%BA%E5%8A%9B_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">人力</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#F35115;font-weight:bold; ">人力资源</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%9D%9E%E4%BA%BA_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">非人</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%B3%95%E5%BE%8B_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">法律</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8A%B3%E5%8A%A8%E6%B3%95_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">劳动法</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%81%8C%E4%B8%9A%E7%B4%A0%E5%85%BB_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">职业素养</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BD%A2%E8%B1%A1_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">形象</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%A4%BC%E4%BB%AA_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">礼仪</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%95%86%E5%8A%A1%E7%A4%BC%E4%BB%AA_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">商务礼仪</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%9C%8D%E5%8A%A1%E7%A4%BC%E4%BB%AA_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">服务礼仪</a></li>
+
+                        </ul>
+                        <ul class="detailsclass dc-right">
+                            <li>
+                                <a href="http://www.jiangshi.org/516121" target="_blank" title="金正昆"><img src="http://img1.jiangshi.org/rsi/20160329/290930491397_1395.jpg"  style="width:260px;height:300px;" alt="金正昆" /></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>国学·养生·心灵·亲子&nbsp;<span class="float-right">&gt;</span></a>
+                        <ul class="detailsclass">
+                            
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%9B%BD%E5%AD%A6_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">国学</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%98%93%E7%BB%8F_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">易经</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%A3%8E%E6%B0%B4_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">风水</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%9B%BD%E5%AD%A6%E6%96%87%E5%8C%96_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">国学文化</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%9B%BD%E5%AD%A6%E7%AE%A1%E7%90%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">国学管理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BC%A0%E7%BB%9F%E6%96%87%E5%8C%96_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">传统文化</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%AD%99%E5%AD%90%E5%85%B5%E6%B3%95_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">孙子兵法</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%81%93%E5%BE%B7%E7%BB%8F_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">道德经</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BC%9F%E5%AD%90%E8%A7%84_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">弟子规</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%A4%AA%E6%9E%81_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">太极</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BD%9B%E5%AD%A6_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">佛学</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%A6%85%E5%AE%97_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">禅宗</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%85%BB%E7%94%9F_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#ED5B25;font-weight:bold; ">养生</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%81%A5%E5%BA%B7%E5%85%BB%E7%94%9F_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">健康养生</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%B8%AD%E5%8C%BB%E5%85%BB%E7%94%9F_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">中医养生</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%90%A5%E5%85%BB_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">营养</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%A5%AE%E9%A3%9F_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">饮食</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%BE%9F%E8%B0%B7_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">辟谷</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%AE%B6%E5%BA%AD%E6%95%99%E8%82%B2_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">家庭教育</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%B2%E5%AD%90_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#E94C12;font-weight:bold; ">亲子</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%B2%E5%AD%90%E6%95%99%E8%82%B2_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">亲子教育</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%9D%92%E5%B0%91%E5%B9%B4_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">青少年</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%83%85%E6%84%9F_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">情感</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%BF%80%E5%8A%B1_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">激励</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%A9%9A%E6%81%8B_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">婚恋</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%B8%A4%E6%80%A7_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">两性</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%BD%9C%E8%83%BD_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">潜能</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">思维导图</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_NLP_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">NLP</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BF%83%E7%90%86_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">心理</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%88%90%E5%8A%9F%E5%AD%A6_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">成功学</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BF%83%E7%81%B5%E6%88%90%E9%95%BF_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#E55722;font-weight:bold; ">心灵成长</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8E%8B%E5%8A%9B_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">压力</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BF%83%E6%80%81_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">心态</a></li>
+
+                        </ul>
+                        <ul class="detailsclass dc-right">
+                            <li>
+                                <a href="http://www.jiangshi.org/532812" target="_blank" title="张德芬"><img src="http://img1.jiangshi.org/rsi/20160329/290932205188_1395.jpg"  style="width:260px;height:300px;" alt="张德芬" /></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>名企背景·行业背景&nbsp;<span class="float-right">&gt;</span></a>
+                        <ul class="detailsclass">
+                            
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">阿里巴巴</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%99%BE%E5%BA%A6_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">百度</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%85%BE%E8%AE%AF_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">腾讯</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%8B%B9%E6%9E%9C_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">苹果</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BE%AE%E8%BD%AF_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">微软</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%AC%E4%B8%9C_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">京东</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8D%8E%E4%B8%BA_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">华为</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%B0%8F%E7%B1%B3_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">小米</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%B8%AD%E5%9B%BD%E7%A7%BB%E5%8A%A8_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">中国移动</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">中国电信</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%B8%87%E7%A7%91_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">万科</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%96%B0%E6%B5%AA_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">新浪</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%B5%B7%E5%B0%94_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">海尔</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%B8%87%E8%BE%BE_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">万达</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%A0%BC%E5%8A%9B_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">格力</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%BE%8E%E7%9A%84_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">美的</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%B8%89%E6%98%9F_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">三星</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%93%B6%E8%A1%8C_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#F34708;font-weight:bold; ">银行</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BF%9D%E9%99%A9_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">保险</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%9C%8D%E8%A3%85_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">服装</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%88%BF%E5%9C%B0%E4%BA%A7_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">房地产</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%80%9A%E4%BF%A1_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">通信</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%B1%BD%E8%BD%A6_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">汽车</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%AE%B6%E5%B1%85_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">家居</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BB%BA%E6%9D%90_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">建材</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8C%BB%E8%8D%AF_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">医药</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8C%BB%E9%99%A2_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">医院</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%85%92%E5%BA%97_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">酒店</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E9%A4%90%E9%A5%AE_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">餐饮</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%BE%8E%E5%AE%B9_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">美容</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8C%96%E5%A6%86%E5%93%81_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">化妆品</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%94%B5%E5%8A%9B_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">电力</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%95%86%E4%B8%9A_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">商业</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%99%BE%E8%B4%A7_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">百货</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BD%93%E8%82%B2_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">体育</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%B7%A5%E4%B8%9A%E5%93%81_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">工业品</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BF%AB%E6%B6%88%E5%93%81_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">快消品</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%AE%B6%E7%94%B5_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">家电</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%88%AA%E7%A9%BA_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">航空</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%8E%A9%E5%85%B7_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">玩具</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%A4%BC%E5%93%81_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">礼品</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%9F%B3%E6%B2%B9_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">石油</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%9F%BF%E4%BA%A7_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">矿产</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8C%96%E5%B7%A5_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">化工</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BC%A0%E5%AA%92_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">传媒</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%AD%A6%E6%A0%A1_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">学校</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%94%BF%E5%BA%9C_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">政府</a></li>
+
+                        </ul>
+                        <ul class="detailsclass dc-right">
+                            <li>
+                                <a href="http://www.jiangshi.org/search/kw_%E9%BE%9A%E6%96%B9%E9%9B%84_order_0_costmin_0_costmax_0_area_0_page_1.html" target="_blank" title="龚方雄"><img src="http://img1.jiangshi.org/rsi/20160526/261411210693_1395.jpg"  style="width:260px;height:300px;" alt="龚方雄" /></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>互联网·新热点&nbsp;<span class="float-right">&gt;</span></a>
+                        <ul class="detailsclass">
+                            
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%92%E8%81%94%E7%BD%91_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">互联网</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%92%E8%81%94%E7%BD%91+_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">互联网+</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%92%E8%81%94%E7%BD%91%E8%BD%AC%E5%9E%8B_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">互联网转型 </a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%92%E8%81%94%E7%BD%91%E9%87%91%E8%9E%8D_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">互联网金融</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%92%E8%81%94%E7%BD%91%E6%80%9D%E7%BB%B4_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">互联网思维</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">移动互联网</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%A4%A7%E6%95%B0%E6%8D%AE_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">大数据</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%91%E8%AE%A1%E7%AE%97_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">云计算</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%BD%91%E7%BB%9C%E8%90%A5%E9%94%80_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">网络营销</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%94%B5%E5%AD%90%E5%95%86%E5%8A%A1_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">电子商务</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BE%AE%E4%BF%A1_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#E95119;font-weight:bold; ">微信</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BE%AE%E5%8D%9A_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">微博</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%BE%AE%E5%95%86_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">微商</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_P2P_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">P2P</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_O2O_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">O2O</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%A4%96%E6%B1%87_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">外汇</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_APP_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">APP</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%A4%A7%E6%95%B0%E6%8D%AE_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">大数据</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%96%B0%E4%B8%89%E6%9D%BF_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">新三板</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%96%B0%E5%AA%92%E4%BD%93%E8%90%A5%E9%94%80_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">新媒体营销</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BC%97%E7%AD%B9_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">众筹</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%B7%A5%E4%B8%9A4.0_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#F7581D;font-weight:bold; ">工业4.0</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%96%B0%E9%9B%B6%E5%94%AE_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">新零售</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%B8%80%E5%B8%A6%E4%B8%80%E8%B7%AF_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">一带一路</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">虚拟现实</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E6%9C%BA%E5%99%A8%E4%BA%BA_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">机器人</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">人工智能</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E7%89%A9%E8%81%94%E7%BD%91_order_1_costmin_0_costmax_0_area_0_page_1.html" style="color:#000000; ">物联网</a></li>
+
+<li><a target="_blank" href="http://www.jiangshi.org/search/kw_%E5%8C%BA%E5%9D%97%E9%93%BE_order_0_costmin_0_costmax_0_area_0_page_1.html" style="color:#D7430C;font-weight:bold; ">区块链</a></li>
+
+                        </ul>
+                        <ul class="detailsclass dc-right">
+                            <li>
+                                <a href="http://www.jiangshi.org/531339" target="_blank" title="金错刀"><img src="http://img1.jiangshi.org/rsi/20160329/291110377355_1395.jpg"  style="width:260px;height:300px;" alt="金错刀" /></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+     </div>
+<!--关键词end-->
+<div id="slides" class="visual" style="width: 1920px; margin: 0 auto;">
+        <ul class="slides_container" style="overflow: hidden; position: relative;">
+            <div class="slides_control" style="position: relative; height: 300px; left: -100%;">
+                <li style="width: 100%; position: absolute; top: 0px; left: 100%; z-index: 0; display: ;">
+                    <a href="http://www.jiangshi.org/about/news_1626419.html" target="_blank" style="display: block;" title="热烈庆祝中国讲师年会圆满落幕！">
+                        <img src="http://img1.jiangshi.org/rsi/20180625/251429449315_1405.jpg" class="imgVis" alt="热烈庆祝中国讲师年会圆满落幕！">
+                    </a>
+                </li>
+                
+                <li style="width: 100%; position: absolute; top: 0px; left: 100%; z-index: 0; display: none;">
+                    <a href="http://www.jiangshi.org/" target="_blank" style="display: block;" title="直接对接10000+讲师 省时省力省钱">
+                        <img src="http://img1.jiangshi.org/rsi/20180502/021748248597_1405.jpg" class="imgVis" alt="直接对接10000+讲师 省时省力省钱">
+                    </a>
+                </li>
+                
+                <li style="width: 100%; position: absolute; top: 0px; left: 100%; z-index: 0; display: none;">
+                    <a href="http://www.jiangshi.org/about/news_1615426.html" target="_blank" style="display: block;" title="热烈祝贺中华讲师网被评为京东优质供应商">
+                        <img src="http://img1.jiangshi.org/rsi/20180510/101315549169_1405.jpg" class="imgVis" alt="热烈祝贺中华讲师网被评为京东优质供应商">
+                    </a>
+                </li>
+                
+                <li style="width: 100%; position: absolute; top: 0px; left: 100%; z-index: 0; display: none;">
+                    <a href="http://www.jiangshi.org/" target="_blank" style="display: block;" title="中华讲师网携手生命湖健康基地">
+                        <img src="http://img1.jiangshi.org/rsi/20180709/091700027458_1405.jpg" class="imgVis" alt="中华讲师网携手生命湖健康基地">
+                    </a>
+                </li>
+                
+            </div>
+        </ul>
+
+        <div class="slideControl">
+            <div class="opacity-banner"></div>
+            <ul class="pagination">
+                <li class="current" style="width: 100%;">
+                    <a href="javascript:void(0);">
+                        <img src="http://img1.jiangshi.org/rsi/20180625/251429059602_1405.jpg" alt="热烈庆祝中国讲师年会圆满落幕！">
+                    </a>
+                </li>
+                
+                <li style="width: 100%;">
+                    <a href="javascript:void(0);">
+                        <img src="http://img1.jiangshi.org/rsi/20180426/261719038226_1405.jpg" alt="直接对接10000+讲师 省时省力省钱">
+                    </a>
+                </li>
+                
+                <li style="width: 100%;">
+                    <a href="javascript:void(0);">
+                        <img src="http://img1.jiangshi.org/rsi/20180510/101057107778_1405.jpg" alt="热烈祝贺中华讲师网被评为京东优质供应商">
+                    </a>
+                </li>
+                
+                <li style="width: 100%;">
+                    <a href="javascript:void(0);">
+                        <img src="http://img1.jiangshi.org/rsi/20180709/091427421586_1405.jpg" alt="中华讲师网携手生命湖健康基地">
+                    </a>
+                </li>
+                 
+            </ul>
+        </div>
+    </div>
+</div>
+<!--全屏广告end-->
+
+
+
+<!--大类导航条-->
+<!--[$CMS_Column_top_mosthot_keywords$]-->
+<!--大类导航条-->
+<!--主体内容-->
+<div class="main clear">
+    <div class="main-box" style="float:none;">
+        <!--搜索框-->
+        <div class="search-top">
+            <div class="search-main">
+                <div class="search-main-top clear">
+                    <div class="input-main fl_l">
+                        <input id="kw" name="kw" placeholder="请输入讲师姓名或关键字进行搜索" type="text" maxlength="20">
+                    </div>
+                    <button type="button" id="btnSearch" class="css4search search-btn float-right">
+                        <i class="home-sprite"></i>搜索</button>
+                </div> 
+                <!--搜索框下-推荐关键词-->
+                <p class="search-link click1 cursor">
+
+<a target="_blank" href="javascript:;" onclick="Search.SearchLectByKeyword('互联网+');return false;" title="互联网+">互联网+</a> 
+
+<a target="_blank" href="javascript:;" onclick="Search.SearchLectByKeyword('领导力');return false;" title="领导力">领导力</a> 
+
+<a target="_blank" href="javascript:;" onclick="Search.SearchLectByKeyword('执行力');return false;" title="执行力">执行力</a> 
+
+<a target="_blank" href="javascript:;" onclick="Search.SearchLectByKeyword('销售');return false;" title="销售">销售</a> 
+
+<a target="_blank" href="javascript:;" onclick="Search.SearchLectByKeyword('经销商');return false;" title="经销商">经销商</a> 
+
+<a target="_blank" href="javascript:;" onclick="Search.SearchLectByKeyword('沟通');return false;" title="沟通">沟通</a> 
+
+<a target="_blank" href="javascript:;" onclick="Search.SearchLectByKeyword('团队');return false;" title="团队">团队</a> 
+
+<a target="_blank" href="javascript:;" onclick="Search.SearchLectByKeyword('财务');return false;" title="财务">财务</a> 
+
+<a target="_blank" href="javascript:;" onclick="Search.SearchLectByKeyword('国学');return false;" title="国学">国学</a> 
+
+<a target="_blank" href="javascript:;" onclick="Search.SearchLectByKeyword('养生');return false;" title="养生">养生</a> 
+
+                   </p>
+                <!--搜索框下-推荐关键词end-->
+            </div>
+            <!--本周新增讲师（滚动要点）-->
+            <!--[$CMS_Column_newaddlects_byweek$]-->
+            <div class="new-post" id="quotation" style="width: 350px;">
+                <ul >
+
+<li><span style=" background-color: transparent;border:none;color:#EB0B16;font-weight:bold;">免费查询10000+讲师联系方式</span></li>
+
+<li><span style=" background-color: transparent;border:none;color:#000000;">浏览量全行业第一名（日均PV50万+）</span></li>
+
+<li><span style=" background-color: transparent;border:none;color:#121FE5;font-weight:bold;">和CCTV联合制作《华人名师盛典》</span></li>
+
+<li><span style=" background-color: transparent;border:none;color:#000000;">拥有全行业最好的域名Jiangshi.com</span></li>
+
+<li><span style=" background-color: transparent;border:none;color:#F55317;font-weight:bold;">和网易联合主办《中华讲师风云榜》</span></li>
+
+                </ul>
+            </div>
+            <!--本周新增讲师（滚动要点）end-->
+        </div>
+
+        <!--搜索框end-->
+
+        <!--2016评选活动 - 最新打赏排名 begin -->
+<!--        
+<script type="text/javascript" src="http://css.jiangshi.org/js/jqueryplus/jquery.imageScroller.js"></script>
+        <style type="text/css">
+     
+        #vr_list li {
+	        width: 125px;
+	        height: 195px;
+	        text-align: center;
+	        float: left;
+	        margin: 0 5px;
+	        background-color: Aqua;
+        }
+        #vr_listBox {
+	        float: left;
+        }
+        #vr_listBox {
+	        width: 1080px;
+	        height: 195px;
+	        overflow: hidden;
+        }
+        #vr_container {
+	        width: 1080px;
+	        height: 195px;
+	        margin: 0px auto;
+        }
+        .vr_per-list {
+	        overflow: hidden;
+	        width: 100%;
+	        background-color: #fff;
+	        text-align: center;
+	        color: #fff;
+        }
+        .vr_per-list img {
+	        display: block;
+	        margin: 0 auto;
+	        width: 125px;
+	        height: 167px;
+        }
+        .vr_per-list h3 a {
+	        text-decoration: none;
+	        color: #333;
+	        font-size: 16px;
+	        line-height: 29px;
+        }
+        .vr_share {
+	        width: 100%;
+	        position: relative;
+        }
+        .vr_about {
+	        width: 100%;
+	        height: 30px;
+	        line-height: 30px;
+	        position: absolute;
+	        color: #fff;
+	        z-index: 1;
+	        background: #000;
+	        margin-top: -30px;
+	        opacity: 0.5;
+	        filter: alpha(opacity=50);
+        }
+        .vr_words {
+	        width: 100%;
+	        height: 30px;
+	        position: absolute;
+	        z-index: 2;
+	        margin-top: -30px;
+	        opacity: 1;
+	        filter: alpha(opacity=100);
+	        line-height: 30px;
+	        text-align: center;
+	        color: #fff;
+	        font-size: 14px;
+            font-family:"微软雅黑";
+	        font-weight:bold;
+        }
+        .vr_first{
+	        color:#ff2326;
+        }
+        .vr_second{
+	        color:#fc707f;
+        }
+        .vr_third{
+	        color:#fdaab3;
+        }
+    </style>
+        <h3 class="txt-home clear">2016中华讲师风云榜评选活动 - 打赏最新排名 <a href="http://hd.jiangshi.org/activity/fyb/2016.html">查看更多 <i class="ahome-ico"></i> </a> </h3>
+        <div id="vr_container">
+        <div id="vr_btnNext" title="上一个" style='display:none;'>
+            <<
+        </div>
+        <div id="vr_listBox">
+            <ul id="vr_list" class="votetopnlist"> 
+            </ul>
+        </div>
+        <div id="vr_btnPrev" title="下一个" style='display:none;'>
+            >>
+        </div>
+    </div>
+-->
+        <script type="text/javascript"> 
+            /* setTimeout(
+            $.ajax({
+                url: 'http://hd.jiangshi.org/activity/fyb_voteranktop?topn=20',
+                dataType: "jsonp",
+                jsonp: "jsonp",
+                success: function (data) {  
+                    if (data.success) {
+                        var html = '';
+                        var rank = '';
+                        $(data.data).each(function (index) {
+                            switch (index) {
+                                case 0:
+                                    rank = ' vr_first';
+                                    break;
+                                case 1:
+                                    rank = ' vr_second';
+                                    break;
+                                case 2:
+                                    rank = ' vr_third';
+                                    break;
+                                default:
+                                    rank = '';
+                                    break;
+                            }
+                            html += '<li>';
+                            html += '   <div class="vr_per-list">';
+                            html += '       <div class="vr_share"><a href="http://www.jiangshi.org/' + this.ObjId + '" target="_blank"><img src="' + this.ObjPhoto + '"></a>';
+                            html += '           <div class="vr_words' + rank + '"> 第' + (index+1) + '名：￥' + this.Counts + '</div>';
+                            html += '           <div class="vr_about"></div>';
+                            html += '           <h3><a href="http://www.jiangshi.org/' + this.ObjId + '" target="_blank">' + this.ObjName + '</a></h3>';
+                            html += '       </div>';
+                            html += '   </div>';
+                            html += '</li>';
+                        }); 
+                        $('.votetopnlist').html(html);
+                    }
+                    else {
+                        //fail
+                    }
+                }
+            }),1000*2); 
+
+            $(function () {
+                $("#vr_listBox").imageScroller({
+                    next: "btnNext",
+                    prev: "btnPrev",
+                    frame: "vr_list",
+                    child: "li",
+                    auto: true
+                });
+            });
+            */
+    </script>
+        <!--2016评选活动 - 最新打赏排名 end -->
+        
+        <!--鲜花打赏 begin-->
+        
+<!--鲜花排行榜-->
+<div class="area-h5 clear">
+    <div class="dscontainer flower-list fl_l">
+        <h3 class="txt-home">鲜花排行榜<img style="vertical-align:middle; padding-left:18px;" src="http://css.jiangshi.org/images/ind-flower-title.jpg" /></h3>
+        <ul>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/702298" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20180104/041745232735_702298_160x205.jpg"></a>
+                    <div class="medal m-gold"></div>
+                    <p class="click1 cursor hang"><a href="/702298" target="_blank">谷晟阳</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="702298" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">21282</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/520553" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20160407/071952401911_520553_160x205.jpg"></a>
+                    <div class="medal m-silver"></div>
+                    <p class="click1 cursor hang"><a href="/520553" target="_blank">孙新平</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="520553" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">20011</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/1454164" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20170626/261211399497_1454164_160x205.jpg"></a>
+                    <div class="medal m-bronze"></div>
+                    <p class="click1 cursor hang"><a href="/1454164" target="_blank">龙金科</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="1454164" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">10001</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/1228488" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20171230/301847234018_1228488_160x205.jpg"></a>
+                    <div class="medal"></div>
+                    <p class="click1 cursor hang"><a href="/1228488" target="_blank">金昕炜</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="1228488" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">8176</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/528416" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20180425/251153071524_528416_160x205.jpg"></a>
+                    <div class="medal"></div>
+                    <p class="click1 cursor hang"><a href="/528416" target="_blank">冯涛</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="528416" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">6999</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/521720" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20180425/251409427509_521720_160x205.jpg"></a>
+                    <div class="medal"></div>
+                    <p class="click1 cursor hang"><a href="/521720" target="_blank">文钊飞</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="521720" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">6324</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/1611017" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20180423/231204370081_1611017_160x205.jpg"></a>
+                    <div class="medal"></div>
+                    <p class="click1 cursor hang"><a href="/1611017" target="_blank">胡礼新</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="1611017" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">6219</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/706419" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20180426/20180426-c6ec7a72d1db71f8_160x205.jpg"></a>
+                    <div class="medal"></div>
+                    <p class="click1 cursor hang"><a href="/706419" target="_blank">钮东涛</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="706419" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">5902</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/1059124" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20161108/081011112480_1059124_160x205.jpg"></a>
+                    <div class="medal"></div>
+                    <p class="click1 cursor hang"><a href="/1059124" target="_blank">李洋</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="1059124" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">5839</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/524020" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20170613/131955047828_524020_160x205.jpg"></a>
+                    <div class="medal"></div>
+                    <p class="click1 cursor hang"><a href="/524020" target="_blank">王一名</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="524020" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">5678</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/523441" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20161115/151659286631_523441_160x205.jpg"></a>
+                    <div class="medal"></div>
+                    <p class="click1 cursor hang"><a href="/523441" target="_blank">梁叶</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="523441" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">5594</b>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="flower-item">
+                    <a href="/523709" target="_blank">
+                        <img class="flower-item-img" src="http://img1.jiangshi.org/rsi/20160401/011643254725_523709_160x205.jpg"></a>
+                    <div class="medal"></div>
+                    <p class="click1 cursor hang"><a href="/523709" target="_blank">胡福庭</a><img title="喜欢就赏一下~" class="dashang ver_a fl_r" style="cursor: pointer;" src="http://css.jiangshi.org/images/ico_shang.png" class="dashang" data-lectid="523709" /></p>
+                    <p class="click1 cursor hang">
+                        <img class="ver_a" src="http://css.jiangshi.org/images/i_f36.png" /><b class="mar10 red">5237</b>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="flower-state fl_r">
+        <h3 class="txt-home">鲜花动态</h3>
+        <ul class="f_textg" style="height: 380px;">
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/1589350" class="red" target="_blank">陈春</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/518795" class="red" target="_blank">张有为</a></b>&nbsp;老师获赠<b class="red">99</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">16</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">18</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">16</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/706419" class="red" target="_blank">钮东涛</a></b>&nbsp;老师获赠<b class="red">8</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/524852" class="red" target="_blank">黄志伟</a></b>&nbsp;老师获赠<b class="red">2</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/1059124" class="red" target="_blank">李洋</a></b>&nbsp;老师获赠<b class="red">88</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/1629923" class="red" target="_blank">赵泽民</a></b>&nbsp;老师获赠<b class="red">200</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/1629923" class="red" target="_blank">赵泽民</a></b>&nbsp;老师获赠<b class="red">200</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/1629923" class="red" target="_blank">赵泽民</a></b>&nbsp;老师获赠<b class="red">520</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/1629923" class="red" target="_blank">赵泽民</a></b>&nbsp;老师获赠<b class="red">1314</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/529975" class="red" target="_blank">乐涛</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/521720" class="red" target="_blank">文钊飞</a></b>&nbsp;老师获赠<b class="red">1</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/1547744" class="red" target="_blank">宋柏君</a></b>&nbsp;老师获赠<b class="red">99</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/1547744" class="red" target="_blank">宋柏君</a></b>&nbsp;老师获赠<b class="red">5</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/530500" class="red" target="_blank">周锦弘</a></b>&nbsp;老师获赠<b class="red">7</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/530500" class="red" target="_blank">周锦弘</a></b>&nbsp;老师获赠<b class="red">41</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/530500" class="red" target="_blank">周锦弘</a></b>&nbsp;老师获赠<b class="red">31</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/530500" class="red" target="_blank">周锦弘</a></b>&nbsp;老师获赠<b class="red">19</b>朵鲜花~~</li>
+            
+            <li style="height: 42px;">恭喜&nbsp;<b><a href="/526674" class="red" target="_blank">韩修会</a></b>&nbsp;老师获赠<b class="red">99</b>朵鲜花~~</li>
+            
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.dscontainer .dashang').click(function () {
+        var lectid = $(this).attr("data-lectid");
+        layer.open({
+            type: 2,
+            title: '喜欢，就打赏一下鲜花',
+            area: ['330px', '410px'],
+            skin: 'layui-layer-rim', //加上边框
+            content: ['/flowers/pay?lectid=' + lectid, 'no']
+        });
+    });
+</script>
+<script type="text/javascript">
+    function autoScroll(obj, ul_bz) {
+        var _t;
+        function scroll() {
+            $(obj).find(ul_bz).animate({
+                marginTop: "0px"
+            }, 1000, function () {
+                $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+            });
+        }
+        _t = setInterval(scroll, 1000);
+        $(obj).hover(
+            function () {
+                clearInterval(_t);
+            },
+            function () {
+                _t = setInterval(scroll, 1000);
+            }
+        );
+    } 
+    $(function () {
+        autoScroll(".flower-state", ".f_textg");
+    }) 
+</script>
+<!--鲜花排行榜-->
+
+        <!--鲜花打赏 end-->
+
+        <!--推荐讲师-->
+        <div class="area-h5 clear">
+            <h3 class="txt-home">推荐讲师
+        <a href="/search">更多
+        <i class="ahome-ico"></i>
+        </a>
+            </h3>
+            <!--第一个大图-->
+            <div class="up-teacher fl_l"> 
+                <a href="http://www.jiangshi.org/516193" target="_blank" title="卢勤">
+   <img src="http://img1.jiangshi.org/rsi/20180711/111051107003_1420.jpg" alt="卢勤">
+</a>
+<p class="click1 cursor"><a href="http://www.jiangshi.org/516193" target="_blank">邀约电话：13738008038</a></p>
+            </div>
+            <!--第一个大图 end-->
+            <!--6小图 -->
+            <ul class="other-teacher fl_r">
+                
+<li class="li-1 li">
+    <a href="http://www.jiangshi.org/702298" target="_blank" title="谷晟阳">
+        <img src="http://img1.jiangshi.org/rsi/20180629/291555565491_1405.jpg" alt="谷晟阳"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/702298" target="_blank">谷晟阳</a>[<em>电话：18640886333</em>]</p>
+</li>
+
+<li class="li-2 li">
+    <a href="http://www.jiangshi.org/1454164" target="_blank" title="龙金科">
+        <img src="http://img1.jiangshi.org/rsi/20180321/211122082813_1420.jpg" alt="龙金科"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/1454164" target="_blank">互联网</a>[<em>电话：13911753488</em>]</p>
+</li>
+
+<li class="li-3 li">
+    <a href="http://www.jiangshi.org/1533703" target="_blank" title="刘军成">
+        <img src="http://img1.jiangshi.org/rsi/20180531/311442518159_1420.jpg" alt="刘军成"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/1533703" target="_blank">兵学家</a>[<em>电话：15319778118</em>]</p>
+</li>
+
+<li class="li-4 li">
+    <a href="http://www.jiangshi.org/532633" target="_blank" title="罗大伦 ">
+        <img src="http://img1.jiangshi.org/rsi/20180625/251032016291_1405.jpg" alt="罗大伦 "></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/532633" target="_blank">中医学家</a>[<em>电话：13738008038</em>]</p>
+</li>
+
+<li class="li-5 li">
+    <a href="http://www.jiangshi.org/1520634" target="_blank" title="林安">
+        <img src="http://img1.jiangshi.org/rsi/20180531/311447564323_1420.jpg" alt="林安"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/1520634" target="_blank">营销专家</a>[<em>电话：13602652856</em>]</p>
+</li>
+
+<li class="li-6 li">
+    <a href="http://www.jiangshi.org/524138" target="_blank" title="雅心">
+        <img src="http://img1.jiangshi.org/rsi/20160406/061703079616_1391_2000x1000.png" alt="雅心"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/524138" target="_blank">家庭教育</a>[<em>电话：18917183688</em>]</p>
+</li>
+
+            </ul>
+            <!--6小图 end-->
+        </div>
+        <!--推荐讲师end-->
+
+        <!--热门讲师-->
+        <div class="area-h5 clear" style="padding-top: 38px;">
+            <h3 class="txt-home">热门讲师
+        <a href="/search">更多
+        <i class="ahome-ico"></i>
+        </a>
+            </h3>
+            <!--第一个大图 -->
+            <div class="up-teacher fl_r">
+                <a href="http://www.jiangshi.org/516127" target="_blank" title="尚致胜">
+   <img src="http://img1.jiangshi.org/rsi/20171208/081356377953_1391.jpg" alt="尚致胜">
+</a>
+<p class="click1 cursor"><a href="http://www.jiangshi.org/516127" target="_blank">邀约电话：13738007038</a></p>
+            </div>
+            <!--第一个大图 end-->
+            <!--6小图 -->
+            <ul class="hot-teacher fl_l">
+                
+<li class="li-1 li">
+    <a href="http://www.jiangshi.org/706571" target="_blank" title="张科平">
+        <img src="http://img1.jiangshi.org/rsi/20180511/111758074790_1420.jpg" alt="张科平"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/706571" target="_blank">领导力</a>[<em>电话：15317115888</em>]</p>
+</li>
+
+<li class="li-2 li">
+    <a href="http://www.jiangshi.org/1228488" target="_blank" title="金昕炜">
+        <img src="http://img1.jiangshi.org/rsi/20180628/281441338250_1420.jpg" alt="金昕炜"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/1228488" target="_blank">领导力</a>[<em>电话：18658169189</em>]</p>
+</li>
+
+<li class="li-3 li">
+    <a href="http://www.jiangshi.org/518749" target="_blank" title="王传璐">
+        <img src="http://img1.jiangshi.org/rsi/20180321/211116490493_1420.jpg" alt="王传璐"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/518749" target="_blank">时尚演说</a>[<em>电话：13552730388</em>]</p>
+</li>
+
+<li class="li-4 li">
+    <a href="http://www.jiangshi.org/1223057" target="_blank" title="徐其山">
+        <img src="http://img1.jiangshi.org/rsi/20180329/291132224429_1420.jpg" alt="徐其山"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/1223057" target="_blank">心理学</a>[<em>电话：18028095877</em>]</p>
+</li>
+
+<li class="li-5 li">
+    <a href="http://www.jiangshi.org/1448733" target="_blank" title="李海鹰">
+        <img src="http://img1.jiangshi.org/rsi/20180417/171735161065_1420.jpg" alt="李海鹰"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/1448733" target="_blank">互联网</a>[<em>电话：18680266199 </em>]</p>
+</li>
+
+<li class="li-6 li">
+    <a href="http://www.jiangshi.org/520553" target="_blank" title="孙新平">
+        <img src="http://img1.jiangshi.org/rsi/20180607/071137024543_1420.jpg" alt="孙新平"></a>
+    <p class="text-overflow click1 cursor"><a href="http://www.jiangshi.org/520553" target="_blank">企业运作</a>[<em>电话：15210924667</em>]</p>
+</li>
+
+            </ul>
+            <!--6小图 end-->
+        </div>
+        <!--热门讲师end-->
+
+        <!--热门关键词-->
+<!--
+        <div style="margin-top: 40px;">
+            <h3 class="txt-home">热门关键词
+        <a href="/search">更多
+        <i class="ahome-ico"></i>
+        </a>
+            </h3>
+            <div class="menuListNew">
+                <div class="site-main">
+                    <div class="menuListNew_wrap">
+
+                       
+                        <div class="mod-navPop clear">
+                            [$CMS_Column_hot_keywords$]
+                        </div>
+                    </div>
+                </div>
+            </div> 
+-->
+            <!--热门关键词end-->
+            <!--互联网+-->
+            <div class="area-h6" style="margin-top: 45px;display:none;">
+                <h3 class="txt-home">互联网+
+        <a href="/search">更多
+        <i class="ahome-ico"></i>
+        </a>
+                </h3>
+                <ul class="for-teacher clear">
+                    
+<li>
+                        <a href="http://www.jiangshi.org/531339" target="_blank" title="金错刀">
+                            <img src="http://img1.jiangshi.org/rsi/20170216/160851078972_1391.jpg" alt="金错刀"></a>
+                        <p class="click cursor"><b><a href="http://www.jiangshi.org/531339" title="金错刀">金错刀</a></b></p>
+                        <em class="click1 cursor"><a href="http://www.jiangshi.org/531339">科技商业观察家、微创新提出者<br>
+                            邀约电话：13738008038  </a></em>
+                    </li>
+
+<li>
+                        <a href="http://www.jiangshi.org/600041" target="_blank" title="贺新杰">
+                            <img src="http://img1.jiangshi.org/rsi/20160201/011422524779_1395.jpg" alt="贺新杰"></a>
+                        <p class="click cursor"><b><a href="http://www.jiangshi.org/600041" title="贺新杰">贺新杰</a></b></p>
+                        <em class="click1 cursor"><a href="http://www.jiangshi.org/600041">互联网转型与电商运营专家<br>
+                            邀约电话：18611148081</a></em>
+                    </li>
+
+<li>
+                        <a href="http://www.jiangshi.org/534474" target="_blank" title="卜安洵">
+                            <img src="http://img1.jiangshi.org/rsi/20160201/011147294093_1395.jpg" alt="卜安洵"></a>
+                        <p class="click cursor"><b><a href="http://www.jiangshi.org/534474" title="卜安洵">卜安洵</a></b></p>
+                        <em class="click1 cursor"><a href="http://www.jiangshi.org/534474">传统企业互联网转型实战专家<br>
+                            邀约电话：18621725915  </a></em>
+                    </li>
+
+<li>
+                        <a href="http://www.jiangshi.org/531090" target="_blank" title="徐全">
+                            <img src="http://img1.jiangshi.org/rsi/20160201/011148401534_1395.jpg" alt="徐全"></a>
+                        <p class="click cursor"><b><a href="http://www.jiangshi.org/531090" title="徐全">徐全</a></b></p>
+                        <em class="click1 cursor"><a href="http://www.jiangshi.org/531090">电商、互联网运营专家<br>
+                            邀约电话：13634183203</a></em>
+                    </li>
+
+                </ul>
+            </div>
+            <!--互联网+end-->
+
+            <!--市场营销-->
+            <div class="area-h6" style="margin-top: 45px;display:none;">
+                <h3 class="txt-home">市场营销
+        <a href="/search">更多
+        <i class="ahome-ico"></i>
+        </a>
+                </h3>
+                <ul class="for-teacher clear">
+                    
+<li>
+                        <a href="http://www.jiangshi.org/516378" target="_blank" title="华红兵">
+                            <img src="http://img1.jiangshi.org/rsi/20160201/011421090949_1395.jpg" alt="华红兵"></a>
+                        <p class="click cursor"><b><a href="http://www.jiangshi.org/516378" title="华红兵">华红兵</a></b></p>
+                        <em class="click1 cursor"><a href="http://www.jiangshi.org/516378">中国式营销专家<br>
+                            邀约电话：13738007038</a></em>
+                    </li>
+
+<li>
+                        <a href="http://www.jiangshi.org/517529" target="_blank" title="石真语">
+                            <img src="http://img1.jiangshi.org/rsi/20160201/011422157108_1395.jpg" alt="石真语"></a>
+                        <p class="click cursor"><b><a href="http://www.jiangshi.org/517529" title="石真语">石真语</a></b></p>
+                        <em class="click1 cursor"><a href="http://www.jiangshi.org/517529">实战营销专家<br>
+                            邀约电话：13738007038</a></em>
+                    </li>
+
+<li>
+                        <a href="http://www.jiangshi.org/517762" target="_blank" title="余明阳">
+                            <img src="http://img1.jiangshi.org/rsi/20160201/011421250451_1395.jpg" alt="余明阳"></a>
+                        <p class="click cursor"><b><a href="http://www.jiangshi.org/517762" title="余明阳">余明阳</a></b></p>
+                        <em class="click1 cursor"><a href="http://www.jiangshi.org/517762">广告与公共关系的学者之一<br>
+                            邀约电话：13738007038</a></em>
+                    </li>
+
+                </ul>
+            </div>
+            <!--市场营销end-->
+
+            <!--最新更新-->
+            <div class="area-h8 clear" style="margin-top: 45px;">
+                <div class="fl_l" style="width: 390px">
+                    <div class="cw-h">
+                        <h3 class="txt-home">推荐授课见证
+            <a href="/blog/search">更多<i class="ahome-ico"></i></a>
+                        </h3>
+                        <ul class="title-list">
+                            
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/1454164/blog_1615629.html" target="_blank" title="龙金科: 法律网络运营类微课">龙金科: 法律网络运营类微课</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/1059124/blog_1610273.html" target="_blank" title="李洋:《卓越领导者的领导艺术与自我修炼》">李洋:《卓越领导者的领导艺术与自我修炼》</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/520956/blog_1608757.html" target="_blank" title="魏淼清:课堂上如何构建故事化场域">魏淼清:课堂上如何构建故事化场域</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/1510273/blog_1591817.html" target="_blank" title="李肇星:12月24日纵论全球大湾区">李肇星:12月24日纵论全球大湾区</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/520979/blog_1611984.html" target="_blank" title="黄会超:客户跟踪的8个技巧">黄会超:客户跟踪的8个技巧</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/517040/blog_1606706.html" target="_blank" title="王同:伊利奶粉母婴客户大会培训">王同:伊利奶粉母婴客户大会培训</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="fl_l" style="width: 390px">
+                    <div class="cw-h">
+                        <h3 class="txt-home">推荐视频
+            <a href="/video/search">更多<i class="ahome-ico"></i></a>
+                        </h3>
+                        <ul class="title-list">
+                            
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/520553/video_712316.html" target="_blank" title="孙新平:有效沟通">孙新平:有效沟通</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/517040/video_1602109.html" target="_blank" title="王同:白象食品-经销商大会培训开场">王同:白象食品-经销商大会培训开场</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/1400374/video_1581951.html" target="_blank" title="胡和平: 塑造产品价值及顾问式销售技巧精要">胡和平: 塑造产品价值及顾问式销售技巧精要</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/1571889/video_1585031.html" target="_blank" title="崔伟:五福少帅夏令营">崔伟:五福少帅夏令营</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/517620/video_1580814.html" target="_blank" title="赵常乐:论无奸不商的毒害与无尖不商的正解">赵常乐:论无奸不商的毒害与无尖不商的正解</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/706198/video_1585653.html" target="_blank" title="龙凤铭:营销技巧全方位提升训练营总结片断">龙凤铭:营销技巧全方位提升训练营总结片断</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="fl_r" style="width: 300px">
+                    <div class="cw-h">
+                        <h3 class="txt-home">推荐课程
+            <a href="/course/search">更多<i class="ahome-ico"></i></a>
+                        </h3>
+                        <ul class="title-list">
+                            
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/524138/course_1247965.html" target="_blank" title="雅心:《五感五道四法四建》">雅心:《五感五道四法四建》</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/534295/course_1617764.html" target="_blank" title="景元利:团队凝聚力提升">景元利:团队凝聚力提升</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/517820/course_1615435.html" target="_blank" title="孙向阳:高利润门店运营全攻略">孙向阳:高利润门店运营全攻略</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/1201966/course_1616802.html" target="_blank" title="崔洋:沙漠掘金">崔洋:沙漠掘金</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/523709/course_751916.html" target="_blank" title="胡福庭:物流大客户销售实战特训营">胡福庭:物流大客户销售实战特训营</a></li>
+
+    <li class="click1 cursor"><a href="http://www.jiangshi.org/524020/course_1487778.html" target="_blank" title="王一名:业绩核能——总裁战略突破">王一名:业绩核能——总裁战略突破</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div style="display:none;"></div>
+            </div>
+            <!--最新更新end-->
+
+            <!--最近活跃讲师 begin-->
+             
+<!--最近活跃讲师 begin-->
+<div class="area-h6 roll-list" style="margin-top: 45px;">
+    <h3 class="txt-home">活跃讲师</h3>
+    <ul>
+        
+        <li>
+            <div class="roll-img">
+                <a href="/1607797" target="_blank"><img src="http://img1.jiangshi.org/rsi/20180606/061612418396_1607797_70x90.jpg" alt="宋启瑜" title="宋启瑜" border="0"/></a>
+            </div>
+            <p><a href="/1607797" target="_blank">宋启瑜</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/522878" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241509398010_1395_160x205.jpg" alt="金一南" title="金一南" border="0"/></a>
+            </div>
+            <p><a href="/522878" target="_blank">金一南</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/549233" target="_blank"><img src="http://img1.jiangshi.org/rsi/20180712/121026293175_549233_70x90.jpg" alt="杨舜垚" title="杨舜垚" border="0"/></a>
+            </div>
+            <p><a href="/549233" target="_blank">杨舜垚</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/532949" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241515168013_1395.jpg" alt="张维为" title="张维为" border="0"/></a>
+            </div>
+            <p><a href="/532949" target="_blank">张维为</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/518321" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241514283219_1395.jpg" alt="杨凤池" title="杨凤池" border="0"/></a>
+            </div>
+            <p><a href="/518321" target="_blank">杨凤池</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/535441" target="_blank"><img src="http://img1.jiangshi.org/v1/upload/lectavatar/18967/18967.jpg" alt="涂远伟" title="涂远伟" border="0"/></a>
+            </div>
+            <p><a href="/535441" target="_blank">涂远伟</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/525779" target="_blank"><img src="http://img1.jiangshi.org/rsi/20160401/012135278975_525779_70x90.jpg" alt="何新云" title="何新云" border="0"/></a>
+            </div>
+            <p><a href="/525779" target="_blank">何新云</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/533240" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241517174446_1395.jpg" alt="顾中一" title="顾中一" border="0"/></a>
+            </div>
+            <p><a href="/533240" target="_blank">顾中一</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/522033" target="_blank"><img src="http://img1.jiangshi.org/rsi/20160407/071329176615_522033_70x90.jpg" alt="孔斌" title="孔斌" border="0"/></a>
+            </div>
+            <p><a href="/522033" target="_blank">孔斌</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/523709" target="_blank"><img src="http://img1.jiangshi.org/rsi/20160401/011643254725_523709_70x90.jpg" alt="胡福庭" title="胡福庭" border="0"/></a>
+            </div>
+            <p><a href="/523709" target="_blank">胡福庭</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/522675" target="_blank"><img src="http://img1.jiangshi.org/rsi/20160406/060736474759_522675_70x90.jpg" alt="蔡长安" title="蔡长安" border="0"/></a>
+            </div>
+            <p><a href="/522675" target="_blank">蔡长安</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/523677" target="_blank"><img src="http://img1.jiangshi.org/rsi/20160401/011641247667_523677_70x90.jpg" alt="李镇江" title="李镇江" border="0"/></a>
+            </div>
+            <p><a href="/523677" target="_blank">李镇江</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/518285" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241518476219_1395.jpg" alt="赵之心" title="赵之心" border="0"/></a>
+            </div>
+            <p><a href="/518285" target="_blank">赵之心</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/522087" target="_blank"><img src="http://img1.jiangshi.org/rsi/20160407/071937156068_522087_70x90.jpg" alt="吴诚" title="吴诚" border="0"/></a>
+            </div>
+            <p><a href="/522087" target="_blank">吴诚</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/517909" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241518113226_1395.jpg" alt="曲黎敏" title="曲黎敏" border="0"/></a>
+            </div>
+            <p><a href="/517909" target="_blank">曲黎敏</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/517477" target="_blank"><img src="http://img1.jiangshi.org/rsi/20180712/121000135590_517477_70x90.jpg" alt="时红川" title="时红川" border="0"/></a>
+            </div>
+            <p><a href="/517477" target="_blank">时红川</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/517987" target="_blank"><img src="http://img1.jiangshi.org/v1/peixunpicture/lect/2009-04-17/d1dc5ad9-b17d-4793-baff-dfeeb09581ad.jpg" alt="张其成" title="张其成" border="0"/></a>
+            </div>
+            <p><a href="/517987" target="_blank">张其成</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/1629730" target="_blank"><img src="http://img1.jiangshi.org/rsi/20180708/081418161375_1629730_70x90.jpeg" alt="向龙" title="向龙" border="0"/></a>
+            </div>
+            <p><a href="/1629730" target="_blank">向龙</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/530333" target="_blank"><img src="http://img1.jiangshi.org/rsi/20170413/131018125958_530333_70x90.jpg" alt="曾子熙" title="曾子熙" border="0"/></a>
+            </div>
+            <p><a href="/530333" target="_blank">曾子熙</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/518293" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241453381830_1395.jpg" alt="金海峰" title="金海峰" border="0"/></a>
+            </div>
+            <p><a href="/518293" target="_blank">金海峰</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/531339" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241525218808_1395.jpg" alt="金错刀" title="金错刀" border="0"/></a>
+            </div>
+            <p><a href="/531339" target="_blank">金错刀</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/521555" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241452357817_1395.jpg" alt="鲍鹏山" title="鲍鹏山" border="0"/></a>
+            </div>
+            <p><a href="/521555" target="_blank">鲍鹏山</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/1630453" target="_blank"><img src="http://img1.jiangshi.org/rsi/20180711/111502152243_1630453_70x90.jpg" alt="董化春" title="董化春" border="0"/></a>
+            </div>
+            <p><a href="/1630453" target="_blank">董化春</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/517245" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241456078463_1395.jpg" alt="于丹" title="于丹" border="0"/></a>
+            </div>
+            <p><a href="/517245" target="_blank">于丹</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/517942" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241453208352_1395.jpg" alt="傅佩荣" title="傅佩荣" border="0"/></a>
+            </div>
+            <p><a href="/517942" target="_blank">傅佩荣</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/518178" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241455044656_1395.jpg" alt="钱文忠" title="钱文忠" border="0"/></a>
+            </div>
+            <p><a href="/518178" target="_blank">钱文忠</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/1488994" target="_blank"><img src="http://img1.jiangshi.org/rsi/20170719/191606185342_1488994_70x90.jpg" alt="杨超" title="杨超" border="0"/></a>
+            </div>
+            <p><a href="/1488994" target="_blank">杨超</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/529404" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241505054321_1395.jpg" alt="向松祚" title="向松祚" border="0"/></a>
+            </div>
+            <p><a href="/529404" target="_blank">向松祚</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/522934" target="_blank"><img src="http://img1.jiangshi.org/rsi/20171124/241502537385_1395.jpg" alt="董藩" title="董藩" border="0"/></a>
+            </div>
+            <p><a href="/522934" target="_blank">董藩</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/518347" target="_blank"><img src="http://img1.jiangshi.org/v1/peixunpicture/lect/2009-07-08/405b6d35-9bf5-4bd2-a77a-baf47316d10e.jpg" alt="金岩石" title="金岩石" border="0"/></a>
+            </div>
+            <p><a href="/518347" target="_blank">金岩石</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/544248" target="_blank"><img src="http://img1.jiangshi.org/rsi/20160401/012027288185_544248_70x90.jpg" alt="孟凡奎" title="孟凡奎" border="0"/></a>
+            </div>
+            <p><a href="/544248" target="_blank">孟凡奎</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/520553" target="_blank"><img src="http://img1.jiangshi.org/rsi/20160407/071952401911_520553_70x90.jpg" alt="孙新平" title="孙新平" border="0"/></a>
+            </div>
+            <p><a href="/520553" target="_blank">孙新平</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/1599361" target="_blank"><img src="http://img1.jiangshi.org/rsi/20180302/022254084522_1599361_70x90.jpg" alt="乐成思" title="乐成思" border="0"/></a>
+            </div>
+            <p><a href="/1599361" target="_blank">乐成思</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/1625751" target="_blank"><img src="http://img1.jiangshi.org/rsi/20180622/221144354820_1625751_70x90.jpg" alt="李宏逸" title="李宏逸" border="0"/></a>
+            </div>
+            <p><a href="/1625751" target="_blank">李宏逸</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/1488771" target="_blank"><img src="http://img1.jiangshi.org/rsi/20180619/190910217833_1488771_70x90.jpg" alt="乐庸建" title="乐庸建" border="0"/></a>
+            </div>
+            <p><a href="/1488771" target="_blank">乐庸建</a></p>
+        </li>
+    
+        <li>
+            <div class="roll-img">
+                <a href="/593582" target="_blank"><img src="http://img1.jiangshi.org/rsi/20180401/011453578372_593582_70x90.jpg" alt="许愿" title="许愿" border="0"/></a>
+            </div>
+            <p><a href="/593582" target="_blank">许愿</a></p>
+        </li>
+    
+    </ul>
+</div>
+<!--最近活跃讲师 end-->
+
+            <!--最近活跃讲师 end-->
+
+            <!---link begin-->
+            <div class="flink" style="width:auto;">
+                <div class="flink_title">
+                    <a href="/about/friendlink.html" target="_blank" class="more">更多&gt;&gt;</a><h2>友情链接<span>&nbsp;&nbsp;[本站PR5，百度权重6，Alexa三万名，欢迎同等级别网站友链，QQ：2851253258]</span></h2>
+                </div>
+                <div class="flink_txt">
+                    
+<a href="http://www.jiangshi.org/" title="企业培训师" target="_blank" style="color:#000000;">企业培训师</a>
+
+<a href="http://wenku.baidu.com/org/view?org=jiangshi" title="百度文库" target="_blank" style="color:#000000;">百度文库</a>
+
+<a href="http://www.china-train.net" title="中国培训网" target="_blank" style="color:#000000;">中国培训网</a>
+
+<a href="http://www.ntce.com/" title="教师资格考试网" target="_blank" style="color:#000000;">教师资格考试网</a>
+
+<a href="http://www.52wubi.com" title="我爱五笔网" target="_blank" style="color:#000000;">我爱五笔网</a>
+
+<a href="http://www.234.cn/" title="儿童玩具" target="_blank" style="color:#000000;">儿童玩具</a>
+
+<a href="http://www.dxs518.cn/ " title="大学生校内网" target="_blank" style="color:#000000;">大学生校内网</a>
+
+<a href="http://www.weiceyan.com/" title="心理测试" target="_blank" style="color:#000000;">心理测试</a>
+
+<a href="http://www.cfa.cn/" title="中国CFA考试网" target="_blank" style="color:#000000;">中国CFA考试网</a>
+
+<a href="http://www.lw54.com/" title="毕业论文" target="_blank" style="color:#000000;">毕业论文</a>
+
+<a href="http://www.qeo.cn/" title="求艺网" target="_blank" style="color:#000000;">求艺网</a>
+
+<a href="http://www.zzyjs.com/" title="在职研究生" target="_blank" style="color:#000000;">在职研究生</a>
+
+<a href="http://www.eduei.com/" title="在职研究生" target="_blank" style="color:#000000;">在职研究生</a>
+
+<a href="http://www.jinrongren.net/" title="银行招聘网" target="_blank" style="color:#000000;">银行招聘网</a>
+
+<a href="http://www.kaoyan365.cn/" title="考研" target="_blank" style="color:#000000;">考研</a>
+
+<a href="http://www.kekenet.com/" title="可可英语" target="_blank" style="color:#000000;">可可英语</a>
+
+<a href="http://www.chinahrd.net/" title="中人网" target="_blank" style="color:#000000;">中人网</a>
+
+<a href="http://www.ab126.com" title="懒人计算器" target="_blank" style="color:#000000;">懒人计算器</a>
+
+<a href="http://www.ms315.com/" title="美术高考网" target="_blank" style="color:#000000;">美术高考网</a>
+
+<a href="http://hlj.offcn.com/" title="黑龙江人事考试网" target="_blank" style="color:#000000;">黑龙江人事考试网</a>
+
+<a href="http://www.mobiletrain.org/" title="Java培训" target="_blank" style="color:#000000;">Java培训</a>
+
+<a href="http://www.xycareer.com/" title="向阳生涯" target="_blank" style="color:#000000;">向阳生涯</a>
+
+<a href="http://www.kokojia.com/" title="培训视频" target="_blank" style="color:#000000;">培训视频</a>
+
+<a href="http://www.jianzhiba.net/" title="大学生兼职网" target="_blank" style="color:#000000;">大学生兼职网</a>
+
+<a href="http://cg.yuloo.com/" title="出国留学网" target="_blank" style="color:#000000;">出国留学网</a>
+
+<a href="http://www.liuxue.com/" title="顺顺留学" target="_blank" style="color:#000000;">顺顺留学</a>
+
+<a href="http://www.cnlist.org/" title="中国黄页" target="_blank" style="color:#000000;">中国黄页</a>
+
+<a href="https://zuciwang.com/" title="组词网" target="_blank" style="color:#000000;">组词网</a>
+
+<a href="http://www.nlypx.com" title="企业培训" target="_blank" style="color:#000000;">企业培训</a>
+
+<a href="http://www.longre.com/" title="托福培训" target="_blank" style="color:#000000;">托福培训</a>
+
+<a href="http://dl.fang.com/" title="大连房产网" target="_blank" style="color:#000000;">大连房产网</a>
+
+<a href="http://www.05wang.com/" title="零五网" target="_blank" style="color:#000000;">零五网</a>
+
+<a href="http://sh.fang.com/" title="上海房产网" target="_blank" style="color:#000000;">上海房产网</a>
+
+<a href="http://www.job910.com/" title="教师招聘" target="_blank" style="color:#000000;">教师招聘</a>
+
+<a href="http://www.xzbu.com/" title="论文网" target="_blank" style="color:#000000;">论文网</a>
+
+<a href="http://www.1kejian.com/" title="第一课件网" target="_blank" style="color:#000000;">第一课件网</a>
+
+<a href="http://www.gjgwy.net" title="国家公务员考试网" target="_blank" style="color:#000000;">国家公务员考试网</a>
+
+<a href="http://www.0577hr.com" title="温州人力资源网" target="_blank" style="color:#000000;">温州人力资源网</a>
+
+<a href="http://www.jjsedu.org/" title="经济师考试" target="_blank" style="color:#000000;">经济师考试</a>
+
+<a href="http://bj.offcn.com/" title="北京人事考试网" target="_blank" style="color:#000000;">北京人事考试网</a>
+
+<a href="http://www.yclunwen.com/" title="代写硕士论文" target="_blank" style="color:#000000;">代写硕士论文</a>
+
+<a href="http://www.youlu.net/" title="旧书网" target="_blank" style="color:#000000;">旧书网</a>
+
+<a href="http://www.gzck.com.cn/" title="广州成考" target="_blank" style="color:#000000;">广州成考</a>
+
+<a href="http://sc.offcn.com/" title="四川中公教育" target="_blank" style="color:#000000;">四川中公教育</a>
+
+<a href="http://fr.hujiang.com" title="法语学习" target="_blank" style="color:#000000;">法语学习</a>
+
+<a href="http://www.bangboer.net/" title="邦博尔招生网" target="_blank" style="color:#000000;">邦博尔招生网</a>
+
+<a href="http://www.ihuashi.cn" title="鲜花店" target="_blank" style="color:#000000;">鲜花店</a>
+
+<a href="http://www.233.com/hr/" title="人力资源考试" target="_blank" style="color:#000000;">人力资源考试</a>
+
+<a href="http://www.fylunwen.com/" title="代写硕士论文" target="_blank" style="color:#000000;">代写硕士论文</a>
+
+<a href="http://www.beijingbaomu.com/" title="北京家政网" target="_blank" style="color:#000000;">北京家政网</a>
+
+<a href="http://www.51lunwen.org/" title="论文网" target="_blank" style="color:#000000;">论文网</a>
+
+<a href="http://news.5068.com/" title="最新教育资讯" target="_blank" style="color:#000000;">最新教育资讯</a>
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!---link end-->
+        </div>
+    </div>
+</div> 
+<script type="text/javascript">
+        //文字纵向滚动
+        $(function() {
+            var $this = $("#quotation");
+            var scrollTimer;
+
+            $this.hover(function() {
+                clearInterval(scrollTimer);
+            }, function() {
+                scrollTimer = setInterval(function() {
+                    scrollNews($this);
+                },3000);
+            }).trigger("mouseleave");
+
+            function scrollNews(obj) {
+                var $self = obj.find("ul");
+                var lineHeight = $self.find("li:first").height();
+                $self.animate({
+                    "marginTop": -lineHeight + "px"
+                },1000, function() {
+                    $self.css({
+                        marginTop: 0
+                    }).find("li:first").appendTo($self);
+                })
+            }
+        })
+    </script>
+
+<!--right qq内容begin-->
+<style>
+#rightButton {
+	position: fixed;
+	_position: absolute;
+	top: 378px;
+	right: 0;
+	z-index: 999999;
+	display: block;
+}
+#right_ul {
+	position: relative;
+}
+#right_qq {
+	background: url(http://css.jiangshi.org/images/7_03.png) no-repeat;
+	width: 68px;
+	height: 74px;
+}
+#right_tel {
+	background: url(http://css.jiangshi.org/images/7_05.png) no-repeat;
+	width: 68px;
+	height: 77px;
+}
+#right_tip {
+	background: url(http://css.jiangshi.org/images/flag_right.png) no-repeat;
+	width: 252px;
+	height: 115px;
+	position: absolute;
+	right: 70px;
+	top: -10px;
+	display: none;
+	z-index: 999999;
+}
+.flag_qq {
+	padding-top: 7px;
+	display: none;
+}
+.flag_qq dl, .flag_tel dl {
+	width: 100%;
+	display: inline-block;
+	padding-left: 20px;
+}
+.flag_tel dl dd {
+	color: #FA7C00;
+	font-size: 19px;
+}
+.flag_qq dl dt {
+	padding-right: 5px;
+}
+.flag_qq dl dd {
+	padding: 4px 5px;
+}
+.f_l {
+	float: left;
+}
+#backToTop {
+	z-index: 999999;
+	display: none;
+}
+a.backToTop_a {
+	background: url(http://css.jiangshi.org/images/7_08.png) no-repeat;
+	width: 68px;
+	height: 79px;
+	display: block;
+}
+a.backToTop_a:active {
+	background: url(http://css.jiangshi.org/images/7_11.png) no-repeat;
+}
+.line115 {
+	line-height: 115px;
+}
+.line30 {
+	line-height: 30px;
+}
+</style>
+
+<div id="rightButton">
+  <ul id="right_ul">
+    <li id="right_qq" class="right_ico" show="qq" hide="tel"></li>
+    <li id="right_tel" class="right_ico" show="tel" hide="qq"></li>
+    <li id="right_tip">
+      <div class="flag_qq line30">
+        <dl>
+          <dt class="f_l">企业咨询：</dt>
+          <dd class="f_l"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2851253265&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2851253265:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></dd>
+          <dd class="f_l"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2851253269&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2851253269:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></dd>
+        </dl>
+        <dl>
+          <dt class="f_l">讲师咨询：</dt>
+          <dd class="f_l"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2851253251&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2851253251:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></dd>
+          <dd class="f_l"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2851253256&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2851253256:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></dd>
+        </dl>
+        <dl>
+          <dt class="f_l">其他咨询：</dt>
+          <dd class="f_l"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2851253264&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2851253264:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></dd>
+        </dl>
+      </div>
+      <div class="flag_tel line115">
+        <dl>
+          <dt class="f_l">客服热线：</dt>
+          <dd class="f_l">400-600-9086</dd>
+        </dl>
+      </div>
+    </li>
+
+    <li>
+      <div id="backToTop"><a href="javascript:;" onfocus="this.blur();" class="backToTop_a png"></a></div>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(e) {
+	$("#rightButton").css("right", "0px");
+	
+    var button_toggle = true;
+	$(".right_ico").on("mouseover", function(){
+		var tip_top;console.log('aaa');
+		var show= $(this).attr('show');
+		var hide= $(this).attr('hide');
+		tip_top = show == 'tel' ?  65 :  -10;
+		button_toggle = false;
+		$("#right_tip").css("top" , tip_top).show().find(".flag_"+show).show();
+		$(".flag_"+hide).hide();
+		
+	}).on("mouseout", function(){
+		button_toggle = true;
+		hideRightTip();
+	});
+	
+	
+	$("#right_tip").on("mouseover",function(){
+		button_toggle = false;
+		$(this).show();
+	}).on("mouseout", function(){
+		button_toggle = true;
+		hideRightTip();
+	});
+	
+	function hideRightTip(){
+		setTimeout(function(){		
+			if( button_toggle ) $("#right_tip").hide();
+		}, 500);
+	}
+	
+	$("#backToTop").on("click", function(){
+		var _this = $(this);
+		$('html,body').animate({ scrollTop: 0 }, 500 ,function(){
+			_this.hide();
+		});
+	});
+
+	$(window).scroll(function(){
+		var htmlTop = $(document).scrollTop();
+		if( htmlTop > 0){
+			$("#backToTop").fadeIn();	
+		}else{
+			$("#backToTop").fadeOut();
+		}
+	});
+});
+</script>
+<!--right qq内容end-->
+
+<!--主体内end容-->
+    </div>
+    <!-- E 内容 -->
+    <!-- B 底部 -->
+    <div id="m_footer">
+        
+
+<!--bottom start-->
+<div id="footer-p-beta2">
+    <hr>
+    <div class="wrap">
+        <div class="copyright">
+            <div class="copy-side">
+                客服热线<br>
+                <strong>400-600-9086</strong><br>
+                <small>工作日8:30-18:00</small>
+            </div>
+            <div class="copy-main">
+                <div class="item">
+                    <dl>
+                        <dt>简介</dt>
+                        <dd><a href="http://www.jiangshi.org/about/intro.html" target="_blank" rel="nofollow">关于我们</a></dd>
+                        <dd><a href="http://www.jiangshi.org/about/contact.html" target="_blank" rel="nofollow">联系我们</a></dd>
+                        <dd><a href="http://www.jiangshi.org/about/contact.html" target="_blank" rel="nofollow">汇款方式</a></dd>
+                        <dd><a href="http://www.jiangshi.org/about/law.html" target="_blank" rel="nofollow">法律声明</a></dd>
+                    </dl>
+                </div>
+                <div class="item">
+                    <dl>
+                        <dt>帮助</dt>
+                        <dd><a href="http://www.jiangshi.org/about/feedback.html" target="_blank" rel="nofollow">意见反馈</a></dd>
+                        <dd><a href="http://www.jiangshi.org/about/job.html" target="_blank" rel="nofollow">诚聘英才</a></dd>
+                        <dd><a href="/public/certificate" target="_blank" rel="nofollow">证书查询</a></dd>
+                        
+                        
+                    </dl>
+                </div>
+                <div class="item">
+                    <dl>
+                        <dt>共赢</dt>
+                        <dd><a href="http://www.jiangshi.org/about/customer.html" target="_blank" rel="nofollow">客户见证</a></dd>
+                        <dd><a href="http://www.jiangshi.org/about/friendlink.html" target="_blank" rel="nofollow">友情链接</a></dd>
+                        <dd><a href="http://www.jiangshi.org/about/news.html" target="_blank" rel="nofollow">站点新闻</a></dd>
+                        <dd><a href="http://www.jiangshi.org/about/ad.html" target="_blank" rel="nofollow">广告报价</a></dd>
+                    </dl>
+                </div>
+                <div class="item">
+                    <dl>
+                        <dt>导航</dt>
+                        <dd><a href="http://www.jiangshi.org/about/sitemap.html" target="_blank" rel="nofollow">网站地图</a></dd>
+                        <dd><a href="http://hd.jiangshi.org/activity/fyb/2016.html" target="_blank" rel="nofollow">讲师风云榜2016</a></dd>
+<dd><a href="http://hd.jiangshi.org/activity/fyb/2017.html" target="_blank" rel="nofollow">讲师风云榜2017</a></dd>
+                        <dd><a href="http://www.jiangshi.org/about/flower.html" target="_blank" rel="nofollow">讲师鲜花特权</a></dd>
+                        <dd><a href="/activity/fyb_partner " target="_blank" rel="nofollow">讲师合伙人</a></dd>
+                    </dl>
+                </div>
+                <div class="item item-jg" style="display: none;">
+                    
+                    <p></p>
+                    <a class="btn-sina" href="http://www.idinfo.cn/SignHandle?userID=3301080000028653" target="_blank">
+                        <img src="http://css.jiangshi.org/images/wangjian.gif" /></a>
+                    <a class="btn-sina" href="http://www.idinfo.cn/SignHandle?userID=3301080000028653" target="_blank">
+                        <img src="http://css.jiangshi.org/images/biaoshi.gif" /></a>
+                </div>
+                <div class="item item-apps">
+                    <i class="mishu">
+                        <img src="http://css.jiangshi.org/images/weixin.jpg" /></i>
+                    <p>讲师网微信公众号</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy-footer">
+        <p>中华讲师网 www.jiangshi.org 直接对接10000多名优秀讲师-省时省力省钱 (<a href="http://www.miitbeian.gov.cn/" target="_blank">浙ICP备06026258号-1</a>)</p>
+        <p>杭州讲师网络科技有限公司 版权所有Copyright©2008-2018</p>
+        <p>
+            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802003509"><img src="http://css.jiangshi.org/images/20x20-134839_v2_12391456465719559_d0289dc0a46fc5b15b3363ffa78cf6c7.png" />
+            <span style="vertical-align: top; color: rgb(147, 147, 147); line-height: 20px;">浙公网安备 33010802003509号</span></a></p>
+        <p class="foot-logo"><a href="http://www.pingpinganan.gov.cn" rel="nofollow" target="_blank">
+            <img title="杭州网络警察" alt="杭州网络警察" src="http://css.jiangshi.org/images/114558_342_hzjc.gif" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://z.hangzhou.com.cn/11wmbwgy/index.htm" rel="nofollow" target="_blank"><img title="文明办网" alt="文明办网" src="http://css.jiangshi.org/images/114558_342_hzwmb.gif"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.idinfo.cn/SignHandle?userID=3301080000028653" rel="nofollow" target="_blank"><img title="浙江省网络经济服务监管网" alt="浙江省网络经济服务监管网" src="http://css.jiangshi.org/images/114558_342_hzwj.gif"></a> &nbsp;&nbsp;&nbsp;<a href="http://net.china.com.cn/index.htm" rel="nofollow" target="_blank"><img title="暴恐音视频举报专区" alt="暴恐音视频举报专区" src="http://css.jiangshi.org/images/160x60-165927_v2_10781450947567342_dafa6066f3e5bd8a592dff81328e8986.png"></a></p>
+    </div>
+</div>
+<!--bottom-->
+
+    </div>
+    <!-- E 底部 -->
+    
+
+    
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        //var hm = document.createElement("script");
+        //hm.src = "//hm.baidu.com/hm.js?ff5146bd3e0db147ced120c6c2c9bcb2";
+        //var s = document.getElementsByTagName("script")[0];
+        //s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script type="text/javascript" src="https://js.users.51.la/19554039.js"></script>
+</body>
+</html>

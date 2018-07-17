@@ -1,0 +1,695 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="baidu-site-verification" content="rWXlcEBcEy" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0 user-scalable=no">
+<title>小蜜蜂网站监测-让网站数据更有价值</title>
+<meta name="keywords" content="互联网+,互联网+监测,互联网+金融,移动互联网监测,网站监测,监控网站,网站监控,网站检测,可用性监控,服务器监控,HTTP监控,HTTP监测,ping监控,ping监测,DNS监测,网站漏洞检测,网站安全监测,网站性能优化,站长工具,运维工具,网站一键检测,网站评分,网站健康检测">
+<meta name="description" content="小蜜蜂网站监测基于大数据驱动的信息告警平台致力于网站监控，移动互联网监测，网站监测软件，网页监测，网络监测系统，服务器监测，CDN监测，流媒体监测等服务。方便用户实时监测网站性能及可用性，一定程度上有助于用户分析和改善网站性能，提高网站运营品质。">
+<link type="text/css" rel="stylesheet" href="http://www.webxmf.com/html/public/css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="http://www.webxmf.com/html/public/css/reset.css" />
+<link type="text/css" rel="stylesheet" href="http://www.webxmf.com/html/index/css/style.css" />
+
+<script type="text/javascript" src="http://www.webxmf.com/html/public/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="http://www.webxmf.com/html/public/js/public.min.js"></script>
+<script type="text/javascript" src="http://www.webxmf.com/html/public/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://www.webxmf.com/html/public/js/taikong.banner.js"></script>
+<script type="text/javascript" src="http://www.webxmf.com/html/index/js/scripts.js"></script>
+<script type="text/javascript" src="http://www.webxmf.com/html/index/js/unslider.min.js"></script>
+<script type="text/javascript" src="http://www.webxmf.com/html/index/js/animateBackground-plugin.js"></script>
+<script type="text/javascript" src="http://www.webxmf.com//html/public/js/moment.js"></script>
+<script type="text/javascript" src="http://www.webxmf.com/public/js/validatefield.js"></script>
+
+<style>@media (max-width:480px){.fix-nav{top:198px;}.fix-nav li{ display:none;}}.fix-nav li.first{display:block;}</style>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="http://www.webxmf.com/html/public/js/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+	
+
+
+
+
+<script type="text/javascript" src="http://www.webxmf.com/home/js/jquery.cookie.js"></script>
+
+	
+	
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="wrapper">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="http://www.webxmf.com/">小蜜蜂网站监测</a>
+				</div>
+	
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="http://www.webxmf.com/">首页</a></li>
+						<li><a href="http://www.webxmf.com/monitor.html">网站监测</a></li>
+						<li><a href="http://www.webxmf.com/insight/total.html">网站性能概况</a></li>
+						<li><a href="http://tool.webxmf.com/index.html">性能工具</a></li>
+						<li><a href="http://yqt.webxmf.com" target="_blank">舆情通</a></li>
+						<li><a href="http://tool.webxmf.com/flower.html" target="_blank">网站花像</a></li>
+						<li><a href="http://tool.webxmf.com/liveTraffic.html" target="_blank">网站路况</a></li>
+						<li><a href="http://www.webxmf.com/news/index.html">行业知识</a></li>
+						<li><a href="http://www.webxmf.com/about/about_us.html">公司</a></li>
+					</ul>
+	
+					<div class="navbar-right">
+						<a class="a" href="http://www.webxmf.com/home/login.html">登录</a> /
+						<a class="reg" href="http://www.webxmf.com/home/signup.html">注册</a>
+					</div>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>				
+	
+
+
+
+	
+<script type="text/javascript">
+	var cookiePath="/";
+	var isLogin = false;
+	var path = "http://www.webxmf.com/";
+	var basePath = path;
+	var f_num = 0;
+	$(document).ready(function(){
+
+		$(document).ajaxError(function(event, XMLHttpRequest, ajaxOptions, thrownError){
+			bIsSubmited=false;
+			$("#btnSubmit").show();
+			if(XMLHttpRequest.readyState==0){
+				return;
+			}
+			else if(XMLHttpRequest.readyState==4)
+			{
+				   MU.msgTips("error","系统内部错误，请尝试重新提交！");
+			}
+		});
+		
+		/*
+		*注销
+		*/
+		$("#signOut").click(function(){
+			var myurl="http://www.webxmf.com/pages/UserInfo/SignOut.do";
+			 $.ajax({
+			   type: "POST",
+			   url:  myurl,
+			   //data: "",
+			   dataType:"json",
+			   success: function(result){							   	
+			     SignOutSuccessResult(result);
+			   }
+			});
+		});
+		
+		/*
+		*注销后解析服务器返回的结果
+		*/
+		function SignOutSuccessResult(result)
+		{
+			if(result.isOK=="true")
+			{
+				//注销成功  				
+				//jAlert("注销成功");
+				$.cookie("automaticLogin","",{ expires:-1,path:cookiePath});
+				$.cookie("password","",{ expires:-1,path:cookiePath});
+				location.href="http://www.webxmf.com/home/login.html";
+			}
+			else
+			{
+				//注销失败		  	  				
+				jAlert("注销失败\r\n"+result.msg);
+			}
+			return false;//解决在ie6下不跳转的问题
+		}
+		if(isLogin){
+			$("#tip").removeClass("reg-tip");
+			$("#unlogin").hide();
+			$("#logining").show();
+			//GetMessageNum();
+			//setInterval("GetMessageNum()",2 * 60 * 1000);
+			$("#websiteList").attr("href",path+"ltmonitor/jsp/websiteList.jsp");
+		}else{
+			$("#tip").addClass("reg-tip");
+			$("#unlogin").show();
+			$("#logining").hide();
+			$("#websiteList").attr("href",path+"home/login.html");
+		}	
+	});
+
+</script>
+
+	<!-- Carousel -->
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<!-- <li data-target="#myCarousel" data-slide-to="3"></li> -->
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<div class="item first-slide active"></div>
+			<div class="item second-slide"></div>
+			
+			<!-- <div class="item fourth-slide"></div> -->
+		</div>
+		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+			<span class="glyphicon prev" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+			<span class="glyphicon next" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div><!-- /.carousel -->
+
+	<!--重新定义 begin-->
+    <div class="container" id="scrollbar">
+      <div class="starter-template">
+        <h1>重新定义</h1>
+        <p>网站连接世界，我们洞悉网站</p>
+      </div>
+    </div>
+    <div class="container marketing">
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <span class="icon"></span>
+          <h2>网站・性能数据</h2>
+          <p>・百万网站性能数据（网站速度、ping、可用率等）</p>
+          <p>・网站实时故障数据</p>
+          <p>・全国CDN使用情况数据</p>
+        </div><!-- /.col-lg-4 -->
+       <div class="col-lg-4">
+          <span class="icon icon2"></span>
+          <h2>网站・内容数据</h2>
+          <p>・网站错别字，错误链接数据</p>
+		  <p>・网站页面元素数据</p>
+		  <p>・百万级行业词库</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <span class="icon icon3"></span>
+          <h2>网站・运营数据</h2>
+          <p>・百万网站权重信息(排名、收录、外链)</p>
+		  <p>・百万网站SEO信息、关键词、备案信息</p>
+		  <p>・网站行业分类信息（118个行业）</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 last">
+          <span class="icon icon4"></span>
+          <h2>互联网・舆情信息</h2>
+          <p>・小蜜蜂网站评论数据</p>
+		  <p>・来源于社交媒体、电商平台、新闻门户、论坛贴吧等的用户评论数据</p>
+		  <p>・第三方网站口碑数据</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+    </div>
+	<!--重新定义 end-->
+	<!--强大的平台 begin-->
+	<div class="platform">
+		<div class="container">
+			<div class="starter-template white">
+				<h1 class="white">强大的平台</h1>
+		        <p>360度全方位监控您的网站</p>
+		    </div>
+		    <div class="row">
+		    <div class="clearfix">
+	          <div class="col-lg-4 col-md-6">
+	        	<!-- <hr class="featurette-divider"/> -->
+	        	<h2>网络测量平台</h2>
+	        	<p> • 测量平台是基于互联网的、多抽象层架构的分布式网络测量控制系统；</p>
+				<p> • 主要实现了对基础网络的测量、任务资源的分发控制和数据的筛选收集；</p>
+				<p> • 测量网络的节点涵盖了idc服务器、个人电脑、手机等各种网络终端。</p>
+			  </div>
+	         <div class="col-lg-4 col-md-6 last">
+				<!-- <hr class="featurette-divider"/> -->
+	        	<h2>大数据平台</h2>
+	        	<p> • 通过精准的算法，利用强大的爬虫工具收集数据信息；</p>
+				<p> • 完善的大数据处理分析平台，全面的分析模型，灵活定制，让信息更有价值；</p>
+				<p> • 清晰和多样化的数据展现，丰富的功能，以及实时的告警机制，小蜜蜂让监控变得高效。</p>
+			 </div>
+			  </div>
+	       </div>
+		</div>
+	</div>
+	<!--强大的平台 end-->
+	<!--产品及解决方案 begin-->
+	<div class="container">
+      <div class="starter-template">
+        <h1>产品及解决方案</h1>
+        <p>多行业应用，精准定位需求</p>
+      </div>
+    </div>
+    <div class="container marketing product-solution">
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <span class="icon"></span>
+          <h2>网站监测・标准版</h2>
+		  <p>小蜜蜂网站监测是国内唯一的“免费全国级监控报警服务平台”，帮助中小型企业监控网站的运行状况。提供实时故障告警，多维度性能指标监控，周期性（日、周、月）报告推送等服务，该产品以简洁的形式，灵活的配置，丰富的终端选择，满足用户的各种需求。</p>
+        </div><!-- /.col-lg-4 -->
+       <div class="col-lg-4">
+          <span class="icon icon5"></span>
+          <h2>解决方案・政企</h2>
+		  <p>小蜜蜂政企解决方案旨在通过对网站故障及可用率、首页打开时间、内容正确性（错别字）、链接可用性（错链）等的检测， 帮助政府/企业主管部门对所属网站进行检查、自查以及整改、核对等，以切实提高网站的服务质量，提升网站影响力。</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <span class="icon icon6"></span>
+          <h2>解决方案・医院</h2>
+		  <p>小蜜蜂医院解决方案通过对医院门户网站/APP的健康状态、用户访问行为、医院/科室/医生在网络媒体上的行业评价信息以及网民评论信息进行监测、采集、挖掘分析，了解医院的口碑，为提升医院的服务水平提供决策参考。</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 last">
+          <span class="icon icon7"></span>
+          <h2>解决方案・消费者洞察(手机)</h2>
+		  <p>该解决方案是对网民的手机相关言论进行实时的采集和分析,协助手机研发过程中的：配置规格、功能取舍的决策、卖点验证、竞品研究等。不同的互联网平台，网民言论对产品研发的意义是不同的，该方案是基于电商购买评论、知道问答、新浪微博、论坛贴吧、电商购买咨询、新闻跟评等6大类数据源，分别进行分析展示。</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+    </div>
+	<!--产品及解决方案 end-->
+	<!--加入我们 begin-->
+	<div class="client">
+		<div class="container">
+			<div class="starter-template white">
+				<h1 class="white">我们的客户</h1>
+		        <p>1,000,000+家网站在使用我们的产品</p>
+		    </div>
+		    <div class="row dx-list" >
+		        <div class="col-xs-6 col-sm-4 col-md-3" >
+	          		<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/huawei.png" alt="HUAWEI"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/huawei2.png" alt="HUAWEI"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/sohu.png" alt="搜狐"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/sohu2.png" alt="搜狐"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/hisense.png" alt="海信中国"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/hisense2.png" alt="海信中国"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/chinacache.png" alt="蓝讯通信"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/chinacache2.png" alt="蓝讯通信"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/ztesoft.png" alt="中兴软创"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/ztesoft2.png" alt="中兴软创"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail" href="http://www.lonsun.cn/" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/longxun.png" alt="longxun"/></a>
+					<a class="a2 thumbnail" href="http://www.lonsun.cn/" target="_blank"><img href="http://www.lonsun.cn/"  src="http://www.webxmf.com/html/index/images/enterprise/longxun2.png" alt="longxun"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/sjcm.png" alt="商界传媒"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/sjcm2.png" alt="商界传媒"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/nfw.png" alt="南方网"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/nfw2.png" alt="南方网"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/zgxfzb.png" alt="中国消费者报"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/zgxfzb2.png" alt="中国消费者报"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/4399.png" alt="4399游戏"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/43992.png" alt="4399游戏"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail" href="http://www.huodongwang.com/" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/huodong.png" alt="活动网"/></a>
+					<a class="a2 thumbnail" href="http://www.huodongwang.com/" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/huodong2.png" alt="活动网"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/umail.png" alt="Umail"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/umail2.png" alt="Umail"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/shijue.png" alt="视觉"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/shijue2.png" alt="视觉"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail" href="http://china.zhuchao.cc" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/zhuchao.png" alt="筑巢"/></a>
+					<a class="a2 thumbnail" href="http://china.zhuchao.cc" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/zhuchao2.png" alt="筑巢"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail" href="https://www.trustie.net/login" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/queshi.png" alt="确实"/></a>
+					<a class="a2 thumbnail" href="https://www.trustie.net/login" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/queshi2.png" alt="确实"/></a>
+				</div>
+			 	<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail" href="http://www.itcask.com/" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/wzgj.png" alt="网站管家"/></a>
+					<a class="a2 thumbnail" href="http://www.itcask.com/" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/wzgj2.png" alt="网站管家"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/etomlink.png" alt="亿通网联"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/etomlink2.png" alt="亿通网联"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail" href="http://www.btoe.cn" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/dongli.png" alt="动力无限"/></a>
+					<a class="a2 thumbnail" href="http://www.btoe.cn" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/dongli2.png" alt="动力无限"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail" href="http://www.tengyii.com" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/tengyi.png" alt="南京腾易"/></a>
+					<a class="a2 thumbnail" href="http://www.tengyii.com" target="_blank"><img src="http://www.webxmf.com/html/index/images/enterprise/tengyi2.png" alt="南京腾易"/></a>
+				</div>
+				<div class="col-xs-6 col-sm-4 col-md-3">
+					<a class="a1 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/wskj.png" alt="网宿科技"/></a>
+					<a class="a2 thumbnail"><img src="http://www.webxmf.com/html/index/images/enterprise/wskj2.png" alt="网宿科技"/></a>
+				</div>
+			  </div>
+		     <div class="idx-btn"><a href="http://www.webxmf.com/home/jsp/login/login.jsp">期待您的加入</a></div>
+		</div>
+	</div>
+	<!--加入我们 end-->
+	<!--  -->
+	<div class="container">
+		<div class="row">
+			<ul class="idx-contact clearfix">
+			<div class="col-md-3 col-sm-3 col-xs-6" >
+				<li><a id="bizQQ_WPA" href="javascript:void(0);"><span class="icon icon01"></span><h2>在线沟通</h2></a></li>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6" >
+				<li><a href="mailto:webxmf@hugedata.com.cn"><span class="icon icon02"></span><h2>邮件咨询</h2></a></li>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6" >
+				<li><span class="icon icon03"></span><h2>025-57926567</h2></li>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-6" >
+				<li><a href="http://www.webxmf.com/cooperation/index.html?flag=3" target="_blank"><span class="icon icon04"></span><h2>申请合作</h2></a></li>
+			</div>
+			</ul>
+		</div>
+	</div>
+	<!-- end -->
+	<div class="foot">
+		<div class="container clearfix">
+			<ul class="clearfix">
+				<li class="title"><a href="http://www.webxmf.com/about/about_us.html" target="_blank">关于</a></li>
+				<li><a href="http://www.webxmf.com/about/about_us.html" target="_blank">关于我们</a></li>
+				<li><a href="http://www.webxmf.com/news/index.html" target="_blank">新闻与活动</a></li>
+				<li><a href="http://www.webxmf.com/about/about_join.html" target="_blank">加入我们</a></li>
+				<li><a href="http://www.webxmf.com/about/about_contact.html" target="_blank">联系我们</a></li>
+			</ul>
+			<ul class="clearfix">
+				<li class="title">其他产品</li>
+				<li><a href="http://www.webxmf.com/solution.html" target="_blank">解决方案</a></li>
+				<li><a href="http://www.webxmf.com/counseling.html" target="_blank">咨询服务</a></li>
+                <li><a href="http://gov.hugedata.com.cn" target="_blank">普查监测</a></li>
+                <li><a href="http://bi.webxmf.com" target="_blank">互联网洞察</a></li>
+				<li><a href="http://yqt.webxmf.com" target="_blank">舆情通</a></li>
+				<li><a href="http://www.raincent.com" target="_blank">网络大数据</a></li>
+			</ul>
+			<ul class="clearfix">
+				<li class="title"><a href="http://www.webxmf.com/cooperation/index.html" target="_blank">合作伙伴</a></li>
+				<li><a href="http://www.webxmf.com/cooperation/index.html?flag=1" target="_blank">合作企业</a></li>
+				<li><a href="http://www.webxmf.com/cooperation/index.html?flag=2" target="_blank">合作机构</a></li>
+				<li><a href="http://www.webxmf.com/cooperation/index.html?flag=3" target="_blank">申请合作</a></li>
+			</ul>
+			<ul class="clearfix item04">
+				<li class="title">联系方式</li>
+				<li>客服电话：025-57926567</li>
+				<li>邮件咨询：<a href="mailto:webxmf@hugedata.com.cn">webxmf@hugedata.com.cn</a></li>
+				<li>客服QQ：<a id="bizQQ_WPA2" href="javascript:void(0);">800040626</a></li>
+				<li>QQ交流群：366426380</li>
+				<li>QQ交流群：115043384</li>
+				<li class="title mt40">更多客户端</li>
+				<li>
+					<dl class="share-app clearfix">
+						<dd><a target="_blank" href="http://app.webxmf.com:8080/app/xmf_pc_v1.1.exe" class="pc">PC客户端</a></dd>
+						<dd><a target="_blank" href="http://app.webxmf.com:8080/app/xmf_Android_v2.0.apk" class="andriod">Android客户端
+							<p class="code"><img src="http://www.webxmf.com/html/index/images/code2.png"></p>
+						</a></dd>
+					</dl>
+				</li>
+			</ul>
+			<ul class="clearfix item05">
+				<p><img src="http://www.webxmf.com/html/index/images/code.png" />官方微信</p>
+			</ul>
+		</div>
+		<div class="links">
+			<div class="container clearfix">
+				<span class="fl">友情链接：</span>
+				<ul class="clearfix">
+					<li><a href="http://www.webxmf.com" target="_blank">网站监测</a></li>
+					<li><a href="http://www.raincent.com" target="_blank">网络大数据</a></li>
+					<li><a href="http://gov.hugedata.com.cn" target="_blank">政府网站监测</a></li>
+					<li><a href="http://www.hugedata.com.cn" target="_blank">cdn感知</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="http://wpa.b.qq.com/cgi/wpa.php"></script>
+	<div class="fix-nav" id="fixNav">
+		<ul>
+			<li class="first">
+				<script type="text/javascript">
+					//html 内容
+					document.write('<a id="bizQQ_WPA3" class="icon icon00 AA" href="javascript:void(0);">QQ</a>');
+
+					/**
+					 * 绝对定位类
+					 * @constructor
+					 */
+					var Fixed = function () {
+						this.initialize.apply(this, arguments);
+					}
+
+					/**
+					 * 原形扩展
+					 * @type {{constructor: Function, initialize: Function, bindEvent: Function}}
+					 */
+					Fixed.prototype = {
+						/** 构造函数 */
+						constructor: Fixed,
+						/**
+						 * 初始化函数
+						 * @param element
+						 * @param options
+						 */
+						initialize: function (element, options) {
+							this.element = $(element);
+							this.options = $.extend({}, Fixed.defaults, options);
+							this.bindEvent();
+						},
+						//绑定行为
+						bindEvent: function () {
+							var opts = this.options,
+									element = this.element,
+									top = opts.top,
+									right = opts.right;
+
+							element.css({
+							});
+
+							$(window).resize(function () {
+								var right = opts.right;
+								element.css({
+								});
+							});
+
+							$(window).scroll(function () {
+								var scrolls = $(this).scrollTop();
+								if (window.XMLHttpRequest) {
+									element.css({
+									});
+								} else {
+									element.css({
+									});
+								}
+							});
+
+							element.find(".close-ico").click(function (event) {
+								element.remove();
+								event.preventDefault();
+							})
+						}
+					};
+
+					//默认配置
+					Fixed.defaults = {
+						right: 0, //相对于页面宽度的右边定位
+						top: 250
+					};
+
+					//
+					void function ($) {
+						new Fixed("#bizQQ_WPA");
+						//API调用
+						BizQQWPA.addCustom({ aty: '0', a: '1001', nameAccount: '800040626', selector: 'bizQQ_WPA' });
+						BizQQWPA.visitor({ nameAccount: '800040626' });
+
+						BizQQWPA.addCustom({ aty: '0', a: '1001', nameAccount: '800040626', selector: 'bizQQ_WPA2' });
+						BizQQWPA.visitor({ nameAccount: '800040626' });
+
+						BizQQWPA.addCustom({ aty: '0', a: '1001', nameAccount: '800040626', selector: 'bizQQ_WPA3' });
+						BizQQWPA.visitor({ nameAccount: '800040626' });
+					} (jQuery);
+				</script>
+			</li>
+			<li class="hover">
+				<a class="icon icon01" href="javascript:;">关注</a>
+				<a class="icon icon05" target="_blank" href="http://weibo.com/webxmf">新浪微博</a>
+				<a class="icon icon06" target="_blank" href="http://t.qq.com/webxmf">腾讯微博</a>
+				<a class="icon icon07" id="qqwx" href="javascript:;">二维码</a>
+				<span class="qr hide">
+					<img src="http://www.webxmf.com/html/index/images/code.png" alt="" />微信扫一扫
+					<span class="arrow"><span>&nbsp;</span></span>
+				</span>
+			</li>
+			<li class="hover bdsharebuttonbox">
+				<a class="icon icon02" href="javascript:;">分享</a>
+				<a title="分享到新浪微博" href="#" class="icon bds_tsina" data-cmd="tsina"></a>
+				<a title="分享到腾讯微博" href="#" class="icon bds_tqq" data-cmd="tqq"></a>
+				<a title="分享到QQ空间" href="#" class="icon bds_qzone" data-cmd="qzone"></a>
+				<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"爱编程，不爱BUG；爱生活，不爱黑眼圈；有点小腹黑，有点小柔情；生是IT的人，死是IT的魂；我是小蜜蜂，我为一流网站监控代言～","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+				</script>
+			</li>
+			<li><a class="icon icon03" href="http://www.webxmf.com/home/jsp/login/login.jsp">体验</a></li>
+			<li><a class="icon icon04" id="goTop" href="javascript:;">返回顶部</a></li>
+		</ul>
+	</div>
+
+	<!--footer begin-->
+	
+
+<div class="footer">
+	<p>Copyright©2012-2017 www.webxmf.com | ICP证： 苏ICP备12074128号-2
+        <script type='text/javascript' src='http://hnsa.hugedata.com.cn:18080/webtracker/ha/?siteid=1100000043&sinput=&sbutton=' charset='UTF-8'></script>
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000124488'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000124488%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+	</p>
+</div>
+
+
+<script type="text/javascript" src="http://www.webxmf.com/home/js/hongbao.js"></script>
+<script type='text/javascript'>
+	$(document).ready(function(){
+		var date = new Date();
+		date.setDate(1);
+		$("#VDate").text(date.format("yyyy-MM-dd"));
+		if(isLogin){
+			$("#experience").hide();
+			$("#experience2").attr("href",path+"ltmonitor/jsp/homeEnter.jsp");
+			$("#gotoTry").attr("href",path+"ltmonitor/jsp/homeEnter.jsp");
+		}else{
+			$("#experience").show();
+			$("#experience2").attr("href",path+"home/jsp/login/login.jsp");
+			$("#gotoTry").attr("href",path+"home/jsp/login/login.jsp");
+		}
+
+		Hongbao.setClock();
+		//getSystemInfo();
+		//setInterval("getSystemInfo()",60*1000);
+
+	});
+
+	function getSystemInfo()
+	{
+		var myurl="http://www.webxmf.com/pages/SystemInfo/getSiteAndAlarmAndReportNum.do";
+		 $.ajax({
+		   type: "POST",
+		   url:  myurl,
+		   dataType:"json",
+		   success: function(result){
+			   processSystemInfo(result);
+		   }
+		});
+	}
+   /*
+	* 处理系统信息
+	*/
+	function processSystemInfo(result)
+	{
+		var siteNum="";
+		var alarmNum="";
+		var FaultRate="";
+		siteNum=result.siteNum;
+		alarmNum=result.alarmNum;
+		sendReportNum=result.sendReportNum;
+
+		siteNum = parseInt(siteNum).toLocaleString();
+		alarmNum = parseInt(alarmNum).toLocaleString();
+		sendReportNum = parseInt(sendReportNum).toLocaleString();
+
+		if(siteNum == null || siteNum == "" || siteNum=="NaN")
+		{
+			siteNum = 0;
+		}
+
+		if(alarmNum == null || alarmNum == "" || alarmNum=="NaN")
+		{
+			alarmNum = 0;
+		}
+
+		if(sendReportNum == null || sendReportNum == "" || sendReportNum=="NaN")
+		{
+			sendReportNum = 0;
+		}
+
+		$("#siteNum").html(siteNum);
+		$("#alarmNum").html(alarmNum);
+		$("#sendReportNum").html(sendReportNum);
+	}
+
+	Date.prototype.format = function(format) {
+		var o = {
+			"M+" : this.getMonth() + 1, // month
+			"d+" : this.getDate(), // day
+			"h+" : this.getHours(), // hour
+			"m+" : this.getMinutes(), // minute
+			"s+" : this.getSeconds(), // second
+			"q+" : Math.floor((this.getMonth() + 3) / 3), // quarter
+			"S" : this.getMilliseconds()
+		// millisecond
+		}
+		if (/(y+)/.test(format))
+			format = format.replace(RegExp.$1, (this.getFullYear() + "")
+					.substr(4 - RegExp.$1.length));
+		for ( var k in o)
+			if (new RegExp("(" + k + ")").test(format))
+				format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k]
+						: ("00" + o[k]).substr(("" + o[k]).length));
+		return format;
+	}
+
+	//点击活动banner 跳转到活动页面
+	$(".first-slide").on("click", function() {
+		 /* window.open("http://www.webxmf.com/news/news_show205.html");*/
+		/*window.open(path + "activity/four/index.html");*/
+        window.open("http://gov.hugedata.com.cn/#freeTry");
+	}).css({
+		cursor: "pointer"
+	});
+
+    /*$(".second-slide").on("click", function() {
+		location.href = path + "home/jsp/login/login.jsp";
+	}).css({
+		cursor: "pointer"
+	});*/
+
+    $(".second-slide").on("click", function() {
+
+		window.open("http://www.webxmf.com/news/news_show513.html");
+
+    }).css({
+        cursor: "pointer"
+    });
+
+</script>
+</body>
+</html>

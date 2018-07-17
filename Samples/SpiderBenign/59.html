@@ -1,0 +1,24 @@
+<script>
+	var url = location.search;
+	var json = {};
+	if (url.indexOf('?') != -1) { 
+		var str = url.substr(1); 
+		strs = str.split("&"); 
+		for(var i = 0; i < strs.length; i ++) { 
+			var arr = strs[i].split("=");
+			json[arr[0]]=unescape(arr[1]); 
+		} 
+	} 
+	if(!json.client_id){
+		json.client_id = '180100041086';
+	}
+	if(!json.masid){
+		json.masid = '17409.0399';
+	}
+	var path  =  '';
+	for(var key in json) { 
+		path += key + '=' + json[key] + '&';
+	} 
+ 	
+    location.href = 'https://www.mi.com/a/h/6306.html'  + '?' + path.substring(0,path.length-1) ;
+</script>

@@ -1,0 +1,1910 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="现货黄金,现货黄金价格,黄金价格,财经资讯">
+    <meta name="description" content="汇金网全球财经资讯门户，主要提供现货黄金，现货黄金价格，黄金价格，黄金价格走势图的实时行情数据，掌握最新的财经资讯，更有效的方式看财经。" />
+    <title>汇金网-专业财经资讯门户_现货黄金价格_黄金价格 </title>
+    <link rel="stylesheet" href="/Content/css/header.css">
+    <link rel="stylesheet" href="/Content/css/footer.css">
+    <link rel="stylesheet" href="/Content/css/jquery.mCustomScrollbar.css">
+    <script type="text/javascript" src="/Content/js/jquery-1.10.2.min.js"></script>
+    <script src="/Content/js/jquery.cookies.2.2.0.js"></script>
+    <script type="text/javascript" src="/Content/js/jquery.placeholder.min.js"></script>
+    <script type="text/javascript" src="/Content/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="/Content/js/jquery.mCustomScrollbar.min.js"></script>
+    <script type="text/javascript" src="/Content/js/jquery.easing.min.js"></script>
+    <script src="/Content/js/layui/layui.js"></script>
+    <script type="text/javascript" src="/Content/js/base.js"></script>
+    
+    <link rel="stylesheet" href="/Content/css/index.css">
+</head>
+<body>
+    <!--汇通头部-->
+    <div class="header">
+        <div class="header__top">
+            <div class="container clearfix">
+                <ul class="l clearfix header__top-l">
+                    <li><a href="http://www.gold678.com/" target="_blank">汇金网首页</a></li>
+                    <li><a href="http://www.fx678.com/" target="_blank">汇通网</a></li>
+                    <li><a onclick="addFavorite()">收藏首页</a></li>
+                </ul>
+                <div class="header__top-r r clearfix">
+                    <ul>
+                        <li class="header__code-cont header__code-app">
+                            <a>APP</a>
+                            <span></span>
+                        </li>
+                        <li class="header__code-cont header__code-wechat">
+                            <a>微信公众号</a>
+                            <span></span>
+                        </li>
+                        <li class="header__login">
+                            <a href="http://passport.gold678.com/login" class="mr10">登录</a>
+                            <a href="http://passport.gold678.com/register" target="_blank">注册</a>
+                        </li>
+                        <li class="header__logout" style="display:none;">
+                            欢迎您：<a href="http://passport.gold678.com/my"><span id="sp_nickname">某某某</span></a>
+                            <a href="#" class="ml10" id="a_login_out">注销</a>
+                        </li>
+                        <li><a href="http://www.gold678.com/corp/sitemap.html" target="_blank">网站导航</a></li>
+                    </ul>
+                    <div class="header__search clearfix">
+                        <input type="text" placeholder="股票 / 货币 / 大宗商品 / 股指" class="ss_inp">
+                        <i></i>
+                        <ul class="header__sdropdown bg-white dn">
+                            <li><b class="stock">股票</b></li>
+                            <li><a href="http://www.gold678.com/dy/S/SH000001" target="_blank">上证指数(SH000001)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/SZ399001" target="_blank">深圳成指(SZ399001)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/SZ399006" target="_blank">创业板指(SZ399006)</a></li>
+                            <li><b class="content">货币</b></li>
+                            <li><a href="http://www.gold678.com/dy/S/USD" target="_blank">美元指数(USD)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/EURUSD" target="_blank">欧元美元(EURUSD)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/GBPUSD" target="_blank">英镑美元(GBPUSD)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/USDCNY" target="_blank">美元人民币(USDCNY)</a></li>
+                            <li><b class="content">大宗商品</b></li>
+                            <li><a href="http://www.gold678.com/dy/S/XAU" target="_blank">现货黄金(XAU)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/XAG" target="_blank">现货白银(XAG)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/XAP" target="_blank">现货铂金(XAP)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/XPD" target="_blank">现货钯金(XPD)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/CONC" target="_blank">美原油连续(CONC)</a></li>
+                            <li><b class="content">股指</b></li>
+                            <li><a href="http://www.gold678.com/dy/S/HSI" target="_blank">恒生指数(HSI)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/NASDAQ" target="_blank">纳斯达克指数(NASDAQ)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/DJIA" target="_blank">道琼工业(DJIA)</a></li>
+                            <li><a href="http://www.gold678.com/dy/S/SP500" target="_blank">标普500(SP500)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            <div class="container clearfix">
+                <a href="http://www.gold678.com/" target="_blank" class="logo">汇金网gold678.com</a>
+                <ul class="nav clearfix">
+                            <li class="nav__column-item selected"><a href="http://www.gold678.com/" target="_blank">首页</a></li>
+                            <li class="nav__column-item"><a href="/cnews" target="_blank">资讯</a></li>
+                            <li class="nav__column-item"><a href="http://live.gold678.com/" target="_blank">7&times24快讯</a></li>
+                            <li class="nav__column-item"><a href="/quote" target="_blank">行情</a></li>
+                            <li class="nav__column-item"><a href="http://rl.gold678.com/" target="_blank">日历</a></li>
+                            <li class="nav__column-item"><a href="/data" target="_blank">数据</a></li>
+
+                    <li class="nav__column-item">
+                        <a href="http://v.fx678.com/" target="_blank">直播</a>
+                    </li>
+                    <li class="nav__column-item">
+                        <a href="http://www.gold678.com/union" target="_blank">财经联盟</a>
+                    </li>
+                    
+                    <li class="nav__column-item"><a href="http://www.gold678.com/dy/Sub" target="_blank">订阅</a></li>
+                    <li class="nav__column-item">
+                        <a href="http://edu.fx678.com/" target="_blank">学院</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+<div class="ad-txt section-bb">
+    <div class="container">
+        <ul class="clearfix">
+            <li>
+                <iframe id='a28a86fb' name='a28a86fb' src='http://ams.fx678.com/delivery/afr.php?zoneid=331&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'>
+                    <a href='http://ams.fx678.com/delivery/ck.php?n=aed180aa&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=331&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=aed180aa' border='0' alt='' /></a>
+                </iframe>
+            </li>
+            <li>
+                <iframe id='a94bd6d8' name='a94bd6d8' src='http://ams.fx678.com/delivery/afr.php?zoneid=332&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'><a href='http://ams.fx678.com/delivery/ck.php?n=aff46cc6&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=332&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=aff46cc6' border='0' alt='' /></a></iframe>
+            </li>
+            <li>
+                <iframe id='ab7ae0f1' name='ab7ae0f1' src='http://ams.fx678.com/delivery/afr.php?zoneid=333&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'><a href='http://ams.fx678.com/delivery/ck.php?n=a3194819&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=333&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a3194819' border='0' alt='' /></a></iframe>
+            </li>
+            <li>
+                <iframe id='a9fc89e6' name='a9fc89e6' src='http://ams.fx678.com/delivery/afr.php?zoneid=334&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'><a href='http://ams.fx678.com/delivery/ck.php?n=ae62a7f1&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=334&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ae62a7f1' border='0' alt='' /></a></iframe>
+            </li>
+            <li>
+                <iframe id='ac1aa379' name='ac1aa379' src='http://ams.fx678.com/delivery/afr.php?zoneid=335&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'><a href='http://ams.fx678.com/delivery/ck.php?n=a3a5d972&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=335&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a3a5d972' border='0' alt='' /></a></iframe>
+            </li>
+            <li>
+                <iframe id='a14feff3' name='a14feff3' src='http://ams.fx678.com/delivery/afr.php?zoneid=336&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'><a href='http://ams.fx678.com/delivery/ck.php?n=afb98069&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=336&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=afb98069' border='0' alt='' /></a></iframe>
+            </li>
+            <li>
+                <iframe id='a9d24663' name='a9d24663' src='http://ams.fx678.com/delivery/afr.php?zoneid=337&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'><a href='http://ams.fx678.com/delivery/ck.php?n=a905fca0&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=337&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a905fca0' border='0' alt='' /></a></iframe>
+            </li>
+            <li>
+                <iframe id='a29f8fa2' name='a29f8fa2' src='http://ams.fx678.com/delivery/afr.php?zoneid=338&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'><a href='http://ams.fx678.com/delivery/ck.php?n=a0bbe5d9&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=338&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a0bbe5d9' border='0' alt='' /></a></iframe>
+            </li>
+            <li>
+                <iframe id='a4fc82e8' name='a4fc82e8' src='http://ams.fx678.com/delivery/afr.php?zoneid=339&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'><a href='http://ams.fx678.com/delivery/ck.php?n=a18b1ab4&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=339&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a18b1ab4' border='0' alt='' /></a></iframe>
+            </li>
+            <li>
+                <iframe id='ad5bbcba' name='ad5bbcba' src='http://ams.fx678.com/delivery/afr.php?zoneid=340&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'><a href='http://ams.fx678.com/delivery/ck.php?n=a43cdd74&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=340&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a43cdd74' border='0' alt='' /></a></iframe>
+            </li>
+        </ul>
+        <span class="ad-tip2"></span>
+    </div>
+</div>
+<div class="pb50 wrap pt10">
+    <div class="container">
+        <!--顶部概览-->
+        
+<div class="overview bg-white mb20 clearfix">
+    <div class="overview__sort">
+        <a class="overview__sort-title" href="/hjzx" target="_blank">黄<br>金</a>
+        <ul class="clearfix overview__sort-gold">
+                <li><a href="/hjzx" target="_blank">黄金资讯</a></li>
+                <li><a href="/jycl" target="_blank">交易策略</a></li>
+                <li><a href="/hjgc" target="_blank">黄金观察</a></li>
+                <li><a href="/rdjs" target="_blank">热点局势</a></li>
+            <li><a href="http://ask.fx678.com" target="_blank">黄金答疑</a></li>
+                <li><a href="/jgjp" target="_blank">机构金评</a></li>
+                            <li><a href="/sdjd" target="_blank">深度解读</a></li>
+                <li><a href="/hjbk" target="_blank">黄金博客</a></li>
+                            <li><a href="/byb" target="_blank">铂-银-钯</a></li>
+        </ul>
+    </div>
+    <div class="overview__sort">
+        <a class="overview__sort-title" href="/nysc" target="_blank">原<br>油</a>
+        <ul class="clearfix">
+                <li><a href="/nysc" target="_blank">原油资讯</a></li>
+                            <li><a href="/jgpy" target="_blank">机构评油</a></li>
+                            <li><a href="/dkqx" target="_blank">多空情绪</a></li>
+                            <li><a href="/zjpy" target="_blank">专家评油</a></li>
+          
+           
+        </ul>
+    </div>
+    <div class="overview__sort">
+        <a class="overview__sort-title" href="/whzx" target="_blank">外<br>汇</a>
+        <ul class="clearfix">
+                <li><a href="/whzx" target="_blank">外汇资讯</a></li>
+                            <li><a href="/jghp" target="_blank">机构汇评</a></li>
+                            <li><a href="/yhdt" target="_blank">央行动态</a></li>
+                            <li><a href="/zjhp" target="_blank">专家汇评</a></li>
+        </ul>
+    </div>
+    <div class="overview__sort">
+        <a class="overview__sort-title" href="/quote" target="_blank">行<br>情</a>
+        <ul class="clearfix overview__sort-quote">
+            <li><a href="http://www.gold678.com/dy/s/XAU/" target="_blank">现货黄金</a></li>
+            <li><a href="http://www.gold678.com/dy/s/aut_d" target="_blank">黄金T+D</a></li>
+            <li><a href="http://www.gold678.com/dy/s/ZAUCNY/" target="_blank">纸黄金</a></li>
+            <li><a href="http://www.gold678.com/dy/s/XAG/" target="_blank">现货白银</a></li>
+            <li><a href="http://www.gold678.com/dy/S/AGT_D" target="_blank">白银T+D</a></li>
+            <li><a href="http://www.gold678.com/dy/Sub" target="_blank">实物黄金</a></li>
+        </ul>
+    </div>
+</div>
+
+        <!--广告位-->
+        <div class="ad-row clearfix mb20">
+            <div class="ad-row-item-2-1 l ad-row-item">
+                <div class="ad-cont img-cont w780">
+                    <iframe id='aa94cd03' name='aa94cd03' src='http://ams.fx678.com/delivery/afr.php?zoneid=341&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='780' height='75'><a href='http://ams.fx678.com/delivery/ck.php?n=a94b2f6a&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=341&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a94b2f6a' border='0' alt='' /></a></iframe>
+                </div>
+                <span class="ad-tip"></span>
+            </div>
+            <div class="r ad-row-item">
+                <div class="ad-cont img-cont w300"><iframe id='a11bf4e4' name='a11bf4e4' src='http://ams.fx678.com/delivery/afr.php?zoneid=342&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='300' height='75'><a href='http://ams.fx678.com/delivery/ck.php?n=a10976a3&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=342&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a10976a3' border='0' alt='' /></a></iframe></div>
+                <span class="ad-tip"></span>
+            </div>
+        </div>
+
+        <!--顶部行情-->
+        <div class="quote-top mb20 bg-white">
+                        <ul class="clearfix section-bb">
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/SH000001" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>上证指数 </em>
+                                                <b>2827.92</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>50.15 </span>
+                                                <span>1.81%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/SZ399001" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>深证成指 </em>
+                                                <b>9244.50</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>220.68 </span>
+                                                <span>2.45%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/SZ399006" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>创业板指 </em>
+                                                <b>1607.62</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>44.61 </span>
+                                                <span>2.85%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/HSI" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>恒生指数 </em>
+                                                <b>28491.02</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>179.32 </span>
+                                                <span>0.63%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/SP500" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>标普500 </em>
+                                                <b>2774.02</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>-19.82 </span>
+                                                <span>-0.71%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/DJIA" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>道琼斯指数 </em>
+                                                <b>24700.45</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>-219.21 </span>
+                                                <span>-0.88%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/NASDAQ" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>纳斯达克指数 </em>
+                                                <b>7716.61</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>-42.59 </span>
+                                                <span>-0.55%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/CONC" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>美原油连续 </em>
+                                                <b>70.74</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>0.36 </span>
+                                                <span>0.51%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/OILC" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>布伦特原油 </em>
+                                                <b>74.62</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>1.22 </span>
+                                                <span>1.66%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                        </ul>
+                        <ul class="clearfix section-bb">
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/XAU" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>现货黄金 </em>
+                                                <b>1243.56</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>1.60 </span>
+                                                <span>0.13%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/XAG" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>现货白银 </em>
+                                                <b>15.81</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>0.01 </span>
+                                                <span>0.06%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/ZAUCNY" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>纸黄金 </em>
+                                                <b>267.87</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>-0.02 </span>
+                                                <span>-0.01%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/USD" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>美元指数 </em>
+                                                <b>94.7822</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>0.05 </span>
+                                                <span>0.05%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/USDCNY" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>美元人民币 </em>
+                                                <b>6.7000</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>0.02 </span>
+                                                <span>0.26%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/USDJPY" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>美元日元 </em>
+                                                <b>112.31</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>0.30 </span>
+                                                <span>0.27%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/EURUSD" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>欧元美元 </em>
+                                                <b>1.1672</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>0.00 </span>
+                                                <span>-0.02%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/EURCNY" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>欧元人民币 </em>
+                                                <b>7.8196</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>-0.01 </span>
+                                                <span>-0.10%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/CNYJPY" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>人民币日元 </em>
+                                                <b>16.7630</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>0.07 </span>
+                                                <span>0.40%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                        </ul>
+                        <ul class="clearfix section-bb">
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/GBPCNY" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>英镑人民币 </em>
+                                                <b>8.8382</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>0.00 </span>
+                                                <span>-0.04%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/CNYHKD" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>人民币港币 </em>
+                                                <b>1.1715</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>0.00 </span>
+                                                <span>-0.26%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/AUDCNY" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>澳元人民币 </em>
+                                                <b>4.9391</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>0.00 </span>
+                                                <span>-0.04%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/USDCNH" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>离岸人民币 </em>
+                                                <b>6.7142</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>-0.01 </span>
+                                                <span>-0.14%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/AUT_D" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>黄金延期 </em>
+                                                <b>268.57</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>-0.51 </span>
+                                                <span>-0.19%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/AGT_D" target="_blank" class="clearfix quote-top__main down-green">
+                                            <div class="l quote-top__l">
+                                                <em>白银延期 </em>
+                                                <b>3647.00</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>-9.00 </span>
+                                                <span>-0.25%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/NIKKI" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>日经指数 </em>
+                                                <b>22174.92</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>242.71 </span>
+                                                <span>1.11%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/LMCI" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>LME铜 </em>
+                                                <b>6185.50</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>50.50 </span>
+                                                <span>0.82%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="quote-top__item">
+                                        <a href="http://www.gold678.com/dy/s/LMNI" target="_blank" class="clearfix quote-top__main up-red">
+                                            <div class="l quote-top__l">
+                                                <em>LME镍 </em>
+                                                <b>14215.00</b>
+                                            </div>
+                                            <div class="r quote-top__r">
+                                                <span>270.00 </span>
+                                                <span>1.94%</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                        </ul>
+        </div>
+
+        <div class="clearfix h270 mb20">
+            <!--黄金要闻-->
+            <div class="l section-l">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/hjzx" target="_blank">要闻</a>
+                    <a href="/hjzx" target="_blank" class="more">更多 +</a>
+                </div>
+                <ul class="news-gold bg-white section-bb">
+                                    <li class="news-gold__first">
+                                        <a href="/C/201807120639072400" target="_blank" title="7月12日外汇交易提醒">
+                                            <span>7月12日外汇交易提醒</span>
+                                            <p>
+                                                周三美元强势反弹，因美国通胀数据强于预期。美元的强势导致金价变相承压下跌。加拿大央行宣布加息，加元短线走强，但在强劲的美元走势面前，加元及其他众多非美货币悉数收跌。此外，受利比亚石油港口重新开放和欧佩克6月产量增长的影响，油价暴跌，在经历了盘中EIA原油库存大降的利好短暂提振多头后，油价又重回跌势。
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li><a href="/C/201807111116292246" target="_blank" title="原油交易提醒：油价急跌逾1%，聚焦OPEC月报及EIA数据">原油交易提醒：油价急跌逾1%，聚焦OPEC月报及EIA数据</a></li>
+                                    <li><a href="/C/201807110706192408" target="_blank" title="7月11日外汇交易提醒">7月11日外汇交易提醒</a></li>
+                                    <li><a href="/C/201807100652201964" target="_blank" title="7月10日外汇交易提醒">7月10日外汇交易提醒</a></li>
+
+                </ul>
+            </div>
+            <!--新闻幻灯-->
+            <div class="l section-m bg-white h270 slide-news-cont section-b">
+                <div class="slide-news ">
+                    <div class="hd">
+                        <ul class="slide-page"><li class="on">1</li><li class="">2</li><li class="">3</li></ul>
+                    </div>
+                    <div class="bd">
+                        <ul class="slide-news__wrapper" style="position: relative; width: 405px; height: 253px;">
+                                            <li style="position: absolute; width: 405px; left: 0px; top: 0px; display: list-item;">
+                                                <a href="/C/201807112139082113" target="_blank" class="slide-news__item">
+                                                    <div class="img-cont"><img src="http://upload.fx678.com/upload/ht/20180711/2018071121240311.jpg" alt=""></div>
+                                                    <p class="slide-news__title" title="贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱"><span>贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱</span></p>
+                                                </a>
+                                            </li>
+                                            <li style="position: absolute; width: 405px; left: 0px; top: 0px; display: list-item;">
+                                                <a href="/C/201807101529472296" target="_blank" class="slide-news__item">
+                                                    <div class="img-cont"><img src="http://upload.fx678.com/upload/ht/20180710/2018071015154751.jpg" alt=""></div>
+                                                    <p class="slide-news__title" title="加拿大央行决议来袭，三大关键决定加元命脉"><span>加拿大央行决议来袭，三大关键决定加元命脉</span></p>
+                                                </a>
+                                            </li>
+                                            <li style="position: absolute; width: 405px; left: 0px; top: 0px; display: list-item;">
+                                                <a href="/C/201807102135232114" target="_blank" class="slide-news__item">
+                                                    <div class="img-cont"><img src="http://upload.fx678.com/upload/ht/20180710/2018071021282213.jpg" alt=""></div>
+                                                    <p class="slide-news__title" title="特朗普警告欧盟勿吝啬荷包，欧元应声咯血黄金成为陪葬品"><span>特朗普警告欧盟勿吝啬荷包，欧元应声咯血黄金成为陪葬品</span></p>
+                                                </a>
+                                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--右侧广告-->
+            <div class="r section-r">
+                <ul class="aside-ad">
+                    <li>
+                        <div class="ad-cont img-cont"><iframe id='a0e822c2' name='a0e822c2' src='http://ams.fx678.com/delivery/afr.php?zoneid=343&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='300' height='75'><a href='http://ams.fx678.com/delivery/ck.php?n=a86d0471&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=343&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a86d0471' border='0' alt='' /></a></iframe></div>
+                        <span class="ad-tip"></span>
+                    </li>
+                    <li>
+                        <div class="ad-cont img-cont"><iframe id='a025f637' name='a025f637' src='http://ams.fx678.com/delivery/afr.php?zoneid=344&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='300' height='75'><a href='http://ams.fx678.com/delivery/ck.php?n=a1da1fcb&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=344&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a1da1fcb' border='0' alt='' /></a></iframe></div>
+                        <span class="ad-tip"></span>
+                    </li>
+                    <li>
+                        <div class="ad-cont img-cont"><iframe id='ac255ab9' name='ac255ab9' src='http://ams.fx678.com/delivery/afr.php?zoneid=345&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='300' height='75'><a href='http://ams.fx678.com/delivery/ck.php?n=a3ba4f29&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=345&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a3ba4f29' border='0' alt='' /></a></iframe></div>
+                        <span class="ad-tip"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--广告位-->
+        <div class="ad-row clearfix mb20">
+            <div class="ad-row-item-3-1 l ad-row-item">
+                <div class="ad-cont img-cont w330"><iframe id='a7ee4f55' name='a7ee4f55' src='http://ams.fx678.com/delivery/afr.php?zoneid=346&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='330' height='75'><a href='http://ams.fx678.com/delivery/ck.php?n=a742eb4e&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=346&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a742eb4e' border='0' alt='' /></a></iframe></div>
+                <span class="ad-tip"></span>
+            </div>
+            <div class="ad-row-item-3-2 l ad-row-item">
+                <div class="ad-cont img-cont w430"><iframe id='a4b3844d' name='a4b3844d' src='http://ams.fx678.com/delivery/afr.php?zoneid=347&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='430' height='75'><a href='http://ams.fx678.com/delivery/ck.php?n=ad37923f&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=347&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ad37923f' border='0' alt='' /></a></iframe></div>
+                <span class="ad-tip"></span>
+            </div>
+            <div class="ad-row-item-3-3 r ad-row-item">
+                <div class="ad-cont img-cont w300">
+                    <iframe id='a6928c3c' name='a6928c3c' src='http://ams.fx678.com/delivery/afr.php?zoneid=348&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='300' height='75'><a href='http://ams.fx678.com/delivery/ck.php?n=a366ed42&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=348&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a366ed42' border='0' alt='' /></a></iframe>
+                </div>
+                <span class="ad-tip"></span>
+            </div>
+        </div>
+
+        <div class="clearfix mb20">
+            <!--认证博客-->
+            <div class="l section-l js-tab-wrap">
+                <div class="title-bt clearfix">
+                    <ul class="title-tab js-title-tab clearfix">
+                        <li class="selected"><a href="/hjbk" target="_blank">认证博客</a></li>
+                        <li><a href="/hjbk" target="_blank">推荐博客</a></li>
+                    </ul>
+                    <a href="/hjbk" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="js-tab-main">
+                    <ul class="blogger h440 js-tab-item">
+                                    <li class="blogger__item clearfix">
+                                        <a href="http://www.gold678.com/dy/zjpl" target="_blank" class="blogger__avatar img-cont"><img src="http://www.gold678.com/dy/Content/Images/cimages/114961.png" alt=""></a>
+                                        <a href="http://www.gold678.com/C/20180712/201807121106131878.html" target="_blank" class="blogger__article" title="夏乔凡：7.12美国加税黄金承压反弹空看新低！午评走势分析操作策略">
+                                            <b>夏乔凡：7.12美国加税黄金承压反弹空看新低！午评走势分析操作策略</b>
+                                            <p>夏乔凡：7.12美国加税黄金承压反弹空看新低！午评走势分析操作策略</p>
+                                        </a>
+                                    </li>
+                                    <li class="blogger__item clearfix">
+                                        <a href="http://www.gold678.com/dy/zjpl" target="_blank" class="blogger__avatar img-cont"><img src="http://www.gold678.com/dy/Content/Images/cimages/114933.png" alt=""></a>
+                                        <a href="http://www.gold678.com/C/20180712/201807121059301877.html" target="_blank" class="blogger__article" title="陈意研：7.12黄金空单中短线悉数收割!为何行情不涨反跌？">
+                                            <b>陈意研：7.12黄金空单中短线悉数收割!为何行情不涨反跌？</b>
+                                            <p>陈意研：7.12黄金空单中短线悉数收割!为何行情不涨反跌？</p>
+                                        </a>
+                                    </li>
+                                    <li class="blogger__item clearfix">
+                                        <a href="http://www.gold678.com/dy/zjpl" target="_blank" class="blogger__avatar img-cont"><img src="http://www.gold678.com/dy/Content/Images/cimages/114882.png" alt=""></a>
+                                        <a href="http://www.gold678.com/C/20180712/201807121059061876.html" target="_blank" class="blogger__article" title="陈网升：7.12黄金二次元多头防火线、原油沦陷不止">
+                                            <b>陈网升：7.12黄金二次元多头防火线、原油沦陷不止</b>
+                                            <p>。总之，我觉得现在不适合去低位追空了。直接1242布局中线多单。</p>
+                                        </a>
+                                    </li>
+                                    <li class="blogger__item clearfix">
+                                        <a href="http://www.gold678.com/dy/zjpl" target="_blank" class="blogger__avatar img-cont"><img src="http://www.gold678.com/dy/Content/Images/cimages/114924.png" alt=""></a>
+                                        <a href="http://www.gold678.com/C/20180712/201807121058451875.html" target="_blank" class="blogger__article" title="林易兮：7.12黄金诱空行情谨慎，大趋势看涨回调多单大胆进！">
+                                            <b>林易兮：7.12黄金诱空行情谨慎，大趋势看涨回调多单大胆进！</b>
+                                            <p>一笔合理的交易，包含方向、点位以及进场的时机，首先要认准方向，然后找入场点位。很显然的是，方向比点位更重要，如果太追求与点位，也很容易踏空位置。</p>
+                                        </a>
+                                    </li>
+                    </ul>
+                    <ul class="blogger  js-tab-item dn">
+                    </ul>
+                </div>
+            </div>
+            <!--黄金答疑-->
+            <div class="l section-m">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="http://ask.fx678.com/" target="_blank">黄金答疑</a>
+                    <a href="http://ask.fx678.com/" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="gask bg-white section-bb">
+                    <ul class="gask-list mCustomScrollbar _mCS_1 mCS-autoHide" data-mcs-theme="minimal-dark" style="position: relative; overflow: visible;">
+                                    <li class="gask__item">
+                                        <div class="gask__q"><i></i><a>方美女，傍日接下来怎么看？147的空单还有救吗？</a></div>
+                                        <div class="gask__a">
+                                            <i></i>
+                                            <a href="http://ask.fx678.com/answer/68135" target="_blank" class="gask__name">方萍萍 ：</a>
+                                            <a>不建议持有哦。</a>
+                                        </div>
+                                    </li>
+                                    <li class="gask__item">
+                                        <div class="gask__q"><i></i><a>今天黄金上方的阻力在什么位置？</a></div>
+                                        <div class="gask__a">
+                                            <i></i>
+                                            <a href="http://ask.fx678.com/answer/98" target="_blank" class="gask__name">周君俊 ：</a>
+                                            <a>数据前，在 1257，黄金昨天早上8点58分1254提示空和下午5点提示的1251再次空，当天全部获利！ 恭喜加群体验的朋友（早上最早的几位是获利最多的，两单都有机会跟上），而今天，重点就是晚上的美国CPI数据（预期会有超过70+ 的波动），今天看数据公布后，市场的第一步动作，我再给出提示！ 喊单可以免费体验几天！！！ 加 QQ群：786432082 或者 微信（微信号：18221865655 同手机）</a>
+                                        </div>
+                                    </li>
+                                    <li class="gask__item">
+                                        <div class="gask__q"><i></i><a>老师。今天原油怎么看。我还有71.8的多</a></div>
+                                        <div class="gask__a">
+                                            <i></i>
+                                            <a href="http://ask.fx678.com/answer/98" target="_blank" class="gask__name">周君俊 ：</a>
+                                            <a>71-70.9 区间建议减仓或离场。</a>
+                                        </div>
+                                    </li>
+                                    <li class="gask__item">
+                                        <div class="gask__q"><i></i><a>老师今天策略有出来了吗？</a></div>
+                                        <div class="gask__a">
+                                            <i></i>
+                                            <a href="http://ask.fx678.com/answer/98" target="_blank" class="gask__name">周君俊 ：</a>
+                                            <a>黄金： 均线的阻力在 1251.5-1252 附近（直接冲高，估计这个位置难到，不太可能的），近一些的阻力，则是在之前下影线的低点，1247.5附近，今天的操作，要留意晚上的CPI数据，可能波动比非农大，先冲高，那么上方阻力空就行了，但是，先跌，就不好反弹到位再空！切忌！！注意今天第一波的方向，先涨，空没事，先跌，再涨，就不行，晚上等数据再看机会，重点CPI 20.30分。欧元： 1.1700-1.1720 是日内的上方阻力，以反弹空为主。英镑： 1.3240-1.3248附近，反弹空为主，日内上方5天线阻力。澳元： 0.7410 和 0.7390 是日内的上方阻力，颈线和拐头后的均线。纽元： 0.6800 是上方均线的拐头后阻力。油： 昨天强势单边，今天弱势回调，阻力（在没有先破低之前！）在70.95-71 之间（黑马69.8-75）</a>
+                                        </div>
+                                    </li>
+                                    <li class="gask__item">
+                                        <div class="gask__q"><i></i><a>老师。今天黄金下方支撑看哪里？</a></div>
+                                        <div class="gask__a">
+                                            <i></i>
+                                            <a href="http://ask.fx678.com/answer/98" target="_blank" class="gask__name">周君俊 ：</a>
+                                            <a>破了新低后，再去关注是否有见底机会。不着急抄底的。</a>
+                                        </div>
+                                    </li>
+                                    <li class="gask__item">
+                                        <div class="gask__q"><i></i><a>  周老师黄金是回调做空？还是现价做多吗？</a></div>
+                                        <div class="gask__a">
+                                            <i></i>
+                                            <a href="http://ask.fx678.com/answer/98" target="_blank" class="gask__name">周君俊 ：</a>
+                                            <a>先反弹，以反弹空为主，趋势还是没有见底转折的迹象哦，所以昨天也是 1254  1251 空了两次。</a>
+                                        </div>
+                                    </li>
+                    </ul>
+                </div>
+            </div>
+            <!--行情走势-->
+            <div class="r section-r js-tab-wrap">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/quote" target="_blank">行情走势</a>
+                    <a href="/quote" target="_blank" class="more">更多 +</a>
+                </div>
+                <ul class="trend h440 bg-white section-b">
+                                <li class="trend__item selected">
+                                    <div class="trend__sort clearfix js-aside-chart__item">
+                                        <span class="trend__data1">现货黄金</span>
+                                        <span class="trend__data2">1243.55</span>
+                                        <span class="trend__data3 up-red">1.59</span>
+                                        <span class="trend__data4  up-red">13.00 %</span>
+                                    </div>
+                                    <div class="trend__chart js-aside-chart__main db">
+                                        <iframe src="/chart/interval?symbol=XAU&width=290px&height=230px" width="298" height="240" style="border:none;" scrolling="no"></iframe>
+                                    </div>
+                                </li>
+                                <li class="trend__item ">
+                                    <div class="trend__sort clearfix js-aside-chart__item">
+                                        <span class="trend__data1">现货白银</span>
+                                        <span class="trend__data2">15.81</span>
+                                        <span class="trend__data3 up-red">0.01</span>
+                                        <span class="trend__data4  up-red">6.00 %</span>
+                                    </div>
+                                    <div class="trend__chart js-aside-chart__main ">
+                                        <iframe src="/chart/interval?symbol=XAG&width=290px&height=230px" width="298" height="240" style="border:none;" scrolling="no"></iframe>
+                                    </div>
+                                </li>
+                                <li class="trend__item ">
+                                    <div class="trend__sort clearfix js-aside-chart__item">
+                                        <span class="trend__data1">黄金延期</span>
+                                        <span class="trend__data2">268.57</span>
+                                        <span class="trend__data3 down-green">-0.21</span>
+                                        <span class="trend__data4  down-green">-19.00 %</span>
+                                    </div>
+                                    <div class="trend__chart js-aside-chart__main ">
+                                        <iframe src="/chart/interval?symbol=AUT_D&width=290px&height=230px" width="298" height="240" style="border:none;" scrolling="no"></iframe>
+                                    </div>
+                                </li>
+                                <li class="trend__item ">
+                                    <div class="trend__sort clearfix js-aside-chart__item">
+                                        <span class="trend__data1">白银延期</span>
+                                        <span class="trend__data2">3647</span>
+                                        <span class="trend__data3 down-green">-12</span>
+                                        <span class="trend__data4  down-green">-25.00 %</span>
+                                    </div>
+                                    <div class="trend__chart js-aside-chart__main ">
+                                        <iframe src="/chart/interval?symbol=AGT_D&width=290px&height=230px" width="298" height="240" style="border:none;" scrolling="no"></iframe>
+                                    </div>
+                                </li>
+                                <li class="trend__item ">
+                                    <div class="trend__sort clearfix js-aside-chart__item">
+                                        <span class="trend__data1">纸黄金</span>
+                                        <span class="trend__data2">267.87</span>
+                                        <span class="trend__data3 down-green">-0.02</span>
+                                        <span class="trend__data4  down-green">-1.00 %</span>
+                                    </div>
+                                    <div class="trend__chart js-aside-chart__main ">
+                                        <iframe src="/chart/interval?symbol=ZAUCNY&width=290px&height=230px" width="298" height="240" style="border:none;" scrolling="no"></iframe>
+                                    </div>
+                                </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="clearfix mb20">
+            <!--黄金每日观察-->
+            <div class="l section-l js-tab-wrap">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/hjgc" target="_blank">黄金每日观察</a>
+                    <a href="/hjgc" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="h260 bg-white section-bb">
+                    <ul class="news-list">
+                                    <li><a href="/C/201807121119332061" target="_blank" title="7月12日现货黄金、白银、原油、外汇短线交易策略">7月12日现货黄金、白银、原油、外汇短线交易策略</a></li>
+                                    <li><a href="/C/201807121101072362" target="_blank" title="现货黄金现报1243.17美元/盎司，涨0.10%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.10美元/盎司，跌0.10%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.58元/克，跌0.19%；白银T+D现报3647.00元/千克，跌0.25%；
+沪金现报272.45元/克，跌0.15%；沪银现报3722.00元/千克，跌0.40%">现货黄金现报1243.17美元/盎司，涨0.10%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.10美元/盎司，跌0.10%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.58元/克，跌0.19%；白银T+D现报3647.00元/千克，跌0.25%；
+沪金现报272.45元/克，跌0.15%；沪银现报3722.00元/千克，跌0.40%</a></li>
+                                    <li><a href="/C/201807121001062364" target="_blank" title="现货黄金现报1243.46美元/盎司，涨0.12%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.50美元/盎司，跌0.07%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.65元/克，跌0.16%；白银T+D现报3646.00元/千克，跌0.27%；
+沪金现报272.40元/克，跌0.16%；沪银现报3723.00元/千克，跌0.37%">现货黄金现报1243.46美元/盎司，涨0.12%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.50美元/盎司，跌0.07%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.65元/克，跌0.16%；白银T+D现报3646.00元/千克，跌0.27%；
+沪金现报272.40元/克，跌0.16%；沪银现报3723.00元/千克，跌0.37%</a></li>
+                                    <li><a href="/C/201807120902322240" target="_blank" title="上海黄金交易所黄金T+D 7月12日（周四）早盘盘初下跌0.07%报268.58元/克；
+上海黄金交易所白银T+D 7月12日（周四）早盘盘初下跌0.33%报3647.00元/千克">上海黄金交易所黄金T+D 7月12日（周四）早盘盘初下跌0.07%报268.58元/克；
+上海黄金交易所白银T+D 7月12日（周四）早盘盘初下跌0.33%报3647.00元/千克</a></li>
+                                    <li><a href="/C/201807120901062364" target="_blank" title="现货黄金现报1241.52美元/盎司，跌0.04%；现货白银现报15.76美元/盎司，跌0.24%；
+COMEX黄金期货现报1241.60美元/盎司，跌0.23%；COMEX白银期货现报15.79美元/盎司，跌0.20%；
+黄金T+D现报268.86元/克，跌0.08%；白银T+D现报3649.00元/千克，跌0.19%；
+沪金现报272.50元/克，跌0.13%；沪银现报3727.00元/千克，跌0.27%">现货黄金现报1241.52美元/盎司，跌0.04%；现货白银现报15.76美元/盎司，跌0.24%；
+COMEX黄金期货现报1241.60美元/盎司，跌0.23%；COMEX白银期货现报15.79美元/盎司，跌0.20%；
+黄金T+D现报268.86元/克，跌0.08%；白银T+D现报3649.00元/千克，跌0.19%；
+沪金现报272.50元/克，跌0.13%；沪银现报3727.00元/千克，跌0.27%</a></li>
+                                    <li><a href="/C/201807111139202383" target="_blank" title="7月11日现货黄金、白银、原油、外汇短线交易策略">7月11日现货黄金、白银、原油、外汇短线交易策略</a></li>
+                                    <li><a href="/C/201807111720062385" target="_blank" title="大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a></li>
+                                    <li><a href="/C/201807120801032361" target="_blank" title="现货黄金现报1242.78美元/盎司，涨0.07%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1242.70美元/盎司，跌0.14%；COMEX白银期货现报15.83美元/盎司，涨0.08%">现货黄金现报1242.78美元/盎司，涨0.07%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1242.70美元/盎司，跌0.14%；COMEX白银期货现报15.83美元/盎司，涨0.08%</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--机构金评-->
+            <div class="l section-m">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/jgjp" target="_blank">机构金评</a>
+                    <a href="/jgjp" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="h260 bg-white section-bb">
+                    <ul class="news-list">
+                                    <li><a href="http://pinglun.fx678.com/article/201807121054513849.shtml" target="_blank" title="金荣中国：黄金再次探底考验1240附近，耐心等待企稳见底">金荣中国：黄金再次探底考验1240附近，耐心等待企稳见底 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807120928374671.shtml" target="_blank" title="鑫圣金融研究院默默：中美贸易战升级，黄金耻辱下跌">鑫圣金融研究院默默：中美贸易战升级，黄金耻辱下跌 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807120927208926.shtml" target="_blank" title="香港金盛贵金属：黄金暴跌超10美元失守1250关口">香港金盛贵金属：黄金暴跌超10美元失守1250关口 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111755322084.shtml" target="_blank" title="大田环球贵金属：多重数据夹击 黄金纠结1250位置">大田环球贵金属：多重数据夹击 黄金纠结1250位置 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111722584719.shtml" target="_blank" title="金道贵金属：中美贸易战升级，避险情绪提振美元打压黄金">金道贵金属：中美贸易战升级，避险情绪提振美元打压黄金 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111722564631.shtml" target="_blank" title="金道贵金属：中美贸易战升级，避险情绪提振美元打压黄金">金道贵金属：中美贸易战升级，避险情绪提振美元打压黄金 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111624378294.shtml" target="_blank" title="鑫圣金融研究院老杨：贸易战再度升级  金银无动于衷">鑫圣金融研究院老杨：贸易战再度升级  金银无动于衷 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111559336189.shtml" target="_blank" title="国泰金业：美国对中国产品再征税 ，市场避险金价低位有支持">国泰金业：美国对中国产品再征税 ，市场避险金价低位有支持 </a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--贵金属定盘价-->
+            <div class="r section-r">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/quote" target="_blank">贵金属定盘价</a>
+                    <i class="title-tip-r">2018-07-12</i>
+                </div>
+                <div class="fprice-cont  bg-white section-b">
+                    <table class="fprice">
+                        <tbody>
+                            <tr>
+                                <th>品种</th>
+                                <th>早盘定价</th>
+                                <th>午盘定价</th>
+                            </tr>
+                                    <tr>
+                                        <td class="fprice__sort">伦敦金(美元/盎司)</td>
+                                        <td>1336.60</td>
+                                        <td>1333.45 </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fprice__sort">伦敦金(欧元/盎司)</td>
+                                        <td>1085.99 </td>
+                                        <td>1087.56 </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fprice__sort">伦敦金(英镑/盎司)</td>
+                                        <td>949.65 </td>
+                                        <td>949.82 </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fprice__sort">伦敦银(美元/盎司)</td>
+                                        <td>16.54 </td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fprice__sort">上海金(元/克)</td>
+                                        <td>268.73 </td>
+                                        <td>268.94</td>
+                                    </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <!--广告位-->
+        <div class="ad-full img-cont mb20">
+            <div><iframe id='a6cc9db8' name='a6cc9db8' src='http://ams.fx678.com/delivery/afr.php?zoneid=349&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='1100' height='80'><a href='http://ams.fx678.com/delivery/ck.php?n=ab589d21&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=349&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ab589d21' border='0' alt='' /></a></iframe></div>
+            <span class="ad-tip"></span>
+        </div>
+
+        <div class="clearfix mb20">
+            <!--深度解读-->
+            <div class="l section-l js-tab-wrap">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/sdjd" target="_blank">深度解读</a>
+                    <a href="/sdjd" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="h410 bg-white section-bb">
+                    <ul class="news-list">
+                        
+                                    <li><a href="http://pinglun.fx678.com/article/201807121120032160.shtml" target="_blank" title="张伟盈：7.12黄金承压弱势下行再探1238，后市行情分析及操作建议">张伟盈：7.12黄金承压弱势下行再探1238，后市行情分析及操作建议 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121117102688.shtml" target="_blank" title="苏凯：7.12 金价再次弱势下探，当下策略操作以及精解">苏凯：7.12 金价再次弱势下探，当下策略操作以及精解 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121114369700.shtml" target="_blank" title="肖亦寒：7.12黄金空头再盈利8个点，黄金后势分析及操作策略">肖亦寒：7.12黄金空头再盈利8个点，黄金后势分析及操作策略 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121113467607.shtml" target="_blank" title="张伟盈：7.12IEA月报能否挽救油市？日内操作建议">张伟盈：7.12IEA月报能否挽救油市？日内操作建议 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121113371987.shtml" target="_blank" title="杨漪7.12午间分析：黄金二次探底符合预期，聚焦晚间CPI数据">杨漪7.12午间分析：黄金二次探底符合预期，聚焦晚间CPI数据 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121110467322.shtml" target="_blank" title="张伟盈：7.12黄金震荡下行，后市操作建议">张伟盈：7.12黄金震荡下行，后市操作建议 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121109349958.shtml" target="_blank" title="张君晖：7.12黄金、原油行情走势分析">张君晖：7.12黄金、原油行情走势分析 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121109037832.shtml" target="_blank" title="曾莫哲：黄金弱势下探，区间未破低位还可多">曾莫哲：黄金弱势下探，区间未破低位还可多 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121108473309.shtml" target="_blank" title="王超：多头再遭重创！黄金失守1250！">王超：多头再遭重创！黄金失守1250！ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121107518185.shtml" target="_blank" title="20180712强美元回归 黄金遭人弃">20180712强美元回归 黄金遭人弃 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121106151914.shtml" target="_blank" title="苏凯： 7.12黄金走势精解。 操作策略分析以及战术。">苏凯： 7.12黄金走势精解。 操作策略分析以及战术。 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121102378919.shtml" target="_blank" title="柳幼清&mdash;7/12（亚盘）&ldquo;黑色星期三&rdquo;黄金沦为避险界的耻辱？">柳幼清&mdash;7/12（亚盘）&ldquo;黑色星期三&rdquo;黄金沦为避险界的耻辱？ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121102087399.shtml" target="_blank" title="子欣：黄金今年低点又要刷新了">子欣：黄金今年低点又要刷新了 </a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--黄金动态-->
+            <div class="l section-m">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/hjzx" target="_blank">黄金动态</a>
+                    <a href="/hjzx" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="h410 bg-white section-bb">
+                    <ul class="news-list">
+                                    <li><a href="/C/201807121119332061" target="_blank" title="7月12日现货黄金、白银、原油、外汇短线交易策略">7月12日现货黄金、白银、原油、外汇短线交易策略</a></li>
+                                    <li><a href="/C/201807121101072362" target="_blank" title="现货黄金现报1243.17美元/盎司，涨0.10%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.10美元/盎司，跌0.10%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.58元/克，跌0.19%；白银T+D现报3647.00元/千克，跌0.25%；
+沪金现报272.45元/克，跌0.15%；沪银现报3722.00元/千克，跌0.40%">现货黄金现报1243.17美元/盎司，涨0.10%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.10美元/盎司，跌0.10%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.58元/克，跌0.19%；白银T+D现报3647.00元/千克，跌0.25%；
+沪金现报272.45元/克，跌0.15%；沪银现报3722.00元/千克，跌0.40%</a></li>
+                                    <li><a href="/C/201807121001062364" target="_blank" title="现货黄金现报1243.46美元/盎司，涨0.12%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.50美元/盎司，跌0.07%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.65元/克，跌0.16%；白银T+D现报3646.00元/千克，跌0.27%；
+沪金现报272.40元/克，跌0.16%；沪银现报3723.00元/千克，跌0.37%">现货黄金现报1243.46美元/盎司，涨0.12%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.50美元/盎司，跌0.07%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.65元/克，跌0.16%；白银T+D现报3646.00元/千克，跌0.27%；
+沪金现报272.40元/克，跌0.16%；沪银现报3723.00元/千克，跌0.37%</a></li>
+                                    <li><a href="/C/201807120902322240" target="_blank" title="上海黄金交易所黄金T+D 7月12日（周四）早盘盘初下跌0.07%报268.58元/克；
+上海黄金交易所白银T+D 7月12日（周四）早盘盘初下跌0.33%报3647.00元/千克">上海黄金交易所黄金T+D 7月12日（周四）早盘盘初下跌0.07%报268.58元/克；
+上海黄金交易所白银T+D 7月12日（周四）早盘盘初下跌0.33%报3647.00元/千克</a></li>
+                                    <li><a href="/C/201807120901062364" target="_blank" title="现货黄金现报1241.52美元/盎司，跌0.04%；现货白银现报15.76美元/盎司，跌0.24%；
+COMEX黄金期货现报1241.60美元/盎司，跌0.23%；COMEX白银期货现报15.79美元/盎司，跌0.20%；
+黄金T+D现报268.86元/克，跌0.08%；白银T+D现报3649.00元/千克，跌0.19%；
+沪金现报272.50元/克，跌0.13%；沪银现报3727.00元/千克，跌0.27%">现货黄金现报1241.52美元/盎司，跌0.04%；现货白银现报15.76美元/盎司，跌0.24%；
+COMEX黄金期货现报1241.60美元/盎司，跌0.23%；COMEX白银期货现报15.79美元/盎司，跌0.20%；
+黄金T+D现报268.86元/克，跌0.08%；白银T+D现报3649.00元/千克，跌0.19%；
+沪金现报272.50元/克，跌0.13%；沪银现报3727.00元/千克，跌0.27%</a></li>
+                                    <li><a href="/C/201807111139202383" target="_blank" title="7月11日现货黄金、白银、原油、外汇短线交易策略">7月11日现货黄金、白银、原油、外汇短线交易策略</a></li>
+                                    <li><a href="/C/201807111720062385" target="_blank" title="大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a></li>
+                                    <li><a href="/C/201807120801032361" target="_blank" title="现货黄金现报1242.78美元/盎司，涨0.07%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1242.70美元/盎司，跌0.14%；COMEX白银期货现报15.83美元/盎司，涨0.08%">现货黄金现报1242.78美元/盎司，涨0.07%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1242.70美元/盎司，跌0.14%；COMEX白银期货现报15.83美元/盎司，涨0.08%</a></li>
+                                    <li><a href="/C/201807120731082365" target="_blank" title="现货黄金现报1243.15美元/盎司，涨0.10%；现货白银现报15.81美元/盎司，涨0.04%；
+COMEX黄金期货现报1243.10美元/盎司，跌0.10%；COMEX白银期货现报15.83美元/盎司，涨0.08%">现货黄金现报1243.15美元/盎司，涨0.10%；现货白银现报15.81美元/盎司，涨0.04%；
+COMEX黄金期货现报1243.10美元/盎司，跌0.10%；COMEX白银期货现报15.83美元/盎司，涨0.08%</a></li>
+                                    <li><a href="/C/201807112139082113" target="_blank" title="贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱">贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱</a></li>
+                                    <li><a href="/C/201807120701032361" target="_blank" title="现货黄金现报1242.77美元/盎司，涨0.07%；现货白银现报15.81美元/盎司，涨0.03%；
+COMEX黄金期货现报1242.90美元/盎司，跌0.12%；COMEX白银期货现报15.82美元/盎司，涨0.05%">现货黄金现报1242.77美元/盎司，涨0.07%；现货白银现报15.81美元/盎司，涨0.03%；
+COMEX黄金期货现报1242.90美元/盎司，跌0.12%；COMEX白银期货现报15.82美元/盎司，涨0.05%</a></li>
+                                    <li><a href="/C/201807120651431969" target="_blank" title="7月10日COMEX金银库存及NYMEX铂钯库存最新一览；
+① 芝加哥商业交易所(CME)7月11日公布报告显示，截至7月10日COMEX黄金库存约875.4555万盎司，较上日持平；
+② COMEX白银库存约27953.284万盎司，较上日减少1.2084万盎司；
+③ NYMEX铂金库存约18.4576万盎司，较上日减少99.3盎司；
+④ NYMEX钯金库存约4.0459万盎司，较上日持平">7月10日COMEX金银库存及NYMEX铂钯库存最新一览；
+① 芝加哥商业交易所(CME)7月11日公布报告显示，截至7月10日COMEX黄金库存约875.4555万盎司，较上日持平；
+② COMEX白银库存约27953.284万盎司，较上日减少1.2084万盎司；
+③ NYMEX铂金库存约18.4576万盎司，较上日减少99.3盎司；
+④ NYMEX钯金库存约4.0459万盎司，较上日持平</a></li>
+                                    <li><a href="/C/201807120651411966" target="_blank" title="7月11日ishares黄金持仓减少0.3吨/白银持仓增加17.55吨；						
+Gold Trust 7月12日数据显示，截至7月11日Gold Trust黄金持有量266.07吨，较上一交易日减少0.3吨；白银持有量10130.93吨，较上一交易日增加17.55吨">7月11日ishares黄金持仓减少0.3吨/白银持仓增加17.55吨；						
+Gold Trust 7月12日数据显示，截至7月11日Gold Trust黄金持有量266.07吨，较上一交易日减少0.3吨；白银持有量10130.93吨，较上一交易日增加17.55吨</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <!--黄金视频-->
+            <div class="r section-r">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="http://v.fx678.com/" target="_blank">黄金视频</a>
+                    <a href="http://v.fx678.com/" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="gvideo-cont bg-white h410 section-b js-section-tab-wrap">
+                    
+                    <div class="js-section-tab-main">
+                        <div class="glive js-section-tab-item">
+                                    <a class="glive-top clearfix" href="http://v.fx678.com/special/47629" target="_blank">
+                                        <div class="img-cont">
+                                            <img src="http://upload.fx678.com/upload/ht/20180515/sy_2018051519473174.png" alt="">
+                                        </div>
+                                        <p>后汇有期 - 陆晅 <span title="2018-07-12 16:00:00"> 16:00:00</span></p>
+                                    </a>
+                                    <div class="glive-h-cont">
+                                        <div class="glive-h__title">往期节目<i></i></div>
+                                        <ul class="glive-h">
+                                                    <li class="glive-h__item">
+                                                        <a href="http://v.fx678.com/special/47629" target="_blank">后汇有期 - 陆晅<i class="r" title="2018-07-11 17:00:00">07-11</i></a>
+                                                    </li>
+                                                    <li class="glive-h__item">
+                                                        <a href="http://v.fx678.com/special/47629" target="_blank">后汇有期 - 陆晅<i class="r" title="2018-07-10 17:00:00">07-10</i></a>
+                                                    </li>
+                                                    <li class="glive-h__item">
+                                                        <a href="http://v.fx678.com/special/47629" target="_blank">后汇有期 - 陆晅<i class="r" title="2018-07-09 17:00:00">07-09</i></a>
+                                                    </li>
+                                                    <li class="glive-h__item">
+                                                        <a href="http://v.fx678.com/special/47629" target="_blank">后汇有期 - 陆晅<i class="r" title="2018-07-06 17:00:00">07-06</i></a>
+                                                    </li>
+                                                    <li class="glive-h__item">
+                                                        <a href="http://v.fx678.com/special/47629" target="_blank">后汇有期 - 陆晅<i class="r" title="2018-07-05 17:00:00">07-05</i></a>
+                                                    </li>
+                                                    <li class="glive-h__item">
+                                                        <a href="http://v.fx678.com/special/47629" target="_blank">后汇有期 - 陆晅<i class="r" title="2018-07-04 17:00:00">07-04</i></a>
+                                                    </li>
+
+                                        </ul>
+                                    </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix mb20">
+            <!--铂-银-钯-->
+            <div class="l section-l js-js-tab-wrap">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/byb" target="_blank">铂-银-钯</a>
+                    <a href="/byb" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="h410 bg-white section-bb">
+                    <ul class="news-list">
+                                    <li><a href="/C/201807121119332061" target="_blank" title="7月12日现货黄金、白银、原油、外汇短线交易策略">7月12日现货黄金、白银、原油、外汇短线交易策略</a></li>
+                                    <li><a href="/C/201807121101072362" target="_blank" title="现货黄金现报1243.17美元/盎司，涨0.10%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.10美元/盎司，跌0.10%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.58元/克，跌0.19%；白银T+D现报3647.00元/千克，跌0.25%；
+沪金现报272.45元/克，跌0.15%；沪银现报3722.00元/千克，跌0.40%">现货黄金现报1243.17美元/盎司，涨0.10%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.10美元/盎司，跌0.10%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.58元/克，跌0.19%；白银T+D现报3647.00元/千克，跌0.25%；
+沪金现报272.45元/克，跌0.15%；沪银现报3722.00元/千克，跌0.40%</a></li>
+                                    <li><a href="/C/201807121001062364" target="_blank" title="现货黄金现报1243.46美元/盎司，涨0.12%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.50美元/盎司，跌0.07%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.65元/克，跌0.16%；白银T+D现报3646.00元/千克，跌0.27%；
+沪金现报272.40元/克，跌0.16%；沪银现报3723.00元/千克，跌0.37%">现货黄金现报1243.46美元/盎司，涨0.12%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1243.50美元/盎司，跌0.07%；COMEX白银期货现报15.82美元/盎司，涨0.05%；
+黄金T+D现报268.65元/克，跌0.16%；白银T+D现报3646.00元/千克，跌0.27%；
+沪金现报272.40元/克，跌0.16%；沪银现报3723.00元/千克，跌0.37%</a></li>
+                                    <li><a href="/C/201807120902322240" target="_blank" title="上海黄金交易所黄金T+D 7月12日（周四）早盘盘初下跌0.07%报268.58元/克；
+上海黄金交易所白银T+D 7月12日（周四）早盘盘初下跌0.33%报3647.00元/千克">上海黄金交易所黄金T+D 7月12日（周四）早盘盘初下跌0.07%报268.58元/克；
+上海黄金交易所白银T+D 7月12日（周四）早盘盘初下跌0.33%报3647.00元/千克</a></li>
+                                    <li><a href="/C/201807120901062364" target="_blank" title="现货黄金现报1241.52美元/盎司，跌0.04%；现货白银现报15.76美元/盎司，跌0.24%；
+COMEX黄金期货现报1241.60美元/盎司，跌0.23%；COMEX白银期货现报15.79美元/盎司，跌0.20%；
+黄金T+D现报268.86元/克，跌0.08%；白银T+D现报3649.00元/千克，跌0.19%；
+沪金现报272.50元/克，跌0.13%；沪银现报3727.00元/千克，跌0.27%">现货黄金现报1241.52美元/盎司，跌0.04%；现货白银现报15.76美元/盎司，跌0.24%；
+COMEX黄金期货现报1241.60美元/盎司，跌0.23%；COMEX白银期货现报15.79美元/盎司，跌0.20%；
+黄金T+D现报268.86元/克，跌0.08%；白银T+D现报3649.00元/千克，跌0.19%；
+沪金现报272.50元/克，跌0.13%；沪银现报3727.00元/千克，跌0.27%</a></li>
+                                    <li><a href="/C/201807120801032361" target="_blank" title="现货黄金现报1242.78美元/盎司，涨0.07%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1242.70美元/盎司，跌0.14%；COMEX白银期货现报15.83美元/盎司，涨0.08%">现货黄金现报1242.78美元/盎司，涨0.07%；现货白银现报15.81美元/盎司，涨0.05%；
+COMEX黄金期货现报1242.70美元/盎司，跌0.14%；COMEX白银期货现报15.83美元/盎司，涨0.08%</a></li>
+                                    <li><a href="/C/201807120731082365" target="_blank" title="现货黄金现报1243.15美元/盎司，涨0.10%；现货白银现报15.81美元/盎司，涨0.04%；
+COMEX黄金期货现报1243.10美元/盎司，跌0.10%；COMEX白银期货现报15.83美元/盎司，涨0.08%">现货黄金现报1243.15美元/盎司，涨0.10%；现货白银现报15.81美元/盎司，涨0.04%；
+COMEX黄金期货现报1243.10美元/盎司，跌0.10%；COMEX白银期货现报15.83美元/盎司，涨0.08%</a></li>
+                                    <li><a href="/C/201807120701032361" target="_blank" title="现货黄金现报1242.77美元/盎司，涨0.07%；现货白银现报15.81美元/盎司，涨0.03%；
+COMEX黄金期货现报1242.90美元/盎司，跌0.12%；COMEX白银期货现报15.82美元/盎司，涨0.05%">现货黄金现报1242.77美元/盎司，涨0.07%；现货白银现报15.81美元/盎司，涨0.03%；
+COMEX黄金期货现报1242.90美元/盎司，跌0.12%；COMEX白银期货现报15.82美元/盎司，涨0.05%</a></li>
+                                    <li><a href="/C/201807120651431969" target="_blank" title="7月10日COMEX金银库存及NYMEX铂钯库存最新一览；
+① 芝加哥商业交易所(CME)7月11日公布报告显示，截至7月10日COMEX黄金库存约875.4555万盎司，较上日持平；
+② COMEX白银库存约27953.284万盎司，较上日减少1.2084万盎司；
+③ NYMEX铂金库存约18.4576万盎司，较上日减少99.3盎司；
+④ NYMEX钯金库存约4.0459万盎司，较上日持平">7月10日COMEX金银库存及NYMEX铂钯库存最新一览；
+① 芝加哥商业交易所(CME)7月11日公布报告显示，截至7月10日COMEX黄金库存约875.4555万盎司，较上日持平；
+② COMEX白银库存约27953.284万盎司，较上日减少1.2084万盎司；
+③ NYMEX铂金库存约18.4576万盎司，较上日减少99.3盎司；
+④ NYMEX钯金库存约4.0459万盎司，较上日持平</a></li>
+                                    <li><a href="/C/201807120651411966" target="_blank" title="7月11日ishares黄金持仓减少0.3吨/白银持仓增加17.55吨；						
+Gold Trust 7月12日数据显示，截至7月11日Gold Trust黄金持有量266.07吨，较上一交易日减少0.3吨；白银持有量10130.93吨，较上一交易日增加17.55吨">7月11日ishares黄金持仓减少0.3吨/白银持仓增加17.55吨；						
+Gold Trust 7月12日数据显示，截至7月11日Gold Trust黄金持有量266.07吨，较上一交易日减少0.3吨；白银持有量10130.93吨，较上一交易日增加17.55吨</a></li>
+                                    <li><a href="/C/201807120631082362" target="_blank" title="现货黄金现报1243.39美元/盎司，涨0.12%；现货白银现报15.82美元/盎司，涨0.08%；
+COMEX黄金期货现报1243.50美元/盎司，跌0.07%；COMEX白银期货现报15.84美元/盎司，涨0.11%">现货黄金现报1243.39美元/盎司，涨0.12%；现货白银现报15.82美元/盎司，涨0.08%；
+COMEX黄金期货现报1243.50美元/盎司，跌0.07%；COMEX白银期货现报15.84美元/盎司，涨0.11%</a></li>
+                                    <li><a href="/C/201807120601032366" target="_blank" title="现货黄金现报1242.12美元/盎司，涨0.01%；现货白银现报15.81美元/盎司，涨0.02%">现货黄金现报1242.12美元/盎司，涨0.01%；现货白银现报15.81美元/盎司，涨0.02%</a></li>
+                                    <li><a href="/C/201807120431092362" target="_blank" title="现货黄金现报1241.96美元/盎司，跌1.08%；现货白银现报15.81美元/盎司，跌1.57%；
+COMEX黄金期货现报1242.20美元/盎司，跌1.05%；COMEX白银期货现报15.82美元/盎司，跌1.63%">现货黄金现报1241.96美元/盎司，跌1.08%；现货白银现报15.81美元/盎司，跌1.57%；
+COMEX黄金期货现报1242.20美元/盎司，跌1.05%；COMEX白银期货现报15.82美元/盎司，跌1.63%</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--汇声绘色-->
+            <div class="l section-m">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/whzx" target="_blank">汇声绘色</a>
+                    
+                </div>
+                <div class="h410 bg-white section-bb cartoon">
+                    <ul class="news-list-pic">
+
+                    </ul>
+                </div>
+            </div>
+            <!--金店报价-->
+            <div class="r section-r">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="http://www.gold678.com/dy/sub" target="_blank">金店报价</a>
+                    <a href="http://www.gold678.com/dy/sub" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="goffer h410 bg-white section-b">
+                    <ul class="goffer__top clearfix">
+                        <li data-id="7" class="selected"><a>老凤祥</a></li>
+                        <li data-id="8"><a>周大福</a></li>
+                        <li data-id="4"><a>六福</a></li>
+                        <li data-id="2"><a>老庙</a></li>
+                        <li data-id="1"><a>周六福</a></li>
+                    </ul>
+                    <table class="goffer-main">
+                        <thead>
+                            <tr>
+                                <th>品牌</th>
+                                <th>产品</th>
+                                <th>价格</th>
+                                <th>涨跌</th>
+                                <th>日期</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tb_jdbj">
+                                        <tr>
+                                            <td class="goffer__sort">老凤祥</td>
+                                            <td>黄金99</td>
+                                            <td>345.00</td>
+                                            <td class="">0.00</td>
+                                            <td>07-12</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="goffer__sort">老凤祥</td>
+                                            <td>黄金99</td>
+                                            <td>345.00</td>
+                                            <td class="">0.00</td>
+                                            <td>07-11</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="goffer__sort">老凤祥</td>
+                                            <td>黄金99</td>
+                                            <td>345.00</td>
+                                            <td class="">0.00</td>
+                                            <td>07-10</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="goffer__sort">老凤祥</td>
+                                            <td>黄金99</td>
+                                            <td>345.00</td>
+                                            <td class="">0.00</td>
+                                            <td>07-09</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="goffer__sort">老凤祥</td>
+                                            <td>黄金99</td>
+                                            <td>345.00</td>
+                                            <td class="down-green">-3.00</td>
+                                            <td>07-06</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="goffer__sort">老凤祥</td>
+                                            <td>黄金99</td>
+                                            <td>348.00</td>
+                                            <td class="">0.00</td>
+                                            <td>07-05</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="goffer__sort">老凤祥</td>
+                                            <td>黄金99</td>
+                                            <td>348.00</td>
+                                            <td class="">0.00</td>
+                                            <td>07-04</td>
+                                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix mb20">
+            <!--原油资讯-->
+            <div class="l section-l js-tab-wrap">
+                <div class="title-bt clearfix">
+                    <ul class="title-tab js-title-tab clearfix">
+                        <li class="selected"><a href="/nysc" target="_blank">原油资讯</a></li>
+                        <li><a href="/dkqx" target="_blank">多空情绪</a></li>
+                    </ul>
+                    <a href="/nysc" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="h410 bg-white section-bb js-tab-main">
+                    <ul class="news-list js-tab-item">
+                                    <li><a href="/C/201807121119332061" target="_blank" title="7月12日现货黄金、白银、原油、外汇短线交易策略">7月12日现货黄金、白银、原油、外汇短线交易策略</a></li>
+                                    <li><a href="/C/201807121058342070" target="_blank" title="OPEC预测全球2019年需求下滑，石油过剩或卷土重来">OPEC预测全球2019年需求下滑，石油过剩或卷土重来</a></li>
+                                    <li><a href="/C/201807121101512070" target="_blank" title="OPEC表示，2019年全球每日需要15个成员国供应3318万桶石油，比今年减少76万桶">OPEC表示，2019年全球每日需要15个成员国供应3318万桶石油，比今年减少76万桶</a></li>
+                                    <li><a href="/C/201807121101072364" target="_blank" title="美原油现报70.74美元/桶，涨0.51%；布伦特原油现报74.60美元/桶，涨1.63%；
+美燃油现报2.1277美元/加仑，涨1.28%；美天然气现报2.824美元/百万英热单位(mmBtu)，跌0.18%">美原油现报70.74美元/桶，涨0.51%；布伦特原油现报74.60美元/桶，涨1.63%；
+美燃油现报2.1277美元/加仑，涨1.28%；美天然气现报2.824美元/百万英热单位(mmBtu)，跌0.18%</a></li>
+                                    <li><a href="/C/201807121039422036" target="_blank" title="原油供给大增抵消EIA库存影响，油价掉头牛转熊；
+① 隔夜，美国截至7月6日当周EIA原油库存减少超实际预期逾800万桶，利好油价；
+② 然而，多重供给利好的因素抵消了EIA库存数据影响，一方面，利比亚国家石油公司解除四个港口的控制权，另一方面，特朗普考虑适当“豁免”对伊朗原油禁令，利好原油供给；油价因此牛转熊，扩大跌幅；美油暴跌逾5%，布油重挫近6%；
+③ 技术面上来看，当前美原油短线30分钟运行于布林带下轨上方，震荡于70.70附近，KDJ三线在金叉后形成向上走势；
+④ MACD指标DIFF与DEA在0轴下方形成金叉，DIFF上穿DEA运行，形成多头向上走势；0轴上方红色能量柱放量增多，0轴下方绿色能量柱缩量减小">原油供给大增抵消EIA库存影响，油价掉头牛转熊；
+① 隔夜，美国截至7月6日当周EIA原油库存减少超实际预期逾800万桶，利好油价；
+② 然而，多重供给利好的因素抵消了EIA库存数据影响，一方面，利比亚国家石油公司解除四个港口的控制权，另一方面，特朗普考虑适当“豁免”对伊朗原油禁令，利好原油供给；油价因此牛转熊，扩大跌幅；美油暴跌逾5%，布油重挫近6%；
+③ 技术面上来看，当前美原油短线30分钟运行于布林带下轨上方，震荡于70.70附近，KDJ三线在金叉后形成向上走势；
+④ MACD指标DIFF与DEA在0轴下方形成金叉，DIFF上穿DEA运行，形成多头向上走势；0轴上方红色能量柱放量增多，0轴下方绿色能量柱缩量减小</a></li>
+                                    <li><a href="/C/201807121013191700" target="_blank" title="深海石油潜力将很快释放，油价升至150美元乃无稽之谈；
+分析师称，全球深海石油成本已经大幅降低，每桶可控制在40美元之下，这意味着在当前高油价之下，这一领域将会令国际能源巨头趋之若鹜。最新消息也显示在非洲大陆近海，新的石油项目已经多点开花就位，假以时日，其影响力或与此前的“页岩油革命”媲美。因此，担心原油价格会因为眼下的暂时性供给短缺就重新飙升至150美元/桶以上，或许只是杞人忧天">深海石油潜力将很快释放，油价升至150美元乃无稽之谈；
+分析师称，全球深海石油成本已经大幅降低，每桶可控制在40美元之下，这意味着在当前高油价之下，这一领域将会令国际能源巨头趋之若鹜。最新消息也显示在非洲大陆近海，新的石油项目已经多点开花就位，假以时日，其影响力或与此前的“页岩油革命”媲美。因此，担心原油价格会因为眼下的暂时性供给短缺就重新飙升至150美元/桶以上，或许只是杞人忧天</a></li>
+                                    <li><a href="/C/201807121004092365" target="_blank" title="美原油日内涨幅达到0.51%，报70.74美元/桶">美原油日内涨幅达到0.51%，报70.74美元/桶</a></li>
+                                    <li><a href="/C/201807121004002246" target="_blank" title="原油交易提醒：多重数据狂轰引油价滑铁卢，聚焦IEA报告">原油交易提醒：多重数据狂轰引油价滑铁卢，聚焦IEA报告</a></li>
+                                    <li><a href="/C/201807121002571700" target="_blank" title="华尔街财经名嘴克莱默表示，由于此前多年间大型石油企业在钻探领域普遍投入不足，之后数年全球原油供不应求的紧张局面或将长期化">华尔街财经名嘴克莱默表示，由于此前多年间大型石油企业在钻探领域普遍投入不足，之后数年全球原油供不应求的紧张局面或将长期化</a></li>
+                                    <li><a href="/C/201807121001062368" target="_blank" title="美原油现报70.62美元/桶，涨0.34%；布伦特原油现报74.50美元/桶，涨1.50%；
+美燃油现报2.1240美元/加仑，涨1.10%；美天然气现报2.824美元/百万英热单位(mmBtu)，跌0.18%">美原油现报70.62美元/桶，涨0.34%；布伦特原油现报74.50美元/桶，涨1.50%；
+美燃油现报2.1240美元/加仑，涨1.10%；美天然气现报2.824美元/百万英热单位(mmBtu)，跌0.18%</a></li>
+                                    <li><a href="/C/201807121000511700" target="_blank" title="挪威北海油田罢工升级，迫使壳牌石油公司关闭了采油设施">挪威北海油田罢工升级，迫使壳牌石油公司关闭了采油设施</a></li>
+                                    <li><a href="/C/201807120954472365" target="_blank" title="布伦特原油日内涨幅达到1.53%，报74.52美元/桶">布伦特原油日内涨幅达到1.53%，报74.52美元/桶</a></li>
+                                    <li><a href="/C/201807120902152240" target="_blank" title="国内商品期货开盘涨跌不一，其中黑色系领涨；
+焦煤、焦炭涨幅逾2%；
+铁矿石、螺纹钢，沪镍涨幅逾1%；
+沪铅、沪锌、沥青跌幅逾1%">国内商品期货开盘涨跌不一，其中黑色系领涨；
+焦煤、焦炭涨幅逾2%；
+铁矿石、螺纹钢，沪镍涨幅逾1%；
+沪铅、沪锌、沥青跌幅逾1%</a></li>
+
+                    </ul>
+                    <ul class="news-list js-tab-item dn">
+                                    <li><a href="/C/201807121058342070" target="_blank" title="OPEC预测全球2019年需求下滑，石油过剩或卷土重来">OPEC预测全球2019年需求下滑，石油过剩或卷土重来</a></li>
+                                    <li><a href="/C/201807120303392451" target="_blank" title="两大利空突袭油市多头措手不及，美油暴跌5%考验70关口">两大利空突袭油市多头措手不及，美油暴跌5%考验70关口</a></li>
+                                    <li><a href="/C/201807112208231564" target="_blank" title="纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎">纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a></li>
+                                    <li><a href="/C/201807102134251565" target="_blank" title="纽市盘前：特朗普敲打北约连累黄金，罢工潮来袭布油涨2%">纽市盘前：特朗普敲打北约连累黄金，罢工潮来袭布油涨2%</a></li>
+                                    <li><a href="/C/201807101319532072" target="_blank" title="美银美林警告！若伊朗石油出口归零，油价将飙涨50美元">美银美林警告！若伊朗石油出口归零，油价将飙涨50美元</a></li>
+                                    <li><a href="/C/201807092136591566" target="_blank" title="纽市盘前：脱欧风波难折英镑傲骨，FED加息降温黄金蓄势">纽市盘前：脱欧风波难折英镑傲骨，FED加息降温黄金蓄势</a></li>
+                                    <li><a href="/C/201807062153031563" target="_blank" title="纽市盘前：非农喜忧参半美指创新低，贸易战开打黄金噩梦难醒">纽市盘前：非农喜忧参半美指创新低，贸易战开打黄金噩梦难醒</a></li>
+                                    <li><a href="/C/201807052205551560" target="_blank" title="纽市盘前：脱欧疑虑消弭英银鹰派利好，FED纪要来袭黄金纠结">纽市盘前：脱欧疑虑消弭英银鹰派利好，FED纪要来袭黄金纠结</a></li>
+                                    <li><a href="/C/201807042119421561" target="_blank" title="纽市盘前：独立日假期市场也汹涌，黄金偷袭失利工业金属溃败">纽市盘前：独立日假期市场也汹涌，黄金偷袭失利工业金属溃败</a></li>
+                                    <li><a href="/C/201807041518192079" target="_blank" title="石油出口遭扼杀怎么办？伊朗暗示“邻国也别想运油”">石油出口遭扼杀怎么办？伊朗暗示“邻国也别想运油”</a></li>
+                                    <li><a href="/C/201807041008172079" target="_blank" title="WTI原油四年来首破75美元，未来供应风险形成利好">WTI原油四年来首破75美元，未来供应风险形成利好</a></li>
+                                    <li><a href="/C/201807032153221565" target="_blank" title="纽市盘前：美假期临近黄金暂喘息，中国央行发声救赎人民币">纽市盘前：美假期临近黄金暂喘息，中国央行发声救赎人民币</a></li>
+                                    <li><a href="/C/201807031910461564" target="_blank" title="美联储纪要携非农重磅来袭，美指或续震荡黄金料触支撑">美联储纪要携非农重磅来袭，美指或续震荡黄金料触支撑</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--机构评油-->
+            <div class="l section-m js-tab-wrap">
+                <div class="title-bt clearfix">
+                    <ul class="title-tab js-title-tab clearfix">
+                        <li class="selected"><a href="/jgpy" target="_blank">机构评油</a></li>
+                        <li><a href="/zjpy" target="_blank">专家评油</a></li>
+                    </ul>
+                    <a href="/jgpy" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="h410 bg-white section-bb js-tab-main">
+                    <ul class="news-list js-tab-item">
+                                    <li><a href="http://pinglun.fx678.com/article/201807121035525065.shtml" target="_blank" title="香港金盛贵金属：内盘黑色系领涨 有色金属表现分化">香港金盛贵金属：内盘黑色系领涨 有色金属表现分化 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121008573496.shtml" target="_blank" title="英伦金融「原油交易策略」：EIA库存骤降不敌利比亚港口重开利空，油价急跌">英伦金融「原油交易策略」：EIA库存骤降不敌利比亚港口重开利空，油价急跌 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111419078987.shtml" target="_blank" title="APJFX：黄金原油：黄金1266小高点，空头或二次下探">APJFX：黄金原油：黄金1266小高点，空头或二次下探 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111309045485.shtml" target="_blank" title="兴业投资：避险情绪骤升 原油周三开盘大跌">兴业投资：避险情绪骤升 原油周三开盘大跌 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111137292124.shtml" target="_blank" title="狮子金融：API库存大降，原油短线走高">狮子金融：API库存大降，原油短线走高 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111053358758.shtml" target="_blank" title="英伦金融「原油交易策略」：API原油库存超预期下降EIA月报利空，油价盘整">英伦金融「原油交易策略」：API原油库存超预期下降EIA月报利空，油价盘整 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807101251281984.shtml" target="_blank" title="兴业投资原油周评：多空拉锯原油高位震荡 本周关注OPEC月报">兴业投资原油周评：多空拉锯原油高位震荡 本周关注OPEC月报 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807091229436443.shtml" target="_blank" title="兴业投资：多空消息参杂 原油涨跌互现">兴业投资：多空消息参杂 原油涨跌互现 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807091108448168.shtml" target="_blank" title="英伦金融「原油交易策略」：伊朗封锁霍尔木兹海峡的风险剧增，油价强势反弹">英伦金融「原油交易策略」：伊朗封锁霍尔木兹海峡的风险剧增，油价强势反弹 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807061417004356.shtml" target="_blank" title="兴业投资：EIA报告利空+沙特允诺增产 原油逆转走低">兴业投资：EIA报告利空+沙特允诺增产 原油逆转走低 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807061043166231.shtml" target="_blank" title="英伦金融「原油交易策略」：沙特下调原油出口价格叠加EIA利空，油价遭重挫">英伦金融「原油交易策略」：沙特下调原油出口价格叠加EIA利空，油价遭重挫 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807051451158464.shtml" target="_blank" title="兴业投资：伊朗局势支撑油价 日内关注EIA库存报告">兴业投资：伊朗局势支撑油价 日内关注EIA库存报告 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807051311349768.shtml" target="_blank" title="APJFX：黄金原油：重磅消息密集来袭，黄金或有大动作">APJFX：黄金原油：重磅消息密集来袭，黄金或有大动作 </a></li>
+                    </ul>
+                    <ul class="news-list js-tab-item dn">
+                                    <li><a href="http://pinglun.fx678.com/article/201807121109552111.shtml" target="_blank" title="罗鑫理财：7.12原油反弹还看空，日内行情分析操作策略">罗鑫理财：7.12原油反弹还看空，日内行情分析操作策略 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121108138716.shtml" target="_blank" title="昨日原油策略赚100个点，7&middot;12今日原油做单建议">昨日原油策略赚100个点，7&middot;12今日原油做单建议 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121106256359.shtml" target="_blank" title="【叶慧雅】：7.12 美国原油库存大降 OPEC预测明年全球需求首破亿！">【叶慧雅】：7.12 美国原油库存大降 OPEC预测明年全球需求首破亿！ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121102015404.shtml" target="_blank" title="子欣：原油利空纷至沓来">子欣：原油利空纷至沓来 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121057475648.shtml" target="_blank" title="全球贸易紧张升级，欧佩克增产且美国放宽伊朗原油封杀，油价狂跌？">全球贸易紧张升级，欧佩克增产且美国放宽伊朗原油封杀，油价狂跌？ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121047044496.shtml" target="_blank" title="雷文论金：7.12早间原油行情分析及操作布局">雷文论金：7.12早间原油行情分析及操作布局 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121046361084.shtml" target="_blank" title="张兴跃&mdash;&mdash;7.12 EIA恐怖逆转，原油要开启暴跌模式？">张兴跃&mdash;&mdash;7.12 EIA恐怖逆转，原油要开启暴跌模式？ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121043153897.shtml" target="_blank" title="木火通明：原油调整姿势重装出发">木火通明：原油调整姿势重装出发 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121031022337.shtml" target="_blank" title="夏守鑫：7.12黄金再次探底，原油瀑布下跌，日间操作建议；">夏守鑫：7.12黄金再次探底，原油瀑布下跌，日间操作建议； </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121028075970.shtml" target="_blank" title="7.12EIA空单持续获利近3.8美元，附原油短线策略【赵依诺】">7.12EIA空单持续获利近3.8美元，附原油短线策略【赵依诺】 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121015548346.shtml" target="_blank" title="【慧眼识金】：原油日内操作策略及建议">【慧眼识金】：原油日内操作策略及建议 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121001256879.shtml" target="_blank" title="苏凯： 7.12原油昨日受EIA暴跌，各级线别来看依然全面空头保持，策略精解">苏凯： 7.12原油昨日受EIA暴跌，各级线别来看依然全面空头保持，策略精解 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807120954338569.shtml" target="_blank" title="苏声忠：利比亚港口重开 原油多头分崩离析">苏声忠：利比亚港口重开 原油多头分崩离析 </a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--原油报价-->
+            <div class="r section-r">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/quote" target="_blank">原油报价</a>
+                    <a href="/quote" target="_blank" class="more">更多 +</a>
+                </div>
+                <ul class="ooffer bg-white h410 section-b">
+                                <li class="trend__item selected">
+                                    <div class="trend__sort clearfix js-aside-chart__item">
+                                        <span class="trend__data1">美原油</span>
+                                        <span class="trend__data2">70.74</span>
+                                        <span class="trend__data3 up-red">0.36</span>
+                                        <span class="trend__data4  up-red">51.00 %</span>
+                                    </div>
+                                    <div class="trend__chart js-aside-chart__main db">
+                                        <iframe src="/chart/interval?symbol=CONC&width=290px&height=230px" width="298" height="240" style="border:none;" scrolling="no"></iframe>
+                                    </div>
+                                </li>
+                                <li class="trend__item ">
+                                    <div class="trend__sort clearfix js-aside-chart__item">
+                                        <span class="trend__data1">美燃油</span>
+                                        <span class="trend__data2">2.13</span>
+                                        <span class="trend__data3 up-red">0.03</span>
+                                        <span class="trend__data4  up-red">132.00 %</span>
+                                    </div>
+                                    <div class="trend__chart js-aside-chart__main ">
+                                        <iframe src="/chart/interval?symbol=HONC&width=290px&height=230px" width="298" height="240" style="border:none;" scrolling="no"></iframe>
+                                    </div>
+                                </li>
+                                <li class="trend__item ">
+                                    <div class="trend__sort clearfix js-aside-chart__item">
+                                        <span class="trend__data1">布伦特原油</span>
+                                        <span class="trend__data2">74.62</span>
+                                        <span class="trend__data3 up-red">1.22</span>
+                                        <span class="trend__data4  up-red">166.00 %</span>
+                                    </div>
+                                    <div class="trend__chart js-aside-chart__main ">
+                                        <iframe src="/chart/interval?symbol=OILC&width=290px&height=230px" width="298" height="240" style="border:none;" scrolling="no"></iframe>
+                                    </div>
+                                </li>
+                                <li class="trend__item ">
+                                    <div class="trend__sort clearfix js-aside-chart__item">
+                                        <span class="trend__data1">美元指数</span>
+                                        <span class="trend__data2">94.7822</span>
+                                        <span class="trend__data3 up-red">0.05</span>
+                                        <span class="trend__data4  up-red">5.00 %</span>
+                                    </div>
+                                    <div class="trend__chart js-aside-chart__main ">
+                                        <iframe src="/chart/interval?symbol=USD&width=290px&height=230px" width="298" height="240" style="border:none;" scrolling="no"></iframe>
+                                    </div>
+                                </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--广告位-->
+        <div class="ad-full img-cont mb20">
+            <div><iframe id='a9de0ed3' name='a9de0ed3' src='http://ams.fx678.com/delivery/afr.php?zoneid=350&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='1100' height='80'><a href='http://ams.fx678.com/delivery/ck.php?n=a974f1a8&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=350&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a974f1a8' border='0' alt='' /></a></iframe></div>
+            <span class="ad-tip">
+            </span>
+        </div>
+
+        <div class="clearfix mb20">
+            <!--汇市资讯-->
+            <div class="l section-l js-tab-wrap">
+                <div class="title-bt clearfix">
+                    <a class="title-link" href="/whzx" target="_blank">外汇资讯</a>
+                    <a href="/whzx" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="h410 bg-white section-bb">
+                    <ul class="news-list">
+                                    <li><a href="/C/201807121119332061" target="_blank" title="7月12日现货黄金、白银、原油、外汇短线交易策略">7月12日现货黄金、白银、原油、外汇短线交易策略</a></li>
+                                    <li><a href="/C/201807121101062368" target="_blank" title="美元指数现报94.77，涨0.03%；欧元兑美元现报1.1673，持平；
+英镑兑美元现报1.3197，跌0.06%；美元兑日元现报112.26，涨0.22%；
+澳元兑美元现报0.7373，涨0.10%；纽元兑美元现报0.6754，跌0.07%；
+美元兑加元现报1.3208，持平；美元兑瑞郎现报0.9959，持平">美元指数现报94.77，涨0.03%；欧元兑美元现报1.1673，持平；
+英镑兑美元现报1.3197，跌0.06%；美元兑日元现报112.26，涨0.22%；
+澳元兑美元现报0.7373，涨0.10%；纽元兑美元现报0.6754，跌0.07%；
+美元兑加元现报1.3208，持平；美元兑瑞郎现报0.9959，持平</a></li>
+                                    <li><a href="/C/201807121012462035" target="_blank" title="交易员：美元兑日元走高 受期权市场对冲需求影响；
+① 一位亚洲的外汇交易员表示，美元兑日元上涨，因为做市商针对期权市场上基金对美元的需求进行对冲；
+② 交易员说，考虑到最新关税清单预计的实施时间表，三到六个月期的美元兑日元期权最受减持美元客户的欢迎；
+③ 三个月期的美元兑日元的风险逆转来到5月23日以来最高，上涨0.11至-0.7950，看跌期权较受青睐">交易员：美元兑日元走高 受期权市场对冲需求影响；
+① 一位亚洲的外汇交易员表示，美元兑日元上涨，因为做市商针对期权市场上基金对美元的需求进行对冲；
+② 交易员说，考虑到最新关税清单预计的实施时间表，三到六个月期的美元兑日元期权最受减持美元客户的欢迎；
+③ 三个月期的美元兑日元的风险逆转来到5月23日以来最高，上涨0.11至-0.7950，看跌期权较受青睐</a></li>
+                                    <li><a href="/C/201807121045192033" target="_blank" title="韩国央行行长李柱烈：韩元弱势并不能反映经济基本面">韩国央行行长李柱烈：韩元弱势并不能反映经济基本面</a></li>
+                                    <li><a href="/C/201807121041402032" target="_blank" title="韩国央行行长李柱烈：韩元近期的下跌看起来并没有过度；
+注：美元兑韩元本周三一度上涨至2017年10月以来新高1130.71">韩国央行行长李柱烈：韩元近期的下跌看起来并没有过度；
+注：美元兑韩元本周三一度上涨至2017年10月以来新高1130.71</a></li>
+                                    <li><a href="/C/201807121018582380" target="_blank" title="亚市早盘日元走势疲软，带动各交叉盘行情；
+欧元兑日元短线拉升25点，刷新5月3日以来新高，现报131.08；
+英镑兑日元短线拉升25点，刷新5月23日以来新高，现报148.19">亚市早盘日元走势疲软，带动各交叉盘行情；
+欧元兑日元短线拉升25点，刷新5月3日以来新高，现报131.08；
+英镑兑日元短线拉升25点，刷新5月23日以来新高，现报148.19</a></li>
+                                    <li><a href="/C/201807121018252035" target="_blank" title="美元兑日元升至6个月新高，部分受美国强劲的通胀数据支撑；
+① 美元兑日元周四在六个月高点附近持稳，兑其他主要货币持坚，因最新的美国经济数据强化了对美联储今年将再升息两次的预期。美元指数在隔夜触及的一周高点94.77附近持坚；
+② 三井住友信托银行市场策略师Ayako Sera称，市场是在对已知情况做出反应，全球经济形势不错，而且美国经济极为强劲，这意味着利率会继续被上调。投资者目前关注美国经济强势的迹象； 由于服务业和机动车辆生产成本上涨，美国6月生产者物价涨幅超过预期，创六年半来最大按年增幅；
+③ 美元兑加元亦上涨，因为美元全线上涨抵消了加拿大央行升息和政策进一步紧缩前景的影响">美元兑日元升至6个月新高，部分受美国强劲的通胀数据支撑；
+① 美元兑日元周四在六个月高点附近持稳，兑其他主要货币持坚，因最新的美国经济数据强化了对美联储今年将再升息两次的预期。美元指数在隔夜触及的一周高点94.77附近持坚；
+② 三井住友信托银行市场策略师Ayako Sera称，市场是在对已知情况做出反应，全球经济形势不错，而且美国经济极为强劲，这意味着利率会继续被上调。投资者目前关注美国经济强势的迹象； 由于服务业和机动车辆生产成本上涨，美国6月生产者物价涨幅超过预期，创六年半来最大按年增幅；
+③ 美元兑加元亦上涨，因为美元全线上涨抵消了加拿大央行升息和政策进一步紧缩前景的影响</a></li>
+                                    <li><a href="/C/201807121004412036" target="_blank" title="美元兑日元上涨，安抚澳元和纽元兑日元多头；
+① 澳元兑日元和纽元兑日元多头均因美元兑日元上扬而松了口气；美元兑日元隔夜涨势给交叉盘带来帮助，尽管澳元和纽元兑美元走低；
+② 目前，澳元兑日元守在日线图一目均衡云区82.65-79之下，55和100日移动均值为82.45/50；亚洲时段交投于82.39-63区间，上升的100/200小时移动均线切入位分别为82.43和82.03；
+③ 纽元兑日元在亚市交投于75.55-80，守在基准线切入位75.98和云区底部76.12之下">美元兑日元上涨，安抚澳元和纽元兑日元多头；
+① 澳元兑日元和纽元兑日元多头均因美元兑日元上扬而松了口气；美元兑日元隔夜涨势给交叉盘带来帮助，尽管澳元和纽元兑美元走低；
+② 目前，澳元兑日元守在日线图一目均衡云区82.65-79之下，55和100日移动均值为82.45/50；亚洲时段交投于82.39-63区间，上升的100/200小时移动均线切入位分别为82.43和82.03；
+③ 纽元兑日元在亚市交投于75.55-80，守在基准线切入位75.98和云区底部76.12之下</a></li>
+                                    <li><a href="/C/201807121001062369" target="_blank" title="美元指数现报94.76，涨0.03%；欧元兑美元现报1.1675，持平；
+英镑兑美元现报1.3195，跌0.08%；美元兑日元现报112.25，涨0.21%；
+澳元兑美元现报0.7369，涨0.04%；纽元兑美元现报0.6751，跌0.12%；
+美元兑加元现报1.3214，涨0.04%；美元兑瑞郎现报0.9959，持平">美元指数现报94.76，涨0.03%；欧元兑美元现报1.1675，持平；
+英镑兑美元现报1.3195，跌0.08%；美元兑日元现报112.25，涨0.21%；
+澳元兑美元现报0.7369，涨0.04%；纽元兑美元现报0.6751，跌0.12%；
+美元兑加元现报1.3214，涨0.04%；美元兑瑞郎现报0.9959，持平</a></li>
+                                    <li><a href="/C/201807120951572380" target="_blank" title="英镑兑美元下挫逾10点，跌破1.3200整数关口，刷新7月4日以来低点，现报1.3195">英镑兑美元下挫逾10点，跌破1.3200整数关口，刷新7月4日以来低点，现报1.3195</a></li>
+                                    <li><a href="/C/201807120948342380" target="_blank" title="美元兑日元短线拉升20点，刷新1月10日以来高点，现报112.29">美元兑日元短线拉升20点，刷新1月10日以来高点，现报112.29</a></li>
+                                    <li><a href="/C/201807120944532060" target="_blank" title="美元日元短线快速拉升20点，刷新半年以来高点至112.34， 涨幅约0.26%">美元日元短线快速拉升20点，刷新半年以来高点至112.34， 涨幅约0.26%</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--央行动态-->
+            <div class="l section-m js-tab-wrap">
+                <div class="title-bt clearfix">
+                    <ul class="title-tab js-title-tab clearfix">
+                        <li class="selected"><a href="/yhdt" target="_blank">央行动态</a></li>
+                        <li><a href="http://rl.gold678.com/centralbanknews.shtml" target="_blank">央行利率</a></li>
+                    </ul>
+                    
+                </div>
+                <div class="h410 bg-white section-bb js-tab-main">
+                    <ul class="news-list js-tab-item" style="display: block;">
+                                    <li><a href="/C/201807111720062385" target="_blank" title="大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a></li>
+                                    <li><a href="/C/201807112219141440" target="_blank" title="加银鹰派加息大超市场预期，美元兑加元急跌60点">加银鹰派加息大超市场预期，美元兑加元急跌60点</a></li>
+                                    <li><a href="/C/201807120059102408" target="_blank" title="加拿大央行波洛兹：加拿大经济正步入正轨，有充分理由加息">加拿大央行波洛兹：加拿大经济正步入正轨，有充分理由加息</a></li>
+                                    <li><a href="/C/201807120555082453" target="_blank" title="7月12日财经早餐：美元获避险加持黄金遭弃，油价亟待IEA月报回血">7月12日财经早餐：美元获避险加持黄金遭弃，油价亟待IEA月报回血</a></li>
+                                    <li><a href="/C/201807112208231564" target="_blank" title="纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎">纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a></li>
+                                    <li><a href="/C/201807112110131447" target="_blank" title="消息称欧银提前加息仍存可能，欧元兑美元短线急升逾50点">消息称欧银提前加息仍存可能，欧元兑美元短线急升逾50点</a></li>
+                                    <li><a href="/C/201807112109422076" target="_blank" title="四年来首次！近200家机构投资者集体看空全球经济">四年来首次！近200家机构投资者集体看空全球经济</a></li>
+                                    <li><a href="/C/201807111451432220" target="_blank" title="五大原因告诉你，黄金并非当前理想的投资对象">五大原因告诉你，黄金并非当前理想的投资对象</a></li>
+                                    <li><a href="/C/201807111521102242" target="_blank" title="欧市盘前：中美贸易危局再度火上浇油，沪指周三大跌">欧市盘前：中美贸易危局再度火上浇油，沪指周三大跌</a></li>
+                                    <li><a href="/C/201807111145592226" target="_blank" title="英国若“无协议”脱欧，英镑会否重演脱欧公投后的暴跌？">英国若“无协议”脱欧，英镑会否重演脱欧公投后的暴跌？</a></li>
+                                    <li><a href="/C/201807101529472296" target="_blank" title="加拿大央行决议来袭，三大关键决定加元命脉">加拿大央行决议来袭，三大关键决定加元命脉</a></li>
+                                    <li><a href="/C/201807102134251565" target="_blank" title="纽市盘前：特朗普敲打北约连累黄金，罢工潮来袭布油涨2%">纽市盘前：特朗普敲打北约连累黄金，罢工潮来袭布油涨2%</a></li>
+                    </ul>
+                    <div class="cbank js-tab-item dn">
+                        <table class="bank__table">
+                            <tbody>
+                                <tr>
+                                    <th>央行</th>
+                                    <th>目前利率</th>
+                                    <th>下次议息时间</th>
+                                    <th>下次预期值</th>
+                                </tr>
+                                            <tr>
+                                                <td class="bank-table__flag USA"><i></i>美联储</td>
+                                                <td>1.75-2.00</td>
+                                                <td>08-02</td>
+                                                <td>1.75-2.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bank-table__flag EU"><i></i>欧洲央行</td>
+                                                <td>0.00</td>
+                                                <td>07-26</td>
+                                                <td>0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bank-table__flag Japan"><i></i>日本央行</td>
+                                                <td>-0.1</td>
+                                                <td>07-31</td>
+                                                <td>-0.1</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bank-table__flag UK"><i></i>英国央行</td>
+                                                <td>0.5</td>
+                                                <td>08-02</td>
+                                                <td>0.75</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bank-table__flag Switzerland"><i></i>瑞士央行</td>
+                                                <td>-1.25至-0.25</td>
+                                                <td>09-20</td>
+                                                <td>-1.25至-0.25</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bank-table__flag Australia"><i></i>澳洲联储</td>
+                                                <td>1.50</td>
+                                                <td>08-07</td>
+                                                <td>1.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bank-table__flag Canada"><i></i>加拿大央行</td>
+                                                <td>1.50</td>
+                                                <td>10-24</td>
+                                                <td>1.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="bank-table__flag Canada"><i></i>新西兰联储</td>
+                                                <td>1.75</td>
+                                                <td>08-08</td>
+                                                <td>1.75</td>
+                                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--专家汇评-->
+            <div class="r section-r js-tab-wrap">
+                <div class="title-bt clearfix">
+                    <ul class="title-tab js-title-tab clearfix">
+                        <li class="selected"><a href="/jghp" target="_blank">机构汇评</a></li>
+                        <li><a href="/zjhp" target="_blank">专家汇评</a></li>
+                    </ul>
+                    <a href="/jghp" target="_blank" class="more">更多 +</a>
+                </div>
+                <div class="h410 bg-white section-bb js-tab-main">
+                    <ul class="news-list js-tab-item">
+                                    <li><a href="http://pinglun.fx678.com/article/201807121059113530.shtml" target="_blank" title="夸克聚合：7月12日 黄金日元走势分析">夸克聚合：7月12日 黄金日元走势分析 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121006214149.shtml" target="_blank" title="标准外汇：前外交大臣黑格警告，达成英国脱欧协议的可能性下降">标准外汇：前外交大臣黑格警告，达成英国脱欧协议的可能性下降 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807120953297677.shtml" target="_blank" title="AETOS艾拓思：美拟清单贸易战再升级,升息落定加元先扬后抑">AETOS艾拓思：美拟清单贸易战再升级,升息落定加元先扬后抑 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807120920236149.shtml" target="_blank" title="易信easyMarkets:北约峰会欧美关系紧张，市场寻求美元避险">易信easyMarkets:北约峰会欧美关系紧张，市场寻求美元避险 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111838468117.shtml" target="_blank" title="【TigerWit交易策略】 美元高位遇阻心有不甘 短线将有反复">【TigerWit交易策略】 美元高位遇阻心有不甘 短线将有反复 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111758118393.shtml" target="_blank" title="CMC Markets ：豆在釜中泣">CMC Markets ：豆在釜中泣 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111756406502.shtml" target="_blank" title="CMC Markets：GBPJPY右侧&ldquo;Butterfly&rdquo;反弹近尾声 日元收敛震荡等候临界点">CMC Markets：GBPJPY右侧&ldquo;Butterfly&rdquo;反弹近尾声 日元收敛震荡等候临界点 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111736566300.shtml" target="_blank" title="GKFX：退欧分歧引人事巨震，白皮书或成最后利空？">GKFX：退欧分歧引人事巨震，白皮书或成最后利空？ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111736066099.shtml" target="_blank" title="USGFX汇评 特朗普税改政策引发经济学家质疑">USGFX汇评 特朗普税改政策引发经济学家质疑 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111735315982.shtml" target="_blank" title="每日汇评丨硕尔科技交易员 7.11主流货币分析">每日汇评丨硕尔科技交易员 7.11主流货币分析 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111704465505.shtml" target="_blank" title="ATFX：中美贸易战或将升级至2000亿美元">ATFX：中美贸易战或将升级至2000亿美元 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807111624403498.shtml" target="_blank" title="金道环球投资：关注本周能否出现突破高点的行情">金道环球投资：关注本周能否出现突破高点的行情 </a></li>
+                    </ul>
+                    <ul class="news-list js-tab-item dn">
+                                    <li><a href="http://pinglun.fx678.com/article/201807121110086418.shtml" target="_blank" title="7.12交易早餐：外汇集体下行，黄金即将刷新年内新低！">7.12交易早餐：外汇集体下行，黄金即将刷新年内新低！ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121057337961.shtml" target="_blank" title="【孙千惠】7.12美日加速上行，或将测试113.0高位">【孙千惠】7.12美日加速上行，或将测试113.0高位 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121037173507.shtml" target="_blank" title="大漠点金叶枝霖：美通胀数据靓丽 今日镑美思路高空">大漠点金叶枝霖：美通胀数据靓丽 今日镑美思路高空 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121034589429.shtml" target="_blank" title="【云峰】7.12 美日阻力被破上方空间还有多少？">【云峰】7.12 美日阻力被破上方空间还有多少？ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807121012517411.shtml" target="_blank" title="【南篱论金】美指多空反复，高位震荡为主">【南篱论金】美指多空反复，高位震荡为主 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807120958162565.shtml" target="_blank" title="人生短如一场梦 欧元跳动快如风">人生短如一场梦 欧元跳动快如风 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807120950072573.shtml" target="_blank" title="【云峰】7.12 鸽王德拉基即将上线，欧美日内操作策略">【云峰】7.12 鸽王德拉基即将上线，欧美日内操作策略 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807120938489626.shtml" target="_blank" title="苏凯：7.12镑美H4内以及各级别继续保持强势空头迹象，预示下跌风暴将随时来袭。">苏凯：7.12镑美H4内以及各级别继续保持强势空头迹象，预示下跌风暴将随时来袭。 </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807112204477830.shtml" target="_blank" title="欧元下探之后，重拾涨势 ？">欧元下探之后，重拾涨势 ？ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807112203304357.shtml" target="_blank" title="英镑多头还有希望么，空单怎么办？">英镑多头还有希望么，空单怎么办？ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807112202495289.shtml" target="_blank" title="日元近期表现疲弱，能否延续？">日元近期表现疲弱，能否延续？ </a></li>
+                                    <li><a href="http://pinglun.fx678.com/article/201807112159549341.shtml" target="_blank" title="顺银点金：7.11欧美，镑美，美日行情分析">顺银点金：7.11欧美，镑美，美日行情分析 </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix mb20">
+            <!--投资学院-->
+            <div class="title-bt clearfix">
+                <a class="title-link" href="http://edu.fx678.com" target="_blank">投资学院</a>
+            </div>
+            <ul class="icollege clearfix">
+                <li class="icollege__item icollege__item1"><a href="http://edu.fx678.com/learn/1" target="_blank"><i></i><span>交易基础</span></a></li>
+                <li class="icollege__item icollege__item2"><a href="http://edu.fx678.com/learn/10" target="_blank"><i></i><span>外汇基本面</span></a></li>
+                <li class="icollege__item icollege__item3"><a href="http://edu.fx678.com/learn/3" target="_blank"><i></i><span>支撑与阻力</span></a></li>
+                <li class="icollege__item icollege__item4"><a href="http://edu.fx678.com/learn/5" target="_blank"><i></i><span>斐波那契</span></a></li>
+                <li class="icollege__item icollege__item5"><a href="http://edu.fx678.com/learn/6" target="_blank"><i></i><span>移动均线</span></a></li>
+                <li class="icollege__item icollege__item6 mr0"><a href="http://edu.fx678.com/learn/7" target="_blank"><i></i><span>布林带</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--右侧悬浮-->
+<ul class="sidebar">
+    <li class="sidebar__top sidebar__item dn"></li>
+    <li class="sidebar__wechat sidebar__item"><span></span></li>
+    <li class="sidebar__app sidebar__item"><span></span></li>
+</ul>
+<!--对联广告-->
+<div class="ad-dl dl-l1">
+    <div class="ad-dl-cont"><iframe id='acf38c8b' name='acf38c8b' src='http://ams.fx678.com/delivery/afr.php?zoneid=351&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='100' height='300'><a href='http://ams.fx678.com/delivery/ck.php?n=aec4ac3d&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=351&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=aec4ac3d' border='0' alt='' /></a></iframe></div>
+    <div class="close-ad"></div>
+</div><!--左1-->
+<div class="ad-dl dl-r1">
+    <div class="ad-dl-cont"><iframe id='a9438c3d' name='a9438c3d' src='http://ams.fx678.com/delivery/afr.php?zoneid=352&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='100' height='300'><a href='http://ams.fx678.com/delivery/ck.php?n=a8dd95c0&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=352&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a8dd95c0' border='0' alt='' /></a></iframe></div>
+    <div class="close-ad"></div>
+</div><!--右1-->
+
+    
+    <!--尾部-->
+    <div class="footer">
+        <div class="bg-white">
+            <div class="container">
+                <div class="friendlink">
+                    <em>合作伙伴</em>
+                    <div class="friendlink-list clearfix">
+                        <a href="http://www.24k99.com/" target="_blank">24k99</a>
+                        <a href="http://finance.sina.com.cn/nmetal/index.shtml" target="_blank">新浪贵金属</a>
+                        <a href="http://gold.cnfol.com/" target="_blank">黄金网</a>
+                        <a href="http://www.yjcf360.com/" target="_blank">赢家财富网 </a>
+                        <a href="http://www.lilv8.net/" target="_blank">银行信息网</a>
+                        <a href="https://www.rong360.com/" target="_blank">贷款</a>
+                        <a href="http://www.cnrongcai.com/" target="_blank">融财网</a>
+                        <a href="http://www.hv678.com" target="_blank">汇视直播</a>
+                        <a href="http://www.ysslc.com" target="_blank">263理财财富网</a>
+                        <a href="http://www.huilv.cc/" target="_blank">汇率网</a>
+                        <a href="http://money.sohu.com/jin/" target="_blank">搜狐黄金</a>
+                        <a href="http://money.163.com/futures/" target="_blank">网易期货</a>
+                        <a href="http://gold.hexun.com/" target="_blank">和讯黄金</a>
+                        <a href="https://www.tuandai.com/" target="_blank">投资理财</a>
+                        <a href="http://www.ccmn.cn/" target="_blank">长江有色金属网</a>
+                        <a href="http://www.southmoney.com/" target="_blank">南方财富网</a>
+                        <a href="http://www.ometal.com" target="_blank">上海有色金属网</a>
+                        <a href="http://www.zhijinwang.com/" target="_blank">中国纸金网</a>
+                        <a href="http://www.wto168.net/" target="_blank">国际珠宝网</a>
+                        <a href="http://www.xftz.cn/" target="_blank">幸福黄金网</a>
+                        <a href="http://www.caiguu.com/" target="_blank">财股网</a>
+                        <a href="http://www.anxin.com/" target="_blank">安心贷</a>
+                        <a href="http://www.ppdai.com/" target="_blank">拍拍贷</a>
+                        <a href="http://www.emoney.cn/" target="_blank">益盟操盘手</a>
+                        <a href="http://www.ocn.com.cn/" target="_blank">中国投资咨询网</a>
+                        <a href="http://www.wdzj.com" target="_blank">网贷之家</a>
+                        <a href="http://www.afinance.cn" target="_blank">第一金融网</a>
+                        <a href="http://www.diyizby.com/" target="_blank">第一纸白银</a>
+                        <a href="http://xuexi.huize.com/" target="_blank">保险知识</a>
+                        <a href="http://www.cnlist.org/" target="_blank">中国黄页</a>
+                        <a href="http://www.godsignal.com/" target="_blank">黄金投资策略网 </a>
+                        <a href="http://www.gengfuwang.com/" target="_blank">更富网</a>
+                        <a href="http://www.mrcjcn.com/" target="_blank">每日财经</a>
+                        <a href="http://news.cnfol.com/" target="_blank">中金在线财经</a>
+                        <a href="http://www.qlmoney.com" target="_blank">齐鲁财富网</a>
+                        <a href="http://www.ccy.com.cn" target="_blank">股民汇</a>
+                    </div>
+                </div>
+                <div class="siteinfo">
+                    <ul class="clearfix">
+                        <li><a target="_blank" href="http://dy.gold678.com/info/stock">股票频道</a></li>
+                        <li><a target="_blank" href="http://www.gold678.com/corp/aboutus.html">关于我们</a></li>
+                        <li><a target="_blank" href="http://www.gold678.com/corp/contactus.html">联系我们</a></li>
+                        <li><a target="_blank" href="http://www.gold678.com/corp/call_revelation.html">征稿启事</a></li>
+                        <li><a target="_blank" href="http://www.gold678.com/corp/society.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="http://www.gold678.com/corp/link.html">友情链接</a></li>
+                        <li><a target="_blank" href="http://www.gold678.com/corp/law_statement.html">法律声明</a></li>
+                        <li><a target="_blank" href="http://www.gold678.com/corp/sitemap.html">网站地图</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bg-dark">
+            <div class="container">
+                <ul class="siteinfoLegal">
+                    <li>
+                        <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010702001133" target="_blank">沪公网安备31010702001133号</a>
+                    </li>
+                    <li><a href="http://www.cyberpolice.cn/wfjb/" target="_blank">网警110</a></li>
+                    <li><a href="http://www.zx110.org/" target="_blank">网络社会征信网</a></li>
+                    <li><a href="http://www.miibeian.gov.cn/" target="_blank">沪ICP备08112083号</a></li>
+                    <li><a>网络文化经营许可证 沪网文(2016)4515-329号</a></li>
+                    <li><a>广播电视节目制作经营许可证 (沪)字第1805号</a></li>
+                </ul>
+                <div class="copyright">
+                    Copyright: 2008-2017 Torch Corporation, All Rights Reserved. <a href="http://www.gold678.com/" target="_blank">汇金网</a>版权所有 客服热线：021-62172178
+                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e17101611010669163bhl0000000&amp;pa=111332 " tabindex="-1" id="urlknet" target="_blank" class="footer__website" style="display: inline-block;vertical-align: middle;margin-top: -3px;">
+                        <img alt="可信网站" name="KNET_seal" border="true" src="http://www.gold678.com/Content/images/ss.png" style="display: block;width: 90px;height: auto;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script type="text/javascript">
+        $(function () {
+            //顶部幻灯
+            $(".slide-news").slide({
+                titCell: ".hd .slide-page",
+                mainCell: ".bd .slide-news__wrapper",
+                autoPage: true,
+                effect: "fold",
+                autoPlay: true,
+                vis: 1,
+                delayTime: 700
+            });
+            //黄金答疑滚动条
+            $(".gask-list").mCustomScrollbar({
+                theme: "light-3",
+                advanced: { autoExpandHorizontalScroll: true }
+            });
+            //金店报价
+            $(".goffer__top li").click(function () {
+                $(this).siblings().removeClass("selected");
+                $(this).addClass("selected");
+
+                var jdid = $(this).attr('data-id');
+                var name = $(this).text();
+                $.post('/jdbj', { jdid: jdid }, function (res) {
+                    var html = '';
+                    if (res != null) {
+                        if (res.length > 0) {
+                            var zd = 0;
+                            var style = '';
+                            $(res).each(function (k, v) {
+                                zd = parseFloat(v.Price) - parseFloat(v.YPrice);
+                                style = zd > 0 ? "up-red" : (zd < 0 ? "down-green" : "");
+                                html += ' <tr>\
+                                        <td class="goffer__sort">'+ name + '</td>\
+                                        <td>'+ v.Product + '</td>\
+                                        <td>'+ v.Price + '</td>\
+                                        <td class="'+ style + '">' + zd + '</td>\
+                                        <td>'+ v.UpdateTime + '</td>\
+                                    </tr>';
+                            });
+                            $('#tb_jdbj').html(html);
+                        }
+                    }
+                });
+            });
+
+            //行情走势、原油报价走势图
+            $(".js-aside-chart__item").on("mouseover", function () {
+                $(this).siblings().slideDown().parent().siblings().children(".js-aside-chart__main").stop().slideUp();
+                $(this).parent().siblings().removeClass("selected");
+                $(this).parent().addClass("selected");
+            });
+            $(".js-title-tab ").on("mouseover", "li", function () {
+                var i = $(this).index();
+                $(this).addClass("selected").siblings().removeClass("selected");
+                $(this).closest(".js-tab-wrap").children(".js-tab-main").children(".js-tab-item").hide().eq(i).show();
+            });
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            //回到顶部
+            $('.sidebar__top').click(function () {
+                $('html,body').animate({
+                    scrollTop: '0px'
+                }, {
+                    easing: 'easeInQuart',
+                    duration: 200
+                });
+            });
+            //$('.header__search input').bind('foucs click', function () {
+            //    $('.header__sdropdown').slideToggle('fast');
+            //});
+            //$('.header__search input').bind('blur', function () {
+            //    $('.header__sdropdown').slideUp('low');
+            //});
+        })
+
+        $(document).ready(function () {
+            var bb = $.cookie('FormsAuthCookie');
+            if (bb != undefined) {
+                $.getJSON("http://dy.gold678.com/api/GetUserLoginInfo?ticket=" + bb, function (data) {
+                    if (data.Data != "nologin") {
+                        var obj = JSON.parse(data.Data);
+                        var nickName = obj.NICKNAME;
+                        if (nickName != '' && nickName.length > 0)
+                            $("#sp_nickname").text(nickName);
+                        $("#a_login_out").attr("href", "http://passport.gold678.com/logout?returnUrl=" + window.location.href).text("注销");
+                        $('.header__logout').show();
+                        $('.header__login').hide();
+                    }
+                });
+            }
+
+            GetsearchFor();
+        });
+
+        function GetsearchFor() {
+            $(".ss_inp").bind('foucs click', function () {
+                $(".header__sdropdown").slideToggle("fast");
+            });
+            $(".ss_inp").bind('keyup', function () {
+                var txt = $(this).val().toUpperCase();
+                if (txt != '') {
+                    $.getJSON("http://dy.gold678.com/Api/GetSymbolList?callback=" + new Date().getUTCMilliseconds(), { searchTxt: txt }, function (json) {
+                        var obj = JSON.parse(json.Data);
+                        var html = '';
+                        if (obj != null) {
+                            $(obj).each(function (k, v) {
+                                switch (v.EXCODE) {
+                                    case "STOCK":
+                                        if (html.indexOf('股票') < 0) {
+                                            html += ' <li><b class="content">股票</b></li>';
+                                            html += '<li><a href="http://www.gold678.com/dy/S/' + v.SYMBOL + '" target="_blank">' + v.NAME + '(' + v.SYMBOL + ')</a></li>';
+                                        }
+                                        else
+                                            html += '<li><a href="http://www.gold678.com/dy/S/' + v.SYMBOL + '" target="_blank">' + v.NAME + '(' + v.SYMBOL + ')</a></li>';
+                                        break;//股票
+                                    case "GJZS":
+                                        if (html.indexOf('股指') < 0) {
+                                            html += ' <li><b class="content">股指</b></li>';
+                                            html += '<li><a href="http://www.gold678.com/dy/S/' + v.SYMBOL + '" target="_blank">' + v.NAME + '(' + v.SYMBOL + ')</a></li>';
+                                        }
+                                        else
+                                            html += '<li><a href="http://www.gold678.com/dy/S/' + v.SYMBOL + '" target="_blank">' + v.NAME + '(' + v.SYMBOL + ')</a></li>';
+                                        break;//全球股指
+                                    case "WH":
+                                        if (html.indexOf('货币') < 0) {
+                                            html += ' <li><b class="content">货币</b></li>';
+                                            html += '<li><a href="http://www.gold678.com/dy/S/' + v.SYMBOL + '" target="_blank">' + v.NAME + '(' + v.SYMBOL + ')</a></li>';
+                                        }
+                                        else
+                                            html += '<li><a href="http://www.gold678.com/dy/S/' + v.SYMBOL + '" target="_blank">' + v.NAME + '(' + v.SYMBOL + ')</a></li>';
+                                        break;//外汇
+                                    default:
+                                        if (html.indexOf('大宗商品') < 0) {
+                                            html += ' <li><b class="content">大宗商品</b></li>';
+                                            html += '<li><a href="http://www.gold678.com/dy/S/' + v.SYMBOL + '" target="_blank">' + v.NAME + '(' + v.SYMBOL + ')</a></li>';
+                                        }
+                                        else
+                                            html += '<li><a href="http://www.gold678.com/dy/S/' + v.SYMBOL + '" target="_blank">' + v.NAME + '(' + v.SYMBOL + ')</a></li>';
+                                        break;//大宗商品
+                                }
+                            });
+                            //获取新闻
+                            $.getJSON("http://dy.gold678.com/Api/SearchNews?callback=" + new Date().getUTCMilliseconds(), { searchTxt: txt }, function (json) {
+                                var obj = JSON.parse(json.Data);
+                                if (obj != null) {
+                                    $(obj).each(function (k, v) {
+                                        var href = "http://www.gold678.com/C/" + v.NewsId.substring(0, 8) + "/" + v.NewsId + ".html";
+                                        if (html.indexOf('新闻') < 0) {
+                                            html += ' <li><b class="content">新闻</b></li>';
+                                            html += '<li><a href="' + href + '" target="_blank" title="' + v.NewsTitle + '">' + v.NewsTitle + '</a></li>';
+                                        }
+                                        else
+                                            html += '<li><a href="' + href + '" target="_blank" title="' + v.NewsTitle + '">' + v.NewsTitle + '</a></li>';
+                                    });
+                                };
+                                window.setTimeout(function () { $(".header__sdropdown").html(html); }, 100);
+                            });
+                        }
+                    });
+                } else {
+                    var html = '<li><b class="stock">股票</b></li>\
+                            <li><a href="http://www.gold678.com/dy/S/SH000001" target="_blank">上证指数(SH000001)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/SZ399001" target="_blank">深圳成指(SZ399001)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/SZ399006" target="_blank">创业板指(SZ399006)</a></li>\
+                            <li><b class="content">货币</b></li>\
+                            <li><a href="http://www.gold678.com/dy/S/USD" target="_blank">美元指数(USD)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/EURUSD" target="_blank">欧元美元(EURUSD)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/GBPUSD" target="_blank">英镑美元(GBPUSD)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/USDCNY" target="_blank">美元人民币(USDCNY)</a></li>\
+                            <li><b class="content">大宗商品</b></li>\
+                            <li><a href="http://www.gold678.com/dy/S/XAU" target="_blank">现货黄金(XAU)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/XAG" target="_blank">现货白银(XAG)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/XAP" target="_blank">现货铂金(XAP)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/XPD" target="_blank">现货钯金(XPD)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/CONC" target="_blank">美原油连续(CONC)</a></li>\
+                            <li><b class="content">股指</b></li>\
+                            <li><a href="http://www.gold678.com/dy/S/HSI" target="_blank">恒生指数(HSI)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/NASDAQ" target="_blank">纳斯达克指数(NASDAQ)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/DJIA" target="_blank">道琼工业(DJIA)</a></li>\
+                            <li><a href="http://www.gold678.com/dy/S/SP500" target="_blank">标普500(SP500)</a></li>';
+                    $(".header__sdropdown").html(html);
+                }
+                var dis = $(".header__sdropdown").css("display");
+                if (dis == "none")
+                    $(".header__sdropdown").slideToggle("fast");
+            });
+            $(".ss_inp").bind('blur', function () {
+                window.setTimeout(function () { $(".header__sdropdown").slideUp("fast"); }, 500);
+            });
+        }
+    </script>
+
+    <!--百度统计代码开始-->
+    <div style="display:none;">
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?61f6a0d3e85f4a965bba3c9ef59b779f";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </div>
+    <div style="display:none;">
+        <script>
+            (function () {
+                var bp = document.createElement('script');
+                bp.src = '//push.zhanzhang.baidu.com/push.js';
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html class="no-js">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <title>2DFan</title>
+  <meta charset='utf-8' />
+  <meta name="keywords" content="2DFan,二次元爱好者,hgamecn,galgame,攻略,介绍,资源下载,acg,日文游戏,二次元,宅文化" />
+  <meta name="description" content="2DFan(二次元爱好者)是一个专注于提供日本游戏、动漫相关内容的门户站点" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" media="all" href="/assets/application-ab4646c7cd42a6b116d6feb1aaf831c25a0658352844d334d2617042c8ace9c8.css" />
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="//apps.bdimg.com/libs/html5shiv/r29/html5.min.js"></script>
+  <![endif]-->
+  <script src="/assets/application-3ebbdb6edbc84a8b032b23cd6e23c21d3daab32e35b82af13d07a94f67a5d392.js"></script>
+  <script src="https://dup.baidustatic.com/js/ds.js" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="DN/TDR2u7hgN/LXeidIolSzKlvOznxAxihlmPGiHQz1t71Itm3Ug2j+hgooUoAmzpRddqHjs69GYryTkLlG1rg==" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
+          <li><a href="/users/not_authenticated">登录</a></li>
+          <li><a href="/users/new">注册</a></li>
+          </ul>
+          <ul class="nav">
+            <li class=active>
+              <a href="/">首页</a>
+            </li>
+            <li>
+              <a href="/subjects">找游戏</a>
+            </li>
+            <li>
+              <a href="/downloads">下资源</a>
+            </li>
+            <li>
+              <a href="/lists">目录</a>
+            </li>
+            <li>
+              <a href="/subjects/incoming/2018/07">本月新作</a>
+            </li>
+            <li>
+              <a href="/subjects/top">排行榜</a>
+            </li>
+            <li>
+              <a href="/activities">站内动态</a>
+            </li>
+            <li>
+              <a href="/groups">小组</a>
+            </li>
+            <li>
+              <a href="http://bbs.2dkf.com" target="_blank">本站论坛</a>
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  <script>
+    $('#purge_notification').on('ajax:success', function(event, data, status, xhr) {
+      $("#last_notifications .modal-body").html('<p class="text-center muted">没有新通知</p>');
+      $(".notification-button .badge").remove();
+      $("#last_notifications").modal('hide');
+    }).on('ajax:error', function(event, xhr, status, error) {
+      var errors = $.parseJSON(xhr.responseText).message.join(',');
+      alert(errors);
+    });
+  </script>
+
+
+  <div class="site-search">
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span2">
+          <h3 class="site-name">
+            <a href="/">
+              2DFan
+            </a>
+          </h3>
+        </div>
+        <div class="span5" id="search-bar">
+          <form id="site-search-form" class="form-search" action="/subjects/search" accept-charset="UTF-8" method="get">
+            <input type="text" name="keyword" id="keyword" placeholder="游戏名、标签" class="span8" />
+            <input type="submit" value="搜索" class="btn notification" id="search-button" />
+</form>          <!--<a href="#" class="search_tag">Bradyon Veda -ブラディオン ベーダ</a>-->
+        </div>
+        <div class="span5 banner">
+					<!-- 广告位：2dfan_站定通栏banner -->
+					<script>
+					(function() {
+							var s = "_" + Math.random().toString(36).slice(2);
+							document.write('<div id="' + s + '"></div>');
+							(window.slotbydup=window.slotbydup || []).push({
+									id: '5856208',
+									container: s,
+									size: '468,60',
+									display: 'inlay-fix'
+							});
+					})();
+					</script>
+        </div>
+        <div class="span12 no-ml banner mt-10">
+					<!-- 广告位：2dfan_站顶通栏横幅 -->
+					<script>
+						(function() {
+								var s = "_" + Math.random().toString(36).slice(2);
+								document.write('<div id="' + s + '"></div>');
+								(window.slotbydup=window.slotbydup || []).push({
+										id: '311160',
+										container: s,
+										size: '960,90',
+										display: 'inlay-fix'
+								});
+						})();
+					</script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+
+      <div class="span9" id="content">
+
+        <div class="row-fluid">
+          <div class="span12 control-group">
+          <div class="span6">
+            <!-- block -->
+            <div class="block">
+              <div class="navbar navbar-inner block-header">
+                <div class="pull-left title">最新介绍</div>
+                <div class="pull-right">
+                  <a href="/subjects">更多</a>
+                </div>
+              </div>
+              <div class="block-content collapse in">
+                <dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8860">催眠劇場介绍</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/78764">黄黑哈尼</a> 于 大约 16 小时前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8854">鉄と裸II ～敗北の女帝～介绍</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/2">r514783</a> 于 一天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8853">きゃらぶれーしょん！ 〜乙女は恋してキャラぶれる〜介绍</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/750">ztc</a> 于 4 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8847">アエリアル・ライフ介绍</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/13427">大绅士小Z君</a> 于 5 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8836">配信ゲーム-目指せ！ネ申エロチューバー-介绍</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/78764">黄黑哈尼</a> 于 7 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8819">ソーサレス＊アライヴ！～the World&#39;s End Fallen Star～介绍</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/2891">najizhimo</a> 于 8 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8828">ケモノ娘の育て方介绍</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/2891">najizhimo</a> 于 9 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8814">爆走女装計画～もしも俺が女装させられてレディースに入隊させられたら～介绍</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/78764">黄黑哈尼</a> 于 10 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8792">封緘のグラセスタ介绍</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/2">r514783</a> 于 11 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/7651">きみはね Couples ～彼女と彼女の恋する二ヶ月ちょっと～介绍</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/911">杉崎鍵</a> 于 11 天前
+  </dd>
+</dl>
+
+                
+              </div>
+            </div>
+            <!-- /block -->
+          </div>
+          <div class="span6">
+            <!-- block -->
+            <div class="block">
+              <div class="navbar navbar-inner block-header">
+                <div class="pull-left title">最新资源</div>
+                <div class="pull-right">
+                  <a href="/downloads">更多</a>
+                </div>
+              </div>
+              <div class="block-content collapse in">
+                <dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/downloads/9661">妖神鎮め ～少女の決断、御子の決意～V1.02修正补丁</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/57900">八嘎八嘎八嘎</a> 于 大约 12 小时前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/downloads/9660">妖神鎮め ～少女の決断、御子の決意～V.1.01修正补丁</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/57900">八嘎八嘎八嘎</a> 于 大约 12 小时前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/downloads/9658">魔法戦士イクシードナイツ -新たなる世界の女神たち-免认证补丁（認証回避Patch）</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 3 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/downloads/9656">RIDDLE JOKER Ver1.12修正补丁</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/39485">蓝鹰狮</a> 于 4 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/downloads/9653">恋はそっと咲く花のように全CG存档</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 5 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/downloads/9652">アマカノ ～Second Season～ ＋全CG存档</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 5 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/downloads/9651">闇染Revenger -墜ちた魔王と堕ちる戦姫- V1.02修正补丁</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/12153">gasa</a> 于 6 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/downloads/9650">闇染Revenger -墜ちた魔王と堕ちる戦姫- V1.01修正补丁</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 7 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/downloads/9648">闇染Revenger -墜ちた魔王と堕ちる戦姫- 全CG存档</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 7 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/downloads/9647">見上げてごらん、夜空の星を Interstellar Focus全CG存档</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 9 天前
+  </dd>
+</dl>
+
+                
+              </div>
+            </div>
+            <!-- /block -->
+          </div>
+          </div>
+          <div class="span12 control-group" style="margin-left: 0">
+          <div class="span6">
+            <!-- block -->
+            <div class="block">
+              <div class="navbar navbar-inner block-header">
+                <div class="pull-left title">最新攻略</div>
+                <div class="pull-right">
+                  <a href="/activities/topic">更多</a>
+                </div>
+              </div>
+              <div class="block-content collapse in">
+                <dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8857">凉风的物语 中文攻略</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/35779">moure88</a> 于 2 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8856">神曲奏界ポリフォニカF パーフェクトエディション攻略</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/35779">moure88</a> 于 3 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8845">家の彼女攻略</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 9 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8844">Making＊Lovers 激イチャアフターストーリー Vol.02攻略</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 9 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8843">魔女与剑与千之月 中文攻略</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/34962">二次元现充</a> 于 9 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8842">ハタラカナイはにーらいふ攻略</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 10 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8840">見上げてごらん、夜空の星を Interstellar Focus攻略</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 10 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8839">淑女同萌！中文攻略</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/35779">moure88</a> 于 10 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8833">年下ママ ～バブみたっぷりオギャり放題～攻略</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 11 天前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <a target="_blank" href="/topics/8832">なつこい！攻略</a>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/1">secwind</a> 于 11 天前
+  </dd>
+</dl>
+
+                
+              </div>
+            </div>
+            <!-- /block -->
+          </div>
+          <div class="span6">
+            <!-- block -->
+            <div class="block">
+              <div class="navbar navbar-inner block-header">
+                <div class="pull-left title">最新动态</div>
+                <div class="pull-right">
+                  <a href="/activities/comment">更多</a>
+                </div>
+              </div>
+              <div class="block-content collapse in">
+                <dl class="activity-row">
+  <dt>
+    <span class="action">[吐槽]</span> <a target="_blank" href="/subjects/6981#comments-container">リターニアの精霊使い -迷宮を征く者-</a>
+    <p>人真少 (￣▽￣)&quot; </p>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/116705">程航</a> 于 一分钟前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <span class="action">[吐槽]</span> <a target="_blank" href="/subjects/7726#comments-container">封緘のグラセスタ</a>
+    <p>不懂日语的我表示路过 (￣.￣) </p>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/116705">程航</a> 于 9 分钟前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <span class="action">[吐槽]</span> <a target="_blank" href="/subjects/2758#comments-container">神楽花莚譚</a>
+    <p>额</p>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/116705">程航</a> 于 12 分钟前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <span class="action">[吐槽]</span> <a target="_blank" href="/subjects/7535#comments-container">如月真綾の誘惑</a>
+    <p>鸡儿梆硬</p>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/38089">天天如此天</a> 于 23 分钟前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <span class="action">[吐槽]</span> <a target="_blank" href="/subjects/7760#comments-container">催眠劇場</a>
+    <p>套路啊</p>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/116707">赤より红い梦</a> 于 42 分钟前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <span class="action">[吐槽]</span> <a target="_blank" href="/subjects/7760#comments-container">催眠劇場</a>
+    <p>这个会社一大堆的都是催眠作品啊……不知道男主所谓的...</p>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/6152">小Boss</a> 于 44 分钟前
+  </dd>
+</dl>
+<dl class="activity-row">
+  <dt>
+    <span class="action">[吐槽]</span> <a target="_blank" href="/subjects/7760#comments-container">催眠劇場</a>
+    <p>问一下，连接在哪里？</p>
+  </dt>
+  <dd>
+    由 <a target="_blank" rel="nofollow" href="/users/116701">QWQQWEWQE</a> 于 大约一小时前
+  </dd>
+</dl>
+
+                
+              </div>
+            </div>
+            <!-- /block -->
+          </div>
+        </div>
+        </div>
+
+        <div class="row-fluid">
+          <!-- block -->
+          <div class="block">
+            <div class="navbar navbar-inner block-header">
+              <div class="pull-left title">即将发售</div>
+              <div class="pull-right">
+                <a href="/subjects/incoming/2018/07">更多</a>
+              </div>
+            </div>
+            <div class="block-content collapse in">
+              <div class="row-fluid padd-bottom index-thumbnails">
+                <div class="span3">
+                  <a class="thumbnail" href="/subjects/7716">
+                    <img class="media-object" src="https://img.2dfan.com/uploads/subjects/packages/f375dea504549e784f4e487bd2936833.jpg?imageMogr2/quality/85!/thumbnail/180x240" alt="180x240" />
+</a>                  <h4 class="text-center"><a href="/subjects/7716">女体化パニック! 2 ～ママってこんなに気持ちよかったんだ!?～</a></h4>
+                  <p class="text-center">2018-07-13</p>
+                </div>
+                <div class="span3">
+                  <a class="thumbnail" href="/subjects/7601">
+                    <img class="media-object" src="https://img.2dfan.com/uploads/subjects/packages/a0eaaa7ae1fabbb05070a79e11a16626.jpg?imageMogr2/quality/85!/thumbnail/180x240" alt="180x240" />
+</a>                  <h4 class="text-center"><a href="/subjects/7601">Erewhon</a></h4>
+                  <p class="text-center">2018-07-27</p>
+                </div>
+                <div class="span3">
+                  <a class="thumbnail" href="/subjects/7712">
+                    <img class="media-object" src="https://img.2dfan.com/uploads/subjects/packages/ed975b53de6eb56e06e21b5dfd8b10dd.jpg?imageMogr2/quality/85!/thumbnail/180x240" alt="180x240" />
+</a>                  <h4 class="text-center"><a href="/subjects/7712">シスパコ ～Hな甘辛4姉妹～</a></h4>
+                  <p class="text-center">2018-07-27</p>
+                </div>
+                <div class="span3">
+                  <a class="thumbnail" href="/subjects/7692">
+                    <img class="media-object" src="https://img.2dfan.com/uploads/subjects/packages/aa5ebe6b6492229eb419b579c157d023.jpg?imageMogr2/quality/85!/thumbnail/180x240" alt="180x240" />
+</a>                  <h4 class="text-center"><a href="/subjects/7692">装甲戦姫アイギス</a></h4>
+                  <p class="text-center">2018-07-27</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- /block -->
+        </div>
+
+        <div class="row-fluid">
+          <!-- block -->
+          <div class="block">
+            <div class="navbar navbar-inner block-header">
+              <div class="pull-left title">近期热门</div>
+              <div class="pull-right">
+                <a href="/subjects/incoming/2018/06">更多</a>
+              </div>
+            </div>
+            <div class="block-content collapse in">
+              <div class="row-fluid padd-bottom index-thumbnails">
+                <div class="span3">
+                  <a class="thumbnail" href="/subjects/7645">
+                    <img class="media-object" src="https://img.2dfan.com/uploads/subjects/packages/ccc5be5aa7044789f61d4c3695b718bb.jpg?imageMogr2/quality/85!/thumbnail/180x240" alt="180x240" />
+</a>
+                  <h4 class="text-center"><a href="/subjects/7645">闇染Revenger -墜ちた魔王と堕ちる戦姫- </a></h3>
+                  <p class="text-center">2018-06-29</p>
+                </div>
+                <div class="span3">
+                  <a class="thumbnail" href="/subjects/6943">
+                    <img class="media-object" src="https://img.2dfan.com/uploads/subjects/packages/99f2270e70adf140d345229186db6e43.jpg?imageMogr2/quality/85!/thumbnail/180x240" alt="180x240" />
+</a>
+                  <h4 class="text-center"><a href="/subjects/6943">Summer Pockets</a></h3>
+                  <p class="text-center">2018-06-29</p>
+                </div>
+                <div class="span3">
+                  <a class="thumbnail" href="/subjects/7730">
+                    <img class="media-object" src="https://img.2dfan.com/uploads/subjects/packages/033b28e348b31ee0a256e6283ab2e02b.jpg?imageMogr2/quality/85!/thumbnail/180x240" alt="180x240" />
+</a>
+                  <h4 class="text-center"><a href="/subjects/7730">親友が気づかぬ内に彼女を寝取るボク</a></h3>
+                  <p class="text-center">2018-06-29</p>
+                </div>
+                <div class="span3">
+                  <a class="thumbnail" href="/subjects/7595">
+                    <img class="media-object" src="https://img.2dfan.com/uploads/subjects/packages/4c7ea77f8ff4cd78f797eb14e333c4d9.jpg?imageMogr2/quality/85!/thumbnail/180x240" alt="180x240" />
+</a>
+                  <h4 class="text-center"><a href="/subjects/7595">恋はそっと咲く花のように</a></h3>
+                  <p class="text-center">2018-06-29</p>
+                </div>
+             </div>
+
+            </div>
+          </div>
+          <!-- /block -->
+        </div>
+      </div>
+      <div class="span3" id="sidebar">
+        <div class="row-fluid">
+          <div class="block">
+            <div class="navbar navbar-inner block-header">
+              <div class="pull-left title">热门标签</div>
+            </div>
+          </div>
+          <div class="block-content collapse in tags">
+            <a class="label label-info" href="/tags/%E6%B1%89%E5%8C%96/">汉化</a>
+            <a class="label label-info" href="/tags/%E3%82%A8%E3%82%A6%E3%82%B7%E3%83%A5%E3%83%AA%E3%83%BC/">Eushully</a>
+            <a class="label label-info" href="/tags/SLG/">SLG</a>
+            <a class="label label-info" href="/tags/AliceSoft/">AliceSoft</a>
+            <a class="label label-info" href="/tags/Key/">Key</a>
+            <a class="label label-info" href="/tags/NitroPlus/">Nitro+</a>
+            <a class="label label-info" href="/tags/%E6%88%AF%E7%94%BB/">戏画</a>
+            <a class="label label-info" href="/tags/Leaf/">Leaf</a>
+            <a class="label label-info" href="/tags/%E7%8C%8E%E5%A5%87/">猎奇</a>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="block">
+            <div class="navbar navbar-inner block-header">
+              <div class="pull-left title">事务联系</div>
+            </div>
+          </div>
+          <div class="block-content collapse in">
+            <div class="alert alert-info">
+              <p>请发信到：<br />hgamecn2009#gmail.com请将地址中的#号替换为@。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-fluid">
+  <div class="collapse in text-center">
+    <!-- 广告位：2dfan_侧栏矩形 -->
+    <script>
+      (function() {
+          var s = "_" + Math.random().toString(36).slice(2);
+          document.write('<div id="' + s + '"></div>');
+          (window.slotbydup=window.slotbydup || []).push({
+                  id: '3957749',
+                  container: s,
+                  size: '250,250',
+                  display: 'inlay-fix'
+              });
+      })();
+    </script>
+  </div>
+</div>
+
+
+        <div class="row-fluid">
+          <div class="block">
+            <div class="navbar navbar-inner block-header">
+              <div class="pull-left title">友情链接</div>
+            </div>
+          </div>
+          <div class="block-content collapse in">
+            <ul class="unstyled friend-link">
+              <li><a href="http://www.galgame.net" target="_blank">AGREE美少女动漫游戏鉴赏盟</a></li>
+              <li><a href="http://bbs.kdays.net" target="_blank">Kdays</a></li>
+              <li><a href="http://www.moejoy.com/" target="_blank">萌之轨迹</a></li>
+              <li><a href="http://bbs.seikuu.com/" target="_blank">星空论坛</a></li>
+              <li><a href="http://www.jpbeta.net/" target="_blank">JPbeta日本资讯站</a></li>
+              <li><a href="http://www.acgpiping.net/" target="_blank">ACG批评</a></li>
+              <li><a href="http://bitinn.net/" target="_blank">比特客栈的文艺复兴</a></li>
+              <li><a href="http://www.zodgame.us/" target="_blank">ZodGame</a></li>
+              <li><a href="http://kanquwen.com/" target="_blank">看趣闻</a></li>
+              <li><a href="http://www.acgnz.cc/" target="_blank">幻天领域</a></li>
+              <li><a href="http://acg17.com/" target="_blank">ACG17</a></li>
+              <li><a href="http://bbs.zdfx.net/" target="_blank">Galgame终点</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!--/span-->
+    </div>
+
+
+    <hr>
+    <footer>
+
+<script>
+(function() {
+    document.write('<div id="popadv-container"><button type="button" class="close" data-dismiss="alert">关闭</button><div id="popadv-content"></div></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '4501848',
+        container: 'popadv-content',
+        size: '300,250',
+        display: 'inlay-fix'
+    });
+})();
+if(getCookie('pop-blocked')){
+  $('#popadv-container').hide();
+} else {
+  $('#popadv-container button').css({
+      position: 'fixed',
+      right: 15,
+      bottom: 250
+  })
+  $('#popadv-content').css({
+      position: "fixed",
+      bottom: 0,
+      right: 15
+  });
+}
+$('#popadv-container').bind('closed', function () {
+  setCookie('pop-blocked', true)
+})
+
+</script>
+
+  <div class="container-fluid">
+    <div class="span3">
+      <p>&copy; <a href="/">2DFan</a> 2005-2017</p>
+    </div>
+    <div class="span8">
+      <ul class="inline">
+        <li><a href="/copyright">版权声明</a>
+        </li>
+        <li><a href="/help">使用帮助</a>
+        </li>
+        <li><a href="/join">加入我们</a>
+        </li>
+        <li><a href="/groups/feedback">站务反馈</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="outdated"></div>
+</footer>
+
+
+  </div>
+  <!--/.fluid-container-->
+</body>
+</html>

@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>ET创芯网(EETOP)-电子设计论坛、博客、超人气的电子工程师资料分享平台  </title>
+<meta name="keywords" content="ET创芯网(EETOP)-电子设计论坛、博客、超人气的电子工程师资料分享平台 电子设计论坛，电子工程师博客，资料下载" />
+<meta name="description" content="ET创芯网(EETOP)-电子设计论坛、博客、超人气的电子工程师资料分享平台 eetop 是一个综合性的电子设计论坛及工程师blog，涉及IC设计，包括：FPGA、ASIC、微处理器、IC前端设计、IC后端设计、ANALOG/RF/RFID设计等；嵌入式设计包括ARM、MIPS、POWERPC、DSP、单片机设计等；热门产品设计，包括：手机、GPS、机顶盒、汽车电子等；" />
+<link rel="stylesheet" type="text/css" href="http://www.eetop.cn/blog/templates/axueer03/css/style.css" />
+<meta name="baidu-site-verification" content="HkLqtlce4DXZR5ok" /><script type="text/javascript">
+var siteUrl = "http://www.eetop.cn/blog";
+</script>
+<script src="http://www.eetop.cn/blog/include/js/ajax.js" type="text/javascript" language="javascript"></script>
+<script src="http://www.eetop.cn/blog/include/js/common.js" type="text/javascript" language="javascript"></script>
+<script src="http://www.eetop.cn/blog/include/js/jquery.min.js" type="text/javascript" language="javascript"></script>
+<script src="http://www.eetop.cn/blog/include/js/jquery.cookie.js" type="text/javascript" language="javascript"></script>
+
+<style type="text/css">
+        *{
+                margin:0;
+                padding:0;
+        }
+
+        .alert_windows{
+                display:none;
+                position:absolute;
+                z-index:10;
+                width:640px;
+                height:480px;
+               position:fixed;
+        }
+
+        .alert_windows span{
+                float:right;
+                width:20px;
+                height:20px;
+                text-align:center;
+                font:12px/20px Microsoft Yahei;
+                cursor:pointer;
+                color:#333;
+                background:lightblue;
+        }
+
+        .alert_windows span:hover{
+                color:#EEE;
+                background:red;
+        }
+
+
+    
+        .alert_windows1{
+                float:left;
+                display:none;
+                position:absolute;
+                #z-index:10;
+                width:468px;
+                height:60px;
+               position:float;
+        }
+
+        .alert_windows1 span{
+                border-top:1px solid #c0dc0c0
+               #margin-top:-10px;
+                 #z-index:20;
+                float:right;
+                width:120px;
+                height:15px;
+                text-align:right;
+                font:11px/15px Microsoft Yahei;
+                cursor:pointer;
+                color:#333;
+                background:#50c0b0;
+        }
+
+        .alert_windows1 span:hover{
+                color:#EEE;
+                background:red;
+        }
+        
+</style>
+
+<script type="text/javascript">
+        $(function(){
+                if($.cookie("isClose") != 'yes'){
+                        var winWid = $(window).width()/2 - $('.alert_windows').width()/2;
+                        var winHig = $(window).height()/2 - $('.alert_windows').height()/2;
+                        $(".alert_windows").css({"left":winWid,"top":-winHig*2});       //鑷笂鑰屼笅
+                        $(".alert_windows").show();
+                        $(".alert_windows").animate({"left":winWid,"top":winHig+80},1000);
+                        $(".alert_windows span").click(function(){
+                                $(this).parent().fadeOut(500);
+                                $.cookie("isClose",'yes',{ expires:300/86400});    //娴嬭瘯鍗佺
+                                //$.cookie("isClose",'yes',{ expires:1});               涓�澶�
+                        });
+                }
+        });
+</script>
+
+<script type="text/javascript">
+        $(function(){
+                if($.cookie("isClose1") != 'yes'){
+                  var winWid1 = $(window).width()/2 - 480+5;
+                  $(".alert_windows1").css({"right":winWid1,"top":40});	
+            $(".alert_windows1").show();
+             	$(".alert_windows1").animate({"right":winWid1,"top":40},1000);
+            	$(".alert_windows1 span").click(function(){
+          	$(this).parent().fadeOut(500);
+          	$.cookie("isClose1",'yes',{ expires:2*60/86400});		//60/86400 ???
+                        });
+                }
+        });
+</script>
+
+
+</head>
+    
+<body> 
+
+
+
+<div id="wrap">
+<div id="header">
+<div id="a_topmenu">
+<span> 
+        <a href="/">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="http://www.eetop.cn/blog/html/bbs.html">论坛</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="/bbs/search.php">搜论坛</a>
+<a href="/bbs/search.php">搜资料</a>
+<a href="http://www.eetop.cn/blog/batch.search.php">搜日志</a>
+</span>
+<div id="userpanel"><script src="http://www.eetop.cn/blog/a03_batch.panel.php" type="text/javascript" language="javascript"></script></div>
+</div>
+<div id="pagetitle">
+<div>
+<table cellpadding="0" cellspacing="0" width="100%" >
+<tr>
+<td  align="left">
+<a href="http://www.eetop.cn/blog/"><img id="logo" src="http://www.eetop.cn/blog/templates/axueer03/images/logo.gif" alt="ET创芯网(EETOP)-电子设计论坛、博客、超人气的电子工程师资料分享平台" /></a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div id="topmenu">
+<div>
+<a href="http://www.eetop.cn" class="shouye">首页</a>
+<a href="http://www.eetop.cn/blog/html/news.html" class="news">行业资讯</a>
+<a href="http://www.eetop.cn/blog/html/blog.html" class="blog">个人博客</a>
+<a href="http://www.eetop.cn/blog/html/bbs.html" class="bbss">论坛资料</a>
+<a href="http://ti.eetop.cn" class="tiac">TI 社区</a>
+<a href="http://xilinx.eetop.cn" class="xilinx">Xilinx社区</a>
+<a href="http://weibo.com/eetop" class="guanfangweibo">官方微博</a>
+<a href="http://bbs.eetop.cn" class="eetopbbs">论坛</a>
+<a href="http://ic.eetop.cn" class="datasheet">DataSheet</a>
+</div>
+</div>
+<div id="menu">
+<ul>
+<li><a href="http://ti.eetop.cn" target="_blank"><font color="blue"><STRONG><center>TI信号链购买专区</center></STRONG></font></a></li>
+<li><a href="http://xilinx.eetop.cn" target="_blank"><font color="red"><STRONG><center>赛灵思社区</center></STRONG></font></a></li>
+</ul>
+</div>
+
+
+
+
+
+<div id="navigation">
+                您的位置：<a href="http://www.eetop.cn/blog/">首页</a>
+<form action="http://ic.eetop.cn/index/default_list" method="get" target="_blank" style="float :right ;">
+     <input name="title" />
+    <input type="submit" name="sub" value="搜Datasheet" />
+</form>
+<form action="http://zhannei.baidu.com/cse/search" target="_blank" style="float :right ;">
+    <input type="hidden" name="s" value="5614971210648505611">
+    <input type="hidden" name="ie" value="gbk">
+    <input type="text" name="q">
+    <input type="submit" value="全文搜索">
+</form>	
+               </div>
+</div>
+<div class="content" style="margin-bottom: 4px;">
+<div class="a_sideR">
+     <div style="height:191px; width:200px; background:none; overflow:hidden; margin-bottom:1px;">
+     <a href="http://ti.eetop.cn"  target="_blank"><img  src="http://ti.eetop.cn/templates/default/images/logo.jpg" alt="EETOP TI社区" /></a> 
+     <a href="http://xilinx.eetop.cn/"  target="_blank"><img  src="http://www.eetop.cn/blog/images/ac/xilinx-logo.jpg" alt="EETOP 论坛" /></a> 
+     <a href="http://ic.eetop.cn?from=eetop_index/"  target="_blank"><img  src="http://www.eetop.cn/blog/images/ac/198-64.gif" alt="EETOP Datasheet" /></a>
+     </div>
+
+<!--一周评论热点--><div class="block" style="height: 151px; overflow: hidden;">
+<h3>一周评论热点</h3>
+<ul class="msgtitlelist">
+<li><a href="http://www.eetop.cn/blog/html/48/n-6339648.html" title="2018（第三届）全球预商用5G产业峰会于上海开幕">2018（第三届）全球预商用5G产业峰.(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/54/n-6339654.html" title="英特尔子公司Mobileye与百度展开合作，RSS模型将部署到Apollo项目中">英特尔子公司Mobileye与百度展开合.</a></li>
+<li><a href="http://www.eetop.cn/blog/html/63/n-6339663.html" title="重磅！国产x86服务器CPU“禅定”开启生产：基于AMD Zen架构，专供中国">重磅！国产x86服务器CPU“禅定”开.(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/51/n-6339651.html" title="新思科技Fusion技术助力三星7LPPEUV工艺降低功耗、缩小面积并提高性能">新思科技Fusion技术助力三星7LPPE.</a></li>
+<li><a href="http://www.eetop.cn/blog/html/78/n-6339678.html" title="TD-SCDMA退网是必然：功过不论，为5G释放资源正当时">TD-SCDMA退网是必然：功过不论，为.</a></li>
+<li><a href="http://www.eetop.cn/blog/html/65/n-6339665.html" title="深圳连接器线束及加工设备展会开幕在即，海内外知名企业9月汇聚鹏城">深圳连接器线束及加工设备展会开幕.(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/55/n-6339655.html" title="应用材料公司Producer平台出货量高达5000台">应用材料公司Producer平台出货量高.(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/33/n-6341033.html" title="Digi-Key 宣布推出 KiCad 库 1.0 版">Digi-Key 宣布推出 KiCad 库 1.0 版(图)</a></li>
+</ul>
+</div>
+</div>
+
+
+
+<div class="sideL">
+<!--图文资讯幻灯片--><div id="slideimg" class="block" style="height: 253px; overflow: hidden;">
+<script type="text/javascript" language="javascript">
+<!--			
+var xsTextBar = 1; //是否显示文字链接，1为显示，0为不显示
+var xsPlayBtn = 0; //是否显示播放按钮，1显示，0为不显示
+var xsImgSize = new Array(286,220); //幻灯图片的尺寸，格式为“宽度,高度”
+
+var xsImgs = new Array();
+var xsImgLinks = new Array();
+var xsImgTexts = new Array();xsImgs[0] = "http://www.eetop.cn/blog/attachments/2018/07/3_201807121023241N2xZ.thumb.jpg";
+xsImgLinks[0] = "http://www.eetop.cn/blog/html/84/n-6395584.html";
+xsImgTexts[0] = "2018上半年专利排名：华...(图)";xsImgs[1] = "http://www.eetop.cn/blog/attachments/2018/07/569995_201807111903281bKWg.thumb.jpg";
+xsImgLinks[1] = "http://www.eetop.cn/blog/html/63/n-6381963.html";
+xsImgTexts[1] = "Nautiz X2一体化耐用型...(图)";xsImgs[2] = "http://www.eetop.cn/blog/attachments/2018/07/569995_2018071119015114SIs.gif";
+xsImgLinks[2] = "http://www.eetop.cn/blog/html/32/n-6381932.html";
+xsImgTexts[2] = "IDC: 2018是否能成为存...(图)";xsImgs[3] = "http://www.eetop.cn/blog/attachments/2018/07/569995_2018071119013012YFx.thumb.jpg";
+xsImgLinks[3] = "http://www.eetop.cn/blog/html/27/n-6381927.html";
+xsImgTexts[3] = "LG Display国内首条8．...(图)";xsImgs[4] = "http://www.eetop.cn/blog/attachments/2018/07/569995_201807111900311QTiW.thumb.jpg";
+xsImgLinks[4] = "http://www.eetop.cn/blog/html/06/n-6381906.html";
+xsImgTexts[4] = "家电消费市场潜力爆发，...(图)";</script>
+<script language="javascript" type="text/javascript" src="http://www.eetop.cn/blog/include/js/slide.js"></script>
+</div><div id="announcement" class="block" style="height: 78px; overflow: hidden;">
+<h3>站点公告 &bull; 调查</h3>
+<ul class="msgtitlelist">
+<li>[公告] <a href="http://www.eetop.cn/blog/action-announcement-id-9.html">物联网生态发展论坛（6月28日  北京）</a></li>
+<li>[公告] <a href="http://www.eetop.cn/blog/action-announcement-id-4.html">关注EETOP微信公众号奖励论坛积分！</a></li>
+<li>暂时没有调查</li>
+</ul>
+</div>			
+</div>
+
+<div class="a_mainarea">
+<!--一周点击排行头条--><div id="headline" class="block">
+<a href="http://www.eetop.cn/blog/html/58/n-6339658.html"><img src="http://www.eetop.cn/blog/attachments/2018/07/3_201807072227291XAZP.thumb.jpg" alt="" /></a>
+<strong><a href="http://www.eetop.cn/blog/html/58/n-6339658.html">中兴被解聘高管发告别信：这样的离开，深感...(图)</a></strong>
+<p>昨晚，中兴正式发布公告，董事会审议通过了《关于聘免高级管理人员的议案》，包括现任总裁赵先明和全体现任EVP（执行副总...</p>
+</div>
+
+<!--最新资讯 --><div id="focus" class="block" style="border-top-width:0;">
+<ul class="a_list2col linelist" style="height:262px; overflow:hidden;">
+<li><a href="http://www.eetop.cn/blog/html/84/n-6395584.html" title="2018上半年专利排名：华为第一">2018上半年专利排名：华为第一(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/63/n-6381963.html" title="Nautiz X2一体化耐用型手持电脑升级到安卓7．0系统">Nautiz X2一体化耐用型手持电脑升级到...(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/56/n-6381956.html" title="Marvell Technology完成对Cavium的并购">Marvell Technology完成对Cavium的并购</a></li>
+<li><a href="http://www.eetop.cn/blog/html/51/n-6381951.html" title="紫光展锐SC7731E助力MOBICEL 智能手机在南非市场成功上市">紫光展锐SC7731E助力MOBICEL 智能手机...</a></li>
+<li><a href="http://www.eetop.cn/blog/html/41/n-6381941.html" title="中芯国际宣布二零一八年第二季度网上会议">中芯国际宣布二零一八年第二季度网上会议</a></li>
+<li><a href="http://www.eetop.cn/blog/html/32/n-6381932.html" title="IDC: 2018是否能成为存储新纪元？ IDC帮您见微知著">IDC: 2018是否能成为存储新纪元？ IDC...(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/27/n-6381927.html" title="LG Display国内首条8．5代OLED面板生产线正式获批">LG Display国内首条8．5代OLED面板生产...(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/21/n-6381921.html" title="2018中国（天津）工业APP创新应用大赛报名正式启动">2018中国（天津）工业APP创新应用大赛...</a></li>
+<li><a href="http://www.eetop.cn/blog/html/15/n-6381915.html" title="华为eLTE－IoT为墨西哥电力系统构筑强大神经网络">华为eLTE－IoT为墨西哥电力系统构筑强...</a></li>
+<li><a href="http://www.eetop.cn/blog/html/06/n-6381906.html" title="家电消费市场潜力爆发，智能制造成发展趋势">家电消费市场潜力爆发，智能制造成发展...(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/99/n-6381899.html" title="铟泰公司技术专家将在CEIA贵阳站发表演讲">铟泰公司技术专家将在CEIA贵阳站发表演讲(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/91/n-6381891.html" title="KLA－Tencor发布VoyagerTM 1015和Surfscan SP7缺陷检测系统">KLA－Tencor发布VoyagerTM 1015和Surf...(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/44/n-6381844.html" title="Vicor的ChiP封装DCM 进一步扩增高精度输出稳压的电源模块">Vicor的ChiP封装DCM 进一步扩增高精度...(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/51/n-6372451.html" title="中国首次跻身全球创新指数20强">中国首次跻身全球创新指数20强(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/94/n-6371094.html" title="华裔苹果前员工因涉嫌盗窃机密被逮捕">华裔苹果前员工因涉嫌盗窃机密被逮捕(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/33/n-6341033.html" title="Digi-Key 宣布推出 KiCad 库 1.0 版">Digi-Key 宣布推出 KiCad 库 1.0 版(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/78/n-6339678.html" title="TD-SCDMA退网是必然：功过不论，为5G释放资源正当时">TD-SCDMA退网是必然：功过不论，为5G释...</a></li>
+<li><a href="http://www.eetop.cn/blog/html/76/n-6339676.html" title="中美贸易战对半导体领域是一场“零和赛局”?">中美贸易战对半导体领域是一场“零和赛...</a></li>
+<li><a href="http://www.eetop.cn/blog/html/72/n-6339672.html" title="Google资深平台架构师：“现在是IC人的黄金年代” ，果真如此么？">Google资深平台架构师：“现在是IC人的...(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/71/n-6339671.html" title="Socionext成功于AWS云端服务上运行次世代AV1编码器">Socionext成功于AWS云端服务上运行次世...(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/70/n-6339670.html" title="浪潮云ERP发布智能机器人EAbot（易宝特），助力企业智能升级">浪潮云ERP发布智能机器人EAbot（易宝特...(图)</a></li>
+<li><a href="http://www.eetop.cn/blog/html/69/n-6339669.html" title="高端光电芯片进口依赖严重，中国光通信如何既大又强？">高端光电芯片进口依赖严重，中国光通信...</a></li>
+</ul>
+</div>
+</div>
+</div>
+   <div><!-- 广告位：xilinx-homepage-midile -->
+<script type="text/javascript" >BAIDU_CLB_SLOT_ID = "469275";</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/o.js"></script>
+
+</div><!--shouyemidle-->	
+     
+<div id="blogblock">
+<div class="content" style="margin-bottom: 4px;">
+<div class="a_sideR"><!--最新文件列表-->
+  	<div class="block" style="height: 415px; overflow: hidden;">
+  			 <a href="http://ti.eetop.cn/category-95" class="more"  target="_blank">更多</a>
+<h3>TI资料下载</h3>
+
+<ul class="msgtitlelist">
+                                <script language="JavaScript" src="http://tiproduct.eetop.cn/batch.javascript.php?param=UGQEOQ1uA2cHYwF2BHIDJgE4BShVJVd9VWUEYgFuCWJTYA0rViledlYtUCpUKwExC3gBYQVqADVSZFF7XTsHa1BrBDwNdQMrBzgBLgQ6A2ABcgVkVTdXblVsBGQBfwllU2gNOVZ1XmBWaVBjVHQBIAsnAW8FKQApUnZRNl09B2dQZQQhDV4DaAdh"></script>
+                                </ul>
+</div>
+
+
+
+</div>
+<div class="sideL"><div id="hottag" class="block">
+ <h3><a href="http://xilinx.eetop.cn/action-category-catid-75" class="more" target="_blank">更多</a>XILINX午后加油站</h3>
+<div style="height: 14em;">
+<script language="JavaScript" src="http://xilinx.eetop.cn/batch.javascript.php?param=UD5SPAA6VzFVaVAkWnlUIQdjCiVWdltxAmFWYQJiDTQMZVEkAyUGLAEiXCUELlc3BCpdPAQlCyVVPgYxVz4ENlBzUjMANFcmVWtQNFovVGYHNAomVjRbNQIvVm0CdQ0%2BDGVRIQN5BmoBeFw4BD9XJgRgXTEEPgs%2FVTIGclcWBBZQD1ITAHpXPlVrUD1aaVQlBykKOlYpWzkCL1ZhAmYNOQxoUTYDIgZqATtcOQRxV2sENV1tBHgLIlUiBjBXOAQ2UD9SJAA5VzdVbFB%2FWjRUZAcpCn5WdVttAi9WcQJyDTgMalE2AzUGdwEJXDAENw%3D%3D"></script>
+</div>
+</div>
+
+<div class="block" style="height:200px; overflow:hidden;">
+<h3><a href="http://www.eetop.cn/blog/html/97/forumdisplay-fid-97.html" class="more">更多</a>最新招聘</h3>
+<!-- 最新招聘 --><ul class="msgtitlelist">
+<li><cite>07-11 </cite><a href="http://bbs.eetop.cn/thread-764935-1-1.html">上海公司DFT职位招聘AI研发和处理器研发</a></li>
+<li><cite>07-11 </cite><a href="http://bbs.eetop.cn/thread-764932-1-1.html">上海公司soc设计职位招人</a></li>
+<li><cite>07-11 </cite><a href="http://bbs.eetop.cn/thread-764925-1-1.html">招聘：模拟power设计工程师-无锡、合肥</a></li>
+<li><cite>07-11 </cite><a href="http://bbs.eetop.cn/thread-764922-1-1.html">北京RFIC   薪资开放</a></li>
+<li><cite>07-11 </cite><a href="http://bbs.eetop.cn/thread-764918-1-1.html">急聘经验丰富的芯片验证主管</a></li>
+<li><cite>07-11 </cite><a href="http://bbs.eetop.cn/thread-764915-1-1.html">广州-射频/应用/数字/模拟adc/dac</a></li>
+<li><cite>07-10 </cite><a href="http://bbs.eetop.cn/thread-764901-1-1.html">【芯原微电子上海热招】SOC 职位（前段设计，验证，flow）</a></li>
+<li><cite>07-10 </cite><a href="http://bbs.eetop.cn/thread-764891-1-1.html">长沙 芯片验证工程师，嵌入式软件开发工程师</a></li>
+</ul>
+                        </div>
+
+</div>
+<div class="a_mainarea">
+<div class="block cleanblock" style="height:415px; overflow:hidden;">
+<a href="http://www.eetop.cn/blog/html/bbs.html" class="more">更多</a>
+<h3>论坛</h3>
+                                <ul class="a_list2col" style="height:400px; overflow:hidden;"><!--newzhuti-->
+<li><cite><a href="http://www.eetop.cn/blog/1651795/action-viewpro.html" target="_blank">第二信使</a></cite><a href="http://bbs.eetop.cn/thread-764954-1-1.html">关于音频delta sigma DAC的几个问题</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1693967/action-viewpro.html" target="_blank">pancrasMa</a></cite><a href="http://bbs.eetop.cn/thread-764951-1-1.html">问题如图</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/550752/action-viewpro.html" target="_blank">cjsb37</a></cite><a href="http://bbs.eetop.cn/thread-764948-1-1.html">好好学习，天天向上</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1718879/action-viewpro.html" target="_blank">VanDiem</a></cite><a href="http://bbs.eetop.cn/thread-764942-1-1.html">推荐一本书《Writing Testbenches, Functional Verification of HDL Models》</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1718879/action-viewpro.html" target="_blank">VanDiem</a></cite><a href="http://bbs.eetop.cn/thread-764941-1-1.html">推荐一个书《FPGA高级设计(英文)》</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/954460/action-viewpro.html" target="_blank">xrmray</a></cite><a href="http://bbs.eetop.cn/thread-764940-1-1.html">《编写可读代码的艺术》</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1718853/action-viewpro.html" target="_blank">zzj_paul</a></cite><a href="http://bbs.eetop.cn/thread-764939-1-1.html">求 国密 算法 IP（含doc）</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1718272/action-viewpro.html" target="_blank">Ameya360皇华</a></cite><a href="http://bbs.eetop.cn/thread-764937-1-1.html">MOS管驱动电路的总结</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1508888/action-viewpro.html" target="_blank">千篇一律</a></cite><a href="http://bbs.eetop.cn/thread-764931-1-1.html">starrc和icc</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1222618/action-viewpro.html" target="_blank">hochia</a></cite><a href="http://bbs.eetop.cn/thread-764930-1-1.html">UVM编译运行时传递参数的问题</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1139986/action-viewpro.html" target="_blank">uestc_zyd</a></cite><a href="http://bbs.eetop.cn/thread-764929-1-1.html">IEEE low power standard：IEEE 1801-2015</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1718212/action-viewpro.html" target="_blank">Easy-Key</a></cite><a href="http://bbs.eetop.cn/thread-764927-1-1.html">三星、美光以及海力士总共占据全球DRAM芯片市场份额的96%</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1530829/action-viewpro.html" target="_blank">Snowy2016</a></cite><a href="http://bbs.eetop.cn/thread-764926-1-1.html">COB 封装电感值</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1500705/action-viewpro.html" target="_blank">494693243</a></cite><a href="http://bbs.eetop.cn/thread-764924-1-1.html">formality 的CMD 的问题</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1670029/action-viewpro.html" target="_blank">从此以后01</a></cite><a href="http://bbs.eetop.cn/thread-764923-1-1.html">关于模拟IC求职 求推荐公司 在北京或西安</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/662363/action-viewpro.html" target="_blank">wdzic_fbb</a></cite><a href="http://bbs.eetop.cn/thread-764921-1-1.html">I2C协议中 Fast Mode Plus模式</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1467777/action-viewpro.html" target="_blank">pork7894</a></cite><a href="http://bbs.eetop.cn/thread-764920-1-1.html">Vivado破解版下载【亲测可用】</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1610616/action-viewpro.html" target="_blank">chenxiliang</a></cite><a href="http://bbs.eetop.cn/thread-764917-1-1.html">有谁认识这种PD吗？</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1717560/action-viewpro.html" target="_blank">动能世纪李工</a></cite><a href="http://bbs.eetop.cn/thread-764916-1-1.html">论“PA”在当今物联网领域广泛应用的无线通信传输技术时代的辅助性</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1670029/action-viewpro.html" target="_blank">从此以后01</a></cite><a href="http://bbs.eetop.cn/thread-764913-1-1.html">关于模拟IC求职，北京、西安求推荐公司</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/850203/action-viewpro.html" target="_blank">orihard1</a></cite><a href="http://bbs.eetop.cn/thread-764912-1-1.html">372-基于XC7VX690T的高速模拟信号、万兆光纤综合计算平台</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/310438/action-viewpro.html" target="_blank">hellangel</a></cite><a href="http://bbs.eetop.cn/thread-764911-1-1.html">工艺库的IO接口timing和仿真不匹配</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1709915/action-viewpro.html" target="_blank">samshitao</a></cite><a href="http://bbs.eetop.cn/thread-764910-1-1.html">skill offgrid 脚本报错</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1395733/action-viewpro.html" target="_blank">花涛</a></cite><a href="http://bbs.eetop.cn/thread-764909-1-1.html">verdi破解求助</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/776831/action-viewpro.html" target="_blank">aspc1234</a></cite><a href="http://bbs.eetop.cn/thread-764908-1-1.html">Synopsys 招聘 EDA软件产品验证（南京/上海）</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/55677/action-viewpro.html" target="_blank">wanderwall</a></cite><a href="http://bbs.eetop.cn/thread-764907-1-1.html">modelsim-win64-10.4-se破解，绝对有效，支持win7,win8,win10</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1444652/action-viewpro.html" target="_blank">18721184323</a></cite><a href="http://bbs.eetop.cn/thread-764906-1-1.html">承接各种难度IC版图设计项目</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1575166/action-viewpro.html" target="_blank">普雅花</a></cite><a href="http://bbs.eetop.cn/thread-764904-1-1.html">RC振荡器温度系数的求法</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1444652/action-viewpro.html" target="_blank">18721184323</a></cite><a href="http://bbs.eetop.cn/thread-764903-1-1.html">招聘模拟版图设计工程师、数字后端设计工程师</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1718272/action-viewpro.html" target="_blank">Ameya360皇华</a></cite><a href="http://bbs.eetop.cn/thread-764902-1-1.html">浅析对光耦的参数的理解</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1624052/action-viewpro.html" target="_blank">于海洋</a></cite><a href="http://bbs.eetop.cn/thread-764900-1-1.html">射频学习资料——功率放大器、低噪声放大器、混频器</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/1557666/action-viewpro.html" target="_blank">wenfangsibao</a></cite><a href="http://bbs.eetop.cn/thread-764899-1-1.html">请问 SOC 里 reset 功能是怎样设计的？</a></li>
+</ul>
+
+</div>				
+</div>
+
+</div>
+</div>
+      <div></div><!--homepage-1--> 
+<div id="blogblock">
+<div class="content" style="margin-bottom: 4px;">
+<div class="a_sideR"><div id="hotspace" class="block stat" style="height: 475px;">
+<a href="http://www.eetop.cn/blog/html/spaces.html" class="more">所有空间</a>
+<h3>空间排行</h3>
+<ol>
+<li><em>56432</em><a href="http://www.eetop.cn/blog/html/74/238474.html">绝地求生</a></li>
+<li><em>427</em><a href="http://www.eetop.cn/blog/html/06/103806.html">seawang的个人空间</a></li>
+<li><em>345</em><a href="http://www.eetop.cn/blog/html/49/204849.html">凌阳嵌入式培训</a></li>
+<li><em>341</em><a href="http://www.eetop.cn/blog/html/30/1574630.html">电源芯片，充电芯片，LED驱动，碳化硅二极管，IGBT，雾化片驱动，马达驱动，视频放大器，音频模拟开</a></li>
+<li><em>332</em><a href="http://www.eetop.cn/blog/html/14/123914.html">中国IC技术交易网</a></li>
+<li><em>286</em><a href="http://www.eetop.cn/blog/html/11/317611.html">yuedx的个人空间</a></li>
+<li><em>271</em><a href="http://www.eetop.cn/blog/html/03/6503.html">东方不系之舟</a></li>
+<li><em>246</em><a href="http://www.eetop.cn/blog/html/55/1518355.html">imicman的个人空间</a></li>
+<li><em>240</em><a href="http://www.eetop.cn/blog/html/03/850203.html">东方硬件</a></li>
+<li><em>238</em><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a></li>
+<li><em>215</em><a href="http://www.eetop.cn/blog/html/68/230368.html">domiso的个人空间</a></li>
+<li><em>187</em><a href="http://www.eetop.cn/blog/html/92/23692.html">成都市炜之峰科技有限公司</a></li>
+<li><em>166</em><a href="http://www.eetop.cn/blog/html/52/51552.html">山谷的技术笔记</a></li>
+<li><em>139</em><a href="http://www.eetop.cn/blog/html/48/108448.html">daojx的个人空间</a></li>
+<li><em>129</em><a href="http://www.eetop.cn/blog/html/26/178426.html">chibijia的个人空间</a></li>
+<li><em>111</em><a href="http://www.eetop.cn/blog/html/64/42764.html">单身公寓</a></li>
+<li><em>100</em><a href="http://www.eetop.cn/blog/html/45/11145.html">taoyuetao的个人空间</a></li>
+<li><em>99</em><a href="http://www.eetop.cn/blog/html/22/6222.html">blue1025的个人空间</a></li>
+<li><em>87</em><a href="http://www.eetop.cn/blog/html/61/239461.html">shiyinjita的个人空间</a></li>
+<li><em>87</em><a href="http://www.eetop.cn/blog/html/66/505866.html">羊村村长</a></li>
+</ol>
+</div>
+</div>
+
+
+
+
+<div class="sideL">			
+<div class="block" style="height: 475px; overflow: hidden;">
+<div id="blogs" class="block">
+<h3 id="blogstabs" class="tabs">
+<a id="spacestartab" href="javascript:setTab('blogs','spacestar');" class="tab curtab">空间之星</a>
+<a id="spaceranktab" href="javascript:setTab('blogs','spacerank');" class="tab">空间总排行</a>
+</h3>
+<div id="spacestar" class="tabcontent"><ul class="imgthumblist" style="margin: 6px 0 0 8px">
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/06/103806.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=103806" alt="seawang的个人空间" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/06/103806.html">seawang</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/65/1196765.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=1196765" alt="硬汉" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/65/1196765.html">ICNO.1</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/03/6503.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=6503" alt="东方不系之舟" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/03/6503.html">wildgoat</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/28/1561828.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=1561828" alt="路科验证" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/89/807489.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=807489" alt="swary的个人空间" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/89/807489.html">swary</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/44/1582944.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=1582944" alt="mervin_li的个人空间" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/44/1582944.html">mervin_li</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/53/378653.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=378653" alt="qiwentuo的个人空间" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/53/378653.html">qiwentuo</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/46/553746.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=553746" alt="ASIC&amp;FPGA" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/46/553746.html">acgoal</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/30/1638430.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=1638430" alt="晗" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/30/1638430.html">tfpwl_lj</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/25/853625.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=853625" alt="goodgoodstudy" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/25/853625.html">suiyingy</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/80/1264080.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=1264080" alt="打铁匠" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/80/1264080.html">胭脂盗</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/84/1573384.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=1573384" alt="那佯追风筝的个人空间" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/84/1573384.html">Dream_cluster</a></p>
+</li>
+</ul>
+</div>
+<div id="spacerank" class="tabcontent" style="display: none;"><ul class="imgthumblist" style="margin: 6px 0 0 8px">
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/74/238474.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=238474" alt="绝地求生" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/74/238474.html">8779586</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/06/103806.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=103806" alt="seawang的个人空间" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/06/103806.html">seawang</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/49/204849.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=204849" alt="凌阳嵌入式培训" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/49/204849.html">凌阳教育</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/30/1574630.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=1574630" alt="电源芯片，充电芯片，LED驱动，碳化硅二极管，IGBT，雾化片驱动，马达驱动，视频放大器，音频模拟开" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/30/1574630.html">mk008</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/14/123914.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=123914" alt="中国IC技术交易网" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/14/123914.html">jgxdz</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/11/317611.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=317611" alt="yuedx的个人空间" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/11/317611.html">yuedx</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/03/6503.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=6503" alt="东方不系之舟" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/03/6503.html">wildgoat</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/55/1518355.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=1518355" alt="imicman的个人空间" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/55/1518355.html">imicman</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/03/850203.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=850203" alt="东方硬件" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/03/850203.html">orihard1</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/28/1561828.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=1561828" alt="路科验证" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/68/230368.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=230368" alt="domiso的个人空间" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/68/230368.html">domiso</a></p>
+</li>
+<li class="smallthumb">
+<div><a href="http://www.eetop.cn/blog/html/92/23692.html"><img src="http://bbs.eetop.cn/uc_server/avatar.php?uid=23692" alt="成都市炜之峰科技有限公司" /></a></div>
+<p><a href="http://www.eetop.cn/blog/html/92/23692.html">yiffer</a></p>
+</li>
+</ul>
+</div>
+</div>	
+</div>
+
+</div>
+<div class="a_mainarea">
+<div class="block cleanblock" style="height:475px; overflow:hidden;">
+<h3><a href="http://www.eetop.cn/blog/html/spaces.html">个人空间</a> &bull; <a href="http://www.eetop.cn/blog/html/blog.html">日志</a> &bull; <a href="http://www.eetop.cn/blog/html/image.html">图片</a></h3>
+<!-- 周评论榜 -->
+                                
+ <ul class="a_list2col" style=" margin-bottom:5px;height:420px; overflow:hidden;">
+<li><cite><a href="http://www.eetop.cn/blog/html/06/103806.html">seawang</a> </cite><a href="http://www.eetop.cn/blog/html/06/103806-6339650.html">偶然听到这首歌，还挺喜欢。</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/81/1643681.html">skylab01</a> </cite><a href="http://www.eetop.cn/blog/html/81/1643681-6339649.html">「邀请函」SKYLAB即将亮相2018国际物联网.</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/57/839557.html">yang_054430</a> </cite><a href="http://www.eetop.cn/blog/html/57/839557-6339630.html">后仿，形式验证，STA</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/57/839557.html">yang_054430</a> </cite><a href="http://www.eetop.cn/blog/html/57/839557-6339628.html">后仿</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/65/1196765.html">ICNO.1</a> </cite><a href="http://www.eetop.cn/blog/html/65/1196765-6339610.html">好男人应该是一款性能优异的传感器(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/03/6503.html">wildgoat</a> </cite><a href="http://www.eetop.cn/blog/html/03/6503-6339582.html">[ZZ]DC中的target_library、link_librar.</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/65/1196765.html">ICNO.1</a> </cite><a href="http://www.eetop.cn/blog/html/65/1196765-6339581.html">硬件开发者之路之——运放共模电压的解释(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339579.html">有了大数据，覆盖率就能收敛了吗?（续）(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339578.html">有了大数据，覆盖率就能收敛了吗?(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339576.html">太难了，功耗分析这道题我不会做！！（续）(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339575.html">太难了，功耗分析这道题我不会做！！(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339574.html">解决系统验证复杂性难题恐怕只有它了（续）(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339573.html">解决系统验证复杂性难题恐怕只有它了(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339572.html">形式验证能像仿真验证一样有勇气签字画押.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339571.html">形式验证能像仿真验证一样有勇气签字画押.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339569.html">SV及UVM高级话题篇之五（终）：OVM与UVM.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339568.html">SV及UVM高级话题篇之五（终）：OVM与UVM.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339567.html">SV及UVM高级话题篇之四：OVM到UVM的移植.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339566.html">SV及UVM高级话题篇之四：OVM到UVM的移植.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339565.html">SV及UVM高级话题篇之四：OVM到UVM的移植.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339564.html">SV及UVM高级话题篇之四：OVM到UVM的移植(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339563.html">SV及UVM高级话题篇之三：SV单元测试方法.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339562.html">SV及UVM高级话题篇之三：SV单元测试方法.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339561.html">SV及UVM高级话题篇之二：SystemVerilog开.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339560.html">SV及UVM高级话题篇之二：SystemVerilog开.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339559.html">SV及UVM高级话题篇之一：SystemVerilog开.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339558.html">SV及UVM高级话题篇之一：SystemVerilog开.</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339556.html">SV及UVM高级话题篇之一：SystemVerilog开.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339554.html">SV及UVM接口应用篇之五（终）：脚本语言.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/28/1561828.html">路科验证</a> </cite><a href="http://www.eetop.cn/blog/html/28/1561828-6339553.html">SV及UVM接口应用篇之五（终）：脚本语言.(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/66/505866.html">njithjw</a> </cite><a href="http://www.eetop.cn/blog/html/66/505866-6339529.html">按键去抖动</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/89/807489.html">swary</a> </cite><a href="http://www.eetop.cn/blog/html/89/807489-6339503.html">crystal，oscillator，时钟选择</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/65/1196765.html">ICNO.1</a> </cite><a href="http://www.eetop.cn/blog/html/65/1196765-6339499.html">硬件开发者之路之——认识AGC电路(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/94/1539194.html">toradex</a> </cite><a href="http://www.eetop.cn/blog/html/94/1539194-6339486.html">Xorg下Qt应用自启动方法</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/65/173565.html">longqingshan</a> </cite><a href="http://www.eetop.cn/blog/html/65/173565-6339485.html">delta sigma modulator stability</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/77/1371977.html">孤雨冰狐</a> </cite><a href="http://www.eetop.cn/blog/html/77/1371977-6339482.html">闰年从何而来</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/65/1196765.html">ICNO.1</a> </cite><a href="http://www.eetop.cn/blog/html/65/1196765-3978028.html">硬件开发者之路之——仪表运放有何不同？(图)</a></li>
+<li><cite><a href="http://www.eetop.cn/blog/html/65/1196765.html">ICNO.1</a> </cite><a href="http://www.eetop.cn/blog/html/65/1196765-6333572.html">硬件开发者之路之——认识光电倍增管(图)</a></li>
+</ul><!--blog345--><div id="newimage">
+<ul class="a_imgthumblist">
+</ul>
+</div>
+</div>
+<div></div>
+
+</div>
+</div>
+ 
+<div id="linkblock">
+
+<div class="blocktitle">
+<h2>社区</h2>
+</div>  
+ <!-- 链接 --><div >     
+<ul>
+    <a href="http://ti.eetop.cn/"><img  src="http://www.eetop.cn/blog/images/ac/acti60.jpg" alt="EETOP TI社区" /></a> 
+<a href="http://xilinx.eetop.cn/"><img  src="http://www.eetop.cn/blog/images/ac/xilinx-logo.jpg" alt="EETOP XILINX" /></a>
+      <a href="http://bbs.eetop.cn/"><img  src="http://www.eetop.cn/blog/images/ac/eetoplog.jpg" alt="EETOP 论坛" /></a> 
+</u1> 	
+ </div>
+<!-- /链接 -->	
+ 	
+ 	       
+<div class="blocktitle">
+<h2>友情链接</h2>
+</div>
+<!-- 链接 --><div id="friendlink">
+<ul>
+<li><a href="http://www.cena.com.cn/" title="电子信息产业网 " target="_blank">电子信息产业网</a></li>
+<li><a href="http://www.21ic.com" title="21IC" target="_blank">21IC</a></li>
+<li><a href="http://www.52rd.com" title="我爱研发网 - R&D大本营" target="_blank">我爱研发网</a></li>
+<li><a href="http://www.dianyuan.com" title="电源网" target="_blank">电源网</a></li>
+<li><a href="http://www.sunplusedu.com" title="凌阳教育" target="_blank">凌阳教育</a></li>
+<li><a href="http://www.eefocus.com" title="与非网" target="_blank">与非网</a></li>
+<li><a href="http://www.cntronics.com" title="电子元件技术网" target="_blank">电子元件技术网</a></li>
+<li><a href="http://www.cnledw.com" title="中国LED网" target="_blank">中国LED网</a></li>
+<li><a href="http://www.086ic.cn" title="中国IC技术网" target="_blank">中国IC技术网</a></li>
+<li><a href="http://www.eechina.com/" title="电子工程网" target=_blank>电子工程网</a></li>
+<li><a href="http://www.chinaaet.com" title="电子技术应用" target=_blank>电子技术应用 </a></li>
+<li><a href="http://www.rfidworld.com.cn/" title="RFID世界网" target=_blank>RFID世界网</a></li>
+<li><a href="http://www.b2bic.com/" title="B2BIC电子查询网" target=_blank>B2BIC电子查询网</a></li>
+<li><a href="http://www.21dianyuan.com/" title="世纪电源网" target=_blank>世纪电源网</a></li>
+<li><a href="http://www.fpdisplay.com/" title="中国测控网" target=_blank>中华液晶网</a></li>
+<li><a href="http://www.dqjob.com.cn" title="电气招聘" target=_blank>电气招聘</a></li>
+<li><a href="http://www.cceep.com" title="电力设备网" target=_blank>电力设备网</a></li>
+<li><a href="http://www.byf.com/" title="百方电气网" target=_blank>百方电气网</a></li>
+<li><a href="http://www.chinasmartgrid.com.cn" title="智能电网" target=_blank>智能电网</a></li>
+<li><a href="http://www.sensorshome.com" title="传感器之家" target=_blank>传感器之家</a></li>
+<li><a href="http://www.360ic.com" title="安芯商城" target=_blank>安芯商城</a></li>
+<li><a href="http://www.114ic.com" title="114IC电子网" target=_blank>114IC电子网</a></li>
+<li><a href="http://www.eccn.com/ " title="中电网 " target=_blank>中电网 </a></li>
+<li><a href="https://www.dramx.com/ " title="全球半导体观察" target=_blank>全球半导体观察</a></li>
+<li><a href="http://www.eetop.cn/blog/link.html" title="更多联接..." target="_blank">更多联接...</a></li>
+</div>  
+<!-- /链接 -->
+
+ 
+<!-- /Content -->
+<!-- Footer -->
+<div id="footer">
+<p>
+<a href="http://www.eetop.cn/blog/">ET创芯网(EETOP)-电子设计论坛、博客、超人气的电子工程师资料分享平台</a> | 
+<a href="http://bbs.eetop.cn/" target="_blank">论坛</a> | 
+<a href="http://www.eetop.cn/blog/action/site/type/panel.html">快捷面板</a> | 
+<a href="http://www.eetop.cn/blog/action/site/type/map.html">站点地图</a> | 
+
+<a href="http://www.eetop.cn/blog/action/spaces.html">空间列表</a> | 
+<a href="http://www.eetop.cn/blog/archiver/">站点存档</a> | 
+            <a href="http://bbs.eetop.cn/guanggao.html">关于我们</a> |
+<a href="/blog/contact.html">联系我们</a>
+</p>
+<p id="copyright">
+<strong>@2003-2016  中国电子顶级开发网</strong>
+<br /><a href="http://www.miibeian.gov.cn" target="_blank">京ICP备:10050787号 京公网安备：110105001212 <script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ffdfa1a2ce5868f440110d5c8fe7cd441' type='text/javascript'%3E%3C/script%3E"));</script>  <script type="text/javascript"> var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); </script> <script type="text/javascript"> try { var pageTracker = _gat._getTracker("UA-3324947-4"); pageTracker._trackPageview(); } catch(err) {}</script> <script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-3324947-23']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script> <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"238.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script> </a><br /></p>
+
+</div>
+<!-- /Footer -->
+</div>
+<!-- 广告位：weixin-left -->
+<script type="text/javascript" >BAIDU_CLB_SLOT_ID = "1050080";</script>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/o.js"></script>
+<div class="alert_windows"  display: none;">
+<span>X</span>
+<ins class='dcmads' style='display:inline-block;width:640px;height:480px'
+    data-dcm-placement='N7384.1747347EETOP.CN/B20518082.209729653'
+    data-dcm-rendering-mode='iframe'
+    data-dcm-https-only
+    data-dcm-resettable-device-id=''
+    data-dcm-app-id=''>
+  <script src='https://www.googletagservices.com/dcm/dcmads.js'></script>
+</ins>
+</div>
+
+<div class="alert_windows1" style="TOP: 0px;  " > 
+<ins class='dcmads' style='display:inline-block;width:468px;height:60px'
+    data-dcm-placement='N4481.1747347EETOP.CN/B8882186.224246180'
+    data-dcm-rendering-mode='script'
+    data-dcm-https-only
+    data-dcm-resettable-device-id=''
+    data-dcm-app-id=''
+    data-dcm-click-tracker=''>
+  <script src='https://www.googletagservices.com/dcm/dcmads.js'></script>
+</ins>
+</div>
+
+</body>
+</html>
+			<script language="javascript">
+			<!--
+			var Modified = new Date(document.lastModified);
+			var copyright = document.getElementById("xspace-copyright");
+			if(copyright) {
+				copyright.innerHTML += "Last update: <a href=\"http://www.eetop.cn/blog/index.php?action/index/php/1\" title=\"点击可以立即更新本页面\">"+(Modified.getYear()<200?(Modified.getYear()+1900):Modified.getYear())+"-"+(Modified.getMonth()+1)+"-"+Modified.getDate()+" "+Modified.getHours()+":"+Modified.getMinutes()+":"+Modified.getSeconds() + "</a><br>";
+			}
+			document.write('<script src="http://www.eetop.cn/blog/batch.html.php?code=http%253A%252F%252Fwww.eetop.cn%252Fblog%252Findex.php%253Faction%252Findex%2F1531365300%2F900%2F0%2F0%2Findex&amp;lastmodified=' + Modified.getTime() + '" type="text\/javascript" language="javascript"><\/script>');
+			//-->
+			</script>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">        <meta http-equiv="X-UA-Compatible" content="IE=edge">        <meta http-equiv="Cache-Control" content="no-transform">        <meta http-equiv="Cache-Control" content="no-siteapp">        <meta http-equiv="Content-language" content="zh-CN">        <meta name="format-detection" content="telephone=no">        <meta name="mobile-agent" content="format=html5;url=http://m.haofang.net/CITY_CODE/index">        <meta name="applicable-device" content="pc">        <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">        <link rel="alternate" media="only screen and(max-width: 640px)" href="http://bj.haofang.net//" >        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>        <title>找好房找好经纪人 业主直卖 特价房源 超低佣金-都在优优好房</title>        <meta name="keywords" content="北京二手房 北京租房 北京新房 业主房源" />        <meta name="description" content="优优好房提供最及时的房地产新闻资讯,最全面的业主租售房源信息，每日实时更新全城数千中介公司上万经纪人，最新挂牌的租售房源，实名认证管理，诚信服务欢迎监督举报"/>        <meta http-equiv="mobile-agent" content="format=wml; url=http://m.haofang.net/" />        <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.haofang.net/" />        <meta name="author" content="好房通科技股份有限公司" />        <meta name="y_key" content="00522f91b48a2d8e" />        <meta name="alexaVerifyID" content="hY2KtllbeWgkR6oo04tq3ith-Lc" />        <meta name="google-site-verification" content="0vqm5IWZqtoTWZCSEpj2uWl_o1kMsTsH0cu03LsIynw" />        <meta name="robots" content="all" />            <link href="/Public/newPC/css/reset.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="//mat1.gtimg.com/house/js/esf/jquery.min.js"></script>
+    
+    <link href="/Public/newPC/css/_header_index.css?t=20180711" rel="stylesheet" type="text/css">
+    <link href="/Public/newPC/css/_footer.css" rel="stylesheet" type="text/css">
+    <link href="/Public/newPC/css/index.css?t=20180606" rel="stylesheet" type="text/css">
+
+    
+    <script type="text/javascript">
+        var caseType = 'sale';
+    </script>
+    <script type="text/javascript" src="/Public/newPC/js/index.js?t=11"></script>
+    <script type="text/javascript" src="/Public/newPC/js/jquery.stellar.min.js"></script>
+
+</head>
+<body>
+	    <script type="text/javascript">
+	document.write('<link rel="stylesheet" href="/Public/newPC/css/_123.css?time='+new Date().getTime()+'">');
+	</script>
+<script type="text/javascript">
+	if(typeof caseType == 'undefined'){
+		var caseType = 'lease';	
+	}
+	var cityCode = '';
+    function removeElement(_element){
+        var _parentElement = _element.parentNode;
+        if(_parentElement){
+            _parentElement.removeChild(_element);
+        }
+    }
+</script>
+
+
+<link href="/Public/newPC/css/_city.css" rel="stylesheet" type="text/css">
+<!--城市切换-->
+<div class="city-change">
+    <div class="overlay-bg"></div>
+    <div class="city-box">
+        <div class="close"></div>
+        <div class="title">选择城市</div>
+        <div class="city-list" id="city-list"></div>
+    </div>
+</div>
+<script src="/Public/newPC/js/_city.js"></script>
+<!--城市切换/-->
+<!-- 公用 toast 弹窗 -->
+<style>
+    .common-toast{
+        position: fixed;
+        margin: auto;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        line-height: 40px;
+        padding: 0 20px;
+        border-radius: 6px;
+        z-index: 1003;
+        background: rgba(0,0,0,0.65);
+    }
+    /* 只对IE8有效 */
+    @media \0screen {
+        .common-toast {
+            background: rgb(0,0,0);
+        }
+    }
+    .common-toast i{
+        display: inline-block;
+    }
+    .common-toast span{
+        display: inline-block;
+        font-size: 15px;
+        color: #fff;
+    }
+</style>
+<div class="common-toast hide">
+    <i></i>
+    <span></span>
+</div>
+<script>
+    function toast(txt) {
+        if(!txt){return;}
+        $('.common-toast span').text(txt);
+        $('.common-toast').show();
+            setTimeout(function (){
+                $('.common-toast').fadeOut();
+            },1500)
+    }
+</script>
+<!-- 公用 toast 弹窗/ -->
+
+
+
+
+
+
+
+    <!-- 首页 header -->
+    <div class="header" data-stellar-background-ratio="0.07" style="background-position-y: 0px;">
+        <div class="wrapper w-1200">
+            <div class="fl">
+                <a href="javascript:void(0);" class="logo fl"></a>
+                <div class="local-city"><i></i>北京</div>
+            </div>
+            <div class="nav">
+    <ul>
+        <li class="fl"><a href="/sale/">二手房</a></li>
+        <li class="fl"><a href="/loupan/">新房</a></li>
+        <li class="fl"><a href="/lease/">租房</a></li>
+        <li class="fl"><a href="/apartment/">公寓</a></li>        <li class="fl"><a href="/tool/">查房价</a></li>        <li class="fl"><a href="/tool/taxes/">工具</a></li>
+                        <li class="fl"><a href="/news/">百科</a></li>
+                
+        <!--微信登录-->
+                    <li class="app-tab icon-tab wxLogin">
+                <a href="javascript:void(0);"><i class="login_icon"></i>微信登录</a>
+            </li>
+        <li class="app-tab icon-tab"><a href="javascript:void(0);">
+            <i class="app-icon"></i>APP下载</a>
+            <div class="app-download">
+                <div class="app-code"></div>
+                <div class="tips">扫码下载优优好房APP</div>
+                <div class="slogan">优优好房，便宜找好房</div>
+            </div>
+        </li>
+        <li class="icon-tab"><a href="http://www.hftsoft.com/download.shtml#stores"><i class="saas-icon"></i>SaaS系统</a></li>
+    </ul>
+</div>
+<!--导航栏中引入 微信登录-->
+<link href="/Public/newPC/css/_weixinLogin.css?t=20180711" rel="stylesheet" type="text/css">
+<!--导航栏-->
+<div class="weixin-layer"></div>
+<div class="weixinLogin">
+    <div class="close"></div>
+    <div class="logo">微信登录</div>
+    <div class="code">
+        <div class="code-box" id="js-wx-login"></div>
+    </div>
+    <div class="text">打开微信客户端扫码登录</div>
+    <div class="tag">
+        <div class="n-reg">免注册</div>
+        <div class="n-sr">零骚扰</div>
+        <div class="high-eff">高效率</div>
+    </div>
+</div>
+<script type="text/javascript" src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+<script type="text/javascript" src="/Public/newPC/js/md5.js"></script>
+<script>
+    var hf_userId = '';
+    var firstWxLoginFlag = true;    //首次登陆标志
+    $(function () {
+        $('.close').click(function () {
+            $('.weixin-layer').css('display','none');
+            $('.weixinLogin').css('display','none');
+        });
+        /*点击微信登录*/
+        $('.wxLogin').click(function () {
+            if($(this).hasClass('has-loginin')){
+                return;
+            }
+            if(!!firstWxLoginFlag){
+                /*初始化微信登录*/
+                var curUrl = window.location.href;        //获取当前访问地址
+                var obj = new WxLogin({
+                    self_redirect:false,
+                    id:"js-wx-login",
+                    appid: "wx877eb668d14c5be8",
+                    scope: "snsapi_login",
+                    redirect_uri: encodeURI("http://www.haofang.net/Api/Weixin/codeInfo?backUrl="+curUrl),
+                    state: String(md5((new Date).getTime())),
+                    style: "white",
+                });
+                firstWxLoginFlag = false;
+            }
+            $('.weixin-layer').css('display','block');
+            $('.weixinLogin').css('display','block');
+        });
+        /*退出登录*/
+        $('.wx-logout').on('click',function (){
+            $.ajax({
+                url: '/Home/News/wxLogout',
+                success: function (res) {
+                    window.location.reload();
+                }
+            })
+        })
+
+    });
+</script>
+
+<!--导航栏/-->
+            <div class="header-wrap">
+                <div class="wrap-ico"></div>
+                <div class="search-box-wrap">
+                    <div class="search-box-con">
+                        <div class="menu fl">
+                            <ul>
+                                <li data-left="13px" class="check"><span>二手房</span></li>
+                                <li data-left="90px"><span>新房</span></li>
+                                <li data-left="157px"><span>租房</span></li>
+                                <!-- 
+                                <li data-left="227px"><span>小区</span></li>
+                                <li data-left="294px"><span>公寓</span></li> -->
+                            </ul>
+                            <i></i>
+                        </div>
+                        <div class="search">
+                            <div class="box">
+                                <div class="search-box">
+                                    <i class="search-icon"></i>
+                                    <input id="kwd" class="text" type="text" autocomplete="off" placeholder="请输入小区名称"/>
+                                    <div class="btn search-btn">开始搜索</div>
+                                </div>
+                                <div class="search-res hide">
+                                    <ul id="resultUl"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 首页 header/-->
+    <!-- home-nav -->
+    <div class="home-nav w-1200">
+        <ul class="count-4 clearfix">
+            <li class="hvr-bob"><a href="/sale/"><img src="/Public/newPC/images/index/home_nav_1.png?t=20180606"
+                                                     alt="找二手房"/><b>找二手房</b>
+                <p>日增2W+ 真实有效</p></a></li>
+            <li class="hvr-bob"><a href="/newhouse/"><img src="/Public/newPC/images/index/home_nav_2.png?t=20180606"
+                                                         alt="找新房"/><b>找新房</b>
+                <p>一手咨询 全城询价</p></a></li>
+            <li class="hvr-bob"><a href="/lease/"><img src="/Public/newPC/images/index/home_nav_3.png?t=20180606"
+                                                      alt="找租房"/><b>找租房</b>
+                <p>业主出租 零中介费</p></a></li>
+            <li class="hvr-bob hvr-vr"><a href="/sale/z6/"><img
+                    src="/Public/newPC/images/index/home_nav_4.png?t=20180606" alt="VR看房"/><b>VR看房</b>
+                <p>身临其境 高效选房</p></a></li>
+        </ul>
+    </div>
+    <!-- home-nav -->
+    <!-- house-list -->
+    <div>
+        <div class="house-list">
+                            <div class="name"><i></i>假一赔百真房源</div>
+                <p>优优好房郑重承诺，假一赔百房源均真实有效<a href="/sale/z6/">查看更多推荐>></a></p>            <ul class="count-4">
+                <li>
+	    <a target="_blank" href="/sale/6666273_1">
+	        				<div class="img"><img src="http://pic.myfun7.com/oss/online/tmp/2018/07/06/ffbcff61cbc047a69cb69f70213e1e57.jpg?x-oss-process=image/resize,m_fill,h_240,w_270" onerror="removeElement(this)" alt="未来科技城别墅里的公寓35万一套紧邻地铁17号线"></div>	        <div class="info">
+	            <div class="title">未来科技城别墅里的公寓35万一套紧邻地铁17号线</div>
+	            <div class="detail">1室1厅 36㎡ 南北 普通</div>
+	            <div class="build">蓬莱公寓 <span class="price">35 万</span></div>
+	        </div>
+	    </a>
+	</li><li>
+	    <a target="_blank" href="/sale/6666258_1">
+	        				<div class="img"><img src="http://pic.myfun7.com/oss/online/tmp/2018/07/05/de32b6c3b0474bc2be079a3a58679f5e.jpg?x-oss-process=image/resize,m_fill,h_240,w_270" onerror="removeElement(this)" alt="50年产权南北通透36平米紧邻未来科技城35万一套"></div>	        <div class="info">
+	            <div class="title">50年产权南北通透36平米紧邻未来科技城35万一套</div>
+	            <div class="detail">1室1厅 36㎡ 南北 普通</div>
+	            <div class="build">天通苑 <span class="price">35 万</span></div>
+	        </div>
+	    </a>
+	</li><li>
+	    <a target="_blank" href="/sale/6662150_1">
+	        				<div class="img"><img src="http://pic.myfun7.com/oss/online/tmp/2018/05/26/963a007b7c4f48a4bc0878a75149607f.mp4_img?x-oss-process=image/resize,m_fill,h_240,w_270" onerror="removeElement(this)" alt="好房源只有一套，现房即买即住"></div>	        <div class="info">
+	            <div class="title">好房源只有一套，现房即买即住</div>
+	            <div class="detail">3室2厅 139.8㎡ 南北 毛坯</div>
+	            <div class="build">世界名园 <span class="price">339 万</span></div>
+	        </div>
+	    </a>
+	</li><li>
+	    <a target="_blank" href="/sale/6603413_1">
+	        				<div class="img"><img src="http://pic.myfun7.com/oss/online/erpFunVideo/2016/09/30/1020af4db3d54c44ad7dbdb915ff0abb.jpg?x-oss-process=image/resize,m_fill,h_240,w_270" onerror="removeElement(this)" alt="温泉别墅紧急加售，良心推荐"></div>	        <div class="info">
+	            <div class="title">温泉别墅紧急加售，良心推荐</div>
+	            <div class="detail">3室2厅 130㎡ 南北 毛坯</div>
+	            <div class="build">温泉新都孔雀城 <span class="price">280 万</span></div>
+	        </div>
+	    </a>
+	</li>            </ul>
+        </div>
+    </div>
+    <!-- house-list -->
+
+    <!-- app-banner -->
+    <div class="app-banner">
+        <div class="w-1200 rel app-banner-cont">
+            <div class="app-banner-text"></div>
+            <div class="code-box">
+                <div class="wxapp-code fl">
+                    <div class="icon"></div>
+                    <div class="text">微信扫码体验小程序</div>
+                </div>
+                <div class="app-code fl">
+                    <div class="icon"></div>
+                    <div class="text">微信扫码下载APP</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- app-banner -->
+    <div>
+            <div class="house-list house-list-month w-1200">
+                <div class="name"><i></i>VR看房</div>
+                <p>720度全景立体观看房源，真实房源<a href="/sale/z5/">查看更多推荐>></a></p>
+                <ul class="count-3">
+                    <li>
+	    <a target="_blank" href="/sale/6629334_1">
+	        <div class="img"><img src="http://pic.myfun7.com/oss/online/vr/2018/02/04/d068ec7728c54a3c842fe3dfeba4de9d/negx.jpg?x-oss-process=image/resize,m_fill,h_240,w_372" onerror="removeElement(this)" alt="北分厂宿舍楼420万元62.3㎡2室1厅1卫1阳台南向"></div>
+	        	        <div class="info">
+	            <div class="title">北分厂宿舍楼420万元62.3㎡2室1厅1卫1阳台南向</div>
+	            <div class="detail">2室1厅 62.3㎡ 南 普通</div>
+	            <div class="build">北分厂宿舍楼 <span class="price">360 万</span></div>
+	        </div>
+	    </a>
+	</li><li>
+	    <a target="_blank" href="/sale/6647806_1">
+	        <div class="img"><img src="http://pic.myfun7.com/oss/online/vr/2018/03/28/bc4be11f4898425aa7295cf0827c356f/negx.jpg?x-oss-process=image/resize,m_fill,h_240,w_372" onerror="removeElement(this)" alt="河西前沙涧7号院精装306万元万元1室1厅1卫1阳台出售 送超大阳台"></div>
+	        	        <div class="info">
+	            <div class="title">河西前沙涧7号院精装306万元万元1室1厅1卫1阳台出售 送超大阳台</div>
+	            <div class="detail">1室1厅 61㎡ 南 精装</div>
+	            <div class="build">前沙涧7号院 <span class="price">266 万</span></div>
+	        </div>
+	    </a>
+	</li><li>
+	    <a target="_blank" href="/sale/6658226_1">
+	        <div class="img"><img src="http://pic.myfun7.com/oss/online/vr/2018/02/26/e48de9c8358c4290aac558adc8df000a/negx.jpg?x-oss-process=image/resize,m_fill,h_240,w_372" onerror="removeElement(this)" alt="经典尚峰尚水尚居园3室2厅2卫2阳台！精装修！两证齐全！"></div>
+	        	        <div class="info">
+	            <div class="title">经典尚峰尚水尚居园3室2厅2卫2阳台！精装修！两证齐全！</div>
+	            <div class="detail">3室2厅 155㎡ 南北 毛坯</div>
+	            <div class="build">尚峰尚水尚居园 <span class="price">850 万</span></div>
+	        </div>
+	    </a>
+	</li>                </ul>
+            </div>
+        </div>    <!-- house-list -->
+            <div>
+            <div class="house-list house-list-month w-1200">
+                <div class="name"><i></i>精选租房</div>
+                <p>入住花钱少，租房无烦恼<a href="/lease/z6/">查看更多推荐>></a></p>
+                <ul class="count-3">
+                    <li>
+	    <a target="_blank" href="/lease/3575640_1">
+	        <div class="img"><img src="http://pic.myfun7.com/oss/online/tmp/2018/06/14/ccfb8171691a4d8c97cfe4b2b8dc1e75.jpeg?x-oss-process=image/resize,m_fill,h_240,w_372" onerror="removeElement(this)" alt="国贸CBD双井商圈紧邻地铁站户型方正的办公室特价招租"></div>
+	        	        <div class="info">
+	            <div class="title">国贸CBD双井商圈紧邻地铁站户型方正的办公室特价招租</div>
+	            <div class="detail">2室1厅 150㎡ 东南 精装</div>
+	            <div class="build">建外SOHO东区 <span class="price">160 元/月</span></div>
+	        </div>
+	    </a>
+	</li><li>
+	    <a target="_blank" href="/lease/3583040_1">
+	        <div class="img"><img src="http://pic.myfun7.com/oss/online/tmp/2018/06/24/2ecc7dd5920b4af7b71f7b0e374f8ab3.jpg?x-oss-process=image/resize,m_fill,h_240,w_372" onerror="removeElement(this)" alt="五道口地铁 地质大学 主卧和主卧阳台 电梯楼 随时看房"></div>
+	        	        <div class="info">
+	            <div class="title">五道口地铁 地质大学 主卧和主卧阳台 电梯楼 随时看房</div>
+	            <div class="detail">3室1厅 20㎡ 西南 精装</div>
+	            <div class="build">地质大学家属院 <span class="price">4000 元/月</span></div>
+	        </div>
+	    </a>
+	</li><li>
+	    <a target="_blank" href="/lease/3583707_1">
+	        <div class="img"><img src="http://pic.myfun7.com/oss/online/tmp/2018/07/02/145291be7b3e4da080a13dedec3af09d.jpg?x-oss-process=image/resize,m_fill,h_240,w_372" onerror="removeElement(this)" alt="五道口地铁 地质大学校内 大一居 房东直租 新楼 随时看房"></div>
+	        	        <div class="info">
+	            <div class="title">五道口地铁 地质大学校内 大一居 房东直租 新楼 随时看房</div>
+	            <div class="detail">1室1厅 75㎡ 南 精装</div>
+	            <div class="build">地质大学家属院 <span class="price">7500 元/月</span></div>
+	        </div>
+	    </a>
+	</li>                </ul>
+            </div>
+        </div>    <!-- house-list -->
+
+    <!-- 首页app导流 -->
+    <div class="app_daoliu_layer">
+        <div class="app_content">
+            <div class="app_img"></div>
+            <div class="app_desc_c">
+                <div class="app_title">APP专享海量业主直卖房源</div>
+                <div class="app_desc">扫码下载优优好房APP</div>
+            </div>
+            <div class="app_qr"></div>
+            <div class="app_close closeAppLayer"></div>
+        </div>
+    </div>
+    <!-- 首页app导流/ -->
+
+
+
+
+
+<!--列表主区内容-->
+
+    
+    
+
+<!--列表主区内容/-->
+
+<!--推荐楼盘-->
+
+<!--推荐楼盘/-->
+
+<!--房源对比-->
+
+<!--房源对比/-->
+<!--返回顶部-->
+
+<!--返回顶部/-->
+
+<!--footer-->
+
+    <!--底部-->
+<div class="footer rel">
+    <div class="wrapper w-1200">
+        <div class="uu-link-box">
+            <div class="fl">
+    <div class="tab">
+        <span data-type="city-sale-list" class="hover">城市二手房</span>
+        <span data-type="city-lease-list">城市租房</span>
+        <span data-type="city-newhouse-list">城市新房</span>
+        
+        <span data-type="reg-sale-list">区域二手房</span>
+	        <span data-type="reg-lease-list">区域租房</span>
+	        <span data-type="reg-newhouse-list">区域新房</span>    </div>
+    <div class="link-list">
+        <div class="city-sale-list" style="display:block;">
+            <dd>
+                <a href='http://cd.haofang.net/sale/' target="_blank">成都市二手房</a><a href='http://bj.haofang.net/sale/' target="_blank">北京市二手房</a><a href='http://sh.haofang.net/sale/' target="_blank">上海市二手房</a><a href='http://cq.haofang.net/sale/' target="_blank">重庆市二手房</a><a href='http://hz.haofang.net/sale/' target="_blank">杭州市二手房</a><a href='http://gz.haofang.net/sale/' target="_blank">广州市二手房</a><a href='http://sjz.haofang.net/sale/' target="_blank">石家庄市二手房</a><a href='http://ty.haofang.net/sale/' target="_blank">太原市二手房</a><a href='http://hu.haofang.net/sale/' target="_blank">呼和浩特市二手房</a><a href='http://sy.haofang.net/sale/' target="_blank">沈阳市二手房</a><a href='http://cc.haofang.net/sale/' target="_blank">长春市二手房</a><a href='http://hrb.haofang.net/sale/' target="_blank">哈尔滨市二手房</a><a href='http://nj.haofang.net/sale/' target="_blank">南京市二手房</a><a href='http://hf.haofang.net/sale/' target="_blank">合肥市二手房</a><a href='http://fz.haofang.net/sale/' target="_blank">福州市二手房</a><a href='http://nc.haofang.net/sale/' target="_blank">南昌市二手房</a><a href='http://jn.haofang.net/sale/' target="_blank">济南市二手房</a><a href='http://zz.haofang.net/sale/' target="_blank">郑州市二手房</a><a href='http://wh.haofang.net/sale/' target="_blank">武汉市二手房</a><a href='http://cs.haofang.net/sale/' target="_blank">长沙市二手房</a><a href='http://nn.haofang.net/sale/' target="_blank">南宁市二手房</a><a href='http://haikou.haofang.net/sale/' target="_blank">海口市二手房</a><a href='http://gy.haofang.net/sale/' target="_blank">贵阳市二手房</a><a href='http://km.haofang.net/sale/' target="_blank">昆明市二手房</a><a href='http://lasa.haofang.net/sale/' target="_blank">拉萨市二手房</a><a href='http://xa.haofang.net/sale/' target="_blank">西安市二手房</a><a href='http://lz.haofang.net/sale/' target="_blank">兰州市二手房</a><a href='http://xn.haofang.net/sale/' target="_blank">西宁市二手房</a><a href='http://yinchuan.haofang.net/sale/' target="_blank">银川市二手房</a><a href='http://wlmq.haofang.net/sale/' target="_blank">乌鲁木齐市二手房</a><a href='http://tj.haofang.net/sale/' target="_blank">天津市二手房</a>            </dd>
+        </div>
+        <div class="city-lease-list">
+            <dd>
+                <a href='http://cd.haofang.net/lease/' target="_blank">成都市租房</a><a href='http://bj.haofang.net/lease/' target="_blank">北京市租房</a><a href='http://sh.haofang.net/lease/' target="_blank">上海市租房</a><a href='http://cq.haofang.net/lease/' target="_blank">重庆市租房</a><a href='http://hz.haofang.net/lease/' target="_blank">杭州市租房</a><a href='http://gz.haofang.net/lease/' target="_blank">广州市租房</a><a href='http://sjz.haofang.net/lease/' target="_blank">石家庄市租房</a><a href='http://ty.haofang.net/lease/' target="_blank">太原市租房</a><a href='http://hu.haofang.net/lease/' target="_blank">呼和浩特市租房</a><a href='http://sy.haofang.net/lease/' target="_blank">沈阳市租房</a><a href='http://cc.haofang.net/lease/' target="_blank">长春市租房</a><a href='http://hrb.haofang.net/lease/' target="_blank">哈尔滨市租房</a><a href='http://nj.haofang.net/lease/' target="_blank">南京市租房</a><a href='http://hf.haofang.net/lease/' target="_blank">合肥市租房</a><a href='http://fz.haofang.net/lease/' target="_blank">福州市租房</a><a href='http://nc.haofang.net/lease/' target="_blank">南昌市租房</a><a href='http://jn.haofang.net/lease/' target="_blank">济南市租房</a><a href='http://zz.haofang.net/lease/' target="_blank">郑州市租房</a><a href='http://wh.haofang.net/lease/' target="_blank">武汉市租房</a><a href='http://cs.haofang.net/lease/' target="_blank">长沙市租房</a><a href='http://nn.haofang.net/lease/' target="_blank">南宁市租房</a><a href='http://haikou.haofang.net/lease/' target="_blank">海口市租房</a><a href='http://gy.haofang.net/lease/' target="_blank">贵阳市租房</a><a href='http://km.haofang.net/lease/' target="_blank">昆明市租房</a><a href='http://lasa.haofang.net/lease/' target="_blank">拉萨市租房</a><a href='http://xa.haofang.net/lease/' target="_blank">西安市租房</a><a href='http://lz.haofang.net/lease/' target="_blank">兰州市租房</a><a href='http://xn.haofang.net/lease/' target="_blank">西宁市租房</a><a href='http://yinchuan.haofang.net/lease/' target="_blank">银川市租房</a><a href='http://wlmq.haofang.net/lease/' target="_blank">乌鲁木齐市租房</a><a href='http://tj.haofang.net/lease/' target="_blank">天津市租房</a>            </dd>
+        </div>
+        <div class="city-newhouse-list">
+            <dd>
+                <a href='http://cd.haofang.net/newhouse/' target="_blank">成都市新房</a><a href='http://bj.haofang.net/newhouse/' target="_blank">北京市新房</a><a href='http://sh.haofang.net/newhouse/' target="_blank">上海市新房</a><a href='http://cq.haofang.net/newhouse/' target="_blank">重庆市新房</a><a href='http://hz.haofang.net/newhouse/' target="_blank">杭州市新房</a><a href='http://gz.haofang.net/newhouse/' target="_blank">广州市新房</a><a href='http://sjz.haofang.net/newhouse/' target="_blank">石家庄市新房</a><a href='http://ty.haofang.net/newhouse/' target="_blank">太原市新房</a><a href='http://hu.haofang.net/newhouse/' target="_blank">呼和浩特市新房</a><a href='http://sy.haofang.net/newhouse/' target="_blank">沈阳市新房</a><a href='http://cc.haofang.net/newhouse/' target="_blank">长春市新房</a><a href='http://hrb.haofang.net/newhouse/' target="_blank">哈尔滨市新房</a><a href='http://nj.haofang.net/newhouse/' target="_blank">南京市新房</a><a href='http://hf.haofang.net/newhouse/' target="_blank">合肥市新房</a><a href='http://fz.haofang.net/newhouse/' target="_blank">福州市新房</a><a href='http://nc.haofang.net/newhouse/' target="_blank">南昌市新房</a><a href='http://jn.haofang.net/newhouse/' target="_blank">济南市新房</a><a href='http://zz.haofang.net/newhouse/' target="_blank">郑州市新房</a><a href='http://wh.haofang.net/newhouse/' target="_blank">武汉市新房</a><a href='http://cs.haofang.net/newhouse/' target="_blank">长沙市新房</a><a href='http://nn.haofang.net/newhouse/' target="_blank">南宁市新房</a><a href='http://haikou.haofang.net/newhouse/' target="_blank">海口市新房</a><a href='http://gy.haofang.net/newhouse/' target="_blank">贵阳市新房</a><a href='http://km.haofang.net/newhouse/' target="_blank">昆明市新房</a><a href='http://lasa.haofang.net/newhouse/' target="_blank">拉萨市新房</a><a href='http://xa.haofang.net/newhouse/' target="_blank">西安市新房</a><a href='http://lz.haofang.net/newhouse/' target="_blank">兰州市新房</a><a href='http://xn.haofang.net/newhouse/' target="_blank">西宁市新房</a><a href='http://yinchuan.haofang.net/newhouse/' target="_blank">银川市新房</a><a href='http://wlmq.haofang.net/newhouse/' target="_blank">乌鲁木齐市新房</a><a href='http://tj.haofang.net/newhouse/' target="_blank">天津市新房</a>            </dd>
+        </div>
+        <div class="reg-sale-list">
+            <dd>
+                <a href='/sale/a79/' target="_blank">东城区二手房</a><a href='/sale/a80/' target="_blank">西城区二手房</a><a href='/sale/a2978/' target="_blank">崇文区二手房</a><a href='/sale/a2979/' target="_blank">宣武区二手房</a><a href='/sale/a83/' target="_blank">朝阳区二手房</a><a href='/sale/a84/' target="_blank">丰台区二手房</a><a href='/sale/a85/' target="_blank">石景山区二手房</a><a href='/sale/a86/' target="_blank">海淀区二手房</a><a href='/sale/a87/' target="_blank">门头沟区二手房</a><a href='/sale/a88/' target="_blank">房山区二手房</a><a href='/sale/a89/' target="_blank">通州区二手房</a><a href='/sale/a90/' target="_blank">顺义区二手房</a><a href='/sale/a91/' target="_blank">昌平区二手房</a><a href='/sale/a92/' target="_blank">大兴区二手房</a><a href='/sale/a93/' target="_blank">怀柔区二手房</a><a href='/sale/a94/' target="_blank">平谷区二手房</a><a href='/sale/a95/' target="_blank">密云县二手房</a><a href='/sale/a96/' target="_blank">延庆县二手房</a><a href='/sale/a2893/' target="_blank">燕郊区二手房</a><a href='/sale/a3095/' target="_blank">北京周边二手房</a>            </dd>
+        </div>
+        <div class="reg-lease-list">
+            <dd>
+                <a href='/lease/a79/' target="_blank">东城区租房</a><a href='/lease/a80/' target="_blank">西城区租房</a><a href='/lease/a2978/' target="_blank">崇文区租房</a><a href='/lease/a2979/' target="_blank">宣武区租房</a><a href='/lease/a83/' target="_blank">朝阳区租房</a><a href='/lease/a84/' target="_blank">丰台区租房</a><a href='/lease/a85/' target="_blank">石景山区租房</a><a href='/lease/a86/' target="_blank">海淀区租房</a><a href='/lease/a87/' target="_blank">门头沟区租房</a><a href='/lease/a88/' target="_blank">房山区租房</a><a href='/lease/a89/' target="_blank">通州区租房</a><a href='/lease/a90/' target="_blank">顺义区租房</a><a href='/lease/a91/' target="_blank">昌平区租房</a><a href='/lease/a92/' target="_blank">大兴区租房</a><a href='/lease/a93/' target="_blank">怀柔区租房</a><a href='/lease/a94/' target="_blank">平谷区租房</a><a href='/lease/a95/' target="_blank">密云县租房</a><a href='/lease/a96/' target="_blank">延庆县租房</a><a href='/lease/a2893/' target="_blank">燕郊区租房</a><a href='/lease/a3095/' target="_blank">北京周边租房</a>            </dd>
+        </div>
+        <div class="reg-newhouse-list">
+            <dd>
+                <a href='/newhouse/a79/' target="_blank">东城区新房</a><a href='/newhouse/a80/' target="_blank">西城区新房</a><a href='/newhouse/a2978/' target="_blank">崇文区新房</a><a href='/newhouse/a2979/' target="_blank">宣武区新房</a><a href='/newhouse/a83/' target="_blank">朝阳区新房</a><a href='/newhouse/a84/' target="_blank">丰台区新房</a><a href='/newhouse/a85/' target="_blank">石景山区新房</a><a href='/newhouse/a86/' target="_blank">海淀区新房</a><a href='/newhouse/a87/' target="_blank">门头沟区新房</a><a href='/newhouse/a88/' target="_blank">房山区新房</a><a href='/newhouse/a89/' target="_blank">通州区新房</a><a href='/newhouse/a90/' target="_blank">顺义区新房</a><a href='/newhouse/a91/' target="_blank">昌平区新房</a><a href='/newhouse/a92/' target="_blank">大兴区新房</a><a href='/newhouse/a93/' target="_blank">怀柔区新房</a><a href='/newhouse/a94/' target="_blank">平谷区新房</a><a href='/newhouse/a95/' target="_blank">密云县新房</a><a href='/newhouse/a96/' target="_blank">延庆县新房</a><a href='/newhouse/a2893/' target="_blank">燕郊区新房</a><a href='/newhouse/a3095/' target="_blank">北京周边新房</a>            </dd>
+        </div>
+    </div>
+</div>        </div>
+        <div class="bottom">
+            <ul class="m-nav-footer">
+                <!--<li><em>|</em></li>-->
+                <li><a href="/Public/static/about.html" rel="nofollow" target="_blank">About Us</a></li>
+                <li><em>|</em></li>
+                <li><a href="/Public/static/ad.html" rel="nofollow" target="_blank">广告服务</a></li>
+                <li><em>|</em></li>
+                <li><a href="/Public/static/cooper.html" rel="nofollow" target="_blank">合作代理</a></li>
+                <li><em>|</em></li>
+                <li><a href="/Public/static/recruitment.html" rel="nofollow" target="_blank">诚招英才</a></li>
+                <li><em>|</em></li>
+                <li><a href="/Public/static/contact.html" rel="nofollow" target="_blank">联系我们</a></li>
+                <li><em>|</em></li>
+                <li><a href="/Public/static/webmap.html" target="_blank">网站地图</a></li>
+                <li><em>|</em></li>
+                <li><a href="/Public/static/disclaimer.html" rel="nofollow" target="_blank">免责声明</a></li>
+            </ul>
+            <p>Copyright © 2018 成都好房通科技股份有限公司 版权所有 联系地址：成都市高新区世纪城南路599号6栋2层 联系电话：028-88889666</p>
+            <p class="ft-ban"> 蜀ICP备16031626号-1 经营许可证编号：川B2-20140143
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51019002000459">
+                    <img src="http://www.beian.gov.cn/img/ghs.png" >
+                    <span>京公网安备 51019002000459号</span>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+<!--底部/-->
+<script>
+    $(function() {
+        //底部footer 切换
+        $('.footer').on('mouseover','.tab span',function (){
+            var dataType = $(this).data('type');
+            if(!dataType){return};
+            $('.footer .tab span').removeClass('hover');
+            $(this).addClass('hover');
+            $('.footer .link-list div').hide();
+            $('.footer .link-list').find('.'+dataType).show();
+        })
+        /*/!*请求获取底部footer展示数据*!/
+        var flag = window.location.href.indexOf('city')>0?1:0;
+        $.ajax({
+            data:{
+                cityId:'7',
+                isCityList:flag
+            },
+            url:'/Home/Index/getFooterData',
+            success:function(res){
+                $('.footer .uu-link-box').html(res);
+            }
+        })*/
+
+    });
+</script>
+
+<!-- Google Tag Manager -->
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TSBF2F3"
+        height="0" width="0" style="display: none; visibility: hidden"></iframe>
+</noscript>
+<script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start' : new Date().getTime(),
+            event : 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TSBF2F3');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Baidu_Js_Push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else{
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- End Baidu_Js_Push -->
+<script>
+    //新
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?1c7880e0826042ec4b3ac181a3e13b78";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!--footer-->
+</body>
+</html>

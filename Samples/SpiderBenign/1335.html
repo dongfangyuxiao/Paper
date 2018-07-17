@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+        <title>免费CAD教程网-CAD视频教程-沐风网</title>
+        <meta name="Description" content="沐风网为您提供CAD等主流行业软件的学习园地，主要包括：ug、proe、creo、solidworks、catia等软件的教程下载、在线视频教程、常见问题、图文教程、模型分享。" />
+
+        <script type="text/javascript" src="/static/2015/js/jquery-1.11.3.min.js" ></script>
+        <script type="text/javascript" src="/static/2015/js/mf_index.js" ></script>
+        <link rel="stylesheet" href="/static/2015/css/reset.css" />
+        <link rel="stylesheet" href="/static/2015/css/mf_index.css" />
+        <script src="/static/2015/js/jQselect.js"  type="text/javascript"></script><!--引用select美化插件-->
+        <script type="text/javascript">
+            function browserRedirect() {
+                var sUserAgent = navigator.userAgent.toLowerCase();
+                var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+                var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+                var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+                var bIsAndroid = sUserAgent.match(/android/i) == "android";
+                var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+                var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+                    window.location.href = 'http://m.mfcad.com';
+                }
+            }
+
+            browserRedirect();
+        </script>
+        <script type="text/javascript">
+		$(function(){	
+		  $("#cc").selectbox();//select美化对象的id
+		  var d=$("#cc_container ul li.selected");
+		  $("#searchtext").val("从这里搜索您需要的"+d.text()+"！！").css("color","#ccc");
+		  $("#cc_container ul li").click(function(){
+		     $(this).addClass("selected").siblings().removeClass("selected");
+		     var a=$("#cc_container ul li.selected");
+		     $("#searchtext").val("从这里搜索您需要的"+a.text()+"！！").css("color","#ccc");
+		     /*下面代码下是根据点击下拉的索引，然后根据索引值来给option 设置selected
+		     以便程序员获取被选中的option
+                     
+		     var i=$(this).index();
+		     $('#cc option:eq(i)').attr('selected','selected'); 
+		     var daa=$("#cc").find("option:selected").val();
+                     */
+		    
+		  });  
+		  $("#searchtext").bind("focus",function(){
+		    var da=$("#cc_container ul li.selected").text();
+		    if($(this).val()=="从这里搜索您需要的"+da+"！！"){
+		      $(this).val("").css("color","#404040");
+		    }
+		  }).bind("blur",function(){
+		    if($(this).val()==""){
+		     var ga=$("#cc_container ul li.selected");
+		    $("#searchtext").val("从这里搜索您需要的"+ga.text()+"！！").css("color","#ccc");
+		    }
+		  });
+		});
+                
+                //顶部登录状态
+                $.get("/member/ajax_top.php",function(data){
+                    data=$.parseJSON(data);
+                    if(data.uid>0){
+                        $(".mf_username").html(data.username);
+                        $(".mflogout").css('display', 'none');
+                        $(".mflogin").css('display','block');  
+                        
+                        $(".mf_ljjr").css('display', 'none');
+                        $(".mf_dlzt").css('display','block');  
+                        $avatar_img="<img src='http://bbs.mfcad.com/uc_server/avatar.php?uid="+data.mfid+"&size=middle'>";
+                        $("#mf_avatar").html($avatar_img);
+                        
+                    }
+                });
+                
+            function clickfide(){
+                var searchcon=$('#q').val();
+                if(searchcon=='从这里搜索您需要的图纸！！'){
+                    searchcon=' ';
+                    window.open("http://baidu.mfcad.com/cse/search?q="+searchcon+"&entry=1&s=12154174238747696726");
+                }else{
+                    searchcon=$('#q').val();
+                    window.open("http://baidu.mfcad.com/cse/search?q="+searchcon+"&entry=1&s=12154174238747696726");
+                    
+                }
+            }
+            var searchcon=$('#q').val();
+
+
+		</script>
+    </head>
+    <body>
+        <div class="topmenu">
+			<div class="top_menu_c">
+				<div class="top_menu_c_l">
+					<a href="/" target="_blank" class="bgn">沐风网</a>
+					<div class="menu-hover">
+						<font class="sj">设计软件</font>
+						<div id="top_menu_list" class="disnone">
+								<em>&nbsp;</em>
+								<ul>	
+									<li><a href="/cad/" target="_blank">AutoCAD</a></li>
+									<li><a href="/ug/" target="_blank">UG</a></li>
+									<li><a href="/proe/" target="_blank">ProE</a></li>
+									<li><a href="/catia/" target="_blank">CATIA</a></li>
+									<li><a href="/solidworks/" target="_blank">Solidworks</a></li>
+									<li><a href="/creo/" target="_blank">creo</a></li>
+									<li><a href="/imageware/" target="_blank">Imageware</a></li>
+									<li><a href="/mastercam/" target="_blank">MasterCAM</a></li>
+									<li><a href="/gstarcad/" target="_blank">浩辰CAD</a></li>
+							</ul>
+						</div>
+						<script type="text/javascript"> 
+							$(document).ready(function(){
+							  $(".sj").mouseover(function(){
+							    $("#top_menu_list").show();
+							  });
+							  $(".menu-hover").mouseleave(function(){
+							    $("#top_menu_list").hide();
+							  });
+							});
+						</script>
+					
+					</div>
+					<a href="http://www.mfcad.com/tuzhi/" target="_blank">沐风图纸</a>
+					<a href="http://class.mfcad.com" target="_blank">沐风网校</a>
+					<a href="http://bbs.mfcad.com" target="_blank">论坛</a>
+                                        <a href="http://diy.mfcad.com" target="_blank">DIY</a>
+				</div>
+				<ul class="top_menu_c_r">
+					<li><a href="http://u.mfcad.com/index.php/addcombine" class="lia1">在线投稿</a></li>
+					<li><a href="/tuzhi/index.php?m=member&c=content&a=publish" class="lia2">上传图纸</a></li>
+					<li class="mflogout"><a href="http://my.mfcad.com/Home/Index/login" class="lia3">登录</a></li>
+					<li class="mflogout"><a href="http://my.mfcad.com/Home/Index/register" class="lia4">注册</a></li>
+                                        <li class="mflogin"><font>您好，<b class="mf_username"></b></font><a href="http://www.mfcad.com/tuzhi/index.php?m=member" target="_blank" class="mr10 pl0">个人中心</a><a href="http://my.mfcad.com/Home/Index/logout" class="mr0 pl0">退出</a></li>
+				</ul>
+			</div>
+		</div>
+
+<div class="top">
+			<a href="http://www.mfcad.com/" target="_blank" class="mf_index_logo"><img src="http://www.mfcad.com/static/images/logo.jpg"></a>
+<script language="javascript" type="text/javascript" src="/static/2015/js/jquery.jSuggest.1.0.js"></script>
+<script language="javascript">
+    $(document).ready(function(){
+        if($('.J_Suggest_input').length>0){
+//            Wind.usepath("common/jquery.jSuggest.js",function(){
+                $(".J_Suggest_input").jSuggest({
+                    minchar: 0,
+                    delay: 200,
+                    url: "http://www.mfcad.com/tuzhi/index.php?m=search&c=index&a=key_rank",
+                    type: "GET",
+                    data: "",       //"a=searchword"
+                    loadingImg: "http://www.mfcad.com/tuzhi/statics/images/msg_img/ajax-loader.gif",
+                    autoChange: false
+                });
+//            });
+	}
+    });
+    
+    
+</script>
+				<form action="http://www.mfcad.com/tuzhi/index.php" method="get" target="_blank" id="mf_sc_form" class="mf_search_f">
+                                    <input type="hidden" name="m" value="content"/>
+				<input type="hidden" name="c" value="xlist"/>
+
+				    <div class="select">
+				      <select id="cc" style="display: none" name="cc">
+				       <option value="1">图纸</option>
+<!--				       <option value="2">设计师</option> 
+				       <option value="3">资料</option> 
+				       <option value="4">问答</option>-->
+				       <option value="5">教程</option>
+				      </select>
+				    </div>
+				    <input name="q" id="searchtext" autocomplete="off" type="text" value="" class="city_input J_Suggest_input" />
+				    <input type="submit" value="搜  索" class="mf_search_button" />
+ 					<div class="clearfix"></div>
+ 					<p class="mf_rs">
+ 						<b>热搜: </b>
+ 						<script type="text/javascript">
+ 						document.write("<scr"+"ipt src='/tuzhi/index.php?m=search&c=index&a=get_hot_keyword&pos=top' language='JavaScript'></sc"+"ript>");
+ 						</script>
+<!--                                                <script>
+
+
+
+                                                    function clickfide(){
+                                                        var searchcon=$('#searchtext').val();
+                                                        if(searchcon=='从这里搜索您需要的图纸！！'){
+                                                            searchcon=' ';
+                                                            window.open("http://baidu.mfcad.com/cse/search?q="+searchcon+"&entry=1&s=12154174238747696726");
+                                                        }else{
+                                                            searchcon=$('#searchtext').val();
+                                                            window.open("http://baidu.mfcad.com/cse/search?q="+searchcon+"&entry=1&s=12154174238747696726");
+
+                                                        }
+
+                                                    }
+                                                    var searchcon=$('#searchtext').val();
+                                                </script>-->
+
+ 					</p>
+ 					<a onclick="clickfide()"  class="mf_gjss">高级搜索</a>
+				</form>			
+			<a href="/tuzhi/index.php?m=member&c=content&a=publish" target="_blank" class="mf_upload">我要上传图纸</a>
+			<div style="float:left;margin-top: 10px;">
+                       
+                            <a href="http://bbs.mfcad.com/thread-129457-1-1.html" target="_blank" ><img src="/static/2015/img/mftool_1000.jpg"></a>
+                            <!--<a href="http://www.mfcad.com/solidworks/mufenggongjuxiang/xiazai/40426.html" target="_blank" ><img src="/static/2015/img/mftool_1000.jpg"></a>-->
+                        </div>                    
+
+		</div>
+		<div class="clearfix"></div>
+        <div class="nav">
+            <div class="nav_c">
+                <div class="nav_l">沐风网分类</div>
+                <div class="nav_r">
+                    <a href="/tuzhi/" target="_blank">图纸</a>
+                    <a href="/down/" target="_blank">教程</a>
+                    <a href="/zixun/" target="_blank">资讯</a>
+                    <a href="http://zb.mfcad.com/index.php?do=sellerlist" target="_blank">设计师</a>
+
+                    <!--					<a href="" target="_blank">问答</a>-->
+                    <a href="http://class.mfcad.com" target="_blank">网校</a>
+                    <a href="http://zb.mfcad.com" target="_blank">众包</a>
+                    <a href="http://bbs.mfcad.com" target="_blank">论坛</a>
+                    <a href="http://diy.mfcad.com" target="_blank">DIY</a>
+                    <a href="http://bbs.mfcad.com/thread-127804-1-1.html" target="_blank">QQ群</a>
+                    <a href="/hangye/" target="_blank">行业资料</a>
+                </div>
+            </div>
+        </div>
+		<style>
+			.menu-item li a:nth-child(2){background-image: none;}
+		    .menu-item li a:nth-child(3){background-image: none;}
+		    .mf_index_mjtz {background-position: 17px -925px;}
+		    .mf_index_sjfa {background-position: 17px -1057px;}
+		    .mf_index_sjfa:hover {background-position: 17px -1124px;}
+		    .mf_index_mjtz:hover {background-position: 17px -991px;}
+		</style>
+        <div class="mybody">
+
+            <div class="mf_con1">
+                <div class="mf_nav_list">
+                    <div class="mod-menu">
+                        <ul class="menu-item">
+                            <li><a href="http://www.mfcad.com/tuzhi/jixieshebei/" class="mf_index_jxsb">机械设备</a></li>
+                            <li><a href="http://www.mfcad.com/tuzhi/lingjian/" class="mf_index_tyjx">通用机械零部件</a></li>
+                            <li><a href="http://www.mfcad.com/tuzhi/jiaotongyunshu/" class="mf_index_jtys">交通运输</a></li>
+                            <li><a href="http://www.mfcad.com/tuzhi/shenghuorichang/" class="mf_index_wjgj">生活用品类</a></li>
+                            <li><a href="http://www.mfcad.com/tuzhi/dianzichanpin/" class="mf_index_dzcp">电子产品</a></li>
+                            <li><a href="http://www.mfcad.com/tuzhi/dianzidiangong/" class="mf_index_dzdg">电子电工</a></li>
+                            <li><a href="http://www.mfcad.com/tuzhi/wujin/" class="mf_index_yqyb">五金工具</a></li>
+                            <li><a href="http://www.mfcad.com/tuzhi/aerospace/" class="mf_index_mjtz" style="display: inline;">航空</a>/
+                            <a href="http://www.mfcad.com/tuzhi/chuanbo/" style=" padding-left: 0px;display: inline;">船舶</a>/
+                            <a href="http://www.mfcad.com/tuzhi/wlkj/" style=" padding-left: 0px;display: inline;">科技</a></li>
+                            <li><a href="http://www.mfcad.com/tuzhi/muju/" class="mf_index_sjfa" style="display: inline;">模具</a>/<a href="http://www.mfcad.com/tuzhi/banjin/" style=" padding-left: 0px;display: inline;">钣金</a></li>
+                            <li><a href="http://www.mfcad.com/tuzhi/bysj/" class="mf_index_jpkc">设计方案</a></li>
+                            <li><a href="http://class.mfcad.com/" class="mf_index_jpkc">精品课程</a></li>
+                            <p class="menu-item-p1 mf_index_qbtz"><a href="/tuzhi/index.php?m=content&c=xlist" target="_blank">全部图纸</a></p>
+                        </ul>		
+                        <div class="menu-cont" style="display:none;top:0;">	
+                            <div class="menu-cont-list" style="display:none;">
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/jixiejiagong/" class="menu-con-list-title  pt0" target="_blank">机械加工 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/chechuang/" target="_blank">车床</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xichuang/" target="_blank">铣床</a>
+                                            <a href="http://www.mfcad.com/tuzhi/diaokeji/" target="_blank">雕刻机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tangchuang/" target="_blank">镗床</a>
+                                            <a href="http://www.mfcad.com/tuzhi/mochuang/" target="_blank">磨床</a>
+                                            <a href="http://www.mfcad.com/tuzhi/gongsiji/" target="_blank">攻丝机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/cnc/" target="_blank">加工中心</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/baozhuangjixie/" class="menu-con-list-title" target="_blank">包装机械 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/baozhuangji/" target="_blank">包装机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tiebiaoji/" target="_blank">贴标机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/393/" target="_blank">灌装机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/fumoji/" target="_blank">覆膜机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xuangaiji/" target="_blank">旋盖机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tiemoji/" target="_blank">贴膜机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/fengbianji/" target="_blank">封边机</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="" class="menu-con-list-title" target="_blank">工程机械/建筑机械 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/gcjx/" target="_blank">挖掘机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tuituji/" target="_blank">推土机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chanche/" target="_blank">铲车/装载机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chache/" target="_blank">叉车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/qizhongji/" target="_blank">起重设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/posuiji/" target="_blank">破碎机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1158/" target="_blank">振动筛</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chouyouji/" target="_blank">抽油机</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/27/" class="menu-con-list-title" target="_blank">电子产品制造设备 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/tiepianji/" target="_blank">贴片机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianjiaoji/" target="_blank">点胶机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tieheji/" target="_blank">贴合机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/baoxianji/" target="_blank">剥线机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/duanziji/" target="_blank">端子机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chazhenji/" target="_blank">插针机</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/nongyejixie/" class="menu-con-list-title" target="_blank">农业机械 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/shougeji/" target="_blank">收割机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tuolaji/" target="_blank">拖拉机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/375/" target="_blank">种植机械</a>
+                                            <a href="http://www.mfcad.com/tuzhi/376/" target="_blank">旋耕机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/gecaoji/" target="_blank">割草机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lidiji/" target="_blank">犁地机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1447/" target="_blank">灌溉设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1630/" target="_blank">犁</a>
+                                            <a href="http://www.mfcad.com/tuzhi/gengdiji/" target="_blank">耕地机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1945/" target="_blank">移栽机</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/yiliao/" class="menu-con-list-title" target="_blank">医疗设备 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/511/" target="_blank">治疗医疗设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lunyi/" target="_blank">轮椅</a>
+                                            <a href="http://www.mfcad.com/tuzhi/meirong/" target="_blank">美容仪器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/526/" target="_blank">救援设备</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/xinnengyuan/" class="menu-con-list-title" target="_blank">新能源设备 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/taiyangneng/" target="_blank">太阳能</a>
+                                            <a href="http://www.mfcad.com/tuzhi/fengneng/" target="_blank">风能</a>
+                                            <a href="http://www.mfcad.com/tuzhi/swzn/" target="_blank">生物质能</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/celiang/" class="menu-con-list-title  pt0" target="_blank">测量设备 </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/224/" class="menu-con-list-title  pt0" target="_blank">通用设备 </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/paifengshebei/" class="menu-con-list-title  pt0" target="_blank">排风设备 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/gufengji/" target="_blank">鼓风机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tongfengji/" target="_blank">通风机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/385/" target="_blank">空气压缩机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/902/" target="_blank">工业风扇</a>
+                                            <a href="http://www.mfcad.com/tuzhi/hongganji/" target="_blank">烘干机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/songfengji/" target="_blank">送风机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20105/" target="_blank">离心风机</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/30/" class="menu-con-list-title" target="_blank">换热/制冷空调设备 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/yasuoji/" target="_blank">压缩机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lengningqi/" target="_blank">冷凝器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chushiji/" target="_blank">除湿机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/sanreqi/" target="_blank">散热器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/kongdiao/" target="_blank">空调</a>
+                                            <a href="http://www.mfcad.com/tuzhi/899/" target="_blank">散热风扇</a>
+                                            <a href="http://www.mfcad.com/tuzhi/nuanqi/" target="_blank">暖气</a>
+                                            <a href="http://www.mfcad.com/tuzhi/reshuiqi/" target="_blank">热水器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1667/" target="_blank">脱硫设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/wenkongqi/" target="_blank">温控器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1780/" target="_blank">取暖设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jiashiji/" target="_blank">加湿机</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/mujushebei/ " class="menu-con-list-title" target="_blank">模具相关设备 </a> 
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/yaliji/" target="_blank">压力机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zhusuji/" target="_blank">注塑机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chuisuji/" target="_blank">吹塑机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chuimoji/" target="_blank">吹膜机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zaoliji/" target="_blank">造粒机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/sisuiji/" target="_blank">撕碎机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yazhuji/" target="_blank">压铸机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/duanyaji/" target="_blank">锻压机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lianzhuji/" target="_blank">连铸机</a>
+                                        </div> 
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/syzysb/" class="menu-con-list-title" target="_blank">商业专用设备 </a> 
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/gouwuche/" target="_blank">购物车/购物篮</a>
+                                            <a href="http://www.mfcad.com/tuzhi/456/" target="_blank">条码设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/posji/" target="_blank">POS机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shouhuoji/" target="_blank">售货机构</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianzicheng/" target="_blank">电子秤</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1384/" target="_blank">硬币/纸币相关设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/qukuanji/" target="_blank">取款机</a>
+                                        </div> 
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/zhijiagong/" class="menu-con-list-title" target="_blank">纸加工机械 </a> 
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/qiezhiji/" target="_blank">切纸机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/470/" target="_blank">装订机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/471/" target="_blank">上光机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/sheyeji/" target="_blank">折页机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/fenyeji/" target="_blank">分页机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dakongqi/" target="_blank">打孔器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zaozhiji/" target="_blank">造纸机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dumoji/" target="_blank">镀膜机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/biaozhiji/" target="_blank">裱纸机</a>
+                                        </div> 
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/wutanxiaoche/" class="menu-con-list-title  pt0" target="_blank">无碳小车 </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/zdhzzsb/" class="menu-con-list-title  pt0" target="_blank">自动化组装设备 </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/liticheku/" class="menu-con-list-title  pt0" target="_blank">立体车库 </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/530/" class="menu-con-list-title  pt0" target="_blank">实验测试设备 </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/zdhzzsb/" class="menu-con-list-title  pt0" target="_blank">自动化组装设备 </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/xiangjiaojixie/" class="menu-con-list-title  pt0" target="_blank">橡胶机械 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/yayanji/" target="_blank">压延机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/liuhuaji/" target="_blank">硫化机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/hunlianji/" target="_blank">混炼机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/496/" target="_blank">硫化罐</a>
+                                        </div>
+                                    </li>  
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/yinshuashebei/" class="menu-con-list-title" target="_blank">印刷设备 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/yinshuaji/" target="_blank">印刷机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/575/" target="_blank">扫描仪</a>
+                                            <a href="http://www.mfcad.com/tuzhi/gunqieji/" target="_blank">滚切机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jiaoyinji/" target="_blank">胶印机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/579/" target="_blank">胶装机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/siyinji/" target="_blank">丝印机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/pentuji/" target="_blank">喷涂机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yiyinji/" target="_blank">移印机</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/37/" class="menu-con-list-title" target="_blank">污水处理设备 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/555/" target="_blank">污水处理设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shajunji/" target="_blank">杀菌剂</a>
+                                            <a href="http://www.mfcad.com/tuzhi/558/" target="_blank">废水处理</a>
+                                            <a href="http://www.mfcad.com/tuzhi/560/" target="_blank">消毒设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/562/" target="_blank">水循环处理</a>
+                                            <a href="http://www.mfcad.com/tuzhi/564/" target="_blank">污泥处理设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/566/" target="_blank">过滤设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/570/" target="_blank">沉淀池</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/shipinjixie/" class="menu-con-list-title" target="_blank">食品机械 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/325/" target="_blank">食品搅拌机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zhayouji/" target="_blank">榨油机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/miantiaoji/" target="_blank">面条机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1867/" target="_blank">烘烤设备</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/254/" class="menu-con-list-title" target="_blank">输送和提升设备 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/maduoji/" target="_blank">码垛机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/531/" target="_blank">移载机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianti/" target="_blank">电梯</a>
+                                            <a href="http://www.mfcad.com/tuzhi/songliaoji/" target="_blank">送料机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1950/" target="_blank">分拣机构</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/3D_dayinji/" target="_blank">3D打印机 </a></div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/yalirongqi/" class="menu-con-list-title" target="_blank">压力容器 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/lengqueta/" target="_blank">冷却塔</a>
+                                            <a href="http://www.mfcad.com/tuzhi/huanreqi/" target="_blank">换热器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/guolu/" target="_blank">锅炉  </a>
+                                            <a href="http://www.mfcad.com/tuzhi/tianliaota/" target="_blank">填料塔</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zaifeiqi/" target="_blank">再沸器</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/xieziji/" class="menu-con-list-title  pt0" target="_blank">写字机 </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/20055/" class="menu-con-list-title  pt0" target="_blank">立体仓库 </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/20104/" class="menu-con-list-title  pt0" target="_blank">化工设备 </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/huanbao/" class="menu-con-list-title  pt0" target="_blank">环保设备 </a>
+                                    </li>
+                                </ul>
+                            </div>		
+                            <div class="menu-cont-list" style="display:none;">
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/chuandong/" class="menu-con-list-title  pt0" target="_blank">传动件 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/dailun/" target="_blank">带轮</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jilunjigou/" target="_blank">棘轮机构</a>
+                                            <a href="http://www.mfcad.com/tuzhi/wolunwogan/" target="_blank">蜗轮/蜗杆机构</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1451/" target="_blank">滚珠丝杠</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1506/" target="_blank">曲柄/滑块</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1603/" target="_blank">连杆机构</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/fati/" class="menu-con-list-title" target="_blank">阀体 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/zhihuifa/" target="_blank">止回阀</a>
+                                            <a href="http://www.mfcad.com/tuzhi/diancifa/" target="_blank">电磁阀</a>
+                                            <a href="http://www.mfcad.com/tuzhi/anquanfa/" target="_blank">安全阀</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xieyafa/" target="_blank">泄压阀</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yiliufa/" target="_blank">溢流阀</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zhusaifa/" target="_blank">柱塞阀</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zhafa/" target="_blank">闸阀</a>
+                                            <a href="http://www.mfcad.com/tuzhi/qiufa/" target="_blank">球阀</a>
+                                            <a href="http://www.mfcad.com/tuzhi/diefa/" target="_blank">蝶阀</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/chilun/" class="menu-con-list-title" target="_blank">齿轮 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/663/" target="_blank">齿轮/齿条</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/thlx/" class="menu-con-list-title" target="_blank">弹簧螺旋 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/tanhuang/" target="_blank">弹簧</a>
+                                            <a href="http://www.mfcad.com/tuzhi/752/" target="_blank">空气弹簧</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/dianji/" class="menu-con-list-title" target="_blank">电机 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/787/" target="_blank">步进电机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/sifudianji/" target="_blank">伺服电机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/fadianji/" target="_blank">发电机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/790/" target="_blank">无刷电机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/792/" target="_blank">直流电机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/mada/" target="_blank">马达</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/beng/" class="menu-con-list-title" target="_blank">泵 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/chilunbeng/" target="_blank">齿轮泵</a>
+                                            <a href="http://www.mfcad.com/tuzhi/wangfubeng/" target="_blank">往复泵</a>
+                                            <a href="http://www.mfcad.com/tuzhi/huosaibeng/" target="_blank">活塞泵</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zhusaibeng/" target="_blank">柱塞泵</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jiliangbeng/" target="_blank">计量泵</a>
+                                            <a href="http://www.mfcad.com/tuzhi/688/" target="_blank">潜水泵</a>
+                                            <a href="http://www.mfcad.com/tuzhi/qibeng/" target="_blank">气泵</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/gongzhuangjiaju/" class="menu-con-list-title pt0" target="_blank">工装夹具 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/zhijuyeju/" target="_blank">治具/冶具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jianju/" target="_blank">检具</a>
+                                            <a href="" target="_blank">夹具</a>
+                                            <a href="" target="_blank">辅具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/daoju/" target="_blank">刀具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/taiju/" target="_blank">胎具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20114/"  target="_blank">夹紧器</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/yeyaqidong/" class="menu-con-list-title" target="_blank">液压及气动元件 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/qigang/" target="_blank">气缸</a>
+                                            <a href="http://www.mfcad.com/tuzhi/685/" target="_blank">液压缸</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lixinji/" target="_blank">离心机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/youyaji/" target="_blank">油压机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1578/" target="_blank">增压缸</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1800/" target="_blank">回转缸</a>
+                                            <a href="http://www.mfcad.com/tuzhi/qizhao/" target="_blank">气爪</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1948/" target="_blank">蓄能器</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/jichuangfujian/" class="menu-con-list-title" target="_blank">机床附件 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/584/" target="_blank">顶尖/尾座</a>
+                                            <a href="http://www.mfcad.com/tuzhi/kapan/" target="_blank">卡盘</a>
+                                            <a href="http://www.mfcad.com/tuzhi/588/" target="_blank"> 机床护罩</a>
+                                            <a href="http://www.mfcad.com/tuzhi/591/" target="_blank">机械滑台</a>
+                                            <a href="http://www.mfcad.com/tuzhi/593/" target="_blank">控制面板</a>
+                                            <a href="http://www.mfcad.com/tuzhi/595/" target="_blank">机床主轴</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/fasteners/" class="menu-con-list-title" target="_blank">紧固件/连接件 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/373/" target="_blank">螺栓/螺柱/螺钉/螺母</a>
+                                            <a href="http://www.mfcad.com/tuzhi/374/" target="_blank">垫圈/挡圈</a>
+                                            <a href="http://www.mfcad.com/tuzhi/377/" target="_blank">销/铆钉/螺套</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lianjiejian/" target="_blank">连接件</a>
+                                            <a href="http://www.mfcad.com/tuzhi/sigan/" target="_blank">丝杆</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lianjieqi/" target="_blank">连接器</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/xingcai/" target="_blank">型材</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/caozuojian/" class="menu-con-list-title  pt0" target="_blank">操作件 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/huqian/" target="_blank">虎钳</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shoubing/" target="_blank">手柄</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xuanniu/" target="_blank">旋钮</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jiaoshoujia/" target="_blank">脚手架</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/jiansuji/" target="_blank">减速机</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/shaft_bearing/" class="menu-con-list-title" target="_blank">轴及轴承 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/zhou/" target="_blank">轴</a>
+                                            <a href="http://www.mfcad.com/tuzhi/658/" target="_blank">轴承/轴承座</a>
+                                            <a href="http://www.mfcad.com/tuzhi/660/" target="_blank">轴承安装及应用设备</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/liangjuyibiao/" class="menu-con-list-title" target="_blank">量具仪表 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/kachi/" target="_blank">卡尺</a>
+                                            <a href="http://www.mfcad.com/tuzhi/644/" target="_blank">万用表</a>
+                                            <a href="http://www.mfcad.com/tuzhi/juanchi/" target="_blank">卷尺</a>
+                                            <a href="http://www.mfcad.com/tuzhi/650/" target="_blank">螺旋测微器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/wenduji/" target="_blank">温度计</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dybdlb/" target="_blank">电压表/电流表</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yuangui/" target="_blank">圆规</a>
+                                        </div>
+                                    </li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/jsqzsx/" class="menu-con-list-title  pt0" target="_blank">减速器/增速箱</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/664/" class="menu-con-list-title  pt0" target="_blank">链条/链轮</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/dizuo/" class="menu-con-list-title  pt0" target="_blank">底座</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/fenggeqi/" class="menu-con-list-title  pt0" target="_blank">封隔器</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/zhijia/" class="menu-con-list-title  pt0" target="_blank">支架</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/20054/" class="menu-con-list-title  pt0" target="_blank">管道</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-cont-list" style="display:none;">
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/chengyongche/" class="menu-con-list-title pt0" target="_blank">乘用车 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/car/" target="_blank">轿车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/sports_car/" target="_blank">跑车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/train/" target="_blank">火车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/motorcycle/" target="_blank">摩托车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/bus/" target="_blank">大巴/公交车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/metro/" target="_blank">地铁</a>
+                                            <a href="http://www.mfcad.com/tuzhi/school_bus/" target="_blank">校车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/fangche/" target="_blank">房车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/electric_vehicle/" target="_blank">电动汽车</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/zhuanyongche/" class="menu-con-list-title" target="_blank">专用车  </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/trailer/" target="_blank">拖车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/agv/" target="_blank">AGV/RGV小车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/truck/" target="_blank">卡车/货车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/fire_truck/" target="_blank">消防车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/rubbish_truck/" target="_blank">垃圾车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20015/" target="_blank">罐车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/ambulance/" target="_blank">救护车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20035/" target="_blank">运输车</a>
+                                        </div>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/feijidongchejifujian/" class="menu-con-list-title" target="_blank">非机动车及附件 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/bicycle/" target="_blank">自行车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tricycle/" target="_blank">三轮车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/balancing_car/" target="_blank">平衡车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/daqitong/" target="_blank">打气筒</a>
+                                            <a href="http://www.mfcad.com/tuzhi/scooter/" target="_blank">踏板车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/monocycle/" target="_blank">独轮车</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/jizhuangzhengli/" target="_blank">集装整理设备</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/chuandongxitong/" class="menu-con-list-title" target="_blank">传动系统  </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/clutch/" target="_blank">离合器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/biansuqi/" target="_blank">变速器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/differential/" target="_blank">差速器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/gearbox/" target="_blank">变速箱</a>
+                                            <a href="http://www.mfcad.com/tuzhi/drive_axle/" target="_blank">驱动桥</a>
+                                            <a href="http://www.mfcad.com/tuzhi/transmission_shaft/" target="_blank">传动轴</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shifter/" target="_blank">换挡器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/transfer_case/" target="_blank">分动箱</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/steering_system/" target="_blank">转向系统</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/power_system/" class="menu-con-list-title  pt0" target="_blank">动力系统 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/diesel_engine/" target="_blank">柴油机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/857/" target="_blank">转子发动机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/piston/" target="_blank">活塞/曲轴/连杆</a>
+                                            <a href="http://www.mfcad.com/tuzhi/turbine_engine/" target="_blank">涡轮发动机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/steam_engine/" target="_blank">蒸汽机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/neiranji/" target="_blank">内燃机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/carburetor/" target="_blank">化油器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/stirling_engine/" target="_blank">斯特林发动机</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/braking_system/" class="menu-con-list-title" target="_blank">制动系统 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/drum_brakes/" target="_blank">鼓式制动器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/disc_brakes/" target="_blank">盘式制动器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/brake/" target="_blank">刹车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/abs/" target="_blank">ABS</a>
+                                            <a href="http://www.mfcad.com/tuzhi/speed_governor/" target="_blank">限速器</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/walking_system/" class="menu-con-list-title" target="_blank">行走系统 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/tires/" target="_blank">轮胎与轮毂</a>
+                                            <a href="http://www.mfcad.com/tuzhi/track/" target="_blank">履带</a>
+                                            <a href="http://www.mfcad.com/tuzhi/905/" target="_blank">麦克纳姆轮</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1813/" target="_blank">轮胎相关设备</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a  href="http://www.mfcad.com/tuzhi/weihushebei/" class="menu-con-list-title" target="_blank">维护设备及工具 </a>
+                                        <div class="menu-list-link">
+                                            <a  href="http://www.mfcad.com/tuzhi/jack/" target="_blank">千斤顶 </a>
+                                            <a  href="http://www.mfcad.com/tuzhi/907/"  target="_blank">更换轮胎工具</a>
+                                            <a  href="http://www.mfcad.com/tuzhi/charging_pile/"  target="_blank">充电站/充电桩</a>
+                                            <a  href="http://www.mfcad.com/tuzhi/20046/"  target="_blank">洗车设备</a>
+                                            <a  href="http://www.mfcad.com/tuzhi/20094/"  target="_blank">拆胎机/扒胎机</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/electronic_system/" class="menu-con-list-title  pt0" target="_blank">电子系统 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/dashboard/" target="_blank">仪表板</a>
+                                            <a href="http://www.mfcad.com/tuzhi/car_light/" target="_blank">车灯</a>
+                                            <a href="http://www.mfcad.com/tuzhi/wiper/" target="_blank">雨刮</a>
+                                            <a href="http://www.mfcad.com/tuzhi/driving_recorder/" target="_blank">行车记录仪</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/chassis_suspension/" target="_blank">底盘和悬架</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/fuel_system/" class="menu-con-list-title" target="_blank">燃油系统 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/youxiang/" target="_blank">油箱</a>
+                                            <a href="http://www.mfcad.com/tuzhi/928/" target="_blank">燃油系统总成</a>
+                                            <a href="http://www.mfcad.com/tuzhi/929/" target="_blank">汽车油路</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lvqingqi/" target="_blank">滤清器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/accelerator/" target="_blank">油门</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/paiqixitong/" class="menu-con-list-title" target="_blank">排气系统 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/exhaustpipe/" target="_blank">排气管</a>
+                                            <a href="http://www.mfcad.com/tuzhi/manifold/" target="_blank">歧管</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/cheliangfushupeijian/" target="_blank">车辆附属配件</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a  href="http://www.mfcad.com/tuzhi/cheshen/" class="menu-con-list-title" target="_blank">车身内外饰及附件 </a>
+                                        <div class="menu-list-link">
+                                            <a  href="http://www.mfcad.com/tuzhi/shock_absorbers/"  target="_blank">减震器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chejia/"  target="_blank">车架</a>
+                                            <a  href="http://www.mfcad.com/tuzhi/steering_wheel/"  target="_blank">方向盘</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chemen/"  target="_blank">车门</a>
+                                            <a href="http://www.mfcad.com/tuzhi/946/"  target="_blank">驾驶系统</a>
+                                            <a  href="http://www.mfcad.com/tuzhi/white_body/" target="_blank"> 白车身</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu-cont-list" style="display:none;">
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/yishupin/" class="menu-con-list-title  pt0" target="_blank">艺术品/工艺品 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/jiangbei/" target="_blank">奖杯</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jiezhi/" target="_blank">戒指</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shipinlei/" target="_blank">饰品类</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xianglian/" target="_blank">项链</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shouzhuo/" target="_blank">手镯</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shoulian/" target="_blank">手链</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/ydqc/" class="menu-con-list-title" target="_blank">运动器材 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/814/" target="_blank">动感单车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/paobuji/" target="_blank">跑步机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1137/" target="_blank">乒乓球拍</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1140/" target="_blank">网球拍</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1144/" target="_blank">羽毛球</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zuqiu/" target="_blank">足球</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1211/" target="_blank">篮球和篮球架</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20103/" target="_blank">滑雪设备</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/jiaoxuejiaoju/" target="_blank">教学教具</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/yueqi/ " class="menu-con-list-title" target="_blank">乐器 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/jita/" target="_blank">吉他</a>
+                                            <a href="http://www.mfcad.com/tuzhi/gangqin/" target="_blank">钢琴</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xiaotiqin/" target="_blank">小提琴</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianziqin/" target="_blank">电子琴</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/richangyongpin/" class="menu-con-list-title" target="_blank">日常用品 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/shuilongtou/" target="_blank">水龙头</a>
+                                            <a href="http://www.mfcad.com/tuzhi/taideng/" target="_blank">台灯</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yanjing/" target="_blank">眼镜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yashua/" target="_blank">牙刷及支架</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tixudao/" target="_blank">剃须刀/刮胡刀</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zhongbiao/" target="_blank">钟/表</a>
+                                            <a href="http://www.mfcad.com/tuzhi/trunk/" target="_blank">行李箱</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20109/" target="_blank">吸烟器</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/cfyj/" class="menu-con-list-title pt0" target="_blank">厨房用具</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/shaozi/" target="_blank">勺子</a>
+                                            <a href="http://www.mfcad.com/tuzhi/guo/" target="_blank">锅</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1076/" target="_blank">烧烤箱/炉/架</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1150/" target="_blank">电饭煲</a>
+                                            <a href="http://www.mfcad.com/tuzhi/diancilu/" target="_blank">电磁炉</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1487/" target="_blank">打蛋器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/meiqizao/" target="_blank">煤气灶</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/jiazhuang/" class="menu-con-list-title" target="_blank">家具家装</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/chuang/" target="_blank">床</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shafa/" target="_blank">沙发</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yi/" target="_blank">椅</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zhuo/" target="_blank">桌</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianshigui/" target="_blank">电视柜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chaji/" target="_blank">茶几</a>
+                                            <a href="http://www.mfcad.com/tuzhi/gui/" target="_blank">柜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shujia/" target="_blank">书架</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/rentidongwu/" class="menu-con-list-title" target="_blank">人体/动物模型 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/816/" target="_blank">人体建模</a>
+                                            <a href="http://www.mfcad.com/tuzhi/836/" target="_blank">动物模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jiazhi/" target="_blank">假肢</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/wanju/" class="menu-con-list-title" target="_blank">玩具公仔 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/435/" target="_blank">游戏手柄</a>
+                                            <a href="http://www.mfcad.com/tuzhi/806/" target="_blank">滑板车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lego/" target="_blank">乐高玩具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/gundam/" target="_blank">高达机器人</a>
+                                            <a href="http://www.mfcad.com/tuzhi/youxiji/" target="_blank">游戏机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/fingertipgyro/" target="_blank">指尖陀螺</a>
+                                            <a href="http://www.mfcad.com/tuzhi/minions/" target="_blank">小黄人</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/zhiwuhuaguo/" target="_blank">植物花果 </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/bgyp/" class="menu-con-list-title pt0" target="_blank">办公用品 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/572/" target="_blank">打印机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lajitong/" target="_blank">垃圾桶/筒</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yinshuiji/" target="_blank">饮水机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/bangonggui/" target="_blank">办公柜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jisuanqi/" target="_blank">计算器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dingshuji/" target="_blank">订书机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/touyingyi/" target="_blank">投影仪</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/fzxm/" class="menu-con-list-title" target="_blank">服装鞋帽</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/808/" target="_blank">头盔</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xie/" target="_blank">鞋</a>
+                                            <a href="http://www.mfcad.com/tuzhi/maozi/" target="_blank">帽子</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lalian/" target="_blank">拉链</a>
+                                            <a href="http://www.mfcad.com/tuzhi/pidai/" target="_blank">皮带</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20099/" target="_blank">手套</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/weiyujieju/" class="menu-con-list-title" target="_blank">卫浴洁具</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/huasa/" target="_blank">花洒</a>
+                                            <a href="http://www.mfcad.com/tuzhi/759/" target="_blank">马桶/蹲便器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lianpen/" target="_blank">脸盆</a>
+                                            <a href="http://www.mfcad.com/tuzhi/995/" target="_blank">肥皂/香皂/洗手液</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xishouchi/" target="_blank">洗手池</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/rongqi/" class="menu-con-list-title" target="_blank">瓶子容器 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/beizi/" target="_blank">杯子</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shuihu/" target="_blank">水壶</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1014/" target="_blank">饮料瓶</a>
+                                            <a href="http://www.mfcad.com/tuzhi/naiping/" target="_blank">奶瓶</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shuiping/" target="_blank">水瓶</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1034/" target="_blank">洗发水瓶</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tong/" target="_blank">桶</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu-cont-list" style="display:none;">
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/diannaozhoubian/" class="menu-con-list-title pt0" target="_blank">电脑周边 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/833/" target="_blank">笔记本电脑</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shubiao/" target="_blank">鼠标</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jianpan/" target="_blank">键盘</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xianshiqi/" target="_blank">显示器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/luyouqi/" target="_blank">路由器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xianka/" target="_blank">显卡</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yingpan/" target="_blank">硬盘</a>
+                                            <a href="http://www.mfcad.com/tuzhi/neicun/" target="_blank">内存</a>
+                                            <a href="http://www.mfcad.com/tuzhi/pad/" target="_blank">平板电脑</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1077/" target="_blank">电脑主机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zhuban/" target="_blank">电脑主板</a>
+                                            <a href="http://www.mfcad.com/tuzhi/3dconnexion/" target="_blank">3dconnexion鼠标</a>
+                                            <a href="http://www.mfcad.com/tuzhi/gongkongji/" target="_blank">工控机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/cpu/" target="_blank">CPU及相关部件</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20056/" target="_blank">电脑散热器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/computer/" target="_blank">台式电脑</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20071/" target="_blank">一体机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/wangka/" target="_blank">网卡</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shengka/" target="_blank">声卡</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/tongxun/" class="menu-con-list-title" target="_blank">通信工具 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/shouji/" target="_blank">手机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/765/" target="_blank">手机支架</a>
+                                            <a href="http://www.mfcad.com/tuzhi/duijiangji/" target="_blank">对讲机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianhua/" target="_blank">电话</a>
+                                            <a href="http://www.mfcad.com/tuzhi/baohuke/" target="_blank">保护壳</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/dianqi/" class="menu-con-list-title pt0" target="_blank">家用电器 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/jiaorouji/" target="_blank">绞肉机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zhazhiji/" target="_blank">榨汁机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yaokong/" target="_blank">遥控器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/kafeiji/" target="_blank">咖啡机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chazuo/" target="_blank">插座</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chuifengji/" target="_blank">吹风机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianfengshan/" target="_blank">电风扇</a>
+                                            <a href="http://www.mfcad.com/tuzhi/radio/" target="_blank">收音机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/deng/" target="_blank">灯</a>
+                                            <a href="http://www.mfcad.com/tuzhi/aircleaner/" target="_blank">空气净化器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianshi/" target="_blank">电视</a>
+                                            <a href="http://www.mfcad.com/tuzhi/bingxiang/" target="_blank">冰箱</a>
+                                            <a href="http://www.mfcad.com/tuzhi/weibolu/" target="_blank">微波炉</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xiyiji/" target="_blank">洗衣机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/kaoxiang/" target="_blank">烤箱</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xichenqi/" target="_blank">吸尘器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianyundou/" target="_blank">电熨斗</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jiashiqi/" target="_blank">加湿器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/anmoqi/" target="_blank">按摩器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jidinghe/" target="_blank">机顶盒</a>
+                                            <a href="http://www.mfcad.com/tuzhi/doujiangji/" target="_blank">豆浆机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/youyanji/" target="_blank">油烟机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/liushengji/" target="_blank">留声机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/guatangji/" target="_blank">挂烫机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yamianji/" target="_blank">压面机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xiwanji/" target="_blank">洗碗机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shuixiang/" target="_blank">水箱</a>
+                                            <a href="http://www.mfcad.com/tuzhi/mianbaoji/" target="_blank">面包机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jingshui/" target="_blank">净水器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/saodiji/" target="_blank">扫地机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/suannaiji/" target="_blank">酸奶机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dvd/" target="_blank">DVD</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/shuma/" class="menu-con-list-title pt0" target="_blank">数码产品 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/582/" target="_blank">音响</a>
+                                            <a href="http://www.mfcad.com/tuzhi/upan/" target="_blank">优盘</a>
+                                            <a href="http://www.mfcad.com/tuzhi/mp3/" target="_blank">MP3</a>
+                                            <a href="http://www.mfcad.com/tuzhi/mp4/" target="_blank">MP4</a>
+                                            <a href="http://www.mfcad.com/tuzhi/969/" target="_blank">相机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/erji/" target="_blank">耳机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1013/" target="_blank">摄像头</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1017/" target="_blank">移动电源</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shouhuan/" target="_blank">手环</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shexiangji/" target="_blank">摄像机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/xiangji/" target="_blank">相机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1064/" target="_blank">相机支架</a>          
+                                            <a href="http://www.mfcad.com/tuzhi/1071/" target="_blank">录音设备</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chongdianqi/" target="_blank">充电器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shujuxian/" target="_blank">数据线</a>
+                                            <a href="http://www.mfcad.com/tuzhi/laba/" target="_blank">喇叭</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tianxian/" target="_blank">天线</a>          
+                                            <a href="http://www.mfcad.com/tuzhi/microphone/" target="_blank">麦克风</a>
+                                            <a href="http://www.mfcad.com/tuzhi/sheyingji/" target="_blank">摄像机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jibuqi/" target="_blank">计步器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yueduqi/" target="_blank">阅读器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/fangyingji/" target="_blank">放映机</a>          
+                                            <a href="http://www.mfcad.com/tuzhi/zhutingqi/" target="_blank">助听器</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yeshijing/" target="_blank">夜视镜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zipaigan/" target="_blank">自拍杆</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chumoping/" target="_blank">触摸屏</a>
+                                            <a href="http://www.mfcad.com/tuzhi/gps/" target="_blank">GPS</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tuoluoyi/" target="_blank">陀螺仪</a>
+                                            <a href="http://www.mfcad.com/tuzhi/tiaoyintai/" target="_blank">调音台</a>
+                                            <a href="http://www.mfcad.com/tuzhi/duoji/" target="_blank">舵机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/changpianji/" target="_blank">唱片机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yuntai/" target="_blank">云台</a>
+                                            <a href="http://www.mfcad.com/tuzhi/cd/" target="_blank">CD机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/vryanjing/" target="_blank">VR头盔/眼镜</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu-cont-list" style="display:none;">
+                                
+<ul>
+<li>
+<a target="_blank" class="menu-con-list-title  pt0">变压器</a>
+<div class="menu-list-link">
+ <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=箱式变压器">箱式变压器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=电力变压器">电力变压器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=交流稳压器">交流稳压器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=电源变压器">电源变压器</a> 
+</div>
+</li>
+<li>
+<a target="_blank" class="menu-con-list-title ">变压器/电感器</a>
+<div class="menu-list-link">
+ <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=箱式变压器">箱式变压器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=电力变压器">电力变压器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=交流稳压器">交流稳压器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=电源变压器">电源变压器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=电感线圈">电感线圈</a> 
+</div>
+</li>
+<li>
+<a target="_blank" class="menu-con-list-title ">高低压电器</a>
+<div class="menu-list-link">
+ <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=继电器">继电器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=斩波器">斩波器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=控制器">控制器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=断路器">断路器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=接触器">接触器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=电动机软起动器">电动机软起动器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=电缆分接箱">电缆分接箱</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=高压负荷开关">高压负荷开关</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=电动机">电动机</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=伺服电机">伺服电机</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=异步电动机">异步电动机</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=直流电动机">直流电动机</a> 
+</div>
+</li>
+<li>
+<a target="_blank" class="menu-con-list-title ">电动机</a>
+<div class="menu-list-link">
+ <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=伺服电机">伺服电机</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=异步电动机">异步电动机</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=直流电动机">直流电动机</a> 
+</div>
+</li>
+</ul>
+
+
+<ul>
+<li>
+<a target="_blank" class="menu-con-list-title  pt0">电源、电池</a>
+<div class="menu-list-link">
+ <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=电池">电池</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=开关">开关</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=电源">电源</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=直流电源">直流电源</a> 
+</div>
+</li>
+<li>
+<a target="_blank" class="menu-con-list-title ">电泵</a>
+<div class="menu-list-link">
+ <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=潜水电泵">潜水电泵</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=潜水排污泵">潜水排污泵</a> 
+</div>
+</li>
+<li>
+<a target="_blank" class="menu-con-list-title ">发电机</a>
+<div class="menu-list-link">
+ <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=风力发电机">风力发电机</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=柴油发电机">柴油发电机</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=同步发电机">同步发电机</a> 
+</div>
+</li>
+</ul>
+
+
+<ul class="brn">
+<li>
+<a target="_blank" class="menu-con-list-title  pt0">显示器件</a>
+<div class="menu-list-link">
+ <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=显示屏">显示屏</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=指示器">指示器</a> 
+</div>
+</li>
+<li>
+<a target="_blank" class="menu-con-list-title ">传感器/敏感元器件</a>
+<div class="menu-list-link">
+ <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=传感器">传感器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=流量传感器">流量传感器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=光纤传感器">光纤传感器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=敏感元件">敏感元件</a> 
+</div>
+</li>
+<li>
+<a target="_blank" class="menu-con-list-title ">其它</a>
+<div class="menu-list-link">
+ <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=放大器">放大器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=稳压器">稳压器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=继电器">继电器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=斩波器">斩波器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=变频器">变频器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=连接器件">连接器件</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=开关">开关</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=插座">插座</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=插头">插头</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=充电器">充电器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=天线">天线</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=控制器">控制器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=变频器">变频器</a>  <a target=\"_blank\" href="/tuzhi/index.php?m=content&c=baidu&q=仪器仪表量具">仪器仪表量具</a> 
+</div>
+</li>
+</ul>
+
+
+                            </div>
+                            <div class="menu-cont-list" style="display:none;">
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/xiaowujin/" class="menu-con-list-title  pt0" target="_blank">小五金模型 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/suo/" target="_blank">锁</a>
+                                            <a href="http://www.mfcad.com/tuzhi/lashou/" target="_blank">拉手</a>
+                                            <a href="http://www.mfcad.com/tuzhi/heye/" target="_blank">合页</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jiaolian/" target="_blank">铰链</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianquan/" target="_blank">垫圈</a>
+                                            <a href="http://www.mfcad.com/tuzhi/hualun/" target="_blank">滑轮</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jiaolun/" target="_blank">脚轮</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/diandonggongju/" class="menu-con-list-title" target="_blank">电动工具 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/dianchui/" target="_blank">电锤</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianzuan/" target="_blank">电钻</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shalunji/" target="_blank">砂轮机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/moguangji/" target="_blank">磨光机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/shaguangji/" target="_blank">砂光机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/jiaomoji/" target="_blank">角磨机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianmo/" target="_blank">电磨</a>
+                                            <a href="http://www.mfcad.com/tuzhi/mobianji/" target="_blank">磨边机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/dianju/" target="_blank">电锯</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li><a href="http://www.mfcad.com/tuzhi/wujinpeijian/" class="menu-con-list-title  pt0" target="_blank">通用五金配件</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/menchuang/" class="menu-con-list-title  pt0" target="_blank">门窗五金</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/guanjian/" class="menu-con-list-title  pt0" target="_blank">管件</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/shoudonggongju/" class="menu-con-list-title  pt0" target="_blank">手动工具</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/jiachiqi/" class="menu-con-list-title  pt0" target="_blank">夹持器</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="http://www.mfcad.com/tuzhi/lama/" class="menu-con-list-title  pt0" target="_blank">拉马</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/baxiaoqi/" class="menu-con-list-title  pt0" target="_blank">拔销器</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/pati/" class="menu-con-list-title  pt0" target="_blank">爬梯</a></li>
+                                    <li><a href="http://www.mfcad.com/tuzhi/diangang/" class="menu-con-list-title  pt0" target="_blank">电缸</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="menu-cont-list" style="display:none;">
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/aerospace/" class="menu-con-list-title pt0" target="_blank">航空航天</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/848/" target="_blank">民用旋翼无人机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/849/" target="_blank">民用固定翼飞机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/850/" target="_blank">军用无人机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/852/" target="_blank">民航客机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/zhishengji/" target="_blank">直升机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/qiluojia/" target="_blank">起落架</a>
+                                            <a href="http://www.mfcad.com/tuzhi/869/" target="_blank">军事战斗机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1100/" target="_blank">运输机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/yujingji/" target="_blank">预警机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/reqiqiu/" target="_blank">热气球</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1126/" target="_blank">月球车</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1164/" target="_blank">滑翔机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1175/" target="_blank">轰炸机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/weixing/" target="_blank">卫星</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1705/" target="_blank">空间站</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/chuanbo/" class="menu-con-list-title" target="_blank">航洋船舶</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/838/" target="_blank">民用船</a>
+                                            <a href="http://www.mfcad.com/tuzhi/839/" target="_blank">军事用船</a>
+                                            <a href="http://www.mfcad.com/tuzhi/840/" target="_blank">海盗船</a>
+                                            <a href="http://www.mfcad.com/tuzhi/841/" target="_blank">船只配件</a>
+                                            <a href="http://www.mfcad.com/tuzhi/915/" target="_blank">潜水艇</a>
+                                            <a href="http://www.mfcad.com/tuzhi/hangmu/" target="_blank">航母</a>
+                                            <a href="http://www.mfcad.com/tuzhi/qimaoji/" target="_blank">起锚机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/chuanmao/" target="_blank">船锚</a>
+                                            <a href="http://www.mfcad.com/tuzhi/qianshuiqi/" target="_blank">潜水器</a>
+                                        </div>
+                                    </li>
+                                    </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/jgmx/" class="menu-con-list-title pt0" target="_blank">军工模型</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/821/" target="_blank">坦克模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/859/" target="_blank">导弹模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/860/" target="_blank">炮模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/861/" target="_blank">雷达模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/874/" target="_blank">装甲车模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/wangyuanjing/" target="_blank">望远镜/瞄准镜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1141/" target="_blank">弹弓模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1157/" target="_blank">匕首模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1176/" target="_blank">火箭模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1533/" target="_blank">冷兵器模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1539/" target="_blank">投石机模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20017/" target="_blank">战车模型</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20072/" target="_blank">军刀模型</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/robot/" class="menu-con-list-title" target="_blank">机器人模型</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/800/" target="_blank">工业机器人</a>
+                                            <a href="http://www.mfcad.com/tuzhi/801/" target="_blank">服务机器人</a>
+                                            <a href="http://www.mfcad.com/tuzhi/802/" target="_blank">比赛机器人</a>
+                                            <a href="http://www.mfcad.com/tuzhi/803/" target="_blank">仿生机器人</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1246/" target="_blank">其他机器人</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/wlkj/" class="menu-con-list-title pt0" target="_blank">未来科技 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/368/" target="_blank">星球大战机器人</a>
+                                            <a href="http://www.mfcad.com/tuzhi/feichuan/" target="_blank">飞船</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1886/" target="_blank">穿梭机</a>
+                                            <a href="http://www.mfcad.com/tuzhi/20070/" target="_blank">科幻类武器</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu-cont-list" style="display:none;">
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/muju/6234/" class="menu-con-list-title  pt0">注塑模图纸 </a>
+                                        <div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/muju/6235/" target="_blank">汽车注塑模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6236/" target="_blank">手机模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6237/" target="_blank">打印机模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6238/" target="_blank">连接器模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/luowenmo/" target="_blank">螺纹模模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6240/" target="_blank">热流道模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6241/" target="_blank">双色模及包胶模</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6242/" target="_blank">出口模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6298/" target="_blank">家电类模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/shengh/" target="_blank">生活用品类模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6300/" target="_blank">IT产品类模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6301/" target="_blank">瓶胚瓶盖模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6302/" target="_blank">卫浴洁具模具</a>
+                                            <a href="http://www.mfcad.com/tuzhi/muju/6303/" target="_blank">工业用品模具</a></div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/muju/6315/" class="menu-con-list-title  pt0">冲压模具图纸</a>
+                                        <div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/muju/6316/" target="_blank">汽车冲压模具</a></div>
+
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/muju/yazhu/" class="menu-con-list-title">压铸模具</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/index.php?m=content&c=baidu&q=铸造模" target="_blank">铸造模</a>
+                                            <a href="http://www.mfcad.com/tuzhi/index.php?m=content&c=baidu&q=压铸模" target="_blank">压铸模</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/banjin/6029/" class="menu-con-list-title pt0">箱体类 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/kongzhigui/" target="_blank">控制柜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/peidiangui/" target="_blank">配电柜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1072/" target="_blank">电器柜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/1073/" target="_blank">电气柜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/diankonggui/" target="_blank">电控柜</a>
+                                            <a href="http://www.mfcad.com/tuzhi/diyagui/" target="_blank">低压柜</a>      
+                                            <a href="http://www.mfcad.com/tuzhi/kaiguangui/" target="_blank">开关柜</a>           
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/banjin/6032/" class="menu-con-list-title">折弯类 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/banjin/6039/" target="_blank">简单折弯</a>
+                                            <a href="http://www.mfcad.com/tuzhi/banjin/6040/" target="_blank">复杂折弯</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="http://www.mfcad.com/tuzhi/banjin/6034/" class="menu-con-list-title">焊接类 </a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/tuzhi/banjin/6041/" target="_blank">机架焊接类</a>
+                                            <a href="http://www.mfcad.com/tuzhi/banjin/6042/" target="_blank">钢结构焊接类</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="menu-cont-list" style="display:none;">
+                                <ul>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6318/" target="_blank">各类设备机器</a></div></li>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6324/" target="_blank">模具（塑料，五金）</a></div></li>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6323/" target="_blank">数控技术（机床设计，刀架设计）及相关配件</a></div></li>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6330/" target="_blank">工艺工装夹具</a></div></li>
+                                </ul>
+                                <ul>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6327/" target="_blank">其它机械类</a></div></li>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6321/" target="_blank">减速机与各类机器减速箱</a></div></li>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6322/" target="_blank">汽车设计及零部件</a></div></li>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6325/" target="_blank">新型设计</a></div></li>
+                                </ul>
+                                <ul class="brn">
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6320/" target="_blank">机器人（机械手）</a></div></li>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6319/" target="_blank">管道，阀类，泵类，液压系统</a></div></li>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/6326/" target="_blank">轴类</a></div></li>
+                                    <li><div class="menu-list-link"><a href="http://www.mfcad.com/tuzhi/bysj/plc/" target="_blank">PLC单片机电气控制 </a></div></li>
+                                </ul>
+                            </div>
+                            <div class="menu-cont-list" style="display:none;">
+                                <ul>
+                                    <li>
+                                        <a  class="menu-con-list-title  pt0">Solidworks</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/solidworks/1658/" target="_blank">SolidWorks2016入门到精通视频教程</a>
+                                            <a href="http://www.mfcad.com/solidworks/2014/" target="_blank">Solidworks2014入门视频教程</a>  
+                                            <a href="http://www.mfcad.com/solidworks/1602/" target="_blank">Solidworks2014曲面实例视频教程</a>  
+                                            <a href="http://www.mfcad.com/solidworks/1585/" target="_blank">Solidworks2014钣金课程</a>  
+                                            <a href="http://www.mfcad.com/solidworks/1603/" target="_blank">Solidworks2014运动仿真教程</a>  
+                                            <a href="http://www.mfcad.com/solidworks/1620/" target="_blank">Solidworks2014焊接件教程</a>
+                                            <a href="http://www.mfcad.com/solidworks/1646/" target="_blank">Solidworks composer 2014视频教程</a>
+                                            <a href="http://www.mfcad.com/solidworks/1654/" target="_blank">solidworks2014小白课程</a>
+
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a  class="menu-con-list-title ">UG NX</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/ug/ug10/" target="_blank">UG10.0入门课程</a>  
+                                            <a href="http://www.mfcad.com/ug/1541/" target="_blank">跟我一起学UG（中文版）</a>  
+                                            <a href="http://www.mfcad.com/ug/1540/" target="_blank">UG8.0钣金设计</a>  
+                                            <a href="http://www.mfcad.com/ug/wave/" target="_blank">UG8.0 WAVE参数化建模课程</a>  
+                                            <a href="http://www.mfcad.com/ug/1589/" target="_blank">UG10.0冲压模具设计教程</a>
+                                            <a href="http://www.mfcad.com/ug/1615/" target="_blank">UG10.0汽车覆盖件模具</a>
+                                            <a href="http://www.mfcad.com/ug/1633/" target="_blank">UG NX10.0 曲面教程从零开始</a>
+                                            <a href="http://www.mfcad.com/ug/1645/" target="_blank">UG10.0加工编程基础入门教程</a>
+
+                                        </div>
+                                    </li>
+                                </ul>
+
+
+                                <ul>
+                                    <li>
+                                        <a  class="menu-con-list-title  pt0">UG NX</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/ug/1644/" target="_blank">UG10.0运动仿真视频教程</a>
+                                            <a href="http://www.mfcad.com/ug/1759/" target="_blank">UG10.0管线布置视频教程</a>
+                                            <a href="http://class.mfcad.com/course/34" target="_blank">UG10.0综合分模及跨工具模具设计教程</a>
+                                            <a href="http://class.mfcad.com/course/36" target="_blank">UG10.0高级编程拆电极加工教程</a>
+
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a  class="menu-con-list-title">Creo</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/creo/1530/" target="_blank">Creo2.0入门课程</a>  
+                                            <a href="http://www.mfcad.com/creo/1611/" target="_blank">Creo2.0曲面设计入门到精通</a> 
+                                            <a href="http://www.mfcad.com/creo/1591/" target="_blank">Creo2.0运动仿真视频教程</a>  
+                                            <a href="http://www.mfcad.com/creo/diandonggongju" target="_blank">Creo2.0电动工具产品设计</a>  
+                                            <a href="http://www.mfcad.com/creo/jiansuqi" target="_blank">Creo2.0减速器课程设计</a>  
+                                            <a href="http://www.mfcad.com/creo/chanpin/" target="_blank">Creo2.0产品实战研发</a>
+                                            <a href="http://www.mfcad.com/creo/1643/" target="_blank">Creo2.0钣金设计教程</a>
+
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+
+                                <ul class="brn">
+                                    <li>
+                                        <a  class="menu-con-list-title  pt0">ProE</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/proe/1604/" target="_blank">ProE5.0入门视频教程</a>  
+                                            <a href="http://www.mfcad.com/proe/1593/" target="_blank">ProE5.0产品设计案例</a>  
+                                            <a href="http://www.mfcad.com/proe/mujupaiwei/" target="_blank">ProE模具设计（2D排位）</a> 
+                                            <a href="http://class.mfcad.com/course/35" target="_blank">产品结构设计实际案例分析</a> 
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a  class="menu-con-list-title">CATIA</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/catia/xfzs/" target="_blank">CATIA入门到精通课程</a> 
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a  class="menu-con-list-title ">AutoCAD</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://class.mfcad.com/course/38" target="_blank">CAD2016基础入门视频教程</a>
+                                            <a href="http://class.mfcad.com/course/5" target="_blank">AutoCAD快速入门视频课程</a> 
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a  class="menu-con-list-title ">CAXA</a>
+                                        <div class="menu-list-link">
+                                            <a href="http://www.mfcad.com/caxa/1766/" target="_blank">CAXA电子图板2015从入门到精通</a> 
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mf_cen">
+                    <div class="slider">
+                        <ul>
+                        	<li><a href="http://my.mfcad.com/Home/Support/index.html" target="_blank"><img src="/static/2015/img/zcsjs.jpg" /></a></li>
+                            <li><a href="https://item.taobao.com/item.htm?id=551063188378" target="_blank"><img src="/static/2015/img/diaokeji.jpg" /></a></li>
+                            <li><a href="http://class.mfcad.com/course/34" target="_blank"><img src="/static/2015/img/suliao.jpg" /></a></li>
+                            <li><a href="http://class.mfcad.com/course/156" target="_blank"><img src="/static/2015/img/jet-engine.jpg" /></a></li>
+
+                            <li><a href="http://class.mfcad.com/course/36" target="_blank"><img src="/static/2015/img/ug10.jpg" /></a></li>
+
+                            <li><a href="http://www.mfcad.com/tuzhi/share/" target="_blank"><img src="/static/2015/img/03.jpg" /></a></li>
+
+                        </ul>
+                    </div>
+                    <div class="mf_top3">
+                        <div class="mf_top_tj">
+                            <a href="http://www.mfcad.com/tuzhi/index.php?m=content&c=xlist&tj=all" target="_blank"><img src='http://images.mfcad.com/tuzhi/2017/03/28/1490712976757.png@!thumb' width='176' height='114'>  <span>&nbsp;</span></a>
+                        </div>
+                        <div class="mf_top_tj mf_top_zx">
+                            <a href="http://www.mfcad.com/tuzhi/index.php?m=content&c=xlist&order=uptime" target="_blank"><img src='http://images.mfcad.com/tuzhi/2018/07/08/1531058697632.png@!thumb' width='176' height='114'>  <span>&nbsp;</span></a>
+                        </div>
+                        <div class="mf_top_tj mf_top_ph mr0">
+                            <a href="http://www.mfcad.com/tuzhi/index.php?m=content&c=xlist&order=allview" target="_blank"><img src='http://images.mfcad.com/tuzhi/2013/11/25/1385377763979.gif@!thumb' width='176' height='114'>  <span>&nbsp;</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mf_right">
+                    <div class="mf_ljjr">
+                        <p class="ljjr_p">沐风网助力中国工业设计转型升级<br />这里已有 <b>
+                                1153547
+                            </b> 位设计师入驻</p>
+                        <a href="http://my.mfcad.com/Home/Index/register" target="_blank" class="ljjr_a">立即加入</a>
+                        <span class="ljjr_span">已有账号? <a href="http://my.mfcad.com/Home/Index/login"  class="ljjr_a_dl">从这里登录</a></span>
+                        <span class="ljjr_span">或直接<a href="http://my.mfcad.com/Home/Thirduser/loginq" target="_blank" class="ljjr_a_qq">QQ登录</a></span>
+                    </div>
+                    <div class="mf_dlzt">
+                        <p><a href="http://my.mfcad.com/Home/Index/logout" class="dlzt_tc">退出</a>欢迎您，<a class="mf_username" href="http://my.mfcad.com" target="_blank"></a></p>
+                        <a href="http://my.mfcad.com" target="_blank" class="dlzt_img" id="mf_avatar"></a>
+                        <ul>
+                            <li><!--作品: <a href="" target="_blank">132</a>--><a href="http://www.mfcad.com/tuzhi/index.php?m=member&c=content&a=publish" target="_blank">上传图纸</a></li>
+                            <li><!--粉丝: <a href="" target="_blank">6032</a>--><a href="http://www.mfcad.com/tuzhi/index.php?m=member&c=content&a=published" target="_blank">已发布稿件</a></li>
+                            <li><!--作品: <a href="" target="_blank">132</a>--><a href="http://bbs.mfcad.com/thread-132112-1-1.html" target="_blank">如何上传？</a></li>
+                            <li><!--粉丝: <a href="" target="_blank">82</a>--><a href="http://www.mfcad.com/tuzhi/index.php?m=pay&c=deposit&a=pay" target="_blank">在线充值</a></li>
+                        </ul>
+                        <a href="http://www.mfcad.com/tuzhi/index.php?m=member" target="_blank" class="mf_grzx">进入个人中心</a>
+                    </div>
+                    <div class="mf_zxgg">
+                        <h4 class="mf_title"><a class="mf_title_more" target="_blank" href="http://www.mfcad.com/about/gonggao/">更多</a>最新公告</h4>
+                        <a href="/about/gonggao/41644.html" target="_blank" class="mf_zxgg_list">2018年端午节期间沐风网放假通知</a>
+<a href="/about/gonggao/40956.html" target="_blank" class="mf_zxgg_list">五一节期间沐风网服务及审核工作暂停公告</a>
+<a href="/about/gonggao/41213.html" target="_blank" class="mf_zxgg_list">清明节期间沐风网服务及审核工作暂停公告</a>
+<a href="/about/gonggao/41131.html" target="_blank" class="mf_zxgg_list">2018年春节期间沐风网服务及审核工作暂停公告</a>
+
+
+
+                    </div>
+                    <div class="mf_cspt">
+                        <h4 class="mf_title">创收平台</h4>
+                        <p class="mf_cspt_p"><a href="http://www.mfcad.com/tuzhi/share/">沐风网已累计为<br /><b> 
+
+
+                                    20923&nbsp;
+
+                                </b>位<br />设计师带来收入！</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mf_con1">
+
+
+
+                <div class="cl"></div>
+            </div>
+        </div>
+
+        <div class="mf_con2">
+
+            <div class="mf_zxtz">
+                <div class="title cf"><a href="http://www.mfcad.com/tuzhi/index.php?m=content&c=xlist&tj=all" target="_blank" class="a_more">更多</a>
+                    <h2 class="fl mf_zxtz_title">推荐图纸</h2>
+                    <!--				      <ul class="title-list fl cf ">
+                                                            <li class="on">机械设备</li>
+                                                            <li>数码产品</li>
+                                                            <li>电动工具</li>
+                                                            <li>电脑周边</li>
+                                                          </ul>-->
+                </div>
+                <div class="mf_zxtz_tab_con-wrap">
+                    <!--机械设备-->
+                    <div class="mf_zxtz_tab_con show">
+                        <ul class="cf">
+                            <li >
+                                <a href="http://www.mfcad.com/tuzhi/solidworks/jixieshebei/302464.html" target="_blank" class="imgwrap">
+                                    <img src='http://images.mfcad.com/tuzhi/2017/03/28/1490712976757.png@!thumb' width='300' height='225'>
+                                </a>
+                                <p class="mf_zxtz_p">
+                                    <span class="mf_zxtz_l">
+                                        <a href="http://www.mfcad.com/tuzhi/solidworks/jixieshebei/302464.html" target="_blank" class="mf_zxtz_span_title">适用于多种敞车侧墙焊接生产线设计模型（SolidWorks）</a>
+                                        <font><b>283</b>人关注</font>
+                                    </span>
+                                    <span class="mf_zxtz_r">
+                                        <a href="http://my.mfcad.com/436476" target="_blank"><font>七魔心</font><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=436476&size=small" /></a>
+                                    </span>
+                                </p>
+                            </li><li >
+                                <a href="http://www.mfcad.com/tuzhi/solidworks/jixieshebei/302404.html" target="_blank" class="imgwrap">
+                                    <img src='http://images.mfcad.com/tuzhi/2017/03/28/1490704703313.png@!thumb' width='300' height='225'>
+                                </a>
+                                <p class="mf_zxtz_p">
+                                    <span class="mf_zxtz_l">
+                                        <a href="http://www.mfcad.com/tuzhi/solidworks/jixieshebei/302404.html" target="_blank" class="mf_zxtz_span_title">电容器箱壳焊接机器人工作站设计模型</a>
+                                        <font><b>284</b>人关注</font>
+                                    </span>
+                                    <span class="mf_zxtz_r">
+                                        <a href="http://my.mfcad.com/436476" target="_blank"><font>七魔心</font><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=436476&size=small" /></a>
+                                    </span>
+                                </p>
+                            </li><li  class="mr0">
+                                <a href="http://www.mfcad.com/tuzhi/solidworks/jixieshebei/302389.html" target="_blank" class="imgwrap">
+                                    <img src='http://images.mfcad.com/tuzhi/2017/03/28/1490702792831.png@!thumb' width='300' height='225'>
+                                </a>
+                                <p class="mf_zxtz_p">
+                                    <span class="mf_zxtz_l">
+                                        <a href="http://www.mfcad.com/tuzhi/solidworks/jixieshebei/302389.html" target="_blank" class="mf_zxtz_span_title">搬运机器人工作站设计模型</a>
+                                        <font><b>347</b>人关注</font>
+                                    </span>
+                                    <span class="mf_zxtz_r">
+                                        <a href="http://my.mfcad.com/436476" target="_blank"><font>七魔心</font><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=436476&size=small" /></a>
+                                    </span>
+                                </p>
+                            </li><li >
+                                <a href="http://www.mfcad.com/tuzhi/solidworks/jixieshebei/302272.html" target="_blank" class="imgwrap">
+                                    <img src='http://images.mfcad.com/tuzhi/2017/03/28/1490680651687.png@!thumb' width='300' height='225'>
+                                </a>
+                                <p class="mf_zxtz_p">
+                                    <span class="mf_zxtz_l">
+                                        <a href="http://www.mfcad.com/tuzhi/solidworks/jixieshebei/302272.html" target="_blank" class="mf_zxtz_span_title">圆筒曲面丝网印刷机</a>
+                                        <font><b>365</b>人关注</font>
+                                    </span>
+                                    <span class="mf_zxtz_r">
+                                        <a href="http://my.mfcad.com/635949" target="_blank"><font>edifierxyz</font><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=635949&size=small" /></a>
+                                    </span>
+                                </p>
+                            </li><li >
+                                <a href="http://www.mfcad.com/tuzhi/solidworks/jixieshebei/301998.html" target="_blank" class="imgwrap">
+                                    <img src='http://images.mfcad.com/tuzhi/2017/03/27/1490622527839.jpg@!thumb' width='300' height='225'>
+                                </a>
+                                <p class="mf_zxtz_p">
+                                    <span class="mf_zxtz_l">
+                                        <a href="http://www.mfcad.com/tuzhi/solidworks/jixieshebei/301998.html" target="_blank" class="mf_zxtz_span_title">非标复合型CCD视觉检测机TCP613</a>
+                                        <font><b>1209</b>人关注</font>
+                                    </span>
+                                    <span class="mf_zxtz_r">
+                                        <a href="http://my.mfcad.com/511969" target="_blank"><font>SMT非标组装图纸</font><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=511969&size=small" /></a>
+                                    </span>
+                                </p>
+                            </li><li  class="mr0">
+                                <a href="http://www.mfcad.com/tuzhi/cad/6120/301690.html" target="_blank" class="imgwrap">
+                                    <img src='http://images.mfcad.com/tuzhi/2017/03/27/1490581320323.jpg@!thumb' width='300' height='225'>
+                                </a>
+                                <p class="mf_zxtz_p">
+                                    <span class="mf_zxtz_l">
+                                        <a href="http://www.mfcad.com/tuzhi/cad/6120/301690.html" target="_blank" class="mf_zxtz_span_title">全自动播撒式给料机二维CAD图</a>
+                                        <font><b>169</b>人关注</font>
+                                    </span>
+                                    <span class="mf_zxtz_r">
+                                        <a href="http://my.mfcad.com/805179" target="_blank"><font>songdz201</font><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=805179&size=small" /></a>
+                                    </span>
+                                </p>
+                            </li><li >
+                                <a href="http://www.mfcad.com/tuzhi/20144/431414.html" target="_blank" class="imgwrap">
+                                    <img src='http://images.mfcad.com/tuzhi/2018/04/10/1523325052315.png@!thumb' width='300' height='225'>
+                                </a>
+                                <p class="mf_zxtz_p">
+                                    <span class="mf_zxtz_l">
+                                        <a href="http://www.mfcad.com/tuzhi/20144/431414.html" target="_blank" class="mf_zxtz_span_title">马桶盖自动化集成设备</a>
+                                        <font><b>150</b>人关注</font>
+                                    </span>
+                                    <span class="mf_zxtz_r">
+                                        <a href="http://my.mfcad.com/493469" target="_blank"><font>zhu111bin</font><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=493469&size=small" /></a>
+                                    </span>
+                                </p>
+                            </li><li >
+                                <a href="http://www.mfcad.com/tuzhi/dianjiaoji/431098.html" target="_blank" class="imgwrap">
+                                    <img src='http://images.mfcad.com/tuzhi/2018/04/09/1523262879432.png@!thumb' width='300' height='225'>
+                                </a>
+                                <p class="mf_zxtz_p">
+                                    <span class="mf_zxtz_l">
+                                        <a href="http://www.mfcad.com/tuzhi/dianjiaoji/431098.html" target="_blank" class="mf_zxtz_span_title">手动枪式点胶机</a>
+                                        <font><b>223</b>人关注</font>
+                                    </span>
+                                    <span class="mf_zxtz_r">
+                                        <a href="http://my.mfcad.com/493469" target="_blank"><font>zhu111bin</font><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=493469&size=small" /></a>
+                                    </span>
+                                </p>
+                            </li><li  class="mr0">
+                                <a href="http://www.mfcad.com/tuzhi/1590/430616.html" target="_blank" class="imgwrap">
+                                    <img src='http://images.mfcad.com/tuzhi/2018/04/08/1523184556451.JPG@!thumb' width='300' height='225'>
+                                </a>
+                                <p class="mf_zxtz_p">
+                                    <span class="mf_zxtz_l">
+                                        <a href="http://www.mfcad.com/tuzhi/1590/430616.html" target="_blank" class="mf_zxtz_span_title">汽车显示屏MQB压合设备</a>
+                                        <font><b>97</b>人关注</font>
+                                    </span>
+                                    <span class="mf_zxtz_r">
+                                        <a href="http://my.mfcad.com/484317" target="_blank"><font>ks-auto</font><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=484317&size=small" /></a>
+                                    </span>
+                                </p>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="mybody">
+            <div class="mf_con1">
+
+                <div class="mf_zxjc">
+                    <h2 class="mf_zxtz_title"><a href="http://www.mfcad.com/tuzhi/index.php?m=content&c=xlist&order=uptime" target="_blank" class="a_more">更多</a>最新图纸</h2>
+                    <div class="mf_zxjc_list">
+                        <div class="mf_zxjc_tt">
+                            <a href="http://www.mfcad.com/tuzhi/diaodeng/473887.html" target="_blank" class="mf_zxjc_img"><img src='http://images.mfcad.com/tuzhi/2018/07/08/1531058697632.png@!thumb' width='170' height='93'></a>
+                            <a href="http://www.mfcad.com/tuzhi/diaodeng/473887.html" target="_blank" class="mf_zxjc_tt_a">sw吊灯设计模型</a>
+                            <span>2018-07-12</span>
+                        </div>
+                        <a href="http://www.mfcad.com/tuzhi/zhijuyeju/473880.html" target="_blank" class="mf_zxjc_list_a">TR8001转接治具</a><a href="http://www.mfcad.com/tuzhi/jiansuji/473879.html" target="_blank" class="mf_zxjc_list_a">WPWDA((万能型 立式底板)蜗轮蜗杆减速机7个型号模型图</a><a href="http://www.mfcad.com/tuzhi/celiang/473878.html" target="_blank" class="mf_zxjc_list_a">摇臂式测试治具</a><a href="http://www.mfcad.com/tuzhi/celiang/473876.html" target="_blank" class="mf_zxjc_list_a">西门子TS128LH真空治具</a><a href="http://www.mfcad.com/tuzhi/celiang/473872.html" target="_blank" class="mf_zxjc_list_a">Gerad乒乓式治具</a><a href="http://www.mfcad.com/tuzhi/celiang/473868.html" target="_blank" class="mf_zxjc_list_a">密封测试治具</a><a href="http://www.mfcad.com/tuzhi/jiansuji/473866.html" target="_blank" class="mf_zxjc_list_a">WPDZ蜗轮蜗杆减速机5个型号模型</a><a href="http://www.mfcad.com/tuzhi/1603/473863.html" target="_blank" class="mf_zxjc_list_a">往复结构建模设计</a><a href="http://www.mfcad.com/tuzhi/zhijuyeju/473861.html" target="_blank" class="mf_zxjc_list_a">HP3070掀盖式治具</a><a href="http://www.mfcad.com/tuzhi/jiansuji/473853.html" target="_blank" class="mf_zxjc_list_a">SA..R轴输入的组合式斜齿-蜗轮蜗杆减速机6种型号模型</a>
+                    </div>
+                    <div class="mf_zxjc_list">
+                        <div class="mf_zxjc_tt">
+                            <a href="http://www.mfcad.com/tuzhi/shalou/473847.html" target="_blank" class="mf_zxjc_img"><img src='http://images.mfcad.com/tuzhi/2018/07/08/1531050477776.jpg@!thumb' width='170' height='93'></a>
+                            <a href="http://www.mfcad.com/tuzhi/shalou/473847.html" target="_blank" class="mf_zxjc_tt_a">沙漏梅花灯模型</a>
+                            <span>2018-07-12</span>
+                        </div>
+                        <a href="http://www.mfcad.com/tuzhi/tiwenji/473845.html" target="_blank" class="mf_zxjc_list_a">小米体温计模型</a><a href="http://www.mfcad.com/tuzhi/jiansuji/473844.html" target="_blank" class="mf_zxjc_list_a">S..R轴输入的组合式斜齿-蜗轮蜗杆减速机5种型号模型</a><a href="http://www.mfcad.com/tuzhi/823/473833.html" target="_blank" class="mf_zxjc_list_a"> 汽车单排三座座椅坐垫设计模型</a><a href="http://www.mfcad.com/tuzhi/703/473826.html" target="_blank" class="mf_zxjc_list_a">6种AB冷凝泵模型图</a><a href="http://www.mfcad.com/tuzhi/599/473787.html" target="_blank" class="mf_zxjc_list_a">圆珠笔制作款式模型</a><a href="http://www.mfcad.com/tuzhi/tiaoyafa/473748.html" target="_blank" class="mf_zxjc_list_a">水管开关阀设计图</a><a href="http://www.mfcad.com/tuzhi/paoguangji/473739.html" target="_blank" class="mf_zxjc_list_a">自动研磨打磨抛光机设备</a><a href="http://www.mfcad.com/tuzhi/1003/473738.html" target="_blank" class="mf_zxjc_list_a">可折叠座椅</a><a href="http://www.mfcad.com/tuzhi/rear_mirror/473724.html" target="_blank" class="mf_zxjc_list_a">外后视镜后视野校核（含校核过程）</a><a href="http://www.mfcad.com/tuzhi/20156/473722.html" target="_blank" class="mf_zxjc_list_a">自顶向下设计中性笔模型</a>
+                    </div>
+                    <div class="mf_zxjc_list">
+                        <div class="mf_zxjc_tt">
+                            <a href="http://www.mfcad.com/tuzhi/chemen/473721.html" target="_blank" class="mf_zxjc_img"><img src='http://images.mfcad.com/tuzhi/2018/07/08/1531023273878.JPG@!thumb' width='170' height='93'></a>
+                            <a href="http://www.mfcad.com/tuzhi/chemen/473721.html" target="_blank" class="mf_zxjc_tt_a">玻璃升降器运动分析</a>
+                            <span>2018-07-12</span>
+                        </div>
+                        <a href="http://www.mfcad.com/tuzhi/yibiaoban/473717.html" target="_blank" class="mf_zxjc_list_a">日系越野车仪表板</a><a href="http://www.mfcad.com/tuzhi/shuibeng/473715.html" target="_blank" class="mf_zxjc_list_a">水泵 附带stp</a><a href="http://www.mfcad.com/tuzhi/1598/473713.html" target="_blank" class="mf_zxjc_list_a">打井机机械设计三维模型</a><a href="http://www.mfcad.com/tuzhi/muju/6363/473712.html" target="_blank" class="mf_zxjc_list_a">弯板冲裁模具</a><a href="http://www.mfcad.com/tuzhi/676/473711.html" target="_blank" class="mf_zxjc_list_a">喷射泵模型设计</a><a href="http://www.mfcad.com/tuzhi/823/473707.html" target="_blank" class="mf_zxjc_list_a">SW赛车座椅模型</a><a href="http://www.mfcad.com/tuzhi/zhongbiao/473706.html" target="_blank" class="mf_zxjc_list_a">男士手表外观三维模型</a><a href="http://www.mfcad.com/tuzhi/823/473705.html" target="_blank" class="mf_zxjc_list_a">赛车座椅模型图</a><a href="http://www.mfcad.com/tuzhi/20142/473704.html" target="_blank" class="mf_zxjc_list_a">医疗检测设备结构设计（含详细结构可开模）</a><a href="http://www.mfcad.com/tuzhi/chassis_suspension/473703.html" target="_blank" class="mf_zxjc_list_a">欧系轿车底盘</a>
+                    </div>
+                    <div class="mf_zxjc_list">
+                        <div class="mf_zxjc_tt">
+                            <a href="http://www.mfcad.com/tuzhi/723/473702.html" target="_blank" class="mf_zxjc_img"><img src='http://images.mfcad.com/tuzhi/2018/07/08/1531018389877.png@!thumb' width='170' height='93'></a>
+                            <a href="http://www.mfcad.com/tuzhi/723/473702.html" target="_blank" class="mf_zxjc_tt_a">风力发电机垂直轴</a>
+                            <span>2018-07-12</span>
+                        </div>
+                        <a href="http://www.mfcad.com/tuzhi/park/473701.html" target="_blank" class="mf_zxjc_list_a">原创实用自行车停车自动化装置</a><a href="http://www.mfcad.com/tuzhi/shuihu/473699.html" target="_blank" class="mf_zxjc_list_a">电热水壶外观模型</a><a href="http://www.mfcad.com/tuzhi/jiansuji/473698.html" target="_blank" class="mf_zxjc_list_a">2种GFAF57斜齿轮减速电机模型图</a><a href="http://www.mfcad.com/tuzhi/bysj/6323/473696.html" target="_blank" class="mf_zxjc_list_a">小型车铣加工中心</a><a href="http://www.mfcad.com/tuzhi/112/473695.html" target="_blank" class="mf_zxjc_list_a">2USB3.0+2USB2.0HUB板</a><a href="http://www.mfcad.com/tuzhi/629/473624.html" target="_blank" class="mf_zxjc_list_a">DJ-09801 重型扳手钻夹头 共7种型号</a><a href="http://www.mfcad.com/tuzhi/lego/473691.html" target="_blank" class="mf_zxjc_list_a">乐高积木汽车玩具三维模型</a><a href="http://www.mfcad.com/tuzhi/20147/473690.html" target="_blank" class="mf_zxjc_list_a">不锈钢盘</a><a href="http://www.mfcad.com/tuzhi/112/473687.html" target="_blank" class="mf_zxjc_list_a">笔记本固态硬盘</a><a href="http://www.mfcad.com/tuzhi/racing/473684.html" target="_blank" class="mf_zxjc_list_a">RC硝基车前桥模型</a>
+                    </div>
+                    <div class="mf_zxjc_list brgary">
+                        <div class="mf_zxjc_tt">
+                            <a href="http://www.mfcad.com/tuzhi/banjin/6030/473682.html" target="_blank" class="mf_zxjc_img"><img src='http://images.mfcad.com/tuzhi/2018/07/08/1531015772469.png@!thumb' width='170' height='93'></a>
+                            <a href="http://www.mfcad.com/tuzhi/banjin/6030/473682.html" target="_blank" class="mf_zxjc_tt_a">19英寸3U插箱</a>
+                            <span>2018-07-12</span>
+                        </div>
+                        <a href="http://www.mfcad.com/tuzhi/112/473681.html" target="_blank" class="mf_zxjc_list_a">HDMI接口线</a><a href="http://www.mfcad.com/tuzhi/321/473678.html" target="_blank" class="mf_zxjc_list_a">标准工作台三维模型</a><a href="http://www.mfcad.com/tuzhi/bysj/6325/473676.html" target="_blank" class="mf_zxjc_list_a">羽绒被绗缝自动缝纫机设计</a><a href="http://www.mfcad.com/tuzhi/547/473675.html" target="_blank" class="mf_zxjc_list_a">双层皮带机</a><a href="http://www.mfcad.com/tuzhi/dianluban/473674.html" target="_blank" class="mf_zxjc_list_a">主板连接件</a><a href="http://www.mfcad.com/tuzhi/762/473673.html" target="_blank" class="mf_zxjc_list_a">3D史密斯机训练器</a><a href="http://www.mfcad.com/tuzhi/bysj/6322/473672.html" target="_blank" class="mf_zxjc_list_a">cad法兰盘加工工艺及夹具设计</a><a href="http://www.mfcad.com/tuzhi/bysj/6327/473669.html" target="_blank" class="mf_zxjc_list_a">cad立轴式破碎机</a><a href="http://www.mfcad.com/tuzhi/112/473668.html" target="_blank" class="mf_zxjc_list_a">硬盘托盒</a><a href="http://www.mfcad.com/tuzhi/bysj/6327/473666.html" target="_blank" class="mf_zxjc_list_a">推土机工作装置设计</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mf_con1">
+
+
+                <div class="mf_zjgx">
+                    <h4 class="mf_title mf_title_zjgx">最近更新</h4>
+                    <div class="zjgs_toutiao">
+                        <a href="/Inventor/1818/41668.html" target="_blank" class="mf_toutiao_img"><img src="http://www.mfcad.com/uploads/thumb/2018/06/22/avatar1_20180622094308_339_SHHKWFWU.jpg"  /></a>
+
+
+                        <p class="mf_toutiao_r">
+                            <a href="/Inventor/1818/41668.html" target="_blank">3.50 建模实例箩筐02</a>
+                            <span>
+                                这节课我们继续讲解塑料筐的建模过程，首先使用拉伸命令，创建塑料筐上边延伸的边缘，如图： 使用草绘命令创建底座的平面图，如图： 点击放样命令，选...
+                                <font>发布时间：2018-07-12 </font>
+                            </span>
+                        </p>
+
+                    </div>
+                    <ul class="mf_zjgx_ul">
+                        <li>
+                            <span
+                                class="date_red"
+                                >07-12</span>
+                            [视频]                     
+                            <a href="/Inventor/1818/41668.html" target="_blank">3.50 建模实例箩筐02</a>
+                        </li>
+<li>
+                            <span
+                                class="date_red"
+                                >07-12</span>
+                            [视频]                     
+                            <a href="/Inventor/1818/41667.html" target="_blank">3.49 建模实例箩筐01</a>
+                        </li>
+<li>
+                            <span
+                                class="date_red"
+                                >07-12</span>
+                            [视频]                     
+                            <a href="/Inventor/1818/41666.html" target="_blank">3.47 建模实例支架08</a>
+                        </li>
+<li>
+                            <span
+                                class="date_red"
+                                >07-12</span>
+                            [视频]                     
+                            <a href="/Inventor/1818/41665.html" target="_blank">3.47 建模实例支架08</a>
+                        </li>
+<li>
+                            <span
+                                class="date_red"
+                                >07-12</span>
+                            [视频]                     
+                            <a href="/Inventor/1818/41664.html" target="_blank">3.46 建模实例支架07</a>
+                        </li>
+<li>
+                            <span
+                                class="date_red"
+                                >07-12</span>
+                            [视频]                     
+                            <a href="/Inventor/1818/41663.html" target="_blank">3.45 建模实例支架06</a>
+                        </li>
+<li>
+                            <span
+                                class="date_red"
+                                >07-12</span>
+                            [视频]                     
+                            <a href="/Inventor/1818/41662.html" target="_blank">3.44 建模实例支架05</a>
+                        </li>
+<li>
+                            <span
+                                class="date_red"
+                                >07-12</span>
+                            [视频]                     
+                            <a href="/Inventor/1818/41661.html" target="_blank">3.43 建模实例支架04</a>
+                        </li>
+<li>
+                            <span
+                                class="date_red"
+                                >07-12</span>
+                            [视频]                     
+                            <a href="/Inventor/1818/41660.html" target="_blank">3.42 建模实例支架03</a>
+                        </li>
+<li>
+                            <span
+                                class="date_red"
+                                >07-12</span>
+                            [视频]                     
+                            <a href="/Inventor/1818/41659.html" target="_blank">3.41 建模实例支架02</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="mf_tjsjs">
+                    <h4 class="mf_title"><a href="" target="_blank" class="mf_title_more">更多</a>活跃设计师</h4>
+                    <ul class="mf_tjsjs_ul">
+                        <li>
+                                <a href="http://my.mfcad.com/1076734" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=1076734&size=small" alt="东东鸿装" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/1076734" target="_blank">东东鸿装</a>
+                                        <span><font>作品: </font>403</span><span><font>粉丝: </font>2<font>人气: </font>0</span>
+                                </p>							
+                        </li><li>
+                                <a href="http://my.mfcad.com/727975" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=727975&size=small" alt="不小心碰了头" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/727975" target="_blank">不小心碰了头</a>
+                                        <span><font>作品: </font>2025</span><span><font>粉丝: </font>22<font>人气: </font>12</span>
+                                </p>							
+                        </li><li>
+                                <a href="http://my.mfcad.com/945095" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=945095&size=small" alt="幸福是奋斗出来" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/945095" target="_blank">幸福是奋斗出来</a>
+                                        <span><font>作品: </font>552</span><span><font>粉丝: </font>9<font>人气: </font>6</span>
+                                </p>							
+                        </li><li>
+                                <a href="http://my.mfcad.com/923774" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=923774&size=small" alt="ranran87" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/923774" target="_blank">ranran87</a>
+                                        <span><font>作品: </font>146</span><span><font>粉丝: </font>4<font>人气: </font>0</span>
+                                </p>							
+                        </li><li>
+                                <a href="http://my.mfcad.com/319211" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=319211&size=small" alt="haha279" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/319211" target="_blank">haha279</a>
+                                        <span><font>作品: </font>221</span><span><font>粉丝: </font>23<font>人气: </font>104</span>
+                                </p>							
+                        </li><li>
+                                <a href="http://my.mfcad.com/149775" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=149775&size=small" alt="机械设备大师" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/149775" target="_blank">机械设备大师</a>
+                                        <span><font>作品: </font>2393</span><span><font>粉丝: </font>243<font>人气: </font>113</span>
+                                </p>							
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="mf_tjsjs">
+                    <h4 class="mf_title"><a href="" target="_blank" class="mf_title_more">更多</a>推荐设计师</h4>
+                    <ul class="mf_tjsjs_ul">
+                        <li>
+                                <a href="http://my.mfcad.com/1221103" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=1221103&size=small" alt="鸿禹" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/1221103" target="_blank">鸿禹</a>
+                                        <span><font>作品: </font>47</span><span><font>粉丝: </font>1<font>人气: </font>0</span>
+                                </p>							
+                        </li><li>
+                                <a href="http://my.mfcad.com/956100" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=956100&size=small" alt="奋斗吧青年" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/956100" target="_blank">奋斗吧青年</a>
+                                        <span><font>作品: </font>110</span><span><font>粉丝: </font>1<font>人气: </font>0</span>
+                                </p>							
+                        </li><li>
+                                <a href="http://my.mfcad.com/358487" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=358487&size=small" alt="jobwangwu2014" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/358487" target="_blank">jobwangwu2014</a>
+                                        <span><font>作品: </font>3278</span><span><font>粉丝: </font>356<font>人气: </font>1104</span>
+                                </p>							
+                        </li><li>
+                                <a href="http://my.mfcad.com/1125409" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=1125409&size=small" alt="snail03102" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/1125409" target="_blank">snail03102</a>
+                                        <span><font>作品: </font>241</span><span><font>粉丝: </font>7<font>人气: </font>0</span>
+                                </p>							
+                        </li><li>
+                                <a href="http://my.mfcad.com/976763" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=976763&size=small" alt="飞将军泡泡" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/976763" target="_blank">飞将军泡泡</a>
+                                        <span><font>作品: </font>90</span><span><font>粉丝: </font>3<font>人气: </font>0</span>
+                                </p>							
+                        </li><li>
+                                <a href="http://my.mfcad.com/1013838" target="_blank" class="mf_tjsjs_img"><img src="http://bbs.mfcad.com/uc_server/avatar.php?uid=1013838&size=small" alt="音九之" /></a>
+                                <p class="mf_tjsjs_p">
+                                        <a href="http://my.mfcad.com/1013838" target="_blank">音九之</a>
+                                        <span><font>作品: </font>28</span><span><font>粉丝: </font>1<font>人气: </font>2</span>
+                                </p>							
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mf_con1">
+
+                <div class="mf_cyrj">
+                    <div class="mf_cyrj_title cf">
+                        <h2 class="fr">免费CAD教程</h2>
+                        <ul class="mf_cyrj_title_ul fl cf ">
+                            <li class="ona"><a href="/cad/" target="_blank">AutoCAD</a></li>
+                            <li><a href="/ug/" target="_blank">UG</a></li>
+                            <li><a href="/solidworks/" target="_blank">SolidWorks</a></li>
+                            <li><a href="/proe/" target="_blank">Proe</a></li>
+                            <li><a href="/catia/" target="_blank">CATIA</a></li>
+                            <li><a href="/creo/" target="_blank">Creo</a></li>
+                            <p><b></b></p>
+                        </ul>
+                    </div>
+                    <div class="mf_cyrj_c">
+                        <!--案例1-->
+                        <div class="mf_cyrj_tab showa">
+                            <div class="mf_cyrj_l">
+                                <div class="focus">
+                                    <ul>
+                                        <li><a href="/cad/jichu/1801/41594.html" target="_blank"><img src="http://www.mfcad.com/uploads/thumb/2018/06/13/avatar1_20180613175656_982_NNFQ693C.jpg"  /></a></li>
+
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="/cad/jichu/1801/41594.html" target="_blank" class="mf_cyrj_list">
+                                (06-27)
+                                3.52快速选择工具使用</a>
+<a href="/cad/jichu/1801/41531.html" target="_blank" class="mf_cyrj_list">
+                                (06-27)
+                                3.51块单个编辑、多个编辑和属性显示隐藏工具使用</a>
+<a href="/cad/jichu/1801/41530.html" target="_blank" class="mf_cyrj_list">
+                                (06-26)
+                                3.50块编辑工具</a>
+<a href="/cad/jichu/1801/41528.html" target="_blank" class="mf_cyrj_list">
+                                (06-26)
+                                3.49块定义属性工具</a>
+<a href="/cad/jichu/1801/41501.html" target="_blank" class="mf_cyrj_list">
+                                (06-26)
+                                3.46各种前置后置工具使用</a>
+<a href="/cad/jichu/1801/41506.html" target="_blank" class="mf_cyrj_list">
+                                (06-25)
+                                3.48永久块的创建</a>
+<a href="/cad/jichu/1801/41504.html" target="_blank" class="mf_cyrj_list">
+                                (06-25)
+                                3.47临时块的创建</a>
+<a href="/cad/jichu/1801/41500.html" target="_blank" class="mf_cyrj_list">
+                                (06-25)
+                                3.45反转、复制嵌套对象和删除重复对象工具使用</a>
+<a href="/cad/jichu/1801/41497.html" target="_blank" class="mf_cyrj_list">
+                                (06-25)
+                                3.44合并工具使用</a>
+<a href="/cad/jichu/1801/41495.html" target="_blank" class="mf_cyrj_list">
+                                (06-25)
+                                3.43打断练习</a>
+<a href="/cad/jichu/1801/41493.html" target="_blank" class="mf_cyrj_list">
+                                (06-23)
+                                3.42打断工具使用</a>
+<a href="/cad/jichu/1801/41492.html" target="_blank" class="mf_cyrj_list">
+                                (06-23)
+                                3.41编辑样条曲线工具使用</a>
+<a href="/cad/jichu/1801/41489.html" target="_blank" class="mf_cyrj_list">
+                                (06-23)
+                                3.40拉长练习</a>
+<a href="/cad/jichu/1801/41487.html" target="_blank" class="mf_cyrj_list">
+                                (06-23)
+                                3.39拉长工具使用</a>
+<a href="/cad/jichu/1801/41486.html" target="_blank" class="mf_cyrj_list">
+                                (06-23)
+                                3.38夹点编辑工具</a>
+<a href="/cad/jichu/1801/41485.html" target="_blank" class="mf_cyrj_list">
+                                (06-22)
+                                3.37缩放和分解练习</a>
+<a href="/cad/jichu/1801/41484.html" target="_blank" class="mf_cyrj_list">
+                                (06-22)
+                                3.36缩放工具使用</a>
+<a href="/cad/jichu/1801/41482.html" target="_blank" class="mf_cyrj_list">
+                                (06-22)
+                                3.35分解工具使用</a>
+
+
+                        </div>
+                        <!--案例2-->
+                        <div class="mf_cyrj_tab">
+                            <div class="mf_cyrj_l">
+                                <div class="focus">
+                                    <ul>
+                                        <li><a href="/ug/975/21544.html" target="_blank"><img src="/uploads/allimg/130118/611P_011Q41T4E00.jpg"  /></a></li>
+
+                                    </ul>
+                                </div>
+                            </div>	
+                            <a href="/ug/975/21544.html" target="_blank" class="mf_cyrj_list">
+                                (05-22)
+                                UG8.5安装完成后出现NX许可错误没有可用的许可证是什</a>
+<a href="/ug/bianchengjiqiao/41222.html" target="_blank" class="mf_cyrj_list">
+                                (05-11)
+                                铜公加工技巧</a>
+<a href="/ug/1645/37681.html" target="_blank" class="mf_cyrj_list">
+                                (05-08)
+                                8.8 拆电级与自动编程（8）</a>
+<a href="/ug/1760/38490.html" target="_blank" class="mf_cyrj_list">
+                                (04-24)
+                                城市工程管线综合规划规范</a>
+<a href="/ug/1760/38483.html" target="_blank" class="mf_cyrj_list">
+                                (04-24)
+                                管线的布置原则</a>
+<a href="/ug/1759/38900.html" target="_blank" class="mf_cyrj_list">
+                                (04-23)
+                                3.2 移动部件</a>
+<a href="/ug/1800/40842.html" target="_blank" class="mf_cyrj_list">
+                                (04-20)
+                                1.11 型腔布局1</a>
+<a href="/ug/1394/31005.html" target="_blank" class="mf_cyrj_list">
+                                (04-19)
+                                309 视图相关命令</a>
+<a href="/ug/1394/31004.html" target="_blank" class="mf_cyrj_list">
+                                (04-19)
+                                308 新建截面</a>
+<a href="/ug/71/30886.html" target="_blank" class="mf_cyrj_list">
+                                (04-19)
+                                10 UG9.0拉伸命令的灵活应用</a>
+<a href="/ug/1800/40897.html" target="_blank" class="mf_cyrj_list">
+                                (04-11)
+                                3.21 手机前盖的斜顶分模实例（3）</a>
+<a href="/ug/1800/40896.html" target="_blank" class="mf_cyrj_list">
+                                (04-11)
+                                3.20 手机前盖的斜顶分模实例（2）</a>
+<a href="/ug/1800/40895.html" target="_blank" class="mf_cyrj_list">
+                                (04-11)
+                                3.19 手机前盖的斜顶分模实例（1）</a>
+<a href="/ug/1800/40893.html" target="_blank" class="mf_cyrj_list">
+                                (04-10)
+                                3.18 斜顶分模实例1</a>
+<a href="/ug/1800/40892.html" target="_blank" class="mf_cyrj_list">
+                                (04-10)
+                                3.17 斜顶分模实例1</a>
+<a href="/ug/1800/40891.html" target="_blank" class="mf_cyrj_list">
+                                (04-10)
+                                3.16 斜顶分模实例1</a>
+<a href="/ug/1800/40890.html" target="_blank" class="mf_cyrj_list">
+                                (04-09)
+                                3.15 侧抽分模实例4</a>
+<a href="/ug/1800/40889.html" target="_blank" class="mf_cyrj_list">
+                                (04-09)
+                                3.14 侧抽分模实例4</a>
+
+                        </div>
+                        <!--案例3-->
+                        <div class="mf_cyrj_tab">
+                            <div class="mf_cyrj_l">
+                                <div class="focus">
+                                    <ul>
+                                        <li><a href="/solidworks/1805/41284.html" target="_blank"><img src="http://www.mfcad.com/uploads/thumb/2018/05/18/avatar1_20180518110822_787_OLHUXKNO.jpg"  /></a></li>
+
+                                    </ul>
+                                </div>
+                            </div>	
+                            <a href="/solidworks/1805/41284.html" target="_blank" class="mf_cyrj_list">
+                                (05-24)
+                                3.5 设备型号的创建_2</a>
+<a href="/solidworks/1805/41282.html" target="_blank" class="mf_cyrj_list">
+                                (05-24)
+                                3.4 设备型号的创建</a>
+<a href="/solidworks/1805/41279.html" target="_blank" class="mf_cyrj_list">
+                                (05-24)
+                                3.3 交叉引用</a>
+<a href="/solidworks/1805/41275.html" target="_blank" class="mf_cyrj_list">
+                                (05-22)
+                                3.2 符号的创建</a>
+<a href="/solidworks/1805/41273.html" target="_blank" class="mf_cyrj_list">
+                                (05-22)
+                                3.1 图框的创建</a>
+<a href="/solidworks/227/40939.html" target="_blank" class="mf_cyrj_list">
+                                (05-07)
+                                隐形眼镜盒的建模</a>
+<a href="/solidworks/227/40937.html" target="_blank" class="mf_cyrj_list">
+                                (05-04)
+                                随身充电器建模</a>
+<a href="/solidworks/xinshou/38743.html" target="_blank" class="mf_cyrj_list">
+                                (04-23)
+                                solidworks块的操作之--带传动</a>
+<a href="/solidworks/228/38846.html" target="_blank" class="mf_cyrj_list">
+                                (04-23)
+                                solidworks块操作之---齿轮齿条链接</a>
+<a href="/solidworks/xinshou/40563.html" target="_blank" class="mf_cyrj_list">
+                                (04-20)
+                                零件滚花特征的创建</a>
+<a href="/solidworks/1805/41180.html" target="_blank" class="mf_cyrj_list">
+                                (03-20)
+                                2.4 Electrical的一些概念</a>
+<a href="/solidworks/1805/41179.html" target="_blank" class="mf_cyrj_list">
+                                (03-20)
+                                2.3 数据库的介绍</a>
+<a href="/solidworks/1805/41178.html" target="_blank" class="mf_cyrj_list">
+                                (03-20)
+                                2.2 界面参数和鼠标的作用</a>
+<a href="/solidworks/1805/41172.html" target="_blank" class="mf_cyrj_list">
+                                (03-15)
+                                2.1 Solidworks Electrical的界面</a>
+<a href="/solidworks/1805/41171.html" target="_blank" class="mf_cyrj_list">
+                                (03-15)
+                                1.3 Solidworks Electrical与SQL数据库的关系</a>
+<a href="/solidworks/1805/41170.html" target="_blank" class="mf_cyrj_list">
+                                (03-15)
+                                1.2 Solidworks Electrical软件的组成</a>
+<a href="/solidworks/1805/41169.html" target="_blank" class="mf_cyrj_list">
+                                (03-15)
+                                1.1 Solidworks Electrical软件的安装</a>
+<a href="/solidworks/1184/41107.html" target="_blank" class="mf_cyrj_list">
+                                (02-26)
+                                solidworks菜鸟之路——齿轮配合</a>
+
+                        </div>
+                        <!--案例4-->
+                        <div class="mf_cyrj_tab">
+                            <div class="mf_cyrj_l">
+                                <div class="focus">
+                                    <ul>
+                                        <li><a href="/proe/1810/41410.html" target="_blank"><img src="http://www.mfcad.com/uploads/thumb/2018/05/29/avatar1_20180529152719_133_SAFGE6BM.jpg"  /></a></li>
+
+                                    </ul>
+                                </div>
+                            </div>	
+                            <a href="/proe/1810/41410.html" target="_blank" class="mf_cyrj_list">
+                                (06-05)
+                                2.8无人机外观设计—旋翼壁条纹绘制和头部凹孔绘制</a>
+<a href="/proe/1810/41408.html" target="_blank" class="mf_cyrj_list">
+                                (06-05)
+                                2.7无人机外观设计—旋翼壁条纹绘制</a>
+<a href="/proe/1810/41406.html" target="_blank" class="mf_cyrj_list">
+                                (06-04)
+                                2.6无人机外观设计—驾驶舱轮廓绘制</a>
+<a href="/proe/1810/41403.html" target="_blank" class="mf_cyrj_list">
+                                (06-04)
+                                2.5无人机外观设计—旋翼绘制03</a>
+<a href="/proe/1810/41402.html" target="_blank" class="mf_cyrj_list">
+                                (06-04)
+                                2.4无人机外观设计—旋翼绘制02</a>
+<a href="/proe/1810/41400.html" target="_blank" class="mf_cyrj_list">
+                                (06-04)
+                                2.3无人机外观设计—旋翼绘制01</a>
+<a href="/proe/1810/41398.html" target="_blank" class="mf_cyrj_list">
+                                (05-30)
+                                2.2无人机外观设计—分析尺寸比例，在图片上画线和组</a>
+<a href="/proe/1810/41396.html" target="_blank" class="mf_cyrj_list">
+                                (05-30)
+                                2.1无人机外观设计—部件分析，图片导入</a>
+<a href="/proe/1810/41394.html" target="_blank" class="mf_cyrj_list">
+                                (05-30)
+                                1.1无人机简介、功能和组成部件等</a>
+<a href="/proe/1809/41274.html" target="_blank" class="mf_cyrj_list">
+                                (05-28)
+                                3.7耳壳透明件结构设计</a>
+<a href="/proe/1809/41267.html" target="_blank" class="mf_cyrj_list">
+                                (05-28)
+                                3.6耳壳装饰件结构设计</a>
+<a href="/proe/1809/41266.html" target="_blank" class="mf_cyrj_list">
+                                (05-21)
+                                3.5PU皮革结构设计</a>
+<a href="/proe/1809/41263.html" target="_blank" class="mf_cyrj_list">
+                                (05-21)
+                                3.4连接件结构设计02</a>
+<a href="/proe/1809/41259.html" target="_blank" class="mf_cyrj_list">
+                                (05-21)
+                                3.3连接件结构设计01</a>
+<a href="/proe/1809/41256.html" target="_blank" class="mf_cyrj_list">
+                                (05-21)
+                                3.2头套结构设计02</a>
+<a href="/proe/1809/41254.html" target="_blank" class="mf_cyrj_list">
+                                (05-18)
+                                3.1头套结构设计01</a>
+<a href="/proe/1809/41252.html" target="_blank" class="mf_cyrj_list">
+                                (05-18)
+                                2.6外观3d_耳套设计</a>
+<a href="/proe/1809/41250.html" target="_blank" class="mf_cyrj_list">
+                                (05-18)
+                                2.5外观3d_耳壳设计03</a>
+
+                        </div>
+                        <!--案例5-->
+                        <div class="mf_cyrj_tab">
+                            <div class="mf_cyrj_l">
+                                <div class="focus">
+                                    <ul>
+                                        <li><a href="/catia/816/41235.html" target="_blank"><img src="http://www.mfcad.com/uploads/thumb/2018/05/12/avatar1_20180512201530_855_MTOXXG9I.jpg"  /></a></li>
+
+                                    </ul>
+                                </div>
+                            </div>	
+                            <a href="/catia/816/41235.html" target="_blank" class="mf_cyrj_list">
+                                (05-14)
+                                CATIA DMU之八连杆压机建模和仿真</a>
+<a href="/catia/521/40197.html" target="_blank" class="mf_cyrj_list">
+                                (05-04)
+                                CATIA工程图断裂视图对齐</a>
+<a href="/catia/xfzs/1647/40821.html" target="_blank" class="mf_cyrj_list">
+                                (03-16)
+                                7.4.5.2 Catia运动仿真关联运动副之电缆结合</a>
+<a href="/catia/xfzs/1647/40820.html" target="_blank" class="mf_cyrj_list">
+                                (03-16)
+                                7.4.5.1 Catia运动仿真关联运动副之滑轮运动</a>
+<a href="/catia/xfzs/1647/40818.html" target="_blank" class="mf_cyrj_list">
+                                (03-16)
+                                7.4.4.1 Catia运动仿真关联运动副之齿条运动</a>
+<a href="/catia/xfzs/1647/40817.html" target="_blank" class="mf_cyrj_list">
+                                (03-16)
+                                7.4.3.8.2 Catia运动仿真关联运动副之行星轮系装配条</a>
+<a href="/catia/xfzs/1647/40816.html" target="_blank" class="mf_cyrj_list">
+                                (03-16)
+                                7.4.3.8.1 Catia运动仿真关联运动副之行星轮系</a>
+<a href="/catia/xfzs/1647/40815.html" target="_blank" class="mf_cyrj_list">
+                                (03-15)
+                                7.4.3.7 Catia运动仿真关联运动副之链条传动</a>
+<a href="/catia/xfzs/1647/40742.html" target="_blank" class="mf_cyrj_list">
+                                (03-15)
+                                7.4.3.6 Catia运动仿真关联运动副之带轮传动</a>
+<a href="/catia/xfzs/1647/40741.html" target="_blank" class="mf_cyrj_list">
+                                (03-14)
+                                7.4.3.5 Catia运动仿真关联运动副之蜗轮差速器</a>
+<a href="/catia/xfzs/1647/40736.html" target="_blank" class="mf_cyrj_list">
+                                (03-14)
+                                7.4.3.2 Catia运动仿真关联运动副之圆锥齿轮</a>
+<a href="/catia/xfzs/1647/40739.html" target="_blank" class="mf_cyrj_list">
+                                (03-14)
+                                7.4.3.4 Catia运动仿真关联运动副之摇头风扇</a>
+<a href="/catia/xfzs/1647/40737.html" target="_blank" class="mf_cyrj_list">
+                                (03-14)
+                                7.4.3.3 Catia运动仿真关联运动副之蜗轮蜗杆</a>
+<a href="/catia/xfzs/1647/40735.html" target="_blank" class="mf_cyrj_list">
+                                (03-14)
+                                7.4.3.1 Catia运动仿真关联运动副之圆柱齿轮</a>
+<a href="/catia/xfzs/1647/40734.html" target="_blank" class="mf_cyrj_list">
+                                (03-13)
+                                7.4.2.1 Catia运动仿真关联运动副之CV结合</a>
+<a href="/catia/xfzs/1647/40733.html" target="_blank" class="mf_cyrj_list">
+                                (03-13)
+                                7.4.1.1 Catia运动仿真关联运动副之U型结合</a>
+<a href="/catia/182/40976.html" target="_blank" class="mf_cyrj_list">
+                                (03-08)
+                                玻璃漏斗的绘制过程</a>
+<a href="/catia/805/40977.html" target="_blank" class="mf_cyrj_list">
+                                (03-08)
+                                骰子手链的建模教程</a>
+
+                        </div>
+                        <!--案例6-->
+                        <div class="mf_cyrj_tab">
+                            <div class="mf_cyrj_l">
+                                <div class="focus">
+                                    <ul>
+                                        <li><a href="/creo/chanpin/34525.html" target="_blank"><img src="http://www.mfcad.com/uploads/thumb/2015/09/29/avatar1_20150929101715_578_GVCX56UD.jpg"  /></a></li>
+
+                                    </ul>
+                                </div>
+                            </div>	
+                            <a href="/creo/chanpin/34525.html" target="_blank" class="mf_cyrj_list">
+                                (04-25)
+                                5个实例文件及教学视频</a>
+<a href="/creo/chanpin/34945.html" target="_blank" class="mf_cyrj_list">
+                                (04-19)
+                                4.4.3 55曲线锯整机设计--手柄曲面与电机主面的尾部曲</a>
+<a href="/creo/1453/41144.html" target="_blank" class="mf_cyrj_list">
+                                (03-06)
+                                creo4.0电话机曲面建模图文教程</a>
+<a href="/creo/jianmo/41116.html" target="_blank" class="mf_cyrj_list">
+                                (01-24)
+                                creo4.0创意台灯设计</a>
+<a href="/creo/jiansuqi/38763.html" target="_blank" class="mf_cyrj_list">
+                                (07-26)
+                                6.3 键有限元之分析计算</a>
+<a href="/creo/jiansuqi/38759.html" target="_blank" class="mf_cyrj_list">
+                                (07-26)
+                                6.2  键有限元之网格划分</a>
+<a href="/creo/jiansuqi/38756.html" target="_blank" class="mf_cyrj_list">
+                                (07-26)
+                                6.1 键有限元之实体建模</a>
+<a href="/creo/jiansuqi/37323.html" target="_blank" class="mf_cyrj_list">
+                                (06-29)
+                                4.6 减速器总装配</a>
+<a href="/creo/1643/36199.html" target="_blank" class="mf_cyrj_list">
+                                (04-01)
+                                8.7 钣金设计案例之电脑机箱侧盖</a>
+<a href="/creo/1643/36198.html" target="_blank" class="mf_cyrj_list">
+                                (04-01)
+                                8.6 钣金设计案例之卧铺车茶桌支架</a>
+<a href="/creo/1643/36197.html" target="_blank" class="mf_cyrj_list">
+                                (04-01)
+                                8.5 钣金设计案例之手机支撑架</a>
+<a href="/creo/1643/36196.html" target="_blank" class="mf_cyrj_list">
+                                (04-01)
+                                8.4 钣金设计案例之文具夹</a>
+<a href="/creo/1643/36195.html" target="_blank" class="mf_cyrj_list">
+                                (03-31)
+                                8.3 钣金设计案例之立式书架</a>
+<a href="/creo/1643/36194.html" target="_blank" class="mf_cyrj_list">
+                                (03-31)
+                                8.2 钣金设计案例之防盗门栓</a>
+<a href="/creo/1643/36193.html" target="_blank" class="mf_cyrj_list">
+                                (03-31)
+                                8.1 钣金设计案例之垫片</a>
+<a href="/creo/1643/36192.html" target="_blank" class="mf_cyrj_list">
+                                (03-30)
+                                7.2 钣金工程图的创建（续）</a>
+<a href="/creo/1643/36191.html" target="_blank" class="mf_cyrj_list">
+                                (03-30)
+                                7.1 钣金工程图的创建</a>
+<a href="/creo/1643/36190.html" target="_blank" class="mf_cyrj_list">
+                                (03-30)
+                                6.5 钣金横截面驱动展平的创建</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mf_rjph">
+                    <h4 class="mf_rjph_title">软件下载排行</h4>
+                    <a href="/cad/ruanjian/" target="_blank">AutoCAD软件下载</a>
+                    <a href="/ug/ruanjian/" target="_blank">UG软件下载</a>
+                    <a href="/proe/ruanjian/" target="_blank">Proe软件下载</a>
+                    <a href="/solidworks/ruanjian/" target="_blank">SolidWorks软件下载</a>
+                    <a href="/catia/ruanjian/" target="_blank">Catia软件下载</a>
+                    <a href="/creo/xiazai/" target="_blank">Creo软件下载</a>
+                    <a href="/mastercam/xiazai/" target="_blank">Mastercam软件下载</a>
+
+                </div>
+            </div>
+            <div class="mf_link">
+                <h4 class="mf_title"><a href="http://www.mfcad.com/about/22893.html" target="_blank" class="mf_title_more">更多</a>合作伙伴/友情链接</h4>
+                <ul>
+                    <li><a href='http://c4d.cn/' target='_blank'>C4D之家</a> </li><li><a href='http://bbs.co188.com/' target='_blank'>土木工程网</a> </li><li><a href='http://www.rjzxw.com' target='_blank'>软件自学网</a> </li><li><a href='http://www.cncad.net' target='_blank'>蓝天CAD论坛</a> </li><li><a href='http://www.rclbbs.com' target='_blank'>热处理论坛</a> </li><li><a href='http://www.51zxw.net/bbs' target='_blank'>我要自学网论坛</a> </li><li><a href='http://www.tingclass.net' target='_blank'>英语听力</a> </li><li><a href='http://www.86ps.com' target='_blank'>ps资源网</a> </li><li><a href='http://www.anystandards.com' target='_blank'>标准下载</a> </li><li><a href='http://www.ugsnx.com' target='_blank'>UG爱好者论坛</a> </li><li><a href='http://www.chvacuum.com/' target='_blank'>真空技术网</a> </li><li><a href='http://www.luwenwang.com/' target='_blank'>建筑网</a> </li><li><a href='http://www.diangon.com' target='_blank'>电工基础知识网</a> </li><li><a href='http://www.wordlm.com/' target='_blank'>Word联盟</a> </li><li><a href='http://club.excelhome.net' target='_blank'>Excel视频教程</a> </li><li><a href='http://www.51hei.com' target='_blank'>单片机教程网</a> </li><li><a href='http://bbs.cehome.com' target='_blank'>铁甲论坛</a> </li><li><a href='http://www.om.cn' target='_blank'>欧模网</a> </li><li><a href='http://www.cgmodel.com' target='_blank'>CG模型网</a> </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="mf_bottom">
+        	<div class="mf_bottom_c">
+        		<ul>
+        			<li>
+        				<span>平台保障</span>
+        				<a href="/about/baozhang/35356.html" target="_blank">实名认证</a>
+        				<a href="/about/baozhang/35357.html" target="_blank">隐私声明</a>
+        				<a href="/about/baozhang/35358.html" target="_blank">产品及服务</a>
+        				<a href="/about/baozhang/35359.html" target="_blank">投诉维权</a>
+        			</li>
+        		</ul>
+        		<ul>
+        			<li>
+        				<span>新手指导</span>
+        				<a href="/about/xinshou/35360.html" target="_blank">注册协议</a>
+        				<a href="/about/xinshou/35361.html" target="_blank">完善资料</a>
+        				<a href="/about/xinshou/35362.html" target="_blank">信息发布</a>
+        				<a href="/about/xinshou/35363.html" target="_blank">常见问题</a>
+        			</li>
+        		</ul>
+        		<ul>
+        			<li>
+        				<span>关于沐风网</span>
+        				<a href="/about/22890.html" target="_blank">沐风介绍</a>
+        				<a href="/about/22891.html" target="_blank">联系我们</a>
+        				<a href="/about/22894.html" target="_blank">版权声明</a>
+        				<a href="/about/22895.html" target="_blank">人才招聘</a>
+        			</li>
+        		</ul>
+        		<ul class="mf_bottom_c_r">
+        			<li>
+        				<span>如果您有任何问题，可以联系我们的工作人员，谢谢！</span>
+        				<font>沐风稻米QQ：2272288735 ，主要负责图纸合作、投稿、下载、会员充值等问题</font>
+        				<font>沐风网校QQ：13315189570，负责网校教程销售以及会员观看教程遇到的问题</font>
+        				<font>沐风晓晓QQ：2207278091，原创教程合作（视频教程，图文教程）以及签约作者</font>
+        				<font>沐 风 网QQ：473858358，投资合作、人才招聘、广告投放、品牌宣传、投诉建议</font>
+        			</li>
+        		</ul>
+        		<div class="clearfix"></div>
+        		<p style="margin: 20px 0 0 0">CopyRight 2007-<script>var myDate = new Date();document.write(myDate.getFullYear());</script>, mfcad.COM, Inc. All Rights Reserved   <a href="http://www.miibeian.gov.cn/" target="_blank">沪ICP备09092249号</a>   <img src="/static/images/gongan.png" /><a href="#">冀公网安备 13010402001320号</a></p>
+                        <p style="text-align: center;display: none;">
+                            <a  key ="58981a51efbfb018fc66a9a2"  logo_size="83x30"  logo_type="business"  href="http://www.anquan.org" ><script src="//static.anquan.org/static/outer/js/aq_auth.js"></script></a>
+                        </p>
+        	</div>
+        </div>
+
+        <script type="text/javascript">
+            $(function(){
+                    if($(".kefuser_fold").length){
+                        $(".kefuser_fold").mouseover(function(){
+                                $(".kefuser_fold").animate({ right:"-147px"}, 500);
+                                $(".kefuser").addClass('unfold');
+                                $("#kefuser_body").animate({ right: 0}, 500);
+
+                        });
+
+                        $("#kefuser_body").mouseleave(function(){
+                                $("#kefuser_body").animate({ right: "-147px"}, 500);
+                                $(".kefuser").removeClass('unfold');
+                                $(".kefuser_fold").animate({ right:0}, 500);
+                        });
+                    }
+            }
+            );
+
+
+        </script>
+        <div class="kefuser">
+            <div class="kefuser_fold"><div></div></div>
+            <div class="kefuser-body" id="kefuser_body">
+                <div class="kefuser-header"><div></div><span class="kefuser_arrow"></span></div>
+                <!--<p class="p1">QQ客服</p>-->
+                <div class="btns">
+                <a href="tencent://message/?uin=2272288735&site=mfcad.com&menu=yes" target="_blank" class="btn-qq btn2"><i></i>QQ咨询</a>
+                <a href="http://tb.53kf.com/code/client/10127018/1" target="_blank" class="btn-53 btn2"><i></i>网页咨询</a>
+                
+                
+                <a href="http://bbs.mfcad.com/thread-127804-1-1.html" target="_blank" class="btn-qq btn2"><i></i>QQ群讨论</a>
+                </div>
+
+                <p class="p1">客服QQ</p>
+                <p class="p2" style="text-align: center;">QQ:2272288735</p>
+                <p class="p1">微信咨询</p>
+                <p class="p2" style="text-align: center;"><img src="/static/images/fuwuhao.jpg" width="120"></p>
+                <p class="p1">客服热线</p>
+                <p class="p2">133-1518-9735</p>
+            </div>
+        </div>
+        <div style="display: none;">
+            <script type="text/javascript">
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3c0815c592e37a3be32fda347af448f4' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,2642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta property="wb:webmaster" content="76f3b8410de6dbe5">
+<Link Rel="SHORTCUT ICON" href="http://www.fx678.com/images/favicon.ico">
+<title>
+汇通网--全球专业外汇网-外汇黄金门户网站-汇通财经FX678.COM
+</title>
+<meta name="keywords" content="汇通网,fx678,外汇,forex,外汇交易,炒外汇,交易策略,外汇投资,外汇买卖,外汇牌价,外汇开户,外汇评论,外汇软件,外汇论坛，外汇社区">
+<meta name="description" content="汇通网 fx678.com：提供财经日历,最权威外汇实时行情资讯,财经数据,外汇牌价,外汇保证金交易系统,外汇分析软件,外汇模拟交易平台,外汇培训,外汇交易,专家外汇评论,交易策略,外汇理财,外汇银行机构汇评,美元、欧元、英镑、日元、瑞郎等币种外汇知识、动态等！">
+<link media="all" type="text/css" rel="stylesheet" href="http://www.fx678.com/css/index20170721.css">
+<script src="http://www.fx678.com/js/jquery-1.8.3.min.js"></script>
+<script src="http://www.fx678.com/js/highcharts.js"></script>
+<script src="http://www.fx678.com/js/socket.io-1.4.5.js"></script>
+<script src="http://www.fx678.com/js/NewCommon.js"></script>
+<script src="http://www.fx678.com/js/jquery.cookie.js"></script>
+<script src="http://www.fx678.com/js/layer3.03/layer.js"></script>
+<script src="http://www.fx678.com/js/index_logins.js?st=888"></script>
+<script src="http://www.fx678.com/js/jquery.soChange-min.js"></script>
+<script src="http://www.fx678.com/js/NewIndex0720.js"></script>
+<script src="http://www.fx678.com/js/push.quote0720.js"></script>
+<script src="http://www.fx678.com/js/hm.js"></script>
+<style>
+        /*弹框直播广告--20161019liht添加*/
+        .tip_pop {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            margin-left:200px;
+            display: block;
+            width: 300px;
+            height: auto;
+            background: #fff;
+            z-index: 9999;
+        }
+        .tip_pop b {
+            position: absolute;
+            right:10px;
+            top:10px;
+            background: url(http://www.fx678.com/images/close_jd.png) no-repeat;
+            width: 10px;
+            height: 10px;
+            display: block;
+            cursor: pointer;
+        }
+        .tip_pop2{position: fixed;bottom: 0; width: 20px;height: 200px; background-color: #000;left: 50%;margin-left: 500px;z-index: 1000; display: none;}
+        .tip_pop2 b{ position: absolute;right: 5px; top: 10px;background:  url(http://www.fx678.com/images/close_jd.png) no-repeat;width: 10px; height: 10px;display: block;cursor: pointer;}
+        .hc_main_pho{
+            width: 1000px;
+            margin: 10px auto 0;
+            position: relative;
+            background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;
+        }
+
+        .hc_main_pho i{
+            display: block;
+            background:url(http://www.fx678.com/images/img_adtip.png);
+            width: 28px;
+            height: 15px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+    </style>
+<script>
+        //var url_org = "http://test.fx678.com:7600/someSymbols.php";
+        var url_org = "http://api.q.fx678.com/someSymbols.php";
+        $(function () {
+            $(".huiyi_body ul").soChange(); //会议活动循环显示
+            $(".close").click(function () {
+                $(this).parent().hide();
+            });
+            //优势页面点击子导航
+            var subNav_active = $(".adv_active");
+            var subNav_scroll = function (target) {
+                subNav_active.removeClass("adv_active");
+                target.parent().addClass("adv_active");
+                subNav_active = target.parent();
+            };
+            $(window).scroll(function () {
+                var $this = $(this);
+                var targetTop = $(this).scrollTop();
+                // var footerTop = $("#footer").offset().top;
+                var height = $(window).height();
+                if (targetTop >= 120) {
+                    $("#subNav").addClass("fixedSubNav");
+                    //  $(".empty-placeholder").removeClass("hidden");
+                } else {
+                    $("#subNav").removeClass("fixedSubNav");
+                    //  $(".empty-placeholder").addClass("hidden");
+                }
+            });
+            $(".box_part_18_body ul li:odd").addClass('listtd');
+        });
+    </script>
+</head>
+<body>
+<div style="display: none;">
+<script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?d25bd1db5bca2537d34deae7edca67d3";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</div>
+<form method="post" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNDUwOTU1NTA3ZGQA++8v+78HOdlizQ7cMZhUYNxOYoiA2+sWUBBwcC+qvg==">
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="90059987">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link rel="stylesheet" type="text/css" href="http://head.fx678.com/Public/css/navigator.css?str=2123"/>
+<script type="text/javascript" src="http://head.fx678.com/Public/js/commen-header.js?str=2123"></script>
+<script type="text/javascript" src="http://head.fx678.com/Public/js/fingerprint.js"></script>
+<script type="text/javascript" src="http://head.fx678.com/Public/js/userCount.js"></script>
+<div id="common-header" class="Coral">
+<div class="hc_top_area">
+<div class="hc_top_center">
+<div class="hc_top_left">
+<ul>
+<li>
+<a href="http://www.gold678.com/" target="_blank">汇金网</a>
+</li>
+<li class="link_split"></li>
+<li>
+<a href="http://xtx.fx678.com/" target="_blank">行天下</a>
+</li>
+<li class="link_split"></li>
+<li>
+<a href="http://3g.fx678.com" target="_blank" class="adv_active">3G</a>
+</li>
+<li class="link_split"></li>
+<li class="adv_active hc_top_hta1" id="htaLi_100">
+</li>
+<li class="link_split">|</li>
+<li class="adv_actives hc_top_hta2" style=" margin:3px 0 0 3px;" id="hta_13">
+<div class="img_tips" style="margin-right:2px;"></div>
+</li>
+</ul>
+</div>
+<div class="hc_top_right">
+<ul>
+<li class="download_app">
+<a>APP下载</a><span></span>
+</li>
+<li class="link_split"></li>
+<li class="WeChat">
+<a href="http://www.fx678.com/product/index.html" target="_blank">行情软件</a><span></span>
+</li>
+<li class="link_split"></li>
+<li>
+<a href="http://member.fx678.com/RegMobile.php" class="blue_color" target="_blank" rel='nofollow'>注册</a>
+</li>
+<li class="link_split"></li>
+<li class="hc_top_name">
+<a href="http://member.fx678.com" target="_blank" rel='nofollow'>登录</a>
+</li>
+<li class="link_split"></li>
+<li>
+<a href="javascript:void(0)" onclick="AddCollect()" target="_blank">收藏</a>
+</li>
+<li class="link_split"></li>
+<li>
+<a href="http://myapi.fx678.com/feedback/zhibofeedback.html" class="blue_color" target="_blank" rel='nofollow'>反馈</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="hc_logo_area">
+<div class="hc_logo" alt="汇通网">
+<a href="http://www.fx678.com/" target="_blank"></a>
+</div>
+<div class="hc_hta hta_1">
+<div id="hta_0">
+</div>
+<div class="img_tips"></div>
+</div>
+<div class="hc_hta hta_2">
+<div id="hta_1">
+</div>
+<div class="img_tips"></div>
+</div>
+</div>
+<div id="subNav">
+<a class="nav_m_btn fa fa-list"></a>
+<a href="javascript:void(0)">
+<span class="nav_m_logo">汇通网</span>
+</a>
+<div class="menu_area">
+<ul class="wrap">
+<li class="adv_active">
+<a href="http://www.fx678.com/" class="adv_active" target="_blank">首 页</a>
+<ul class="ul_dd js-ul_dd cls_blk">
+</ul> </li> <li class="nav_news">
+<a href="http://news.fx678.com/" class="adv_active" target="_blank">要 闻</a>
+<ul class="nav_news_main">
+<li>
+<span><a href="http://news.fx678.com/column/zyyh" target="_blank">央行</a></span>
+<ul class="nav_main_r clearfix">
+<li><a href="http://news.fx678.com/column/fed" target="_blank">美联储</a></li><li><a href="http://news.fx678.com/column/ecb" target="_blank">欧洲央行</a></li><li><a href="http://news.fx678.com/column/boj" target="_blank">日本央行</a></li><li><a href="http://news.fx678.com/column/boe" target="_blank">英国央行</a></li><li><a href="http://news.fx678.com/column/rba" target="_blank">澳洲联储</a></li><li><a href="http://news.fx678.com/column/rbnz" target="_blank">新西兰联储</a></li><li><a href="http://news.fx678.com/column/boc" target="_blank">加拿大央行</a></li> </ul> </li><li>
+<span><a href="http://news.fx678.com/column/tsyc" target="_blank">特色原创</a></span>
+<ul class="nav_main_r clearfix">
+<li><a href="http://news.fx678.com/vivid" target="_blank">漫画财经</a></li><li><a href="http://news.fx678.com/column/tjcj" target="_blank">图解财经</a></li><li><a href="http://news.fx678.com/column/ktss" target="_blank">看图识市</a></li><li><a href="http://news.fx678.com/column/dlzd" target="_blank">大佬指点</a></li><li><a href="http://news.fx678.com/column/zt" target="_blank">专题</a></li><li><a href="http://news.fx678.com/column/commend" target="_blank">推荐</a></li><li><a href="http://news.fx678.com/column/cckc" target="_blank">持仓库存</a></li> </ul> </li><li>
+<span><a href="http://news.fx678.com/column/gjzz" target="_blank">国际组织</a></span>
+<ul class="nav_main_r clearfix">
+<li><a href="http://news.fx678.com/column/goldzz" target="_blank">黄金组织
+</a></li><li><a href="http://news.fx678.com/column/nyzz" target="_blank">能源组织
+</a></li><li><a href="http://news.fx678.com/column/zdjs" target="_blank">中东局势
+</a></li><li><a href="http://news.fx678.com/column/cxbd" target="_blank">朝鲜半岛</a></li><li><a href="http://news.fx678.com/column/zdss" target="_blank">重大时事
+</a></li><li><a href="http://news.fx678.com/column/dx" target="_blank">大选
+</a></li><li><a href="http://news.fx678.com/column/gjth" target="_blank">国际投行
+</a></li> </ul> </li> </ul>
+</li> <li>
+<a href="http://kx.fx678.com/" class="adv_active" target="_blank">7x24快讯</a>
+<ul class="ul_dd js-ul_dd cls_blk">
+</ul> </li> <li>
+<a href="http://rl.fx678.com/" class="adv_active" target="_blank">日 历</a>
+<ul class="ul_dd js-ul_dd cls_blk">
+<li><a href="http://rl.fx678.com/" title="财经日历" target="_blank">财经日历</a>
+</li><li><a href="http://rl.fx678.com/Index_week.html" title="财经周历" target="_blank">财经周历</a>
+</li><li><a href="http://rl.fx678.com/USAdata.html" title="美国数据" target="_blank">美国数据</a>
+</li><li><a href="http://rl.fx678.com/CentralBankNews.html" title="央行动态" target="_blank">央行动态</a>
+</li><li><a href="http://rl.fx678.com/country.html" title="各国数据" target="_blank">各国数据</a>
+</li><li><a href="http://rl.fx678.com/cftc.html" title="CFTC持仓" target="_blank">CFTC持仓</a>
+</li>
+</ul> </li> <li class="nav_news">
+<a href="http://news.fx678.com/column/jybd" class="adv_active" target="_blank">分 析</a>
+<ul class="nav_news_main" style="width:630px">
+<li>
+<span><a href="http://news.fx678.com/column/jybd" target="_blank">交易必读</a></span>
+<ul class="nav_main_r clearfix" style="width:490px">
+<li><a href="http://news.fx678.com/column/jytx" target="_blank">交易提醒</a></li><li><a href="http://news.fx678.com/column/toutiao" target="_blank">头条</a></li><li><a href="http://news.fx678.com/column/jycl" target="_blank">交易策略</a></li><li><a href="http://news.fx678.com/column/cjzc" target="_blank">财经早餐</a></li><li><a href="http://news.fx678.com/column/jsfx" target="_blank">技术分析</a></li><li><a href="http://news.fx678.com/column/jbfx" target="_blank">基本分析</a></li> </ul>
+</li><li>
+<span><a href="http://gold.fx678.com" target="_blank">黄金</a></span>
+<ul class="nav_main_r clearfix" style="width:490px">
+<li><a href="http://news.fx678.com/column/oil" target="_blank">原油
+</a></li><li><a href="http://news.fx678.com/column/stock" target="_blank">股市
+</a></li><li><a href="http://news.fx678.com/column/dzsp" target="_blank">大宗商品
+</a></li><li><a href="http://news.fx678.com/column/qh" target="_blank">期货</a></li><li><a href="http://news.fx678.com/column/pmetal" target="_blank">贵金属</a></li><li><a href="http://news.fx678.com/column/energy" target="_blank">能源
+</a></li><li><a href="http://news.fx678.com/column/szhb" target="_blank">数字货币</a></li> </ul>
+</li><li>
+<span><a href="http://news.fx678.com/column/forex" target="_blank">外汇</a></span>
+<ul class="nav_main_r clearfix" style="width:490px">
+<li><a href="http://news.fx678.com/column/eur" target="_blank">欧元</a></li><li><a href="http://news.fx678.com/column/gbp" target="_blank">英镑
+</a></li><li><a href="http://news.fx678.com/column/jpy" target="_blank">日元
+</a></li><li><a href="http://news.fx678.com/column/aud" target="_blank">澳元</a></li><li><a href="http://news.fx678.com/column/cad" target="_blank">加元</a></li><li><a href="http://news.fx678.com/column/usd" target="_blank">美元
+</a></li><li><a href="http://news.fx678.com/column/chf" target="_blank">瑞郎</a></li><li><a href="http://news.fx678.com/column/rmb" target="_blank">人民币</a></li><li><a href="http://news.fx678.com/column/nzd" target="_blank">纽元</a></li> </ul>
+</li> </ul>
+</li> <li>
+<a href="http://gold.fx678.com" class="adv_active" target="_blank">黄金</a>
+<ul class="ul_dd js-ul_dd cls_blk">
+</ul> </li> <li>
+<a href="http://quote.fx678.com/" class="adv_active" target="_blank">行 情</a>
+<ul class="ul_dd js-ul_dd cls_blk">
+<li><a href="http://www.fx678.com/product/index.html" title="图形分析" target="_blank">图形分析</a>
+</li><li><a href="http://quote.fx678.com/exchange/WH" title="国际外汇" target="_blank">国际外汇</a>
+</li><li><a href="http://quote.fx678.com/exchange/WGJS" title="国际黄金" target="_blank">国际黄金</a>
+</li><li><a href="http://quote.fx678.com/exchange/GJZS" title="全球指数" target="_blank">全球指数</a>
+</li><li><a href="http://quote.fx678.com/exchange/SGE" title="上海金" target="_blank">上海金</a>
+</li><li><a href="http://quote.fx678.com/gold" title="实物黄金" target="_blank">实物黄金</a>
+</li><li><a href="http://quote.fx678.com/exchange/NYMEX" title="国际原油" target="_blank">国际原油</a>
+</li><li><a href="http://quote.fx678.com/rate/Libor" title="拆借利率" target="_blank">拆借利率</a>
+</li><li><a href="http://quote.fx678.com/rmbprice/icbc" title="人民币牌价" target="_blank">人民币牌价</a>
+</li>
+</ul> </li> <li>
+<a href="http://ask.fx678.com/" class="adv_active" target="_blank">名师指导</a>
+<ul class="ul_dd js-ul_dd cls_blk">
+<li><a href="http://strategy.fx678.com/" title="指导" target="_blank">指导</a>
+</li><li><a href="http://strategy.fx678.com/home/index/teacher" title="名师" target="_blank">名师</a>
+</li><li><a href="http://ask.fx678.com/" title="答疑" target="_blank">答疑</a>
+</li>
+</ul> </li> <li>
+<a href="http://brokers.fx678.com/" class="adv_active" target="_blank">经纪商</a>
+<ul class="ul_dd js-ul_dd cls_blk">
+<li><a href="http://brokers.fx678.com/agent" title="IB一站通" target="_blank">IB一站通</a>
+</li><li><a href="http://brokers.fx678.com/articlelist" title="行业动态" target="_blank">行业动态</a>
+</li><li><a href="http://brokers.fx678.com/brokers" title="经纪商查询" target="_blank">经纪商查询</a>
+</li><li><a href="http://brokers.fx678.com/event" title="活动大赛" target="_blank">活动大赛</a>
+</li><li><a href="http://brokers.fx678.com/weibo" title="微直播" target="_blank">微直播</a>
+</li>
+</ul> </li> <li>
+<a href="http://pinglun.fx678.com/" class="adv_active" target="_blank">评 论</a>
+<ul class="ul_dd js-ul_dd cls_blk">
+<li><a href="http://pinglun.fx678.com/certification/static/index" title="分析师认证" target="_blank">分析师认证</a>
+</li>
+</ul> </li> <li class="nav-v">
+<a href="http://v.fx678.com/" class="adv_active" target="_blank">直 播</a>
+<ul class="js-ul_dd nav-video">
+<li>
+<a href="http://v.fx678.com/special/39103" target="_blank" class="nav-video__item">
+<span class="nav-video__time-icon"><i></i></span>
+<div class="nav-video__title"> 随风随势</div>
+<ul class="nav-video__time">
+<li>08:50 - 09:20 </li> </ul>
+</a>
+</li><li>
+<a href="http://v.fx678.com/special/47629" target="_blank" class="nav-video__item">
+<span class="nav-video__time-icon"><i></i></span>
+<div class="nav-video__title"> 后汇有期</div>
+<ul class="nav-video__time">
+<li>16:00 - 17:00 </li> </ul>
+</a>
+</li><li>
+<a href="http://v.fx678.com/special/40175" target="_blank" class="nav-video__item">
+<span class="nav-video__time-icon"><i></i></span>
+<div class="nav-video__title"> 龙舞汇金</div>
+<ul class="nav-video__time">
+<li>19:00 - 20:00 </li> </ul>
+</a>
+</li><li>
+<a href="http://v.fx678.com/special/40325" target="_blank" class="nav-video__item">
+<span class="nav-video__time-icon"><i></i></span>
+<div class="nav-video__title"> 涛光养汇</div>
+<ul class="nav-video__time">
+<li>20:00 - 21:00 </li> </ul>
+</a>
+</li>
+</ul> </li> <li>
+<a href="http://my.fx678.com/" class="adv_active" target="_blank">论 坛</a>
+<ul class="ul_dd js-ul_dd cls_blk">
+</ul> </li> <li>
+<a href="http://edu.fx678.com/" class="adv_active" target="_blank">学院</a>
+<ul class="ul_dd js-ul_dd cls_blk">
+<li><a href="http://trade.fx678.com/" title="模拟交易" target="_blank">模拟交易</a>
+</li><li><a href="http://edu.fx678.com/learn" title="学习交易" target="_blank">学习交易</a>
+</li><li><a href="http://edu.fx678.com/freesignal" title="免费信号" target="_blank">免费信号</a>
+</li><li><a href="http://edu.fx678.com/case" title="经典案例" target="_blank">经典案例</a>
+</li><li><a href="http://edu.fx678.com/investorpg" title="风险评估" target="_blank">风险评估</a>
+</li>
+</ul> </li> <li class="news-hj">
+<a href="http://meet.fx678.com/" class="adv_active" target="_blank">汇见</a>
+<i></i>
+<ul class="ul_dd js-ul_dd cls_blk">
+</ul> </li> </ul>
+</div>
+</div>
+<div class="menu_ads">
+<div class="menu_ads_area hc_new_ads">
+<ul>
+<li id="htaLi_1">
+</li>
+<li id="htaLi_2">
+</li>
+<li id="htaLi_3">
+</li>
+<li id="htaLi_4">
+</li>
+<li id="htaLi_5">
+</li>
+<li id="htaLi_6"></li>
+<li id="htaLi_7"></li>
+<li id="htaLi_9"></li>
+<li id="htaLi_10"></li>
+<style>
+              #common-header .font_tip1 {
+                right: -40px;
+              }
+
+              #common-header .menu_ads_area ul li {
+                width: 85px;
+                margin-right: 13px;
+              }
+
+              #common-header .menu_ads_area ul li#htaLi_3, #common-header .menu_ads_area ul li#htaLi_10, #common-header .menu_ads_area ul li#htaLi_6, #common-header .menu_ads_area ul li#htaLi_11 {
+                width: 90px;
+              }
+
+            </style>
+<li id="htaLi_11"></li>
+<li id="htaLi_12"></li>
+</ul>
+<div class="font_tip1" style="top:10px"></div>
+</div>
+</div></div>
+<script>
+    var htadv_url = "http://ams.fx678.com";
+
+    function headAdv(id, htzid, name, height, width) {
+        // var html=" <iframe id='a4a82d48' name='a4a82d48' src='http://ams.fx678.com/delivery/afr.php?zoneid=2&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no' width='355' height='70'><a href='http://ams.fx678.com/delivery/ck.php?n=a5070cd0&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ams.fx678.com/delivery/avw.php?zoneid=2&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a5070cd0' border='0' alt='' /></a></iframe>";
+        var html = "<iframe id='" + name + "' name='" + name + "' src='" + htadv_url + "/content/htfr.php?htzid="
+            + htzid + "&amp;cb=INSERT_RANDOM_NUMBER_HERE' frameborder='0' scrolling='no'";
+        if (height != 0) {
+            html += " width='" + width + "' height='" + height + "' ";
+        }
+        html += "><a href='" + htadv_url + "/content/ck.php?n=a5070cd0&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='" + htadv_url + "/content/avw.php?zoneid=" + htzid + "&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a5070cd0' border='0' alt='' /></a></iframe>";
+        $("#" + id).html(html);
+    }
+
+    var ad_menu = eval('(' + '[{"A_Id":"93","A_Location":"hta_1","M_Id":"1","A_From":"2","A_Iframe_Id":"aaa7034d","A_width":"355","A_height":"70"},{"A_Id":"94","A_Location":"hta_0","M_Id":"1","A_From":"2","A_Iframe_Id":"a39d1778","A_width":"355","A_height":"70"},{"A_Id":"110","A_Location":"htaLi_1","M_Id":"1","A_From":"2","A_Iframe_Id":"aaa05337","A_width":"107","A_height":"36"},{"A_Id":"111","A_Location":"htaLi_2","M_Id":"1","A_From":"2","A_Iframe_Id":"af9e7bd5","A_width":"107","A_height":"36"},{"A_Id":"112","A_Location":"htaLi_3","M_Id":"1","A_From":"2","A_Iframe_Id":"a852890b","A_width":"107","A_height":"36"},{"A_Id":"113","A_Location":"htaLi_4","M_Id":"1","A_From":"2","A_Iframe_Id":"abd12b2f","A_width":"107","A_height":"36"},{"A_Id":"114","A_Location":"htaLi_5","M_Id":"1","A_From":"2","A_Iframe_Id":"ad0bef37","A_width":"107","A_height":"36"},{"A_Id":"115","A_Location":"htaLi_6","M_Id":"1","A_From":"2","A_Iframe_Id":"ad663932","A_width":"107","A_height":"36"},{"A_Id":"117","A_Location":"htaLi_8","M_Id":"1","A_From":"2","A_Iframe_Id":"ad9a124d","A_width":"107","A_height":"36"},{"A_Id":"118","A_Location":"htaLi_9","M_Id":"1","A_From":"2","A_Iframe_Id":"ad8ba5bd","A_width":"107","A_height":"36"},{"A_Id":"119","A_Location":"htaLi_10","M_Id":"1","A_From":"2","A_Iframe_Id":"ade259fe","A_width":"107","A_height":"36"},{"A_Id":"123","A_Location":"htaLi_100","M_Id":"1","A_From":"2","A_Iframe_Id":"a601c789","A_width":"100","A_height":"30"},{"A_Id":"109","A_Location":"hta_13","M_Id":"1","A_From":"2","A_Iframe_Id":"ace5c573","A_width":"262","A_height":"30"},{"A_Id":"285","A_Location":"htaLi_11","M_Id":"1","A_From":"2","A_Iframe_Id":"ac00b562","A_width":"90","A_height":"36"},{"A_Id":"316","A_Location":"htaLi_12","M_Id":"1","A_From":"2","A_Iframe_Id":"ac50baf6","A_width":"90","A_height":"36"}]' + ')');
+    for (i = 0; i < ad_menu.length; i++) {
+        if (ad_menu[i].A_From == 1) {
+            BAIDU_CLB_fillSlotAsync(ad_menu[i].A_Id, ad_menu[i].A_Location);
+        }
+        else {
+            headAdv(ad_menu[i].A_Location, parseInt(ad_menu[i].A_Id), ad_menu[i].A_Iframe_Id, ad_menu[i].A_height, ad_menu[i].A_width);
+        }
+    }
+</script>
+<div class="hc_main_pho">
+<div id="htaBody_7"></div>
+<div id="htaBody_8" style="display:none;"></div>
+<i></i>
+</div>
+<div class="hc_content">
+<div class="fx_quote">
+<div class="fx_b_b">
+<div class="fx_wai">
+<div class="fx_b_q" id="price01">
+<ul class="clearfix">
+<li id="XAU" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('XAU',this)"><a href="http://quote.fx678.com/chart/XAU" target="_blank">现货黄金</a></div>
+<div class="fx_in_2 up_f" onmouseenter="showHq('XAU',this)">1243.59</div>
+<div class="fx_in_3 f_up">1.63</div>
+</li>
+<li id="XAG" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('XAG',this)"><a href="http://quote.fx678.com/chart/XAG" target="_blank">现货白银</a></div>
+<div class="fx_in_2 up_f" onmouseenter="showHq('XAG',this)">15.81</div>
+<div class="fx_in_3 f_up">0.01</div>
+</li>
+<li id="CONC" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('CONC',this)"><a href="http://quote.fx678.com/chart/CONC" target="_blank">美原油</a></div>
+<div class="fx_in_2 up_f" onmouseenter="showHq('CONC',this)">70.80</div>
+<div class="fx_in_3 f_up">0.42</div>
+</li>
+<li id="USD" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('USD',this)"><a href="http://quote.fx678.com/chart/USD" target="_blank">美元指数</a></div>
+<div class="fx_in_2 up_f" onmouseenter="showHq('USD',this)">94.77</div>
+<div class="fx_in_3 f_up">0.04</div>
+</li>
+<li id="EURUSD" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('EURUSD',this)"><a href="http://quote.fx678.com/chart/EURUSD" target="_blank">欧元美元</a></div>
+<div class="fx_in_2 down_f" onmouseenter="showHq('EURUSD',this)">1.1673</div>
+<div class="fx_in_3 f_down">-0.0001</div>
+</li>
+</ul>
+</div>
+<div class="fx_b_q fx_b_q1" id="price02">
+<ul class="clearfix">
+<li id="GBPUSD" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('GBPUSD',this)"><a href="http://quote.fx678.com/chart/GBPUSD" target="_blank">英镑美元</a></div>
+<div class="fx_in_2 down_f" onmouseenter="showHq('GBPUSD',this)">1.3194</div>
+<div class="fx_in_3 f_down">-0.0011</div>
+</li>
+<li id="USDJPY" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('USDJPY',this)"><a href="http://quote.fx678.com/chart/USDJPY" target="_blank">美元日元</a></div>
+<div class="fx_in_2 up_f" onmouseenter="showHq('USDJPY',this)">112.31</div>
+<div class="fx_in_3 f_up">0.30</div>
+</li>
+<li id="AUDUSD" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('AUDUSD',this)"><a href="http://quote.fx678.com/chart/AUDUSD" target="_blank">澳元美元</a></div>
+<div class="fx_in_2 up_f" onmouseenter="showHq('AUDUSD',this)">0.7374</div>
+<div class="fx_in_3 f_up">0.0008</div>
+</li>
+<li id="USDCAD" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('USDCAD',this)"><a href="http://quote.fx678.com/chart/USDCAD" target="_blank">美元加元</a></div>
+<div class="fx_in_2 up_f" onmouseenter="showHq('USDCAD',this)">1.3210</div>
+<div class="fx_in_3 f_up">0.0001</div>
+</li>
+<li id="USDCNY" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('USDCNY',this)"><a href="http://quote.fx678.com/chart/USDCNY" target="_blank">美元人民币</a></div>
+<div class="fx_in_2 up_f" onmouseenter="showHq('USDCNY',this)">6.6981</div>
+<div class="fx_in_3 f_up">0.0155</div>
+</li>
+</ul>
+</div>
+<div class="fx_b_q fx_b_q1" id="price03">
+<ul class="clearfix">
+<li id="1A0001" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('1A0001',this)"><a href="http://quote.fx678.com/chart/1A0001" target="_blank">上证指数</a></div>
+<div class="fx_in_2 up_f" onmouseenter="showHq('1A0001',this)">2829.45</div>
+<div class="fx_in_3 f_up">1.86%</div>
+</li>
+<li id="NIKKI" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('NIKKI',this)"><a href="http://quote.fx678.com/chart/NIKKI" target="_blank">日经225</a></div>
+<div class="fx_in_2 up_f" onmouseenter="showHq('NIKKI',this)">22174.92</div>
+<div class="fx_in_3 f_up">1.11%</div>
+</li>
+<li id="FTSE" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('FTSE',this)"><a href="http://quote.fx678.com/chart/FTSE" target="_blank">英国FT</a></div>
+<div class="fx_in_2 down_f" onmouseenter="showHq('FTSE',this)">7591.96</div>
+<div class="fx_in_3 f_down">-1.3%</div>
+</li>
+<li id="DAX" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('DAX',this)"><a href="http://quote.fx678.com/chart/DAX" target="_blank">德国DAX</a></div>
+<div class="fx_in_2 down_f" onmouseenter="showHq('DAX',this)">12417.13</div>
+<div class="fx_in_3 f_down">-1.53%</div>
+</li>
+<li id="NASDAQ" onmouseleave="closeHq(this)">
+<div class="fx_in_1" onmouseenter="showHq('NASDAQ',this)"><a href="http://quote.fx678.com/chart/NASDAQ" target="_blank">纳斯达克</a></div>
+<div class="fx_in_2 down_f" onmouseenter="showHq('NASDAQ',this)">7716.61</div>
+<div class="fx_in_3 f_down">-0.55%</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="fx_cir fx_b_l1">
+</div>
+</div>
+</div>
+<div class="clearfix">
+<div class="hc_ad_2">
+<div id="ad_2" style="width: 738px; height: 65px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;">
+</div>
+<div class="img_tips"></div>
+</div>
+<div class="hc_ad_3">
+<div id="ad_3" style="width: 242px; height: 65px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;">
+</div>
+<div class="img_tips"></div>
+</div>
+</div>
+<div class="hc_ad_16" id="hc_ad_16" style="display: block;">
+<div id="ad_16" style="width: 1000px; height: 76px; overflow: hidden;  background: url(http://www.fx678.com/images/bg-fx678.png) 50% 50% no-repeat rgb(241, 245, 248);">
+</div>
+<div class="img_tips"></div>
+</div>
+<div class="hc_part_1">
+<h1>
+<a class="hc_part_1_span" href="http://news.fx678.com/201807120555082453.shtml" target="_blank">美元黄金分道扬镳 油价亟待IEA月报回血</a>
+</h1>
+<h2>
+<a href="http://meet.fx678.com/community/index" target="_blank">汇见社区</a>
+<a href=" http://pinglun.fx678.com/certification/static/index" target="_blank">分析师认证</a>
+<a href="http://news.fx678.com/201807121119332061.shtml" target="_blank">黄金白银原油外汇短线交易策略</a>
+</h2>
+<h2>
+<a href="http://news.fx678.com/201807120908092223.shtml" target="_blank">美要求北约立即增加军费开支</a>
+<a href="http://news.fx678.com/201807121106552226.shtml" target="_blank">一文了解北溪管道2号线</a>
+</h2>
+<h4>
+<a href="http://news.fx678.com/201807121004002246.shtml" target="_blank">油价遭遇滑铁卢</a>
+<a href="http://news.fx678.com/201807112219141440.shtml" target="_blank">加拿大央行鹰派加息</a>
+</h4>
+<h2>
+<a href="http://news.fx678.com/201807111720062385.shtml" target="_blank">原油黄金走势背离</a>
+<a href="http://news.fx678.com/201807120911302070.shtml" target="_blank">英政治动荡或令脱欧协议更&ldquo;难产&rdquo;</a>
+</h2>
+<h2>
+<a href="http://news.fx678.com/201807112139082113.shtml" target="_blank">贸易战升级黄金却魂不守舍</a>
+<a href="http://news.fx678.com/201807121058342070.shtml" target="_blank">OPEC预计明年需求下滑</a>
+</h2>
+<div class="dosh_line"></div>
+<h3>
+<img src="http://www.fx678.com/images/pmnew.gif" align="absmiddle">
+<div class="hc_part1_ad1">
+<div id="htaBody_1"></div>
+<div class="font_tip1"></div>
+</div>
+<a href="http://oil.fx678.com/" target="_blank">原油</a>
+<a href="http://hd.fx678.com/brexit" target="_blank">英国脱欧</a>
+<a href="http://hd.fx678.com/nonfarm" target="_blank">非农</a>
+<a href="http://hd.fx678.com/trump" target="_blank">特朗普</a>
+</h3>
+<div class="hc_ad_12" id="ad_12" style="float: left; width: 134px; overflow: hidden;
+                margin-left: 50px;">
+</div>
+<div class="hc_ad_13">
+<div id="ad_13" style="float: left; width: 150px; overflow: hidden;margin-left:-5px">
+</div>
+<div class="font_tip1" style="top:4px"></div>
+</div>
+</div>
+<div class="hc_part_2">
+<div class="box_part_2 demo1">
+<div class="hc_head_sty">
+<div class="bbb">
+<div class="hc_head_sty_current">
+<ul>
+<li class="current"><a href="http://news.fx678.com/column/commend" target="_blank">推荐</a></li>
+</ul>
+</div>
+<span class="zhibo_s22"><a href="http://news.fx678.com/" target="_blank">要闻</a></span>
+<span>
+<div style="width: 115px;height: 35px;display: inline-block;vertical-align: middle;cursor: pointer;margin-top:-3px;position: relative;margin-left: -4px;">
+<span id="htaBody_9"></span>
+<div class="font_tip1" style="top: 9px;right: -31px;"></div>
+</div>
+</span>
+<span class="zhibo_s" id="adv_1"> </span>
+</div>
+</div>
+<div class="tab_box_yt new_part_4">
+<div>
+<ul>
+<li><span>▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="_blank">7月12日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span>▪</span><a href="http://www.fx678.com/C/20180712/201807121106552226.html" target="_blank">特朗普炮轰德国“被俄罗斯控制”，都因为这个管道项目！</a>
+</li>
+<li><span>▪</span><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="_blank">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a>
+</li>
+<li><span>▪</span><a href="http://www.fx678.com/C/20180711/201807111139202383.html" target="_blank">7月11日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span>▪</span><a href="http://www.fx678.com/C/20180711/201807111113152293.html" target="_blank">黄金交易提醒：特朗普这个大招施压金价，北约峰会或成闹剧 </a>
+</li>
+<li><span>▪</span><a href="http://www.fx678.com/C/20180710/201807101639592241.html" target="_blank">欧市盘前：英银加息预期难提英镑，北约峰会料助推金价</a>
+</li>
+<li><span>▪</span><a href="http://www.fx678.com/C/20180710/201807101442382388.html" target="_blank">7月10日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+</ul>
+</div>
+<div class="lid_ads">
+<span class="lid_ads1" id="htaLi_020"> </span>
+<span class="lid_ads2" id="htaLi_021" style="margin-left:14px"></span>
+<div class="font_tip1" style="top:3px;right:5px"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hc_part_3">
+<div class="box_2 demo1_a">
+<div style="margin:0 0 3px 0 ;position:relative;">
+<div id="htaBody_2" style="width: 242px; height: 65px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;"> </div>
+<div class="img_tips"></div>
+</div>
+<div style="margin:16px 0 16px 0 ;position:relative;">
+<div id="htaBody_3" style="width: 242px; height: 65px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;"> </div>
+<div class="img_tips"></div>
+</div>
+<div style="position:relative;">
+<div id="htaBody_4" style="width: 242px; height: 65px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;"> </div>
+<div class="img_tips"></div>
+</div>
+</div>
+</div>
+<div class="hc_ad_4">
+<div id="ad_4" style="width: 360px; height: 65px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;">
+</div>
+<div class="img_tips"></div>
+</div>
+<div class="hc_ad_5">
+<div id="ad_5" style="width: 360px; height: 65px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;">
+</div>
+<div class="img_tips"></div>
+</div>
+<div class="hc_ad_6">
+<div id="ad_6" style="width: 242px; height: 65px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;">
+</div>
+<div class="img_tips" style="right:2px"></div>
+</div>
+<div class="hc_part_4">
+<div class="box_4 demo1_b">
+<div class="hc_head_sty">
+<div class="bbb">
+<div class="hc_head_sty_current2"><a href="http://kx.fx678.com/" target="_blank">快讯</a></div>
+<span><a href="http://kx.fx678.com/" target="_blank" style="font-size: 16px;color: #004276; height: 32px;line-height: 28px;display: inline-block;vertical-align: middle;cursor: pointer;">&nbsp;24小时直播</a></span>
+<span class="more_right"><a href="http://kx.fx678.com/" target="_blank" style="+margin-top:-69px;">更多&gt;&gt;</a></span>
+<span class="zhibo_ads" id="kx_zhibo"></span>
+</div>
+</div>
+<div class="tab_box box_part_4">
+<div>
+<ul>
+<li><span>11:17</span><a href="http://www.fx678.com/C/20180712/201807121117142036.html" target="_blank">高盛：下调铜价预估，但市场悲观情绪过头了；
+在贸易紧张局势加剧造成金属价格大幅下跌后，今年一直抱看涨大宗商品前景态度的高盛集团下调了包括铜在内的金属价格预估；但即便如此，该行仍坚持积极的长期观点：认为价格将反弹。
+① 该行对三个月，六个月和12个月的铜价预估分别从每吨7,300美元、7,500美元和8,000美元下调至6500美元，7000美元和7667美元。伦敦金属交易所铜价周三收于6145美元，为一年来的最低收盘价；
+② 高盛称：“虽然我们预计全面贸易战不会爆发，但不确定性巨大，近期内问题无望得到解决；与我们去年年底的看法相比，不可否认全球增长已经失去了一些动能，美元的涨幅已超出了我们的预期，贸易紧张局势进一步升级的程度也超出了我们的预期。”
+③不过尽管市场在近期内变得尤其难以驾驭，但高盛仍认为负面情绪过头，；高盛并不预计全球供需平衡会有重大变化 </a>
+</li>
+<li><span>10:56</span><a href="http://www.fx678.com/C/20180712/201807121056332365.html" target="_blank">深证成指日内涨幅达到2%，报9204.32点；
+上证指数日内涨幅达到1.50%，报2819.50；
+创业板指涨逾2.4%，收复1600点关口。</a>
+</li>
+<li><span>10:56</span><a href="http://www.fx678.com/C/20180712/201807121056292032.html" target="_blank">韩国央行行长李柱烈：2019年GDP预计为2.8%</a>
+</li>
+<li><span>10:54</span><a href="http://www.fx678.com/C/20180712/201807121054352031.html" target="_blank">韩国央行行长李柱烈：GDP增速预期降低，反映出对贸易战和企业盈利的担忧</a>
+</li>
+<li><span>10:53</span><a href="http://www.fx678.com/C/20180712/201807121053592032.html" target="_blank">恒生中国企业指数涨幅扩大至1%</a>
+</li>
+<li><span>10:53</span><a href="http://www.fx678.com/C/20180712/201807121053422032.html" target="_blank">韩国央行行长李柱烈：家庭借贷增速可能放缓</a>
+</li>
+<li><span>10:50</span><a href="http://www.fx678.com/C/20180712/201807121050192033.html" target="_blank">韩国央行行长李柱烈：预计目前不会出现大规模资金外流</a>
+</li>
+<li><span>10:49</span><a href="http://www.fx678.com/C/20180712/201807121049292034.html" target="_blank">泰国工业部长：泰国经济足够强劲，能够抵御风险</a>
+</li>
+<li><span>10:49</span><a href="http://www.fx678.com/C/20180712/201807121049122032.html" target="_blank">韩国央行行长李柱烈：最近全球金融不稳定性非常高</a>
+</li>
+<li><span>10:43</span><a href="http://www.fx678.com/C/20180712/201807121043512031.html" target="_blank">韩国央行行长李柱烈：韩国似乎不太可能出现大规模资本外流</a>
+</li>
+<li><span>10:43</span><a href="http://www.fx678.com/C/20180712/201807121043402032.html" target="_blank">韩国央行行长李柱烈：难以将一名委员投票反对维持不变作为未来加息的信号</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="hc_part_5">
+<div class="hc_5_head">
+<div class="bbb hc_new5_sp">
+<ul>
+<li class="selected" id="li_scfx" onmouseover="htpl(this)"><a href="http://news.fx678.com/column/jsfx" target="_blank">
+市场分析</a></li>
+<li class="" id="li_htpl" onmouseover="htpl(this)"><a href="http://pinglun.fx678.com/" target="_blank">汇通评论</a></li>
+</ul>
+<span class="zhibo_adsc" id="scfx_htpl"></span>
+<span class="more_areas"><a href="http://news.fx678.com/column/jsfx" target="_blank">
+更多&gt;&gt;</a></span>
+</div>
+</div>
+<div class="box_5 demo1_c box_5_hide" style="display: block" id="div_scfx">
+<ul class="tab_menu menu_part_5" id="scfxUL">
+<li class="current"><a href="http://news.fx678.com/column/gold" target="_blank">黄金</a></li>
+<li><a href="http://news.fx678.com/column/forex" target="_blank">
+外汇</a></li>
+<li><a href="http://news.fx678.com/column/oil" target="_blank">原油</a></li>
+<li><a href="http://news.fx678.com/column/pmetal" target="_blank">贵金属</a></li>
+<li><a href="http://news.fx678.com/column/stock" target="_blank">股市</a></li>
+<li style="border-right: none;"><a href="http://news.fx678.com/column/qh" target="_blank">期货</a>
+</li>
+</ul>
+<div class="tab_box box_part_5" id="box_part_5">
+<div>
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="_blank">7月12日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="_blank">纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112139082113.html" target="_blank">贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111751372291.html" target="_blank">黄金美指为何分道扬镳，美元高歌猛进吸筹避险资金</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="_blank">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111451432220.html" target="_blank">五大原因告诉你，黄金并非当前理想的投资对象</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111521102242.html" target="_blank">欧市盘前：中美贸易危局再度火上浇油，沪指周三大跌</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111139202383.html" target="_blank">7月11日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111113152293.html" target="_blank">黄金交易提醒：特朗普这个大招施压金价，北约峰会或成闹剧 </a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807110955082247.html" target="_blank">美欧危局升级叠加特朗普火上浇油，股市及大宗商品普跌</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="_blank">7月12日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807120911302070.html" target="_blank">英前外长罕见发声，警告政治动荡或令脱欧协议更“难产”</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807120639072400.html" target="_blank">7月12日外汇交易提醒</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112219141440.html" target="_blank">加银鹰派加息大超市场预期，美元兑加元急跌60点</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="_blank">纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112139082113.html" target="_blank">贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112110131447.html" target="_blank">消息称欧银提前加息仍存可能，欧元兑美元短线急升逾50点</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112109422076.html" target="_blank">四年来首次！近200家机构投资者集体看空全球经济</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111751372291.html" target="_blank">黄金美指为何分道扬镳，美元高歌猛进吸筹避险资金</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="_blank">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="_blank">7月12日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121058342070.html" target="_blank">OPEC预测全球2019年需求下滑，石油过剩或卷土重来</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121004002246.html" target="_blank">原油交易提醒：多重数据狂轰引油价滑铁卢，聚焦IEA报告</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807120303392451.html" target="_blank">两大利空突袭油市多头措手不及，美油暴跌5%考验70关口</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="_blank">纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112053011905.html" target="_blank">OPEC月报料明年全球原油需求下滑，油市恐重返供应过剩</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111949501905.html" target="_blank">利比亚产量复苏为何再度无望？七问七答揭示其中短板</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="_blank">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111550032111.html" target="_blank">特朗普对华贸易战面临升级，但原油空头恐怕难逃“伊朗劫”</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111521102242.html" target="_blank">欧市盘前：中美贸易危局再度火上浇油，沪指周三大跌</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="_blank">7月12日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="_blank">纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112139082113.html" target="_blank">贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111751372291.html" target="_blank">黄金美指为何分道扬镳，美元高歌猛进吸筹避险资金</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="_blank">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111451432220.html" target="_blank">五大原因告诉你，黄金并非当前理想的投资对象</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111521102242.html" target="_blank">欧市盘前：中美贸易危局再度火上浇油，沪指周三大跌</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111139202383.html" target="_blank">7月11日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111113152293.html" target="_blank">黄金交易提醒：特朗普这个大招施压金价，北约峰会或成闹剧 </a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807110955082247.html" target="_blank">美欧危局升级叠加特朗普火上浇油，股市及大宗商品普跌</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="_blank">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111145352078.html" target="_blank">财报季引发美股多头关注，贸易战或暂时靠边站</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111139202383.html" target="_blank">7月11日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807110955082247.html" target="_blank">美欧危局升级叠加特朗普火上浇油，股市及大宗商品普跌</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102033352075.html" target="_blank">财政刺激政策逐渐消退，专家警告美股2020年或陷困境</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807100211202402.html" target="_blank">贸易战恐慌消退，道琼斯指数上涨超250点</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092020541446.html" target="_blank">预期落地美元成强弩之末，黄金借机大涨或预示光明后市</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807091519552079.html" target="_blank">牛不可挡！无论未来全球局势如何变化，美股上涨概率都高达七成</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807091557362245.html" target="_blank">欧市盘前：贸易战前景不明，英国政治不确定性加剧</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180707/201807070534362403.html" target="_blank">7月7日财经早餐：美元美股冰火两重天，油价铜价价差天地间</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="_blank">7月12日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121058342070.html" target="_blank">OPEC预测全球2019年需求下滑，石油过剩或卷土重来</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807120303392451.html" target="_blank">两大利空突袭油市多头措手不及，美油暴跌5%考验70关口</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112139082113.html" target="_blank">贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112053011905.html" target="_blank">OPEC月报料明年全球原油需求下滑，油市恐重返供应过剩</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111949501905.html" target="_blank">利比亚产量复苏为何再度无望？七问七答揭示其中短板</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="_blank">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111550032111.html" target="_blank">特朗普对华贸易战面临升级，但原油空头恐怕难逃“伊朗劫”</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111139202383.html" target="_blank">7月11日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102135232114.html" target="_blank">特朗普警告欧盟勿吝啬荷包，欧元应声咯血黄金成为陪葬品</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="box_5 demo1_c box_5_hide" style="display:none;" id="div_htpl">
+<ul class="tab_menu menu_part_5" id="ul_htpl">
+<li class="current"><a href="http://news.fx678.com/news/forex/index.shtml" target="_blank">
+外汇</a></li>
+<li><a href="http://pinglun.fx678.com/portal.php?mod=list&catid=12" target="_blank">黄金</a></li>
+<li><a href="http://pinglun.fx678.com/portal.php?mod=list&catid=13" target="_blank">白银</a></li>
+<li><a href="http://pinglun.fx678.com/portal.php?mod=list&catid=14" target="_blank">原油</a></li>
+</ul>
+<div class="tab_box box_part_5" id="show_htpl">
+<div class="">
+<ul>
+</ul>
+</div>
+<div class="hide">
+<ul>
+</ul>
+</div>
+<div class="hide">
+<ul>
+</ul>
+</div>
+<div class="hide">
+<ul>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="box_6">
+<div class="c_header">
+<h2><a href="http://v.fx678.com/special/47629" style="color:#000">后汇有期</a></h2>
+</div>
+<div class="c_main">
+<div class="c_pic"><a href="http://v.fx678.com/special/47629" target="_blank"><img src="http://upload.fx678.com/upload/ht/20180515/sy_2018051519473174.png" alt=""></a></div>
+<div class="c_font"><a href="http://v.fx678.com/special/47629/" target="_blank"><img src="http://www.fx678.com/images/bofang.png" alt=""><span>后汇有期-陆晅、</span>
+<em>07/12</em></a></div>
+</div>
+<div class="c_footer"><h3 style="border-bottom:none;">金融小百科</h3>
+<div class="c_list">
+<a href="http://edu.fx678.com/baike" target="_blank"><img src="http://www.fx678.com/images/jrxbk.png" style="height: 120px;width: 230px;"/></a>
+</div>
+</div>
+</div>
+<div class="hc_ad_7">
+<div id="ad_7" style="width: 360px; height: 65px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;">
+</div>
+<div class="img_tips" style="bottom:-10px"></div>
+</div>
+<div class="hc_ad_8">
+<div id="ad_8" style="width: 360px; height: 65px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;">
+</div>
+<div class="img_tips" style="bottom:-10px"></div>
+</div>
+<div class="box_video">
+<div id="ad_18">
+</div>
+<div class="img_tips"></div>
+</div>
+<div class="hc_part_14" style="margin: 15px 0 0 0">
+<div class="hc_14_head">
+<div class="bbb">
+<span class="hc_14_sp">货币分析</span>
+</div>
+</div>
+<div class="box_14">
+<div class="box_5_down demo1_c_2">
+<ul class="tab_menu menu_part_5_2">
+<li class="current"><a href="http://news.fx678.com/column/usd" target="_blank">美元</a></li>
+<li><a href="http://news.fx678.com/column/jpy" target="_blank">日元</a></li>
+<li><a href="http://news.fx678.com/column/eur" target="_blank">欧元</a></li>
+<li><a href="http://news.fx678.com/column/gbp" target="_blank">英镑</a></li>
+<li><a href="http://news.fx678.com/column/cad" target="_blank">加元</a></li>
+<li><a href="http://news.fx678.com/column/chf" target="_blank">瑞郎</a></li>
+<li><a href="http://news.fx678.com/column/aud" target="_blank">澳元</a></li>
+<li style="border-right:none;"><a href="http://news.fx678.com/column/rmb" target="_blank">
+人民币</a></li>
+</ul>
+<div class="tab_box box_part_5_down" id="box_part_5_down">
+<div>
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="_blank">7月12日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807120639072400.html" target="_blank">7月12日外汇交易提醒</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112219141440.html" target="_blank">加银鹰派加息大超市场预期，美元兑加元急跌60点</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="_blank">纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112139082113.html" target="_blank">贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112109422076.html" target="_blank">四年来首次！近200家机构投资者集体看空全球经济</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111751372291.html" target="_blank">黄金美指为何分道扬镳，美元高歌猛进吸筹避险资金</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="_blank">大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111717421855.html" target="_blank">加拿大央行决议来袭，美加有望加速下行</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111509512293.html" target="_blank">特朗普或再次带偏节奏，北约峰会或重演G7闹剧</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111139202383.html" target="_blank">7月11日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102118051904.html" target="_blank">北约峰会前特朗普又不消停，避险加身美/日恐跌回100</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101210172245.html" target="_blank">多头持续建仓提振美元兑日元，汇价刷新一周高位</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807100132302454.html" target="_blank">如果经济衰退到来怎么办？投行叫你持有这四种货币</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180708/201807081023542063.html" target="_blank">外汇周评：加息预期降温美元受挫，非美货币绝处逢生</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180707/201807070648041968.html" target="_blank">7月9日外汇交易提醒</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807051518592244.html" target="_blank">欧市盘前：美国ADP料前瞻非农，市场静待FED纪要来袭</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807041653592386.html" target="_blank">三件事窥探日元下半年命运，交叉盘或暗藏爆富良机</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807041644432240.html" target="_blank">欧市盘前：美国独立日汇市冷清，中美关税一触即发</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807032143111900.html" target="_blank">美元兑日元自六周高位回落，市场望美联储纪要点亮明灯</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="_blank">纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112110131447.html" target="_blank">消息称欧银提前加息仍存可能，欧元兑美元短线急升逾50点</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111509512293.html" target="_blank">特朗普或再次带偏节奏，北约峰会或重演G7闹剧</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111521102242.html" target="_blank">欧市盘前：中美贸易危局再度火上浇油，沪指周三大跌</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111113152293.html" target="_blank">黄金交易提醒：特朗普这个大招施压金价，北约峰会或成闹剧 </a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102135232114.html" target="_blank">特朗普警告欧盟勿吝啬荷包，欧元应声咯血黄金成为陪葬品</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102134251565.html" target="_blank">纽市盘前：特朗普敲打北约连累黄金，罢工潮来袭布油涨2%</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807100132302454.html" target="_blank">如果经济衰退到来怎么办？投行叫你持有这四种货币</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092205031855.html" target="_blank">交易解析：贸易摩擦风险降温，美元回落走软</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092136591566.html" target="_blank">纽市盘前：脱欧风波难折英镑傲骨，FED加息降温黄金蓄势</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807120911302070.html" target="_blank">英前外长罕见发声，警告政治动荡或令脱欧协议更“难产”</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111145592226.html" target="_blank">英国若“无协议”脱欧，英镑会否重演脱欧公投后的暴跌？</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102134251565.html" target="_blank">纽市盘前：特朗普敲打北约连累黄金，罢工潮来袭布油涨2%</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101652321440.html" target="_blank">工业数据疲软令英银8月加息再生变数，英镑短线急跌50点</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807100952212077.html" target="_blank">梅姨呼吁为“无协议”脱欧做准备，英镑未来前景恐蒙阴</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807100925122228.html" target="_blank">梅姨内阁“大换血”，火速任命英国新脱欧大臣和外交大臣</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092342052457.html" target="_blank">英国外交大臣约翰逊辞职，英镑兑美元暴跌近百点</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092205031855.html" target="_blank">交易解析：贸易摩擦风险降温，美元回落走软</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092136591566.html" target="_blank">纽市盘前：脱欧风波难折英镑傲骨，FED加息降温黄金蓄势</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092131532116.html" target="_blank">美指残败黄金重生傲气，“软脱欧”树大招风但英镑仍欠福分</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112219141440.html" target="_blank">加银鹰派加息大超市场预期，美元兑加元急跌60点</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="_blank">纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111717421855.html" target="_blank">加拿大央行决议来袭，美加有望加速下行</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101529472296.html" target="_blank">加拿大央行决议来袭，三大关键决定加元命脉</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101902291904.html" target="_blank">加拿大央行7月料加息但加元恐难大涨，原因都在这里！</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807091557362245.html" target="_blank">欧市盘前：贸易战前景不明，英国政治不确定性加剧</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180708/201807081023542063.html" target="_blank">外汇周评：加息预期降温美元受挫，非美货币绝处逢生</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807051733562177.html" target="_blank">数据决胜时刻！美加料成下半周汇市交易的明星币种</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807041801331905.html" target="_blank">美/加自两周半低点反弹，贸易战或将引领加元走向地狱</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807041654321854.html" target="_blank">贸易风波继续施压商品货币</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180630/201806301115172115.html" target="_blank">CFTC持仓解读：欧元、黄金看多意愿双双降温(6月26日当周)</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180626/201806260343431969.html" target="_blank">CFTC持仓解读：欧元、黄金看多意愿双双降温(6月19日当周)</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180625/201806251119362384.html" target="_blank">黄金交易提醒：三大黑天鹅事件齐飞，唯有它或不是金市“哑弹”</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180620/201806200534481966.html" target="_blank">CFTC持仓解读：日元、白银看多意愿双双升温(6月13日当周)</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180614/201806140549291964.html" target="_blank">CFTC持仓解读：日元看空意愿降温、原油看多意愿降温(6月5日当周)</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180602/201806020711341969.html" target="_blank">CFTC持仓解读：欧元和原油看多意愿双双降温(5月29日当周)</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180601/201806010038102010.html" target="_blank">汇市月评：四剑傍身美元独孤求败，欧元美日恐遭美关税屠刀</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180526/201805260641521965.html" target="_blank">CFTC持仓解读：日元看空意愿升温、白银看多意愿升温(5月22日当周)</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180524/201805242210492115.html" target="_blank">“特金会”最终不幸流产，黄金接获天上落下来的馅饼</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180524/201805242132111903.html" target="_blank">欧元重上1.17但反弹恐难长久，择机做空或为良策</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102134251565.html" target="_blank">纽市盘前：特朗普敲打北约连累黄金，罢工潮来袭布油涨2%</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807091040202067.html" target="_blank">7月9日现货黄金、白银、原油、外汇短线交易策略</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180708/201807081023542063.html" target="_blank">外汇周评：加息预期降温美元受挫，非美货币绝处逢生</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807041654321854.html" target="_blank">贸易风波继续施压商品货币</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807041644432240.html" target="_blank">欧市盘前：美国独立日汇市冷清，中美关税一触即发</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807032153221565.html" target="_blank">纽市盘前：美假期临近黄金暂喘息，中国央行发声救赎人民币</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807031414472387.html" target="_blank">澳洲联储7月利率决议维稳，但这一因素或成澳元多空分水岭</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807030944072072.html" target="_blank">澳洲联储7月维稳概率大，但小型银行已意外上调利率</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180702/201807022145451569.html" target="_blank">纽市盘前：FED加息可期金价陷死局，亚太股暴跌拖累商品货币</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180702/201807021813091901.html" target="_blank">澳洲联储7月决议恐难左右澳元，多头能否崛起还得借助外力</a>
+</li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111300352245.html" target="_blank">美国拟对2000亿美元中国产品征收关税，市场嘘声一片</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180706/201807061214382034.html" target="_blank">美国关税生效引中方强势回应，黄金小幅拉升人民币跳涨200点</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807041006232277.html" target="_blank">中国央行5名官员一天之内集体喊话，人民币起死回生后市看好</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807032153221565.html" target="_blank">纽市盘前：美假期临近黄金暂喘息，中国央行发声救赎人民币</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807031201232387.html" target="_blank">离岸人民币半小时内狂泻失守四大关口，专家称不存在长期贬值基础</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180629/201806291634442388.html" target="_blank">你的个税要降了？5000元起征点新政有望10月1日起施行</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180629/201806291008272276.html" target="_blank">人民币跌至半年新低，这些机构告诉你何处才是底</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180626/201806262224051562.html" target="_blank">纽市盘前：FED加息前景压制金价，英银候任委员放鸽英镑沉沦</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180622/201806221604052388.html" target="_blank">全球市场兴起“美元荒”，然而宠儿可能会是它</a>
+</li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180621/201806212106361902.html" target="_blank">贸易摩擦疑虑高涨风险情绪溃散，亚洲市场惊现股汇双杀</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="trade">
+<div class="section__head bg-common">
+<ul class="clearfix section__tab">
+<li class="selected"><a href="http://news.fx678.com/column/jybd" target="_blank">交易必读</a>
+</li>
+<li><a href="http://news.fx678.com/column/jycl" target="_blank">交易策略</a></li>
+</ul>
+</div>
+<div class="section__content">
+<ul class="news-list">
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="blank">
+7月12日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807120639072400.html" target="blank">
+7月12日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="blank">
+纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111139202383.html" target="blank">
+7月11日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111116292246.html" target="blank">
+原油交易提醒：油价急跌逾1%，聚焦OPEC月报及EIA数据</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807110706192408.html" target="blank">
+7月11日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102134251565.html" target="blank">
+纽市盘前：特朗普敲打北约连累黄金，罢工潮来袭布油涨2%</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101639592241.html" target="blank">
+欧市盘前：英银加息预期难提英镑，北约峰会料助推金价</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101442382388.html" target="blank">
+7月10日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101025202240.html" target="blank">
+原油交易提醒：油市供需阴云不散，罢工危机料雪上加霜</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807100652201964.html" target="blank">
+7月10日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092136591566.html" target="blank">
+纽市盘前：脱欧风波难折英镑傲骨，FED加息降温黄金蓄势</a></li>
+</ul>
+<ul class="news-list hide">
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="blank">
+7月12日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111139202383.html" target="blank">
+7月11日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101442382388.html" target="blank">
+7月10日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092205031855.html" target="blank">
+交易解析：贸易摩擦风险降温，美元回落走软</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807091040202067.html" target="blank">
+7月9日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180706/201807061653132062.html" target="blank">
+7月6日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807051108262069.html" target="blank">
+7月5日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807042220521858.html" target="blank">
+交易解析：美国独立日波动受限，市场酝酿大行情</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807041057312068.html" target="blank">
+7月4日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807032229401858.html" target="blank">
+交易解析：独立日前头寸调整，美元回落待机而动</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807031056212065.html" target="blank">
+7月3日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180702/201807022212041855.html" target="blank">
+交易解析：七月又是新起点，美元多头再扬帆</a></li>
+</ul>
+</div>
+</div>
+<div class="strategy section-aside">
+<div class="section__head">
+<h2><a href="http://strategy.fx678.com/" target="_blank">专家策略</a></h2>
+<a href="http://strategy.fx678.com/" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<ul class="strategy-recommend-graphic clearfix">
+<li class="strategy-recommend__item">
+<a class="strategy-recomment__avatar" href="http://strategy.fx678.com/home/analysis/index/id/35460" target="_blank"><img src="http://upload.fx678.com/upload/ht/20180509/sy_2018050913104681.jpg" alt=""></a>
+<div class="clearfix strategy-recomment__handle">
+<a href="http://strategy.fx678.com/home/analysis/index/id/35460" target="_blank" class="strategy-recomment__name">张艺兰</a>
+<a href="http://strategy.fx678.com/home/pay/index/id/35460" target="_blank" class="btn">购买</a>
+</div>
+</li>
+<li class="strategy-recommend__item">
+<a class="strategy-recomment__avatar" href="http://strategy.fx678.com/home/analysis/index/id/36301" target="_blank"><img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714110622.jpg" alt=""></a>
+<div class="clearfix strategy-recomment__handle">
+<a href="http://strategy.fx678.com/home/analysis/index/id/36301" target="_blank" class="strategy-recomment__name">叶枝霖</a>
+<a href="http://strategy.fx678.com/home/pay/index/id/36301" target="_blank" class="btn">购买</a>
+</div>
+</li>
+<li class="strategy-recommend__item mr0">
+<a class="strategy-recomment__avatar" href="http://strategy.fx678.com/home/analysis/index/id/36305" target="_blank"><img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714102818.jpg" alt=""></a>
+<div class="clearfix strategy-recomment__handle">
+<a href="http://strategy.fx678.com/home/analysis/index/id/36305" target="_blank" class="strategy-recomment__name">苏声忠</a>
+<a href="http://strategy.fx678.com/home/pay/index/id/36305" target="_blank" class="btn">购买</a>
+</div>
+</li>
+</ul>
+<div class="strategy__list-cont">
+<ul class="strategy__list">
+<li><a href="http://strategy.fx678.com/home/analysis/index/id/35460" target="_blank">
+20180712原油交易思路 <br>
+20180712黄金交易思路 <br>
+20180711原油交易思路 <br>
+</a></li>
+</ul>
+<ul class="strategy__list hide">
+<li><a href="http://strategy.fx678.com/home/analysis/index/id/36301" target="_blank">
+昨日行情完美的诠释了咱们原油做空的理念，今天行情何去何从 <br>
+加系货币数据行情又是收割一波，今天咱们回归镑系货币 <br>
+黄金行情如约般跌跌不休，今天行情怎么玩 <br>
+</a></li>
+</ul>
+<ul class="strategy__list hide">
+<li><a href="http://strategy.fx678.com/home/analysis/index/id/36305" target="_blank">
+20180711黄金策略报告 <br>
+20180712原油策略报告 <br>
+20180711美原油期货策略报告 <br>
+</a></li>
+</ul>
+</div>
+</div>
+<div class="left_line"></div>
+<div class="right_line"></div>
+<div class="left_down_line"></div>
+<div class="right_down_line"></div>
+</div>
+<div class="hc_ad_9">
+<div id="ad_9" style="width: 1000px; height: 75px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;">
+</div>
+<div class="img_tips"></div>
+</div>
+<div class="hc_part_10">
+<div class="box_10 demo1_e">
+<ul class="tab_menu menu_part_10" id="tiebaUL">
+<div class="bbb">
+<li class="current"><a href="http://news.fx678.com/column/jytx" target="_blank">交易提醒</a></li>
+</div>
+</ul>
+<div class="tab_box box_part_10" id="box_part_10news">
+<div>
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807120639072400.html" target="blank">
+7月12日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111116292246.html" target="blank">
+原油交易提醒：油价急跌逾1%，聚焦OPEC月报及EIA数据</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807110706192408.html" target="blank">
+7月11日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101025202240.html" target="blank">
+原油交易提醒：油市供需阴云不散，罢工危机料雪上加霜</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807100652201964.html" target="blank">
+7月10日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807091010232247.html" target="blank">
+原油交易提醒：普京让步触发油价走强，油市重磅数据接踵而至</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180707/201807070648041968.html" target="blank">
+7月9日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180706/201807060627211445.html" target="blank">
+7月6日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807050536441443.html" target="blank">
+7月5日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807040609141449.html" target="blank">
+7月4日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807030611081447.html" target="blank">
+7月3日外汇交易提醒</a></li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+</ul>
+</div>
+<div class="hide">
+<ul>
+</ul></div>
+<div class="hide">
+<ul>
+</ul></div>
+<div class="hide">
+<ul>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="hc_part_7" style="margin: 15px 0 0 18px; height: 360px;">
+<div class="hc_7_head">
+<div class="bbb hc_7_sp">
+<div class="hc_head_sty_current3">
+<a href="http://news.fx678.com/column/zyyh" target="_blank">央行观察</a></div>
+<div class="zhibo_s3">
+<a href="http://rl.fx678.com/CentralBankNews.html" target="_blank">央行日程</a></div>
+<span class="more_area_1224"><a href="http://news.fx678.com/column/fed" target="_blank">更多&gt;&gt;</a></span>
+</div>
+</div>
+<div class="box_7 demo1_d box_7_hide" style=" width: 360px; height: 332px; box-sizing:border-box;">
+<ul class="tab_menu menu_part_7" id="yhgcUL">
+<li class="current"><a href="http://news.fx678.com/column/fed" target="_blank">
+美联储</a></li>
+<li><a href="http://news.fx678.com/column/ecb" target="_blank">欧洲央行</a></li>
+<li><a href="http://news.fx678.com/column/boe" target="_blank">英国央行</a></li>
+<li><a href="http://news.fx678.com/column/rba" target="_blank">澳洲联储</a></li>
+<li style="border-right: none;"><a href="http://news.fx678.com/column/boj" target="_blank">日本央行</a></li>
+</ul>
+<div class="tab_box box_part_7" id="box_part_7news">
+<div>
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="blank">
+纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112109422076.html" target="blank">
+四年来首次！近200家机构投资者集体看空全球经济</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111451432220.html" target="blank">
+五大原因告诉你，黄金并非当前理想的投资对象</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101529472296.html" target="blank">
+加拿大央行决议来袭，三大关键决定加元命脉</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102033352075.html" target="blank">
+财政刺激政策逐渐消退，专家警告美股2020年或陷困境</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092136591566.html" target="blank">
+纽市盘前：脱欧风波难折英镑傲骨，FED加息降温黄金蓄势</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092131532116.html" target="blank">
+美指残败黄金重生傲气，“软脱欧”树大招风但英镑仍欠福分</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092020541446.html" target="blank">
+预期落地美元成强弩之末，黄金借机大涨或预示光明后市</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807091902361905.html" target="blank">
+脱欧大臣辞职英镑多头何以尽显傲骨？因强硬派只会添堵软脱欧</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807091047482070.html" target="blank">
+贸易争端加剧+通胀上涨难持续，恐成美联储加息拦路虎</a></li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="blank">
+纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112110131447.html" target="blank">
+消息称欧银提前加息仍存可能，欧元兑美元短线急升逾50点</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092136591566.html" target="blank">
+纽市盘前：脱欧风波难折英镑傲骨，FED加息降温黄金蓄势</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092134341902.html" target="blank">
+德拉基老调重弹欧元未掀波澜，反弹仍需给力数据佐证</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092020541446.html" target="blank">
+预期落地美元成强弩之末，黄金借机大涨或预示光明后市</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180708/201807081828322036.html" target="blank">
+7月9日财经早餐：本周三大原油月报来袭，加拿大央行料将加息</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807051801382455.html" target="blank">
+多因素“开火”，专业人士警告全球经济复苏难持续</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807051134422075.html" target="blank">
+欧元迎来好消息！欧银官员暗示2019年末加息太晚</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807050441181442.html" target="blank">
+金价连续回升但成色有待考验，重磅事件临近后市迎重估契机</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180702/201807021105022292.html" target="blank">
+黄金跌势将迎逆转？俄罗斯储备结构已悄然转变</a></li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111145592226.html" target="blank">
+英国若“无协议”脱欧，英镑会否重演脱欧公投后的暴跌？</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102134251565.html" target="blank">
+纽市盘前：特朗普敲打北约连累黄金，罢工潮来袭布油涨2%</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101652321440.html" target="blank">
+工业数据疲软令英银8月加息再生变数，英镑短线急跌50点</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807092136591566.html" target="blank">
+纽市盘前：脱欧风波难折英镑傲骨，FED加息降温黄金蓄势</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807091902361905.html" target="blank">
+脱欧大臣辞职英镑多头何以尽显傲骨？因强硬派只会添堵软脱欧</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807091136512291.html" target="blank">
+黄金交易提醒：黄金多头有气无力，美元走软仍不得空</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180709/201807090913032073.html" target="blank">
+脱欧大臣辞职冲击梅姨首相宝座，英镑恐因此承压</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807052205551560.html" target="blank">
+纽市盘前：脱欧疑虑消弭英银鹰派利好，FED纪要来袭黄金纠结</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807051805591567.html" target="blank">
+英银行长重申有必要收紧货币政策，指向8月加息英镑跳升30点</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807050536441443.html" target="blank">
+7月5日外汇交易提醒</a></li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807032153221565.html" target="blank">
+纽市盘前：美假期临近黄金暂喘息，中国央行发声救赎人民币</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807031414472387.html" target="blank">
+澳洲联储7月利率决议维稳，但这一因素或成澳元多空分水岭</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807030944072072.html" target="blank">
+澳洲联储7月维稳概率大，但小型银行已意外上调利率</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180703/201807030611081447.html" target="blank">
+7月3日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180702/201807022145451569.html" target="blank">
+纽市盘前：FED加息可期金价陷死局，亚太股暴跌拖累商品货币</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180702/201807021813091901.html" target="blank">
+澳洲联储7月决议恐难左右澳元，多头能否崛起还得借助外力</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180701/201807011804141440.html" target="blank">
+7月2日财经早餐：非农报告、美联储纪要本周携手登场</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180630/201806301925062113.html" target="blank">
+7月2日-8日当周重磅事件及指标影响力分析报告</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180625/201806251733122291.html" target="blank">
+通胀疲软澳元成最差表现货币，楼市信贷收紧加息短期无望</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180620/201806200913401441.html" target="blank">
+黄金交易提醒：贸易战发酵美元却受益，四大行长齐登场</a></li>
+</ul>
+</div>
+<div class="hide">
+<ul>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102118051904.html" target="blank">
+北约峰会前特朗普又不消停，避险加身美/日恐跌回100</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807101210172245.html" target="blank">
+多头持续建仓提振美元兑日元，汇价刷新一周高位</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180705/201807051521442293.html" target="blank">
+2018上半年十大风云事件回顾，下半年或在金油汇市续掀浪潮</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180704/201807041653592386.html" target="blank">
+三件事窥探日元下半年命运，交叉盘或暗藏爆富良机</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180620/201806200913401441.html" target="blank">
+黄金交易提醒：贸易战发酵美元却受益，四大行长齐登场</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180616/201806160545022248.html" target="blank">
+6月16日财经早餐：中美贸易战火重燃！大宗商品全线崩盘</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180615/201806151539252383.html" target="blank">
+欧市盘前：美元指数“高烧”不退，金价苦撑无果再失千三关口</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180615/201806151120432070.html" target="blank">
+日银维稳利率并下调通胀预期，美日短线拉升后市看涨</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180615/201806151024422225.html" target="blank">
+欧美央行同时释放紧缩信号，新兴市场再遭“屠戮”</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180615/201806151009432389.html" target="blank">
+黄金交易提醒：非美货币暴跌时金价逆势上涨，贸易是关键助力</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="assessment section-aside">
+<div class="section__head">
+<h2><a href="http://pinglun.fx678.com/" target="_blank">汇通汇评</a></h2>
+<a href="http://pinglun.fx678.com/" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<ul class="news-list">
+<li><a href="http://pinglun.fx678.com/article/201807121110086418.shtml" target="blank">
+7.12交易早餐：外汇集体下行，黄金即将刷新年内新低！</a></li>
+<li><a href="http://pinglun.fx678.com/article/201807121059113530.shtml" target="blank">
+夸克聚合：7月12日 黄金日元走势分析</a></li>
+<li><a href="http://pinglun.fx678.com/article/201807121057337961.shtml" target="blank">
+【孙千惠】7.12美日加速上行，或将测试113.0高位</a></li>
+<li><a href="http://pinglun.fx678.com/article/201807121037173507.shtml" target="blank">
+大漠点金叶枝霖：美通胀数据靓丽 今日镑美思路高空</a></li>
+<li><a href="http://pinglun.fx678.com/article/201807121034589429.shtml" target="blank">
+【云峰】7.12 美日阻力被破上方空间还有多少？</a></li>
+<li><a href="http://pinglun.fx678.com/article/201807121012517411.shtml" target="blank">
+【南篱论金】美指多空反复，高位震荡为主</a></li>
+<li><a href="http://pinglun.fx678.com/article/201807121006214149.shtml" target="blank">
+标准外汇：前外交大臣黑格警告，达成英国脱欧协议的可能性下降</a></li>
+<li><a href="http://pinglun.fx678.com/article/201807120958162565.shtml" target="blank">
+人生短如一场梦 欧元跳动快如风</a></li>
+<li><a href="http://pinglun.fx678.com/article/201807120953297677.shtml" target="blank">
+AETOS艾拓思：美拟清单贸易战再升级,升息落定加元先扬后抑</a></li>
+<li><a href="http://pinglun.fx678.com/article/201807120950072573.shtml" target="blank">
+【云峰】7.12 鸽王德拉基即将上线，欧美日内操作策略</a></li>
+<li><a href="http://pinglun.fx678.com/article/201807120938489626.shtml" target="blank">
+苏凯：7.12镑美H4内以及各级别继续保持强势空头迹象，预示下跌风暴将随时来袭。</a></li>
+</ul>
+</div>
+<div class="left_line"></div>
+<div class="right_line"></div>
+<div class="left_down_line"></div>
+<div class="right_down_line"></div>
+</div>
+<div class="hc_ad_10">
+<div id="ad_10" style="width: 1000px; height: 75px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;">
+</div>
+<div class="img_tips"></div>
+</div>
+<div class="gold">
+<div class="section__head bg-common">
+<ul class="clearfix section__tab">
+<li class="selected"><a href="http://news.fx678.com/column/gold" target="_blank">黄金</a></li>
+</ul>
+<a href="http://news.fx678.com/column/gold" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<ul class="news-list">
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="blank">
+7月12日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="blank">
+纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112139082113.html" target="blank">
+贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111751372291.html" target="blank">
+黄金美指为何分道扬镳，美元高歌猛进吸筹避险资金</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="blank">
+大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111451432220.html" target="blank">
+五大原因告诉你，黄金并非当前理想的投资对象</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111521102242.html" target="blank">
+欧市盘前：中美贸易危局再度火上浇油，沪指周三大跌</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111139202383.html" target="blank">
+7月11日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111113152293.html" target="blank">
+黄金交易提醒：特朗普这个大招施压金价，北约峰会或成闹剧 </a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807110955082247.html" target="blank">
+美欧危局升级叠加特朗普火上浇油，股市及大宗商品普跌</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102135232114.html" target="blank">
+特朗普警告欧盟勿吝啬荷包，欧元应声咯血黄金成为陪葬品</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180710/201807102134251565.html" target="blank">
+纽市盘前：特朗普敲打北约连累黄金，罢工潮来袭布油涨2%</a></li>
+</ul>
+</div>
+</div>
+<div class="foreign-currency">
+<div class="section__head bg-common">
+<ul class="clearfix section__tab">
+<li class="selected"><a href="http://news.fx678.com/column/forex" target="_blank">外汇</a></li>
+</ul>
+<a href="http://news.fx678.com/column/forex" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<ul class="news-list">
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="blank">
+7月12日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807120911302070.html" target="blank">
+英前外长罕见发声，警告政治动荡或令脱欧协议更“难产”</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180712/201807120639072400.html" target="blank">
+7月12日外汇交易提醒</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112219141440.html" target="blank">
+加银鹰派加息大超市场预期，美元兑加元急跌60点</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="blank">
+纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112139082113.html" target="blank">
+贸易战火越烧越旺黄金何以魂不守舍？只因不少国家忍痛割爱</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112110131447.html" target="blank">
+消息称欧银提前加息仍存可能，欧元兑美元短线急升逾50点</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807112109422076.html" target="blank">
+四年来首次！近200家机构投资者集体看空全球经济</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111751372291.html" target="blank">
+黄金美指为何分道扬镳，美元高歌猛进吸筹避险资金</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="blank">
+大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111717421855.html" target="blank">
+加拿大央行决议来袭，美加有望加速下行</a></li>
+<li><span class="list-style-dot">▪</span><a href="http://www.fx678.com/C/20180711/201807111509512293.html" target="blank">
+特朗普或再次带偏节奏，北约峰会或重演G7闹剧</a></li>
+</ul>
+</div>
+</div>
+<div class="crude section-aside">
+<div class="section__head">
+<h2><a href="http://news.fx678.com/column/oil" target="_blank">原油</a></h2>
+<a href="http://news.fx678.com/column/oil" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<ul class="news-list">
+<li><a href="http://www.fx678.com/C/20180712/201807121119332061.html" target="blank">
+7月12日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><a href="http://www.fx678.com/C/20180712/201807121058342070.html" target="blank">
+OPEC预测全球2019年需求下滑，石油过剩或卷土重来</a></li>
+<li><a href="http://www.fx678.com/C/20180712/201807121004002246.html" target="blank">
+原油交易提醒：多重数据狂轰引油价滑铁卢，聚焦IEA报告</a></li>
+<li><a href="http://www.fx678.com/C/20180712/201807120303392451.html" target="blank">
+两大利空突袭油市多头措手不及，美油暴跌5%考验70关口</a></li>
+<li><a href="http://www.fx678.com/C/20180711/201807112208231564.html" target="blank">
+纽市盘前：加拿大央行加息贺喜加元，欧元获欧银鹰派抬头救赎</a></li>
+<li><a href="http://www.fx678.com/C/20180711/201807112053011905.html" target="blank">
+OPEC月报料明年全球原油需求下滑，油市恐重返供应过剩</a></li>
+<li><a href="http://www.fx678.com/C/20180711/201807111949501905.html" target="blank">
+利比亚产量复苏为何再度无望？七问七答揭示其中短板</a></li>
+<li><a href="http://www.fx678.com/C/20180711/201807111720062385.html" target="blank">
+大宗商品同根不同命，挖掘原油、黄金走势南辕北辙背后的秘密</a></li>
+<li><a href="http://www.fx678.com/C/20180711/201807111550032111.html" target="blank">
+特朗普对华贸易战面临升级，但原油空头恐怕难逃“伊朗劫”</a></li>
+<li><a href="http://www.fx678.com/C/20180711/201807111521102242.html" target="blank">
+欧市盘前：中美贸易危局再度火上浇油，沪指周三大跌</a></li>
+<li><a href="http://www.fx678.com/C/20180711/201807111139202383.html" target="blank">
+7月11日现货黄金、白银、原油、外汇短线交易策略</a></li>
+<li><a href="http://www.fx678.com/C/20180711/201807111116292246.html" target="blank">
+原油交易提醒：油价急跌逾1%，聚焦OPEC月报及EIA数据</a></li>
+</ul>
+</div>
+<div class="left_line"></div>
+<div class="right_line"></div>
+<div class="left_down_line"></div>
+<div class="right_down_line"></div>
+</div>
+<div class="hc_ad_11">
+<div id="ad_11" style="width: 1000px; height: 75px; background: #F1F5F8 url(http://www.fx678.com/images/bg-fx678.png) no-repeat center;">
+</div>
+<div class="img_tips"></div>
+</div>
+<div class="graphic">
+<div class="section__head bg-common">
+<ul class="clearfix section__tab">
+<li class="selected"><a href="http://news.fx678.com/column/tjcj" target="_blank">图解财经</a></li>
+</ul>
+<div class="cartoon__link"><a href="http://news.fx678.com/vivid" target="_blank">漫画财经</a></div>
+<a href="http://news.fx678.com/vivid" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<ul class="graphic-top clearfix">
+<li>
+<a href="http://www.fx678.com/C/20180317/201803170951572224.html" target="_blank">
+<img src="http://upload.fx678.com/upload/ht/20180317/sl_2018031709441951.jpg" alt="">
+<p> 汇声绘色：特朗普强推钢铁关税开打贸易战，全世界又惊呆了！</p>
+</a>
+</li>
+<li>
+<a href="http://www.fx678.com/C/20180311/201803111257222075.html" target="_blank">
+<img src="http://upload.fx678.com/upload/ht/20180311/sl_2018031112261298.jpg" alt="">
+<p> 汇声绘色：意大利大选纷乱上演，欧元又要沦为“背锅侠”？</p>
+</a>
+</li>
+</ul>
+<ul class="news-list border-bottom-dotted">
+<li>
+<span class="list-style-dot">▪</span>
+<a href="http://www.fx678.com/C/20180525/201805251737562037.html" target="_blank">
+一张图：原来这么多全球大牌已支持比特币支付！可这究竟是福是祸？
+</a>
+</li>
+<li>
+<span class="list-style-dot">▪</span>
+<a href="http://www.fx678.com/C/20180511/201805111704322017.html" target="_blank">
+一张图：油价攀上三年高位，上海原油期货迎来腾飞契机
+</a>
+</li>
+<li>
+<span class="list-style-dot">▪</span>
+<a href="http://www.fx678.com/C/20180415/201804151438272017.html" target="_blank">
+一张图：中东战乱油市万众瞩目，这些问题您了解吗？
+</a>
+</li>
+<li>
+<span class="list-style-dot">▪</span>
+<a href="http://www.fx678.com/C/20180404/201804041750532038.html" target="_blank">
+一张图：贸易战不断升温，特朗普关税为何重点“关照”铝？
+</a>
+</li>
+<li>
+<span class="list-style-dot">▪</span>
+<a href="http://www.fx678.com/C/20180329/201803292045362013.html" target="_blank">
+一张图：人是铁饭是钢？钢铁却是经济发展的“食粮”！
+</a>
+</li>
+<li>
+<span class="list-style-dot">▪</span>
+<a href="http://www.fx678.com/C/20180324/201803241337112019.html" target="_blank">
+一张图：通胀猛于虎，聪明的投资者思路不“铜”凡响
+</a>
+</li>
+<li>
+<span class="list-style-dot">▪</span>
+<a href="http://www.fx678.com/C/20180314/201803141647382035.html" target="_blank">
+一张图：赏你万两白银，你能买得起兰博基尼吗？
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="mscl">
+<div class="section__head bg-common">
+<ul class="clearfix section__tab">
+<li class="selected"><a href="http://strategy.fx678.com/" target="_blank">名师策略</a></li>
+</ul>
+<a href="http://strategy.fx678.com/home/index/teacher" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<ul class="mscl__list clearfix">
+<li class="clearfix mscl__item">
+<a class="mscl__avatar l" href="http://strategy.fx678.com/home/analysis/index/id/35460" target="_blank">
+<img src="http://upload.fx678.com/upload/ht/20180509/sy_2018050913104681.jpg" alt="">
+<p>张艺兰</p>
+</a>
+<div class="r">
+<div class="star star5"><i></i>五星</div>
+<ul>
+<li>
+跟单人数：<span>7283</span>
+</li>
+<li>
+<span>外汇,黄金,原油,港股</span>
+</li>
+</ul>
+<div class="mscl__btn clearfix">
+<a href="http://ask.fx678.com/answer/35460.html" target="_blank" class="mscl__btn-ask">向他提问</a>
+<a href="http://strategy.fx678.com/home/pay/index/id/35460" target="_blank" class="macl__btn-buy">策略购买</a>
+</div>
+</div>
+</li>
+<li class="clearfix mscl__item">
+<a class="mscl__avatar l" href="http://strategy.fx678.com/home/analysis/index/id/36301" target="_blank">
+<i class="recommend"></i>
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714110622.jpg" alt="">
+<p>叶枝霖</p>
+</a>
+<div class="r">
+<div class="star star5"><i></i>五星</div>
+<ul>
+<li>
+跟单人数：<span>6291</span>
+</li>
+<li>
+<span>外汇,黄金,原油,港股</span>
+</li>
+</ul>
+<div class="mscl__btn clearfix">
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank" class="mscl__btn-ask">向他提问</a>
+<a href="http://strategy.fx678.com/home/pay/index/id/36301" target="_blank" class="macl__btn-buy">策略购买</a>
+</div>
+</div>
+</li>
+<li class="clearfix mscl__item">
+<a class="mscl__avatar l" href="http://strategy.fx678.com/home/analysis/index/id/36305" target="_blank">
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714102818.jpg" alt="">
+<p>苏声忠</p>
+</a>
+<div class="r">
+<div class="star star5"><i></i>五星</div>
+<ul>
+<li>
+跟单人数：<span>4608</span>
+</li>
+<li>
+<span>外汇,原油,黄金,白银</span>
+</li>
+</ul>
+<div class="mscl__btn clearfix">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="mscl__btn-ask">向他提问</a>
+<a href="http://strategy.fx678.com/home/pay/index/id/36305" target="_blank" class="macl__btn-buy">策略购买</a>
+</div>
+</div>
+</li>
+<li class="clearfix mscl__item">
+<a class="mscl__avatar l" href="http://strategy.fx678.com/home/analysis/index/id/70" target="_blank">
+<i class="recommend"></i>
+<img src="http://upload.fx678.com/upload/ht/20180514/sy_2018051413113574.jpg" alt="">
+<p>廖桂铭</p>
+</a>
+<div class="r">
+<div class="star star5"><i></i>五星</div>
+<ul>
+<li>
+跟单人数：<span>4337</span>
+</li>
+<li>
+<span>黄金,原油,白银,铜</span>
+</li>
+</ul>
+<div class="mscl__btn clearfix">
+<a href="http://ask.fx678.com/answer/70.html" target="_blank" class="mscl__btn-ask">向他提问</a>
+<a href="http://strategy.fx678.com/home/pay/index/id/70" target="_blank" class="macl__btn-buy">策略购买</a>
+</div>
+</div>
+</li>
+<li class="clearfix mscl__item">
+<a class="mscl__avatar l" href="http://strategy.fx678.com/home/analysis/index/id/36315" target="_blank">
+<i class="recommend"></i>
+<img src="http://upload.fx678.com/upload/ht/20180509/sy_2018050916101228.jpg" alt="">
+<p>王德勤</p>
+</a>
+<div class="r">
+<div class="star star5"><i></i>五星</div>
+<ul>
+<li>
+跟单人数：<span>3896</span>
+</li>
+<li>
+<span>外汇,黄金,原油</span>
+</li>
+</ul>
+<div class="mscl__btn clearfix">
+<a href="http://ask.fx678.com/answer/36315.html" target="_blank" class="mscl__btn-ask">向他提问</a>
+<a href="http://strategy.fx678.com/home/pay/index/id/36315" target="_blank" class="macl__btn-buy">策略购买</a>
+</div>
+</div>
+</li>
+<li class="clearfix mscl__item">
+<a class="mscl__avatar l" href="http://strategy.fx678.com/home/analysis/index/id/69" target="_blank">
+<img src="http://member.fx678.com/upload/common_97_icon.png" alt="">
+<p>陈志文</p>
+</a>
+<div class="r">
+<div class="star star4"><i></i>四星</div>
+<ul>
+<li>
+跟单人数：<span>1657</span>
+</li>
+<li>
+<span>黄金,原油,白银,铜,短中线</span>
+</li>
+</ul>
+<div class="mscl__btn clearfix">
+<a href="http://ask.fx678.com/answer/69.html" target="_blank" class="mscl__btn-ask">向他提问</a>
+<a href="http://strategy.fx678.com/home/pay/index/id/69" target="_blank" class="macl__btn-buy">策略购买</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="ask section-aside">
+<div class="section__head">
+<ul class="clearfix section__tab">
+<li class="selected"><a href="http://ask.fx678.com" target="_blank">在线答疑</a></li>
+<li><a href="http://ask.fx678.com/anslist/1.html" target="_blank">答疑师</a></li>
+</ul>
+<a href="http://ask.fx678.com/anslist/1.html" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<div class="ask__QAlist">
+<ul class="ask__sort clearfix">
+<li class="selected"><a>外汇</a></li>
+<li><a>黄金</a></li>
+<li><a>原油</a></li>
+<li><a>白银</a></li>
+<li><a>铜</a></li>
+</ul>
+<div class="ask__QAlist-main">
+<ul class="aside-recommend__QAlist">
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180523/sy_2018052310042024.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>你好，请问欧美怎么看呢？</a>
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>亲跟上我们家的操作节奏哦。不要乱做哦</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/35460.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180509/sy_2018050913104681.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/35460.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>老师今天什么位置可以空</a>
+<a href="http://ask.fx678.com/answer/35460.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>等我的短信通知就好了哦，呵呵</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714102818.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>怎么联系老师？</a>
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>您好，点击老苏的头像，购买策略同时领取学习资料，每天早盘获取最新行情分析和日内布局计，日内可以时时根据短信通知，轻仓顺势精准布局中长线机会</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714102818.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>老师，麻烦帮我看看澳美</a>
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>您好，澳美后市反弹继续布局空单，咱们周一的0.7477的顺势中长线空单，已经有110多点的盈利空间</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714102818.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>老师镑日怎么看</a>
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>回调继续布局低多单机会</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714102818.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>老师帮我分析下美瑞</a>
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>美瑞日内回调继续低多</a>
+</div>
+</li>
+</ul>
+<ul class="aside-recommend__QAlist hide">
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/98.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180115/sy_2018011516192074.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/98.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>今天黄金上方的阻力在什么位置？</a>
+<a href="http://ask.fx678.com/answer/98.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>晚上数据前，在1247 附近。黄金昨天早上8点58分1254提示空和下午5点提示的1251再次空，当天全部获利！ 恭喜加群体验的朋友（早上最早的几位是获利最多的，两单都有机会跟上），而今天，重点就是晚上的美国CPI数据（预期会有超过70+ 的波动），今天看数据公布后，市场的第一步动作，我再给出提示！ 喊单可以免费体验几天！！！ 加 QQ群：786432082 或者 微信（微信号：18221865655 同手机）</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/98.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180115/sy_2018011516192074.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/98.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>今天英国不是脱欧白皮书嘛？美指还要一直涨黄金一直跌？</a>
+<a href="http://ask.fx678.com/answer/98.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>今天要关注的数据，是晚上的 cpi</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714110622.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>老师您好，有欧美1.16760镑美1.32080的多，怎么处理？</a>
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>镑美参考1.317的止损，欧美留意1.165的支撑</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/98.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180115/sy_2018011516192074.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/98.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i> 周老师原油今天重点关注那个点位？</a>
+<a href="http://ask.fx678.com/answer/98.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>上方的阻力，可以关注在 70.95-71 之间，日内。 预计还有二次探底的过程。</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180523/sy_2018052310042024.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>方美女，傍日接下来怎么看？147的空单还有救吗？</a>
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>不建议持有哦。</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/98.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180115/sy_2018011516192074.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/98.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>老师。今天原油怎么看。我还有71.8的多</a>
+<a href="http://ask.fx678.com/answer/98.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>71-70.9 区间建议减仓或离场。</a>
+</div>
+</li>
+</ul>
+<ul class="aside-recommend__QAlist hide">
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714110622.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>老叶，我的美日112是多，怎么设止盈</a>
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>上方112.45就有阻力</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/35460.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180509/sy_2018050913104681.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/35460.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>那是必须的，我们都加油！</a>
+<a href="http://ask.fx678.com/answer/35460.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>嗯嗯，好的好的</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180523/sy_2018052310042024.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>美萍，那我的美国原油和你轻质油价格协调</a>
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>亲，我们都是现价操作哦。没有任何影响哦。</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/36315.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180509/sy_2018050916101228.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/36315.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>今天原油做空好还是做多好呢？</a>
+<a href="http://ask.fx678.com/answer/36315.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>逢高做空为主</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/35460.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180509/sy_2018050913104681.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/35460.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>老师6月28号跟着你干，现在翻倍了，希望月底再反翻哈，谢谢美女老师，我永远爱你。</a>
+<a href="http://ask.fx678.com/answer/35460.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>吼吼，厉害了，比我赚的都多哦，我们争取半个月翻一次仓，好不？</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714110622.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>叶帅，42做得多，不知方向是否作对？</a>
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>你说的什么品种</a>
+</div>
+</li>
+</ul>
+<ul class="aside-recommend__QAlist hide">
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180523/sy_2018052310042024.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>美油哦。和你的油不一样。</a>
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>我们是现价操作哦，进出都会通知的。这个不用担心哦。</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180523/sy_2018052310042024.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>方美，今天金什么策略？</a>
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>亲跟上我们家的操作节奏哦。</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180523/sy_2018052310042024.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>老师早，黄金可以多吗？</a>
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>亲跟上我们家的操作节奏哦。</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714102818.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>苏老师，你发的镑纽多单挂单，我就刚才在1.9549买了空单，止盈设置1.95可以吗？</a>
+<a href="http://ask.fx678.com/answer/36305.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>可以的，做回调仓位不要太重就行，看来你越来越会做单了 哈哈</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180523/sy_2018052310042024.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>美女，早上好，你的黄金天花板策略这几天要爆发了</a>
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>是的，我们黄金在1263就开始布局空单哦，我们的操作原则是必须严格执行仓位管理制度，否则是巨亏，不能控制风险的人，是不能长期呆在这个市场的，很多不理解我们的做法，我们是1%是的仓位起步操作而不是直接重仓操作，之所以出现巨亏就是因为仓位没有一个执行我们的仓位管理，私自加仓重仓操作，把 仓位管理 当做摆设，我们有赚有赔，再次感谢一直支持我的家人，谢谢。我也有实盘操作跟着我一起做就可以，仓位不可以重，风险控制的方法告诉大家，我们操作讲究的的布局操作是用仓位管理的办法控制风险，而不是一味的止损操作，有特殊情况我都会有提醒的，很多人认为是扛单那是完全错误的，我们操作1%仓位起步操作，逐步加仓操作，我们的持仓每一个品种最大持仓5%，该让止损的我们会毫不犹豫的会去止损。仓位控制的管理方法大家到客服那里领取一下，包括其他的的一些交易心得，看一下，你赢，我陪你君临天下， 你输，我陪你东山再起！</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180523/sy_2018052310042024.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>你好老师，关键我已经都进了，现在亏5000$</a>
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>不可以随意操作哦，跟上我们的操作节奏哦</a>
+</div>
+</li>
+</ul>
+<ul class="aside-recommend__QAlist hide">
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/74.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20171219/sy_2017121916101592.png" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/74.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>林老师，镑美跌破1.32能进空吗，谢谢</a>
+<a href="http://ask.fx678.com/answer/74.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>你好，这个位置先观望，趋势没有问题。</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/70.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180514/sy_2018051413113574.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/70.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>尴尬，昨晚油空出早了，感觉少了好几个亿</a>
+<a href="http://ask.fx678.com/answer/70.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>是吧，没事你还是赚钱的，机会倒还有！黄金这波多单再次踏准节奏，首先是上周一1239加多，随后上周二又再次在1237这边加多持有，另外，我们黄金上一波空单盈利丰厚，之前陆续在1262和1259加空，上周四在49附近全平收割23美金的利润！然而前期的1323.5空的老单子，我们在1252这边全平收割了71.5美金的丰厚利润，前期1306的这个空单还是继续持有为主，利润在不断放大中！原油这波回调我们再次踏准节奏，这月初先是在75.35和74.9加空，昨日也有在高点74.5附近加空了！目前这些空单也是减仓了持有中！原油前期这波从64涨到73，我们持续在64.25、66、以及周二的67.85陆续加多了，这几个多单目前盈利丰厚！我们上周三EIA在71.8附近做突破多单，而且还在EIA数据后立即在72.1再次加多！其中，原油66.00的多单和72.1的多单已经在73.4这边全平收割一波利润！原油上周我们也有在75.35和74.9这边加空持有对锁住一定利润。木火团队2018年6月份金银油战绩辉煌，黄金获利【189.0美金】、原油【22.60】美金、白银【3.31】美金，木火通明团队每个月汇通指导收益都是排名第一！如果喜欢这样的小止损博弈大利润的操作方式，欢迎加入木火团队！</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/74.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20171219/sy_2017121916101592.png" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/74.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>谢谢林老</a>
+<a href="http://ask.fx678.com/answer/74.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>你好，不客气。</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/74.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20171219/sy_2017121916101592.png" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/74.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>林老，刚买了策略，今天黄金什么思路？什么点位可以做空呢？谢谢</a>
+<a href="http://ask.fx678.com/answer/74.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>你好，感谢信任，欢迎合作。稍等发布思路，黄金高空为主。</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/70.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180514/sy_2018051413113574.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/70.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>嗯，明白了，管住手现单持有，谢谢廖老</a>
+<a href="http://ask.fx678.com/answer/70.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>不客气，要明白一点，利润不是靠单量堆出来的，也不是靠止损抗出来的！</a>
+</div>
+</li>
+<li class="clearfix">
+<a href="http://ask.fx678.com/answer/70.html" target="_blank" class="avatar l">
+<img src="http://upload.fx678.com/upload/ht/20180514/sy_2018051413113574.jpg" alt="">
+</a>
+<div class="r">
+<a href="http://ask.fx678.com/answer/70.html" target="_blank" class="ask__QAlist-ask"><i class="ask__QAlist-icon"></i>老师好，4个策略都挂吗？第一次跟单</a>
+<a href="http://ask.fx678.com/answer/70.html" target="_blank"><i class="ask__QAlist-icon ask__QAlist-iconA"></i>恩是的，策略说明和风控再次确认一下，你有没有看过呢？</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="ask__dys hide">
+<ul class="ask__dylist">
+<li class="ask__dylist__item clearfix">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="avatar">
+<i class="recommend"></i>
+<img src="http://upload.fx678.com/upload/ht/20180523/sy_2018052310042024.jpg" alt="">
+</a>
+<div class="r">
+<div class="ask__dylist__datail clearfix">
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank">方萍萍</a>
+<div class="ask__dylist__state on"><i></i>在线</div>
+<div class="medal-cont">
+<i class="medal medal-gold"></i>金牌
+</div>
+</div>
+<div class="ask__dylist__btn clearfix">
+<a href="http://ask.fx678.com/anlist/68135" target="_blank" class="ask__dylist__btn1">查看答疑</a>
+<a href="http://ask.fx678.com/answer/68135.html" target="_blank" class="ask__dylist__btn2">向他提问</a>
+</div>
+</div>
+</li>
+<li class="ask__dylist__item clearfix">
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank" class="avatar">
+<i class="recommend"></i>
+<img src="http://upload.fx678.com/upload/ht/20180517/sy_2018051714110622.jpg" alt="">
+</a>
+<div class="r">
+<div class="ask__dylist__datail clearfix">
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank">叶枝霖</a>
+<div class="ask__dylist__state on"><i></i>在线</div>
+<div class="medal-cont">
+<i class="medal medal-gold"></i>金牌
+</div>
+</div>
+<div class="ask__dylist__btn clearfix">
+<a href="http://ask.fx678.com/anlist/36301" target="_blank" class="ask__dylist__btn1">查看答疑</a>
+<a href="http://ask.fx678.com/answer/36301.html" target="_blank" class="ask__dylist__btn2">向他提问</a>
+</div>
+</div>
+</li>
+<li class="ask__dylist__item clearfix">
+<a href="http://ask.fx678.com/answer/70.html" target="_blank" class="avatar">
+<i class="recommend"></i>
+<img src="http://upload.fx678.com/upload/ht/20180514/sy_2018051413113574.jpg" alt="">
+</a>
+<div class="r">
+<div class="ask__dylist__datail clearfix">
+<a href="http://ask.fx678.com/answer/70.html" target="_blank">廖桂铭</a>
+<div class="ask__dylist__state on"><i></i>在线</div>
+<div class="medal-cont">
+<i class="medal medal-gold"></i>金牌
+</div>
+</div>
+<div class="ask__dylist__btn clearfix">
+<a href="http://ask.fx678.com/anlist/70" target="_blank" class="ask__dylist__btn1">查看答疑</a>
+<a href="http://ask.fx678.com/answer/70.html" target="_blank" class="ask__dylist__btn2">向他提问</a>
+</div>
+</div>
+</li>
+<li class="ask__dylist__item clearfix">
+<a href="http://ask.fx678.com/answer/36315.html" target="_blank" class="avatar">
+<i class="recommend"></i>
+<img src="http://upload.fx678.com/upload/ht/20180509/sy_2018050916101228.jpg" alt="">
+</a>
+<div class="r">
+<div class="ask__dylist__datail clearfix">
+<a href="http://ask.fx678.com/answer/36315.html" target="_blank">王德勤</a>
+<div class="ask__dylist__state on"><i></i>在线</div>
+<div class="medal-cont">
+<i class="medal medal-gold"></i>金牌
+</div>
+</div>
+<div class="ask__dylist__btn clearfix">
+<a href="http://ask.fx678.com/anlist/36315" target="_blank" class="ask__dylist__btn1">查看答疑</a>
+<a href="http://ask.fx678.com/answer/36315.html" target="_blank" class="ask__dylist__btn2">向他提问</a>
+</div>
+</div>
+</li>
+<li class="ask__dylist__item clearfix">
+<a href="http://ask.fx678.com/answer/74.html" target="_blank" class="avatar">
+<i class="recommend"></i>
+<img src="http://upload.fx678.com/upload/ht/20171219/sy_2017121916101592.png" alt="">
+</a>
+<div class="r">
+<div class="ask__dylist__datail clearfix">
+<a href="http://ask.fx678.com/answer/74.html" target="_blank">林相平</a>
+<div class="ask__dylist__state on"><i></i>在线</div>
+<div class="medal-cont">
+<i class="medal medal-gold"></i>金牌
+</div>
+</div>
+<div class="ask__dylist__btn clearfix">
+<a href="http://ask.fx678.com/anlist/74" target="_blank" class="ask__dylist__btn1">查看答疑</a>
+<a href="http://ask.fx678.com/answer/74.html" target="_blank" class="ask__dylist__btn2">向他提问</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="left_down_line"></div>
+<div class="right_down_line"></div>
+</div>
+<div class="topic">
+<div class="section__head bg-common">
+<ul class="clearfix section__tab">
+<li class="selected"><a href="http://news.fx678.com/column/zt" target="_blank">专题</a></li>
+</ul>
+<a href="http://news.fx678.com/column/zt" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<ul class="topic-list clearfix">
+<li><a href="http://hd.fx678.com/nonfarm" target="_blank"><img src="images/topic-nonfarm.png" alt="汇通-非农专题"></a></li>
+<li><a href="http://hd.fx678.com/Brexit" target="_blank"><img src="images/topic-brexit.png" alt="汇通-英国脱欧专题"></a></li>
+<li><a href="http://hd.fx678.com/rmb" target="_blank"><img src="images/topic-rmb.png" alt="汇通-人民币专题"></a></li>
+<li><a href="http://hd.fx678.com/Annal/Index/annal2017" target="_blank"><img src="images/2017-topic.jpg" alt="汇通-2017年终专题"></a></li>
+<li><a href="http://hd.fx678.com/trump" target="_blank"><img src="images/topic-trump.png" alt="汇通-特朗普专题"></a>
+</li>
+<li><a href="http://hd.fx678.com/usa" target="_blank"><img src="images/topic-usa.png" alt="汇通-美国大选专题"></a>
+</li>
+<li><a href="http://news.fx678.com/201704192016251932.shtml" target="_blank"><img src="images/topic-France1.png" alt="汇通-法国首轮大选专题"></a></li>
+<li><a href="http://news.fx678.com/201705051455591936.shtml" target="_blank"><img src="images/topic-France2.png" alt="汇通-法国终极大选专题"></a></li>
+</ul>
+</div>
+</div>
+<div class="cftc">
+<div class="section__head bg-common">
+<ul class="clearfix section__tab">
+<li class="selected"><a href="http://rl.fx678.com/cftc.html" target="_blank">CFTC持仓</a></li>
+</ul>
+<a href="http://rl.fx678.com/cftc.html" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<div class="cftc__chart" id="cftc_chart"> </div>
+<ul class="news-list border-bottom-dotted">
+<li><a href="http://www.fx678.com/C/20180630/201806301115172115.html" target="blank">
+CFTC持仓解读：欧元、黄金看多意愿双双降温(6月26日当周)</a></li>
+<li><a href="http://www.fx678.com/C/20180626/201806260343431969.html" target="blank">
+CFTC持仓解读：欧元、黄金看多意愿双双降温(6月19日当周)</a></li>
+<li><a href="http://www.fx678.com/C/20180625/201806251917511906.html" target="blank">
+欧元1.16上方暂时修整，本周或需贸易战及通胀定乾坤</a></li>
+</ul>
+</div>
+</div>
+<div class="xtx section-aside">
+<div class="section__head">
+<h2><a href="http://xtx.fx678.com/" target="_blank">汇通行天下</a></h2>
+<a href="http://xtx.fx678.com/" target="_blank" class="more">更多>></a>
+</div>
+<div class="section__content">
+<div class="xtx__recent-top">
+<div class="clearfix">
+<a href="http://xtx.fx678.com/Activity/18" target="_blank" class="xtx__recent-img-cont l">
+<img src="" alt="">
+</a>
+<div class="xtx__recent-handle r">
+<a href="http://xtx.fx678.com/Activity/18" target="_blank" class="xtx__recent-top-title">
+<em>衍生品投资新机遇高峰论坛-绵阳站</em><span>07-28绵阳</span></a>
+<a href="http://xtx.fx678.com/Activity/18" target="_blank" class="btn btn-bg-orange">本期介绍</a>
+</div>
+</div>
+</div>
+<h6>往期回顾</h6>
+<ul class="xtx__news-list">
+<li><a href="http://xtx.fx678.com/Activity/7" target="blank">
+<strong>成都：</strong>iFXshow在线外汇及金融创新展 一 成都站</a></li>
+<li><a href="http://xtx.fx678.com/salon/10" target="blank">
+<strong>郑州：</strong>投资 变革.技术 鼎创--CMC Markets 郑州分享会</a></li>
+<li><a href="http://xtx.fx678.com/salon/9" target="blank">
+<strong>杭州：</strong>杭州站：新经济，新机遇--高端策略研讨会</a></li>
+<li><a href="http://xtx.fx678.com/salon/5" target="blank">
+<strong>南京：</strong>IB经纪人沙龙一 南京站</a></li>
+<li><a href="http://xtx.fx678.com/Activity/8" target="blank">
+<strong>成都：</strong>再汇成都</a></li>
+<li><a href="http://xtx.fx678.com/salon/6" target="blank">
+<strong>重庆：</strong>IB经纪人沙龙一 重庆站</a></li>
+</ul>
+<a href="http://xtx.fx678.com/" target="_blank" class="xtx__more">更多回顾>></a>
+</div>
+<div class="left_line"></div>
+<div class="right_line"></div>
+<div class="left_down_line"></div>
+<div class="right_down_line"></div>
+</div>
+</div>
+<div class="clear">
+</div>
+<link rel="stylesheet" href="http://head.fx678.com/Public/css/footer.css" xmlns="http://www.w3.org/1999/html"/>
+<div id="common-footer">
+<div class="hc_link_area clearfix">
+<div class="hc_link_area_center">
+<div class="hc_link_area_head">
+<h1>合作伙伴</h1>
+</div>
+<div class="hc_mtl">
+<h2>媒体类</h2>
+<div class="hc_mtl_ul">
+<ul>
+<li>
+<a href="http://www.ycmhz.com.cn/" target="_blank">宜春新闻网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.canet.com.cn/" target="_blank">中国会计网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.southmoney.com/" target="_blank">南方财富网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://forex.hexun.com/" target="_blank">和讯外汇</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.yinhang123.net " target="_blank">银行信息港</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="https://cn.investing.com/" target="_blank">英为财情</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li> </ul>
+</div>
+</div> <div class="hc_mtl">
+<h2>金融类</h2>
+<div class="hc_mtl_ul">
+<ul>
+<li>
+<a href="http://www.ccmn.cn/" target="_blank">长江有色金属网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.zhijinwang.com/" target="_blank">中国纸金网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.dyhjw.com/" target="_blank">第一黄金</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.cardbaobao.com/" target="_blank">卡宝宝</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://quote.fx678.com/" target="_blank">外汇牌价</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.caiguu.com" target="_blank">财股网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.ocn.com.cn/" target="_blank">中国投资咨询网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.vobao.com/" target="_blank">沃保保险网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://gold.cnfol.com/" target="_blank">黄金网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="https://www.okcoin.cn" target="_blank">KCoin币行</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.p2peye.com" target="_blank">网贷天眼</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.wdzj.com/" target="_blank">网贷之家</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="https://www.huobi.com" target="_blank">火币网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.smm.cn" target="_blank">上海有色金属网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="https://www.cailianpress.com/" target="_blank">财联社</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://www.fx168.com/" target="_blank">FX168财经网</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li> </ul>
+</div>
+</div> <div class="hc_mtl last">
+<h2>门户类</h2>
+<div class="hc_mtl_ul">
+<ul>
+<li>
+<a href="http://www.stockstar.com/" target="_blank">证券之星</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li><li>
+<a href="http://finance.sina.com.cn/forex/" target="_blank">新浪外汇</a>
+</li>
+<li class="link_split2">
+<div></div>
+</li> </ul>
+</div>
+</div> </div>
+</div>
+<div class="hc_link_area_ad">
+<div class="footer2_bg_center">
+<div class="botblock2">
+<a href="http://www.fx678.com/corp/aboutus.shtml" target="_blank" rel='nofollow'>关于我们</a> |
+<a href="http://www.fx678.com/corp/aboutus.shtml#about_here" target="_blank" rel='nofollow'>联系我们</a> |
+<a href="http://www.fx678.com/product/index.html" target="_blank" rel='nofollow'>产品服务</a> |
+<a href="http://www.fx678.com/corp/call_revelation.shtml" target="_blank" rel='nofollow'>征稿启事</a> |
+<a href="http://www.fx678.com/corp/society.shtml" target="_blank" rel='nofollow'>诚聘英才</a>|
+<a href="http://www.fx678.com/corp/link.shtml" target="_blank">免责声明</a> |
+<a href="http://www.fx678.com/corp/law_statement.shtml" target="_blank" rel='nofollow'>法律声明</a> |
+<a href="http://www.fx678.com/corp/sitemap.shtml" target="_blank">网站地图</a> |
+<a href="http://www.fx678.com/corp/rss.shtml" target="_blank" rel='nofollow'>RSS邮件订阅</a>
+</div>
+<div class="foot_bottom2_ad">
+建议及投诉热线：021-62172178 | 版权所有：
+<a href="http://www.fx678.com/" target="_blank">汇通网</a>|
+<a href="http://www.fx678.com/corp/agreement.shtml" target="_blank">数据引用</a>
+</div>
+<div class="foot_down2_ad">
+<a href="http://www.miibeian.gov.cn/" target="_blank" rel='nofollow'><img src="http://head.fx678.com/Public/img/image_71.png" align="absmiddle">沪ICP备08112083号</a>
+<a href="http://www.cyberpolice.cn/wfjb/" target="_blank" rel='nofollow'><img src="http://head.fx678.com/Public/img/police2.png" align="absmiddle">上海网警网络110</a>
+<a href="http://www.zx110.org/" target="_blank" rel='nofollow'><img src="http://head.fx678.com/Public/img/zx1102.png" align="absmiddle">网络社会征信网</a>
+</div>
+<div class="foot_down2_ad">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010702001049" rel='nofollow'><img src="http://head.fx678.com/Public/img/ghs.png">沪公网安备 31010702001049号</a>
+网络文化经营许可证 沪网文(2016)4515-329号 ｜ 广播电视节目制作经营许可证 (沪)字第1805号
+</div>
+</div>
+</div>
+</div>
+<div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1258165815&web_id=1258165815" language="JavaScript"></script>
+</div>
+<!--[if IE 6]>
+    <script src="js/DD_belatedPNG.js"></script>
+    <script>
+        DD_belatedPNG.fix('.hc_logo,.find_step,.left_line,.right_line,.left_down_line,.right_down_line,.part_6_star img,');
+    </script>
+    <![endif]-->
+<div id="dl_small_01">
+</div>
+<div id="dl_small_02">
+</div>
+<div id="dl_small_03">
+</div>
+<div id="dl_small_04">
+</div>
+<script src="http://www.fx678.com/js/jquery.tabs.js" type="text/javascript"></script>
+<script src="http://www.fx678.com/js/jquery.lazyload.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+        $(function () {
+            $("img[original]").lazyload({placeholder: "images/color3.gif"});
+            $('.demo1').Tabs();
+            $('.demo1_a').Tabs();
+            //$('.demo1_b').Tabs();
+            $('.demo1_c_2').Tabs();
+            $('.demo1_c').Tabs();
+            $('.demo1_d').Tabs();
+            $('.demo1_d_b').Tabs();
+            $('.demo1_e').Tabs();
+            $('.demo1_add_13').Tabs();
+            $('.demo2').Tabs({
+                event: 'click'
+            });
+            $('.demo3').Tabs({
+                timeout: 300
+            });
+            $('.demo4').Tabs({
+                auto: 3000
+            });
+            $(function () {
+                $('#div_htpl').Tabs();  //返回了this
+            });
+        });
+    </script>
+</form>
+<script>
+    $(document).ready(function () {
+        $(".trade .section__tab li").mouseover(function () {
+            var i = $(this).index();
+            $(this).siblings("li").removeClass("selected");
+            $(this).addClass("selected");
+            $(".trade .section__content ul").addClass("hide");
+            $(".trade .section__content ul").eq(i).removeClass("hide");
+        });
+
+        $(".strategy-recommend__item").mouseover(function () {
+            var i = $(this).index();
+            $(".strategy__list").addClass("hide");
+            $(".strategy__list").eq(i).removeClass("hide");
+        });
+
+        $(".ask .section__tab li").mouseover(function(){
+            var i = $(this).index();
+            $(this).siblings("li").removeClass("selected");
+            $(this).addClass("selected");
+            $(".ask .section__content>div").addClass("hide");
+            $(".ask .section__content>div").eq(i).removeClass("hide");
+        });
+
+        $(".ask__sort li").mouseover(function(){
+            var i = $(this).index();
+            $(this).siblings("li").removeClass("selected");
+            $(this).addClass("selected");
+            $(".aside-recommend__QAlist").addClass("hide");
+            $(".aside-recommend__QAlist").eq(i).removeClass("hide");
+        });
+    });
+</script>
+<div style="display: none">
+<script type="text/javascript">
+        panshi_a = "3908485120_2617950208_4";
+        panshi_b = "640_60_1";
+    </script>
+</div>
+<meta name="baidu-site-verification" content="ulzvJYM9os">
+</metahttp-equiv="cache-control"content="no-cache"></metahttp-equiv="pragma"content="no-cache">
+<script type="text/javascript">
+    headAdv('ad_2', 95, 'a77b264c', 65, 738);
+    headAdv('ad_3', 96, 'a58afdec', 65, 242);
+    headAdv('ad_4', 97, 'a60164a3', 65, 360);
+    headAdv('ad_5', 98, 'a140ac41', 65, 360);
+    headAdv('ad_6', 99, 'a94ef92d', 65, 242);
+    headAdv('ad_16', 128, 'a8faa1c5', 75, 1000);
+    headAdv('htaBody_1', 233, 'a9ebac11', 17, 82);
+    headAdv('htaBody_9', 373, 'a46fd32d', 35, 115);
+    window.onload = function () {
+        headAdv('htaBody_2', 240, 'af5c68d0', 65, 242);
+        headAdv('htaBody_3', 241, 'a940636b', 65, 242);
+        headAdv('htaBody_4', 242, 'a3dc3ee2', 65, 242);
+        headAdv('ad_7', 100, 'af76ba48', 75, 360);
+        headAdv('ad_8', 101, 'aee02c72', 75, 360);
+        headAdv('ad_9', 102, 'a4496660', 75, 1000);
+        headAdv('ad_10', 103, 'ad6a1f26', 75, 1000);
+        headAdv('ad_11', 104, 'a81f067b', 75, 1000);
+        headAdv('ad_12', 120, 'a91801c4', 25, 140);
+        headAdv('ad_13', 121, 'af7bdeda', 25, 140);
+        headAdv('adv_1', 122, 'a8bdc583', 35, 105);
+//        headAdv('ad_14', 95, 'a77b264c', 65, 738);
+//        headAdv('ad_15', 95, 'a77b264c', 65, 738);
+        headAdv('ad_18', 129, 'ace1b265', 242, 252);
+        headAdv('kx_zhibo', 124, 'aebaf5ec', 24, 100);
+        headAdv('htaLi_020',125 ,'ac4a0f93' ,22,145);
+        headAdv('htaLi_021', 126, 'a2b0d62a', 22, 150);
+        headAdv('scfx_htpl', 127, 'aaa053e7', 24, 102);
+        headAdv('dl_small_01', 105, 'ad712b88', 320, 100);
+        headAdv('dl_small_02', 106, 'a1851fb2', 320, 100);
+        headAdv('dl_small_03', 107, 'a04f2f8c', 320, 100);
+        headAdv('dl_small_04', 108, 'ab99b8b9', 320, 100);
+       /* headAdv('htaBody_5', 256, '3fea6w2a', 250, 300);
+        headAdv('htaBody_6', 257, '3aea10a', 200, 20);*/
+        headAdv('htaBody_7', 283, 'ac006ec8', 60, 1000);
+       // headAdv('htaBody_10', 375, 'abfc78db', 154, 230);
+    }
+
+   /* var timer = setTimeout(function () {
+        $("#dl_small_01").attr("id", "dl_small_01_2");
+        $("#dl_small_02").attr("id", "dl_small_02_2");
+    }, 1000 * 12);*/
+
+    //16号广告显示11秒后隐藏
+ setTimeout(function () { $('#ad_16').fadeOut("1000"); }, 1000 *10);
+    setTimeout(function () { $('#hc_ad_16').fadeOut("1000"); }, 1000 *10);
+    setTimeout(function () { $('#htaBody_7').fadeOut("10");
+        headAdv('htaBody_8', 284, 'abd16c68', 35, 1000);
+        $('#htaBody_8').show();
+    }, 1000 *10);
+   /*var timer = setTimeout(function () {
+        $(".tip_pop").fadeOut("100");
+        $(".tip_pop2").show();
+    }, 1000 * 9);*/
+    function advControl() {
+
+        // 百度PUSH代码
+        (function () {
+            var bp = document.createElement('script');
+            bp.src = '//push.zhanzhang.baidu.com/push.js';
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    }
+</script>
+</body>
+</html>

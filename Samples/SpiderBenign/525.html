@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang='zh-CN' class='no-js'>
+<head>
+<meta charset='utf-8'/>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'/>
+<meta name='description' content='万兴科技（300624.SZ），是国内A股深交所上市的消费类软件龙头企业，是领先的自主品牌全球化APP应用软件提供商，以“创新科技，幸福生活”为企业使命，为全球个人及家庭用户提供消费类软件、智能硬件及物联网家居安全解决方案。万兴科技始终以“持续提升客户满意度与忠诚度”为宗旨，用户遍布全球200多个国家和地区。'/>
+<meta name='keywords' content='Wondershare 万兴科技 创新科技  幸福生活'/>
+<title>万兴科技 - 创新科技，幸福生活！</title>
+<meta name='author' content='Wondershare'/>
+<link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/>
+<link rel="stylesheet" href="/Public/home/bundle.css?t=20180207" charset="utf-8">
+<link rel="stylesheet" href="/Public/home/css/global.css?t=20180207" />
+<!--[if lte IE 8]>
+    <script src='html5shiv.js' charset='utf-8'></script>
+    <style type='text/css'>
+        body{
+	            margin: 0;
+	            overflow-x: auto;
+	            position: relative;
+	            font-size: 14px;
+	            color: #5d5b5b;
+	            font-family: 微软雅黑 !important;
+	        }
+			embed {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+	        .ws-ie-bg{
+	            position: absolute;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            z-index: -2;
+	        }
+	        body,html,.ws-bg{
+	            height:100%;
+	        }
+        .ws-ie-bg img{ width: 100%;height: 100%;}
+        .ws-bg{
+        // position: fixed;
+        //top: 0;
+        //left: 0;
+        //z-index: -1;
+        //width: 100%;
+        //background: url(/Public/home/resource/content/bg-2.jpg) no-repeat;
+        //background-position: center 25%;
+            display:none;
+        }
+        .ws-logo{
+            display: block;
+            width: 284px;
+            height: 35px;
+            margin-top: 42px;
+            margin-left: 5em;
+            background: url(/Public/home/resource/content/logo.png) no-repeat;
+        }
+        .ws-nav {
+            background-image: url(/Public/home/resource/content/nav.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: inline-block;
+            float: right;
+            width: 51px;
+            height: 28px;
+            margin: 16%;
+        }
+        .ws-normal,.ws-introduce{
+            display:none;
+        }
+        .ws-ie{
+            display: block;
+            width: 100%;
+            position: absolute;
+            bottom: 5%;
+        }
+        .ws-introduce-ie img{
+            max-width:100%
+        }
+        .ws-introduce-ie{
+            width: 24%;
+            height: 30%;
+            margin-left: 10%;
+            margin-top: -5%;
+            margin-bottom: 1%;
+        }
+        .container-fluid .ws-copyright, .container-fluid .ws-link, .container-fluid .ws-icp{
+            display:none;
+        }
+        .ws-ie-footer{
+            color: #413D3C;
+            text-align: right;
+            font-size: .9em;
+            padding: 0 5% 0 0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            letter-spacing: 1px;
+        }
+        .ws-ie-footer .ws-link a {
+            color: #413D3C;
+        }
+        .ws-ie-footer .ws-split {
+            margin: -0.21428571em 0.6em;
+            border-left: 1px solid #413D3C;
+            display: inline-block;
+            width: 1px;
+            height: 1.2em;
+        }
+    </style>
+    <![endif]-->
+<script type="text/javascript">
+
+        // 获取用户列表
+//        var URLLIST = 'http://wpstv-map.wondershare.cn/interface.php?m=player_list';
+		// 获取在线用户数据json
+		var ONLINEDATA_URL = '/Public/home/online-map.json'
+		
+        var ishttps = 'https:' == document.location.protocol ? true: false;
+        if(ishttps){
+            var URLLIST = 'https://www.wondershare.cn/tv/interface.php?m=player_list';
+        }else{
+            var URLLIST = 'http://www.wondershare.cn/tv/interface.php?m=player_list';
+        }
+        
+        // app icon list
+        // var APP_LIST = [
+        //     '/Public/home/resource/icon/DrFone.png',
+        //     '/Public/home/resource/icon/Filmora.png',
+        //     '/Public/home/resource/icon/MobileTrans.png',
+        //     '/Public/home/resource/icon/PDFConverterPro.png',
+        //     '/Public/home/resource/icon/PDFelement.png',
+        //     '/Public/home/resource/icon/SafeEraser.png',
+        //     '/Public/home/resource/icon/DataRecovery.png',
+        //     '/Public/home/resource/icon/spotmau.png',
+        //     '/Public/home/resource/icon/TunesGo.png',
+        //     '/Public/home/resource/icon/VideoConverterPro.png'
+        // ];
+
+        // var APP_SPOTMAU = '/Public/home/resource/icon/spotmau.png';
+
+        var APP_LIST = [
+            '/Public/home/resource/icon/mac-safeeraser-icon-bg.png',
+            '/Public/home/resource/icon/SafeEraser-for-Mac.png',
+            '/Public/home/resource/icon/mac-safeeraser-icon-bg.png',
+            '/Public/home/resource/icon/MobileGo-for-Android-Pro.png',
+            '/Public/home/resource/icon/Dr-Fone-for-iOS.png',
+            '/Public/home/resource/icon/MobileTrans.png',
+            '/Public/home/resource/icon/TunesGoRetro.png',
+            '/Public/home/resource/icon/Fantashow3.0.0.png',
+            '/Public/home/resource/icon/Player.png',
+            '/Public/home/resource/icon/Dr-Fone-for-Android.png',
+            '/Public/home/resource/icon/TidyMyMusic-for-Mac.png',
+            '/Public/home/resource/icon/AllMyMusic-for-Mac.png',
+            '/Public/home/resource/icon/PDFelement.png',
+            '/Public/home/resource/icon/PDF-to-Word-Converter.png',
+            '/Public/home/resource/icon/Data-Recovery-for-Android.png',
+            '/Public/home/resource/icon/PDF-Converter-Pro.png',
+            '/Public/home/resource/icon/PDF-Converter-Pro-for-Mac.png',
+            '/Public/home/resource/icon/Data-Recovery-for-iTunes.png',
+            '/Public/home/resource/icon/Filmora.png',
+            '/Public/home/resource/icon/Flash-Gallery-Factory-Deluxe.png',
+            '/Public/home/resource/icon/Photo-Collage-Studio.png',
+            '/Public/home/resource/icon/Filmora-for-Mac.png',
+            '/Public/home/resource/icon/DVD-Creator-for-Mac.png',
+            '/Public/home/resource/icon/PDF-to-EPUB-Converter.png',
+            '/Public/home/resource/icon/PDF-to-Excel-Converter.png',
+            '/Public/home/resource/icon/PDF-to-PowerPoint-Converter.png',
+            '/Public/home/resource/icon/PDF-Merger.png',
+            '/Public/home/resource/icon/PDF-Splitter.png',
+            '/Public/home/resource/icon/PDF-Password-Remover.png',
+            '/Public/home/resource/icon/PDF-to-EPUB-Converter-for-Mac.png',
+            '/Public/home/resource/icon/PDF-to-Excel-Converter-for-Mac.png',
+            '/Public/home/resource/icon/PDF-to-PowerPoint-Converter-for-Mac.png',
+            '/Public/home/resource/icon/PDF-to-Word-Converter-for-Mac.png',
+            '/Public/home/resource/icon/PDF-Editor-for-Mac.png',
+            '/Public/home/resource/icon/PDFelement-for-Mac.png',
+            '/Public/home/resource/icon/PDF-Password-Remover-for-Mac.png',
+            '/Public/home/resource/icon/MePub.png',
+            '/Public/home/resource/icon/MePub-for-Mac.png',
+            '/Public/home/resource/icon/PPT2Flash-Professional.png',
+            '/Public/home/resource/icon/PPT2Flash-Standard.png',
+            '/Public/home/resource/icon/QuizCreator.png',
+            '/Public/home/resource/icon/PPT2DVD-Pro.png',
+            '/Public/home/resource/icon/PPT2Video-Pro.png',
+            '/Public/home/resource/icon/DemoCreator.png',
+            '/Public/home/resource/icon/Data-Recovery.png',
+            '/Public/home/resource/icon/Photo-Recovery.png',
+            '/Public/home/resource/icon/1-Click-PC-Care.png',
+            '/Public/home/resource/icon/Data-Recovery-for-Mac.png',
+            '/Public/home/resource/icon/Photo-Recovery-for-Mac.png',
+            '/Public/home/resource/icon/MobileGo.png',
+            '/Public/home/resource/icon/AllMyTube-for-Mac.png',
+            '/Public/home/resource/icon/DVD-Slideshow-Builder-Deluxe.png',
+            '/Public/home/resource/icon/DVD-Slideshow-Builder-Standard.png',
+            '/Public/home/resource/icon/Free-YouTube-Downloader.png',
+            '/Public/home/resource/icon/Video-Converter-Pro.png',
+            '/Public/home/resource/icon/DVD-Creator.png',
+            '/Public/home/resource/icon/Streaming-Audio-Recorder.png',
+            '/Public/home/resource/icon/AllMyTube.png',
+            '/Public/home/resource/icon/Free-YouTube-Downloader-for-Mac.png',
+            '/Public/home/resource/icon/Video-Converter-Ultimate-MA.png',
+            '/Public/home/resource/icon/PDF-to-Pages-Converter-for-Mac.png',
+            '/Public/home/resource/icon/SafeEraser.png',
+            '/Public/home/resource/icon/Dr-Fone-for-iOS-Suite.png',
+            '/Public/home/resource/icon/MirrorGo.png',
+            '/Public/home/resource/icon/DreamStream.png',
+            '/Public/home/resource/icon/MobileTrans-for-Mac.png',
+            '/Public/home/resource/icon/TidyMyMusic.png',
+            '/Public/home/resource/icon/MobileGo-for-Android-Google-Play.png',
+            '/Public/home/resource/icon/TunesGo-Mac.png',
+            '/Public/home/resource/icon/TunesGo.png',
+            '/Public/home/resource/icon/Dr-Fone-for-Android-Mac.png',
+            '/Public/home/resource/icon/Video-Editor-CPC.png',
+            '/Public/home/resource/icon/Dr-Fone-for-Android-Windows.png',
+            '/Public/home/resource/icon/Dr-Fone-for-Android-Mac-OS-Version.png',
+        ]
+        // 跳转页面
+        var jumpUrl = 'https://www.wondershare.com/shop/';
+
+    </script>
+<script src='/Public/home/Detector.js?t=20160712'></script>
+<script src='/Public/home/pixi.min.js?t=20160712'></script>
+<script src='/Public/home/bundle.js?t=20160712' charset='utf-8'></script>
+<script type="text/javascript" src="/Public/home/js/jquery-1.7.2.min.js"></script>
+<style>
+        .nav_menu_bg {overflow-y:auto !important;}
+    </style>
+</head>
+<body>
+<div class='ws-bg'></div>
+<div class='ws-icon-container'></div>
+<div id="index_header">
+<div id="logo"><a href="/">Wondershare</a></div>
+<div id="top_nav">
+<a href="javascript:void(0);" class="btn_menu new click_menuShow"><span class="icon_menu icon-burger"><span class="lines"></span></span><span class="num"></span></a>
+</div>
+<div class="clear"></div>
+</div>
+<div class="nav_menu_bg pop_nav_menu_bg">
+<div id="nav_menu" class="pop_nav_menu">
+<div class="btn_close"><span class="icon_close click_close curr icon-burger"><span class="lines"></span></span></div>
+<div class="cont">
+<div class="activity_entry">
+<div class="menuSide_flexslider">
+<ul class="slides">
+<li><a href="/special/2018cbd/" target="_blank"><img src="/special/2018cbd/images/sideMenu_banner.jpg" alt="斑点猫即将亮相2018中国建博会"></a></li>
+<li><a href="/special/2018ipo/" target="_blank"><img src="/Public/home/images/activity_2018upshares.jpg" alt="心无界-梦无疆"></a></li>
+</ul>
+</div>
+</div>
+<ul class="menu">
+<li><a href="/Home/Index/index.html">首页</a></li><li><a href="/Home/product/index.html">产品与解决方案</a></li><li><a href="/Home/news/index.html">新闻动态</a></li><li><a href="/Home/about/global-layout.html">全球布局</a></li><li><a href="/Home/culture/index.html">企业文化</a></li><li><a href="/Home/job/index.html">加盟万兴</a></li><li><a href="/Home/investor/index.html">投资者关系</a></li><li><a href="/Home/about/index.html">关于我们</a></li> </ul>
+</div>
+<div class="other">
+<div class="ws_slogan"><img src="/Public/home/images/ws_slogan.png" /></div>
+<ul class="choose_country">
+<li><a href="http://www.wondershare.com" target="_blank" title="USA"><img src="/Public/home/images/choose/united-states.png" border="0" /></a></li>
+<li><a href="http://www.wondershare.fr" target="_blank" title="France"><img src="/Public/home/images/choose/france.png" border="0" /></a></li>
+<li><a href="http://www.wondershare.de" target="_blank" title="Deutsch"><img src="/Public/home/images/choose/germany.png" border="0" /></a></li>
+<li><a href="http://www.wondershare.it" target="_blank" title="Italia"><img src="/Public/home/images/choose/italy.png" border="0" /></a></li>
+<li><a href="http://www.wondershare.es" target="_blank" title="Spain"><img src="/Public/home/images/choose/spain.png" border="0" /></a></li>
+<li><a href="http://www.wondershare.com.br" target="_blank" title="Brazil"><img src="/Public/home/images/choose/brazil.png" border="0" /></a></li>
+<li><a href="http://www.wondershare.jp" target="_blank" title="日本"><img src="/Public/home/images/choose/japan.png" border="0" /></a></li>
+</ul>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="/Public/home/js/jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+$(function(){
+    //导航控制
+    $(".click_menuShow").click(function(event){
+        event.stopPropagation(); 
+        $("body").css({"overflow-y":"hidden"});
+        $(".pop_nav_menu_bg").addClass("curr");
+        $(".menuSide_flexslider").flexslider({
+            animation: "slide",
+            animationLoop: true,
+            slideshow: true,
+            slideshowSpeed: 1700,
+            controlNav: true,  
+            directionNav: true,
+        });
+    })
+    $(".pop_nav_menu .click_close,.pop_nav_menu_bg").click(function(){
+        $("body").removeAttr("style");
+        $(".pop_nav_menu_bg").removeClass("curr");
+    })
+    $(".pop_nav_menu").click(function(e){
+        e.stopPropagation();
+    })
+})
+</script>
+<main class='ws-normal'>
+<div class='container-fluid'>
+<div class='ws-map'></div>
+<div class='row'>
+<div class='ws-introduce'></div>
+</div>
+</div>
+</main>
+<!--[if lte IE 8]>
+		<a id='ws-ie-link' target="_blank" href='https://store.wondershare.com/shop/' target='_blank'>
+            <div class='ws-ie-bg'>
+                    <embed src="/Public/home/resource/content/point.swf" quality="high" type="application/x-shockwave-flash" wmode="transparent"></embed>
+                    <img src='/Public/home/resource/content/bg-2.jpg' alt=''>
+            </div>
+        </a>
+
+        <div class='ws-ie'>
+			<div class='ws-introduce-ie'><img src='/Public/home/resource/content/introduce.png' alt=''></div>
+			<div class='ws-ie-footer'>
+				<p class='ws-link ws-link-ie'>
+					<a href='/Home/about/index.html' target='_blank'>关于万兴</a>
+					<span class='ws-split'></span>
+					<a href='/Home/about/contact.html' target='_blank'>联系我们</a>
+					<span class='ws-split'></span>
+					<a href='/Home/about/privacy.html' target='_blank'>隐私声明</a>
+					<span class='ws-split'></span>
+					<a href='/Home/about/law.html' target='_blank'>法律公告</a>
+				</p>
+				<p class='ws-copyright-ie'>Copyright © 2016 万兴科技Wondershare. All rights reserved.粤ICP备05001579号-1 ICP证 粤B2-20110672</p>
+			</div>
+		</div>
+		<![endif]-->
+<footer>
+<div class='container-fluid'>
+<p class='ws-link'>
+<a href="/Home/about/index.html" target='_blank'>关于万兴</a>
+<span class='ws-split'></span>
+<a href="/Home/about/contact.html" target='_blank'>联系我们</a>
+<span class='ws-split'></span>
+<a href="/Home/about/privacy.html" target='_blank'>隐私声明</a>
+<span class='ws-split'></span>
+<a href="/Home/about/law.html" target='_blank'>法律公告</a>
+<span class='ws-split'></span>
+<a href="http://quote.eastmoney.com/sz300624.html" target='_blank' style="display: inline-block; background: #666; background:rgba(255,255,255,.2); padding:0 5px;">股票代码：300624</a>
+</p>
+<p class='ws-icp'><a target="_blank" href="http://www.miitbeian.gov.cn/">藏ICP备17000062号-4</a></p>
+<p class='ws-copyright'>Copyright © 2018 万兴科技Wondershare. All rights reserved.</p>
+</div>
+</footer>
+<div style="display:none;">
+<script src="https://s11.cnzz.com/z_stat.php?id=1260082863&web_id=1260082863" language="JavaScript"></script>
+</div>
+</body>
+</html>

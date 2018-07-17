@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="baidu-site-verification" content="pJNHJaMWBX" />
+<meta name="shenma-site-verification" content="44d2a3adc4e3ac10bdad2907f9c570e7_1497671759"> 
+<meta name="360-site-verification" content="ab5fe9d871cc23ee6883cd71c1dab7ee" />
+<meta name="sogou_site_verification" content="CWQjQT4LkA"/>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<meta name="keywords" content="网盘搜索,云盘搜索,网盘搜索引擎,百度网盘搜索,360云盘搜索,360网盘搜索,网盘007" />
+<meta name="description" content="网盘007搜集各网络云存储,网盘平台用户分享资源,提供网盘搜索服务,是国内专业的网盘搜索引擎网站,致力于发现、分享、搜索用户云存储资源,让资源分享、查找更方便." />
+<title>网盘搜索_网盘搜索引擎_网盘007</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/themes/default/css/common.css" />
+<script type="text/javascript" src="/themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="/themes/default/js/global.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2787565097317797",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+<body>
+<div class="wangpan-header ">
+  <div class="nav-wrap">
+    <div class="wrapper " style="width:100%;">
+      <div class="fr nav " style="width:100%;" >
+        <div class="fl">
+          <ul>
+            <li class="hover"><a href="/share" title="网盘搜索" >网盘搜索 </a> 
+			<div class="nav-list">
+			  <dd> <i></i>
+			    <dl><a href="/share/baidu" title="百度网盘搜索">百度网盘</a></dl>
+			    <dl><a href="/share/vdisk" title="微盘">微盘</a></dl>
+			  </dd>
+			</div>
+            </li>
+            <li><a href="/share/user" title="网盘分享达人">分享达人 </a> </li>
+            <li><a href="/dianshiju/" title="电视剧网盘">电视剧 </a> </li>
+            <li><a href="/dongman/" title="动漫网盘">动漫 </a> </li>
+            <li class="hover"><a href="javascript:;" style="color:#44b549">微信关注</a>
+            <div class="nav-list" >
+			  <dd style="position: absolute;margin-top: 13px;background: #fff;border-radius: 2px;width: 360px;height: 120px;left: -25px;padding: 10px 0;-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2);box-shadow: 0 1px 3px rgba(0,0,0,0.2);"> <i></i>
+				<div style="text-align:center;font-size:12px; color:#44b549;line-height:22px" ><a><img src="/images/qrcode.jpg" width="90" height="90" /></a><a><img id="wximg" src="/images/imghj.jpg" width="90" height="90" /></a><a><img src="/images/imgdy.png" width="90" height="90" /></a></div>
+				<div style="text-align:center;font-size:12px; color:#44b549;line-height:22px" ><a style="width: 90px;color:#44b549;">网盘007</a><a style="width: 90px;color:#44b549;">在线港剧</a><a style="width: 90px;color:#44b549;">海量电影</a></div>
+			  </dd>
+			</div>
+            </li>
+          </ul>
+        </div>
+        <div class="fr login">
+          <div class="ti-hover">
+            <div class="login-panel typeUserInfo">
+              <div class="typeShowUser" style="margin-right: 5px;"> 
+              <span class="welcome" >
+              	<a href="/register">注册</a> <a href="/login" >登录</a>
+              	<a href="javascript:;" id="share_btn" ><span class="reg">文件分享</span><span class="gbma"></span></a>
+              	</span> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="overlay_bg"></div>
+<div id="dialog-share-box" class="dialog-box">
+	<form name="share_form" id="share_form" method="post" action="/file/share" >
+	<p>提交成功网址, 将会在1-3分钟内筛选收录到网盘007, 感谢您的支持！</p>
+	<div class="box">
+		<span>分享网址<label class="erro-tips"></label></span>
+		<textarea id="share_url" name="share_url" placeholder="请输入网盘分享网址" ></textarea>
+	</div>
+	<div class="clear"></div>
+	<div><button id="share_file_Submit" type="button" >一键分享</button></div>
+	</form>
+	<div class="closebok"><img src="/themes/default/images/close.png" alt="关闭"></div>
+</div>
+<script type="text/javascript" >
+$("#share_file_Submit").click(function() {
+	var form = $('#share_form');
+	var tip = form.find('.erro-tips');
+	tip.html('');
+	
+	var share_url = $('#share_url');
+	if( $.trim(share_url.val()) == '' ){
+		share_url.focus();
+		return false;
+	}
+	var data = form.serialize();
+	var url = form[0].action;
+	$.ajax({
+        type: "post",
+        url: url,
+        data: data,
+        dataType: "json",
+        cache: false,
+        success: function (json) {
+    	 	if (json.code == 1) {
+    	 		tip.html(json.message);
+            }else{
+            	tip.html(json.message);
+            }
+        },
+        error: function (XmlHttpRequest) {
+            alert("\u53D1\u9001\u9519\u8BEF! ! \u8BF7\u91CD\u8BD5 ...");
+        }
+	 })
+})
+</script>
+<div class="index_logo" style="margin-bottom:20px;">
+    <a href="/" title="网盘007"><img src="/images/logo.png" id="main_logo" border="0" alt="网盘007" /></a>
+</div>
+<div class="index_search_box" style="clear:both;height:52px;"  >
+    <form method="get" id="query_form" action="/share/kw">
+        <div class="search_input left">
+            <input type="text" autocomplete="off" name="keyword" id="keyword" class="input_text input" />
+			<div class="hot-sug hot-sug-index"><ul style="display: block;"><div class="list"></div></ul></div>
+        </div>
+        <div class="search_button left">
+            <input type="submit" id="search-submit" value="" class="input_button large_size" /> 
+        </div>
+        <div class="clearfix"></div>
+    </form>
+</div>
+<div class="index_ad"  >
+	<div class="s_head"> 
+		<a class="cur-tag" title="热门网盘搜索"  href="javascript:void();">热门搜索</a> 
+		<a title="电影 视频,网盘搜索"  href="/video">视频</a> 
+		<a title="音乐 音频,网盘搜索" href="/music">音乐</a> 
+		<a title="bt 种子 下载文件,网盘搜索" href="/bt">种子</a> 
+		<a title="文档 小说 书籍,网盘搜索" href="/doc">书籍</a> 
+		<a title="压缩包 打包文件,网盘搜索" href="/zip">压缩包</a> 
+		<a title="安卓软件 安卓app,网盘搜索" href="/apk">安卓app</a> 
+		<a title="苹果软件 苹果app,网盘搜索" href="/dmg">苹果app</a> 
+		<a title="更多" href="/share" style="color:#e4393c">···</a> 
+	</div>
+	<div class="words-item" >
+	 <ul>
+	 	<li><a href="/share/kw%E9%95%87%E9%AD%82" title="镇魂" ><em class="dot"></em><em>镇魂</em></a></li>
+	 	<li><a href="/share/kw%E6%89%B6%E6%91%87" title="扶摇" ><em class="dot"></em><em>扶摇</em></a></li>
+	 	<li><a href="/share/kw%E9%9D%92%E8%9B%99%E5%8D%A1%E8%89%BE%E5%8D%A2+%E7%AC%AC%E4%BA%8C%E5%AD%A3" title="青蛙卡艾卢 第二季" ><em class="dot"></em><em>青蛙卡艾卢 第二季</em></a></li>
+	 	<li><a href="/share/kw%E5%A6%96%E7%B2%BE%E7%9A%84%E5%B0%BE%E5%B7%B4" title="妖精的尾巴" ><em class="dot"></em><em>妖精的尾巴</em></a></li>
+	 	<li><a href="/share/kw%E7%A7%98%E5%AF%86" title="秘密" ><em class="dot"></em><em>秘密</em></a></li>
+	 	<li><a href="/share/kw%E5%A4%A7%E7%89%87%E8%B5%B7%E6%9D%A5%E5%97%A8+%E7%AC%AC%E4%BA%8C%E5%AD%A3" title="大片起来嗨 第二季" ><em class="dot"></em><em>大片起来嗨 第二季</em></a></li>
+	 	<li><a href="/share/kw%E4%BD%A0%E8%AF%B4%E7%9A%84%E9%83%BD%E5%AF%B9+%E7%AC%AC%E4%B8%80%E5%AD%A3" title="你说的都对 第一季" ><em class="dot"></em><em>你说的都对 第一季</em></a></li>
+	 	<li><a href="/share/kw2018%E4%B8%96%E7%95%8C%E6%9D%AF" title="2018世界杯" ><em class="dot"></em><em>2018世界杯</em></a></li>
+	 	<li><a href="/share/kw%E8%8D%92%E5%8E%9F+%E7%AC%AC%E4%B8%80%E5%AD%A3+Into+the+Badlands+Season+1" title="荒原 第一季 Into the Badlands Season 1" ><em class="dot"></em><em>荒原 第一季 Into the Badlands Season 1</em></a></li>
+	 	<li><a href="/share/kwScience+Fiction%3A+Volume+1" title="Science Fiction: Volume 1" ><em class="dot"></em><em>Science Fiction: Volume 1</em></a></li>
+	 	<li><a href="/share/kwPhobia+2" title="Phobia 2" ><em class="dot"></em><em>Phobia 2</em></a></li>
+	 	<li><a href="/share/kw%E8%9C%9C%E6%81%8B%E5%A4%B1%E5%BF%83+%E7%AC%AC%E4%B8%80%E5%AD%A3" title="蜜恋失心 第一季" ><em class="dot"></em><em>蜜恋失心 第一季</em></a></li>
+	 	<li><a href="/share/kw%E9%BB%91%E8%B1%B9" title="黑豹" ><em class="dot"></em><em>黑豹</em></a></li>
+	 	<li><a href="/share/kw%E6%B3%A1%E6%B2%AB%E4%B9%8B%E5%A4%8F2018" title="泡沫之夏2018" ><em class="dot"></em><em>泡沫之夏2018</em></a></li>
+	 	<li><a href="/share/kw%E5%81%87%E5%A6%82%E6%B2%A1%E6%9C%89%E9%81%87%E8%A7%81%E4%BD%A0" title="假如没有遇见你" ><em class="dot"></em><em>假如没有遇见你</em></a></li>
+	 	<li><a href="/share/kw%E5%A4%8D%E4%BB%87%E8%80%85%E8%81%94%E7%9B%9F3%EF%BC%9A%E6%97%A0%E9%99%90%E6%88%98%E4%BA%89" title="复仇者联盟3：无限战争" ><em class="dot"></em><em>复仇者联盟3：无限战争</em></a></li>
+	 	<li><a href="/share/kw%E8%8E%BD%E8%8D%92%E7%BA%AA" title="莽荒纪" ><em class="dot"></em><em>莽荒纪</em></a></li>
+	 	<li><a href="/share/kw%E4%B8%9C%E4%BA%AC%E9%A3%9F%E5%B0%B8%E9%AC%BC%E7%AC%AC%E4%B8%89%E5%AD%A3" title="东京食尸鬼第三季" ><em class="dot"></em><em>东京食尸鬼第三季</em></a></li>
+	 	<li><a href="/share/kw%E9%A3%9E%E8%99%8E%E6%9E%81%E6%88%98" title="飞虎极战" ><em class="dot"></em><em>飞虎极战</em></a></li>
+	 	<li><a href="/share/kw%E7%8E%AF%E5%A4%AA%E5%B9%B3%E6%B4%8B%EF%BC%9A%E9%9B%B7%E9%9C%86%E5%86%8D%E8%B5%B7" title="环太平洋：雷霆再起" ><em class="dot"></em><em>环太平洋：雷霆再起</em></a></li>
+	 </ul>
+	</div>
+</div> 
+	<div class="det-disclaimer">
+		声明：本站搜索结果由网盘平台提供，不存储任何网盘内容，只提供信息检索服务。如果有侵犯的地方，请<a href="/about/contact" target="_blank">联系我们</a>或<a href="http://help.baidu.com/pan/add" target="_blank">百度网盘</a>。
+	</div>
+	<div class="yqlink">友情链接:<a>&nbsp;&nbsp;</a><a href="http://www.xiuhuatv.com/" target="_blank">羞花影视</a><a>&nbsp;&nbsp;<a href="http://www.paofutv.com/" target="_blank">泡芙影院</a><a>&nbsp;&nbsp;</a><a href="http://www.baoshu8.com/" target="_blank">抱书吧</a><a>&nbsp;&nbsp;</a><a href="http://www.mehktv.com/" target="_blank">港剧网</a>&nbsp;&nbsp;<a href="http://www.idytt.com/" target="_blank">电影天堂</a><a>&nbsp;&nbsp;</a><a href="http://www.45zangetv.com/" target="_blank">战歌电影网</a>&nbsp;&nbsp;<a href="http://www.lsj68.com" target="_blank">老司机影院</a>&nbsp;&nbsp;<a href="https://www.pubgcs.com" target="_blank">绝地求生</a><a>&nbsp;&nbsp;</a><a href="https://www.zi-bike.com/" target="_blank">Zi币客</a></br>
+
+
+<a title="回到顶部" onclick="GoTop()" class="gotop cursor" style="display:none;"></a>
+<script>
+var TopNum, GoTopTimeOut;
+$(document).ready(function(e) {
+	$(window).scroll(function() {
+		TopNum = $(this).scrollTop();
+		if (TopNum > 300) {
+			$('.gotop').show(200);
+		} else {
+			$('.gotop').hide(200);
+		}
+	});
+});
+function GoTop() {
+	$(window).scrollTop(TopNum -= 100);
+	GoTopTimeOut = setTimeout('GoTop()', 5);
+	if (TopNum <= 0) {
+		clearTimeout(GoTopTimeOut);
+	}
+}
+</script>
+<div class="wrapper footer">
+    <div class="fl"> 2015-2016 &copy; 网盘007版权所有   <a href="/about/aboutUs" title="关于我们" >关于我们</a> <a href="/about/copyright"  title="免责声明" >免责声明</a> <a  href="/about/contact" title="联系我们" >联系我们 </a> </div>
+    <div class="fr icp"><a style="color: #939393;" href="http://www.miitbeian.gov.cn" target="_blank" >豫ICP备17033977号-1</a></div>
+</div>
+
+
+<script type="text/javascript">
+var ads_zone_id="V000416";
+</script>
+<script type="text/javascript" src="https://1.hslyqs.com/c.js"></script>
+
+<div style="display:none;" >
+<script src="https://s4.cnzz.com/z_stat.php?id=1261169279&web_id=1261169279" language="JavaScript"></script>
+<script src="https://s4.cnzz.com/z_stat.php?id=1261392089&web_id=1261392089" language="JavaScript"></script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?dff120e04ac10b4b918dde3f60e06b18";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?8c0c4cc417a1758182f08aac6b34a3d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+</div>
+	
+</body>
+</html>

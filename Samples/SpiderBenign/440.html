@@ -1,0 +1,666 @@
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>亿起发_中国电子商务效果营销广告联盟_CPS广告联盟平台</title>
+<meta content="telephone=no" name="format-detection"/>
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" rev="stylesheet" href="//ystatic.qutu.com/front/css/header_footerv2.0.css" type="text/css"/>
+<link rel="stylesheet" href="//ystatic.qutu.com/front/css/lib/normalize.min.css" type="text/css"/>
+<link rel="stylesheet" href="//ystatic.qutu.com/front/css/lib/swiper-3.3.1.min.css" type="text/css" />
+<link rel="stylesheet" href="//ystatic.qutu.com/front/css/mainPage.css" type="text/css"/>
+<script type="text/javascript" src="//ystatic.qutu.com/front/js/jquery.js"></script>
+<script type="text/javascript" src="//ystatic.qutu.com/front/js/common.js"></script>
+<script type="text/javascript" src="//ystatic.qutu.com/front/js/lib/swiper-3.3.1.jquery.min.js"></script>
+<script type="text/javascript" src="//ystatic.qutu.com/front/js/mainPage.js"></script>
+<script type="text/javascript" src="//ystatic.qutu.com/front/js/index.js"></script>
+<script type="text/javascript" src="//ystatic.qutu.com/front/js/login2.js"></script>
+</head>
+<body id="siteTop" style="background:#f4f4f4">
+<input type="hidden" id="rootPath"  value="//yimg.qutu.com/img" />
+<input type = "hidden" name = "loginflag" value = ""/>
+<input type = "hidden" name = "regType" value = ""/>
+<div class="top">
+    
+    <div class="tabs">
+        <div class="content">
+            <a href="/front/"><img src="//ystatic.qutu.com/front/images/logo.png" alt="yiqifaIcon" /></a>
+            <ul class="mainTabs">
+                <li class="active"><a href="/front/" >首页</a><div class="smallTriangle"></div></li>
+                <li><a href="/front/introduce" id = "introduce">平台介绍</a><div class="smallTriangle"></div></li>
+                <li><a href="/front/thismonth" id = "amonth">本月推荐</a><div class="smallTriangle"></div></li>
+               <!--  <li><a href="//ystatic.qutu.com/subject/double12/index.html">本月推荐</a><div class="smallTriangle"></div></li>       -->        
+                <li><a href="/front/campaign/list">广告活动</a><div class="smallTriangle"></div></li>
+                <li><a href="/front/notice" id = "gg">公告&动态</a><div class="smallTriangle"></div></li>
+                <li><a href="/earner/product/search" id = "gy">高佣单品</a><div class="smallTriangle"></div></li>
+                <li><a href="/front/haitao">海淘商家</a><div class="smallTriangle"></div></li>
+            </ul>
+            <div class="loginLayer">
+                <ul class="loginBtns" id="noLogin">
+                    <li id="login" class="active"><a href="/front/login">登录</a></li>
+                    <li id="register"><a href="/front/eregister/erone">注册</a></li>
+                </ul>
+                <ul class="loginInfo" id="haveLogin">
+                    <li id="userName"><a id ="user" href="javascript:void(0);"></a></li>
+                    <li id="logOut"><a href="/front/exit">退出</a></li>
+                </ul>
+            </div>
+            <ul class="helper">
+                <li id="newCustomer">新手上路</li>
+                <li id="onlineService">在线客服</li>
+                <li><a href="/front/contactus">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="slidesShow">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+               
+                  <div class="swiper-slide">
+                    <a href="https://www.yiqifa.com/front/active?cid=4459" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/5/59/1531303454136.jpg" /></a>
+                  </div>
+               
+                  <div class="swiper-slide">
+                    <a href="https://www.yiqifa.com/front/active?cid=6569" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/14/14/1531207991493.jpg" /></a>
+                  </div>
+               
+                  <div class="swiper-slide">
+                    <a href="https://www.yiqifa.com/front/active?cid=5579" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/61/61/1531193602822.jpg" /></a>
+                  </div>
+               
+                  <div class="swiper-slide">
+                    <a href="https://www.yiqifa.com/front/active?cid=18506" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/62/2/1531190654786.jpg" /></a>
+                  </div>
+               
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+            <form action="/front/login" method="post" id = "form1">
+            <div class="customerInfo" id="LoginLayer">
+                <h1>会员登录</h1>
+                <div class="loginInputLayer">
+                    <input type="text" placeholder="邮件地址" name="userName" autocomplete="off" />
+                    <span><img src="//ystatic.qutu.com/front/images/user.png" /></span>
+                    <div class="error"  id="email">请填写用户名（注册邮箱）</div>
+                </div>
+                <div class="loginInputLayer">
+                    <input type="password" placeholder="密码" class="loginInput" name="passWord"  autocomplete="off" onKeyDown="if (event.keyCode==13)login()"/>
+                    <span><img src="//ystatic.qutu.com/front/images/lock.png" /></span>
+                    <div class="error" id="password" >请填写密码</div>
+                </div>
+                <div class="loginInputLayer">
+                    <input type="text"  style="width:150px" placeholder="验证码" class="loginInput" name="code"  onKeyDown="if (event.keyCode==13)login()"/>
+                    <span><img src="//ystatic.qutu.com/front/images/secure.png" /></span>
+                    <div class="randomCodeLayer" style="margin-left:20px;"><img class="code_img" onclick = "getcode()" id = "img" alt="" src="/front/common/getcode?sessionId="/></div>
+                    <div class="error" id="validateCode" >请填写验证码</div>
+                </div>
+                <button id="loginBtn" class="infoBtn">登陆</button>
+                <div class="loginBottom">
+                    <label for="free2login"><input type="checkbox" id="free2login" />一周内免登陆</label>
+                    <span class="loginBottomLayer"><span id="go2register"><a href="/front/eregister/erone">注册</a></span><span id="go2forgot"><a href="/front/retrieveone">忘记密码</a></span></span>
+                </div>
+            </div>
+                <input type = "hidden" name = "memory" value = ""/>
+				<input type = "hidden" name = "sorce" value = ""/>
+				<input type = "hidden" value = "" name = "sessionId" id = "sid"/>
+				<input type = "hidden" value = "" name = "identify"/>
+            </form>
+            <div class="customerInfo" id="websiteMangerLayer" style="display: none">
+                <h1>会员信息</h1>
+                <div class="basicInfo">
+                    <div class="basicContent">亿起发会员ID：<span class="useridhtml"></span></div>
+                    <div class="basicContent">账户名：<span></span></div>
+                    <div class="basicContent">专属媒介经理：<span class="managehtml"></span><span class="qqhtml"></span></div>
+                    <div id="websiteMangerQuit" class="infoQuit"><a href="/front/exit">退出</a></div>
+                </div>
+                <button id="websiteManger" class="infoBtn">进入网站主管理中心</button>
+                <ul>
+                    <li><a href="/earner/campaign/earnerCampaignList.do" >活动推广</a></li>
+                    <li><a href="/earner/product/search" >高佣单品</a></li>
+                    <li><a href="/earner/dataReport/performanceStatistics" >数据报表</a></li>
+                    <li><a href="/earner/finance/earnerAccountLog" >结算中心</a></li>
+                </ul>
+            </div>
+            <div class="customerInfo" id="adMangerLayer" style="display: none">
+                <h1>会员信息</h1>
+                <div class="basicInfo">
+                    <div class="basicContent">亿起发会员ID：<span class="useridhtml"></span></div>
+                    <div class="basicContent">账户名：<span></span></div>
+                    <div class="basicContent">专属服务经理：<span class="managehtml"></span><span class="qqhtml"></span></div>
+                    <div id="adManferQuit" class="infoQuit"><a href="/front/exit">退出</a></div>
+                </div>
+                <button id="adManger" class="infoBtn">进入广告主管理中心</button>
+                <ul>
+                    <li><a href="/advertiser/material/mdetail" >素材管理</a></li>
+                    <li><a href="/advertiser/message/bulletinlist" >动态管理</a></li>
+                    <li><a href="/advertiser/campaignproduct/productManage" >商品管理</a></li>
+                    <li><a href="/advertiser/datareport/dataStatistics" >数据报表</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="newsLayer">
+        <div class="news">
+            <div class="newsTitle">亿起发公告<a href="/front/notice?searchtype=1" target="_blank">更多>></a></div>
+            <div class="newsContent">
+                <ul class="newsList" id="yiqifaBu">
+                                  
+                </ul>
+            </div>
+            <div class="clearFix"></div>
+        </div>
+        <div class="news">
+            <div class="newsTitle">网站主激励<a href="/front/notice?searchtype=2" target="_blank">更多>></a></div>
+            <div class="newsContent">
+                <ul class="newsList" id="earnerBu">                  
+                </ul>
+            </div>
+            <div class="clearFix"></div>
+        </div>
+        <div class="news">
+            <div class="newsTitle">商城促销<a href="/front/notice?searchtype=3" target="_blank">更多>></a></div>
+            <div class="newsContent">
+                <ul class="newsList" id="advertiserBu">                 
+                </ul>
+            </div>
+            <div class="clearFix"></div>
+        </div>
+    </div> 
+    <div class="middleAdLayer">
+       
+        <div class="clearFix"></div>
+    </div>
+    <div class="bottomAdLayer">
+        <ul class="bottomAdTabs">
+            <li class="active">推荐商城</li>
+            <li>热门商城</li>
+            <li>最新入驻</li>
+        </ul>
+        <a class="getMore" id="campaignMore" href="/front/thismonth" target="_blank">更多>></a>        
+        <div id="bottomAdMainSwiper" class="tabContent">
+            <div class="swiper-wrapper">
+              
+                     <ul class="swiper-slide bottomAdMain">
+                  
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=4459" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/26/58/1531303454061.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/active?cid=4459" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/53/11/1430901612651.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>0.0</span>%<span>2.4</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=19246" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/54/10/1531303645867.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/active?cid=19246" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/13/13/1492588781794.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>1.6</span>%<span>4.8</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=18495" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/13/13/1531303831047.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/active?cid=18495" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/17/15/1453283809886.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+			                                  		<!-- 百分比相等 -->
+												    <span>4.0</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=19294" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/34/62/1531303804486.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/active?cid=19294" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/63/1/1498457696967.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>3.2</span>%<span>4.8</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                        </ul>
+                     
+                     <ul class="swiper-slide bottomAdMain">
+                  
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=19439" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/32/0/1531303519328.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/active?cid=19439" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/17/15/1518321517254.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>2.8</span>%<span>4.2</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=19247" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/59/5/1531303555510.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/active?cid=19247" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/47/49/1492673907539.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>1.6</span>%<span>4.8</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=18580" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/29/61/1531303767122.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/active?cid=18580" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/54/54/1459239931332.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>1.6</span>%<span>2.4</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=18593" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/47/49/1531219615223.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/active?cid=18593" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/19/51/1460444784030.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>0.0</span>%<span>14.0</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                        </ul>
+                     
+                     <ul class="swiper-slide bottomAdMain">
+                  
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=18735" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/49/49/1531215296541.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/active?cid=18735" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/30/62/1464772075968.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>4.9</span>%<span>5.6</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=6569" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/46/14/1531209226766.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/newnotice?id=107289" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/43/11/1528248517479.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>0.0</span>%<span>5.6</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=5579" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/63/63/1531193602802.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/active?cid=5579" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/32/0/1505808435436.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>0.7</span>%<span>2.8</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                      <li class="bottomAdMainList">
+                        <div class="bottomAdInfo">
+                           <a href="https://www.yiqifa.com/front/active?cid=19247" target="_blank"><img src="http://image.yiqifa.com/img/admaterial/24/61/61/1531190550395.jpg" /></a>
+                          <!--  <div class="leftTopTag hidden">
+                              <div class="triangle"></div>
+                              <div class="tagInfo">最新推荐</div>
+                            </div> -->
+                            <div class="bottomAdInfoMain">
+                              <a href="https://www.yiqifa.com/front/newnotice?id=107273" target="_blank"><img src="//yimg.qutu.com/img/reguser/24/47/49/1492673907539.jpg" /></a>
+                              <h3>佣金范围</h3>
+                              <div class="commissionRange">
+                                  <!-- <span>2.0</span>%<span>5.0</span>% -->
+                                 
+                                          <!-- 百分比不为空，金额为空 -->
+                                             
+	                                  				<!-- 百分比不相等 -->
+			                                  		<span>1.6</span>%<span>4.8</span>%
+			                                  	                                  
+                              </div>
+                            </div>
+                         </div>
+                      </li>
+                   
+                        </ul>
+                                
+            </div>
+        </div>
+            <!-- 如果需要分页器 -->
+        <!-- <div class="swiper-pagination2"></div>-->
+        <ul class="hotAdMain tabContent" id="campaignList1">            
+        </ul>
+        <ul class="newAdMain tabContent" id="campaignList2">           
+        </ul>
+    </div>
+    <div class="couponLayer">
+        <ul class="coupleTabs">
+            <li class="active">优惠劵</li>
+        </ul>
+        <a class="getMore" href="/earner/coupons/couponslist.do" target="_blank">更多>></a>
+        <ul class="couponList" id="couponsList">           
+        </ul>
+    </div>
+</div>
+<div class="bottom">
+    <div class="advantage">
+        <div class="advantageTitle"><span><img src="//ystatic.qutu.com/front/images/yellowNode.png" /></span>亿起发优势<span><img src="//ystatic.qutu.com/front/images/yellowNode.png" /></span></div>
+        <ul class="companyWall">
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/40/17/47/1463118033171.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/4/34/62/1463117949329.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/8/6/26/1463118309439.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="http://image.yiqifa.com/img/haitao_images/6/35/29/1523418161073.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="http://image.yiqifa.com/img/haitao_images/24/31/1/1516679609890.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="http://image.yiqifa.com/img/haitao_images/24/53/11/1512699437817.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/40/29/3/1463115075722.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/51/27/37/1463115079646.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/27/52/12/1463113642224.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/60/22/42/1463118291547.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/1/16/16/1463114746748.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/31/27/37/1463115911016.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/32/5/5/1463115583663.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/7/30/62/1463117904207.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/36/61/3/1463118295727.jpg" /></a></li>
+           
+              <li><a href="" target="_blank"><img src="//yimg.qutu.com/img/haitao_images/14/6/58/1463118783393.jpg" /></a></li>
+           
+        </ul>
+        <ul class="advantageInfo">
+            <li>
+                <div class="advantageLeft">
+                    <img src="//ystatic.qutu.com/front/images/media.png" />
+                </div>
+                <div class="advantageRight">
+                    <h3>媒体流量丰富  客户数量众多</h3>
+                    <p>60万家合作网站，50%以上为独家合作<br>与国内大型站点保持良好的合作关系<br>帮广告主迅速找到最匹配的媒介网站</p>
+                </div>
+            </li>
+            <li>
+                <div class="advantageLeft">
+                    <img src="//ystatic.qutu.com/front/images/service.png" />
+                </div>
+                <div class="advantageRight">
+                    <div class="advantageRight">
+                        <h3>十年优质服务  专业过程管理</h3>
+                        <p>专业的会员服务， 强大的技术研发实力<br>高效的账户和效果优化管理，多重计费模式<br>强大的广告监测和报表分析技术</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="advantageLeft">
+                    <img src="//ystatic.qutu.com/front/images/value.png" />
+                </div>
+                <div class="advantageRight">
+                    <h3>媒体流量变现价值高</h3>
+                    <p>完善的产品线，稳定安全的流量变现平台<br>佣金结算及时，每周一付<br>高频度的广告主独家资源支持</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--尾部信息-->
+    
+<div class="footer">
+	<div class="links">
+    	<a href="/front/aboutus">关于我们</a> |
+<!--        <a href="/contactus">联系我们</a> | -->
+        <a href="/front/service">服务 & 支持</a> |
+        <a href="/front/job">诚聘英才</a> |
+        <a href="/front/agreement">服务条款</a> |
+        <a href="/front/sitemap">网站地图</a>
+    </div>
+    <div>Copyright@2004-<span id = "year"></span>亿起发效果联盟营销平台【京ICP备10001024号】网络运营：北京亿玛在线科技股份有限公司</div>
+    <p class="beian">
+    <a href="http://www.baic.gov.cn/" target="_blank" class="beian1"></a>
+    <a href="http://www.baic.gov.cn/" target="_blank" class="beian2"></a>
+    <a href="http://www.baic.gov.cn/" target="_blank" class="beian3"></a>
+    <a href="http://www.baic.gov.cn/" target="_blank" class="beian4"></a>
+   </p>
+    <div class="authentication">
+	    <a href="http://www.baic.gov.cn/" target="_blank"><img src="//ystatic.qutu.com/front/images/pic_authentication_01.jpg"/></a>
+	    <a href="http://www.baic.gov.cn/" target="_blank" ><img src="//ystatic.qutu.com/front/images/pic_authentication_02.jpg"/></a>
+	    <a href="http://www.baic.gov.cn/" target="_blank"><img src="//ystatic.qutu.com/front/images/pic_authentication_03.jpg"/></a>
+	    <a href="http://www.baic.gov.cn/" target="_blank"><img src="//ystatic.qutu.com/front/images/pic_authentication_04.jpg"/></a>
+    </div>
+</div>
+<script>
+var myDate = new Date();
+var year = myDate.getFullYear(); 
+	$("#year").html(year);
+</script>
+</div>
+<div class="side">
+    <ul class="menu">
+        <li><a href="/front/thismonth">本月<br>推荐</a></li>
+        <li><a href="/front/campaign/list" >广告<br>活动</a></li>
+        <li><a href="/front/notice">公告<br>动态</a></li>
+        <li><a href="/earner/product/search" >高佣<br>单品</a></li>
+        <li><a href="/front/haitao" >海淘<br>商家</a></li>
+        <li>在线<br>客服</li>
+        <li>关注<br>我们</li>
+        <li id="goTop"><a href="#siteTop"></a><img src="//ystatic.qutu.com/front/images/upArrow.png" /><br>顶部</li>
+    </ul>
+    <ul class="onlineService onlineServiceSide">
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=3431221415&site=qq&menu=yes">购物返点<img src="//ystatic.qutu.com/front/images/penguin.png" /></a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=2441744474&site=qq&menu=yes">网站导购<img src="//ystatic.qutu.com/front/images/penguin.png" /></a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=630402576&site=qq&menu=yes">海淘媒体<img src="//ystatic.qutu.com/front/images/penguin.png" /></a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=2928570686&site=qq&menu=yes">移动媒体<img src="//ystatic.qutu.com/front/images/penguin.png" /></a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=3431202884&site=qq&menu=yes">综合媒体<img src="//ystatic.qutu.com/front/images/penguin.png" /></a></li>
+        <li><a href="javascript:openOnlineKefu1();">在线客服<img src="//ystatic.qutu.com/front/images/customerService.png" /></a></li>
+    </ul>
+    <div class="focusQr">
+        <img src="//ystatic.qutu.com/front/images/qrCode.png" />
+    </div>
+</div>
+
+<div class="maskTeaching">
+    <div class="teachingContent">
+        <ul class="teachingList">
+            <li id="maskIndex">首页</li>
+            <li id="maskIntroduce">平台介绍</li>
+            <li id="maskAmonth">本月推荐</li>
+            <li id="maskCampaign">广告活动</li>
+            <li id="maskNotice">公告&动态</li>
+            <li id="maskHighComm">高佣单品</li>
+            <li id="maskHaitao">海淘商家</li>
+        </ul>
+        <div class="teachingPop">
+            <div class="teachingTitle">亿起发首页改版，全新体验，从心出发！<a id="closeTeachingMask">×</a></div>
+            <div class="teachingMain">
+                <ul>
+                    <li><span>平台介绍：</span>亿起发平台及网站主、广告主常见问题介绍</li>
+                    <li><span>本月推荐：</span>最新精选商城促销活动集锦</li>
+                    <li><span>广告活动：</span>亿起发广告活动列表</li>
+                    <li><span>公告&动态：</span>亿起发公告、广告主动态及亿玛新闻</li>
+                    <li><span>高佣单品：</span>亿起发精选高佣金单品列表</li>
+                    <li><span>海淘商家：</span>亿起发跨境商家及海外电商列表</li>
+                </ul>
+            </div>
+            <div class="teachingBtns">
+                <button id="go2newSite">立即体验新版</button>
+                <button id="newerhelp">网站主新手操作指南</button>
+            </div>
+        </div>
+    </div>
+</div>
+  <ul class="onlineService onlineServiceIsolate">
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=3431221415&site=qq&menu=yes">购物返点<img src="//ystatic.qutu.com/front/images/penguin.png" /></a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=2441744474&site=qq&menu=yes">网站导购<img src="//ystatic.qutu.com/front/images/penguin.png" /></a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=630402576&site=qq&menu=yes">海淘媒体<img src="//ystatic.qutu.com/front/images/penguin.png" /></a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=2928570686&site=qq&menu=yes">移动媒体<img src="//ystatic.qutu.com/front/images/penguin.png" /></a></li>
+        <li><a href="http://wpa.qq.com/msgrd?v=3&uin=3431202884&site=qq&menu=yes">综合媒体<img src="//ystatic.qutu.com/front/images/penguin.png" /></a></li>
+        <li><a href="javascript:openOnlineKefu1();">在线客服<img src="//ystatic.qutu.com/front/images/customerService.png" /></a></li>
+    </ul>
+<script type="text/javascript">
+    var _egtk = _egtk || {"site": 1};
+    (function () {
+        var eg = document.createElement('script');
+        eg.type = 'text/javascript';
+        eg.async = true;
+        eg.src = '//static.egou.com/js/egoutracker.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(eg, s);
+    })();
+</script>
+</body>
+</html>

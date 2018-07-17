@@ -1,0 +1,875 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页--上观</title>
+<meta name="keywords" content="上观">
+<meta name="description" content="上观">
+<meta name="renderer" content="webkit" />  
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="baidu-site-verification" content="s0vfgT0qh4" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link href="/css/style.css?version=20180403" rel="stylesheet" type="text/css" />
+<!--[if lte IE 6]>
+<link href="/css/style_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!-- <link href="/css/theme.css?version=20161208" rel="stylesheet" type="text/css" /> -->
+<script type="text/javascript">
+	var baseprerix = "" ;
+	var sessionid = "4AF3440F2D375D0141A16514C0ABCB45";
+	var g_pageuri = "%2Fhome";
+	var newsrankLoaded = {"rank_1":0,"rank_7":0,"rank_30":0};
+</script>
+<script src="/js/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/common.js?version=20180302"></script>
+<script src="/js/ajax.js?version=20160720"></script>
+<script src="/js/login.js?version=20160720"></script>
+<script src="/js/advert.js"></script>
+<script type="text/javascript" src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.js"></script>
+<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<!--
+<script type="text/javascript" src="/js/grayscale.js"></script>
+<script type="text/javascript">
+window.onload=function(){ 
+grayscale(document.body); 
+}
+</script>
+-->
+<!--[if IE 6]>
+<script src="/js/DD_belatedPNG_0.0.8a-min.js" type="text/javascript"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('div, ul, img, li, input');
+</script>
+<![endif]-->    
+</head>
+<body>
+<!-- 悬浮广告 -->
+<div class="advert suspend"></div>
+
+<div class="header">
+
+  <div class="header-container">
+  <div class="login_section">
+	<div class="login_shadow"></div>
+	<div class="login_window">
+		<div style="text-align:right;">
+			<img src="/images/close.gif" style="margin:4px 4px 0 0;cursor:pointer;" onclick="hideLoginWindow();">
+		</div>
+		<table style="font-size:14px;margin:20px auto;padding:15px 48px 15px 40px;">
+			<tbody>
+				<tr style="height:40px">
+					<td>
+						用户名：
+					</td>
+					<td>
+						<input id="username" name="username" type="text" onkeypress="procenter(event,dologin)"
+						value="您的手机号码" onfocus="javascript:if(this.value=='您的手机号码')this.value='';"
+						maxlength="50" class="input-text">
+					</td>
+				</tr>
+				<tr style="height:40px">
+					<td>
+						密&nbsp;&nbsp;&nbsp;码：
+					</td>
+					<td>
+						<input id="passwd" name="passwd" type="password" onkeypress="procenter(event,dologin)"
+						maxlength="16" value="" class="input-text">
+					</td>
+				</tr>
+				<tr style="height:40px">
+					<td>
+						验证码：
+					</td>
+					<td style="text-align:left;">
+						<input id="verify" name="verify" onkeypress="procenter(event,dologin)" type="text" maxlength="5" class="input-text" style="width:59px;" />
+          				<img id="kaptcha" src="" style="cursor:pointer; vertical-align:top;" onclick="freshImgCode();"/>
+          				<span style="font-size:12px;color:#878787;cursor:pointer" onclick="javascript:freshImgCode();">看不清</span>
+      				</td>
+				</tr>
+				<tr style="height:40px">
+					<td>
+					</td>
+					<td style="text-align:left;">
+						<input type="button" name="btnlogin" value="登 录" id="btnlogin" onclick="javascript:dologin();">
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="button" name="btnregister" value="注 册" id="btnregister" onclick="javascript:jumpRegister();">
+					</td>
+				</tr>
+				<tr style="height:20px">
+					<td>
+					</td>
+					<td colspan="2" style="text-align:left;">
+						<a href="javascript:jumpGetpsw();">
+							忘记密码？
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+  
+  <div class="top">
+    <div class="left">
+    	<span id="datespan" style="vertical-align: middle"></span>
+    	
+    	<span class="search">
+			<div class="inputcontainer">
+				<input type="text" name="keywords" maxlength="40" class="searchinput" id="keywords" placeholder="输入您搜索的内容" />
+			</div>
+			<div class="backcontainer" onclick="searchnews();"></div>
+		</span>
+    	<a href="javascript:void(0);" onclick="showSearch(this);">
+    		<img src="/images/search_btn.png" style="vertical-align: middle;height:22px;" />
+		</a>
+	</div>
+	
+    <div class="right">
+    	
+    	<!-- 用户登录信息 -->
+	    <span class="login-info">
+	       	<a href="javascript:openLoginWindow();" class="login-text">登录</a>
+	       	<a href="javascript:jumpRegister();" class="register-text">注册</a>
+	    </span>
+	    
+	    <!--
+    	<a href="/download/?platform=android"  target="_blank" style="margin-left:18px;">
+    		<img src="/images/down_android.png" style="vertical-align: middle;height:25px;" />
+		</a>
+    	<a href="/download/?platform=iphone"  target="_blank" style="margin-left:18px;">
+    		<img src="/images/down_ios.png" style="vertical-align: middle;height:25px;" />
+		</a>
+    	-->
+    	 
+    	<div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div class="menu-box">
+    <div style="display:inline-block;float:left;position:relative;top:2px;">
+    	<img src="/images/logo.png?ver=20180207"  title="上观" alt="上观" style="position:relative;top:1px;" />
+	</div>
+	<div class="menu" >
+	  	<ul id="nav" class="section-list">
+	        <li class="section-li">
+	        	<a href="/home" class="section-a li-hover" data-current="1">
+	        		<span class="section">首页 </span>
+        		</a>
+        	</li>
+		    <li class="section-li">
+		    	<a class="section-a" 
+		    		href="/news/list?section=1">
+		    		<span class="section">政情</span>
+	    		</a>
+		    	<div class="menu-li-gap"></div>
+		    	<ul class="sub-section-list">
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=1">观见</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=2">伴公汀</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=3">@康平路</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=100">李强一周</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=4">直通200号</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=5">港澳台</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=6">法治</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=7">时评</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=10">韩正一周</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=11">十二公民</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=9">反腐记</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=12">军事前哨</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=90">北京来信</a>
+	      					</li>
+		    	</ul> 
+		    </li>
+		    <li class="section-li">
+		    	<a class="section-a" 
+		    		href="/news/list?section=2">
+		    		<span class="section">财经</span>
+	    		</a>
+		    	<div class="menu-li-gap"></div>
+		    	<ul class="sub-section-list">
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=13">市场解码</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=14">财经连线</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=15">公共空间</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=16">产业观察</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=17">金融区块链</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=18">创客驿站</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=19">上海老字号</a>
+	      					</li>
+		    	</ul> 
+		    </li>
+		    <li class="section-li">
+		    	<a class="section-a" 
+		    		href="/news/list?section=35">
+		    		<span class="section">区情</span>
+	    		</a>
+		    	<div class="menu-li-gap"></div>
+		    	<ul class="sub-section-list">
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=22">区势微头条</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=23">前沿风</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=24">浦江眼</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=25">上海屋檐下</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=26">郊野笔记</a>
+	      					</li>
+		    	</ul> 
+		    </li>
+		    <li class="section-li">
+		    	<a class="section-a" 
+		    		href="/news/list?section=22">
+		    		<span class="section">城事</span>
+	    		</a>
+		    	<div class="menu-li-gap"></div>
+		    	<ul class="sub-section-list">
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=29">微观上海</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=30">教育在线</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=31">医声医事</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=32">运动+</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=33">创新之城</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=34">任我行</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=35">海上医聊</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=36">海外惊奇</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=38">中产话题</a>
+	      					</li>
+		    	</ul> 
+		    </li>
+		    <li class="section-li">
+		    	<a class="section-a" 
+		    		href="/news/list?section=4">
+		    		<span class="section">文化</span>
+	    		</a>
+		    	<div class="menu-li-gap"></div>
+		    	<ul class="sub-section-list">
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=40">海上记忆</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=41">文化观澜</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=42">文艺清单</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=44">朝花时文</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=45">徐芳访谈</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=46">上书房</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=49">非虚构</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=52">着调青年</a>
+	      					</li>
+		    	</ul> 
+		    </li>
+		    <li class="section-li">
+		    	<a class="section-a" 
+		    		href="/news/list?section=21">
+		    		<span class="section">天下</span>
+	    		</a>
+		    	<div class="menu-li-gap"></div>
+		    	<ul class="sub-section-list">
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=53">世界观</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=82">舆情</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=54">原点</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=56">上观访谈</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=57">思想汇</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=58">上观学习</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=59">华东局</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=63">纵深</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=83">互联网观察</a>
+	      					</li>
+		    	</ul> 
+		    </li>
+		    <li class="section-li">
+		    	<a class="section-a" 
+		    		href="/news/list?section=40">
+		    		<span class="section">互动</span>
+	    		</a>
+		    	<div class="menu-li-gap"></div>
+		    	<ul class="sub-section-list">
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=64">上海辟谣平台</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=65">民情12345</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=66">公务员论坛</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=67">灯下漫笔</a>
+	      					</li>
+		    	</ul> 
+		    </li>
+		    <li class="section-li">
+		    	<a class="section-a" 
+		    		href="/news/list?section=29">
+		    		<span class="section">活动</span>
+	    		</a>
+		    	<div class="menu-li-gap"></div>
+		    	<ul class="sub-section-list">
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=69">论坛</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=70">公益</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=71">扫描新街镇</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=72">迪士尼朋友圈</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=73">企示录</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=75">一起来</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=101">读者俱乐部</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=99">微信排行榜</a>
+	      					</li>
+		    	</ul> 
+		    </li>
+		    <li class="section-li">
+		    	<a class="section-a" 
+		    		href="/news/list?section=41">
+		    		<span class="section">视觉</span>
+	    		</a>
+		    	<div class="menu-li-gap"></div>
+		    	<ul class="sub-section-list">
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=95">大视界</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=96">见识录</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=97">图数图说</a>
+	      					</li>
+		      				<li class="subsection-li">
+		      					<a class="sub-section-a" href="/news/sublist?section=98">艺术范</a>
+	      					</li>
+		    	</ul> 
+		    </li>
+			<li class="section-li">
+				<a href="/mapSpecTopic/list" class="section-a"  >
+					<span class="section">专题 </span>
+				</a>
+		    </li>
+		    <li class="section-li">
+				<a href="/livingVideo/list" class="section-a"  >
+					<span class="section">直播 </span>
+				</a>
+		    </li>
+	    </ul>
+	</div>
+	<div style="position:relative;float:right;" id="epaper_btn" >
+	 	<span class="red-btn">电子报</span>
+	 	<!-- 解决IE浏览器兼容问题，IE中鼠标在间隙空白处，会认为鼠标已移除，则悬浮框会消失，故增加一个子元素div,就不会认为鼠标移出了 -->
+	 	<div style="width:100%;height:2px;position:absolute;top:56px;right:0px;"></div>
+	 	<ul class="epaper-ul">
+    	 	<li><a href="/journal/2018-07-12/page_01.htm" target="_blank" >解放日报</a></li>
+	        <li><a href="http://wenhui.news365.com.cn/default_pdf.html" target="_blank" >文汇报</a></li>
+	        <li><a href="http://xmwb.xinmin.cn" target="_blank" >新民晚报</a></li>
+	        <li><a href="http://www.shanghaidaily.com" target="_blank" >上海日报</a></li>
+	        <li><a href="http://newspaper.jfdaily.com/xwcb/default.htm" target="_blank" >新闻晨报</a></li>
+	        <li><a href="http://www.dfdaily.com" target="_blank" >东方早报</a></li>
+	        <li><a href="http://newspaper.jfdaily.com/sjfwdb/default.htm" target="_blank" >申江服务导报</a></li>
+	        <li><a href="http://newspaper.jfdaily.com/isdb" target="_blank" >I时代报</a></li>
+	        <li><a href="http://xmdt.news365.com.cn" target="_blank" >新民地铁</a></li>
+	        <li><a href="http://shequban.news365.com.cn" target="_blank" >新民晚报社区版</a></li>
+	        <li><a href="http://newspaper.jfdaily.com/shfzb/default.htm" target="_blank" >上海法治报</a></li>
+	        <li><a href="http://jiating.news365.com.cn" target="_blank" >社区版家庭周刊</a></li>
+	        <li><a href="http://114.80.76.143:8080/PaperViewerSystem/" target="_blank" >社区晨报</a></li>
+	        <li><a href="http://www.sport1.cn" target="_blank" >东方体育日报</a></li>
+	        <li><a href="http://www.sspost.com.cn" target="_blank" >上海学生英文报</a></li>
+	        <li><a href="http://wenxue.news365.com.cn" target="_blank" >文学报</a></li>
+	        <li><a href="http://www.pdtimes.com.cn" target="_blank" >浦东时报</a></li>
+	        <li><a href="http://trs.jfdaily.com/zbsh_1/index.htm" target="_blank" >支部生活</a></li>
+	        <li><a href="http://www.xinminweekly.com.cn" target="_blank" >新民周刊</a></li>
+	        <li><a href="http://journalist.news365.com.cn" target="_blank" >新闻记者</a></li>
+	        <li><a href="http://xinduxie.news365.com.cn" target="_blank" >新读写</a></li>
+	        <li><a href="http://www.travelplus.cn" target="_blank" >私家地理</a></li>
+    	</ul>
+ 	</div>
+  </div>
+  
+  <script language="javascript">
+
+(function(){    
+    var d = new Array(
+		"<span class='mr20' style='color:#F00'>&#26143;&#26399;&#26085;</span>",
+		"<span class='mr20'>&#26143;&#26399;&#19968;</span>",
+		"<span class='mr20'>&#26143;&#26399;&#20108;</span>",
+		"<span class='mr20'>&#26143;&#26399;&#19977;</span>",
+		"<span class='mr20'>&#26143;&#26399;&#22235;</span>",
+		"<span class='mr20'>&#26143;&#26399;&#20116;</span>",
+		"<span class='mr20' style='color:#4eff00'>&#26143;&#26399;&#20845;</span>"
+	); 
+    
+    var today = new Date(); 
+    var month = today.getMonth() + 1;
+    if (month < 10)
+	{
+    	month = "0" + month;
+	}
+    
+    var date = today.getDate();
+    if (date < 10)
+	{
+    	date = "0" + date;
+	}
+    
+    document.getElementById("datespan").innerHTML = "<span class='mr20'>" + today.getUTCFullYear() + "-" + month + "-" + date
+    		+ "</span>" + d[today.getDay()];
+})();
+
+$(function() {
+	
+	$("#nav .sub-section-list").each(function(){
+		var me = $(this);
+		var num = me.children().length;
+		var listWidth = 10*2 + 34*num;
+		me.css("width", listWidth + "px");
+	});
+	
+    $("#nav li").hover(
+        function() {
+        	var me = $(this);
+        	if (me.hasClass("section-li"))
+        	{
+        		me.find(".section-a").addClass("li-hover");
+        		me.find("ul").show();
+        	}
+        },
+        function() {
+        	var me = $(this);
+        	me.find(".section-a[data-current!=1]").removeClass("li-hover");
+            me.find("ul").hide();
+        }
+    );
+    
+    $("#epaper_btn").hover(
+        function() {
+            $(this).find(".epaper-ul").show();
+        },
+        function() {
+            $(this).find(".epaper-ul").hide();
+        }
+    );
+    
+    $(".epaper-ul li").hover(
+        function() {
+            var obj = $(this);
+            obj.addClass("epaper-li-hover");
+            obj.find("a").css("color","#000");
+        },
+        function() {
+            var obj = $(this);
+            obj.removeClass("epaper-li-hover");
+            obj.find("a").css("color","#f0f0f0");
+        }
+    );
+});
+
+function keydownkewords()
+{
+	if (event.keyCode==13) 
+	{
+		searchnews() ;
+	}
+}
+
+function showSearch(obj)
+{
+	$(obj).hide();
+	$(".search").css("display","inline-block");
+}
+	
+function searchnews(){
+	var keywords = $.trim($("#keywords").val()) ;
+	if (keywords != "" && keywords != "输入您搜索的内容"){
+		showpopmsg("正在搜索请稍候",300,25,0) ;
+		$.ajax({
+			url:"/news/search",
+			type: 'POST',
+			dataType: 'text',
+    		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+			data: {keywords : encodeURI(encodeURI(keywords))}, 
+			success : searchnewsOK
+		});
+	}
+	else{
+		showpopmsg("请先填写搜索的内容",300,25,2000) ;
+	}
+}
+
+function searchnewsOK(data){
+	eval("var result="+data) ;
+	if (result.code == 0){
+		window.location.href='/news/search' ;
+	}
+	else{
+		showpopmsg("<span style='color:#ffe400;font-weight:bold'>"+result.message+"</span>",400,25,3000) ;
+	}
+}
+
+</script>
+  </div>
+
+
+
+  <div class="banner" style="position:relative">
+  
+  	<div class="bigimage">
+	  	<a href="/news/detail?id=96149" target="_blank">
+	  		<img src="https://images.shobserver.com/news/1162_453/2018/7/12/129bbe0b-a02d-4356-8ee0-1431486acf73.jpg" 
+	  			style="width:1162px;height:453px;" />
+      			<div class="mainvideo_img"><img src="/images/a_videoplay.png" /></div>
+	  	</a>
+  	</div>
+  	
+    <div class="bigimage-content">
+      <div class="lch">
+      	 <a href="/news/detail?id=96149" target="_blank" title="莫德里奇用优雅脚步忠告三狮军团：只有细腻的技术，才能为足球插上飞翔的翅膀！">莫德里奇用优雅脚步忠告三狮军团：只有细腻的技术，才能为足球插上飞翔的翅膀！</a>
+  	  </div>
+  	  <div class="bigimage-summary">加时赛中，凭借曼朱基奇的破门，克罗地亚队2比1战胜英格兰挺进决赛，创造历史的他们将与“高卢雄鸡”争夺大力神杯。</div>
+    </div>
+    
+  </div>
+
+<div class="banner1">
+    <div class="jingji">
+      <div class="left">
+	      <a href="/news/detail?id=96146" target="_blank" title="喂胖中国孩子的，除了父母还有谁？" style="position:relative;">
+	      	<img src="https://images.shobserver.com/news/240_150/2018/7/12/5caa7f9f-cf6b-4b20-a2b5-2384042bde31.jpg" />
+	      </a>
+      </div>
+      <div class="right">
+        <div class="wz1">天下</div>
+        <div class="wz2" style="width:180px; font-size:16px;"><a href="/news/detail?id=96146" target="_blank" title="喂胖中国孩子的，除了父母还有谁？">喂胖中国孩子的，除了父母还有谁？</a></div>
+        <div class="zz">作者：查睿 <br>发布：2018-07-12 11:12</div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="jingji">
+      <div class="left">
+	      <a href="/news/detail?id=96172" target="_blank" title="深圳地铁挖断7条电缆被供电局怒怼后，又挖爆供水主管道" style="position:relative;">
+	      	<img src="https://images.shobserver.com/news/240_150/2018/7/12/4c2c1567-347c-4926-9cb5-761af0ffc838.jpg" />
+	      </a>
+      </div>
+      <div class="right">
+        <div class="wz1">天下</div>
+        <div class="wz2" style="width:180px; font-size:16px;"><a href="/news/detail?id=96172" target="_blank" title="深圳地铁挖断7条电缆被供电局怒怼后，又挖爆供水主管道">深圳地铁挖断7条电缆被供电局怒怼后，又挖爆供水主管道</a></div>
+        <div class="zz">作者：金羊网 <br>发布：2018-07-12 11:09</div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="jingji">
+      <div class="left">
+	      <a href="/news/detail?id=96171" target="_blank" title="美国斥资5亿研究“地下战”，北上广深成重要战略目标？" style="position:relative;">
+	      	<img src="https://images.shobserver.com/news/240_150/2018/7/12/72c0644a-fa6b-4e37-8d3b-47810ae84ab2.jpg" />
+	      </a>
+      </div>
+      <div class="right">
+        <div class="wz1">天下</div>
+        <div class="wz2" style="width:180px; font-size:16px;"><a href="/news/detail?id=96171" target="_blank" title="美国斥资5亿研究“地下战”，北上广深成重要战略目标？">美国斥资5亿研究“地下战”，北上广深成重要战略目标？</a></div>
+        <div class="zz">作者：参考消息 库叔   <br>发布：2018-07-12 11:09</div>
+      </div>
+      <div class="clear"></div>
+    </div>
+</div>
+
+<!-- 首页头部 -->
+<div class="advert homeTop"></div>
+
+<div class="center">
+  <div class="left" id="ajaxmainnews">
+    <div class="ajaxloading"><img src="/images/loading.gif"></div>
+  </div>
+  
+  <div class="right">
+<div class="advert rightTop"></div> 	<div class="title_wz">热门文章排行</div>
+   	<div class="f_con">
+		<div id="tags">
+			<ul>
+				<li id="menu_rank_0" class="selectTag" onmouseover="switchMenu('rank',3,0,'selectTag');afterSwitchNewsrankMenu(0,1);"><span>一天</span></li>
+				<li id="menu_rank_1" onmouseover="switchMenu('rank',3,1,'selectTag');afterSwitchNewsrankMenu(0,7);"><span>一周</span></li>
+       			<li id="menu_rank_2" onmouseover="switchMenu('rank',3,2,'selectTag');afterSwitchNewsrankMenu(0,30);"><span>一月</span></li>
+			</ul>
+			<p class="clear">&nbsp;</p>
+		</div>
+		<div id="tagContent">
+			<div class="tagContent selectTag" id="box_rank_0">
+      			<ul id="ajaxnewsrank1">
+      				<div class="rankloading"><img src="/images/loading.gif"></div>
+       			</ul>
+			</div>
+			<div class="tagContent" id="box_rank_1">
+   				<ul id="ajaxnewsrank7">    
+      				<div class="rankloading"><img src="/images/loading.gif"></div>
+   				</ul>
+			</div>
+			<div class="tagContent" id="box_rank_2">
+   				<ul id="ajaxnewsrank30">
+      				<div class="rankloading"><img src="/images/loading.gif"></div>
+   				</ul>
+			</div>    
+		</div>
+    </div><!-- 辟谣平台的广告 -->
+<div class="title">上海辟谣平台</div>
+<div style="margin:10px 0;">
+	<a href="http://piyao.jfdaily.com/" target="_blank">
+		<img src="/fancybox/fancy_piyao_ad.jpg" style="width:320px;">
+	</a>
+</div>
+
+<!-- 嘉定宣传 -->
+<div class="title">聚焦嘉定</div>
+<div style="margin:10px 0;">
+	<a href="/jiading/object/cc/index.html" target="_blank">
+		<img src="/images/jiadingAd.jpg" style="width:320px;">
+	</a>
+</div>
+
+<!-- 中国技能大赛媒体注册 -->
+<div class="title">中国技能大赛媒体注册</div>
+<div style="margin:10px 0;">
+	<a href="/registerWSC" target="_blank">
+		<img src="/images/worldskillschina.jpg" style="width:320px;">
+	</a>
+</div>
+
+<!-- 上海对口援疆20年 -->
+<div class="title">上海对口援疆20年</div>
+<div style="margin:10px 0;">
+	<a href="http://www.shobserver.com/thirdParty/yuanjiang/index.html" target="_blank">
+		<img src="/images/yuanjiang20.jpg" style="width:320px;">
+	</a>
+</div>
+
+<!-- 第三届绿色账户微电影大赛 -->
+<div class="title">第三届绿色账户微电影大赛</div>
+<div style="margin:10px 0;">
+	<a href="http://web.shobserver.com/wxSpecTopic/share.do?id=65" target="_blank">
+		<img src="/images/greenminmovieAd.png" style="width:320px;">
+	</a>
+</div>
+
+<!-- 创意设计产业 -->
+<div class="title" style="font-size:16px;">设计服务与相关产业融合发展整合推广平台</div>
+<div style="margin:10px 0;">
+	<a href="http://shdesign.jfdaily.com/" target="_blank">
+		<img src="/images/rhfzAd.jpg" style="width:320px;">
+	</a>
+</div>
+
+<!-- 中国互联网违法和不良信息举报中心 -->
+<div class="title">举报中心</div>
+<div style="margin:10px 0;">
+	<a href="http://www.12377.cn/" target="_blank">
+		<img src="/fancybox/jubao.jpg" style="width:320px;">
+	</a>
+</div>
+
+<!-- 网上有害信息举报专区 -->
+<div class="title">网上有害信息举报专区</div>
+<div style="margin:10px 0;">
+	<a href="http://report.12377.cn:13225/toreportinputNormal_anis.do" target="_blank">
+		<img src="/images/youhaixxjb.jpg" style="width:320px;">
+	</a>
+</div>
+
+<!--
+<div id="ajaxauthors" class="ajaxauthors">
+	<div class="ajaxloading"><img src="/images/loading.gif"></div>
+</div>
+-->
+<!--
+    <div class="title">专题报道</div>
+    <div class="f_con">
+    	<div class="bd">
+      		<div class="pic"><img src="/images/bd.jpg" /></div>
+      		<div class="content">
+				<a href="" class="ztbda" style="">2014亚信峰会在上海<img src="/images/sjx.png" style="position:relative; left:10px; top:2px;" /></a>
+			</div>
+    	</div>
+    	<div class="bd">
+      		<div class="pic"><img src="/images/bd1.jpg" /></div>
+      		<div class="content">
+				<a href="" class="ztbda" style="">2014泰国内乱<img src="/images/sjx.png" style="position:relative; left:10px; top:2px;" /></a>
+			</div>
+    	</div>
+    	<div class="bd">
+      		<div class="pic"><img src="/images/bd2.jpg" /></div>
+      		<div class="content">
+				<a href="" class="ztbda" style="">2014亚信峰会在上海<img src="/images/sjx.png" style="position:relative; left:10px; top:2px;" /></a>
+			</div>
+    	</div>
+    </div> 
+-->    <div class="title">关注我们</div>
+    <div class="f_con">
+      <div class="gzwm">
+        <div class="gzwm_wx"><a id="weixin" href="/images/weixin.png"><img src="/images/t.gif" /></a></div>
+        <div class="gzwm_wb" style="margin-left:15px;"><a href="http://weibo.com/u/3844617568" target="_blank"><img src="/images/t.gif" /></a></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="title">客户端下载</div>
+      <div class="xz">
+		<div class="menus">
+			<ul style="overflow:hidden;">
+				<li class="iphone"><a href="/download/?platform=iphone" target="_blank"><img src="/images/t.gif" /></a></li>
+				<li class="andr"><a href="/download/?platform=android" target="_blank"><img src="/images/t.gif" /></a></li>
+				<li class="clear" style="width:0px;"></li>
+			</ul>
+		</div>
+    </div>
+<div class="rightCenter"></div>   </div>
+  
+  <div class="clear"></div>
+</div>
+
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	ajaxMainnews();
+	ajaxNewsrank(0,1);
+	ajaxAdverts();
+});
+</script>
+
+<div class="footer">
+<div style="text-align:center;background-color:#f0f0f0;padding:5px 0;">
+	<span>违法与不良信息举报电话：18221821725</span>
+	<div>
+		<a href="http://www.12377.cn/" target="_blank"><img src="/fancybox/jubao1.jpg"></a>
+		<a href="http://www.shjbzx.cn/" target="_blank"><img src="/fancybox/jubao2.jpg"></a>
+		<a href="http://www.zx110.org/" target="_blank"><img src="/fancybox/jubao3.jpg"></a>
+	</div>
+   
+	Copyright © 上观(沪ICP备10006364号-31 国新网许可证编号:3112014001)<span style="margin-left:15px;">站长统计</span>
+	<br />
+  	<img src="/images/ghs.png" style="margin-bottom:-5px;" /><span style="margin-left:5px;">沪公网安备 31010602000361号</span>
+  	<br />
+  <span style="margin-right:15px;">解放日报新媒体研发中心</span>技术支持
+</div> 
+		 
+<div style="display:none">
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?d2c6a93993df2a648067f803933825c3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1258256578'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1258256578' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+<div id="ajaxshow" class="ajaxouter"><div id="ajaxmsg" class="ajaxbox"></div></div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("a#weixin").fancybox();
+	$("a#pngcodeimg").fancybox();
+});
+</script></div>
+
+</body>
+</html>

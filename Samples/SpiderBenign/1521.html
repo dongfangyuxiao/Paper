@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+    <title>星罗</title>
+    <link href="/static/dist/css/index.css" rel="stylesheet"/>
+    <link href="/static/dist/css/login.css" rel="stylesheet"/>
+    
+</head>
+
+<body>
+
+	<div class="bg_cover">
+		<div class="m_statar">
+			<em class="cyan"></em>
+			<em class="red"></em>
+			<!-- <em class="orange"></em>
+			<em class="yellow"></em>
+			<em class="green"></em> -->
+			
+			<!-- <em class="blue"></em> -->
+			<em class="purple"></em>
+		</div>		
+		<div class="main_content">
+			<div class="m_header clearfix">
+				<h1><a href="javascript:;"><img src="/static/images/index/logo.png"></a></h1>
+                				<div class="z_liong">
+					<a id="goLogin" class="active">登录</a>
+					<a href="/user/reg/">注册</a>
+				</div>
+                			</div>
+			<p class="m_instructions"><img src="/static/images/index/instructions.png"></p>
+		</div>
+		<div class="m_nav">
+			<div class="z_nav">
+				<a href="/show/ad/">我是广告主</a>
+				<a href="/show/web">我是网站主</a>
+				<a href="https://t.linkstars.com/">我是自媒体</a>
+				<a href="https://open.linkstars.com/">我是开发者</a>
+			</div>
+		</div>
+		<div class="beian">
+			<div class="beian_op">
+				<span>Copyright ©2017 linkstars.com All Rights Reserved</span>
+				<p><img src="/static/images/common/record-logo1.png">鲁公网安备 37028102000169号   鲁ICP备16030504号</p>
+			</div>
+		</div>
+		<!-- 登录框 -->
+		<div class="login_tal">
+			<div class="login_box">
+				<div class="login_center_box">
+					<h2>登&nbsp;&nbsp;录<p id="m_close"><i></i></p></h2>
+					<div  class="login-A">
+						<div class="login-B clearfix">
+							<p class="fl login-B-title">账号</p>
+							<p class="fl login-B-p1">|</p>
+							<input type="text" class="fl" placeholder="邮箱/手机号" id="username">
+						</div>
+						<p class="phoneTest"></p>
+						<div class="login-B clearfix">
+							<p class="fl login-B-title">密码</p>
+							<p class="fl login-B-p1">|</p>
+							<input type="password" class="fl" placeholder="请输入密码" id="password">
+						</div>
+						<p class="pswordTest"></p>
+						<div class="login-C">
+							<button id="login">登&nbsp;&nbsp;录</button>
+							<div class="login-D" clearfix>
+								<a href="/user/reg/" class="fl">快速注册>></a>
+								<a href="/user/find/" class="fr">忘记密码?</a>
+							</div>
+						</div>
+						<div class="login-welcome">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="/static/js/gallery/jquery.js"></script>
+	<script src="/static/dist/js/index.js"></script>
+	 <script type="text/javascript">
+        $(function(){
+        	function alertAll(msg,url){
+	            $('.alert-ips').css({"display":"block"});
+	            $('.tips_background').show();
+	            $('#ajax_success').html(msg); 
+	            if(url){
+	                $("#action").attr("href",url)
+	            }
+	        }
+            $("#goLogin").click(function(){
+                $(".login_tal").show()
+            })
+            $("#m_close").click(function(){
+                $(".login_tal").hide();
+                $("#username").val("");
+                $("#password").val("");
+                $(".phoneTest").text("");
+                $(".pswordTest").text("");
+                $(".login_tal").hide();
+            })
+            $("#password").keydown(function(e){
+                 var e = e || window.event;
+                 if(e.keyCode ==13){
+                    $("#login").trigger('click');
+                 }
+            })
+            $("#login").click(function(){
+                var username = $.trim($("#username").val());
+                var password =  $.trim($("#password").val());
+                var phoneTest = /^1\d{10}$/;
+                var emailTest = /^[a-z0-9._%-]+@([a-z0-9-]+\.)+[a-z]{2,4}$/i;
+                if(!username){
+                    $(".phoneTest").text("请输入用户名或密码");
+                    return false
+                }
+                if(!password){
+                    $(".pswordTest").text("请输入用户名或密码");
+                    return false
+                }
+                if(phoneTest.test(username)||emailTest.test(username)){
+                    $.post("//"+window.location.host+"/user/login/",{username:username,password:password},function(ret){
+                        var data = JSON.parse(ret);
+                        if(data.error==1003){
+                            $(".pswordTest").text("请输入正确的用户名和密码");
+                            return false
+                        }else if(data.error==1002){
+                            $(".pswordText").text("请输入正确的用户名和密码")
+                        }else if(data.error==1001){
+                            $(".phoneTest").text("请输入正确的用户名和密码")
+                        }else if(data.error ==1011){
+                            $(".pswordTest").text("登录次数过多，请稍后再试");
+                        }else if(data.error ==1000){
+							alert("登录成功")
+                            window.location.reload();
+                        }else{
+                            $(".pswordTest").text(data.msg)
+                        }
+
+                    })
+                }else{
+                    $(".phoneTest").text("请输入正确的用户名和密码");
+                }
+            })
+           
+        })
+
+    </script>
+    <script src="/static/dist/js/common.js"></script>
+</body>
+</html>

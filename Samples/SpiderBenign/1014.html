@@ -1,0 +1,1563 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>太平洋安防网-安防视频监控,智能家居,物联网,智能交通,门禁考勤-中国安防行业第一门户。</title>
+<meta name="keywords" content="安防，安防网，安防产品，安防监控，视频监控，安防网站，安防系统，安防监控系统，中国安防网，深圳安防，安防市场，安防电子商务" />
+<meta name="description" content="太平洋安防网站,是中国专业的安防电子商务平台,也是最大的安防企业集中网,占有深圳安防市场的全部份额,属安防产品和安防视频监控系统第一门户。" />
+<link rel="shortcut icon" href="http://www.tpy888.cn/favicon.ico" />
+<link rel="bookmark" href="http://www.tpy888.cn/favicon.ico" />
+<link href="http://www.tpy888.cn/" rel="canonical" />
+<link href="http://www.tpy888.cn/skin/default/base.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="http://www.tpy888.cn/skin/default1/style_new_coney.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.tpy888.cn/skin/default1/index_ad_coney.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.tpy888.cn/skin/default1/index_tese_coney.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.tpy888.cn/skin/default1/index_jdnews_coney.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.tpy888.cn/skin/default1/style.css" />
+<script type="text/javascript">window.onerror = function () { return true; }</script>
+<script type="text/javascript" src="http://www.tpy888.cn/lang/zh-cn/lang.js"></script>
+<script type="text/javascript" src="http://www.tpy888.cn/file/script3/config.js"></script>
+<script type="text/javascript" src="http://www.tpy888.cn/file/script3/common.js"></script>
+<script type="text/javascript" src="http://www.tpy888.cn/file/script3/page.js"></script>
+<script type="text/javascript" src="http://www.tpy888.cn/file/script3/jquery-1.8.0.min.js" ></script>
+<script type="text/javascript" src="http://www.tpy888.cn/file/script3/slides.min.jquery.js"></script> 
+<script type="text/javascript" src="http://www.tpy888.cn/file/script3/index_ad.js"></script>
+<script src="http://www.tpy888.cn/file/js/jquery.lazyload.min.js"></script>
+<script src="http://www.tpy888.cn/file/js/common.js" language="javascript"></script>
+<script type="text/javascript">
+//专题轮播图JS
+var t = n = 0, count;
+$(function(){
+count=$("#lb_banner_list a").length;
+$("#lb_banner_list a:not(:first-child)").hide();
+$("#lb_banner_info").text($("#lb_banner_list a:first-child").find("img").attr('alt'));
+$("#lb_banner_info").click(function(){window.open($("#lb_banner_list a:first-child").attr('href'), "_blank")});
+$("#lb_banner li").click(function() {
+var i = $(this).text() - 1;//获取Li元素内的值，即1，2，3，4
+n = i;
+if (i >= count) return;
+$("#lb_banner_info").text($("#lb_banner_list a").eq(i).find("img").attr('alt'));
+$("#lb_banner_info").unbind().click(function(){window.open($("#lb_banner_list a").eq(i).attr('href'), "_blank")})
+$("#lb_banner_list a").filter(":visible").fadeOut(500).parent().children().eq(i).fadeIn(1000);
+document.getElementById("lb_banner").style.background="";
+$(this).toggleClass("on");
+$(this).siblings().removeAttr("class");
+});
+t = setInterval("showAuto()", 4000);
+$("#lb_banner").hover(function(){ clearInterval(t)}, function(){t = setInterval("showAuto()", 4000);});
+})
+
+function showAuto()
+{
+n = n >=(count - 1) ? 0 : ++n;
+$("#lb_banner li").eq(n).trigger('click');
+}
+</script>
+<script type="text/javascript">
+$(function(){
+ $("img.lazy").lazyload({ 
+threshold : 100, //提前加载
+skip_invisible:false, //加载不可见图像
+effect : "fadeIn" //自定义显示效果
+ });
+});
+</script>
+<script type="text/javascript" language="javascript">
+    function Tb2(d, t, p, c) {
+        for (var i = 1; i <= t; i++) {
+            $_2(p + '_t_' + i).className = c + '_2';
+            Dh(p + '_c_' + i);
+            if (d == i) {
+                $_2(p + '_t_' + i).className = c + '_1';
+                Ds(p + '_c_' + i);
+            }
+        }
+    }
+    function SetHome(obj) {
+        var url = window.location.href;
+        try { obj.style.behavior = 'url(#default#homepage)'; obj.setHomePage(url); }
+        catch (e) {
+            if (window.netscape) {
+                try { netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); }
+                catch (e) { alert("此操作被浏览器拒绝！您可以换成IE浏览器再设置为首页"); }
+                var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                prefs.setCharPref('browser.startup.homepage', url);
+            }
+        }
+    }
+    //search setting
+    function selecttab(obj, moudleid) {
+        for (var i = 1; i <= 5; i++)
+            $_2("select_" + i).className = "";
+        if (obj != null)
+            obj.className = "select_a";
+        $_2("destoon_moduleid").value = moudleid;
+        searchid = moudleid;
+        setKW();
+    }
+    //search model
+    function setSearchType(obj, moudleid) {
+        Dh("other");
+        for (var i = 1; i < 5; i++)
+            $_2("select_" + i).className = "";//其他tab
+        $_2("select_5").innerHTML = obj.innerHTML;
+        $_2("select_5").className = "more_select_ceren";//当前tag
+        $_2("destoon_moduleid").value = moudleid;
+        var aother = document.getElementsByName("aother");
+        for (var i = 0; i < aother.length; i++)
+            aother[i].className = "";
+        obj.className = "more_ceren";//当前栏目
+        searchid = moudleid;
+        setKW();
+    }
+    //tese
+    $(function () {
+        $('#slides').slides({
+            preload: true,
+            preloadImage: 'img/loading.gif',
+            play: 100000000,
+            pause: 500,
+            hoverPause: true,
+            animationStart: function () {
+                $('.caption').animate({
+                    bottom: -35
+                }, 100);
+            },
+            animationComplete: function (current) { }
+        });
+    });
+    var tese_old;
+    function Tb3(tab) {
+        if (tab == 2 && tese_old != 2) {
+            $('.next').click()
+            $("ts_2").style.color = "red";
+            $("ts_1").style.color = "black";
+            tese_old = 2
+        } else if (tab == 1 && tese_old != 1) {
+            $('.prev').click();
+            $("ts_1").style.color = "red";
+            $("ts_2").style.color = "black";
+            tese_old = 1
+        }
+    }
+    function startTS() {
+        $('.next').click()
+    }
+    function tsOver() {
+        clearTimeout(ts_timer);
+    }
+    function tsOut() {
+        ts_timer = setInterval("startTS()", 8000);
+    }
+    tsOut();
+</script>
+<!--广告flash随机-->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            ad_switc.Init(".ads");
+        });
+        var ad_switc = {
+            s:10000,
+            Init: function (sls) {
+                var ads = jQuery(sls);
+                if (ads) {
+                    for (var i = 0; i < ads.length; i++) {
+                        var adli = ads[i].children; childcount = adli.length, num = ad_switc.GetRandom(i, childcount), currObj = jQuery(adli[num]);
+                        currObj.show();
+                        ad_switc.Switching(adli, childcount);
+                    }
+                }
+            },
+            Switching: function ($obj, len) {
+                var c = 0;
+                if (len > 0) {
+                    setInterval(function () {
+                        if (len == c)
+                            c = 1;
+                        else
+                            c += 1;
+                        jQuery($obj).hide().eq(c-1).show();
+                    }, ad_switc.s);
+                }
+            },
+            GetRandom: function (n, l) {
+                var random = 0;
+                var lastrandom = get_cookie("random" + n);
+                if (lastrandom) {
+                    random = parseInt(lastrandom);
+                    if (random < (l || n) - 1)
+                        random = random + 1;
+                    else
+                        random = 0;
+                }
+                else {
+                    random = Math.floor(Math.random() * n);
+                }
+                set_cookie("random" + n, random, 1);
+                return random;
+            }
+        };
+    </script>
+<!-- 我添加的引用  -->
+<link href="skin/default1/base_coney.css" rel="stylesheet" type="text/css" />
+<script src="file/script3/index_coney.js" type="text/javascript"></script>
+<link  href="skin/default1/style_coney.css" rel="stylesheet" type="text/css"  />
+<!-- 我添加的引用END  -->
+<!-- 我添加的JS -->
+<script type="text/javascript">
+    function fn_ul_dis(ids)
+    {
+        var arr_ids = ["ids_ul1", "ids_ul2"];
+        for (var i = 0; i < arr_ids.length; i++)
+        {
+            if (arr_ids[i] == ids) {
+                $("#" + arr_ids[i]).css("display", "block");
+            }
+            else {
+                $("#" + arr_ids[i]).css("display", "none");
+            }
+        }
+    }
+</script>
+<!-- 我添加的JS end-->
+</head>
+<body>
+<body>
+<div id='zhaoshang4l' class="" style="width:1200px; margin:auto;">
+<a href="http://www.tpy888.cn/news/201803/28/96205.html" target="_blank"><img class="img1"  style="width:1200px; height:800px;" src="/images/index/4L.jpg"></a>
+<a href="http://www.tpy888.cn/news/201803/28/96205.html" target="_blank"><img  style="width:1200px; " src="/images/index/GG_top_zs.jpg"></a>
+</div>
+<script type="text/javascript">
+function F_zhaoShan4l()
+{
+$("#zhaoshang4l .img1").animate({height:'0px',width:'1200px'},800);
+}
+setTimeout(F_zhaoShan4l,5000);
+</script>
+<div class="top_main">
+<!--top-->
+<div class="top_box">
+  <div class="box_t">
+    <div class="top_left" id="destoon_member">欢迎来到太平洋安防网!</div>
+    <div class="top_right">
+      <div class="rt_box_a"><i class="ihome"></i><a href="http://www.tpy888.cn">返回首页</a></div>
+       <div class="thread"></div>
+      <div class="rt_box_e"><i class="phone"></i><a href="Javascript:void(0);" rel="nofollow">微信号</a><span class="tjg_e"></span>
+        <div class="ewm_box">
+        <div class="w_a"><img src="http://img.tpy888.cn/public/weixin_web.jpg" />扫描上方二维码<br />加入网站订阅号</div>
+        <div class="w_a"><img src="http://img.tpy888.cn/public/weixin_shop.jpg" />扫描上方二维码<br />加入商城公众号</div>
+          <div class="xian_x_e"><i></i></div>
+        </div>
+      </div>
+      <div class="thread"></div>
+      <div class="rt_box_b"><i class="phone"></i><a href="Javascript:void(0);" rel="nofollow">手机站</a><span class="tjg"></span>
+        <div class="ewm_box"><img src="http://img.tpy888.cn/public/ewm.jpg" />扫描上方二维码<br />
+          访问手机站
+          <div class="xian_x"><i></i></div>
+        </div>
+      </div>
+      <div class="thread"></div>
+      <div class="rt_box_a"><i class="zazi"></i><a href="http://www.tpy888.cn/shukan/demand.php" rel="nofollow">订阅杂志</a></div>
+      <div class="thread"></div>
+      <div class="rt_box_c"><i class="huodong"></i><a href="Javascript:void(0);" rel="nofollow">网站活动</a><span class="tjg_a"></span>
+        <div class="ewm_box_a">
+          <ul>
+<li><a href="http://www.tpy888.cn/special/2017aosika/">2017安防奥斯卡</a></li>
+            <li><a href="http://www.tpy888.cn/special/2016anfang/beijing.html">2016北京安博会</a></li>
+            <li><a href="http://www.tpy888.cn/special/2016anfang/">2016全国巡展</a></li>
+          </ul>
+          <div class="xian_x_a"><i></i></div>
+        </div>
+      </div>
+      <div class="thread"></div>
+      <div class="rt_box_d"><i class="hd_g"></i><a href="Javascript:void(0);" rel="nofollow">网站导航</a><span class="tjg_b"></span>
+        <div class="ewm_box_b">
+         <b>商机频道</b>
+         <div class="box_dh box_dh_x"><a href="http://www.tpy888.cn/sell/">安防产品</a><a href="http://www.tpy888.cn/company/">企业名录</a><a href="http://www.tpy888.cn/brand/">品牌库</a><a href="http://www.tpy888.cn/proxy/">招商</a><a href="http://www.tpy888.cn/buy/">采购</a><a href="http://www.tpy888.cn/zhaobiao/">招标库</a><a href="http://www.tpy888.cn/job/">招聘</a></div>
+         <b>内容频道</b>
+         <div class="box_dh box_dh_x"><a href="http://www.tpy888.cn/news/">安防资讯</a><a href="http://www.tpy888.cn/exhibition/">安防展会</a><a href="http://www.tpy888.cn/special/">专题</a><br /><a href="http://www.tpy888.cn/shukan/">太平洋杂志</a><a href="http://www.tpy888.cn/jishu/">技术资料</a></div>
+         <b>互动频道</b>
+         <div class="box_dh"><a href="http://bbs.tpy888.cn">安防论坛</a></div>
+          <div class="xian_x_b"><i></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!--<div id="Adv970_450"></div>-->
+<div class="main">
+<!--bar end-->
+<div class="banner">
+<h1><a href="http://www.tpy888.cn/" class="logo"><img src="image/logo.jpg" alt="安防"  width="230" height="80"/></a></h1>
+    <div class="banner_ad">
+<a href="http://www.tpy888.cn/extend/redirect.php?aid=2284" target="_blank"><img src="http://img.tpy888.cn/upload/201611/23/10-43-08-93-1.jpg" width="520" height="70" alt="海康"/></a></div>    
+<div class="search">
+    <div class="search_menu">
+    <ul>
+    <li class="cur">
+    <a id="select_1" class="select_a" href="javascript:void(0);" onclick="selecttab(this,5)" rel="nofollow">产品</a></li>
+    <li><a id="select_2" href="javascript:void(0);" onclick="selecttab(this,4)" rel="nofollow">公司</a></li>
+    <li><a id="select_3" href="javascript:void(0);"  onclick="selecttab(this,6)" rel="nofollow">求购</a></li>
+<li><a id="select_4" href="javascript:void(0);" onclick="selecttab(this,21)" rel="nofollow">资讯</a></li>
+    <li class="search_more"><a id="select_5"  onclick="Ds('other');" rel="nofollow">更多</a>
+            <div  id="other"  class="more_select" style="display:none;" onmouseout="Dh('other');" onmouseover="Ds('other');">
+                <a href="javascript:void(0);" name="aother" onclick="setSearchType(this,'13')" rel="nofollow">品牌</a>
+                <a href="javascript:void(0);" name="aother" onclick="setSearchType(this,'8')" rel="nofollow">展会</a>
+                <a href="javascript:void(0);" name="aother" onclick="setSearchType(this,'25')" rel="nofollow">招标</a>
+                <a href="javascript:void(0);" name="aother" onclick="setSearchType(this,'22')" rel="nofollow">招商</a>
+                <a href="http://www.tpy888.cn/special/" name="aother" rel="nofollow">专题</a>
+                <a href="javascript:void(0);" name="aother" onclick="setSearchType(this,'9')" rel="nofollow">人才</a>
+            </div></li>
+            <li class="hot"><a href="http://www.tpy888.cn/sell/">热卖产品</a></li>
+        </ul>            
+        <div class="clear"></div>
+    </div>
+        <div class="search_input"> 
+        <div id="search_tips" style="display:none;"></div>
+        <form id="destoon_search" action="search.php" onsubmit="return Dsearch();">
+        <input type="hidden" name="moduleid" value="5" id="destoon_moduleid">            
+        <input name="kw" id="destoon_kw" type="text"  value="请输入关键词" onfocus="if(this.value=='请输入关键词') this.value='';" class="input_bg" onkeyup="STip(this.value);" autocomplete="off">             
+            <input type="submit"  class="search_btn" value=""/>
+            <div class="clear"></div>
+            </form>
+        </div>
+<script type="text/javascript"> var searchid = 5;</script>
+        <div id="search_word" class="hotsearch"><strong>热门搜索：</strong>        
+<a href="http://s.tpy888.cn/sell/e69184e5838fe69cba.html" class="b" rel="nofollow" target="_blank">摄像机</a>&nbsp;<a href="http://s.tpy888.cn/sell/445652.html" class="b" rel="nofollow" target="_blank">DVR</a>&nbsp; <a href="http://s.tpy888.cn/sell/e68aa5e8ada6e599a8.html" class="b" rel="nofollow" target="_blank">报警器</a>&nbsp; <a href="http://s.tpy888.cn/sell/434344e69dbfe69cba.html" class="b" rel="nofollow" target="_blank">CCD板机</a>&nbsp; <a href="http://s.tpy888.cn/sell/e98787e99b86e58da1.html" class="b" rel="nofollow" target="_blank">采集卡</a>&nbsp; <a href="http://s.tpy888.cn/sell/e997a8e7a681.html" class="b" rel="nofollow" target="_blank">门禁</a>&nbsp; <a href="http://s.tpy888.cn/sell/e7bd91e7bb9ce69184e5838fe69cba.html" class="b" rel="nofollow" target="_blank">网络摄像机</a>&nbsp; <a href="http://s.tpy888.cn/sell/e79b91e68ea7e69184e5838fe69cba.html" class="b" rel="nofollow" target="_blank">监控摄像机</a>
+        </div>
+    </div>    
+<div class="clear"></div>
+</div>
+</div>
+<!--banner end-->
+<!-- 导航开始    -->
+<div class="nav_box_top">
+      <ul>
+        <li class="nav_box_jg"><a class="sy_nav" href="http://www.tpy888.cn" target="_blank">首页</a></li>
+        <li><a href="http://www.tpy888.cn/news/" target="_blank">安防资讯</a></li>
+        <li><a href="http://www.tpy888.cn/smartlock/" target="_blank">智能锁</a></li>
+        <li><a href="http://www.tpy888.cn/sell/" target="_blank">安防产品</a></li>
+        <li><a href="http://www.tpy888.cn/company/" target="_blank">企业名录</a></li>
+        <li><a href="http://www.tpy888.cn/proxy/" target="_blank">招商</a></li>
+        <li><a href="http://www.tpy888.cn/shukan/" target="_blank">杂志</a></li>
+        <li><a href="http://www.tpy888.cn/brand/" target="_blank">品牌库</a></li>
+        <li><a href="http://www.tpy888.cn/exhibition/" target="_blank">安防展会</a></li>
+        <li><a href="http://www.tpy888.cn/special/" target="_blank">专题</a></li> 
+        <li><a href="http://www.tpy888.cn/jishu/" target="_blank">技术资料</a></li>
+        <li><a href="http://bbs.tpy888.cn" target="_blank" style="padding-left:23px;padding-right:23px;">安防论坛</a></li>
+      </ul>
+</div>
+<div class="main">
+<!--奥斯卡广告-->
+<div class="ad_all">
+<div style="height:80px; width:22%; margin-right:5px; float:left; " class="ads">  
+ <a  href="http://www.tpy888.cn/extend/redirect-htm-aid-2734.html" target="_blank"><img  class="lazy" height="80" src="http://img.tpy888.cn/upload/201805/04/13-55-02-92-1.gif" alt="大华股份"/></a>
+ </div>
+<a style="float:left;width:18%;" href="http://www.tpy888.cn/extend/redirect-htm-aid-2838.html" target="_blank"><img  class="lazy" height="80" src="http://img.tpy888.cn/upload/201707/06/16-07-23-29-1.gif" alt="翌信"/></a>
+<a style=" margin-left:5px;float:left;width:18%;" href="http://www.tpy888.cn/extend/redirect-htm-aid-2984.html" target="_blank"><img  class="lazy" height="80" src="http://img.tpy888.cn/upload/201804/16/15-50-57-66-158803.jpg" alt="汉邦高科"/></a>
+<a style=" margin-left:5px; float:left;width:18%;" href="http://www.tpy888.cn/extend/redirect-htm-aid-2949.html" target="_blank"><img  class="lazy" height="80" src="http://img.tpy888.cn/upload/201801/23/18-31-43-94-151365.gif" alt="威明科技"/></a>
+<a class="side_c" href="http://www.tpy888.cn/extend/redirect-htm-aid-3028.html" target="_blank" style="width:22%;"><img  class="lazy" height="80" src="http://img.tpy888.cn/upload/201807/05/14-26-08-36-1.jpg" alt="慧视电子"/></a>
+</div>
+<!-- 导航结束    -->
+<div>
+<div class="clear"></div>
+<div class="side_a">
+<!-- //焦点新闻BEGIN mengdj<mengdj@outlook.com 20140516 0955 -->
+<!-- //需引进index.jsnews.css -->
+<div class="spotnews_a">
+                        <div class="sp_tit">
+                          <h5>焦点新闻</h5>
+                          <a href="http://www.tpy888.cn/news/" class="inform_more" target="_blank" rel="nofollow">更多</a>
+                          <div class="clear"></div>
+                        </div><!--  /.sp_tit   end   -->
+                        <div class="spotnews_a_concent">
+<a href="http://www.tpy888.cn/news/201806/15/96863.html" target="_blank"><img src="http://img.tpy888.cn/upload/201806/15/14-26-05-83-149800.jpg" class="spotnews_pic" alt="【火爆招商】各大名企争先入驻，太平洋安防·全球智能锁业交易中心迎来签约高峰！" title="【火爆招商】各大名企争先入驻，太平洋安防·全球智能锁业交易中心迎来签约高峰！" width="210" height="97"/></a>
+
+                            
+                                           <ul class="spotnews_ul">
+                <!-- //此处不可以直接使用tag标签，将造成直接载入模板模板情况 -->
+                <!--li><a href="http://www.tpy888.cn/news/201404/25/76586.html" title="居家安全首选品牌Oplink火爆招商" target="_blank" >居家安全首选品牌Oplink火爆招商</a></li-->
+                <!-- //此处不可以直接使用tag标签，将造成直接载入模板模板情况 -->
+                <!--li><a href="http://www.tpy888.cn/news/201404/25/76586.html" title="居家安全首选品牌Oplink火爆招商" target="_blank" >居家安全首选品牌Oplink火爆招商</a></li-->
+   
+     <li><a href="http://www.tpy888.cn/news/201806/26/96951.html" title="考核一把智能锁需要这八大指标" target="_blank" >考核一把智能锁需要这八大指标</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/22/96900.html" title="“雪亮工程”建设加速落地，安防企业各展拳脚、积极助力！" target="_blank" >“雪亮工程”建设加速落地，安防</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/14/96852.html" title="选择优质智能锁要看哪几方面？可别被忽悠了" target="_blank" >选择优质智能锁要看哪几方面？可</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/13/96845.html" title="WIFI无线摄像机AI进化：叠加智能移动侦测+人脸检测双重算法" target="_blank" >WIFI无线摄像机AI进化：叠加智能</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/13/96838.html" title="智能家居设备销量将在2023年超过智能手机" target="_blank" >智能家居设备销量将在2023年超过</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/13/96831.html" title="4场张学友演唱会揪5个逃犯，这后面的技术有点低调" target="_blank" >4场张学友演唱会揪5个逃犯，这后</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/13/96827.html" title="人脸识别来袭|大华股份睿智系列经济型人脸摄像机等你揭秘！" target="_blank" >人脸识别来袭|大华股份睿智系列</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/11/96808.html" title="趋势不可挡，智能锁已加入小学教材和动画片科普" target="_blank" >趋势不可挡，智能锁已加入小学教</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/07/96800.html" title="网站系统升级通告" target="_blank" >网站系统升级通告</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/07/96795.html" title="在智能锁行业低价、无序的竞争中，企业该如何脱颖而出？" target="_blank" >在智能锁行业低价、无序的竞争中</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/07/96793.html" title="【隆重招商】罗曼斯——强势入驻太平洋安防全球智能锁业交易中心，携手发展共赢未来！" target="_blank" >【隆重招商】罗曼斯——强势入驻</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/06/96785.html" title="【隆重招商】凯迪仕——强势入驻太平洋安防全球智能锁业交易中心，深入合作共赢未来！" target="_blank" >【隆重招商】凯迪仕——强势入驻</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/06/96781.html" title="中国智能门锁行业研究报告" target="_blank" >中国智能门锁行业研究报告</a></li>
+  <li><a href="http://www.tpy888.cn/news/201806/05/96766.html" title="智能家居广泛普及 推动智能锁市场快速发展" target="_blank" >智能家居广泛普及 推动智能锁市</a></li>
+    <!--取消固定的广告
+  <li><a href="http://bbs.gwell.cc"  rel="nofollow" target="_blank">技威时代：在线互动永不掉线</a></li>
+  -->
+     </ul>
+                        </div><!-- /.spotnews_a_concent  end -->
+                    
+                       
+                        
+                      </div>  <!-- /.spotnews  end   -->
+<div style="height:80px; width:260px; margin-bottom:10px; " class="ads">
+   
+       <a style="display:none" href="http://www.tpy888.cn/extend/redirect-htm-aid-2246.html" target="_blank" rel="nofollow">
+       <img  class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201506/08/16-40-46-73-103405.gif" width="260" height="80" alt="凯利通"/>
+   </a>
+</div>
+<div  style="height:80px; width:260px; margin-bottom:10px; " class="ads">
+   
+       <a style="display:none" href="http://www.tpy888.cn/extend/redirect-htm-aid-2830.html" target="_blank" rel="nofollow">
+       <img  class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201611/15/17-50-36-75-1.gif" width="260" height="80" alt="科世达"/>
+   </a>
+</div>
+  <div style="height:80px; width:260px; margin-bottom:10px; " class="ads">
+      
+       <a style="display:none" href="http://www.tpy888.cn/extend/redirect-htm-aid-2325.html" target="_blank" rel="nofollow">
+       <img  class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201801/22/13-42-46-38-139455.gif" width="260" height="80" alt="祥兴发"/>
+   </a>
+ 
+  </div>
+ 
+</div>
+<!--side_a end-->
+<div class="side_b">
+  
+    <div id="focus_box"  style="height:290px; overflow:hidden;">
+<ul>
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2254.html" target="_blank"><img width="660" height="290"   src="http://img.tpy888.cn/upload/201506/01/17-14-22-51-105112.jpg" alt="汉王" /></a></li>
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2961.html" target="_blank"><img width="660" height="290"   src="http://img.tpy888.cn/upload/201803/20/11-10-55-95-1.jpg" alt="网站招聘" /></a></li>
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2928.html" target="_blank"><img width="660" height="290"   src="http://img.tpy888.cn/upload/201711/10/10-04-17-23-1.jpg" alt="深圳市华创时代科技有限公司" /></a></li>
+</ul></div>
+        
+    <div class="ts_pro">
+        <div class="ts_img" /></div>
+  
+        <div class="clear"></div>        
+         <div id="container">        
+            <div id="slides">                
+                 <a href="#" class="prev" onmouseover="tsOver()"onmouseout="tsOut()"></a>
+                 <a href="#" class="next" onmouseover="tsOver()"onmouseout="tsOut()"></a>  
+                 <div class="slides_container">
+                    <div style="width:660px;">
+  <ul class="ts_pic">
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2790.html" title="车牌识别一体机" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201709/07/10-17-24-67-1.jpg" width="120" height="120" alt="车牌识别一体机" /></a><br />车牌识别一体机<br /><span class="orange">文通科技</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-1739.html" title="安防电源厂家" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201709/27/10-21-09-55-1.jpg" width="120" height="120" alt="安防电源厂家" /></a><br />安防电源厂家<br /><span class="orange">明为电子</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-1614.html" title="总线报警主机" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201403/05/09-37-42-59-55674.jpg" width="120" height="120" alt="总线报警主机" /></a><br />总线报警主机<br /><span class="orange">宜居科技</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-358.html" title="AHD变焦5MP" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201806/26/12-23-50-78-118471.jpg" width="120" height="120" alt="AHD变焦5MP" /></a><br />AHD变焦5MP<br /><span class="orange">慧视电子</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2662.html" title="CVI AHD IPC" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201603/03/10-31-23-18-1.jpg" width="120" height="120" alt="CVI AHD IPC" /></a><br />CVI AHD IPC<br /><span class="orange">前海中璟</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-1469.html" title="摄像头外壳" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201707/13/14-33-13-65-1.jpg" width="120" height="120" alt="摄像头外壳" /></a><br />摄像头外壳<br /><span class="orange">艾德视界</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-1706.html" title="防水摄像机外壳" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201601/04/16-48-33-82-140388.jpg" width="120" height="120" alt="防水摄像机外壳" /></a><br />防水摄像机外壳<br /><span class="orange">维嘉兴</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2351.html" title="半球外壳" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201708/30/11-53-47-11-1.jpg" width="120" height="120" alt="半球外壳" /></a><br />半球外壳<br /><span class="orange">深中防</span></li>      
+</ul>
+  
+                    </div>                        
+                      <div  style="width:660px;">
+ <ul class="ts_pic">
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2929.html" title="工业级交换机" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201711/10/16-43-20-88-1.jpg" width="120" height="120" alt="工业级交换机" /></a><br />工业级交换机<br /><span class="orange">AOPRE</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-1862.html" title="360红外全景外壳" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201506/02/14-31-28-39-1.jpg" width="120" height="120" alt="360红外全景外壳" /></a><br />360红外全景外壳<br /><span class="orange">祥秀瑞</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-1512.html" title="PLC监控网络传输器" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201705/16/16-16-05-90-1.jpg" width="120" height="120" alt="PLC监控网络传输器" /></a><br />PLC监控网络传输器<br /><span class="orange">库尔光电</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-282.html" title="通道闸机" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201704/01/18-01-53-49-1.jpg" width="120" height="120" alt="通道闸机" /></a><br />通道闸机<br /><span class="orange">力田机电</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-1776.html" title="车载硬盘录像机" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201407/03/15-04-16-84-12403.jpg" width="120" height="120" alt="车载硬盘录像机" /></a><br />车载硬盘录像机<br /><span class="orange">特思威尔</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2353.html" title="全景灯" target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201508/05/11-16-15-90-1.jpg" width="120" height="120" alt="全景灯" /></a><br />全景灯<br /><span class="orange">赛博夜视</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-1853.html" title="100万无线套包 " target="_blank" rel='nofollow'><img  src="http://img.tpy888.cn/upload/201608/29/15-16-58-33-1.jpg" width="120" height="120" alt="100万无线套包 " /></a><br />100万无线套包 <br /><span class="orange">巨峰科技</span></li>      
+<li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-281.html" title="百万高清红外球" target="_blank" rel='nofollow'><img  src="http://www.tpy888.cn/file/upload/201212/28/09-51-25-21-55674.jpg" width="120" height="120" alt="百万高清红外球" /></a><br />百万高清红外球<br /><span class="orange">百特嘉</span></li>      
+</ul>
+  
+                      </div>
+                 </div>                           
+            </div>                    
+        </div> 
+        <div class="clear"></div>
+    </div>
+</div>
+<!--side_b end-->
+<div class="side_c">
+      
+      <div id="news" class="m">
+              <div class="mt">
+                  <h2>企业动态</h2>
+                  <div class="extra"><a target="_blank" href="http://www.tpy888.cn/news/list-771.html" clstag="h|keycount|2015|09a">更多 </a></div>
+              </div>
+              <div >
+                
+                 <ul   class="mc">
+<li clstag="h|keycount|2015|09b1"><a target="_blank" href="http://www.tpy888.cn/news/201807/10/97043.html">“智慧检察”- 同方光盘助力“2018·全国检</a></li>
+<li clstag="h|keycount|2015|09b2"><a target="_blank" href="http://www.tpy888.cn/news/201807/06/97032.html">大华股份｜电动自行车智能充电桩新品发布会</a></li>
+<li clstag="h|keycount|2015|09b3"><a target="_blank" href="http://www.tpy888.cn/news/201807/03/97018.html">同方光盘与您相约--2018·全国检察科技装备</a></li>
+<li clstag="h|keycount|2015|09b4"><a target="_blank" href="http://www.tpy888.cn/news/201807/03/97017.html">首钢打造“智慧园区” 汉王人脸识别技术保</a></li>
+<li clstag="h|keycount|2015|09b5"><a target="_blank" href="http://www.tpy888.cn/news/201807/03/97016.html">厉害了！领取养老金资格认证启用“人脸识别</a></li>
+<li clstag="h|keycount|2015|09b6"><a target="_blank" href="http://www.tpy888.cn/news/201807/03/97015.html">汉王AI智能识别技术 为公安实战添实力</a></li>
+              </ul>
+              </div>
+      </div>
+          
+      <!-- //安防产品/求购BEGIN mengdj<mengdj@outlook.com> 20140514 1012 -->
+      <div class="product_l">
+              <div class="sidec_prdnav">
+                   <a href="javascript:void(0)" id="job_t_1" class="product_tab_1" onmouseover="Tb(2, 2, 'job', 'product_tab');">安防产品</a><a id="job_t_2" href="javascript:void(0)" class="product_tab_2" onmouseover="Tb(1, 2, 'job', 'product_tab');">安防求购</a><a href="sell/" target="_blank" class="product_more" rel="nofollow">更多</a>
+              </div> <!--   /.sidec_prdnav  end -->
+               <div id="job_c_2">
+      <!--供应-->    
+<ul class="product_content">
+<li><span class="product_name">[青岛]</span><span class="product_date">[07-12]</span>&nbsp;<a href="http://www.tpy888.cn/sell/show-3939538.html" target="_blank" title="酒精检测仪，指挥棒快速检测">酒精检测仪，指挥棒</a></li>          
+<li><span class="product_name">[浙江]</span><span class="product_date">[07-12]</span>&nbsp;<a href="http://www.tpy888.cn/sell/show-3939537.html" target="_blank" title="落地式三网合一光纤分纤箱产品规格图">落地式三网合一光纤</a></li>          
+<li><span class="product_name">[太原]</span><span class="product_date">[07-12]</span>&nbsp;<a href="http://www.tpy888.cn/sell/show-3939536.html" target="_blank" title="河南柳州150泥浆泵小阀座厂家">河南柳州150泥浆泵</a></li>          
+<li><span class="product_name">[上海]</span><span class="product_date">[07-12]</span>&nbsp;<a href="http://www.tpy888.cn/sell/show-3939535.html" target="_blank" title="自主研发速激肽受体３（TACR3）ELSIA试剂盒（多种属）">自主研发速激肽受体</a></li>          
+<li><span class="product_name">[德州]</span><span class="product_date">[07-12]</span>&nbsp;<a href="http://www.tpy888.cn/sell/show-3939534.html" target="_blank" title="【河南永城电动绳锯机18.5KW】淄博高速桥梁切割">【河南永城电动绳锯</a></li>          
+<li><span class="product_name">[衡水]</span><span class="product_date">[07-12]</span>&nbsp;<a href="http://www.tpy888.cn/sell/show-3939533.html" target="_blank" title="内蒙古顶部弧形声屏障">内蒙古顶部弧形声屏</a></li>          
+<li><span class="product_name">[太原]</span><span class="product_date">[07-12]</span>&nbsp;<a href="http://www.tpy888.cn/sell/show-3939532.html" target="_blank" title="矿用乳化液扳手进口HPU1700WK气动乳化液扳手">矿用乳化液扳手进口</a></li>          
+<li><span class="product_name">[上海]</span><span class="product_date">[07-12]</span>&nbsp;<a href="http://www.tpy888.cn/sell/show-3939531.html" target="_blank" title="CAS:65371-16-6现货直销，CAS:65371-16-6库存供应 批次稳定">CAS:65371-16-6现货</a></li>          
+<li><span class="product_name">[厦门]</span><span class="product_date">[07-12]</span>&nbsp;<a href="http://www.tpy888.cn/sell/show-3939530.html" target="_blank" title="KAM-HCS2 拉拔自复位选择开关 凯昆Kacon">KAM-HCS2 拉拔自复</a></li>          
+<li><span class="product_name">[太原]</span><span class="product_date">[07-12]</span>&nbsp;<a href="http://www.tpy888.cn/sell/show-3939529.html" target="_blank" title="85×85方钢折弯机250H型钢顶弯机">85×85方钢折弯机25</a></li>          
+</ul>
+        
+                </div> <!--  /.job_c_2   end -->
+                <div  id="job_c_1" style="display:none;">      
+                       <!--求购-->     
+ <ul class="product_content">
+<li><span class="product_name">[东莞]</span><span class="product_date">[07-09]</span>&nbsp;<a href="http://www.tpy888.cn/buy/show-52040.html" target="_blank" title="求购Keithley2450数字源表" rel="nofollow">求购Keithley2450</a></li>          
+<li><span class="product_name">[东莞]</span><span class="product_date">[07-09]</span>&nbsp;<a href="http://www.tpy888.cn/buy/show-52039.html" target="_blank" title="求购PX8000示波功率仪" rel="nofollow">求购PX8000示波功</a></li>          
+<li><span class="product_name">[东莞]</span><span class="product_date">[07-09]</span>&nbsp;<a href="http://www.tpy888.cn/buy/show-52038.html" target="_blank" title="求购APX515音频分析仪APX515" rel="nofollow">求购APX515音频分</a></li>          
+<li><span class="product_name">[东莞]</span><span class="product_date">[07-09]</span>&nbsp;<a href="http://www.tpy888.cn/buy/show-52037.html" target="_blank" title="大电流共模贴片电感" rel="nofollow">大电流共模贴片电</a></li>          
+<li><span class="product_name">[东莞]</span><span class="product_date">[07-09]</span>&nbsp;<a href="http://www.tpy888.cn/buy/show-52036.html" target="_blank" title="FLUKE5500A Agilent3458A万用表校准仪" rel="nofollow">FLUKE5500A Agilen</a></li>          
+<li><span class="product_name">[东莞]</span><span class="product_date">[07-09]</span>&nbsp;<a href="http://www.tpy888.cn/buy/show-52035.html" target="_blank" title="收购R3765CG二手品牌E5100A网络分析仪" rel="nofollow">收购R3765CG二手品</a></li>          
+<li><span class="product_name">[东莞]</span><span class="product_date">[07-09]</span>&nbsp;<a href="http://www.tpy888.cn/buy/show-52034.html" target="_blank" title="Agilent8719ES HP8720C高频网络分析仪" rel="nofollow">Agilent8719ES HP8</a></li>          
+<li><span class="product_name">[东莞]</span><span class="product_date">[07-09]</span>&nbsp;<a href="http://www.tpy888.cn/buy/show-52033.html" target="_blank" title="Chroma61601/61503可编程交流电源" rel="nofollow">Chroma61601/61503</a></li>          
+<li><span class="product_name">[东莞]</span><span class="product_date">[07-09]</span>&nbsp;<a href="http://www.tpy888.cn/buy/show-52032.html" target="_blank" title="专业进口AgilentE4419B/E4418B功率计" rel="nofollow">专业进口AgilentE4</a></li>          
+<li><span class="product_name">[东莞]</span><span class="product_date">[07-09]</span>&nbsp;<a href="http://www.tpy888.cn/buy/show-52031.html" target="_blank" title="回收/二手MG3740A模拟信号发生器2.7/4/6 GHz" rel="nofollow">回收/二手MG3740A</a></li>          
+</ul>              </div> <!-- /.job_c_1  end  -->
+       </div>    <!--   /.product_l  end  -->
+      <!-- //安防产品/求购END -->
+      
+              <!-- 广告-->
+              <div style="height:80px; width:260px; margin-bottom:10px; " class="ads">  
+    
+       <a style="display:none" href="http://www.tpy888.cn/extend/redirect-htm-aid-2947.html" target="_blank" rel="nofollow">
+       <img  class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201801/23/15-17-54-73-151365.gif" width="260" height="80" alt="炜业通"/>
+   </a>
+ 
+   
+              </div>
+              <div style="height:80px; width:260px; margin-bottom:10px; " class="ads">   
+    
+    
+       <a style="display:none" href="http://www.tpy888.cn/extend/redirect-htm-aid-2249.html" target="_blank" rel="nofollow">
+       <img  class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201704/27/11-43-04-85-1.gif" width="260" height="80" alt="光网视"/>
+   </a>
+ 
+     
+              </div>
+             <div style="height:80px; width:260px; margin-bottom:10px; " class="ads">   
+     
+     
+       <a style="display:none" href="http://www.tpy888.cn/extend/redirect-htm-aid-2433.html" target="_blank" rel="nofollow">
+       <img  class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201601/22/11-33-58-33-1.jpg" width="260" height="80" alt="印刷"/>
+   </a>
+ 
+    
+              </div>
+              <!-- 广告 end-->
+</div> <!--  /.side_c   end  -->
+<div class="clear"></div>
+</div>
+<!--side_c end-->
+<div class="main">
+<div class="paidrank">
+<div class="rank_title">
+<ul class="rank lanren">   
+<li class="rank_tab1 lrzj" ectype="217"><a>热卖产品</a></li>
+<li class="lrzj" ectype="285"><a>模组</a></li><li class="lrzj" ectype="282"><a>安防电源</a></li></div>
+    <div class="clear"></div>
+ <ul class='rank_content tab_box'>
+<li>
+<a href='http://www.tpy888.cn/extend/redirect-htm-aid-2998.html' target='_blank' rel='nofollow'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/28/09-56-11-26-1.jpg" width='120' height='120' alt='DVI光端机' title='DVI光端机' /></a><br />
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2998.html" rel='nofollow'>DVI光端机</a><br /><span class='orange'>金视天创</span>
+</li>  
+<li>
+<a href='http://www.tpy888.cn/extend/redirect-htm-aid-2994.html' target='_blank' rel='nofollow'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/26/18-14-40-99-154894.jpg" width='120' height='120' alt='三网合一光缆交接箱' title='三网合一光缆交接箱' /></a><br />
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2994.html" rel='nofollow'>三网合一光缆交接箱</a><br /><span class='orange'>品悦通信</span>
+</li>  
+<li>
+<a href='http://www.tpy888.cn/extend/redirect-htm-aid-1026.html' target='_blank' rel='nofollow'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201702/23/13-57-56-70-1.jpg" width='120' height='120' alt='触摸显示器' title='触摸显示器' /></a><br />
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-1026.html" rel='nofollow'>触摸显示器</a><br /><span class='orange'>加尼鹰</span>
+</li>  
+<li>
+<a href='http://www.tpy888.cn/extend/redirect-htm-aid-2978.html' target='_blank' rel='nofollow'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/02/10-53-25-30-1.jpg" width='120' height='120' alt='防爆数码照相机' title='防爆数码照相机' /></a><br />
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2978.html" rel='nofollow'>防爆数码照相机</a><br /><span class='orange'>智天铭仕</span>
+</li>  
+<li>
+<a href='http://www.tpy888.cn/extend/redirect-htm-aid-2976.html' target='_blank' rel='nofollow'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201803/30/11-00-24-69-49103.jpg" width='120' height='120' alt='BXM防爆配电箱' title='BXM防爆配电箱' /></a><br />
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2976.html" rel='nofollow'>BXM防爆配电箱</a><br /><span class='orange'>领越防爆</span>
+</li>  
+<li>
+<a href='http://www.tpy888.cn/extend/redirect-htm-aid-2936.html' target='_blank' rel='nofollow'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201806/25/16-16-14-83-160362.jpg" width='120' height='120' alt='70C烟尘烟气测试仪' title='70C烟尘烟气测试仪' /></a><br />
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2936.html" rel='nofollow'>70C烟尘烟气测试仪</a><br /><span class='orange'>青岛路博</span>
+</li>  
+<li>
+<a href='http://www.tpy888.cn/extend/redirect-htm-aid-2329.html' target='_blank' rel='nofollow'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201703/27/16-16-52-59-1.jpg" width='120' height='120' alt='术野摄像机' title='术野摄像机' /></a><br />
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2329.html" rel='nofollow'>术野摄像机</a><br /><span class='orange'>倍润视通科技</span>
+</li>  
+<li>
+<a href='http://www.tpy888.cn/extend/redirect-htm-aid-2046.html' target='_blank' rel='nofollow'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201706/15/14-20-34-76-1.jpg" width='120' height='120' alt='液晶拼接屏' title='液晶拼接屏' /></a><br />
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2046.html" rel='nofollow'>液晶拼接屏</a><br /><span class='orange'>博雅图科技</span>
+</li>  
+<li>
+<a href='http://www.tpy888.cn/extend/redirect-htm-aid-2645.html' target='_blank' rel='nofollow'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201703/31/13-47-15-72-1.jpg" width='120' height='120' alt='三网合一箱' title='三网合一箱' /></a><br />
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2645.html" rel='nofollow'>三网合一箱</a><br /><span class='orange'>旭航通信</span>
+</li>  
+</ul> 
+<div class="clear"></div>  
+</div>
+<!--paidrank end-->
+<script>
+$(".lanren").find(".lrzj").mouseover(function(){
+$(this).removeClass("lrzj").addClass("rank_tab1 lrzj");
+$(this).siblings(".lrzj").removeClass("rank_tab1 lrzj").addClass="lrzj";
+var ectype=$(".rank_tab1").attr("ectype");
+$.ajax({
+type: 'GET',
+dataType: 'json',
+url: "http://www.tpy888.cn/remai_ajax.php?pid="+ectype,
+success: function(data){
+var rm_nums = data.length;
+$(".rank_content").empty();
+for(var i=0;i<rm_nums;i++){
+$('.rank_content').append("<li><a href='http://www.tpy888.cn/extend/redirect-htm-aid-"+data[i].aid+".html' target='_blank' rel='nofollow'><img  src='"+data[i].image_src+"' width='120' height='120' alt='"+data[i].introduce+"' title='"+data[i].introduce+"' /></a><br /><a href='http://www.tpy888.cn/extend/redirect-htm-aid-"+data[i].aid+".html' rel='nofollow'>"+data[i].introduce+"</a><br /><span class='orange'>"+data[i].title+"</span></li>");
+}
+}
+});
+})
+</script>
+<div style=" float:left;">
+<div class="ad3" style="height:80px; overflow:hidden;">
+<a href="http://www.tpy888.cn/extend/redirect.php?aid=2251" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201506/01/17-10-13-23-105112.gif" width="260" height="80" alt="夜狼"></a>
+</div>
+    
+<div class="ad3">
+<a href="http://www.tpy888.cn/extend/redirect.php?aid=2622" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201601/06/17-26-53-35-1.gif" width="660" height="80" alt="宝峰盛"></a>
+</div>
+    <div class="ad4">
+<div style="clear:both;"></div>
+<a href="http://www.tpy888.cn/extend/redirect.php?aid=2375" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201606/06/12-04-14-99-1.jpg" width="260" height="80" alt="慧视"></a>
+</div> 
+</div>
+<div class="clear"></div>  
+<!--paidrank end-->
+<div class="side_d">
+    <div class="sort_a"> 
+         <div class="side_a">
+<!-- //焦点新闻BEGIN mengdj<mengdj@outlook.com 20140516 0955 -->
+<!-- //需引进index.jsnews.css -->
+          <div   class="m tpygg">
+              <div class="mt">
+                  <h2>太平洋公告</h2>
+                  <div class="extra"><a target="_blank" href="http://www.tpy888.cn/announce/" clstag="h|keycount|2015|09a">更多 </a></div>
+              </div>
+              <div >
+                
+                 <ul   class="mc">
+<li clstag="h|keycount|2015|09b1"><a target="_blank" href="http://www.tpy888.cn/news/201805/28/96679.html"><span>['05-28']</span>2018“葵花奖”智能锁评选专家评审团超强阵</a></li>
+                 
+<li clstag="h|keycount|2015|09b2"><a target="_blank" href="http://www.tpy888.cn/news/201805/19/96610.html"><span>['05-19']</span>2018葵花奖考察团赴南京走访——东屋世安及</a></li>
+                 
+<li clstag="h|keycount|2015|09b3"><a target="_blank" href="http://www.tpy888.cn/news/201805/18/96596.html"><span>['05-18']</span>钜士安防登陆新三板表现抢眼，因特小滑盖智</a></li>
+                 
+<li clstag="h|keycount|2015|09b4"><a target="_blank" href="http://www.tpy888.cn/news/201805/17/96586.html"><span>['05-17']</span>王力智能锁为安全而生，步阳云硕进军高端智</a></li>
+                 
+<li clstag="h|keycount|2015|09b5"><a target="_blank" href="http://www.tpy888.cn/news/201805/16/96577.html"><span>['05-16']</span>德施曼销量持续领先，金指码K51众筹破200万</a></li>
+                 
+<li clstag="h|keycount|2015|09b6"><a target="_blank" href="http://www.tpy888.cn/news/201805/15/96567.html"><span>['05-15']</span>三星稳坐智能锁头把交椅，移康主打门锁&智</a></li>
+                 
+<li clstag="h|keycount|2015|09b7"><a target="_blank" href="http://www.tpy888.cn/news/201805/09/96535.html"><span>['05-09']</span>2018建博会葵花奖评选考察团走访Kaadas凯迪</a></li>
+                 
+<li clstag="h|keycount|2015|09b8"><a target="_blank" href="http://www.tpy888.cn/news/201805/07/96516.html"><span>['05-07']</span>太平洋安防随2018中国建博葵花奖智能锁评选</a></li>
+                 
+<li clstag="h|keycount|2015|09b9"><a target="_blank" href="http://www.tpy888.cn/news/201804/20/96437.html"><span>['04-20']</span>2018葵花奖 | 中国建博葵花奖智能锁评选考</a></li>
+                 
+<li clstag="h|keycount|2015|09b10"><a target="_blank" href="http://www.tpy888.cn/news/201804/20/96436.html"><span>['04-20']</span>2018葵花奖 | 中国建博葵花奖智能锁评选考</a></li>
+                 
+<li clstag="h|keycount|2015|09b11"><a target="_blank" href="http://www.tpy888.cn/news/201804/20/96435.html"><span>['04-20']</span>2018葵花奖 | 中国建博葵花奖智能锁评选考</a></li>
+                 
+<li clstag="h|keycount|2015|09b12"><a target="_blank" href="http://www.tpy888.cn/news/201804/19/96412.html"><span>['04-19']</span>汇泰龙、智家人、黑龙，这几企业最近为何这</a></li>
+                 
+              </ul>
+              </div>
+      </div>      
+                
+                
+                
+                  <!-- //底部广告 -->
+                   <div class="ad" style="height:80px; overflow:hidden;">    
+                    <a href="http://www.tpy888.cn/extend/redirect.php?aid=2905" target="_blank"><img src="http://img.tpy888.cn/upload/201707/05/17-00-57-34-1.gif" width="260" height="80" alt=""/></a>    
+                  </div>
+                  <div class="ad" style="height:80px; overflow:hidden;">    
+                    <a href="http://www.tpy888.cn/extend/redirect.php?aid=3011" target="_blank"><img src="http://img.tpy888.cn/upload/201805/18/18-31-09-79-159711.gif" width="260" height="80" alt=""/></a>    
+                  </div>
+                  <div class="ad" style="height:80px; overflow:hidden;">    
+                     <a href="http://www.tpy888.cn/extend/redirect.php?aid=2240" target="_blank"><img src="http://img.tpy888.cn/upload/201709/05/15-28-44-46-1.gif" width="260" height="80" alt=""/></a>  
+                  </div>
+                
+       </div> <!--  /.side_a  end  -->
+    </div>  <!-- /.sort_a end -->
+      
+    <div class="sort_b">    
+        <div class="side_b">
+<!-- //焦点新闻BEGIN mengdj<mengdj@outlook.com 20140516 0955 -->
+                <div class="spotnews_b">
+                    <div class="wzpad">
+                        <div class="sp_tit_b">
+                                <div class="hdwz">
+<!--专题轮播图-->
+  
+<div id="lb_banner">
+    <div id="lb_banner_bg"><div id="lb_banner_info"></div></div>  <!--标题背景-->
+    <ul>
+        <li class="on">1</li>
+    <li >2</li>
+    <li >3</li>
+    </ul>
+    <div id="lb_banner_list">
+            <a href="http://www.tpy888.cn/special/2018anfang/" target="_blank"><img src="http://img.tpy888.cn/upload/201804/04/17-38-27-59-152046.jpg" alt="2018太平洋安防全国巡展" /></a>
+        <a href="http://www.tpy888.cn/shukan/list.php" target="_blank"><img src="http://img.tpy888.cn/upload/201606/07/11-44-29-38-1.jpg" alt="电子杂志" /></a>
+        <a href="http://www.tpy888.cn/shukan/" target="_blank"><img src="http://img.tpy888.cn/upload/201703/30/16-08-32-23-1.jpg" alt="太平洋安防杂志" /></a>
+    </div>
+</div>
+<!--end专题轮播图-->
+</div> <!--    /.hdwz   end-->
+<div class="hdtp_a">   <a href="http://www.tpy888.cn/special/2018anfang/" target="_blank">
+   <img class="lazy" src="" data-original="http://img.tpy888.cn/public/zs.jpg"  width="200" height="80" alt="安防招商"/>
+   </a>  
+</div>
+<div class="hdtp_b">   <a href="http://www.tpy888.cn/shukan/list.php" target="_blank">
+   <img class="lazy" src="" data-original="http://img.tpy888.cn/public/dzzz.jpg"  width="200" height="80" alt="安防杂志"/>
+   </a>  
+</div>
+<div class="hdtp_c">   <a href="http://www.tpy888.cn/shukan/" target="_blank">
+   <img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/public/zzsk.jpg"  width="200" height="80" alt="太平洋安防"/>
+   </a>  
+</div>
+  
+   
+                                <div class="clear"></div>
+                        </div><!--  /.sp_tit_b   end   -->
+                       
+                       
+                    </div>  <!--  /.wzpad   -->  
+                </div>  <!-- /.spotnews_b  end   -->
+                <div class="clear"></div>
+                  <!-- //底部广告 -->
+                  <div style="height:80px; margin-bottom:10px; background:#aacbee;" class="nead">
+                        <a href="http://www.tpy888.cn/extend/redirect.php?aid=3010" target="_blank"><img src="http://img.tpy888.cn/upload/201805/18/11-18-11-42-1.jpg" width="660" height="80" alt=""/></a>                </div>
+                  <!-- //底部广告  end -->          
+       </div> <!--  /.side_b  end  -->
+    </div><!-- /.sort_b end -->  
+    <div class="clear"></div>
+</div><!--side_d end-->
+<!--新锐企业-->
+<div class="side_e">    
+      <div class="vip_a">
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2267.html" target="_blank" rel='nofollow' class='vip_top1'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201707/06/14-14-12-36-1.jpg" width="102" height="46" alt="慧视电子" title="慧视电子"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2973.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201803/29/10-54-55-40-1.jpg" width="102" height="46" alt="百瑞金属制品" title="百瑞金属制品"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2979.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/02/11-33-55-23-1.jpg" width="102" height="46" alt="智天铭仕" title="智天铭仕"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2977.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201803/30/11-23-48-82-1.jpg" width="102" height="46" alt="领越防爆" title="领越防爆"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2272.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201709/27/09-48-55-94-1.jpg" width="102" height="46" alt="莫格电气" title="莫格电气"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2262.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201703/27/16-26-12-78-1.png" width="102" height="46" alt="倍润视通" title="倍润视通"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2266.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201706/28/13-32-49-54-1.jpg" width="102" height="46" alt="艾德视界" title="艾德视界"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2270.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201506/02/10-22-58-25-1.jpg" width="102" height="46" alt="桌立机电" title="桌立机电"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2265.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201706/28/11-59-39-41-1.jpg" width="102" height="46" alt="视佳达" title="视佳达"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2269.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201705/16/16-18-13-71-1.jpg" width="102" height="46" alt="库尔光电" title="库尔光电"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2832.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201611/14/10-32-42-63-1.jpg" width="102" height="46" alt="富安泽" title="富安泽"></a>
+ 
+  </div><!-- /vip_a end  -->
+     <div class="vip_gg">
+               <div class="ad" style="height:80px; overflow:hidden;">    
+                <a href="http://www.tpy888.cn/extend/redirect.php?aid=2259" target="_blank"><img src="http://img.tpy888.cn/upload/201708/04/17-50-56-81-1.jpg" width="260" height="80" alt=""/></a>   
+              </div>
+              <div class="ad" style="height:80px; overflow:hidden;">    
+                 <a href="http://www.tpy888.cn/extend/redirect.php?aid=2296" target="_blank"><img src="http://img.tpy888.cn/upload/201506/01/15-33-15-94-1.jpg" width="260" height="80" alt=""/></a>     
+              </div>
+              <div class="ad" style="height:80px; overflow:hidden;">    
+                <a href="http://www.tpy888.cn/extend/redirect.php?aid=2791" target="_blank"><img src="http://img.tpy888.cn/upload/201604/15/15-53-47-40-1.jpg" width="260" height="80" alt=""/></a>  
+              </div>
+     </div> <!--  /.vip_gg  end   -->
+        
+  
+        <div class="clear"></div>
+    </div> <!-- /.side_e end  -->
+</div>
+<div class="clear"></div>
+<!--side_e end-->
+<!--ad_main end-->
+<!--  产品分类  -->
+<div class="side_n">
+<div class="side_fl">
+<div class="pro_sort">安防产品分类</div>
+    <div class="sort_fl_a">
+    <h3><span><a href="sell/1/" target="_blank">视频监控</a></span></h3><div class="pro_small">
+<!--  <a href="http://www.tpy888.cn/extend/redirect-htm-aid-315.html" target="_blank" rel="nofollow"><img src="http://img.tpy888.cn/upload/201011/09/10-35-24-19-6031.jpg.thumb.jpg" width="23" height="23" alt=""/></a>  -->
+<a href="http://www.tpy888.cn/extend/redirect.php?aid=317" target="_blank"><img src="http://www.tpy888.cn/images/index/gaosuqiu.jpg" width="23" height="23" alt="高速球"/></a><a href="http://www.tpy888.cn/extend/redirect.php?aid=1804" target="_blank"><img src="http://img.tpy888.cn/upload/201409/11/14-21-02-74-1.jpg" width="23" height="23" alt="透镜"/></a> 
+</div>
+       <div class="clear"></div>
+        <a class="red"  href="http://www.tpy888.cn/sell/list-839.html">红外摄像机</a><a href="http://www.tpy888.cn/sell/list-128.html">摄像机镜头</a><a href="http://www.tpy888.cn/sell/list-112.html">监控硬盘</a><a class="red" href="http://www.tpy888.cn/sell/list-127.html">普通监控摄像机</a><a href="http://www.tpy888.cn/sell/list-869.html">半球摄像机</a><br clear="all" /> 
+        <a href="http://www.tpy888.cn/sell/list-111.html">硬盘录像机</a><a href="http://www.tpy888.cn/sell/list-122.html">监控主机</a><a href="http://www.tpy888.cn/sell/list-129.html">智能球型摄像机</a><a class="red" href="http://www.tpy888.cn/sell/list-840.html">网络摄像机</a><a href="http://www.tpy888.cn/sell/list-238.html">监控器支架</a><br clear="all" />
+        <a href="http://www.tpy888.cn/sell/list-125.html">监控云台</a><a href="http://www.tpy888.cn/sell/list-125.html">激光夜视摄像机</a><a href="http://www.tpy888.cn/sell/list-233.html">摄像机外壳</a><a href="http://www.tpy888.cn/sell/list-834.html">车载录像机</a><a href="http://www.tpy888.cn/sell/list-107.html">磁盘阵列</a><br clear="all" />  
+        <a href="http://www.tpy888.cn/sell/list-126.html">网络视频服务器</a> <a href="http://www.tpy888.cn/sell/list-237.html">摄像机护罩</a><a href="http://www.tpy888.cn/sell/list-121.html">画面分割器</a><a href="http://www.tpy888.cn/sell/list-291.html">热成像仪</a><a href="http://www.tpy888.cn/sell/list-874.html">监控工具/配件</a><br clear="all" /> 
+        <a href="http://www.tpy888.cn/sell/list-101.html">网络发送器</a><a href="http://www.tpy888.cn/sell/list-105.html">视频采集卡</a><a href="http://www.tpy888.cn/sell/list-100.html">码转换器</a><a href="http://www.tpy888.cn/sell/list-239.html">红外灯/白光灯</a><a href="http://www.tpy888.cn/sell/list-124.html">矩阵切换器</a><br clear="all" />  
+        <a href="http://www.tpy888.cn/sell/list-123.html">画面处理器</a><a href="http://www.tpy888.cn/sell/list-870.html">3G摄像机</a><a href="http://www.tpy888.cn/sell/list-113.html">CCD/CMOS板机</a><a href="http://www.tpy888.cn/sell/list-868.html">白光灯摄像机</a><a href="http://www.tpy888.cn/sell/list-830.html">监控显示设备</a><br clear="all" />  
+        <a href="http://www.tpy888.cn/sell/list-872.html">视频分配器</a><a href="http://www.tpy888.cn/sell/list-104.html">光端机</a><a href="http://www.tpy888.cn/sell/list-871.html">视频监控软件</a><a href="http://www.tpy888.cn/sell/list-108.html">监控音视频卡</a><a href="http://www.tpy888.cn/sell/list-99.html">RS中继集线器</a><br clear="all" />  
+        <a href="http://www.tpy888.cn/sell/list-110.html">拾音器</a><a href="http://www.tpy888.cn/sell/list-106.html">编码器/解码器</a><a href="http://www.tpy888.cn/sell/list-103.html">无线传输系统</a><a href="http://www.tpy888.cn/sell/list-119.html">数字视频远程监控</a><a href="http://www.tpy888.cn/sell/list-114.html">其他监控设备</a><br clear="all" />    
+        <h3><span><a href="http://www.tpy888.cn/sell/list-775.html" target="_blank">楼宇对讲</a></span></h3>
+        <div class="pro_small">
+</div><div class="clear"></div>
+        <a href="http://www.tpy888.cn/sell/list-105.html">对讲设备主机</a><a href="http://www.tpy888.cn/sell/list-241.html">非可视对讲</a><a href="http://www.tpy888.cn/sell/list-240.html">可视对讲</a><a href="http://www.tpy888.cn/sell/list-709.html">车载台</a><br clear="all" />       
+        <a href="http://www.tpy888.cn/sell/list-156.html">对讲设备分机</a><a href="http://www.tpy888.cn/sell/list-340.html">手持对讲机</a><a href="http://www.tpy888.cn/sell/list-242.html">其他楼宇对讲设备</a><br clear="all" />
+        <a href="http://www.tpy888.cn/sell/list-867.html">楼宇对讲系统</a><a href="http://www.tpy888.cn/sell/list-707.html">对讲机配件</a><br clear="all" />
+        <h3><span><a href="http://www.tpy888.cn/sell/list-711.html" target="_blank">智能家居</a></span></h3>
+        <div class="pro_small">
+</div><div class="clear"></div>
+        <a href="http://www.tpy888.cn/sell/list-804.html">智能厨房</a><a href="http://www.tpy888.cn/sell/list-118.html">小区智能化</a><a href="http://www.tpy888.cn/sell/list-809.html">防火门</a><a href="http://www.tpy888.cn/sell/list-814.html">无线门铃</a><a href="http://www.tpy888.cn/sell/list-816.html">无线摄像机</a><br clear="all" />       
+        <a href="http://www.tpy888.cn/sell/list-802.html">智能照明</a><a href="http://www.tpy888.cn/sell/list-808.html">可视电话机</a><a href="http://www.tpy888.cn/sell/list-810.html">智能锁</a><a href="http://www.tpy888.cn/sell/list-813.html">可视门铃/电子猫眼</a><br clear="all" />
+        <a href="http://www.tpy888.cn/sell/list-812.html">电动窗帘</a><a href="http://www.tpy888.cn/sell/list-811.html">隐形防护网</a><a href="http://www.tpy888.cn/sell/list-819.html">家庭防盗系统</a><a href="http://www.tpy888.cn/sell/list-815.html">其他智能家居</a><br clear="all" />
+        <h3><span><a href="http://www.tpy888.cn/sell/list-4.html" target="_blank">安检排爆</a></span></h3>
+        <div class="pro_small">
+        </div><div class="clear"></div>
+        <a class="red" href="http://www.tpy888.cn/sell/list-177.html">安检门</a><a href="http://www.tpy888.cn/sell/list-821.html">安检X光机</a><a href="http://www.tpy888.cn/sell/list-178.html">排弹防爆</a><a href="http://www.tpy888.cn/sell/list-176.html">安检探测器</a><a href="http://www.tpy888.cn/sell/list-179.html">防爆车</a><a href="http://www.tpy888.cn/sell/list-278.html">其他</a><br clear="all" />        
+        <h3><span><a href="http://www.tpy888.cn/sell/list-12.html" target="_blank">安防配件</a></span></h3>
+        <div class="pro_small">
+ </div><div class="clear"></div>
+        <a href="http://www.tpy888.cn/sell/list-224.html">电线</a><a class="red" href="http://www.tpy888.cn/sell/list-226.html">开关电源</a><a href="http://www.tpy888.cn/sell/list-228.html">电视墙</a><a href="http://www.tpy888.cn/sell/list-229.html">非标机箱</a><a href="http://www.tpy888.cn/sell/list-231.html">其他配件</a><br clear="all" />       
+        <a href="http://www.tpy888.cn/sell/list-225.html">电缆</a><a href="http://www.tpy888.cn/sell/list-227.html">网络机柜</a><a href="http://www.tpy888.cn/sell/list-232.html">控制台</a><a href="http://www.tpy888.cn/sell/list-230.html">非标机柜</a><a href="http://www.tpy888.cn/sell/list-98.html">RS双绞线</a><br clear="all" />
+        <a href="http://www.tpy888.cn/sell/list-102.html">同轴电缆传输设备</a><a href="http://www.tpy888.cn/sell/list-876.html">其他安防配件</a><br clear="all" />
+        <h3><span><a href="http://www.tpy888.cn/sell/list-8.html" target="_blank">公共广播</a></span></h3>
+        <div class="pro_small">
+        </div><div class="clear"></div>
+        <a href="http://www.tpy888.cn/sell/list-196.html">扬声器</a><a href="http://www.tpy888.cn/sell/list-197.html">音箱</a><a href="http://www.tpy888.cn/sell/list-200.html">播放器</a><a href="http://www.tpy888.cn/sell/list-307.html">功放</a><a href="http://www.tpy888.cn/sell/list-308.html">背景音乐系统</a><br clear="all" />
+        <a href="http://www.tpy888.cn/sell/list-198.html">调节器</a><a href="http://www.tpy888.cn/sell/list-199.html">音柱</a><a href="http://www.tpy888.cn/sell/list-201.html">放大器</a><a href="http://www.tpy888.cn/sell/list-309.html">其他公共广播系统</a><br clear="all" />       
+</div>    
+    <div class="sort_fl_b">    
+    <h3><span><a href="http://www.tpy888.cn/sell/list-2.html" target="_blank">防盗报警</a></span></h3><div class="pro_small">
+        </div><div class="clear"></div>
+        <a  class="red" href="http://www.tpy888.cn/sell/list-674.html">气感探测报警器</a><a href="http://www.tpy888.cn/sell/list-675.html">电子围栏</a><a href="http://www.tpy888.cn/sell/list-134.html">无线遥控器</a><a href="http://www.tpy888.cn/sell/list-348.html">周界防范系统</a> <a href="http://www.tpy888.cn/sell/list-142.html">防盗报警器主机</a><br clear="all" /> 
+        <a href="http://www.tpy888.cn/sell/list-820.html">防盗锁具</a><a href="http://www.tpy888.cn/sell/list-140.html">个人报警器</a><a href="http://www.tpy888.cn/sell/list-818.html">电话报警设备</a><a href="http://www.tpy888.cn/sell/list-143.html">红外探测报警器</a><a href="http://www.tpy888.cn/sell/list-136.html">按钮开关</a><br clear="all" /> 
+        <a href="http://www.tpy888.cn/sell/list-249.html">门磁及窗磁</a><a href="http://www.tpy888.cn/sell/list-247.html">保险柜</a><a href="http://www.tpy888.cn/sell/list-885.html">警示灯</a><a class="red" href="http://www.tpy888.cn/sell/list-135.html">烟感探测报警器</a><a href="http://www.tpy888.cn/sell/list-139.html">集成防盗报警系统</a><br clear="all" /> 
+        <a href="http://www.tpy888.cn/sell/list-137.html">喇叭</a><a href="http://www.tpy888.cn/sell/list-248.html">其他防盗报警</a><br clear="all" /> 
+     <h3><span><a href="http://www.tpy888.cn/sell/list-3.html" target="_blank">门禁考勤</a></span></h3><div class="pro_small">
+</div><div class="clear"></div>
+        <a class="red" href="http://www.tpy888.cn/sell/list-174.html">门禁控制器</a><a href="http://www.tpy888.cn/sell/list-154.html">感应式读卡器</a><a href="http://www.tpy888.cn/sell/list-158.html">智能卡</a><a href="http://www.tpy888.cn/sell/list-150.html">电插锁</a><a href="http://www.tpy888.cn/sell/list-877.html">消费机</a><a href="http://www.tpy888.cn/sell/list-169.html">指纹采集仪</a><a href="http://www.tpy888.cn/sell/list-167.html">考勤机</a><br clear="all" />       
+        <a href="http://www.tpy888.cn/sell/list-246.html">其它门禁设备</a><a href="http://www.tpy888.cn/sell/list-151.html">磁力锁</a><a href="http://www.tpy888.cn/sell/list-166.html">三辊闸</a><a href="http://www.tpy888.cn/sell/list-243.html">门铃</a><a href="http://www.tpy888.cn/sell/list-168.html">门禁读卡器</a><a href="http://www.tpy888.cn/sell/list-152.html">电子巡更系统</a><a href="http://www.tpy888.cn/sell/list-160.html">射频卡</a><br clear="all" />
+        <a href="http://www.tpy888.cn/sell/list-149.html">阴极锁</a><a href="http://www.tpy888.cn/sell/list-161.html">磁条卡</a><a href="http://www.tpy888.cn/sell/list-162.html">IC卡</a><a href="http://www.tpy888.cn/sell/list-147.html">锁具及配件</a><a href="http://www.tpy888.cn/sell/list-173.html">开门器/闭门器</a><a href="http://www.tpy888.cn/sell/list-165.html">一卡通管理系统</a><a href="http://www.tpy888.cn/sell/list-148.html">电锁支架</a><br clear="all" />
+        <h3><span><a href="http://www.tpy888.cn/sell/list-11.html" target="_blank">智能交通</a></span></h3><div class="pro_small">
+        </div><div class="clear"></div>
+        <a href="http://www.tpy888.cn/sell/list-115.html">电子警察</a><a href="http://www.tpy888.cn/sell/list-117.html">超速抓拍系统</a><a href="http://www.tpy888.cn/sell/list-265.html">信号控制器</a><a href="http://www.tpy888.cn/sell/list-273.html">测距仪</a><a href="http://www.tpy888.cn/sell/list-251.html">指挥设备</a><a href="http://www.tpy888.cn/sell/list-258.html">电子路牌</a><br clear="all" />  
+        <a href="http://www.tpy888.cn/sell/list-216.html">电子显示站牌</a><a href="http://www.tpy888.cn/sell/list-266.html">警示灯</a><a href="http://www.tpy888.cn/sell/list-220.html">车位锁</a><a href="http://www.tpy888.cn/sell/list-259.html">安全标志</a><a href="http://www.tpy888.cn/sell/list-120.html">车牌识别</a><a class="red" href="http://www.tpy888.cn/sell/list-215.html">停车收费系统</a><br clear="all" />
+        <a href="http://www.tpy888.cn/sell/list-300.html">测速仪</a><a href="http://www.tpy888.cn/sell/list-223.html">挡车器</a><a href="http://www.tpy888.cn/sell/list-263.html">信号系统</a><a href="http://www.tpy888.cn/sell/list-250.html">防撞设施</a><a href="http://www.tpy888.cn/sell/list-218.html">公交调度系统</a><a href="http://www.tpy888.cn/sell/list-212.html">车辆导航仪</a><br clear="all" />
+        <a href="http://www.tpy888.cn/sell/list-257.html">防眩板</a><a href="http://www.tpy888.cn/sell/list-264.html">控制软件</a><a href="http://www.tpy888.cn/sell/list-275.html">道路检测</a><a href="http://www.tpy888.cn/sell/list-253.html">道路减速设备</a><a href="http://www.tpy888.cn/sell/list-271.html">车辆检测器</a><a href="http://www.tpy888.cn/sell/list-268.html">称重仪</a><br clear="all" />
+        <a href="http://www.tpy888.cn/sell/list-267.html">通信设备</a><a href="http://www.tpy888.cn/sell/list-265.html">路障</a><a href="http://www.tpy888.cn/sell/list-254.html">路锥</a><a href="http://www.tpy888.cn/sell/list-256.html">道钉</a><a href="http://www.tpy888.cn/sell/list-209.html">GPS定位导航</a><a href="http://www.tpy888.cn/sell/list-217.html">公交车辆报站器</a><a href="http://www.tpy888.cn/sell/list-221.html">停车场设备</a><br clear="all" />
+        <a href="http://www.tpy888.cn/sell/list-277.html">其他</a><br clear="all" />              
+        <h3><span><a href="http://www.tpy888.cn/sell/list-10.html" target="_blank">生物识别</a></span></h3><div class="pro_small">
+        </div><div class="clear"></div>
+        <a href="http://www.tpy888.cn/sell/list-287.html">人脸识别</a><a href="http://www.tpy888.cn/sell/list-282.html">指纹识别</a><a href="http://www.tpy888.cn/sell/list-288.html">痕迹记录</a><a href="http://www.tpy888.cn/sell/list-284.html">声音识别</a><a href="http://www.tpy888.cn/sell/list-286.html">掌纹识别</a><a href="http://www.tpy888.cn/sell/list-283.html">虹膜识别</a><a href="http://www.tpy888.cn/sell/list-285.html">其它识别技术</a><br clear="all" />
+        <h3><span><a href="http://www.tpy888.cn/sell/list-5.html" target="_blank">防护装备</a></span></h3><div class="pro_small">
+</div><div class="clear"></div>
+        <a href="http://www.tpy888.cn/sell/list-181.html">防护服</a><a href="http://www.tpy888.cn/sell/list-185.html">防护鞋</a><a href="http://www.tpy888.cn/sell/list-186.html">安全网</a><a href="http://www.tpy888.cn/sell/list-190.html">安全带</a><a href="http://www.tpy888.cn/sell/list-184.html">防护眼镜及眼罩</a><br clear="all" />       
+        <a href="http://www.tpy888.cn/sell/list-182.html">防护帽</a><a href="http://www.tpy888.cn/sell/list-188.html">逃生梯</a><a href="http://www.tpy888.cn/sell/list-189.html">安全绳</a><a href="http://www.tpy888.cn/sell/list-183.html">防护手套</a><a href="http://www.tpy888.cn/sell/list-187.html">其他作业保护</a><br clear="all" />
+        <h3><span><a href="http://www.tpy888.cn/sell/list-14.html" target="_blank">信息安全</a></span></h3><div class="pro_small"> 
+        </div><div class="clear"></div>
+        <a href="http://www.tpy888.cn/sell/list-315.html">网络信息安全</a><a href="http://www.tpy888.cn/sell/list-316.html">计算机信息安全</a><a href="http://www.tpy888.cn/sell/list-317.html">其他信息安全</a><br clear="all" /> 
+        <h3><span><a href="http://www.tpy888.cn/sell/list-6.html" target="_blank">防雷防静电</a></span></h3><div class="pro_small">
+        </div><div class="clear"></div>
+        <a href="http://www.tpy888.cn/sell/list-191.html">防雷监测仪</a><a href="http://www.tpy888.cn/sell/list-192.html">防雷箱</a><a href="http://www.tpy888.cn/sell/list-193.html">防雷器</a><a href="http://www.tpy888.cn/sell/list-825.html">防静电</a><a href="http://www.tpy888.cn/sell/list-310.html">其他防雷电</a><br clear="all" />     
+</div>
+</div> <!--  /.side_fl end  -->
+    <div class="clear"></div>
+    <!--产品分类 底部广告-->
+    <div style="height:105px;" class="nead">
+        <a href="http://www.tpy888.cn/extend/redirect.php?aid=2260" target="_blank"><img src="http://img.tpy888.cn/upload/201506/01/17-22-05-35-105112.jpg" width="930" height="104" alt=""/></a>   </div><!--产品分类 底部广告   end-->
+</div><!--  /.side_n end -->
+<!-- 产品分类 end  -->
+    
+<!--产品分类旁边广告-->
+ <div class="side_e">    
+      <div class="vip_b">    
+       
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-3029.html" target="_blank" rel='nofollow' class='vip_top1'><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201803/20/16-40-29-31-1.png" width="102" height="46" alt="联硕光电" title="联硕光电"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2933.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201712/01/15-45-35-28-1.jpg" width="102" height="46" alt="青岛路博" title="青岛路博"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2996.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/28/09-45-40-15-1.jpg" width="102" height="46" alt="金视天创" title="金视天创"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2991.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/26/14-46-02-55-152889.jpg" width="102" height="46" alt="品悦通信" title="品悦通信"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-3016.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201805/23/16-26-44-18-159812.jpg" width="102" height="46" alt="豫工机械" title="豫工机械"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2989.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/19/16-51-48-64-152046.jpg" width="102" height="46" alt="泽创电子" title="泽创电子"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-3014.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201805/22/17-49-43-44-151555.jpg" width="102" height="46" alt="通品通信" title="通品通信"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-3013.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201805/22/14-21-53-67-159784.jpg" width="102" height="46" alt="西邦广播" title="西邦广播"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-3003.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201805/08/12-08-17-31-1.jpg" width="102" height="46" alt="诺维鑫光电" title="诺维鑫光电"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2986.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/18/16-09-08-36-1.jpg" width="102" height="46" alt="豹罗实业" title="豹罗实业"></a>
+      
+     <a href="http://www.tpy888.cn/extend/redirect-htm-aid-3030.html" target="_blank" rel='nofollow' ><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201807/06/17-29-42-25-160609.jpg" width="102" height="46" alt="长欣自动化设备" title="长欣自动化设备"></a>
+ 
+ 
+  </div><!-- /vip_b end  -->
+<a href="http://www.tpy888.cn/extend/redirect.php?aid=2304" target="_blank"><img src="http://img.tpy888.cn/upload/201506/08/11-42-36-12-103405.gif" width="260" height="76" alt=""/></a> 
+  <div class="user_commend" style="border: 1px solid #cc0000;padding: 0px 10px;margin-top: 10px;margin-bottom: 10px;height: 360px;">
+    <h2 style="font-size: 12px;padding: 4px 0px 12px;float: left;color: #fff;">用户推荐</h2>
+    <a href="sell/" target="_blank" class="product_lay_more" rel="nofollow">更多</a>
+    <div class="clear"></div>
+    <div>
+<ul class="tj_con">
+    <li>
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-1786.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201511/18/15-45-20-92-1.jpg" width="72" height="70" alt="狮安联讯" /></a><br />硬盘录像机<br /><span class="orange">狮安联讯</span>
+    </li> 
+    <li>
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2615.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201601/06/18-01-39-52-98038.jpg" width="72" height="70" alt="加尼鹰" /></a><br />车载显示器<br /><span class="orange">加尼鹰</span>
+    </li> 
+    <li>
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-1802.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201408/08/16-19-12-41-1.jpg" width="72" height="70" alt="沃仕达" /></a><br />监控摄像头<br /><span class="orange">沃仕达</span>
+    </li> 
+    <li>
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-244.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201709/01/17-10-02-47-1.jpg" width="72" height="70" alt="惠智普(Hzp)" /></a><br />消防喇叭<br /><span class="orange">惠智普(Hzp)</span>
+    </li> 
+    <li>
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-633.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201112/29/15-06-11-89-55674.jpg" width="72" height="70" alt="深圳市华创时代科技有限公司" /></a><br />嵌入式DVR<br /><span class="orange">华创时代</span>
+    </li> 
+    <li>
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2564.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201511/19/15-51-58-91-1.jpg" width="72" height="70" alt="富力威视  " /></a><br />网络摄像机线<br /><span class="orange">富力威视</span>
+    </li> 
+    <li>
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-1174.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201306/14/14-27-35-37-55674.jpg" width="72" height="70" alt="荣鑫视讯" /></a><br />网络摄像机<br /><span class="orange">荣鑫视讯</span>
+    </li> 
+    <li>
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-1718.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201405/26/14-52-34-62-1.jpg" width="72" height="70" alt="" /></a><br />监控摄像机<br /><span class="orange">宝士利</span>
+    </li> 
+    <li>
+    <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2316.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201506/16/13-40-31-31-1.jpg" width="72" height="70" alt="科视宝" /></a><br />拾音器  <br /><span class="orange">科视宝</span>
+    </li> 
+</ul>
+ 
+ 
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="clear"></div>
+<!-- 广告图片  -->
+<div class="ad_all">
+<a href="http://www.tpy888.cn/extend/redirect.php?aid=2962" target="_blank"><img src="http://img.tpy888.cn/upload/201803/20/11-19-46-98-1.jpg" width="1200" height="80" alt=""/></a></div>
+<!-- 广告图片 end -->
+<div class="clear"></div>
+<!-- 太平洋安防装机攻略 -->
+<div class="anzhuang_left">
+   <div class="anzhuang_left_tetil"> 太平洋安防英文杂志</div>
+   <div class="anzhuang_left_concent">
+       <div class="anzhuang_left_concent_tp">
+           <a href="http://www.tpy888.cn/shukan/eng.html" title="太平洋英文杂志"><img src="http://img.tpy888.cn/public/17-36-13-49-2.jpg" alt="太平洋英文杂志" width="120px" height="158px" /></a>
+       </div>
+       <div class="anzhuang_left_concent_wz">
+            <strong><a href="http://www.tpy888.cn/shukan/eng.html">《太平洋安防英文杂志》</a></strong>是全球拥有最大的专业安防产品交易中心以及强大影响力和传播公信力中国安防行业覆盖最广的专业媒体——太平洋安防网为了全球巡展而专门设立发行的专业性杂志！杂志全面聚焦各类安防热门产品、解读经营经理、剖析技术应用以及行业走势分析、让您不出门就能全面了解安防应用市场、实时掌握行业动态、把握行业趋势造就新态势！
+       </div>
+   </div>
+</div>
+<!-- 太平洋安防装机攻略  end-->
+<!--  电子期刊     -->
+<div class="tab">
+    <div class="tab_title"><div style="float:left;" >电子期刊</div><a href="http://www.tpy888.cn/shukan/list.php" target="_blank" rel="nofollow">更多</a></div>
+    <div class="clear"></div>
+    <ul id="tab_ul1" class="tab1"> 
+        <li class="tab1_tp">
+            <a href="/shukan/" title="2018期4月 " target="_blank"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/27/10-34-14-72-1.jpg.thumb.jpg" width="120" height="160" alt="安防杂志" /></a>
+        </li>
+        <li class="tab1_wz">
+            <div class="right1_booktext">
+                     <div class="right1_booktext_span">No.100/2018期4月 </div>
+  《太平洋安防》杂志是结合太平洋安防专业市场作为全国乃至亚洲地区安防产品采购中心的地理优势，针对采购商、工程商推出的一本月刊形式的采购指南，集中有效的将第一手安防产品信息送到采购商手中。杂志定位为"全方位安防产品采购指南"，于2009年1月创刊，经过近几年的发展，在内容和设计上有很大的提升，加之大力发行，是企业塑造品牌、推广产品的绝佳平台。 合作空间：平面广告、公司新闻、软文发布；网站公司新闻、软文发布；太平洋安防组织的论坛、评选活动...
+                      <div class="book_btn" style="padding-top: 20px;">
+                         <a href="/shukan/show.php?itemid=173" target="_blank" class="book_green_read">立即阅读</a>
+                         <a href="/shukan/demand.php" class="book_org">免费索阅</a> 
+                         <a href="http://www.tpy888.cn/down/201804/25/766.html" class="book_green" target="_blank">exe版</a>                      </div>            
+             </div>         
+             <div class="clear"></div>
+        </li>
+    </ul> 
+      
+    <ul  id="tab_ul2" class="tab2"> 
+        <li class="tab2_wz">
+            <div class="right1_booktext">
+                     <!--<div class="right1_booktext_span">No.67/2015期4月(上) </div>-->
+                     <strong>《安防装机攻略》</strong>是太平洋安防结合太平洋安防专业市场独有优势，创办的一本集"技术、技巧、实用、实惠、实在"于一体的安防攻略型杂志。杂志定位为：做安防装机人自己的杂志!杂志主要服务群体包括：太平洋安防商户、中小安防
+企业（包括配件和整机厂家）、工程商等。杂志内容紧密围绕安防产品生产链条设置:"新闻资讯"、"配件秀"（产品）、"装机达人"......
+                     <!-- <div class="book_btn" style="padding-top: 20px;">
+                         <a href="#" target="_blank" class="book_green_read">立即阅读</a>
+                         <a href="#" class="book_org">免费索阅</a> 
+                         <a href="#" class="book_green" target="_blank">exe版</a>            
+                      </div> 
+  -->
+             </div>         
+             <div class="clear"></div>
+        </li>
+        <li class="tab2_tp">
+            <a href="#" title="2015年67期/2015期4月(上) " target="_blank"><img src="image/17-36-13-49-2.jpg"  width="120" height="160" alt="安防杂志"/></a>
+        </li>
+    </ul>
+<!--暂时取消装机攻略带英文杂志
+    <p> 
+        <span id="tab1">《太平洋安防》</span> 
+        <span id="tab2">《安防装机攻略》</span> 
+    </p>
+-->
+</div>
+<script type="text/javascript"> 
+$(document).ready(function() { 
+    $(".tab ul:not(:first)").hide(); //隐藏其它的UL 
+    $("#tab1").mouseover(function () {
+        $("#tab_ul2").hide();
+        $("#tab_ul1").show();
+    });
+    $("#tab2").mouseover(function () {
+        $("#tab_ul1").hide();
+        $("#tab_ul2").show();
+       
+    });
+}); 
+</script> 
+<!--  电子期刊     end -->
+<div class="clear"></div>
+<!-- 广告图片  -->
+<div style="margin-top:20px;"></div>
+<!-- 广告图片 end -->
+<div class="clear"></div>
+<!-- 人物专访  -->
+<div class="interview">
+        <div class="interview_title"><div style="float:left">人物专访</div><a href="#" target="_blank" class="gd" ></a></div>
+        <div class="interview_content">
+            <ul> 
+                <li class="rwzf"> 
+                      <div class="tite_box"><a href="http://www.tpy888.cn/news/201801/09/95514.html">揭秘英特尔芯片漏洞发现内幕：太大以至于不敢相信</a></div>
+                      <div class="rwzf-box">
+                             <a href="http://www.tpy888.cn/news/201801/09/95514.html" target="_blank" ><img class="lazy" src="" data-original="http://img.tpy888.cn/upload/201801/09/10-26-00-50-149800.jpg" width="144" height="80" alt="揭秘英特尔芯片漏洞发现内幕：太大以至于不敢相信" /></a>
+                             <p >据彭博社北京时间1月9日报道，近期曝光的“融化”(Meltdown)和“幽灵”(Spectre)芯片漏洞令行业震惊。其实，早在2005年，研究人员就开始讨论芯片的安全弱点。随后，不断有研究人员发现英特尔芯片的内核存在安全隐患。不过，一些研究人员认为，这一漏洞很明显，英特尔在测试中就能发现，不可能会被用于攻击中。在得知芯片漏洞后，英特尔与微软公司、谷歌公司等大型科技公司合作，花费了几个月时间秘密开发更新修复漏洞，最终才公布。 </p>
+                      </div>
+                </li>
+                <li class="rwzf"> 
+                      <div class="tite_box"><a href="http://www.tpy888.cn/news/201710/25/94660.html">夹缝求生  防盗报警路在何方?</a></div>
+                      <div class="rwzf-box">
+                             <a href="http://www.tpy888.cn/news/201710/25/94660.html" target="_blank" ><img class="lazy" src="" data-original="http://img.tpy888.cn/upload/201710/25/11-55-12-74-149800.png" width="144" height="80" alt="夹缝求生  防盗报警路在何方?" /></a>
+                             <p >——专访深圳市艾礼安安防设备有限公司董事长袁小平 </p>
+                      </div>
+                </li>
+                <li class="rwzf"> 
+                      <div class="tite_box"><a href="http://www.tpy888.cn/news/201709/26/94347.html">精益求精谈品质，脚踏实地谋未来</a></div>
+                      <div class="rwzf-box">
+                             <a href="http://www.tpy888.cn/news/201709/26/94347.html" target="_blank" ><img class="lazy" src="" data-original="http://img.tpy888.cn/upload/201709/26/10-12-45-63-149800.png" width="144" height="80" alt="精益求精谈品质，脚踏实地谋未来" /></a>
+                             <p >——专访深圳市慧视电子有限公司总经理 吴永灿先生 </p>
+                      </div>
+                </li>
+                <li class="rwzf"> 
+                      <div class="tite_box"><a href="http://www.tpy888.cn/news/201709/26/94348.html">微智体：细致入微琢于品，技术创新无止境</a></div>
+                      <div class="rwzf-box">
+                             <a href="http://www.tpy888.cn/news/201709/26/94348.html" target="_blank" ><img class="lazy" src="" data-original="http://img.tpy888.cn/upload/201709/26/10-15-38-49-153351.jpg" width="144" height="80" alt="微智体：细致入微琢于品，技术创新无止境" /></a>
+                             <p >——专访深圳微智体技术有限公司联合创始人CTO 王智卓先生 </p>
+                      </div>
+                </li>
+                <li class="rwzf"> 
+                      <div class="tite_box"><a href="http://www.tpy888.cn/news/201709/26/94346.html">创新推动时代进程，AI改变未来生活</a></div>
+                      <div class="rwzf-box">
+                             <a href="http://www.tpy888.cn/news/201709/26/94346.html" target="_blank" ><img class="lazy" src="" data-original="http://img.tpy888.cn/upload/201709/26/10-04-08-72-149800.png" width="144" height="80" alt="创新推动时代进程，AI改变未来生活" /></a>
+                             <p >——英特尔&海康威视人工智能体验之旅 </p>
+                      </div>
+                </li>
+                <li class="rwzf"> 
+                      <div class="tite_box"><a href="http://www.tpy888.cn/news/201708/25/93994.html">分销产品“三箭齐发”  汉邦渠道“王者归来”</a></div>
+                      <div class="rwzf-box">
+                             <a href="http://www.tpy888.cn/news/201708/25/93994.html" target="_blank" ><img class="lazy" src="" data-original="http://img.tpy888.cn/upload/201708/25/15-06-56-52-153351.png" width="144" height="80" alt="分销产品“三箭齐发”  汉邦渠道“王者归来”" /></a>
+                             <p >-----专访汉邦高科国内渠道销售部总经理罗桂华 </p>
+                      </div>
+                </li>
+            </ul>
+        </div>
+</div> <!--  /.interview  end -->
+<!-- 人物专访  end  -->
+<div class="clear"></div>
+<!-- 广告图片 -->
+<div class="ad_all">
+<a href="http://www.tpy888.cn/extend/redirect.php?aid=2280" target="_blank"><img src="http://img.tpy888.cn/upload/201506/02/13-22-45-88-1.jpg" width="1200" height="80" alt="安防"/></a></div>
+<!-- 广告图片 -->
+<div class="brand">
+    <div class="brand_btn"><span>品牌企业</span>
+    <div class="clear"></div></div>   
+   <div id="brand_c_1">
+    <ul class="brand_logo">         
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-698.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201203/22/18-17-05-86-1526.jpg" width="126" height="46" title="汉王科技" alt="汉王科技"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-806.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201704/10/16-19-47-30-1.jpg" width="126" height="46" title="宇洪" alt="宇洪"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2344.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201707/06/16-03-09-36-1.jpg" width="126" height="46" title="慧视电子" alt="慧视电子"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2934.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201712/01/16-04-13-77-1.jpg" width="126" height="46" title="路博环保" alt="路博环保"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2997.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/28/09-49-34-14-1.jpg" width="126" height="46" title="金视天创" alt="金视天创"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2992.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/26/14-55-36-85-152889.jpg" width="126" height="46" title="品悦通信" alt="品悦通信"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2939.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201712/15/16-03-13-17-1.png" width="126" height="46" title="润之汇" alt="润之汇"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-3017.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201805/23/16-41-15-44-159812.jpg" width="126" height="46" title="豫工机械" alt="豫工机械"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2990.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/20/12-07-52-41-118368.jpg" width="126" height="46" title="泽创电子" alt="泽创电子"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2980.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201804/02/11-33-25-22-1.jpg" width="126" height="46" title="智天铭仕" alt="智天铭仕"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2975.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201803/30/10-54-18-62-49103.jpg" width="126" height="46" title="领越防爆" alt="领越防爆"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2733.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201703/31/09-49-31-72-1.jpg" width="126" height="46" title="安科瑞" alt="安科瑞"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2076.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201709/18/10-41-36-78-1.jpg" width="126" height="46" title="汇众达" alt="汇众达"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-1745.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201703/27/16-23-25-13-1.png" width="126" height="46" title="倍润视通科技" alt="倍润视通科技"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2953.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201601/04/14-50-05-47-1.jpg" width="126" height="46" title="加尼鹰" alt="加尼鹰"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2590.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201704/26/15-13-06-27-1.jpg" width="126" height="46" title="敏锐安" alt="敏锐安"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2846.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201709/01/17-00-17-56-1.jpg" width="126" height="46" title="惠智普" alt="惠智普"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2800.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201609/19/17-27-49-69-1.jpg" width="126" height="46" title="慧怡科技" alt="慧怡科技"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2744.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201605/31/11-38-23-50-1.png" width="126" height="46" title="威威" alt="威威"></a></li>
+         
+        <li><a href="http://www.tpy888.cn/extend/redirect-htm-aid-2404.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201509/08/14-07-51-63-98038.jpg" width="126" height="46" title="双金格" alt="双金格"></a></li>
+ 
+<div class="clear"></div>
+    </ul>    
+ </div>       
+</div>
+<!--   品牌企业  -->
+<!-- 最新专题  -->
+<div class="company_news_d">
+<h5>最新专题</h5><a href="http://www.tpy888.cn/special/" target="_blank" class="company_news_more" rel="nofollow">更多</a><div class="clear"></div>
+    <div class="company_news_content">         
+  <ul class="lastest">
+<li><a href="http://www.tpy888.cn/news/201803/28/96205.html" target="_blank">太平洋安防全球智能产品交易中心...</a></li>
+<li><a href="http://www.tpy888.cn/news/201803/28/96206.html" target="_blank">太平洋安防“精英特聘” 就等你来！</a></li>
+<li><a href="http://www.tpy888.cn/special/2018anfang/" target="_blank">太平洋2018年安防巡展</a></li>
+<li><a href="http://www.tpy888.cn/special/2018bainian/" target="_blank">2018年安防百企贺新春</a></li>
+<li><a href="http://www.tpy888.cn/special/2017aosika" target="_blank">2017安防行业评选</a></li>
+<li><a href="http://www.tpy888.cn/special/2017anfang/" target="_blank">太平洋2017年安防巡展</a></li>
+<li><a href="http://www.tpy888.cn/special/2017bainian/" target="_blank">2017年安防百企贺新春</a></li>
+<li><a href="http://www.tpy888.cn/special/2016anfang/beijing.html" target="_blank">2016年中国国际社会公共安全产品博览会</a></li>
+<li><a href="http://www.tpy888.cn/special/2016anfang/nanjing.html" target="_blank">2016(第十五届)南京社会公共安全防范产品及技术</a></li>
+<li><a href="http://www.tpy888.cn/special/2016anfang/" target="_blank">2016年太平洋安防网巡展</a></li>
+<li><a href="http://www.tpy888.cn/special/bainian/" target="_blank">2016年安防百企贺新年</a></li>
+<li><a href="http://www.tpy888.cn/special/2015aosika/" target="_blank">第五届太平洋安防奥斯卡</a></li>
+<li><a href="http://www.tpy888.cn/special/2015szabh/" target="_blank">2015深圳安博会</a></li>
+<li><a href="http://www.tpy888.cn/special/2015anfang/" target="_blank">2015年太平洋安防网巡展</a></li>
+<li><a href="http://www.tpy888.cn/special/2015year" target="_blank">安防百企贺新年</a></li>
+<li><a href="http://www.tpy888.cn/special/2014abh/" target="_blank">2014北京安博会</a></li>
+<li><a href="http://www.tpy888.cn/special/gaokao/" target="_blank">建设退热应用升温，安防与高考迎来“七年之痒”</a></li>
+</ul> </div>
+</div>
+<div class="clear"></div>
+<!--company end-->
+<!-- 广告图片  -->
+<div style="margin-top:20px;"></div>
+<!-- 广告图片 end -->
+<!-- 安防资讯   -->
+<div class="company_news_a">
+    <h5>安防资讯</h5>
+    <a href="http://www.tpy888.cn/news/" target="_blank" class="company_news_more" >更多</a>
+    <div class="clear"></div>
+    <div class="company_news_content">
+         <!--精彩回顾图文-->
+     <div class="lastest_maina">
+ <ul class="lastest">
+    <a href="http://www.tpy888.cn/news/201801/26/77441.html" target="_blank" title="电动机保护器在化工行业抗"><img src="http://img.tpy888.cn/upload/201407/02/17-38-31-97-73120.jpg" width="100" height="85" /></a>
+</ul><ul class="lay_up hg_width">
+<li><a href="http://www.tpy888.cn/news/201807/11/97054.html" target="_blank" title="为什么说智慧园区不怎么" >为什么说智慧园区不怎么</a></li>        
+<li><a href="http://www.tpy888.cn/news/201807/11/97053.html" target="_blank" title="张学友演唱会完成“七杀" >张学友演唱会完成“七杀</a></li>        
+<li><a href="http://www.tpy888.cn/news/201807/11/97052.html" target="_blank" title="智能家居行业发展趋势分" >智能家居行业发展趋势分</a></li>        
+<li><a href="http://www.tpy888.cn/news/201807/11/97051.html" target="_blank" title="99招藏隐私？AI产品总有" >99招藏隐私？AI产品总有</a></li>        
+</ul>
+         <div class="clear"></div>
+        <ul class="lastest_2">
+<li><a href="http://www.tpy888.cn/news/201807/11/97058.html" target="_blank" >安防行业发展趋势分析 智能家居是重要发展方向</a></li>
+<li><a href="http://www.tpy888.cn/news/201807/11/97057.html" target="_blank" >同样是人脸识别技术 伦敦警局的准确率竟可低至2%</a></li>
+<li><a href="http://www.tpy888.cn/news/201807/11/97056.html" target="_blank" >AI+医疗，又是一场BAT的角逐</a></li>
+<li><a href="http://www.tpy888.cn/news/201807/11/97055.html" target="_blank" >智能锁蓝海市场已经形成 火爆格局离不开这3要素</a></li>
+<li><a href="http://www.tpy888.cn/news/201807/11/97054.html" target="_blank" >为什么说智慧园区不怎么“智慧”？</a></li>
+<li><a href="http://www.tpy888.cn/news/201807/11/97053.html" target="_blank" >张学友演唱会完成“七杀” 谁是幕后功臣？</a></li>
+<li><a href="http://www.tpy888.cn/news/201807/11/97052.html" target="_blank" >智能家居行业发展趋势分析 市场竞争格局将日益明朗</a></li>
+<li><a href="http://www.tpy888.cn/news/201807/11/97051.html" target="_blank" >99招藏隐私？AI产品总有100种方式“偷窥”你......</a></li>
+</ul>     </div><!--  /.lastest_maina  end -->
+    <ul class="lastest_2">
+    </div><!--  /.company_news_content end -->
+</div>
+<!-- 安防资讯  end -->
+<!-- 技术方案   -->
+<div class="company_news_a">
+      <h5>技术方案</h5>
+      <a href="http://www.tpy888.cn/news/list-352.html" target="_blank" class="company_news_more">更多</a>
+      <div class="clear"></div>
+      <div class="company_news_content">
+    
+       <img src="http://img.tpy888.cn/upload/201806/25/14-12-32-65-149800.png" width="99" height="100" /><span class="blue"><a href="http://www.tpy888.cn/news/201806/25/96933.html" target="_blank" >无线监控摄像头四种常见的技</a></span><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;无线监控技术日趋成熟，无线监控应用也越来越普遍，无线监控有哪些种类呢?...[<a href="http://www.tpy888.cn/news/201806/25/96933.html"  target="_blank" class="detail" >详情</a>]
+            <div class="clear"></div>
+ <ul class="lastest">
+<li><a href="http://www.tpy888.cn/news/201806/25/96933.html" target="_blank">无线监控摄像头四种常见的技术方式</a></li>
+<li><a href="http://www.tpy888.cn/news/201806/13/96844.html" target="_blank">电能管理系统在盐城先锋国际中心的应用</a></li>
+<li><a href="http://www.tpy888.cn/news/201806/13/96843.html" target="_blank">嘉定司法中心电能管理系统设计方案</a></li>
+<li><a href="http://www.tpy888.cn/news/201806/13/96842.html" target="_blank">异步电动机就地无功补偿</a></li>
+<li><a href="http://www.tpy888.cn/news/201806/13/96841.html" target="_blank">海门行政中心电力监控系统系统设计方案</a></li>
+<li><a href="http://www.tpy888.cn/news/201806/13/96840.html" target="_blank">Acrel-2000电力监控系统在东北农业大学的应用</a></li>
+<li><a href="http://www.tpy888.cn/news/201805/31/96722.html" target="_blank">Acrel-2000电力监控系统在东莞天安数码城的应用</a></li>
+</ul>      </div><!--  /.company_news_content end -->
+</div><!--  /.company_news_c end -->
+<!-- 技术方案  end -->
+<!-- 企业新闻  -->
+<div class="company_news_b">
+    <h5>企业新闻</h5>
+    <a href="http://www.tpy888.cn/company/news.php?more-1.html" target="_blank" class="company_news_more" rel="nofollow">更多</a>
+    <div class="clear"></div>
+    <div class="company_news_content">         
+ <ul class="lastest">
+<li><a href="http://zzhuazhi123.tpy888.cn/news/itemid-173986.shtml" target="_blank" rel="nofollow">MFD-1瓦斯放散初速度测定仪</a></li>
+<li><a href="http://zzhuazhi123.tpy888.cn/news/itemid-173985.shtml" target="_blank" rel="nofollow">CCL-1瓦斯残存含量智能测定仪</a></li>
+<li><a href="http://zzhuazhi123.tpy888.cn/news/itemid-173983.shtml" target="_blank" rel="nofollow">WY98A吸附常数测定仪</a></li>
+<li><a href="http://henanlian.tpy888.cn/news/itemid-173982.shtml" target="_blank" rel="nofollow">南阳邓州引进“智慧式用电安全监管系统</a></li>
+<li><a href="http://738872337.tpy888.cn/news/itemid-173984.shtml" target="_blank" rel="nofollow">0mm无缝拼接屏一共有几种？</a></li>
+<li><a href="http://zzhuazhi123.tpy888.cn/news/itemid-173981.shtml" target="_blank" rel="nofollow">瓦斯抽放综合参数测定仪CJZ70</a></li>
+<li><a href="http://hy10281028.tpy888.cn/news/itemid-173980.shtml" target="_blank" rel="nofollow">J11F-25C、J11B-25Z氨用截止阀</a></li>
+<li><a href="http://hy10281028.tpy888.cn/news/itemid-173979.shtml" target="_blank" rel="nofollow">主机截止阀、100系列主机截止阀</a></li>
+<li><a href="http://hy10281028.tpy888.cn/news/itemid-173978.shtml" target="_blank" rel="nofollow">ZZRN-32钢制止回阀ZZRN-50、ZZRN-65</a></li>
+<li><a href="http://gzgddsb2015.tpy888.cn/news/itemid-173976.shtml" target="_blank" rel="nofollow">德生科技金融社保服务终端市场前景广阔</a></li>
+<li><a href="http://hy10281028.tpy888.cn/news/itemid-173977.shtml" target="_blank" rel="nofollow">ZCL-32YB氨用电磁阀ZCL-50YB、ZCL-80YB</a></li>
+<li><a href="http://hy10281028.tpy888.cn/news/itemid-173975.shtml" target="_blank" rel="nofollow">ZYG-50液体过滤器ZYG-65、ZYG-80</a></li>
+</ul> 
+    </div>
+</div>  <!--  /.company_news_b end -->
+<!-- 企业新闻  end  -->
+<!-- 工程招标   -->
+<div class="company_news_c">
+    <h5>工程招标</h5>
+    <a href="http://www.tpy888.cn/zhaobiao/" target="_blank" class="company_news_more">更多</a>
+    <div class="clear"></div>
+    <div class="company_news_content"> 
+ <ul class="lastest">
+<li><a href="http://www.tpy888.cn/zhaobiao/201701/13/9423.html" target="_blank">西平县公安局17.7万采购LED显示屏</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201508/27/9291.html" target="_blank">ETCP车道闸机采购招标项目公开招标</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201505/22/9290.html" target="_blank">嘉善县水利局水资源监控系统建设采购招标</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201505/22/9289.html" target="_blank">垫江县中医院视频监控系统采购项目询价采购公告</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201505/22/9288.html" target="_blank">肿瘤医院网络智能视频监控系统工程招标公告</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201505/22/9287.html" target="_blank">珠海市公安局网警支队2015年舆情监控系统采购招</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201505/22/9286.html" target="_blank">渭南市中级人民法院执行局执行指挥中心建设招标</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201505/15/9285.html" target="_blank">吉林市公安局交通管理支队购置集成指挥平台设备</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201505/15/9284.html" target="_blank">2015年昆山市污染源在线监控系统第三方运行维护</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201505/15/9283.html" target="_blank">零陵电子信息产业园厂区监控系统采购招标</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201505/15/9282.html" target="_blank">浙大附中丁兰校区校园监控系统采购公告</a></li>
+<li><a href="http://www.tpy888.cn/zhaobiao/201505/15/9281.html" target="_blank">王四营乡白鹿社区5号院修缮改造工程监控设备招</a></li>
+</ul>    </div>
+</div>
+<div class="clear">
+</div>
+<!-- 工程招标 end   -->
+<div class="company_commend">
+<div class="company_commend_title">
+             <span>企业推荐</span>
+             <a href="http://szbaite.tpy888.cn" target="_blank" rel="nofollow">百特嘉</a> 
+             <a href="http://seculink.tpy888.cn/" target="_blank" rel="nofollow">狮安联讯</a>
+             <a href="http://ksb808.tpy888.cn" target="_blank" rel="nofollow">科视宝</a> 
+       </div>  
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-1748.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201406/23/13-51-38-57-55674.jpg" width="110" height="52" title="智显达" alt="智显达"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-1999.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201605/19/18-24-22-29-1.jpg" width="110" height="52" title="快鱼科技" alt="快鱼科技"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2029.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201512/03/17-46-15-97-98038.jpg" width="110" height="52" title="光翔通讯" alt="光翔通讯"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-1325.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201308/29/10-08-54-39-1.jpg" width="110" height="52" title="富安泽电子" alt="富安泽电子"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2221.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201505/20/10-51-33-37-1.jpg" width="110" height="52" title="新嘉诚智能" alt="新嘉诚智能"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2372.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201508/13/11-48-49-46-1.jpg" width="110" height="52" title="金三伟业" alt="金三伟业"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2384.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201508/24/14-39-16-95-1.jpg" width="110" height="52" title="狮安联讯" alt="狮安联讯"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2565.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201511/20/15-11-41-48-1.jpg" width="110" height="52" title="华联升泰" alt="华联升泰"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2574.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201512/02/16-29-11-85-98038.jpg" width="110" height="52" title="赛博夜视" alt="赛博夜视"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2578.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201512/03/17-47-56-56-98038.jpg" width="110" height="52" title="富力威视" alt="富力威视"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2579.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201709/01/17-02-48-71-1.jpg" width="110" height="52" title="惠智普" alt="惠智普"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2587.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201512/14/14-17-11-27-98038.jpg" width="110" height="52" title="德立信" alt="德立信"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2613.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201601/04/14-50-05-47-1.jpg" width="110" height="52" title="加尼鹰" alt="加尼鹰"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2341.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201507/20/10-53-30-13-1.jpg" width="110" height="52" title="凯利通" alt="凯利通"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-1418.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201705/16/16-20-40-47-1.jpg" width="110" height="52" title="库尔光电" alt="库尔光电"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-1315.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201712/06/14-14-54-60-139455.png" width="110" height="52" title="网络眼" alt="网络眼"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2938.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201712/15/16-03-13-17-1.png" width="110" height="52" title="润之汇" alt="润之汇"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2000.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201712/06/14-14-27-71-139455.jpg" width="110" height="52" title="韦斯特" alt="韦斯特"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2826.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201610/31/10-02-36-91-1.png" width="110" height="52" title="达瑞" alt="达瑞"></a>
+         
+       <a href="http://www.tpy888.cn/extend/redirect-htm-aid-2940.html" target="_blank" rel="nofollow"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201707/06/16-03-09-36-1.jpg" width="110" height="52" title="慧视电子" alt="慧视电子"></a>
+  
+   
+</div>
+<!--company_commend end-->
+<div class="partner">
+        <a id="link_t_1" href="javascript:void(0)" class="partner_1" onmouseover="Tb2(1, 3, 'link', 'partner');">安防合作</a>
+        <a id="link_t_2" href="javascript:void(0)" class="partner_2" onmouseover="Tb2(2, 3, 'link', 'partner');">合作伙伴</a>
+<a id="link_t_3" href="javascript:void(0)" class="partner_3" onmouseover="Tb2(3, 3, 'link', 'partner');">友情链接</a>
+    <div class="clear"></div>
+    <div class="partner_content">
+    <!--安防合作-->  
+         <div id="link_c_1">
+        <tr><td><a href="http://www.tpy888.cn/" target="_blank">深圳安防</a></td>
+<td><a href="http://www.tpy888.cn/shukan/" target="_blank">安防杂志</a></td>
+<td><a href="http://www.tpy888.cn/sell/" target="_blank">安防监控</a></td>
+<td><a href="http://bbs.tpy888.cn/" target="_blank">安防论坛</a></td>
+<td><a href="http://www.tpy888.cn/proxy/" target="_blank">安防招商网</a></td>
+<td><a href="http://www.hqps.com" target="_blank">华强智慧网</a></td>
+<td><a href="http://www.tpy888.cn/special/2017aosika/" target="_blank">安防风云榜</a></td>
+<td><a href="http://www.af360.com" target="_blank">长城安防网</a></td>
+<td><a href="http://www.tpy888.cn/sell/" target="_blank">安防产品</a></td>
+</tr><tr><td><a href="http://www.21csp.com.cn/" target="_blank">中国安防行业网</a></td>
+<td><a href="http://www.tpy888.cn/sell/177/" target="_blank">安检门</a></td>
+<td><a href="http://www.tpy888.cn/brand/" target="_blank">安防品牌</a></td>
+            </div>
+    <!--合作伙伴-->   
+  <div id="link_c_2" style="display:none;">
+   <table width="100%" cellpadding="3" cellspacing="3">
+<tr><td width="11.11%"><a href="http://www.afjob88.com/" target="_blank"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201410/10/15-26-12-39-1.gif" width="88" height="31" alt="安防英才网"/></a></td>
+<td width="11.11%"><a href="http://www.afzhan.com/" target="_blank"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://www.tpy888.cn/file/upload/201011/08/11-48-25-16-9152.gif" width="88" height="31" alt="中国安防展览网"/></a></td>
+<td width="11.11%"><a href="http://www.asmag.com.cn/" target="_blank"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://www.tpy888.cn/file/upload/201104/12/13-25-08-86-9152.jpg" width="88" height="31" alt="安防知识网"/></a></td>
+<td width="11.11%"><a href="http://www.c114.net/anfang/" target="_blank"><img class="lazy" src="http://img.tpy888.cn/public/transparent.png" data-original="http://img.tpy888.cn/upload/201602/23/17-31-27-99-1.png" width="88" height="31" alt="c114"/></a></td>
+</table>   </div>
+    <!--友情链接-->   
+         <div id="link_c_3" style="display:none;">
+<tr><td><a href="http://esf.hn.fang.com" target="_blank">海南二手房</a></td>
+<td><a href="http://www.shang360.com/" target="_blank">招商加盟</a></td>
+<td><a href="http://www.globrand.com/" target="_blank">加盟网</a></td>
+<td><a href="http://www.c-c.com/" target="_blank">中国制造网</a></td>
+<td><a href="http://www.gqsoso.com/" target="_blank">钢材价格</a></td>
+<td><a href="http://www.qieta.com/" target="_blank">切它网B2B</a></td>
+<td><a href="http://www.yktchina.com/" target="_blank">中国一卡通网</a></td>
+<td><a href="http://shenzhen.baixing.com/" target="_blank">深圳百姓网</a></td>
+<td><a href="http://www.cnscdc.com/" target="_blank">中国市场调查网</a></td>
+</tr><tr><td><a href="http://www.taojindi.com/" target="_blank">淘金地</a></td>
+<td><a href="http://www.cnshipnet.com/" target="_blank">中国船舶网</a></td>
+<td><a href="http://www.liuti.cn/" target="_blank">亚洲流体机械网</a></td>
+<td><a href="http://www.foodjx.com/" target="_blank">食品机械设备</a></td>
+<td><a href="http://www.52solution.com/" target="_blank">我爱方案网</a></td>
+<td><a href="http://www.cntronics.com/" target="_blank">电子技术网</a></td>
+<td><a href="http://www.cps.com.cn/" target="_blank">安防</a></td>
+<td><a href="http://www.51report.com/" target="_blank">中国产业洞察网</a></td>
+<td><a href="http://www.copperhome.net/" target="_blank">铜之家</a></td>
+</tr><tr><td><a href="http://www.jia.com/dalian/" target="_blank">大连装修</a></td>
+<td><a href="http://www.51dzw.com" target="_blank">51电子网</a></td>
+<td><a href="http://www.cntronics.com/" target="_blank">电子元件技术网</a></td>
+<td><a href="http://www.cn716.com" target="_blank">b2b网站</a></td>
+<td><a href="http://www.it12580.cn" target="_blank">河南IT渠道</a></td>
+<td><a href="http://www.jc35.com/" target="_blank">数控机床</a></td>
+<td><a href="http://www.119tx.com" target="_blank">消防器材</a></td>
+<td><a href="http://www.iilian.com/" target="_blank">爱爱链</a></td>
+<td><a href="http://www.toobiao.com" target="_blank">中国电力招标网</a></td>
+</tr><tr><td><a href="http://www.maijx.com" target="_blank">买卖机械网</a></td>
+<td><a href="http://www.qiyegu.com/" target="_blank">b2b电子商务网</a></td>
+<td><a href="http://www.machine.com.cn" target="_blank">中国机械设备网</a></td>
+<td><a href="http://www.znjj.tv/" target="_blank">智能家居网</a></td>
+<td><a href="http://solar.ofweek.com/" target="_blank">太阳能光伏网</a></td>
+<td><a href="http://weinan.focus.cn/" target="_blank">渭南房产网</a></td>
+<td><a href="http://www.gkzhan.com/" target="_blank">工控设备</a></td>
+<td><a href="http://www.cecb2b.com/" target="_blank">元器件交易网</a></td>
+<td><a href="http://esf.cd.fang.com/" target="_blank">成都二手房</a></td>
+</tr><tr><td><a href="http://www.byf.com" target="_blank">电气网</a></td>
+<td><a href="http://www.pvc123.com" target="_blank">塑料</a></td>
+<td><a href="http://www.qianzhan.com/news/" target="_blank">前瞻资讯</a></td>
+<td><a href="http://www.china-nengyuan.com/" target="_blank">新能源</a></td>
+<td><a href="http://www.88152.com" target="_blank">黄页大全</a></td>
+<td><a href="http://www.pe168.com/" target="_blank">中国产品网</a></td>
+<td><a href="http://www.secrui.com" target="_blank">无线防盗器</a></td>
+<td><a href="http://www.ys7.com/" target="_blank">萤石安防</a></td>
+<td><a href="http://security.zol.com.cn/" target="_blank">安防监控</a></td>
+</tr><tr><td><a href="http://www.cn12365.org" target="_blank">防伪标签</a></td>
+<td><a href="http://product.11467.com" target="_blank">批发采购</a></td>
+<td><a href="http://www.globalbuy.cc" target="_blank">全球采购网</a></td>
+<td><a href="http://product.dzsc.com" target="_blank">电子元器件</a></td>
+<td><a href="http://www.booksir.com.cn/" target="_blank">信息发布网</a></td>
+<td><a href="http://www.ccement.com" target="_blank">中国水泥网</a></td>
+<td><a href="http://www.yi7.com/" target="_blank">仪器交易网</a></td>
+            </div>
+   <div style="clear:both;"></div>
+    </div>
+</div>
+<div class="foot_line">
+  <span><a href="http://www.tpy888.cn/sitemap/chanpin.html">产品索引列表</a>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+    <span><a href="http://www.tpy888.cn/sitemap/gongying.html">供应更新列表</a>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+  <span><a href="http://www.tpy888.cn/sitemap/news.html">资讯更新列表</a>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+  <span><a href="http://www.tpy888.cn/sitemap/jishu.html">技术更新列表</a>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+  
+  <!-- 暂时不开放   <div class="opinion_collection" ><a href="#">网站建设意见收集</a></div>-->
+  <div class="clear"></div>
+</div>
+<div class="foot_contact">
+   <dl>
+    <dt class="foot_conname">客服热线:</dt>
+    <dd></dd>
+    <dd class="foot_connum">0755－83977321</dd>
+  </dl>
+  <dl>
+    <dt class="foot_conname">广告合作</dt>
+    <dd><a rel="nofollow" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2250409004&amp;site=qq&amp;menu=yes"><img align="absmiddle" onerror="this.src=DTPath+'file/image/qq-off.gif'" alt="" title="点击QQ交谈/留言" src="http://wpa.qq.com/pa?p=1:2250409004:4"></a></dd>
+    <dd class="foot_connum">&nbsp;:2250409004</dd>
+  </dl>
+  <dl>
+    <dt class="foot_conname">新闻</dt>
+    <dd><a rel="nofollow" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=956170840&amp;site=qq&amp;menu=yes"><img align="absmiddle" onerror="this.src=DTPath+'file/image/qq-off.gif'" alt="" title="点击QQ交谈/留言" src="http://wpa.qq.com/pa?p=1:956170840:4"></a></dd>
+    <dd class="foot_connum">&nbsp;:956170840</dd>
+  </dl>
+  <dl>
+    <dt class="foot_conname">客服</dt>
+    <dd><a rel="nofollow" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1351574492&amp;site=qq&amp;menu=yes"><img align="absmiddle" onerror="this.src=DTPath+'file/image/qq-off.gif'" alt="" title="点击QQ交谈/留言" src="http://wpa.qq.com/pa?p=1:1351574492:4"></a></dd>
+    <dd class="foot_connum">&nbsp;:1351574492</dd>
+  </dl>
+  <div class="clear"></div>
+</div>
+<div class="footer">
+<a href="http://www.tpy888.cn" rel="nofollow" target="_blank">网站首页</a> | 
+<a href="http://www.tpy888.cn/extend/about.html" rel="nofollow" target="_blank">关于太平洋安防</a> | 
+<a href="http://www.tpy888.cn/ad/" rel="nofollow" target="_blank">广告服务</a> | 
+<a href="http://www.tpy888.cn/member/grade.php" rel="nofollow" target="_blank">会员等级服务</a> | <a href="http://www.tpy888.cn/extend/job.html" rel="nofollow" target="_blank">诚聘英才</a> | 
+<a href="http://www.tpy888.cn/extend/contact.html" rel="nofollow" target="_blank">联系我们</a> | <a href="http://www.tpy888.cn/link/" rel="nofollow" target="_blank">友情链接</a> | 
+<a href="http://www.tpy888.cn/extend/fabuguize.html" rel="nofollow" target="_blank">信息发布规则</a> | <a href="http://www.tpy888.cn/sitemap/" rel="nofollow" target="_blank">网站地图</a> | 
+<a href="http://www.tpy888.cn/guestbook/" rel="nofollow" target="_blank">网站留言</a> | 
+<a href="http://www.tpy888.cn/extend/help.html" rel="nofollow" target="_blank">帮助中心</a><br>
+<span>太平洋<a href="http://www.tpy888.cn">安防网</a> www.tpy888.cn 版权所有 2006-2018 经营许可证编号：粤B2-20090398深圳互联网科技创新企业</span>
+  <div class="wangjian">
+  
+  <p>
+<span class="fl"><img src="http://img.tpy888.cn/public/wangjin.gif" width="36" height="43" border="0"></span>
+<span class="fr"><a href="http://www.sznet110.gov.cn/netalarm/index.jsp" target="_blank" rel="nofollow" class="chrome-seo_nofollow">深圳网络警<br>
+察报警平台</a></span>
+</p>
+<p>
+<span class="fl"><img src="http://img.tpy888.cn/public/anwang.jpg" width="36" height="42" border="0"></span>
+<span class="fr">公共信息安<br>
+全网络监察</span>
+</p>
+    <div class="wangjian_r">
+      <div class="clear"></div>
+      <a href="http://www.miibeian.gov.cn/publish/query/indexFirst.action" target="_blank" rel="nofollow">粤ICP备12031422号-1</a>
+    </div>
+    <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+document.write('<script type="text/javascript" src="http://www.tpy888.cn/api/task.js.php?moduleid=1&html=index&refresh='+Math.random()+'.js"></sc'+'ript>');
+</script>
+<script type="text/javascript">
+$('#back2top').click(function() {
+$("html, body").animate({scrollTop:0}, 200);
+});
+</script>
+<div class="totop_box">
+   <div class="fankui"><a href="http://www.tpy888.cn/guestbook/" target="_blank" title="意见反馈"></a></div>
+  <div class="totop"><a href="#" title="返回顶部"></a></div>
+</div>
+<!--拉屏广告-->
+<style>
+#Adv970_450{ width:100%; margin:0 auto; line-height:0px; font-size:0;}
+.top_bg{width:100%;margin:0 auto;height:500px;}
+</style>
+<div id="span_Adv970_450" style="display: none"> 
+<div class="top_bg">
+<a href="http://www.tpy888.cn/extend/redirect.php?aid=2903" target="_blank"><img src="http://img.tpy888.cn/upload/201706/30/15-09-37-88-1.jpg" width="1000" height="500" alt="评选投票"/></a></div>
+</div>
+</div>
+<script type="text/javascript">
+var Lascreen=document.getElementById("Adv970_450");
+var Lascreenad=document.getElementById("span_Adv970_450");
+Lascreen.innerHTML=Lascreenad.innerHTML; 
+function Lascreenjs(){Lascreen.style.display="none"}
+setTimeout("Lascreenjs()",6000)
+</script>
+<!--拉幕广告 结束-->
+</body>
+</html>
+    <!-- 我添加的JS -->
+<script type="text/javascript">
+    (function () {
+        var $subblock = $(".subpage"),
+        $ul = $("#proinfo"),
+        $lis = $ul.find("li"),
+        inter = false;
+        $ul.click(function (event) {
+            event.stopPropagation();
+        });
+        $lis.hover(function () {
+            if (!$(this).hasClass('nochild')) {
+                $(this).addClass("prosahover");
+                $(this).find(".prosmore").removeClass('hide');
+            }
+        },
+        function () {
+            if (!$(this).hasClass('nochild')) {
+                if ($(this).hasClass("prosahover")) {
+                    $(this).removeClass("prosahover");
+                }
+                $(this).find(".prosmore").addClass('hide');
+            }
+        });
+    })();
+//  手风琴特效 JS
+$(document).ready(function () {
+            $(".accordion dl dd").hide();
+            $(".accordion dl dd.store-show").show();
+            $(".accordion dl dt").hover(function () {
+                $(".accordion dl dd").hide();
+                $(this).next().show();
+            });
+            $(".accordion dl dt").mouseout(function () {
+                $(".accordion dl dd span.icon").removeAttr('id');
+            });
+        })
+</script>
+<!-- 我添加的JS end-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1b9ec1daf192eeff7e4d8698ba36d695";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>

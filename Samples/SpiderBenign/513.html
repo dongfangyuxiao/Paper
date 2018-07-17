@@ -1,0 +1,1681 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>爱课程</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content=""/>
+    
+
+
+<script type="text/javascript">
+window.nofind=function(src){ 
+		var img=event.srcElement; 
+		img.src=src; 
+		img.onerror=null;
+	}
+</script>
+<link rel="icon" href="http://www.icourses.cn/web/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.icourses.cn/web/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="http://www.icourses.cn/web/icourse/lib/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="http://www.icourses.cn/web/icourse/lib/font-awesome/css/font-awesome.min.css"/>
+
+
+    <link rel="stylesheet"
+	href="http://www.icourses.cn/web/icourse/page/home/home.css">
+  </head>
+  <body>
+    <!-- 首页logo-->
+    
+
+<!-- 首页logo-->
+<section class="wrap header-logo-container">
+      <div class="container">
+        <div class="row">
+          <div class="header-logo pull-left">
+          	<a class="logo-img" href="http://www.icourses.cn/web/">
+          		<img src="http://www.icourses.cn/web/icourse/page/imgs/logo.png">
+          	</a>
+          </div>
+          <div class="header-login pull-right">
+            <!-- 登录条-->
+            
+
+<!-- 登录条-->
+<section class="header-login-rukou clearfix">
+  <div class="login-btn header-login-kehuduan pull-left">
+  <a class="kehuduantext" href="javascript:;">客户端</a>
+    <section class="login-panel header-login-kehuduan-box">
+    	<img src="http://www.icourses.cn/web/icourse/page/imgs/app_code.png">
+    		
+      <section class="sanjiao-up">
+        <div class="sanjiao-up-border"></div>
+        <div class="sanjiao-up-content"></div>
+      </section>
+    </section>
+  </div>
+  <!-- <div class="header-login-dengluzhuce pull-left">
+  	<a class="zhucetext" href="#">注册</a><span class="header-login-line">|</span>
+  	<a class="logintext" href="#">登录</a>
+  </div>
+  <div class="header-login-name pull-left">
+  	<a class="nametext" href="#">name</a><span class="header-login-line">|</span>
+  	<a class="endtext" href="#">退出</a><span class="header-login-line">|</span>
+  	<a class="renzhengtext" href="#">教师认证</a>
+  </div> -->
+  <div id="header_login_dengluzhuce"
+		class="header-login-dengluzhuce pull-left">
+		<a id="header-login-btn" class="logintext" data-toggle="modal" 
+			href="#">登录</a><span class="header-login-line">|</span><a id="header-register-btn" target="_blank"
+				class="zhucetext" href="http://www.icourses.cn/web/sword/portal/toRegedit">注册</a>
+	</div>
+	<div id="header_login_name" class="header-login-name pull-left">
+		<a id="header_login_name_text" class="nametext" href="http://www.icourses.cn/web/sword/portal/userCenter#/info">name</a><span class="vip-user"></span><span
+			class="header-login-line">|</span><a id="header_logout_text"
+			class="endtext" href="#">退出</a><span id="isTeacher"><span class="header-login-line">|</span><a
+			class="renzhengtext" target="_blank"
+			href="http://www.icourses.cn/web/sword/portal/teacherAttestat">教师认证</a></span>
+	</div>
+</section>
+
+
+
+
+
+
+          </div>
+          <div class="header-search pull-right">
+            <section class="search-block clearfix pull-rigth">
+	            <form id="homeSerch" method="post" action="/web/sword/portalsearch/homeSearch" target="_blank">
+	              <input class="search-input pull-left" type="text" name="kw" 
+	              placeholder="搜索MOOC、视频公开课、资源共享课">
+	              	<a class="search-btn pull-left" id="homeSearchBtn" href="#">
+	              		<i class="search-icon fa fa-search"></i>
+	              	</a>
+	            </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+<script>
+	// 获取当前域名下的context，请求service用
+	function getServer() {
+		/*
+		var ctx = '/web';
+		if (ctx != "/") ctx = ctx + "/";
+		return ctx;
+		*/
+		return "http://www.icourses.cn/web/";
+	}
+	// 获取静态文件地址，请求静态文件（js、html）用
+	function getStaticServer() {
+		return "http://www.icourses.cn/web/";
+	}
+</script>
+<script src="http://www.icourses.cn/web/icourse/lib/requirejs/require.js"></script>
+<script src="http://www.icourses.cn/web/icourse/page/common/js/config.js"></script>
+
+    <!-- 导航-->
+    
+
+
+
+
+
+<!-- 导航-->
+<section class="header-nav wrap">
+      <section class="container">
+        <section class="row">
+          <ul class="header-nav-list clearfix">
+            
+				<li class="header-nav-list-i pull-left current">
+					<a href="http://www.icourses.cn/home">首&nbsp&nbsp&nbsp&nbsp页</a>
+				</li>
+				
+				<li class="header-nav-list-i pull-left">
+					<a href="http://www.icourses.cn/oc">在线开放课程</a>
+				</li>
+				 
+				<li class="header-nav-list-i pull-left">
+					<a href="http://www.icourses.cn/cuoc">视频公开课</a>
+				</li>
+				
+				<li class="header-nav-list-i pull-left">
+					<a href="http://www.icourses.cn/mooc">资源共享课</a>
+				</li>
+				
+				
+				<!-- 学校云 -->
+				<li class="header-nav-list-i pull-left">
+					<a href="http://www.icourses.cn/occ">学校云</a>
+				</li>
+          </ul>
+        </section>
+      </section>
+    </section>
+    <!-- 导航下方小分类-->
+    <section class="header-nav-bottom wrap">
+      <section class="container">
+        <section class="row">
+          <ul class="header-nav-bottom-list clearfix">
+          		
+				
+				
+				
+            <li class="header-nav-bottom-list-i pull-left "><a href="http://www.icourses.cn/imooc">中国大学MOOC </a></li>
+            <li class="header-nav-bottom-list-i pull-left "><a href="http://www.icourses.cn/vemooc">中国职教MOOC </a></li>
+            <li class="header-nav-bottom-list-i pull-left"><a target="_blank" href="http://cap.icourses.cn/">中国大学先修课 </a></li>
+            <li class="header-nav-bottom-list-i pull-left"><a target="_blank" href="http://tmooc.icourses.cn/">教师MOOC </a></li>
+            <li class="header-nav-bottom-list-i pull-left"><a target="_blank" href="http://www.icourses.cn/graduate">考研MOOC</a></li>
+         </ul>
+        </section>
+      </section>
+    </section>
+    <!-- 轮播图-->
+    <div class="wrap header-carousel">
+      <div class="carousel slide" id="carousel-generic" data-ride="carousel">
+			<ol class="carousel-indicators">
+				
+					
+						
+							<li class="active" data-target="#carousel-generic"
+								data-slide-to="0"></li>
+						
+						
+					
+				
+					
+						
+						
+							<li data-target="#carousel-generic"
+								data-slide-to="1"></li>
+						
+					
+				
+					
+						
+						
+							<li data-target="#carousel-generic"
+								data-slide-to="2"></li>
+						
+					
+				
+					
+						
+						
+							<li data-target="#carousel-generic"
+								data-slide-to="3"></li>
+						
+					
+				
+					
+						
+						
+							<li data-target="#carousel-generic"
+								data-slide-to="4"></li>
+						
+					
+				
+					
+						
+						
+							<li data-target="#carousel-generic"
+								data-slide-to="5"></li>
+						
+					
+				
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				
+					
+						
+							<div class="item active"
+								style="background: #ffd555">
+						
+						
+					
+					<div class="container">
+						<div class="row">
+							<a target="_blank" href="http://www.icourse163.org/live/400000000430095.htm?HDHDHVSEU "><img
+								class="testimg" alt="直播：友谊与备胎"
+								src="http://file.icourses.cn/path//2018-07-11/4142deb872af4aeaa1d73aef7f58fe51.png" title="直播：友谊与备胎"></a>
+						</div>
+					</div>
+			</div>
+			
+					
+						
+						
+							<div class="item" style="background: #ae282f">
+						
+					
+					<div class="container">
+						<div class="row">
+							<a target="_blank" href="https://www.icourse163.org/activities/mooc4year/index.htm?utm_source=icourses.cn&utm_medium=web_banner&utm_campaign=business&utm_content=llf20180704"><img
+								class="testimg" alt="中国大学MOOC四周年公益活动"
+								src="http://file.icourses.cn/path//2018-07-04/256fa2a270264792a23dee7fba08bcb0.jpg" title="中国大学MOOC四周年公益活动"></a>
+						</div>
+					</div>
+			</div>
+			
+					
+						
+						
+							<div class="item" style="background: #1d1b27">
+						
+					
+					<div class="container">
+						<div class="row">
+							<a target="_blank" href="https://www.icourse163.org/topics/bixiuke/?utm_source=icourses.cn&utm_medium=web_banner&utm_campaign=bixiuke&utm_content=llf20180704"><img
+								class="testimg" alt="社会人必备技能"
+								src="http://file.icourses.cn/path//2018-07-04/76d24c3fa9a34b2a8d18e934b062d433.jpg" title="社会人必备技能"></a>
+						</div>
+					</div>
+			</div>
+			
+					
+						
+						
+							<div class="item" style="background: #ffbb3f">
+						
+					
+					<div class="container">
+						<div class="row">
+							<a target="_blank" href="https://www.icourse163.org/topics/zhangxiaowen/?utm_source=icourses.cn&utm_medium=web_banner&utm_campaign=zhangxiaowen&utm_content=llf20180622"><img
+								class="testimg" alt="专栏：幸福心理学"
+								src="http://file.icourses.cn/path//2018-06-22/5e4439d51e4b4ed1a6684a4285f16f8d.png" title="专栏：幸福心理学"></a>
+						</div>
+					</div>
+			</div>
+			
+					
+						
+						
+							<div class="item" style="background: #f1ebe7">
+						
+					
+					<div class="container">
+						<div class="row">
+							<a target="_blank" href="http://www.icourses.cn/graduate/"><img
+								class="testimg" alt="爱课程考研MOOC全新亮相"
+								src="http://file.icourses.cn/path//2018-06-07/76405dac94f141348a2ea00676d0efaf.png" title="爱课程考研MOOC全新亮相"></a>
+						</div>
+					</div>
+			</div>
+			
+					
+						
+						
+							<div class="item" style="background: #f1f1f1">
+						
+					
+					<div class="container">
+						<div class="row">
+							<a target="_blank" href="https://www.icourse163.org/course/PKU-1002618003"><img
+								class="testimg" alt="北京大学“行为经济学”开课"
+								src="http://file.icourses.cn/path//2018-06-06/096fde4a2b834d3d9beda47173507f30.png" title="北京大学“行为经济学”开课"></a>
+						</div>
+					</div>
+			</div>
+			
+		</div>
+		<a class="left carousel-control-head" href="#carousel-generic"
+			role="button" data-slide="prev"><img
+			src="http://www.icourses.cn/web/icourse/page/imgs/left_arrow.png"><span
+			class="sr-only">Previous</span></a><a class="right carousel-control-head"
+			href="#carousel-generic" role="button" data-slide="next"><img
+			src="http://www.icourses.cn/web/icourse/page/imgs/right_arrow.png">
+			<span class="sr-only">Next</span></a>
+	</div>
+    </div>
+    <!--banner右侧的列表-->
+    <section class="icourse-notice-list-box container">
+      <div class="icourse-notice-list">
+      	<a target="_blank" class="icourse-notice-list-first" title="国家精品在线课程 " href="http://www.icourses.cn/web/sword/portal/channel">
+      		<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-18/ad5a606e26b24d93be6b2b53d78c44ae.jpg">
+      	</a>
+        <ul class="icourse-notice-list-l">
+	        
+	          <li class="icourse-notice-list-i">
+	          	<a target="_blank" href="http://news.icourses.cn/web/icTest/home/homeNews/f5d59163c2dc424c8614ee21e6d1a4b1.html" title="关于爱课程“教师教学能力提升类MOOC课程项目”第四期选题征集的通知">关于爱课程“教师教学能力提升类MOOC课程项目”第四期选题征集的通知</a>
+	          </li>
+          	
+	          <li class="icourse-notice-list-i">
+	          	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/04fcd956ea7e4336a270aae8ad78e3a0.html" title="中国大学先修课程试点项目第七次课程考试报名方式的补充说明">中国大学先修课程试点项目第七次课程考试报名方式的补充说明</a>
+	          </li>
+          	
+	          <li class="icourse-notice-list-i">
+	          	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/a2c7d038204b404fb6ccc18f9bb85ebc.html" title="关于征集2018年“中国开设大学先修课程的理论与实践研究”专项课题的通知">关于征集2018年“中国开设大学先修课程的理论与实践研究”专项课题的通知</a>
+	          </li>
+          	
+	          <li class="icourse-notice-list-i">
+	          	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/b6b4d3348da6491cb77457ad61e7ee45.html" title="教育部在线开放课程建设与应用推进会在京举办">教育部在线开放课程建设与应用推进会在京举办</a>
+	          </li>
+          	
+	          <li class="icourse-notice-list-i">
+	          	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/5687dcc1895d4fdf9e2cc486a79f4822.html" title="第三届“中国大学在线开放课程论坛”在京举行">第三届“中国大学在线开放课程论坛”在京举行</a>
+	          </li>
+          	
+	          <li class="icourse-notice-list-i">
+	          	<a target="_blank" href="http://www.icourse163.org/course/SCU-47019" title="药用植物学">药用植物学</a>
+	          </li>
+          	
+        </ul>
+      </div>
+    </section>
+    <!--重点推荐-->
+    <section class="container icourse-recommend-box">
+      <div class="row">
+        <h1>重点推荐</h1>
+        <ul class="icourse-recommend-l clearfix">
+	        
+	          <li class="icourse-recommend-i pull-left">
+	          	<a target="_blank" class="icourse-recommend-content" href="http://www.icourse163.org/course/HUST-1001738013">
+	              <div class="icourse-recommend-content-img">
+	              	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://edu-image.nosdn.127.net/0C196D02545C27682EC646703BEE83FB.JPG?imageView&thumbnail=510y288&quality=100">
+	              </div>
+	              <p>天文漫谈</p>
+	            </a>
+	          </li>
+          	
+	          <li class="icourse-recommend-i pull-left">
+	          	<a target="_blank" class="icourse-recommend-content" href="http://www.icourse163.org/course/icourse-1001553012">
+	              <div class="icourse-recommend-content-img">
+	              	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/7FC38FD505AFE3AB52E78B0405C37AF8.png?imageView&thumbnail=510y288&quality=100">
+	              </div>
+	              <p>英语教学与互联网</p>
+	            </a>
+	          </li>
+          	
+	          <li class="icourse-recommend-i pull-left">
+	          	<a target="_blank" class="icourse-recommend-content" href="http://www.icourse163.org/course/BNU-1002703026">
+	              <div class="icourse-recommend-content-img">
+	              	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/119548A2A8C20094DCF6ED66F6EB31DF.png?imageView&thumbnail=510y288&quality=100">
+	              </div>
+	              <p>儒家经典文献导读</p>
+	            </a>
+	          </li>
+          	
+	          <li class="icourse-recommend-i pull-left">
+	          	<a target="_blank" class="icourse-recommend-content" href="http://www.icourse163.org/course/SEU-1001615002">
+	              <div class="icourse-recommend-content-img">
+	              	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://edu-image.nosdn.127.net/3C39AFF8D8F67A7CA93FDD5BD796B7BC.jpg?imageView&thumbnail=426y240&quality=100">
+	              </div>
+	              <p>大学语文CAP</p>
+	            </a>
+	          </li>
+          	
+        </ul>
+      </div>
+    </section>
+    <!-- 合作高校-->
+    <section class="icourse-hezuo-box wrap">
+      <section class="container">
+        <div class="row">
+          <section class="icourse-hezuo clearfix"><a class="pull-right icourse-hezuo-more" href="http://www.icourses.cn/occ" title="更多"></a>
+            <h1 class="pull-left">合作高校</h1>
+            <div class="hezuo-logos clearfix">
+					
+						<div class="hezuo-logo-item pull-left">
+							<a target="_blank" href="http://www.icourses.cn/web/sword/portal/school?id=ZJU">
+							<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')"
+								src="http://nos.netease.com/edu-image/80562B55238EBB6073F09D6A6CB2411C.png?imageView&thumbnail=220y80&quality=100" alt="浙江大学"></a>
+						</div>
+					
+						<div class="hezuo-logo-item pull-left">
+							<a target="_blank" href="http://www.icourses.cn/web/sword/portal/school?id=XMU">
+							<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')"
+								src="http://nos.netease.com/edu-image/75767A5C4DD096C4E18ABAD156621257.png?imageView&thumbnail=220y80&quality=100" alt="厦门大学"></a>
+						</div>
+					
+						<div class="hezuo-logo-item pull-left">
+							<a target="_blank" href="http://www.icourses.cn/web/sword/portal/school?id=WHU">
+							<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')"
+								src="http://nos.netease.com/edu-image/DD5AFE55B4268D64508A58AE479CCE95.png?imageView&thumbnail=220y80&quality=100" alt="武汉大学"></a>
+						</div>
+					
+						<div class="hezuo-logo-item pull-left">
+							<a target="_blank" href="http://www.icourses.cn/web/sword/portal/school?id=SDU">
+							<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')"
+								src="http://img1.ph.126.net/kbVoXkrLZ2dyWV1r6Hcllw==/1342917113986842373.jpg" alt="山东大学"></a>
+						</div>
+					
+						<div class="hezuo-logo-item pull-left">
+							<a target="_blank" href="http://www.icourses.cn/web/sword/portal/school?id=TONGJI">
+							<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')"
+								src="http://nos.netease.com/edu-image/6F31DFEDE0DFF8348D3CF978ED909CA4.png?imageView&thumbnail=220y80&quality=100" alt="同济大学"></a>
+						</div>
+					
+				</div>
+          </section>
+        </div>
+      </section>
+    </section>
+    <!-- 大学mooc、职教nooc-->
+    <section class="icourse-sort-list-c wrap">
+      <section class="container">
+        <section class="row">
+          <ul class="icourse-sort-list">
+            <li class="icourse-universityMooc clearfix">
+              <div class="icourse-sort-top">
+                <div class="clearfix">
+                  <div class="pull-left">
+                    <h1>中国大学MOOC</h1>
+                  </div>
+                  <div class="pull-left">
+                    <ul class="clearfix title-navl-l">
+                    	
+                     	 	<li class="pull-left title-navl-i">
+                     	 		<a target="_blank" href="http://www.icourse163.org/course/XJTU-1002057028">大学计算机CAP</a>
+                     	 	</li>
+						
+                     	 	<li class="pull-left title-navl-i">
+                     	 		<a target="_blank" href="http://www.icourse163.org/course/icourse-1001553014">信息化领导力</a>
+                     	 	</li>
+						
+                     	 	<li class="pull-left title-navl-i">
+                     	 		<a target="_blank" href="http://www.icourse163.org/course/CCNU-1002600009">生活中的自制乐器与演奏</a>
+                     	 	</li>
+						
+                     	 	<li class="pull-left title-navl-i">
+                     	 		<a target="_blank" href="http://www.icourse163.org/course/NENU-1002600008">音乐课堂教学课例评析与研究</a>
+                     	 	</li>
+						
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="icourse-sort-left pull-left">
+                  <div class="icourse-sort-top">
+                    <div class="icourse-sort-top-mask"></div>
+                    <div class="icourse-sort-top-content">
+                      <a target="_blank" class="icourse-sort-info-t" href="http://www.icourse163.org/course/SUDA-1001752275">吴文化史</a>
+                      <div class="icourse-sort-info-content">吴文化史</div>
+                      <div class="link-text clearfix">
+                      	<span class="num pull-right">4594</span>
+                      	<span class="from">苏州大学</span>
+                      </div>
+                    </div>
+                    <div class="icourse-content-img"><img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/403DB9F47E7518726DDBE6C7240FBFB0.PNG?imageView&thumbnail=426y240&quality=100"></div>
+                  </div>
+                  <ul class="icourse-sort-info-link">
+                  	
+	                    <li>
+	                    	<a target="_blank" href="http://www.icourse163.org/course/XJTU-1001807015">模拟电子技术基础</a>
+	                      	<div class="link-text clearfix">
+		                      	<span class="num pull-right">6214</span>
+		                      	<span class="from" title="西安交通大学">西安交通大学</span>
+		                    </div>
+	                    </li>
+                    
+	                    <li>
+	                    	<a target="_blank" href="http://www.icourse163.org/course/icourse-1002421002">面向核心素养的信息化教学设计</a>
+	                      	<div class="link-text clearfix">
+		                      	<span class="num pull-right">3934</span>
+		                      	<span class="from" title="爱课程">爱课程</span>
+		                    </div>
+	                    </li>
+                    
+                  </ul>
+                </div>
+                <div class="icourse-sort-center pull-right">
+                  <ul class="icourse-open-center-l clearfix">
+                  	
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/HRBEU-1002529020" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://edu-image.nosdn.127.net/D3D6E6EF5DF793B492CC0DBDE8AAB399.png?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/HRBEU-1002529020" title="数学零距离" target="_blank">数学零距离</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="沈继红 | 哈尔滨工程大学">沈继红 | 哈尔滨工程大学</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/FZU-1001931010" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://edu-image.nosdn.127.net/1C918E44F7103DDDB5F826C3BB72372D.jpg?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/FZU-1001931010" title="品牌管理" target="_blank">品牌管理</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="肖阳 | 福州大学">肖阳 | 福州大学</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/SNNU-1002339006" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/00C21BC5891995913BACD32096499DB9.png?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/SNNU-1002339006" title="“互联网+”教学设计与实践" target="_blank">“互联网+”教学设计与实践</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="何聚厚 | 陕西师范大学">何聚厚 | 陕西师范大学</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+								<li class="icourse-open-center-i last pull-left">
+							
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/NEU-1001640001" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://edu-image.nosdn.127.net/9DA919B4860066616CCA2E482C6E4CA9.png?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/NEU-1001640001" title="钢琴弹奏基础" target="_blank">钢琴弹奏基础</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="黄岑 | 东北大学">黄岑 | 东北大学</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/XJTU-1002104011" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://edu-image.nosdn.127.net/09F254F1CEEE45847E5638B8642B38BF.jpg?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/XJTU-1002104011" title="数学竞赛选讲" target="_blank">数学竞赛选讲</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="赵小艳 | 西安交通大学">赵小艳 | 西安交通大学</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/cupl-1002694003" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/AE12DD3540E77424B0B4809CA86761FB.png?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/cupl-1002694003" title="应急法专题研究" target="_blank">应急法专题研究</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="林鸿潮 | 中国政法大学">林鸿潮 | 中国政法大学</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/PKU-1002698020" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-05-09/a120d2968bae4fd6910c1d0a6d7b5b43.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/PKU-1002698020" title="解密教育的技术变革史" target="_blank">解密教育的技术变革史</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="郭文革 | 北京大学">郭文革 | 北京大学</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+								<li class="icourse-open-center-i last pull-left">
+							
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/icourse-1002449001" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://edu-image.nosdn.127.net/C2C0A80F4FEB25C38EBC123505B6AAFB.jpg?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/icourse-1002449001" title="MOOC大家谈" target="_blank">MOOC大家谈</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="中国大学MOOC | 爱课程">中国大学MOOC | 爱课程</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="icourse-educationMooc clearfix">
+              <div class="icourse-sort-top">
+                <div class="clearfix">
+                  <div class="pull-left">
+                    <h1>中国职教MOOC</h1>
+                  </div>
+                  <div class="pull-left">
+                    <ul class="clearfix title-navl-l">
+                    	
+                     	 	<li class="pull-left title-navl-i">
+                     	 		<a target="_blank" href="http://www.icourse163.org/course/SZPT-1002699018">单片机应用技术</a>
+                     	 	</li>
+						
+                     	 	<li class="pull-left title-navl-i">
+                     	 		<a target="_blank" href="http://www.icourse163.org/course/cqipc-1002030032">嗨翻艺术设计创业</a>
+                     	 	</li>
+						
+                     	 	<li class="pull-left title-navl-i">
+                     	 		<a target="_blank" href="http://www.icourse163.org/course/SXRI-1002618007">高铁职场礼仪</a>
+                     	 	</li>
+						
+                     	 	<li class="pull-left title-navl-i">
+                     	 		<a target="_blank" href="http://www.icourse163.org/course/CSMZXY-1002587002">高职大学生心理健康教育</a>
+                     	 	</li>
+						
+                     	 	<li class="pull-left title-navl-i">
+                     	 		<a target="_blank" href="http://www.icourse163.org/course/sxpi-1002548002">化学分析技术</a>
+                     	 	</li>
+						
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="icourse-sort-left pull-left">
+                  <div class="icourse-sort-top">
+                    <div class="icourse-sort-top-mask"></div>
+                    <div class="icourse-sort-top-content">
+                      <a target="_blank" class="icourse-sort-info-t" 
+                      href="http://www.icourse163.org/course/hpi-1002588001">安全与舒适护理技术</a>
+                      <div class="icourse-sort-info-content">安全与舒适护理技术</div>
+                      <div class="link-text clearfix">
+                      	<span class="num pull-right">1269</span>
+                      	<span class="from">湖北职业技术学院</span>
+                      </div>
+                    </div>
+                      <div class="icourse-content-img"><img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/4E51806550684F2394778744581513DA.png?imageView&thumbnail=510y288&quality=100"></div>
+                  </div>
+                  <ul class="icourse-sort-info-link">
+                  	
+	                    <li>
+	                    	<a target="_blank" href="http://www.icourse163.org/course/hpi-1002586002">餐饮服务与管理</a>
+	                      	<div class="link-text clearfix">
+		                      	<span class="num pull-right">868</span>
+		                      	<span class="from" title="湖北职业技术学院">湖北职业技术学院</span>
+		                    </div>
+	                    </li>
+                    
+	                    <li>
+	                    	<a target="_blank" href="http://www.icourse163.org/course/XPC-1002560001">计算机辅助造型</a>
+	                      	<div class="link-text clearfix">
+		                      	<span class="num pull-right">5380</span>
+		                      	<span class="from" title="邢台职业技术学院">邢台职业技术学院</span>
+		                    </div>
+	                    </li>
+                    
+                  </ul>
+                </div>
+                <div class="icourse-sort-center pull-right">
+                  <ul class="icourse-open-center-l clearfix">
+                  	
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/NCJY-1002561002" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/EFD89545AE4202639A84486BE299FFA9.jpg?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/NCJY-1002561002" title="互联网+BIM创业实务" target="_blank">互联网+BIM创业实务</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="苏登信 | 南充职业技术学院">苏登信 | 南充职业技术学院</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/JXCFS-1002628006" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/D7CF7995418033FA52B24FF14C625CD9.jpg?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/JXCFS-1002628006" title="商务英语口语与实训" target="_blank">商务英语口语与实训</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="赵越 | 江西外语外贸职业学院">赵越 | 江西外语外贸职业学院</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/CAVTC-1002602036" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/BB74FCEFC7CC6C5D6A9ABBC5F2F5120B.png?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/CAVTC-1002602036" title="文献信息检索与利用——让你成为行走的搜索引擎" target="_blank">文献信息检索与利用——让你成为行走的搜索引擎</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="陈萍秀 | 成都航空职业技术学院">陈萍秀 | 成都航空职业技术学院</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+								<li class="icourse-open-center-i last pull-left">
+							
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/HNRPC-1002601032" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/08CDF551A989D106CFCE051AED94D14F.jpg?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/HNRPC-1002601032" title="带你揭开神秘的物联网：物联网技术概论" target="_blank">带你揭开神秘的物联网：物联网技术概论</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="颜谦和 | 湖南铁道职业技术学院">颜谦和 | 湖南铁道职业技术学院</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/SZPT-1002694011" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/F607B3B33EBABEF7DAA5EA6A8EC4BFF7.jpg?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/SZPT-1002694011" title="职业综合英语" target="_blank">职业综合英语</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="唐克胜 | 深圳职业技术学院">唐克胜 | 深圳职业技术学院</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/NBPT-1002535032" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/E4C5A294DB47A6102432A126DE9C582C.png?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/NBPT-1002535032" title="咖啡制作" target="_blank">咖啡制作</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="徐春红 | 宁波职业技术学院">徐春红 | 宁波职业技术学院</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/HEPSVE-386003" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://edu-image.nosdn.127.net/D10F37FADF1216C304DF73518DBCFA5E.jpg?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/HEPSVE-386003" title="电工技术基础与技能" target="_blank">电工技术基础与技能</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="陈雅萍 | 职教MOOC建设委员会">陈雅萍 | 职教MOOC建设委员会</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+	                    
+							
+								<li class="icourse-open-center-i last pull-left">
+							
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourse163.org/course/NBCC-1002529025" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="https://edu-image.nosdn.127.net/92ECA2E1847B1794044F1268CD4B27C1.png?imageView&thumbnail=510y288&quality=100">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourse163.org/course/NBCC-1002529025" title="Java程序设计" target="_blank">Java程序设计</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" title="郑哲 | 宁波城市职业技术学院">郑哲 | 宁波城市职业技术学院</span>
+	                          	
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+	                
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </section>
+    <!-- 活动专题-->
+    <section class="icourse-sort-active wrap">
+      <section class="container">
+        <section class="row">
+          <h1>活动专题</h1>
+          <div class="clearfix">
+          	
+	          	<a target="_blank" class="pull-left" href="http://www.icourse163.org/topics/art20171215">
+	          		<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-09/74a895f325304a2b88c5a8d3b9a18fd5.jpg" title="艺术家气质养成">
+	          	</a>
+          	
+	          	<a target="_blank" class="pull-left" href="http://www.icourse163.org/course/FZU-1002271005">
+	          		<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-09/aaccee004ac54b3cbb34f5891db5e6c6.jpg" title="食品化学-吃货的正确打开方式">
+	          	</a>
+          	
+	          	<a target="_blank" class="pull-left" href="http://www.icourse163.org/course/icourse-1002449001">
+	          		<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-09/781133b9a2554e20b8a01166ab246a48.jpg" title="MOOC大家谈">
+	          	</a>
+          	
+          </div>
+        </section>
+      </section>
+    </section>
+    <!-- 视频公开课、资源共享课-->
+    <section class="icourse-sort-list-c wrap">
+      <section class="container">
+        <section class="row">
+          <ul class="icourse-sort-list">
+            <li class="icourse-open clearfix">
+              <div class="icourse-sort-top">
+                <div class="clearfix">
+                  <div class="pull-left">
+                    <h1>视频公开课</h1>
+                  </div>
+                  <div class="pull-left">
+                    <ul class="clearfix title-navl-l">
+                    	
+	                      <li class="pull-left title-navl-i">
+	                      	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff80808151141d650151181522d200bc">仪器科学与科技文明</a>
+	                      </li>
+                      	
+	                      <li class="pull-left title-navl-i">
+	                      	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff8080815001e3ff015016fa2e00147b">西方音乐十讲</a>
+	                      </li>
+                      	
+	                      <li class="pull-left title-navl-i">
+	                      	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=547f1a70-1395-1000-a568-da5eb8a4b98b">营养与健康</a>
+	                      </li>
+                      	
+	                      <li class="pull-left title-navl-i">
+	                      	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff80808150cade070150cc2f45ff0387">力学与生活</a>
+	                      </li>
+                      	
+	                      <li class="pull-left title-navl-i">
+	                      	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff80808150cade070150cc5435580423">园艺专业导论</a>
+	                      </li>
+                      	
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="icourse-sort-left pull-left">
+                  <div class="icourse-sort-top">
+                  	<a class="icourse-sort-top-mask" target="_blank" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff8080814e29dd44014e3ccd47431006"></a>
+                    <div class="icourse-content-img">
+                    <img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-18/2ffd6c1c1bd345dd93470a012755030a.jpg">
+                    </div>
+                  </div>
+                  <div class="icourse-sort-info-link">
+                  	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff8080814e29dd44014e3ccd47431006">西域美术掠影</a>
+                    <div class="link-text clearfix">
+	                    <span class="num pull-right"></span>
+	                    <span class="from">王志炜 | 石河子大学</span>
+                    </div>
+                    <p>本课程采用专题的形式，详细阐释和分析了西域美术中独具代表性的原始岩画、古代雕塑、绘画珍品、织物艺术、佛教美术等。并融入这方面研究中的新成果，力求做到引导大众的审美解读，同时也注重学术的规范严谨性以及内容的准确深刻性。本课程旨在让受众领略西域美术的丰采，感受中原文化、西域...</p>
+                  </div>
+                </div>
+                <div class="icourse-sort-center pull-right">
+                  <ul class="icourse-open-center-l clearfix">
+                  	
+                  		
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=1013d845-1344-1000-b974-22f745f72788" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-17/2318f030d6cd40fca9633b8fe8107247.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=1013d845-1344-1000-b974-22f745f72788" title="科技信息图示设计" target="_blank">科技信息图示设计</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="黄余明 | 华东师范大学">
+	                          	黄余明 | 华东师范大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  		
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff8080815118194a0151190e694a0044" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-17/af52ab345f0a4cafb61b04b5d6bc31dc.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff8080815118194a0151190e694a0044" title="葡萄酒文化" target="_blank">葡萄酒文化</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="尹克林 | 西南大学">
+	                          	尹克林 | 西南大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  		
+							
+								<li class="icourse-open-center-i last pull-left">
+							
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff8080814cf6b3b8014d02c7632407e1" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-17/bf98ab65b3c44cab97affb78fbb32666.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff8080814cf6b3b8014d02c7632407e1" title="漫谈学术道德" target="_blank">漫谈学术道德</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="武建奇 | 河北经贸大学">
+	                          	武建奇 | 河北经贸大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  		
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff8080814affe7bb014b39e5507e127b" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-17/9e62e3ae90de49f5b9cb9280ab74aa63.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=ff8080814affe7bb014b39e5507e127b" title="人力资源管理" target="_blank">人力资源管理</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="刘苹 | 四川大学">
+	                          	刘苹 | 四川大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  		
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=75b827bd-139d-1000-be5b-63952debe2c2" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-17/6969bb3fa7214589b3ceff2b64ea12d4.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=75b827bd-139d-1000-be5b-63952debe2c2" title="自然地理与人类环境" target="_blank">自然地理与人类环境</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="王建 | 南京师范大学">
+	                          	王建 | 南京师范大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  		
+							
+								<li class="icourse-open-center-i last pull-left">
+							
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=14360b02-1385-1000-bc40-9bd9a94f2948" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-17/761c2001a4d94277b27db02e1333b3f9.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/videoDetail?courseId=14360b02-1385-1000-bc40-9bd9a94f2948" title="科学是什么" target="_blank">科学是什么</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="丘维声 | 北京大学">
+	                          	丘维声 | 北京大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="icourse-share clearfix">
+              <div class="icourse-sort-top">
+                <div class="clearfix">
+                  <div class="pull-left">
+                    <h1>资源共享课</h1>
+                  </div>
+                  <div class="pull-left">
+                    <ul class="clearfix title-navl-l">
+                      
+	                      <li class="pull-left title-navl-i">
+	                      	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=6792">大学语文</a>
+	                      </li>
+                      	
+	                      <li class="pull-left title-navl-i">
+	                      	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3835">普通动物学</a>
+	                      </li>
+                      	
+	                      <li class="pull-left title-navl-i">
+	                      	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3013">中国工艺美术史</a>
+	                      </li>
+                      	
+	                      <li class="pull-left title-navl-i">
+	                      	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=2992">流体力学</a>
+	                      </li>
+                      	
+	                      <li class="pull-left title-navl-i">
+	                      	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3347">交通规划</a>
+	                      </li>
+                      	
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="icourse-sort-left pull-left">
+                  <div class="icourse-sort-top">
+                  	<a class="icourse-sort-top-mask" target="_blank" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3520"></a>
+                    <div class="icourse-content-img">
+                    <img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://file.icourses.cn/path//2018-01-17/e5d6b5b01ca444618f5c167cecf7dd0b.jpg">
+                    </div>
+                  </div>
+                  <div class="icourse-sort-info-link">
+                  	<a target="_blank" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3520">现代通信技术</a>
+                    <div class="link-text clearfix">
+	                    <span class="num pull-right"></span>
+	                    <span class="from">纪红 | 北京邮电大学</span>
+                    </div>
+                    <p>人类文明的进步与通信的发展密不可分，而现代通信系统及网络的不断演进，深刻地改变了人们的生活。“地球村”的信息共享是如何实现的？有线和无线通信的技术有何区别联系？异构泛在网络怎样互联互通？未来发展路在何方？……欢迎进入宏大复杂的通信网络世界，请随着本门课程的学习开启你的探...</p>
+                  </div>
+                </div>
+                <div class="icourse-sort-center pull-right">
+                  <ul class="icourse-open-center-l clearfix">
+                    
+                  		
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=2350" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://s1.icourses.cn/campus/coursepic/2012/1129/2350_480.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=2350" title="中国诗歌艺术" target="_blank">中国诗歌艺术</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="王红 | 四川大学">
+	                          	王红 | 四川大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  		
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=2081" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://s1.icourses.cn/campus/coursepic/2013/0518/2081_480.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=2081" title="中医儿科学" target="_blank">中医儿科学</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="马融 | 天津中医药大学">
+	                          	马融 | 天津中医药大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  		
+							
+								<li class="icourse-open-center-i last pull-left">
+							
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3289" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://s1.icourses.cn/campus/coursepic/2013/0428/3289_480.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3289" title="传感器技术及应用" target="_blank">传感器技术及应用</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="樊尚春 | 北京航空航天大学">
+	                          	樊尚春 | 北京航空航天大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  		
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3704" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://s1.icourses.cn/campus/coursepic/2013/0511/3704_480.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3704" title="世界经济概论" target="_blank">世界经济概论</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="周申 | 南开大学">
+	                          	周申 | 南开大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  		
+							
+							
+								<li class="icourse-open-center-i pull-left">
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3566" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://s1.icourses.cn/campus/coursepic/2013/0507/3566_480.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3566" title="国际企业管理" target="_blank">国际企业管理</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="范黎波 | 对外经济贸易大学">
+	                          	范黎波 | 对外经济贸易大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  		
+							
+								<li class="icourse-open-center-i last pull-left">
+							
+							
+						
+	                      <div class="icourse-item-modulebox">
+	                        <div class="icourse-img">
+	                          <div class="icourse-type"></div>
+	                          <a href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3459" target="_blank">
+	                          	<img onerror="nofind('http://www.icourses.cn/web/icourse/page/imgs/default_pic.jpg')" src="http://s1.icourses.cn/campus/coursepic/2013/0503/3459_480.jpg">
+	                          </a>
+	                        </div>
+	                        <div class="icourse-desc">
+	                          <p class="icourse-desc-top">
+	                          	<a class="icourse-desc-title" href="http://www.icourses.cn/web/sword/portal/shareIntroduction?courseId=3459" title="金融学" target="_blank">金融学</a>
+	                          </p>
+	                          <p class="icourse-desc-bottom clearfix">
+	                          	<span class="icourse-desc-school pull-left" 
+	                          	title="李健 | 中央财经大学">
+	                          	李健 | 中央财经大学</span>
+	                          	<span class="icourse-study pull-right">
+	                          		<span class="icourse-study-cout"></span>
+	                          	</span>
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </li>
+                    
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </section>
+    <!-- 区域中心、课程联盟-->
+    <section class="icourse-sort-otherLink wrap">
+      <section class="container">
+        <section class="row clearfix">
+          <div class="icourse-regionalCenter pull-left otherLink-content">
+            <div class="title">区域中心</div>
+            <div class="mask-bj"></div>
+            <div class="content clearfix">
+              <ul class="otherLink-content-l pull-left">
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://www.fooc.org.cn">福建省高校在线教育联盟</a></li>
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://hlj.icourses.cn">黑龙江省高校优质课程联盟</a></li>
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://hebei.icourses.cn/">河北高校课程在线</a></li>
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://shanghai.icourses.cn/">上海市在线课程中心</a></li>
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://hubei.icourses.cn">湖北在线课程中心</a></li>
+              </ul>
+              <ul class="otherLink-content-l pull-right">
+                <!-- <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://rwsk.icourses.cn">陕西省人文社科在线课程中心</a></li>
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://sf.icourses.cn">陕西省师范在线课程中心</a></li>
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://shaanxi.icourses.cn">陕西高校在线课程中心</a></li> -->
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://jiangsu.icourses.cn">江苏省在线课程中心</a></li>
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://henan.icourses.cn">河南省在线课程中心</a></li>
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://sichuan.icourses.cn">四川在线课程中心</a></li>
+                <li class="icourse-regionalCenter-i otherLink-content-i"><a target="_blank" href="http://guangxi.icourses.cn">广西在线课程中心</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="icourse-coursesAlliance pull-right otherLink-content">
+            <div class="title">课程联盟</div>
+            <div class="mask-bj"></div>
+            <div class="content">
+              <ul class="otherLink-content-l pull-left">
+                <li class="icourse-coursesAlliance-i otherLink-content-i"><a target="_blank" href="http://cap.icourses.cn">中国大学先修课</a></li>
+                <li class="icourse-coursesAlliance-i otherLink-content-i"><a target="_blank" href="http://tmooc.icourses.cn">中国教师教育MOOC</a></li>
+                <li class="icourse-coursesAlliance-i otherLink-content-i"><a target="_blank" href="http://computer.icourses.cn">中国高校计算机教育MOOC联盟</a></li>
+              </ul>
+              <ul class="otherLink-content-l pull-right">
+              	<li class="icourse-coursesAlliance-i otherLink-content-i"><a target="_blank" href="http://lis.icourses.cn">图书馆（学）在线课程联盟</a></li>
+                <li class="icourse-coursesAlliance-i otherLink-content-i"><a target="_blank" href="http://cumcm.icourses.cn">中国高校数学建模课程中心</a></li>
+                <li class="icourse-coursesAlliance-i otherLink-content-i"><a target="_blank" href="http://music.icourses.cn/">华夏乐府音乐在线课程联盟</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+    <!-- 新闻资讯-->
+    <section class="icourse-index-news wrap">
+      <section class="container">
+        <section class="row clearfix">
+          <h1>新闻资讯</h1>
+          <ul class="clearfix">
+          	
+	            <li class="pull-left">
+	            	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/f5d59163c2dc424c8614ee21e6d1a4b1.html">关于爱课程“教师教学能力提升类MOOC课程项目”第四期选题征集的通知</a>
+	            </li>
+            
+	            <li class="pull-left">
+	            	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/04fcd956ea7e4336a270aae8ad78e3a0.html">中国大学先修课程试点项目第七次课程考试报名方式的补充说明</a>
+	            </li>
+            
+	            <li class="pull-left">
+	            	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/1c3d3acae3764de18ccee4775eb84130.html">关于举办中国大学先修课程试点项目第七次课程考试的通知</a>
+	            </li>
+            
+	            <li class="pull-left">
+	            	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/4ab3813a44054ff1b4c1eba3759583fa.html">关于举办中国大学先修课程试点项目第二次线上教师培训的通知</a>
+	            </li>
+            
+	            <li class="pull-left">
+	            	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/8d5000280361460da81e4f9768d65a1e.html">中国大学先修课程试点项目2017-2018学年 第二学期开课及选课通知</a>
+	            </li>
+            
+	            <li class="pull-left">
+	            	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/a2c7d038204b404fb6ccc18f9bb85ebc.html">关于征集2018年“中国开设大学先修课程的理论与实践研究”专项课题的通知</a>
+	            </li>
+            
+	            <li class="pull-left">
+	            	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/5687dcc1895d4fdf9e2cc486a79f4822.html">现场直击|第三届“中国大学在线开放课程论坛”在京举行 </a>
+	            </li>
+            
+	            <li class="pull-left">
+	            	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/b6b4d3348da6491cb77457ad61e7ee45.html">教育部在线开放课程建设与应用推进会在京举办</a>
+	            </li>
+            
+	            <li class="pull-left">
+	            	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/9c8ada79981444efa06b6ef493bc9a6c.html">2017年国家精品在线开放课程认定结果公示</a>
+	            </li>
+            
+	            <li class="pull-left">
+	            	<a target="_blank" href="http://news.icourses.cn/web//icTest/home/homeNews/e397b6e8cb174880b2ea81faef2aa923.html">爱课程6周年献礼：中国大学MOOC公益计划走进云南，慕课让孩子们看见更大世界</a>
+	            </li>
+            
+          </ul>
+        </section>
+      </section>
+    </section>
+    <!-- 首页底部-->
+    
+
+
+<!-- 首页底部-->
+    <section class="wrap footer">
+      <section class="container"> 
+        <div class="row">
+          <div class="footer-friendlink clearfix"><span class="footer-friendlink-title">友情链接</span>
+            <ul class="footer-friendlink-l pull-right clearfix">
+              <li class="footer-friendlink-i pull-left"><a class="footer-friendlink-i-text" target="_blank" href="http://www.moe.gov.cn/">中华人民共和国教育部</a></li>
+              <li class="footer-friendlink-i pull-left"><a class="footer-friendlink-i-text" target="_blank" href="http://www.hep.com.cn/">高等教育出版社</a></li>
+              <li class="footer-friendlink-i pull-left"><a class="footer-friendlink-i-text" target="_blank" href="http://www.univs.cn/">中国大学生在线</a></li>
+            </ul>
+          </div>
+          <div class="footer-line"></div>
+          <div class="footer-nav pull-left">
+            <ul class="footer-nav-l">
+              <li class="footer-nav-i first"><a class="footer-nav-i-text" target="_blank" href="http://www.icourses.cn/contactUs">联系我们</a></li>
+              <li class="footer-nav-i"><a class="footer-nav-i-text" target="_blank" href="http://www.icourses.cn/aboutUs">关于网站</a></li>
+              <li class="footer-nav-i"><a class="footer-nav-i-text" target="_blank" href="http://www.icourses.cn/propertyRigjt">知识产权声明</a></li>
+            </ul>
+          </div>
+          <div class="footer-information pull-left">
+            <div class="footer-information-text first"><span>主办单位：高等教育出版社有限公司</span><span>京ICP备12020869号-2</span><span>京公网安备110102000459-2</span></div>
+            <div class="footer-information-text"><span>中国大学精品开放课程适用于《中华人民共和国著作权法》</span></div>
+            <div class="footer-information-text"><span>高等教育出版社享有中国大学精品开放课程信息网络传播的专有使用权 未经书面允许，请勿转播</span></div>
+          </div>
+        </div>
+      </section>
+    </section>
+<script type="text/javascript" src="http://www.icourses.cn/web/icourse/page/common/js/baidu_tj.js"></script>
+    <!-- fixed工具条-->
+    
+
+
+<!-- fixed工具条-->
+<section class="icourse-right-tools clearfix">
+  <ul class="icourse-right-tools-icons pull-right">
+    <li class="index-tool-item"><a class="kehuduan-download" href="javascript:;"></a></li>
+    <li class="index-tool-item"><a class="icon-upbtn" href="#"></a></li>
+  </ul>
+  <section class="index-tool-kehuduan-box pull-left"><img class="kehuduan-erweima" src="http://www.icourses.cn/web/icourse/page/imgs/app_code.png">
+  <!-- <a class="down-android" href="javascript:;">立即下载</a><a class="down-ios" href="javascript:;">立即下载</a> -->
+    <section class="sanjiao-left">
+      <div class="sanjiao-left-border"></div>
+      <div class="sanjiao-left-content"></div>
+    </section>
+  </section>
+</section>
+	
+
+<script>
+	// 获取当前域名下的context，请求service用
+	function getServer() {
+		/*
+		var ctx = '/web';
+		if (ctx != "/") ctx = ctx + "/";
+		return ctx;
+		*/
+		return "http://www.icourses.cn/web/";
+	}
+	// 获取静态文件地址，请求静态文件（js、html）用
+	function getStaticServer() {
+		return "http://www.icourses.cn/web/";
+	}
+</script>
+<script src="http://www.icourses.cn/web/icourse/lib/requirejs/require.js"></script>
+<script src="http://www.icourses.cn/web/icourse/page/common/js/config.js"></script>
+ 	<script type="text/javascript">
+		require([ "Base" ], function() {
+			require([ "Common" ]);
+			require([ "Home" ]);
+		});
+	</script>
+  </body>
+</html>

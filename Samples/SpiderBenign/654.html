@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Page-Enter" content="blendTrans(Duration=0.5)" />
+		<meta http-equiv="Page-Exit" content="blendTrans(Duration=0.5)" />
+		<meta http-equiv="imagetoolbar" content="no" />
+		<meta http-equiv="pragma" content="public" />
+		<meta http-equiv="cache-control" content="public" />
+		<meta http-equiv="expires" content="0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta http-equiv="keywords" content="우리민족끼리,우민끼,조선,조선민주주의인민공화국,DPRK,북조선,북한,백두산3대장군,김일성주석,김정일장군,김정숙어머님,선군,회고록,세기와 더불어,회상기,조국평화통일위원회,조평통,조국통일,3대헌장,3대원칙,6.15공동선언,10.4선언,동영상,사진,료리,요리,도서,소설,명곡,노래,음악,음반,뉴스,북한뉴스,로동신문,노동신문,통일신보,조선중앙통신,민주조선,통일문학,조선사회민주당,유모아,영화,조선영화,북한영화,북한TV,게임,플래시게임,아리랑, 금강산, 고려, 고구려,
+		 KimIlSung, Kim Il Sung, KimJongIl, Kim Jong Il, KimJongUn, Kim Jong Un, KimJongSuk, Kim Jong Suk, Paekdusan, Pyongyang, uriminzokkiri, uriminzokiri, uriminjok, urikiri, uriminzok, korea, north korea, koryo, dprk, korea film, rodong news, Rodong Sinmun, KCNA, Rodong Mangyongdae, Unhasu, Moranbong, Arirang, Kumgang,
+		  金日成, 金正日, 金正恩, 金正淑,白头山, 长白山, 金刚山, 七宝山, 妙香山,朝鲜, 平壤, 高丽, 高句丽, 百済, 新罗, 啊里朗, 抗美援朝, 与世纪同行,
+		  わが民族どうし,安街朝鮮民主主義人民共和国, 北朝鮮, 白頭山, 三大将軍, 先軍, 回顧録,世紀とともに, 祖国統一, 三大憲章, 6.15共同宣言, 10.4宣言, アリラン, 高麗, 高句麗, 渤海, 新羅, 独島, 鴨緑江, 平壌,
+		  КНДР, Корея, Северная Корея, Северная Корея, Ким Ир Сен, КимИрСен, Ким Чен Ир, КимЧенИр, Ким Чен Ын, КимЧенЫн, Ким Чен Сук, КимЧенСук, Сонгун, мемуары, В водовороте века, воссоединение Родины, Три хартии воссоединения Родины, Три принципа воссоединения Родины, Совместная декларация 15-го Июня, Декларация 4-го Октября, Мангендэ, Ариран, гора Кымган, гора Мёхян, гора Пэкту, Корё, Когурё, Палхэ, Пэкчже, Синла, остров Ток, река Амнок, Пхеньян, река Тэдон" />
+		<meta http-equiv="description" content="《우리민족끼리》홈페지는 조선민주주의인민공화국에 대한 모든 정보를 제공하고 있습니다." />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>《우리 민족끼리》</title>
+		<link rel="icon" href="image/uriminzokkiri.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="image/uriminzokkiri.ico" type="image/x-icon" />
+		<link type="text/css" href="css/?ptype=first" rel="stylesheet" media="screen" />
+		<script type="text/javascript" src="js/?ptype=first"></script>		
+		<script type="text/javascript">		
+			var my_slide;
+			function load_other_photo(){
+				for(var i = 5; i < 15; i++){
+					var item = $('.jcarousel-clip li').eq(i).children('a');
+				//	console.log(item.children('img'));
+					if(item.children('img').length < 1){							
+						item.html('<img src="' + photo_rest_list[i - 5].img + '" alt="' + photo_rest_list[i - 5].alt + '" width="120px" \/>' );
+						
+						item.parent().append(photo_rest_list[i - 5].new_flag);
+						
+						var img_tag = item.children('img').eq(0);
+						img_tag.hover(function() {
+							jQuery(".photo_title").html(jQuery(this).attr("alt"));
+						},
+						function() {
+							jQuery(".photo_title").text("");
+						});
+					}
+				}
+			}
+			
+			function mycarousel_initCallback(carousel) {
+				my_slide = carousel;
+				jQuery('.psa_container').click(function() {
+					var index = $(".psa_container").index(this);
+					location.hash= "#" + index;
+					
+					if(index != 0) load_other_photo();
+					
+					jQuery(".psa_container").not(".psa_container:eq("+ index +")").attr("class","psa_container unovered");
+					jQuery(".psa_container:eq("+ index +")").attr("class","psa_container overed");
+					carousel.scroll(jQuery.jcarousel.intval((index)*5+1));
+					return false;
+				});	
+				
+				carousel.clip.hover(function() {
+					carousel.stopAuto();
+				}, function() {
+					carousel.startAuto();
+				});
+			}
+			function itemLoadCallbackFunction(carousel, state)
+			{
+				var node = (carousel.first-1)/5%3;
+				jQuery(".psa_container").not(".psa_container:eq("+ node +")").attr("class","psa_container unovered");
+				jQuery(".psa_container:eq("+ node +")").attr("class","psa_container overed");
+			}
+			jQuery(document).ready(function() {
+				//alert(photo_rest_list[0].img);
+				var carousel = jQuery("#mycarousel").jcarousel({
+					scroll: 5,
+					auto: 0,
+					wrap: 'both',
+					initCallback: mycarousel_initCallback,
+					itemLoadCallback: itemLoadCallbackFunction,
+					//itemVisibleInCallback: mycarousel_itemVisibleInCallback,
+					//itemVisibleOutCallback: mycarousel_itemVisibleOutCallback,
+					buttonNextHTML: null,
+					buttonPrevHTML: null
+				});
+				jQuery("#mycarousel li a img").hover(function() {
+					jQuery(".photo_title").html(jQuery(this).attr("alt"));
+				},
+				function() {
+					jQuery(".photo_title").text("");
+				});
+				
+				var page = parseInt(location.hash.replace(/#/, ''));
+				if(page != 0 && !isNaN(page)){
+					load_other_photo();
+					my_slide.scroll(jQuery.jcarousel.intval((page)*5+1));
+				}
+			});
+			
+		</script>
+	</head>
+<body>
+	<div id="total_wrapper">
+	<div class="header">
+	<div class="container top_bg_clear">	<div class="top_center">		<div class="top_left_effect"></div>		<div class="top_right_effect"></div>		<div class="top_body">			<div class="top_flag"></div>			<a href="index.php" class="top_mark"></a>		</div>	</div>	<div class="top_wing">		<div class="top_wleft top_lw_left"></div>		<div class="top_wbody top_lw_body"></div>		<div class="top_wleft top_lw_right"></div>	</div>	<div class="top_wing top_right_wing">		<div class="top_wleft top_rw_left"></div>		<div class="top_wbody top_rw_body"></div>		<div class="top_wleft top_rw_right"></div>	</div>	<div class="top_left_guide">		<div class="block">		<span style="color: #d1730e"> | </span><a href="index.php">첫페지로</a><span style="color: #1cb552"> | </span><a href="#"  class="firstpage_register">시작페지등록</a><span style="color:#c43030"> | </span><a href="#" class="bookmark">즐겨찾기추가</a>		</div>		<div class="block dic">			<a href="uri_foreign/dic/index.php" target="_blank"><button type="button" class="btn kwbd">조선말대사전</button></a>		</div>		<div class="block today">			<a href="index.php" style="color: red;"><i class="icon icon1">&nbsp;</i>조선어</a>			<a href="index.php?lang=eng" ><i class="icon icon3">&nbsp;</i>English</a>			<a href="index.php?lang=rus" ><i class="icon icon3">&nbsp;</i>Русский</a>			<a href="index.php?lang=chn" ><i class="icon icon3">&nbsp;</i>中国语</a>			<a href="index.php?lang=jpn" ><i class="icon icon3">&nbsp;</i>日本語</a>		</div>	</div>	<div class="top_right_guide">		<div class="block">			<span style="color:#d1730e"> | </span><a href="m/index.php">모바일페지로</a><span style="color:#1cb552"> | </span><a href="index.php?ptype=sitemap">홈페지안내</a>		</div>		<div class="block">								<a href="#"><i class="searchicon"></i></a>						<a href="index.php?ptype=searchgoogle"><button type="button" class="btn">통합검색</button></a>					<a href="index.php?ptype=search"><button type="button" class="btn">제목검색</button></a>				</div>		<div class="block etc">						<input type="hidden" id="date" />&nbsp;&nbsp;&nbsp;주체107(2018)년&nbsp;7월&nbsp;12일		</div>	</div>	</div>		<div class="top_nav">	<div class="top_nav_effect top_nav_left"></div>	<div class="top_nav_body">		<div class="navbar">			<i class="homeicon"></i><a href="index.php?ptype=first"><i>첫페지</i></a>			<span style="font-size:13px"> | </span>			<a href="index.php?ptype=ugisa1"><i>기사</i></a>			<span style="font-size:13px"> | </span>			<a href="index.php?ptype=book"><i>도서, 잡지</i></a>			<span style="font-size:13px"> | </span>			<a href="index.php?ptype=multi&vpage=screen_all"><i>다매체</i></a>			<span style="font-size:13px"> | </span>						<a href="index.php?ptype=photoAll"><i>사진</i></a>			<span style="font-size:13px"> | </span>			<a href="index.php?ptype=music#pos" target="_blank"><i>음악마당</i></a>			<span style="font-size:13px"> | </span>			<a href="index.php?ptype=recording"><i>록음물</i></a>			<span style="font-size:13px"> | </span>			<a href="index.php?ptype=reader"><i>독자투고</i></a>			<span style="font-size:13px"> | </span>			<i class="uritvicon"></i><a href="/itv" target="_blank"><i>우리민족끼리TV</i></a>			<span style="font-size:13px"> | </span>			<i class="centertvicon"></i><a href="index.php?ptype=centertv"><i>조선중앙TV</i></a>		</div>	</div>	<div class="top_nav_effect top_nav_right"></div></div><div class="top_nav_sub"></div><script type="text/javascript">	<!--	var fav_url = "http://www.uriminzokkiri.com/";	var agent = navigator.userAgent.toLowerCase();	var is_ie = ((agent.indexOf("msie") != -1) && (agent.indexOf("opera") == -1));	var is_crome  = (agent.indexOf("chrome") != -1);	var is_mozila  = (agent.indexOf("mozilla") != -1 && is_ie != true && is_crome != true);	$(document).ready(function () {		$(".bookmark").click(function () {			if(is_crome == true || is_mozila == true){				alert("CTRL + D건을 눌러주십시오.");			}else{				window.external.AddFavorite(fav_url, "《우리 민족끼리》홈페지");			}		});	});		$(document).ready(function () {		$(".bookmark").click(function () {			if(is_crome == true || is_mozila == true){				alert("CTRL + D건을 눌러주십시오.");			}else{				window.external.AddFavorite(fav_url, "《우리 민족끼리》홈페지");			}		});	});		$(document).ready(function () {		$(".firstpage_register").click(function () {			if(is_crome == true || is_mozila == true){				alert("Tools/Option을 리용하시면 됩니다.");			}else{				value.style.behavior='url(#default#homepage)';				value.setHomePage(fav_url);			}		});	});		var mindate = '-2m';	$(document).ready(function(){				$('#date').datepicker({		  showOn: 'both',		  buttonText: ' ',		  //buttonImage: 'image/first/head_calendar.gif',		  //buttonImageOnly: true,		  maxDate: '0d',		  minDate: mindate,		  monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],		  dayNames: ['일', '월', '화', '수', '목', '금', '토'],		  dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],		  currentText: '오늘',		  closeText: '닫기',		  prevText: '전달',		  nextText: '다음달',		  showButtonPanel: true,		  speed: "fast",		  onSelect: function(dateText, inst) {			location.href = "index.php?date=" + dateText;		  },		  changeYear: false,		  closeAtTop: true		});	});	//--></script>	</div>
+	<div class="part_body  body"> 
+	
+	
+								<div class="contents">
+					<!-- BestTopBlock Start -->
+					
+					<!-- End Best -->
+				
+					<!--Block NO.1 -->
+					<div class="block_left">
+						
+				<div class="great">
+					<div class="great_frame great_frame_tl"></div>
+					<div class="great_frame great_frame_bl"></div>
+					<div class="great_frame great_frame_tr"></div>
+					<div class="great_frame great_frame_br"></div>
+					<div class="great_bg_clear"><div class="great_image">
+							<a href = "index.php?ptype=great&who=4&categ1=1&categ2=2#pos"><img src="/contents/multi/yongsang4/2018/07/multi_yongsang4_2018-07-10_dn59813_thumb.jpg" style="width:380px; cursor:url(./image/great/skin/img/no-pointer.cur), pointer;" /></a>
+						</div><div class="great_title">
+							<div class="each">
+								
+								<div class="each_title" >
+									<i class="redflag"></i><a href="index.php?ptype=great&amp;subtype=songunload&amp;no=6355">경애하는 최고령도자 <strong>김정은</strong>동지께서 삼지연군 중흥농<nobr>장을</nobr> 현지지도하시였다</a><a href="index.php?ptype=great&who=4&categ1=1&categ2=2&no=6359#pos" class="greatphoto_img"><i class="icon_img" style="z-index:1;position:relative;"></i></a><a href="index.php?ptype=centertv&no=39949" class="greattv_img"><i class="icon_movie" style="z-index:1;position:relative;"></i></a>
+								</div>
+							</div>
+							<div class="each">
+								
+								<div class="each_title" >
+									<i class="redflag"></i><a href="index.php?ptype=great&amp;subtype=songunload&amp;no=6356">경애하는 최고령도자 <strong>김정은</strong>동지께서 삼지연군안의 <nobr>건설장들을</nobr> 현지지도하시였다</a><a href="index.php?ptype=great&who=4&categ1=1&categ2=2&no=6360#pos" class="greatphoto_img"><i class="icon_img" style="z-index:1;position:relative;"></i></a><a href="index.php?ptype=centertv&no=39950" class="greattv_img"><i class="icon_movie" style="z-index:1;position:relative;"></i></a>
+								</div>
+							</div>
+							<div class="each">
+								
+								<div class="each_title" >
+									<i class="redflag"></i><a href="index.php?ptype=great&amp;subtype=songunload&amp;no=6357">경애하는 최고령도자 <strong>김정은</strong>동지께서 삼지연감자가루생산공장을 현지지도하시였다</a><a href="index.php?ptype=great&who=4&categ1=1&categ2=2&no=6361#pos" class="greatphoto_img"><i class="icon_img" style="z-index:1;position:relative;"></i></a><a href="index.php?ptype=centertv&no=39951" class="greattv_img"><i class="icon_movie" style="z-index:1;position:relative;"></i></a>
+								</div>
+							</div>
+							<div class="each">
+								
+								<div class="each_title" >
+									<i class="redflag"></i><a href="index.php?ptype=great&amp;subtype=songunload&amp;no=6358">경애하는 최고령도자 <strong>김정은</strong>동지께서 삼지연군당위원회 일군들과 함께 뜻깊은 기념사진을 찍으시였다</a><a href="index.php?ptype=great&who=4&categ1=1&categ2=2&no=6362#pos" class="greatphoto_img"><i class="icon_img" style="z-index:1;position:relative;"></i></a><a href="index.php?ptype=centertv&no=39952" class="greattv_img"><i class="icon_movie" style="z-index:1;position:relative;"></i></a>
+								</div>
+							</div>
+							
+						</div>
+						<div class="more_songun" style="font-weight:bold;">
+							<a href="index.php?ptype=great&who=4&categ1=3#pos" class="more_songun">전체보기 <i>»</i></a>
+						</div>
+						<div class="clearboth"></div>
+					</div>
+					
+				</div>
+						<div class="bl_content">
+						
+					<div class="blc_general border_controlr">
+						<div class="blcg_top"></div>
+						<div class="blcg_body">
+							<div style="height:15px"></div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155298" class="blcgbc_title">더 큰 하나<i class="date">07-12</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155258" class="blcgbc_title">부강조국건설의 활로를 열어가시는 길에서<i class="date">07-12</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155195" class="blcgbc_title">사상의 위력으로 승리떨치시며<i class="date">07-12</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155192" class="blcgbc_title">자주적발전의 길을 환히 밝혀주시며<i class="date">07-11</i></a>
+							</div>
+							<div class="blcgb_content">
+								<div class="blcgb_image">
+									<a href="index.php?ptype=ugisa1&amp;no=1155189" class="blcgbc_control"><img src="/contents/uridoc/gisa/2018/07/uridoc_gisa_2018-07-05_dn59464_thumb.jpg" class="blcgbc_thumb gisa_image" style="width:130px;" /></a>
+								</div>
+								<div class="blcgb_cont">
+									<a href="index.php?ptype=ugisa1&amp;no=1155189" class="blcgbc_title">광천에 어린 절세위인들의 숭고한 사랑<i class="date">07-11</i></a>
+									
+								</div>
+								<div class="clearboth"></div>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155123" class="blcgbc_title">고결한 충정의 세계<i class="date">07-10</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155120" class="blcgbc_title">불굴의 신념과 의지로 이어진 고귀한 한생<i class="date">07-10</i></a>
+							</div>
+							<div class="blcgb_content">
+								<div class="blcgb_image">
+									<a href="index.php?ptype=ugisa1&amp;no=1155119" class="blcgbc_control"><img src="/contents/uridoc/gisa/2018/07/uridoc_gisa_2018-07-04_dn59365_thumb.jpg" class="blcgbc_thumb gisa_image" style="width:130px;" /></a>
+								</div>
+								<div class="blcgb_cont">
+									<a href="index.php?ptype=ugisa1&amp;no=1155119" class="blcgbc_title">자립경제의 튼튼한 토대를 마련하시여<i class="date">07-10</i></a>
+									
+								</div>
+								<div class="clearboth"></div>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1154908" class="blcgbc_title">우리 민족의 운명은 우리 스스로<i class="date">07-10</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155193" class="blcgbc_title">주체조선의 승리와 번영을 위한 만년재부로 길이 빛날것이다<i class="date">07-09</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155122" class="blcgbc_title">주인<i class="date">07-09</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155072" class="blcgbc_title">후대들을 위한 사랑<i class="date">07-09</i></a>
+							</div>
+						</div>
+						
+					</div>
+					<div class="blc_general border_controlr">
+						<div class="blcg_body">
+							<div style="height:15px"></div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155384" class="blcgbc_title">사진으로 보는 남조선민심은…<i class="date">07-12</i></a>
+								<a href="index.php?ptype=ugisa1&amp;no=1155384" class="blcgbc_cont"><nobr>최근</nobr> <nobr>남조선에서</nobr> <nobr>미군기지의</nobr> <nobr>완전한</nobr> <nobr>철페를</nobr> <nobr>요구하는</nobr> <nobr>각계층</nobr> <nobr>인민들의</nobr> <nobr>목소리가</nobr> <nobr>날로</nobr> <nobr>거세여지고있다.</nobr></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155383" class="blcgbc_title">남조선 청소년, 대학생단체들 판문점선언리행을 위한 새로운 련대단체 결성<i class="date">07-12</i></a>
+								<a href="index.php?ptype=ugisa1&amp;no=1155383" class="blcgbc_cont"><nobr>북남관계개선과</nobr> <nobr>조선반도의</nobr> <nobr>평화보장을</nobr> <nobr>위한</nobr> <nobr>판문점선언리행에</nobr> <nobr>청년들이</nobr> <nobr>앞장서나가겠다.</nobr></a>
+							</div>
+							<div class="blcgb_content">
+								<div class="blcgb_image">
+									<a href="index.php?ptype=ugisa1&amp;no=1155348" class="blcgbc_control"><img src="/contents/uridoc/gisa/2018/07/uridoc_gisa_2018-07-08_dn59700_thumb.jpg" class="blcgbc_thumb" style="width:130px;" /></a>
+								</div>
+								<div class="blcgb_cont">
+									<a href="index.php?ptype=ugisa1&amp;no=1155348" class="blcgbc_title">남조선의 《전교조》소속 교원들 《전국교사결의대회》를 개최, 《법외로조통보》 취소와 피해자들에 대한 명예회복을 강력히 요구<i class="date">07-12</i></a>
+									<a href="index.php?ptype=ugisa1&amp;no=1155348" class="blcgbc_cont"><nobr>현</nobr> <nobr>《정권》은</nobr> <nobr>《전교조》에</nobr> <nobr>대한</nobr> <nobr>《법외로조통보》를</nobr> <nobr>즉각</nobr> <nobr>취소하여야</nobr> <nobr>한다.</nobr></a>
+								</div>
+								<div class="clearboth"></div>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155310" class="blcgbc_title">남조선 민변 《량승태사법롱단》사건의 철저한 진상규명을 위한 《10대과제》 제시<i class="date">07-12</i></a>
+								<a href="index.php?ptype=ugisa1&amp;no=1155310" class="blcgbc_cont"><nobr>검찰은</nobr> <nobr>《량승태사법롱단》사건의</nobr> <nobr>진상을</nobr> <nobr>밝히기</nobr> <nobr>위한</nobr> <nobr>철저한</nobr> <nobr>수사를</nobr> <nobr>진행하여야</nobr> <nobr>한다.</nobr></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=ugisa1&amp;no=1155301" class="blcgbc_title">남조선 더불어민주당 박근혜탄핵초불집회를 무력으로 진압하려 한 군부의 《쿠데타》모의를 강력히 규탄, 관련자들을 엄벌에 처할것을 요구<i class="date">07-12</i></a>
+								<a href="index.php?ptype=ugisa1&amp;no=1155301" class="blcgbc_cont"><nobr>《유신》독재부활을</nobr> <nobr>추구해온</nobr> <nobr>박근혜역도야말로</nobr> <nobr>희대의</nobr> <nobr>파쑈폭군이다.</nobr></a>
+							</div>
+						</div>
+					</div>
+				<div class="blc_general border_control" style="border-bottom: 1px solid #c6d6f1;">
+					<div class="blcg_body">
+						<div style="height:15px"></div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155387" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선 금속로조단체 《임단투 승리, 산별교섭 쟁취, 적페청산》을 내걸고 총파업에 나설것을 결의<i class="date">07-11</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155386" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선 평화이음단체 평화통일열기를 계속 고조시키기 위한 북남수뇌회담 감상작품 공모전 시상식 진행<i class="date">07-11</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155351" class="blcgbc_title_unbold"><i class="blcgbct_categ">[인입]</i>《<법외로조통보>철회, 해고교원 원상복직, <로동3권> 보장하라!》<i class="date">07-11</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155347" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선 시민사회단체 대표들 《쌍룡차》해고문제에 대한 손해배상을 강력히 요구<i class="date">07-11</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155300" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선 더불어민주당 《쌍룡차》해고 로동자추모제에서 벌린 보수단체의 폭력행위를 준렬히 규탄, 엄격한 단속을 주장<i class="date">07-11</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155259" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선 민가협 《보안법》페지와 량심수석방을 요구, 재일동포들에 대한 일본의 비렬한 탄압행위를 강력히 규탄<i class="date">07-11</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155304" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선의 시민사회단체들 《량승태사법롱단 고발대회》 개최, 피해자들의 석방과 명예회복을 강력히 요구<i class="date">07-10</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155299" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선 종교단체들 《쌍룡차》 해고로동자 복직문제에 모두가 나설것을 열렬히 호소<i class="date">07-10</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155296" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선시민사회단체들 리명박《정권》의 《4대강사업》에 대한 철저한 조사와 관련자들을 엄벌에 처할것을 요구<i class="date">07-10</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155253" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선 대전지역시민사회단체들 《량승태사법롱단》사태의 진상규명과 책임자처벌을 강력히 요구<i class="date">07-10</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155247" class="blcgbc_title_unbold"><i class="blcgbct_categ">[인입]</i>《되찾은 강제징용로동자상 반드시 건립하자!》<i class="date">07-09</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155244" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선의 부산지역 시민사회단체들 강제징용로동자상을 다시 세울 굳은 의지 표명<i class="date">07-09</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155246" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선 시민사회단체들 《강원랜드 채용청탁》의혹을 받고있는 권성동에 대한 구속수사를 강력히 요구<i class="date">07-08</i>
+							</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155245" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선 로조단체들 《한국GM》에 해고자복직과 시정명령리행을 강력히 요구<i class="date">07-08</i>
+							</a>
+						</div><div class="more_gisa">
+						<a href="index.php?ptype=ugisa1">전체보기 <i>»</i></a>
+					</div>
+					</div>
+				</div>
+						</div>
+						<div class="bl_content">
+						
+				<div class="blc_general border_control">
+					<div class="blcg_top"></div>
+					<div class="blcg_header">
+						<a href="index.php?ptype=ugisa20" class="blcgh_title" style="letter-spacing:2px">주요기사</a><div class="more import_more"><a href="index.php?ptype=ugisa20">전체보기<i>»</i></a></div>
+					</div>
+					<div class="blcg_body">
+						<div style="height:15px"></div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155302" class="blcgbc_title">주인이라는 립장을 명백히 가져야 한다<i class="new">New</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155196" class="blcgbc_title">눈치놀음이나 객관적조건이란 있을수 없다<i class="new">New</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155117" class="blcgbc_title">반역당의 정체는 그 무엇으로써도 가리워질수 없다(5)<i class="new">New</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155023" class="blcgbc_title">《다시 태여나겠습니다》? 영원히 없어져야 한다<i class="new">New</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155243" class="blcgbc_title">민족자주는 판문점선언의 근본핵</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155191" class="blcgbc_title">민심을 조롱하면 천벌을 받는다</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155187" class="blcgbc_title">무엇이 급선무인가</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155073" class="blcgbc_title">반역당의 정체는 그 무엇으로써도 가리워질수 없다(4)</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155066" class="blcgbc_title">반역당의 정체는 그 무엇으로써도 가리워질수 없다(3)</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155026" class="blcgbc_title">《송장》을 살려낼 《명의》는 없다</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=ugisa1&amp;no=1155327" class="blcgbc_title">조미고위급회담에 참가하였던 미합중국대표단 평양을 출발</a>
+						</div>
+					</div>
+				</div>
+				<div class="blc_general border_control">
+					<div class="blcg_top"></div>
+					<div class="blcg_header">
+						<a href="itv/" class="blcgh_title" style="letter-spacing:1px" target="_blank">우리민족끼리TV</a><div class="more import_more"><a href="itv/" target="_blank">전체보기<i>»</i></a></div>
+					</div>
+					<div class="blcg_body">
+						<div style="height:15px"></div>
+				
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="/itv/index.php?ppt=news&amp;no=39941" class="blcgbc_control"><img src="/contents/uritv/news/2018/07/uritv_news_2018-07-10_dn59880_thumb.jpg" class="blcgbc_thumb" style="width:200px; height:120px;" /><i class="play"></i></a>
+							</div>
+							<div class="blcgb_movie_cont">
+								<a href="/itv/index.php?ppt=news&amp;no=39941" class="blcgbc_title uritv_title_pad" >《대북적대시정책 페기하라!》 -남조선에서 대규모집회 진행-  외 1건 <i class="new">New</i></a>
+								<a href="/itv/index.php?ppt=news&no=39941" class="blcgbc_cont uritv_title_pad" >남조선에서 판문점선언실천 8.15자주통일대행진 추진위원...</a>
+								<span class="movie_service"><i class="date">2018-07-12</i><i class="cloud"><a href="itv/php_tmp/youkuplayer.php?no=39941" onclick="js_count('20', '39941'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39941" onclick="js_count('20', '39941'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a></i></span>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+				
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="/itv/index.php?ppt=news&amp;no=39937" class="blcgbc_control"><img src="/contents/uritv/news/2018/07/uritv_news_2018-07-10_dn59860_thumb.jpg" class="blcgbc_thumb" style="width:200px; height:120px;" /><i class="play"></i></a>
+							</div>
+							<div class="blcgb_movie_cont">
+								<a href="/itv/index.php?ppt=news&amp;no=39937" class="blcgbc_title uritv_title_pad" >《<strong>김일성</strong>주석의 혁명업적은 인류사와 더불어 영원할것이다》 -여러 나라 인사들 칭송-  외 1건 </a>
+								
+								<span class="movie_service"><i class="date">2018-07-11</i><i class="cloud">&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39937" onclick="js_count('20', '39937'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a></i></span>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+				
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="/itv/index.php?ppt=news&amp;no=39926" class="blcgbc_control"><img src="/contents/uritv/news/2018/07/uritv_news_2018-07-09_dn59786_thumb.jpg" class="blcgbc_thumb" style="width:200px; height:120px;" /><i class="play"></i></a>
+							</div>
+							<div class="blcgb_movie_cont">
+								<a href="/itv/index.php?ppt=news&amp;no=39926" class="blcgbc_title uritv_title_pad" >《<국가보안법> 페지하고 량심수들 석방하라!》 -남조선시민사회단체들이 투쟁-  외 1건 </a>
+								<a href="/itv/index.php?ppt=news&no=39926" class="blcgbc_cont uritv_title_pad" >《량승태를 구속하며 사법악페청산 본격...</a>
+								<span class="movie_service"><i class="date">2018-07-10</i><i class="cloud"><a href="itv/php_tmp/youkuplayer.php?no=39926" onclick="js_count('20', '39926'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39926" onclick="js_count('20', '39926'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a></i></span>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+				
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="/itv/index.php?ppt=chojom&amp;no=39930" class="blcgbc_control"><img src="/contents/uritv/chojom/2018/07/uritv_chojom_2018-07-09_dn59793_thumb.jpg" class="blcgbc_thumb" style="width:200px; height:120px;" /><i class="play"></i></a>
+							</div>
+							<div class="blcgb_movie_cont">
+								<a href="/itv/index.php?ppt=chojom&amp;no=39930" class="blcgbc_title uritv_title_pad" >何が優先であるか </a>
+								<a href="/itv/index.php?ppt=chojom&no=39930" class="blcgbc_cont uritv_title_pad" >いまこそ米国は何が優先であるかを熟考しなければならない。</a>
+								<span class="movie_service"><i class="date">2018-07-10</i><i class="cloud"><a href="itv/php_tmp/youkuplayer.php?no=39930" onclick="js_count('17', '39930'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39930" onclick="js_count('17', '39930'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a></i></span>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+				
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="/itv/index.php?ppt=poem&amp;no=39895" class="blcgbc_control"><img src="/contents/uritv/poem/2018/07/uritv_poem_2018-07-07_dn59630_thumb.jpg" class="blcgbc_thumb" style="width:200px; height:120px;" /><i class="play"></i></a>
+							</div>
+							<div class="blcgb_movie_cont">
+								<a href="/itv/index.php?ppt=poem&amp;no=39895" class="blcgbc_title uritv_title_pad" >우리에겐 4.27선언이 있다 </a>
+								<a href="/itv/index.php?ppt=poem&no=39895" class="blcgbc_cont uritv_title_pad" >우리 시대의 자주통일강령!</a>
+								<span class="movie_service"><i class="date">2018-07-09</i><i class="cloud">&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39895" onclick="js_count('69', '39895'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a></i></span>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+				
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="/itv/index.php?ppt=poem&amp;no=39872" class="blcgbc_control"><img src="/contents/uritv/poem/2018/07/uritv_poem_2018-07-06_dn59497_thumb.jpg" class="blcgbc_thumb" style="width:200px; height:120px;" /><i class="play"></i></a>
+							</div>
+							<div class="blcgb_movie_cont">
+								<a href="/itv/index.php?ppt=poem&amp;no=39872" class="blcgbc_title uritv_title_pad" >7월의 밤에 펼쳐보는 못 잊을 이야기 </a>
+								<a href="/itv/index.php?ppt=poem&no=39872" class="blcgbc_cont uritv_title_pad" >칠월칠석 견우직녀 통일전설 수놓으며 통일잔치 들썩하게 펼쳐놓으리</a>
+								<span class="movie_service"><i class="date">2018-07-08</i><i class="cloud">&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39872" onclick="js_count('69', '39872'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a></i></span>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+				
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="/itv/index.php?ppt=sisa&amp;no=39896" class="blcgbc_control"><img src="/contents/uritv/sisa/2018/07/uritv_sisa_2018-07-07_dn59632_thumb.jpg" class="blcgbc_thumb" style="width:200px; height:120px;" /><i class="play"></i></a>
+							</div>
+							<div class="blcgb_movie_cont">
+								<a href="/itv/index.php?ppt=sisa&amp;no=39896" class="blcgbc_title uritv_title_pad" >불멸의 친필에 어린 절세위인의 통일애국의지 </a>
+								<a href="/itv/index.php?ppt=sisa&no=39896" class="blcgbc_cont uritv_title_pad" >자주통일위업의 승리는 확정적이다</a>
+								<span class="movie_service"><i class="date">2018-07-07</i><i class="cloud">&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39896" onclick="js_count('19', '39896'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a></i></span>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+				
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="/itv/index.php?ppt=chojom&amp;no=39884" class="blcgbc_control"><img src="/contents/uritv/chojom/2018/07/uritv_chojom_2018-07-06_dn59579_thumb.jpg" class="blcgbc_thumb" style="width:200px; height:120px;" /><i class="play"></i></a>
+							</div>
+							<div class="blcgb_movie_cont">
+								<a href="/itv/index.php?ppt=chojom&amp;no=39884" class="blcgbc_title uritv_title_pad" >무엇을 할 때인가 </a>
+								<a href="/itv/index.php?ppt=chojom&no=39884" class="blcgbc_cont uritv_title_pad" >깊이 새겨보아야 한다</a>
+								<span class="movie_service"><i class="date">2018-07-06</i><i class="cloud"><a href="itv/php_tmp/youkuplayer.php?no=39884" onclick="js_count('17', '39884'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39884" onclick="js_count('17', '39884'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a></i></span>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+				
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="/itv/index.php?ppt=sisa&amp;no=39817" class="blcgbc_control"><img src="/contents/uritv/sisa/2018/07/uritv_sisa_2018-07-02_dn59175_thumb.jpg" class="blcgbc_thumb" style="width:200px; height:120px;" /><i class="play"></i></a>
+							</div>
+							<div class="blcgb_movie_cont">
+								<a href="/itv/index.php?ppt=sisa&amp;no=39817" class="blcgbc_title uritv_title_pad" >자주통일의 근본원칙을 밝혀주신 불멸의 업적 </a>
+								<a href="/itv/index.php?ppt=sisa&no=39817" class="blcgbc_cont uritv_title_pad" >변함없이 흐르는 자주통일의 력사</a>
+								<span class="movie_service"><i class="date">2018-07-04</i><i class="cloud"><a href="itv/php_tmp/youkuplayer.php?no=39817" onclick="js_count('19', '39817'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39817" onclick="js_count('19', '39817'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a></i></span>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+					</div>
+				</div>
+						</div>
+						<div class="clearboth"></div>
+						
+				<div class="block_collapse">
+					<div class="blc_general bc_control border_control">
+						<div class="bc_top"></div>
+						<div class="bc_header">
+							<a href="index.php?ptype=photo" class="blcgh_title" style="letter-spacing:1px">사진</a>
+							<div class="more import_more"><a href="index.php?ptype=photoAll">전체보기<i>»</i></a></div>			
+							<div class="photo_slideview">
+								<i class="photo_slideview_abs">
+									<a href="#" class="psa_container overed"></a>
+									<a href="#" class="psa_container unovered"></a>
+									<a href="#" class="psa_container unovered"></a>
+								</i>	
+							</div>
+						</div>
+						<div class="bc_body">
+							<ul id="mycarousel" class="jcarousel-skin-tango"><li><a href="index.php?ptype=photo&no=6335"><img src="/contents/multi/photo/2018/07/multi_photo_2018-07-12_dn60003_thumb.jpg" alt="2018년 세계인구의 날에 즈음한 토론회 진행"  style="width:120px; height: 78px;" /></a><i class="new" style="position:absolute; margin-top:-25px; margin-left:90px;color: #FF1188;">New</i></li><li><a href="index.php?ptype=photo&no=6336"><img src="/contents/multi/photo/2018/07/multi_photo_2018-07-12_dn60004_thumb.jpg" alt="김영남동지가 유엔인도주의사업담당 부사무총장일행을 만났다"  style="width:120px; height: 78px;" /></a><i class="new" style="position:absolute; margin-top:-25px; margin-left:90px;color: #FF1188;">New</i></li><li><a href="index.php?ptype=photo&no=6337"><img src="/contents/multi/photo/2018/07/multi_photo_2018-07-12_dn60009_thumb.jpg" alt="우리 나라 보건상이 유엔인도주의사업담당 부사무총장일행을 만났다"  style="width:120px; height: 78px;" /></a><i class="new" style="position:absolute; margin-top:-25px; margin-left:90px;color: #FF1188;">New</i></li><li><a href="index.php?ptype=photo&no=6338"><img src="/contents/multi/photo/2018/07/multi_photo_2018-07-12_dn60010_thumb.jpg" alt="유엔인도주의사업담당 부사무총장일행 평양시내 여러곳 참관"  style="width:120px; height: 78px;" /></a><i class="new" style="position:absolute; margin-top:-25px; margin-left:90px;color: #FF1188;">New</i></li><li><a href="index.php?ptype=photo&no=6339"><img src="/contents/multi/photo/2018/07/multi_photo_2018-07-12_dn60011_thumb.jpg" alt="조선에서 해상환경보호사업에 깊은 관심 -국가해사감독국 중앙해상환경보호조정소에서-"  style="width:120px; height: 78px;" /></a><i class="new" style="position:absolute; margin-top:-25px; margin-left:90px;color: #FF1188;">New</i></li><li><a href="index.php?ptype=photo&no=6331"></a></li><li><a href="index.php?ptype=photo&no=6332"></a></li><li><a href="index.php?ptype=photo&no=6333"></a></li><li><a href="index.php?ptype=photo&no=6334"></a></li><li><a href="index.php?ptype=photo&no=6328"></a></li><li><a href="index.php?ptype=photo&no=6324"></a></li><li><a href="index.php?ptype=photo&no=6326"></a></li><li><a href="index.php?ptype=photo&no=6325"></a></li><li><a href="index.php?ptype=photo&no=6327"></a></li><li><a href="index.php?ptype=photo&no=6320"></a></li><script type='text/javascript'>
+							var photo_rest_list = [{"img":"\/contents\/multi\/photo\/2018\/07\/multi_photo_2018-07-10_dn59841_thumb.jpg","alt":"\uae40\uc601\ub0a8\ub3d9\uc9c0\uac00 \uc138\uacc4\ud3c9\ud654\uae30\uad6c \uc704\uc6d0\uc7a5\uc77c\ud589\uc744 \ub9cc\ub0ac\ub2e4","new_flag":""},{"img":"\/contents\/multi\/photo\/2018\/07\/multi_photo_2018-07-10_dn59842_thumb.jpg","alt":"\ubc15\ubd09\uc8fc\ub3d9\uc9c0 \uac80\ub355\uad11\uc5c5\ub828\ud569\uae30\uc5c5\uc18c \ud604\uc9c0\ub8cc\ud574","new_flag":""},{"img":"\/contents\/multi\/photo\/2018\/07\/multi_photo_2018-07-10_dn59844_thumb.jpg","alt":"\uac15\uc11c\uc138\ubb34\ub364\uacfc \uace0\uad6c\ub824\ubb34\ub364\ubcbd\ud654","new_flag":""},{"img":"\/contents\/multi\/photo\/2018\/07\/multi_photo_2018-07-10_dn59845_thumb.jpg","alt":"\uc720\uc5d4\uc778\ub3c4\uc8fc\uc758\uc0ac\uc5c5\ub2f4\ub2f9 \ubd80\uc0ac\ubb34\ucd1d\uc7a5\uc77c\ud589 \ub3c4\ucc29","new_flag":""},{"img":"\/contents\/multi\/photo\/2018\/07\/multi_photo_2018-07-09_dn59756_thumb.jpg","alt":"\uc704\ub300\ud55c \uc218\ub839 <strong><font style='font-size:larger;'>\uae40\uc77c\uc131<\/font><\/strong>\ub3d9\uc9c0\uc640 \uc704\ub300\ud55c \ub839\ub3c4\uc790 <strong><font style='font-size:larger;'>\uae40\uc815\uc77c<\/font><\/strong>\ub3d9\uc9c0\uc758 \ub3d9\uc0c1\uc5d0 \uc778\ubbfc\uad70\uc7a5\ubcd1\ub4e4\uacfc \uac01\uacc4\uce35 \uadfc\ub85c\uc790\ub4e4, \uccad\uc18c\ub144\ud559\uc0dd\ub4e4 \uaf43\ubc14\uad6c\ub2c8 \uc9c4\uc815","new_flag":""},{"img":"\/contents\/multi\/photo\/2018\/07\/multi_photo_2018-07-08_dn59694_thumb.jpg","alt":"\u00a0\ubbfc\uc871\ucd5c\ub300\uc758 \ucd94\ubaa8\uc758 \ub0a0\uc5d0 \uc988\uc74c\ud558\uc5ec \uae08\uc218\uc0b0\ud0dc\uc591\uad81\uc804\uc744 \ucc3e\uc544 \ub2f9\uacfc \uc815\ubd80, \uad70\ub300\uc758 \uac04\ubd80\ub4e4 \uc22d\uace0\ud55c \uacbd\uc758 \ud45c\uc2dc","new_flag":""},{"img":"\/contents\/multi\/photo\/2018\/07\/multi_photo_2018-07-08_dn59697_thumb.jpg","alt":"\uc138\uacc4\ud3c9\ud654\uae30\uad6c \uc704\uc6d0\uc7a5\uc77c\ud589 \ub9cc\uacbd\ub300 \ubc29\ubb38, \uc5ec\ub7ec\uacf3 \ucc38\uad00","new_flag":""},{"img":"\/contents\/multi\/photo\/2018\/07\/multi_photo_2018-07-08_dn59696_thumb.jpg","alt":"\ubd81\ub0a8\ud1b5\uc77c\ub871\uad6c\uacbd\uae30\uc5d0 \ucc38\uac00\ud558\uc600\ub358 \ub0a8\uce21\ub300\ud45c\ub2e8, \uc120\uc218\ub2e8\uc774 \ud3c9\uc591\uc744 \ucd9c\ubc1c","new_flag":""},{"img":"\/contents\/multi\/photo\/2018\/07\/multi_photo_2018-07-08_dn59698_thumb.jpg","alt":"\uc704\ub300\ud55c \uc218\ub839 <strong><font style='font-size:larger;'>\uae40\uc77c\uc131<\/font><\/strong>\ub3d9\uc9c0\uc640 \uc704\ub300\ud55c \ub839\ub3c4\uc790 <strong><font style='font-size:larger;'>\uae40\uc815\uc77c<\/font><\/strong>\ub3d9\uc9c0\uc758 \ub3d9\uc0c1\uc5d0  \uc911\uad6d\ud56d\uc77c\ud601\uba85\ub82c\uc0ac \uc7a5\uc6b8\ud654\uac00\uc871\uacfc \uc2a4\uc704\uc2a4\uc870\uc120\uc704\uc6d0\ud68c \ub4f1 \uc5ec\ub7ec \ub098\ub77c \uc778\uc0ac\ub4e4\uc774 \uaf43\ubc14\uad6c\ub2c8\ub97c \ubcf4\ub0b4\uc5ec\uc654\ub2e4","new_flag":""},{"img":"\/contents\/multi\/photo\/2018\/07\/multi_photo_2018-07-07_dn59624_thumb.jpg","alt":"\uc704\ub300\ud55c \uc218\ub839 <strong><font style='font-size:larger;'>\uae40\uc77c\uc131<\/font><\/strong>\ub3d9\uc9c0\uc640 \uc704\ub300\ud55c \ub839\ub3c4\uc790 <strong><font style='font-size:larger;'>\uae40\uc815\uc77c<\/font><\/strong>\ub3d9\uc9c0\uc758 \ub3d9\uc0c1\uc5d0 \ud574\uc678\uc5f0\uace0\uc790\uac00\uc871\ub4e4\uacfc \uad6d\uc81c\uae30\uad6c\ub300\ud45c\ubd80 \uc131\uc6d0\ub4e4\uc774 \uaf43\ubc14\uad6c\ub2c8\ub97c \ubcf4\ub0b4\uc5ec\uc654\ub2e4","new_flag":""}];					
+					</script>
+						 </ul>
+					  <div class="photo_title"></div>
+					</div>
+				</div>
+			</div>
+						<div class="block_collapse">
+							<div class="blc_generals bc_controls border_controlrs">
+								
+					<div class="bc_float first_padding">
+						<div class="bc_topc bc_top"></div>
+						<div class="bc_headerc">
+							<a href="index.php?ptype=multi&vpage=screen_all" class="blcgh_title" style="letter-spacing:1px">다매체편집물</a>
+							<div class="more import_more"><a href="index.php?ptype=multi&vpage=screen_all">전체보기<i>»</i></a></div>
+						</div>
+						<div class="bcc_body">
+							<div style="height:15px"></div><div class="blcgb_content">
+									<div class="blcgb_image">
+										<a href="index.php?ptype=multi&amp;no=6251" class="blcgbc_control"><img src="/contents/multi/scr/2018/06/multi_scr_2018-06-14_dn57717/small.jpg" class="blcgbc_thumb" width="130px;"></a>
+									</div>
+									<div class="blcgb_conts">
+										<a href="index.php?ptype=multi&amp;no=6251" class="blcgbc_title">판문점수뇌상봉과 회담의 날에<i class="date">06-14</i></a>
+									</div>
+									<div class="clearboth"></div>
+								</div><div class="title_width_control">
+									<div class="blcgb_content">
+										<a href="index.php?ptype=multi&amp;no=5948" class="blcgbc_title_unbold">태양절과 더불어 영원한 수령칭송의 송가들(3)<i class="date">04-14</i></a>
+									</div>
+								</div><div class="title_width_control">
+									<div class="blcgb_content">
+										<a href="index.php?ptype=multi&amp;no=5721" class="blcgbc_title_unbold">인민의 웃음꽃 만발한 2월의 봄강산<i class="date">02-15</i></a>
+									</div>
+								</div>
+						</div>
+					</div>
+				<div class="bc_float">
+					<div class="bc_topc bc_top"></div>
+					<div class="bc_headerc">
+						<a href="index.php?ptype=book" class="blcgh_title" style="letter-spacing:1px">도서</a>
+						<div class="more import_more"><a href="index.php?ptype=book">전체보기<i>»</i></a></div>
+					</div>
+					<div class="bcc_body">
+						<div style="height:15px"></div>
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="index.php?ptype=book&amp;no=2971" class="blcgbc_control"><img src="/contents/book/literature/2018/06/book_literature_2018-06-30_dn58655_thumb.jpg" class="blcgbc_thumb" style="width:100px;" /></a>
+							</div>
+							<div class="blcgb_conts">
+								<a href="index.php?ptype=book&amp;no=2971" class="blcgbc_title">장편사화 《동의보감》<i class="date">06-30</i></a><br/><br/> 
+								<span style ="font-size: 0.8em; ">평양출판사</span><br/>
+								<span style ="font-size: 0.8em; ">한영철, 최흥록</span><br/>
+								<span style ="font-size: 0.8em; ">주체107(2018)년</span>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+						<div class="title_width_control">
+							<div class="blcgb_content">
+								<a href="index.php?ptype=book&amp;no=2968" class="blcgbc_title_unbold">봄의 고향<i class="date">06-27</i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+								
+								
+				<div class="bc_float">
+					<div class="bc_topc bc_top"></div>
+					<div class="bc_headerc">
+						<a href="index.php?ptype=photobook" class="blcgh_title" style="letter-spacing:1px">화보, 화첩</a>
+						<div class="more import_more"><a href="index.php?ptype=photobook">전체보기<i>»</i></a></div>
+					</div>
+					<div class="bcc_body">
+						<div style="height:15px"></div>
+						<div class="blcgb_content">
+							<div class="blcgb_image">
+								<a href="index.php?ptype=photobook&amp;no=2973" class="blcgbc_control"><img src="/contents/book/album/2018/07/book_album_2018-07-03_dn59298/small.jpg" class="blcgbc_thumb" style="width:100px; height:150px;" /></a>
+							</div>
+							<div class="blcgb_conts">
+								<a href="index.php?ptype=photobook&amp;no=2973" class="blcgbc_title">통일화보 3호 주체107(2018)년 5-6월<i class="date"><i class="date">07-03</i></i></a>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+						<div class="title_width_control">
+							<div class="blcgb_content">
+								<a href="index.php?ptype=photobook&amp;no=2956" class="blcgbc_title_unbold">통일화보 2호 주체107(2018)년 3-4월<i class="date"><i class="date">05-08</i></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+								<div class="clearboth"></div>
+							</div>
+							
+						</div>
+						
+				<div class="block_collapse">
+					<div class="blc_general bc_control border_control">
+						<ul>
+							<li><a href="uri_foreign/dic/index.php" class="bbc_service bcc_dic"></a></li>
+							<li><a href="index.php?ptype=ksocial" class="bbc_service bcc_soc"></a><a href="uri_foreign/koreart.php#movie_flag" target="_blank" class="bbc_service bcc_art"></a></li>
+							<li><div class="bbc_service bcc_phone"><a href="index.php?ptype=multi&vpage=background_all" class="bbc_service bbc_trans_block">&nbsp;</a><a href="index.php?ptype=multi&vpage=phone_all" class="bbc_service bbc_trans_block">&nbsp;</a></div>			
+							</li>
+							<li><a href="index.php?ptype=trade" class="bbc_service bcc_intro"></a><a href="index.php?ptype=game" class="bbc_service bcc_game"></a></li>
+							<li><a href="index.php?ptype=mobileapp" class="bbc_service bcc_app"></a></li>
+							<li><a href="index.php?ptype=faq" class="bbc_service bcc_faq"></a></li>
+						</ul>
+						<div class="clearboth"></div>
+						<div style="height:15px"></div>
+					</div>
+				</div>
+					</div>
+					<!--Block NO.2 -->
+					<div class="block_right">
+						<div class="block_right_body">
+							<a href="index.php?ptype=great&amp;who=4#pos" class="block_right_content brc_great"></a>
+							<a href="index.php?ptype=great&amp;who=1&amp;hueigo=y#pos" class="block_right_content brc_heigo"></a>
+						<!--<a href="index.php?ptype=songun" class="block_right_content brc_policy"></a>-->
+							<a href="index.php?ptype=book&amp;vtype=1" class="block_right_content brc_antijapan"></a>
+							<a href="index.php?ptype=policy" class="block_right_content brc_program"></a>
+							<div style="height:5px"></div>
+							<div class="br_sns_block">
+								<a href="http://twitter.com/uriminzok" class="block_right_sns brc_twiter" target="_blank"></a>
+								<a href="http://www.flicker.com/photos/uriminzok" class="block_right_sns brc_flickr" target="_blank"></a>
+								<a href="http://i.youku.com/taesongsan" class="block_right_sns brc_youku" target="_blank"></a>
+								<a href="https://plus.google.com/+uriminzok" class="block_right_sns brc_google" target="_blank"></a>
+								<a href="http://www.pinterest.com/uriminzokkiri" class="block_right_sns brc_pinterest" target="_blank"></a>
+							</div>
+							<div class="br_sns_block">
+								<a href="http://uriminzok.tumblr.com/" class="block_right_sns brc_tumblr" target="_blank"></a>
+								<a href="https://www.instagram.com/uriminzok2017/" class="block_right_sns brc_instagram" target="_blank"></a>
+								<a href="https://weibo.com/u/6331567113" class="block_right_sns brc_weibo" target="_blank"></a>
+								<a href="https://vk.com/uriminzokkiri" class="block_right_sns brc_vk" target="_blank"></a>
+								<a href="index.php?ptype=rss" class="block_right_sns brc_rss" target="_self"></a>					
+							</div>
+														
+							<div style="height:12px"></div>
+							
+		<div style="width: 211px; border-right: 1px solid #c6d6f1;">
+			<a href="ASFAF/index.php" target="_blank" class="block_right_special brc_april">				
+			</a>
+		</div>
+		<div style="width: 211px; border-right: 1px solid #c6d6f1;">
+			<a href="jpivc/index.php" target="_blank" class="block_right_special brc_jpivc">
+			</a>
+		</div>
+				<div class="br_main_block">
+					<div class="br_main_work border_control border_controlw">
+						<div class="brmw_header">
+							<a href="index.php?ptype=ugisa1&no=1146668" class="brmwh_txt">《우리민족끼리》작품경연</a>
+						</div>
+						<span class="brmw_cont">2018년 인터네트 《우리 민족끼리》 작품상경연이 진행되고있습니다</span>
+						<span class="brmw_cont brmw_cont_more"><a href="index.php?ptype=ugisa1&no=1146668" style="color:#666">내용보기</a><i>»</i></span> 
+					</div>
+				</div><style>
+							div.navBulletsWrapper{
+								left:30px;
+							}
+						</style>
+					<div class="br_main_block">
+						<div class="br_main_cartoon border_control">
+							<div class="blcg_top_cartoon blcg_top"></div>
+							<div class="blcg_cartoon_header blcg_header">
+								<a href="index.php?ptype=multi&vpage=poster_all" class="blcghc_title blcgh_title"><span style="letter-spacing:1px">콤퓨터선전화</span></a><div class="more cartoon_more"><a href="index.php?ptype=multi&vpage=poster_all">전체보기<i>»</i></a></div>
+							</div>
+							<div class="bccc_body">
+								<div style="height:15px"></div>
+								<div class="blcgb_content">
+									<div class="blcgbc_image">
+										<div id="sliderFrame">
+											<div id="slider">
+							<a href="index.php?ptype=multi&amp;no=6205" target="_blank"><img src="/contents/multi/comPropaganda/2018/05/multi_comPropaganda_2018-05-31_dn56755_thumb_big.jpg" style="width:150px" alt="" /></a>
+							<a href="index.php?ptype=multi&amp;no=6200" target="_blank"><img src="/contents/multi/comPropaganda/2018/05/multi_comPropaganda_2018-05-30_dn56692_thumb_big.jpg" style="width:150px" alt="" /></a>
+							<a href="index.php?ptype=multi&amp;no=6202" target="_blank"><img src="/contents/multi/comPropaganda/2018/05/multi_comPropaganda_2018-05-31_dn56751_thumb_big.jpg" style="width:150px" alt="" /></a>
+							<a href="index.php?ptype=multi&amp;no=6203" target="_blank"><img src="/contents/multi/comPropaganda/2018/05/multi_comPropaganda_2018-05-31_dn56752_thumb_big.jpg" style="width:150px" alt="" /></a>
+							<a href="index.php?ptype=multi&amp;no=6204" target="_blank"><img src="/contents/multi/comPropaganda/2018/05/multi_comPropaganda_2018-05-31_dn56753_thumb_big.jpg" style="width:150px" alt="" /></a>
+											</div>
+											<div id="htmlcaption" style=""></div>
+										</div>
+									</div>
+									<div style="height:25px; margin-left:10px !important;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="br_main_block">
+					<div class="br_main_cartoon border_control">
+						<div class="blcg_top_cartoon blcg_top"></div>
+						<div class="blcg_cartoon_header blcg_header">
+							<a href="index.php?ptype=manhua" class="blcghc_title blcgh_title"><span style="letter-spacing:1px">시사만화</span></a><div class="more cartoon_more"><a href="index.php?ptype=manhua">전체보기<i>»</i></a></div>
+						</div>
+						<div class="bccc_body">
+							<div style="height:15px"></div>
+							<div class="blcgb_content">
+								<div class="blcgbc_image">
+									<a href="index.php?ptype=manhua&amp;no=6292" class="blcgbc_cartoon"><img src="/contents/multi/sisaManpyong/2018/06/multi_sisaManpyong_2018-06-29_dn58991_thumb.jpg" class="blcgbc_thumb" width="160px;" /></a>
+									<a href="index.php?ptype=manhua&amp;no=6292" class="blcgbcc_title">추물들의 란투극</a>
+									<a href="index.php?ptype=manhua&amp;no=6292" class="blcgbcc_cont">06-30</a>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+				<div class="br_main_block">
+					<div class="br_main_cartoon border_control">
+						<div class="blcg_top_cartoon blcg_top"></div>
+						<div class="blcg_cartoon_header blcg_header">
+							<a class="blcghc_title blcgh_title"><span style="letter-spacing:1px">EP中日 외국문</span></a><div class="more cartoon_more"></div>
+							<span href="#" class="sinbo_space"></span>
+						</div>
+						<div class="bccc_body">
+							<div style="height:15px"></div>
+						<div class="blcgb_content">
+							<a href="index.php?lang=eng&ftype=news&amp;no=12368" class="blcgbc_title_unbold">Korea General Red Cross Hospital<i class="date">07-11</i><i class="new">New</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?lang=chn&ftype=news&amp;no=12373" class="blcgbc_title_unbold">朝鲜用鸡毛生产药品<i class="date">07-11</i><i class="new">New</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?lang=rus&ftype=news&amp;no=12374" class="blcgbc_title_unbold">Используют куриный пух фармацевтическим материалом<i class="date">07-11</i><i class="new">New</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?lang=jpn&ftype=news&amp;no=12375" class="blcgbc_title_unbold">鶏の羽毛を製薬の原料に利用<i class="date">07-11</i><i class="new">New</i></a>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="br_main_block">
+					<div class="br_main_cartoon border_control">
+						<div class="blcg_top_cartoon blcg_top"></div>
+						<div class="blcg_cartoon_header blcg_header">
+							<a href="uri_foreign/tongilsinbo/index.php?ptype=sinbogisa" class="blcghc_title blcgh_title"  target="_blank"><span style="letter-spacing:1px">통일신보</span></a>
+							<div class="more cartoon_more"><a href="uri_foreign/tongilsinbo/index.php?ptype=sinbogisa" target="_blank">전체보기<i>»</i></a></div>
+							<ul class="sinbo_space" style="text-align:center;">
+								<li><a href="uri_foreign/tongilsinbo/index.php?ptype=sinbo&amp;sel_year=2018&amp;sel_month=7&amp;sel_date=7&amp;sel_face=1&amp;no=673" class="sinbo_btn"  target="_blank">1면</a></li>
+								<li><a href="uri_foreign/tongilsinbo/index.php?ptype=sinbo&amp;sel_year=2018&amp;sel_month=7&amp;sel_date=7&amp;sel_face=2&amp;no=673" class="sinbo_btn"  target="_blank">2면</a></li>
+								<li><a href="uri_foreign/tongilsinbo/index.php?ptype=sinbo&amp;sel_year=2018&amp;sel_month=7&amp;sel_date=7&amp;sel_face=3&amp;no=673" class="sinbo_btn"  target="_blank">3면</a></li>
+								<li><a href="uri_foreign/tongilsinbo/index.php?ptype=sinbo&amp;sel_year=2018&amp;sel_month=7&amp;sel_date=7&amp;sel_face=4&amp;no=673" class="sinbo_btn"  target="_blank">4면</a></li>
+								<li><a href="uri_foreign/tongilsinbo/index.php?ptype=sinbo&amp;sel_year=2018&amp;sel_month=7&amp;sel_date=7&amp;sel_face=5&amp;no=673" class="sinbo_btn"  target="_blank">5면</a></li>
+								<li><a href="uri_foreign/tongilsinbo/index.php?ptype=sinbo&amp;sel_year=2018&amp;sel_month=7&amp;sel_date=7&amp;sel_face=6&amp;no=673" class="sinbo_btn"  target="_blank">6면</a></li>
+							</ul>
+						</div>
+						<div class="bccc_body">
+							<div style="height:15px"></div>
+							<div class="blcgb_content">
+								<a href="uri_foreign/tongilsinbo/index.php?ptype=sinbogisa&amp;no=1155494" class="blcgbc_title_unbold"  target="_blank">그 홍준표에 그 《나무》<i class="date">07-11</i><i class="new">New</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="uri_foreign/tongilsinbo/index.php?ptype=sinbogisa&amp;no=1155493" class="blcgbc_title_unbold"  target="_blank">재앙의 화근-미군기지<i class="date">07-11</i><i class="new">New</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="uri_foreign/tongilsinbo/index.php?ptype=sinbogisa&amp;no=1155492" class="blcgbc_title_unbold"  target="_blank">대세의 흐름에 역행하는 불미스러운 행위<i class="date">07-11</i><i class="new">New</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="uri_foreign/tongilsinbo/index.php?ptype=sinbogisa&amp;no=1155491" class="blcgbc_title_unbold"  target="_blank">비방중상은 누구에게도 리로울것이 없다<i class="date">07-11</i><i class="new">New</i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="br_main_block">
+					<div class="br_main_cartoon border_control">
+						<div class="blcg_top_cartoon blcg_top"></div>
+						<div class="blcg_cartoon_header blcg_header">
+							<a href="index.php?ptype=novel" class="blcghc_title blcgh_title"><span style="letter-spacing:1px">련재소설</span></a>
+							<div class="more cartoon_more"><a href="index.php?ptype=novel">전체보기<i>»</i></a></div>
+						</div>
+						<div class="bccc_body">
+							<div style="height:15px"></div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=novel&amp;no=1155020" class="blcgbc_title_unbold">투쟁의 노래  제19회<i class="date">07-12</i><i class="new">New</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=novel&amp;no=1155295" class="blcgbc_title_unbold">야전렬차  제17회<i class="date">07-10</i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="br_main_block">
+					<div class="br_main_cartoon border_control">
+						<div class="blcg_top_cartoon blcg_top"></div>
+						<div class="blcg_cartoon_header blcg_header">
+							<a href="index.php?ptype=recording" class="blcghc_title blcgh_title"><span style="letter-spacing:1px">록음물</span></a>
+							<div class="more cartoon_more"><a href="index.php?ptype=recording">전체보기<i>»</i></a></div>
+						</div>
+						<div class="bccc_body">
+							<div style="height:15px"></div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=recording&amp;no=12021" class="blcgbc_title_unbold">실담-우리 수령님은 위대한 평민이시였습니다<i class="date">07-12</i><i class="new">New</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=recording&amp;no=12022" class="blcgbc_title_unbold">회상기방송극-사령관도 인민의 아들<i class="date">07-12</i><i class="new">New</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=recording&amp;no=12023" class="blcgbc_title_unbold">겨레의 자주통일의지를 반영한 선언<i class="date">07-12</i><i class="new">New</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=recording&amp;no=12024" class="blcgbc_title_unbold">시대의 흐름에 역행하는 쓰레기매문집단<i class="date">07-12</i><i class="new">New</i></a>
+							</div>
+							<div class="blcgb_content">
+								<a href="index.php?ptype=recording&amp;no=12025" class="blcgbc_title_unbold">《정권》안보에 환장한 독재광들의 죄악<i class="date">07-12</i><i class="new">New</i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="br_main_block">
+					<div class="br_main_cartoon border_control">
+						<div class="blcg_top_cartoon blcg_top"></div>
+						<div class="blcg_cartoon_header blcg_header">
+							<a class="blcghc_title blcgh_title" href="itv/index.php?ppt=vmusic" target="_blank"><span style="letter-spacing:1px">화면음악</span></a>
+							<div class="more cartoon_more"><a href="itv/index.php?ppt=vmusic" target="_blank">전체보기 <i>»</i></a></div>
+						</div>
+						<div class="bccc_body">
+							<div style="height:15px"></div>
+							<div class="blcgb_content">
+								<div class="blcgbc_image" style="text-align:center;">
+									<a href="/itv/index.php?ppt=vmusic&amp;no=39732" class="blcgbc_cartoon"><img src="/contents/uritv/vmusic/2018/07/uritv_vmusic_2018-07-11_dn58713_thumb.jpg" class="blcgbc_thumb" width="160px;" />
+										<i class="play1"></i></a>
+									<a href="/itv/index.php?ppt=vmusic&amp;no=39732" class="blcgbc_title">우리의 신념은 하나</a>
+									<a href="/itv/index.php?ppt=vmusic&amp;no=39732" class="blcgbc_cont">07-12<i class="new">New</i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+				<div class="br_main_block">
+					<div class="br_main_cartoon border_control">
+						<div class="blcg_top_cartoon blcg_top"></div>
+						<div class="blcg_cartoon_header blcg_header">
+							<a href="index.php?ptype=music" class="blcghc_title blcgh_title"><span style="letter-spacing:1px">음악마당</span></a><div class="more cartoon_more"><a href="index.php?ptype=music#pos" target="_blank">전체보기<i>»</i></a></div>
+							<span href="#" class="sinbo_space"></span>
+						</div>
+						<div class="bccc_body">
+							<div style="height:15px"></div>
+					<div class="blcgb_content">	
+								<a href="index.php?ptype=music&no=1127" class="blcgbc_title_unbold">못 잊을 나의 길<i class="date">07-12</i><i class="new">New</i></a>
+							  </div><div class="blcgb_content">	
+								<a href="index.php?ptype=music&no=1126" class="blcgbc_title_unbold">불후의 고전적명작 <b>《꽃파는 처녀》</b><i class="date">07-11</i></a>
+							  </div><div class="blcgb_content">	
+								<a href="index.php?ptype=music&no=1125" class="blcgbc_title_unbold">전진가<i class="date">07-10</i></a>
+							  </div><div class="blcgb_content">	
+								<a href="index.php?ptype=music&no=1124" class="blcgbc_title_unbold">더 가까이 오시네<i class="date">07-09</i></a>
+							  </div>
+						</div>
+					</div>
+				</div>
+				<div class="br_main_block">
+					<div class="br_main_cartoon border_control">
+						<div class="blcg_top_cartoon blcg_top"></div>
+						<div class="blcg_cartoon_header blcg_header">
+							<a href="index.php?ptype=commonsense" class="blcghc_title blcgh_title"><span style="letter-spacing:1px">상식</span></a><div class="more cartoon_more"><a href="index.php?ptype=commonsense">전체보기<i>»</i></a></div>
+							<span href="#" class="sinbo_space"></span>
+						</div>
+						<div class="bccc_body">
+							<div style="height:15px"></div><div class="blcgb_content">
+								<a href="index.php?ptype=commonsense&amp;no=1155534" class="blcgbc_title_unbold">삼복철에 누구나 찾는 민족음식－단고기장</i><i class="date">07-12</i><i class="new">New</i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+						</div>
+					</div>
+					<div class="clearboth"></div>
+					<!--Block NO.3 -->
+					<div class="bottom_block">
+						
+				<div class="bottom_block_left">
+					<div class="bbl_top"></div>
+					<div class="bbl_header">
+						<a href="index.php?ptype=igisa1" class="blcgh_title" style="letter-spacing:1px">조선중앙통신</a>
+						<div class="more import_more"><a href="index.php?ptype=igisa1">전체보기<i>»</i></a></div>
+					</div>
+					
+					<div class="blcg_body">
+						<div style="height:15px"></div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155540" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김정은</strong>동지의</nobr> 로작을 로씨야신문이 게재<i class="date">07-12</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155542" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>조선의 자주적평화통일을 영국, 스위스단체들 지지<i class="date">07-12</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155541" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>여러 나라에서 회고모임, 좌담회 진행<i class="date">07-12</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155539" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>천출위인들의 문헌집 3대륙인민단결기구에서 출판<i class="date">07-12</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155473" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김일성</strong>동지의</nobr> 로작을 로씨야의 인터네트홈페지가 게재<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155474" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김일성</strong>동지의</nobr> 혁명활동략력을 벌가리아단체 뷸레찐에 게재<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155476" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김일성</strong>동지회고행사</nobr> 여러 나라에서 진행<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155505" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김정은</strong>동지께</nobr> 여러 나라에서 축전과 축하편지를 보내여왔다<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155503" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>김영남동지 몽골대통령의 사업에서 성과가 있을것을 축원<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155502" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>김영남동지가 유엔인도주의사업담당 부사무총장일행을 만났다<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155501" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>박봉주동지 몽골수상에게 축전<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155499" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>조선에서 해상환경보호사업에 깊은 관심<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155506" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>유엔인도주의사업담당 부사무총장일행 평양어린이식료품공장 참관<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155504" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>2018년 세계인구의 날에 즈음한 토론회 진행<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155498" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>조선민족의 국보-장수산의 현암<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155497" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>조선의 서해안 넓은 지역에 폭우와 무더기비<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155477" class="blcgbc_title_unbold"><i class="blcgbct_categ">[론평]</i>군국주의부활로 얻을것은 국제적고립뿐이다<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155475" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>조선 도서, 사진 및 미술전람회 이란에서 진행<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155500" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선단체들 기무사령부의 해체를 주장<i class="date">07-11</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155426" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김일성</strong>주석은</nobr> 자주시대의 개척자, 선도자이시라고 방글라데슈정계인사 칭송<i class="date">07-10</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155425" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김일성</strong>동지회고행사</nobr> 여러 나라에서 진행<i class="date">07-10</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155427" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김정일</strong>동지의</nobr> 로작을 벨라루씨단체 인터네트홈페지에 게재<i class="date">07-10</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155447" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>세계평화기구 <nobr>위원장일행이</nobr> 떠나갔다<i class="date">07-10</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155441" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>새로 나온 과학영화들<i class="date">07-10</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155445" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>총련의 방문단들이 떠나갔다<i class="date">07-10</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155444" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>남조선단체 초불투쟁을 무력으로 진압할 음모를 꾸민 기무사령부의 죄행 규탄<i class="date">07-10</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155442" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>닭털을 제약원료로 리용<i class="date">07-10</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155443" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>리명박역도의 죄행 또다시 폭로<i class="date">07-10</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155424" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>싱가포르조미수뇌상봉과 회담을 로씨야단체들 환영<i class="date">07-10</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155375" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김일성</strong>동지를</nobr> 회고하는 모임 중국에서 진행<i class="date">07-09</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155377" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김일성</strong>주석의</nobr> 업적을 스위스, 영국단체들 칭송<i class="date">07-09</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155376" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i><nobr><strong>김일성</strong>동지의</nobr> 서거 24돐에 즈음하여 민주꽁고단체 뷸레찐 발행<i class="date">07-09</i></a>
+							</div><div class="blcgb_content">
+								<a href="index.php?ptype=igisa1&amp;no=1155401" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>김영남동지가 세계평화기구 <nobr>위원장일행을</nobr> 만났다<i class="date">07-09</i></a>
+							</div>
+					</div>
+				</div>
+						
+				<div class="bottom_block_left">
+					<div class="bbl_top"></div>
+					<div class="bbl_header">
+						<a href="index.php?ptype=igisa2" class="blcgh_title" style="letter-spacing:1px">로동신문</a>
+						<div class="more import_more"><a href="index.php?ptype=igisa2">전체보기<i>»</i></a></div>
+					</div>
+					<div class="blcg_body">
+						<div style="height:15px"></div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155508" class="blcgbc_title_unbold"><i class="blcgbct_categ">[혁명활동보도]</i><nobr>경애하는</nobr> <nobr>최고령도자</nobr> <nobr><strong>김정은</strong>동지께서</nobr>  618건설돌격대를 성심성의로 지원한 일군들과 근로자들에게 감사를 보내시였다<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155509" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>건설의 기계화비중을 높이는데 적극 기여 -평양건설기계공장에서 여러종의 건설장비와 기공구 새로 제작-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155510" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>화차제작과 수리에서 성과 확대 -원산철도차량련합기업소에서-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155511" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>강철전선을 힘있게 지원<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155512" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>당의 숭고한 뜻을 받들고 군을 대규모의 갈생산기지로 훌륭히 꾸려나가자 -신도군일군들과 근로자들의 궐기모임 진행-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155513" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>우리 식 사회주의의 승리는 확정적이다<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155514" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>눈부신 창조와 비약에로 이끄시는 <nobr>위대한</nobr> 령도<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155515" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>포전에서 새겨주신 지침<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155516" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>군자땅이 전하는 못 잊을 사연<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155517" class="blcgbc_title_unbold"><i class="blcgbct_categ">[해설]</i>말끔히 쓸어버려야 할 깡패잔당<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155518" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>당의 축산정책관철을 힘있게 추동한 의의깊은 계기 -수의방역부문 과학기술발표회 및 수의약품전시회장을 돌아보고-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155519" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>체육관건설 힘있게 추진 -평안남도에서-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155520" class="blcgbc_title_unbold"><i class="blcgbct_categ">[해설]</i>재판을 회피해보려는 교활한 술책<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155521" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>온 군이 떨쳐나 실속있는 대책을 -신천군에서-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155522" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>애국심을 검증받자<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155523" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>하천정리를 질적으로 -대관군에서-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155524" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>비바람피해막이를 빈틈없이 -평원군 량교협동농장에서-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155525" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>전국건설부문 과학기술발표회 진행<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155526" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>여론조작범죄의 왕초<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155527" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>조중우호, 협조 및 호상원조에 관한  조약체결 57돐에 즈음하여 중국림시대리대사 연회 마련<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155528" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>관리운영의 정보화실현에 힘을 넣어 <nobr>-구장군</nobr> 미래원에서-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155529" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>언제 가도 이룰수 없는 꿈<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155530" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>미루벌에 꽃펴나는 아름다운 청춘의 랑만 -곡산군 평암협동농장 청년작업반원들-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155531" class="blcgbc_title_unbold"><i class="blcgbct_categ">[해설]</i>부당한 《인권》공세에 대한 반발<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155532" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>인민의 존경받는 복무자들 -직동의 한 녀인이 보내온 편지를 보고-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155533" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>쌍둥이돌격대원들을 위해 바친 진정<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155534" class="blcgbc_title_unbold"><i class="blcgbct_categ">[상식]</i>삼복철에 누구나 찾는 민족음식－단고기장<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155535" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>판이한 두 인생<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155536" class="blcgbc_title_unbold"><i class="blcgbct_categ">[보도]</i>조선혁명과 세계자주화위업수행에 쌓으신 불멸의 업적 -여러 나라에서 회고행사 진행-<i class="date">07-12</i></a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa2&amp;no=1155537" class="blcgbc_title_unbold"><i class="blcgbct_categ">[기사]</i>죽음의 물길굴<i class="date">07-12</i></a>
+						</div>
+					</div>
+					<div class="bbl_top"></div>
+					<div class="bbl_header">
+						<a href="index.php?ptype=igisa4" class="blcgh_title" style="letter-spacing:1px">민주조선</a>
+						<div class="more import_more"><a href="index.php?ptype=igisa4">전체보기<i>»</i></a></div>
+					</div>
+					<div class="blcg_body">
+						<div style="height:15px"></div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=igisa4&amp;no=1155394" class="blcgbc_title_unbold"><i class="blcgbct_categ">[해설]</i>감출수 없는 특대형부정부패사건<i class="date">07-09</i></a>
+						</div>
+					</div>
+				</div>
+				
+						
+				<div class="bottom_block_left right_border_control">
+					<div class="bbl_top"></div>
+					<div class="bbl_header">
+						<a href="index.php?ptype=centertv" class="blcgh_title" style="letter-spacing:1px">조선중앙TV</a>
+						<div class="more import_more"><a href="index.php?ptype=centertv">전체보기<i>»</i></a></div>
+					</div>
+					<div class="blcg_body">
+						<div style="height:15px"></div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39969" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[록화보도]</i>7월11일 20시보도 <i class="date">07-11</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39969" onclick="js_count('23', '39969'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39968" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[소개편집물]</i>와서 보시라 -인흥광산 온정갱-<i class="date">07-11</i></a><a href="itv/php_tmp/youkuplayer.php?no=39968" onclick="js_count('23', '39968'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39968" onclick="js_count('23', '39968'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39967" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[련속참관기]</i>전승의 력사 영원하리 -조국해방전쟁승리기념관- 포화속에서 인민군대 질적강화<i class="date">07-11</i></a><a href="itv/php_tmp/youkuplayer.php?no=39967" onclick="js_count('23', '39967'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39967" onclick="js_count('23', '39967'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39966" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[소개편집물]</i>교정에 넘치는 신념의 메아리 -평성사범대학-<i class="date">07-11</i></a><a href="itv/php_tmp/youkuplayer.php?no=39966" onclick="js_count('23', '39966'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39966" onclick="js_count('23', '39966'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39965" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[시]</i>미래가 걱정되는 때 있거든 <i class="date">07-11</i></a><a href="itv/php_tmp/youkuplayer.php?no=39965" onclick="js_count('23', '39965'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39965" onclick="js_count('23', '39965'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39964" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[소개편집물]</i>애국의 큰뜻 새겨요 -정방산을 찾은 학생들-<i class="date">07-11</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39964" onclick="js_count('23', '39964'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39963" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[아동영화]</i>막내곰 <i class="date">07-11</i></a><a href="itv/php_tmp/youkuplayer.php?no=39963" onclick="js_count('23', '39963'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39963" onclick="js_count('23', '39963'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39962" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[조선영화]</i>우리 인민반장 <i class="date">07-11</i></a><a href="itv/php_tmp/youkuplayer.php?no=39962" onclick="js_count('23', '39962'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39962" onclick="js_count('23', '39962'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39959" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[기록영화]</i>인민을 위한 멸사복무의 길에서 (1) <i class="date">07-11</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39959" onclick="js_count('23', '39959'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39958" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[소개편집물]</i>존경받는 부부체육교원 -홍성철, 김창숙부부-<i class="date">07-11</i></a><a href="itv/php_tmp/youkuplayer.php?no=39958" onclick="js_count('23', '39958'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39958" onclick="js_count('23', '39958'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39957" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[텔레비죤련속극]</i>사랑의 권리 제3부 <i class="date">07-11</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39957" onclick="js_count('23', '39957'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39956" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[텔레비죤련속극]</i>사랑의 권리 제2부 <i class="date">07-11</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39956" onclick="js_count('23', '39956'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39955" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[련속참관기]</i><nobr>태양칭송의</nobr> 만년재보 -국제친선전람관을 찾아서- (120)<i class="date">07-11</i></a><a href="itv/php_tmp/youkuplayer.php?no=39955" onclick="js_count('23', '39955'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39955" onclick="js_count('23', '39955'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39954" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[특집]</i>태풍과 큰물에 의한 피해막이대책을 철저히 세우자 <i class="date">07-10</i></a><a href="itv/php_tmp/youkuplayer.php?no=39954" onclick="js_count('23', '39954'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39954" onclick="js_count('23', '39954'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39953" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[록화보도]</i>7월10일 20시보도 <i class="date">07-10</i></a><a href="itv/php_tmp/youkuplayer.php?no=39953" onclick="js_count('23', '39953'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39953" onclick="js_count('23', '39953'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39952" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[혁명활동소식]</i><nobr>경애하는</nobr> <nobr>최고령도자</nobr> <nobr><strong>김정은</strong>동지께서</nobr> 삼지연군당위원회 일군들과 함께 뜻깊은 기념사진을 찍으시였다 <i class="date">07-10</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39952" onclick="js_count('23', '39952'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39951" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[혁명활동소식]</i><nobr>경애하는</nobr> <nobr>최고령도자</nobr> <nobr><strong>김정은</strong>동지께서</nobr> 삼지연감자가루생산공장을 현지지도하시였다 <i class="date">07-10</i></a><a href="itv/php_tmp/youkuplayer.php?no=39951" onclick="js_count('23', '39951'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39951" onclick="js_count('23', '39951'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39950" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[혁명활동소식]</i><nobr>경애하는</nobr> <nobr>최고령도자</nobr> <nobr><strong>김정은</strong>동지께서</nobr> 삼지연군안의 건설장들을 현지지도하시였다 <i class="date">07-10</i></a><a href="itv/php_tmp/youkuplayer.php?no=39950" onclick="js_count('23', '39950'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39950" onclick="js_count('23', '39950'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39949" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[혁명활동소식]</i><nobr>경애하는</nobr> <nobr>최고령도자</nobr> <nobr><strong>김정은</strong>동지께서</nobr> 삼지연군 중흥농장을 현지지도하시였다 <i class="date">07-10</i></a><a href="itv/php_tmp/youkuplayer.php?no=39949" onclick="js_count('23', '39949'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39949" onclick="js_count('23', '39949'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39948" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[특집]</i>바다속의 보약 붉은대게 <i class="date">07-10</i></a><a href="itv/php_tmp/youkuplayer.php?no=39948" onclick="js_count('23', '39948'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39948" onclick="js_count('23', '39948'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39947" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[소개편집물]</i>과학양어의 주인들로 -청년두단종어사업소-<i class="date">07-10</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39947" onclick="js_count('23', '39947'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39946" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[시]</i>당이여 내 그대를 따르는것은 <i class="date">07-10</i></a><a href="itv/php_tmp/youkuplayer.php?no=39946" onclick="js_count('23', '39946'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39946" onclick="js_count('23', '39946'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39945" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[소개편집물]</i>교육으로 담보할 내 조국의 앞날을 위해 -락랑구역 승리고급중학교-<i class="date">07-10</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39945" onclick="js_count('23', '39945'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39944" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[련속참관기]</i>전승의 력사 영원하리 -조국해방전쟁승리기념관- 1211고지방어전투<i class="date">07-10</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39944" onclick="js_count('23', '39944'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39943" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[련속편집물]</i>력사에 길이 빛날 불멸의 대기념비들 -봉화혁명사적지에 높이 모신 불요불굴의 혁명투사 김형직선생님의 동상-<i class="date">07-10</i></a><a href="itv/php_tmp/youkuplayer.php?no=39943" onclick="js_count('23', '39943'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39943" onclick="js_count('23', '39943'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39942" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[독연극]</i>우리 집 <i class="date">07-10</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39942" onclick="js_count('23', '39942'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39940" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[아동영화]</i>지혜로운 붉은 거부기 <i class="date">07-10</i></a><a href="itv/php_tmp/youkuplayer.php?no=39940" onclick="js_count('23', '39940'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_youku"></i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39940" onclick="js_count('23', '39940'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+				
+						<div class="blcgb_content padding_top6">
+							<a href="index.php?ptype=centertv&amp;no=39939" class="blcgbc_title_unbold disp_inline"><i class="blcgbct_categ">[정치상식]</i>조선국민회결성사적비 <i class="date">07-10</i></a>&nbsp;<a href="itv/php_tmp/vkplayer.php?no=39939" onclick="js_count('23', '39939'); youkufullScreen(this.href); return false;" target="_blank"><i class="icon_sns_vk"></i></a>						</div>
+					</div>
+				</div>
+						<div class="clearboth"></div>
+					</div>
+					<div class="bottom_block bottom_border_control">
+						
+				<div class="bbl_width bottom_block_left">
+					<div class="bblw_top bbl_top"></div>
+					<div class="bblw_header bbl_header">
+						<a href="index.php?ptype=reader" class="blcgh_title" style="letter-spacing:1px">독자투고글</a>
+						<div class="more import_more"><a href="index.php?ptype=reader">전체보기<i>»</i></a></div>
+					</div>
+					<div class="blcg_body">
+						<div style="height:15px"></div>
+				<div class="blcgb_content">
+					<a href="index.php?ptype=reader&amp;no=6149" class="blcgbc_title_unbold">노래요청회답<i class="new">New</i></a>
+				</div>
+				<div class="blcgb_content">
+					<a href="index.php?ptype=reader&amp;no=6131&child_no=6148#reader_6148" class="blcgbc_title_unbold"><font color="blue">Re- </font>노래를 부탁합니다.</a>
+				</div>
+				<div class="blcgb_content">
+					<a href="index.php?ptype=reader&amp;no=6147" class="blcgbc_title_unbold">노래를 부탁합니다.</a>
+				</div>
+				<div class="blcgb_content">
+					<a href="index.php?ptype=reader&amp;no=5987&child_no=6146#reader_6146" class="blcgbc_title_unbold"><font color="blue">Re- </font>김똘똘선생님의 기록영화에 대한 해답</a>
+				</div>
+				<div class="blcgb_content">
+					<a href="index.php?ptype=reader&amp;no=6131&child_no=6145#reader_6145" class="blcgbc_title_unbold"><font color="blue">Re- </font>노래를 부탁합니다.</a>
+				</div>
+				<div class="blcgb_content">
+					<a href="index.php?ptype=reader&amp;no=6144" class="blcgbc_title_unbold">노래를 부탁합니다</a>
+				</div>
+					</div>
+				</div>
+						
+				<div class="bbl_width bottom_block_left">
+					<div class="bblw_top bbl_top"></div>
+					<div class="bblw_header bbl_header">
+						<a href="index.php?ptype=readerbbs" class="blcgh_title" style="letter-spacing:1px">독자감상글</a>
+						<div class="more import_more"><a href="index.php?ptype=readerbbs">전체보기<i>»</i></a></div>
+					</div>
+					<div class="blcg_body">
+						<div style="height:15px"></div>
+					<div class="blcgb_content">
+						<a href="index.php?ptype=readerbbs#pos_14826" class="blcgbc_title_unbold">일부가 많이 훼손되였지만 우리...</a>
+					</div>
+					<div class="blcgb_content">
+						<a href="index.php?ptype=readerbbs#pos_14823" class="blcgbc_title_unbold">탱글 탱글한 포도알이 금방 손...</a>
+					</div>
+					<div class="blcgb_content">
+						<a href="index.php?ptype=readerbbs#pos_14822" class="blcgbc_title_unbold">천지의 봄!
+정말 아름다워요...</a>
+					</div>
+					<div class="blcgb_content">
+						<a href="index.php?ptype=readerbbs#pos_14821" class="blcgbc_title_unbold">정말 아름다운 작품입니다......</a>
+					</div>
+					<div class="blcgb_content">
+						<a href="index.php?lang=eng&ftype=readerbbs#pos_14820" class="blcgbc_title_unbold"> I LOVE HIM SO M...</a>
+					</div>
+					<div class="blcgb_content">
+						<a href="index.php?lang=eng&ftype=readerbbs#pos_14819" class="blcgbc_title_unbold">thats so mean</a>
+					</div>
+					<div class="blcgb_content">
+						<a href="index.php?ptype=readerbbs#pos_14721" class="blcgbc_title_unbold">참으로 오랜만에 듣는 익숙한 ...</a>
+					</div>
+					</div>
+				</div>
+				<div class="bbl_width bottom_block_left">
+					<div class="bblw_top bbl_top"></div>
+					<div class="bblw_header bbl_header">
+						<a href="index.php?ptype=reader_photo" class="blcgh_title" style="letter-spacing:1px">독자사진</a>
+						<div class="more import_more"><a href="index.php?ptype=reader_photo">전체보기<i>»</i></a></div>
+					</div>
+					<div class="blcg_body">
+						<div style="height:15px"></div>
+						<div class="blcgb_content">
+							<div class="blcgbc_image">
+								<a href="index.php?ptype=reader_photo&amp;no=6330" class="blcgbc_cartoon"><img src="/contents/multi/userPhoto/2018/07/multi_userPhoto_2018-07-09_dn59806_thumb.jpg" class="blcgbc_thumb" width="135px;" /></a>
+								<a href="index.php?ptype=reader_photo&amp;no=6330" class="blcgbcc_title">천지의 봄<i class="new">New</i></a>
+								
+							</div>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=reader_photo&amp;no=6311" class="blcgbc_title_unbold">아크릴화 《봄날에》</a>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=reader_photo&amp;no=6298" class="blcgbc_title_unbold">유화《포도》 (습작)</a>
+						</div>
+					</div>
+				</div>
+						
+				<div class="bbl_width bottom_block_left right_border_control">
+					<div class="bblw_top bbl_top"></div>
+					<div class="bblw_header bbl_header">
+						<a href="index.php?ptype=reader_flash" class="blcgh_title" style="letter-spacing:1px">독자플래쉬</a>
+						<div class="more import_more"><a href="index.php?ptype=reader_flash">전체보기<i>»</i></a></div>
+					</div>
+					<div class="blcg_body">
+						<div style="height:15px"></div>
+						<div class="blcgb_content">
+							<div class="blcgbc_image">
+								<a href="index.php?ptype=reader_flash&amp;no=6255" class="blcgbc_cartoon"><img src="/contents/multi/userflash/2018/06/multi_userflash_2018-06-15_dn57777_thumb.jpg" class="blcgbc_thumb" width="135px;" /></a>
+								<a href="index.php?ptype=reader_flash&amp;no=6255" class="blcgbcc_title">통일 6.15</a>
+								
+							</div>
+						</div>
+						<div class="blcgb_content">
+							<a href="index.php?ptype=reader_flash&amp;no=5803" class="blcgbc_title_unbold">겨울철올림픽경기대회를 통해 보는 판이한 두 모습</a>
+						</div>
+					</div>
+				</div>
+						<div class="clearboth"></div>
+					</div>
+					<!--Block site_cloud -->
+					<div class="site_cloud">
+						<div class="relative_size">
+							<ul class="site_cloud_container" id="position_item" style="left: -151.024px; top: 0px;">
+								<li><a href="http://www.ournation-school.com" class="sc_each sce_school" target="_blank"></a></li>
+								<li><a href="http://www.kcna.kp" class="sc_each sce_kcna" target="_blank"></a></li>
+								<li><a href="http://www.ryugyongclip.com" class="sc_each sce_ryugyong" target="_blank"></a></li>
+								<li><a href="http://www.tongilvoice.com" class="sc_each sce_tongilvoice" target="_blank"></a></li>
+								<li><a href="http://www.ryomyong.com" class="sc_each sce_ryomyong" target="_blank"></a></li>
+								<li><a href="http://www.tour-kumgangsan.com" class="sc_each sce_kumgang" target="_blank"></a></li>
+								<li><a href="http://www.vok.rep.kp" class="sc_each sce_koreavoice" target="_blank"></a></li>
+								<li><a href="http://www.naenara.com.kp" class="sc_each sce_nanara" target="_blank"></a></li>
+								<li><a href="http://www.dprktoday.com" class="sc_each sce_today" target="_blank"></a></li>
+								<li><a href="http://www.arirangmeari.com" class="sc_each sce_meari" target="_blank"></a></li>
+								<li><a href="http://www.uriminzokkiri.com/itv" class="sc_each sce_uritv" target="_blank"></a></li>
+								<li><a href="jpivc/" class="sc_each sce_jpivc" target="_blank"></a></li>
+								<li><a href="http://www.paekdu-hanna.com" class="sc_each sce_paekdu" target="_blank"></a></li>
+							</ul>
+						</div>
+						<div class="clearboth"></div>
+						<span class="left_sbutton"><a href="#" onclick="go_prevnext2('right'); return false;" id="back" name="movies_back"><i class="icon_prev"></i></a></span>
+						<span class="right_sbutton"><a href="#" onclick="go_prevnext2('left'); return false;" id="forw" name="movies_forw"><i class="icon_next"></i></a></span>
+					</div>
+					<div style="width:100%;height:10px"></div>
+				</div>	</div>
+	<div class="bottom">
+	<div class="container">	<div id="part_link">		<div id="part_link_img"></div>		<div id="part_link_intro">			<div class="part_li_row">				<span style="padding-left:15px"><a href="index.php?ptype=great&amp;who=4&amp;categ1=3#pos">혁명활동소식</a></span>ㅣ<span><a href="index.php?ptype=ugisa1">《우리 민족끼리》기사</a></span>ㅣ<span><a href="index.php?ptype=ugisa4">사설ㆍ론설</a></span>ㅣ<span><a href="index.php?ptype=igisa3">성명ㆍ담화ㆍ대답ㆍ주요문건</a></span>ㅣ<span><a href="index.php?ptype=ugisa5">정론</a></span>ㅣ<span><a href="index.php?ptype=ugisa6">론평</a></span>ㅣ<span><a href="index.php?ptype=igisa2">로동신문</a></span>ㅣ<span><a href="index.php?ptype=igisa1">조선중앙통신</a></span>ㅣ<span><a href="uri_foreign/tongilsinbo/index.php?ptype=sinbo" target="_blank">통일신보</a></span>ㅣ<span><a href="index.php?ptype=igisa4">민주조선</a></span>ㅣ			</div>			<div class="part_li_row">				<span style="padding-left:15px"><a href="index.php?ptype=book">도서</a></span>ㅣ<span><a href="index.php?ptype=novel">련재소설</a></span>ㅣ<span><a href="index.php?ptype=munhak1">청년문학</a></span>ㅣ<span><a href="index.php?ptype=munhak2">아동문학</a></span>ㅣ<span><a href="index.php?ptype=photobook">화보ㆍ화첩</a></span>ㅣ<span><a href="index.php?ptype=music_world">음악세계</a></span>ㅣ<span><a href="index.php?ptype=recording">록음파일</a></span>ㅣ<span><a href="index.php?ptype=multi&vpage=screen_all">다매체</a></span>ㅣ<span><a href="index.php?ptype=centertv">조선중앙TV</a></span>ㅣ<span><a href="itv/index.php">동영상</a></span>ㅣ<span><a href="index.php?ptype=manhua">시사만화</a></span>ㅣ<span><a href="index.php?ptype=photo">사진</a></span>ㅣ<span><a href="index.php?ptype=music">음악마당</a></span>ㅣ			</div>			<div class="part_li_row">				<span style="padding-left:15px"><a href="index.php?ptype=ksocial">조선사회과학학술집</a></span>ㅣ<span><a href="uri_foreign/koreart.php">조선미술</a></span>ㅣ<span><a href="index.php?ptype=contest" target="_blank">작품경연</a></span>ㅣ<span><a href="index.php?ptype=humor">유모아</a></span>ㅣ<span><a href="index.php?ptype=faq">알아맞추기</a></span>ㅣ<span><a href="index.php?ptype=commonsense">상식</a></span>ㅣ<span><a href="index.php?ptype=reader">독자글투고</a></span>ㅣ<span><a href="index.php?ptype=rss">RSS봉사프로그람</a></span>ㅣ<span><a href="index.php?ptype=trade">상품소개ㆍ주문봉사</a></span>ㅣ<span><a href="index.php?ptype=game">게임</a></span>			</div>		</div>		<div class="clearboth"></div>	</div></div><div id="tail_bg">	<div id="tail_bg_cont">		<div id="tail_bc_mark"></div>		<div id="tail_qrcode">		<a href="image/first/1515405844.png" class="highslide" onclick='return hs.expand(this,"")'>			<img src="image/first/1515405844.png" style="margin-bottom: 20px; margin-left: 20px; margin-top: 10px; width: 70px; height: auto; float: left;">		</a> 		</div>		<div id="tail_bc_cont">			<div class="tail_bc_cont_row">				<span>홈페지봉사에 관한 문의를 하려면 <a href="index.php?ptype=reader&w=yes&inq=yes"><span style="color: #33F; padding-left: 0;">여기</span>를 눌러주십시오</a></span>			</div>			<div class="tail_bc_cont_row">				<span>Copyright &copy; 2003 - 2018 《조선륙일오편집사》 All Rights Reserved</span>			</div>		</div>		<div class="clearboth"></div>	</div></div><div class="highslide-caption" id="the-caption" style="visibility: hidden;">			<a href="#" onclick="return hs.previous(this)" class="control" style="float:left; display: block">이전</a>			<a href="#" onclick="return hs.next(this)" class="control" style="float:left; display: block; text-align: right; margin-left: 4px">다음</a>			<a href="#" onclick="return hs.close(this)" class="control">닫기</a>			<a href="#" class="highslide-move control">화면이동</a>			<div class="clearboth"></div>	</div><script type="text/javascript" src="js/highslide/highslide.js"></script> <script type="text/javascript">	//<![CDATA[	$(function() {		var time_x =  1000;		var speed  =  1000;		if(time_x/2 < speed)	time_x = 2*speed;		var stopped2	=	false;		var direction	=	'left';		var count	=	$('#position_item li').length;		var per_width	=	$('#position_item li').eq(0).width();		var dl_index	=	function(){			$('#position_item li').eq(0).insertAfter($('#position_item li').eq(count-1));			$('#position_item').css('left',0);		}		var dl_roll	=	function(){			if(!stopped2){				if(direction=='left')				{					$('#position_item').animate({left:per_width*(-1),top:0}, speed, dl_index);				}				else if(direction=='right')				{					$('#position_item li').eq(count-1).insertBefore($('#position_item li').eq(0));					$('#position_item').css('left',per_width*(-1));					$('#position_item').animate({left:0,top:4}, speed);				}							}			setTimeout(dl_roll,time_x);		}		$('#position_item').mouseover(function(){stopped2 = true;});		$('#position_item').mouseout(function(){stopped2 = false;});				$('#forw').mouseover(function(){stopped2 = true;});		$('#forw').mouseout(function(){stopped2 = false;});		$('#back').mouseover(function(){stopped2 = true;});		$('#back').mouseout(function(){stopped2 = false;});		setTimeout(dl_roll, time_x);			});		function go_prevnext2(direction){		var time_x =  2000;		var speed  = 1000;		if(time_x/2 < speed)	time_x = 2*speed;		var stopped2	=	false;		//var direction	=	'left';		var count	=	$('#position_item li').length;		var per_width	=	$('#position_item li').eq(0).width();				var dl_index	=	function(){			$('#position_item li').eq(0).insertAfter($('#position_item li').eq(count - 1));			$('#position_item').css('left', 0);		}		if(direction=='left')		{			$('#position_item').animate({left:per_width*(-1),top:0}, speed, dl_index);		}		else if(direction=='right')		{			$('#position_item li').eq(count-1).insertBefore($('#position_item li').eq(0));			$('#position_item').css('left',per_width*(-1));			$('#position_item').animate({left:0,top:3}, speed);		}	}		//]]>		hs.graphicsDir = '../js/highslide/graphics/';		hs.captionId = 'the-caption';</script>	</div>
+</div>
+<div style="position:fixed;z-index:999;width:40px;top:0px;right:0px">
+	<div class="sidebar">
+		<div style="">
+			<a href="#" class="updown" id="go_up"></a>
+			<a href="index.php" id="go_home"></a>
+			<a href="index.php?ptype=ugisa1" id="go_gisa"></a>
+			<a href="itv/index.php" id="go_itv"></a>
+			<hr />
+			<a href="http://twitter.com/uriminzok" id="go_twitter" target="_blank"></a>
+			<a href="https://plus.google.com/+uriminzok" id="go_google" target="_blank"></a>
+			<a href="http://uriminzok.tumblr.com/" id="go_tumblr" target="_blank"></a>
+			<a href="http://www.flicker.com/photos/uriminzok" id="go_flickr" target="_blank"></a>
+			<a href="http://www.pinterest.com/uriminzokkiri" id="go_pinterest" target="_blank"></a>
+			<a href="https://www.instagram.com/uriminzok2017/" id="go_instagram" target="_blank"></a>
+			<a href="http://i.youku.com/taesongsan" id="go_youku" target="_blank"></a>
+			<a href="https://weibo.com/u/6331567113" id="go_weibo" target="_blank"></a>
+			<a href="https://vk.com/uriminzokkiri" id="go_vk" target="_blank"></a>
+			<!--<a href="#" id="go_intagram" target="_blank"></a>-->
+			<a href="#" class="updown" id="go_down"></a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">	
+	$(document).ready(function () {
+			
+		$(".sidebar a").mouseenter(function () {
+			var id = $(this).attr("id");
+			//$(this).find("a").animate({
+			if (id == "go_up")				
+				$(this).animate({	
+					top:"-10px"
+				}, 300);
+			else if(id == "go_down")
+				$(this).animate({	
+					bottom:"-10px"
+				}, 300);
+			else
+				$(this).animate({	
+					right:"10px"
+				}, 300);
+		});
+		$(".sidebar a").mouseleave(function () {
+			//$(this).find("a").animate({
+			var id = $(this).attr("id");
+			//$(this).find("a").animate({
+			if (id == "go_up")				
+				$(this).animate({	
+					top:"0px"
+				}, 300);
+			else if(id == "go_down")
+				$(this).animate({	
+					bottom:"0px"
+				}, 300);
+			else
+				$(this).animate({	
+					right:"0px"
+				}, 300);
+		});
+	});
+	jQuery(document).ready(function () {	
+		jQuery(window).scroll(function () {
+			if (jQuery(this).scrollTop() > 50) {
+				jQuery('#go_up').fadeIn();
+			} else {
+				jQuery('#go_up').fadeOut();
+			}
+		});	
+		jQuery('#go_up').click(function () {
+			jQuery("html, body").animate({
+				scrollTop: 0
+			}, 600);
+			return false;
+		});	
+		var down = jQuery('#tail_bg');
+		var body = jQuery('#total_wrapper');
+		jQuery('#go_down').click(function () {
+			jQuery("html, body").animate({
+				scrollTop: body.height()-850
+			}, 600);
+			return false;
+		});
+		
+	});
+</script>
+
+</body>
+</html>

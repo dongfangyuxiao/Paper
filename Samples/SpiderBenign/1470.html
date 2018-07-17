@@ -1,0 +1,3656 @@
+<!--
+______                            _              _                                     _
+| ___ \                          | |            | |                                   | |
+| |_/ /___ __      __ ___  _ __  | |__   _   _  | |      __ _  _ __  __ _ __   __ ___ | |
+|  __// _ \\ \ /\ / // _ \| '__| | '_ \ | | | | | |     / _` || '__|/ _` |\ \ / // _ \| |
+| |  | (_) |\ V  V /|  __/| |    | |_) || |_| | | |____| (_| || |  | (_| | \ V /|  __/| |
+\_|   \___/  \_/\_/  \___||_|    |_.__/  \__, | \_____/ \__,_||_|   \__,_|  \_/  \___||_|
+                                          __/ |
+                                         |___/
+  ========================================================
+                                           laravel-china.org
+
+  --------------------------------------------------------
+  Powered by PHPHub
+-->
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <title> 话题列表  | Laravel China 社区 - 高品质的 Laravel 开发者社区 </title>
+        <meta name="description" content="我们是高品质的 Laravel 开发者社区，致力于为 Laravel 和 PHP 开发者提供一个分享创造、结识伙伴、协同互助的论坛。
+" />
+        <meta name="keywords" content="php,laravel,php论坛,laravel论坛,php社区,laravel社区,laravel教程,php教程,laravel视频,php开源,php新手,php7,laravel5
+" />
+        <meta name="author" content="PHPHub" />
+
+        <meta name="_token" content="COI0V0foBqRI2ycx50EkEum8clhQagfMbdTPb9Bh">
+
+        <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://lccdn.phphub.org//assets/css/04bb3e8f156f327daba1-styles.css">
+
+        <link rel="shortcut icon" href="https://lccdn.phphub.org/uploads/sites/KDiyAbV0hj1ytHpRTOlVpucbLebonxeX.png"/>
+
+        <script>
+                Config = {
+                    'cdnDomain': 'https://lccdn.phphub.org/',
+                    'user_id': 0,
+                    'notification_count': 0,
+                    'user_avatar': "",
+                    'user_link': "",
+                    'user_badge': '',
+                    'user_badge_link': "",
+                    'routes': {
+                        'notificationsCount' : 'https://laravel-china.org/notifications/count',
+                        'upload_image' : 'https://laravel-china.org/upload_image'
+                    },
+                    'token': 'COI0V0foBqRI2ycx50EkEum8clhQagfMbdTPb9Bh',
+                    'environment': 'production',
+                    'following_users': [],
+                    'qa_category_id': '4'
+                };
+
+                var ShowCrxHint = 'no';
+        </script>
+            <style>
+    .carousel{
+
+    margin-top: 4px;
+    margin-bottom: -18px;
+}
+.carousel .item{
+    min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+}
+.carousel .item img{
+    margin: 0 auto; /* Align slide image horizontally center */
+}
+
+        .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+            display: block;
+    line-height: 1;
+    width: 70%;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px #ccc;
+    -moz-box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+
+        <meta http-equiv="x-pjax-version" content="https://lccdn.phphub.org//assets/css/04bb3e8f156f327daba1-styles.css">
+
+        <style>
+            .topics-index .topic-filter a.active {
+                border-bottom: 2px solid #fbbd08;
+            }
+            .navbar-default {
+                border-top: 4px solid #f46660;
+                height: auto;
+            }
+            .share-link-site {
+                font-size: 12px;
+                color: #828282;
+            }
+            .topics-index .topic-list .infos .media-heading a:visited {
+                color: #a2a2a2;
+            }
+            .btn-circle {
+              width: 30px;
+              height: 30px;
+              text-align: center;
+              padding: 6px 0;
+              font-size: 12px;
+              line-height: 1.42;
+              border-radius: 15px;
+            }
+            .btn-shadow {
+                background-color: #fff!important;
+                border: none!important;
+                box-shadow: 0 0 5px #ccc;
+                color: #909090;
+            }
+            .translation-item .postion .index a {
+                margin: 0 5px;
+                margin-top: 13px;
+            }
+
+            .topic-content-big-font {
+                font-size: 16px;
+            }
+            .topic-content-big-font p{
+                line-height: 2.2;
+            }
+            ul.breadcrumb a {
+                color: inherit;
+            }
+            a {
+    color: #f4645f;
+}
+a:hover, a:focus {
+    color: #d6514d;
+    transition: color .15s ease 0s;
+}
+.btn-primary {
+    background-color: #f4645f;
+    border-color: #f93e38;
+}
+.btn-primary:hover {
+    background-color: #f54944;
+    border-color: #f11b14;
+}
+.translation-item .postion .btn-primary {
+	background-color: #f4645f!important;
+    border-color: #f93e38;	
+}
+.vote-box .btn-primary.active {
+    background-color: #f4645f;
+    border-color: #f93e38;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    background-color: #f4645f;
+    border-color: #f93e38;
+}
+
+.messages .active .badge-important {
+    background-color: #ffffff !important;
+    color: red!important;
+}
+
+.user-basic-info .follow-info a.counter:hover {
+    color: #d6514d;
+}
+.user-basic-info .follow-info a.counter {
+    color: #f4645f;
+}
+
+.user-cards .follow-info a.counter:hover {
+    color: #d6514d;
+}
+.user-cards .follow-info a.counter {
+    color: #f4645f;
+}
+        </style>
+
+    </head>
+
+    <body id="body" class="home">
+
+        <div id="wrap">
+
+            <div role="navigation" class="navbar navbar-default topnav">
+  <div class="container">
+    <div class="navbar-header">
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      <a href="/" class="navbar-brand">
+            <img src="https://lccdn.phphub.org/uploads/sites/hG5JuDSqZ7Y26Kuh0Qat8EYv6XNT0fGc.png" alt="Laravel China" style=""/>
+      </a>
+    </div>
+
+    <div id="top-navbar-collapse" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+
+        <li><a tabindex="-1" href="https://laravel-china.org/topics">
+             社区</a>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true">
+                分类 <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a tabindex="-1" href="https://laravel-china.org/c/qa">
+                    <i class="fa fa-question-circle"></i> 技术问答</a>
+                </li>
+                <li><a tabindex="-1" href="https://laravel-china.org/c/php-jobs">
+                    <i class="fa fa-laptop"></i>招聘求职</a>
+                </li>
+                <li><a tabindex="-1" href="https://laravel-china.org/c/hunt">
+                    <i class="fa fa-link"></i> 链接分享</a>
+                </li>
+                <li><a tabindex="-1" href="https://laravel-china.org/c/meetups">
+                    <i class="fa fa-users"></i> 线下聚会</a>
+                </li>
+                <li><a tabindex="-1" href="https://laravel-china.org/c/translations">
+                    <i class="fa fa-language"></i> 外文翻译</a>
+                </li>
+            </ul>
+        </li>
+
+                    <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true">
+                    教程 <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="https://laravel-china.org/courses">
+                    <i class="fa fa-home text-md"></i> Laravel 实战教程首页</a>
+                </li>
+
+                                            <li>
+                            <a tabindex="-1" href="https://laravel-china.org/courses/laravel-essential-training-5.5">
+                                <img class="img-thumbnail avatar image" src="https://fsdhub.com/uploads/images/201704/28/1/O2sXyZ5ZH6.jpg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                                《L01 Laravel 教程 - Web 开发实战入门 ( Laravel 5.5 )》
+                            </a>
+                        </li>
+                                            <li>
+                            <a tabindex="-1" href="https://laravel-china.org/courses/laravel-intermediate-training-5.5">
+                                <img class="img-thumbnail avatar image" src="https://fsdhub.com/uploads/images/201709/18/1/nvXAaDu1iw.png?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                                《L02 Laravel 教程 - Web 开发实战进阶 ( Laravel 5.5 )》
+                            </a>
+                        </li>
+                                            <li>
+                            <a tabindex="-1" href="https://laravel-china.org/courses/laravel-advance-training-5.5">
+                                <img class="img-thumbnail avatar image" src="https://fsdhub.com/uploads/images/201711/15/1/fJ5iqgmd7D.jpg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                                《L03 Laravel 教程 - 实战构架 API 服务器》
+                            </a>
+                        </li>
+                                            <li>
+                            <a tabindex="-1" href="https://laravel-china.org/courses/laravel-weapp">
+                                <img class="img-thumbnail avatar image" src="https://laravel-china.org/uploads/images/201804/24/1/CbtnSs8Jnh.jpg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                                《L04 Laravel 教程 - 微信小程序从零到发布》
+                            </a>
+                        </li>
+                                            <li>
+                            <a tabindex="-1" href="https://laravel-china.org/courses/laravel-shop">
+                                <img class="img-thumbnail avatar image" src="https://laravel-china.org/uploads/images/201806/12/1/RAjQ5R8DAS.jpg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                                《L05 Laravel 教程 - 电商实战》
+                            </a>
+                        </li>
+                                    </ul>
+            </li>
+        
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true">文档 <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a tabindex="-1" href="https://laravel-china.org/docs"><i class="fa fa-home text-md"></i> 社区文档首页</a></li>
+
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/laravel/5.6">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201802/28/1/Jk8mC7SGI5.jpg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《Laravel 中文文档》</a></li>
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/laravel-specification/5.5">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201803/08/1/mIpeaUvQ7Y.jpeg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《 Laravel 项目开发规范》</a></li>
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/laravel-development-environment/5.5">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201801/24/1/rgMAkwm5JX.jpeg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《Laravel 开发环境部署》</a></li>
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/elasticsearch-php/6.0">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201807/06/1/DKBZsKgaDg.jpeg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《Elasticsearch-PHP 中文文档》</a></li>
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/lumen/5.6">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201806/26/1/YiQbmFYoaK.png?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《Lumen 中文文档》</a></li>
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/graphql-php">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201806/23/1/6ELjREkwOc.png?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《GraphQL PHP 中文文档》</a></li>
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/writing-docs">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201806/21/1/gH3fzveyW3.jpg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《社区文档撰写指南》</a></li>
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/forum-in-laravel-tdd">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201805/16/1/fYEVSxLSlI.png?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《TDD 构建 Laravel 论坛笔记》</a></li>
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/psr">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201804/26/1/wAkQEDuKQZ.jpg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《PHP PSR 标准规范》</a></li>
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/php-design-patterns/2018">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201803/19/1/lDtmqCGQJJ.jpeg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《PHP 设计模式全集》</a></li>
+                                    <li><a tabindex="-1" href="https://laravel-china.org/docs/dingo-api/2.0.0">
+                        <img class="img-thumbnail avatar image" src="https://lccdn.phphub.org/uploads/images/201803/13/1/DCYvMliGXu.jpg?imageView2/1/w/200/h/200" style="padding:1px;width:22px;height:22px;">
+                        《Dingo API 中文文档》</a></li>
+                            </ul>
+        </li>
+
+                    <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true">开源 <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+<li>                    <a href="https://laravel-china.org/projects/filter/laravel-library">
+                        <i class="fa fa-check text-md"></i> Laravel 扩展排行榜
+                    </a></li>
+                    <li><a href="https://laravel-china.org/projects/filter/laravel-app?order=github_stars">
+                        <i class="fa fa-leaf text-md"></i> Laravel 应用排行榜
+                    </a></li>
+                    <li><a href="https://laravel-china.org/projects/filter/laravel">
+                        <i class="fa fa-flag text-md"></i> Laravel 开源排行榜
+                    </a></li>
+                    <li>
+                        <a href="https://laravel-china.org/projects/filter/laravel-cn">
+                            <i class="fa">🇨🇳</i>Laravel 国产项目
+                        </a>
+                    </li>
+                    <li><a href="https://laravel-china.org/projects/filter/laravel-top250">
+                        <i class="fa fa-github-alt text-md"></i> GitHub Laravel TOP 250
+                    </a></li>
+                    <li><a href="https://laravel-china.org/pages/improve-opensource-db">
+                        <i class="fa fa-paint-brush text-md"></i> 参与改进开源知识库
+                    </a></li>
+                </ul>
+            </li>
+        
+        
+        
+        
+        
+      </ul>
+
+      <div class="navbar-right">
+
+                        <form method="GET" action="https://laravel-china.org/search" accept-charset="UTF-8" class="navbar-form navbar-left hidden-sm hidden-md">
+                  <div class="form-group">
+                  <input class="form-control search-input mac-style" placeholder="搜索" name="q" type="text" value="">
+          
+            </div>
+          </form>
+
+        <ul class="nav navbar-nav github-login" >
+                        <a href="https://laravel-china.org/auth/login" class="btn btn-default login-btn no-pjax">
+                <i class="fa fa-user"></i>
+                登 录
+              </a>
+              <a href="https://laravel-china.org/auth/register" class="btn btn-default login-btn no-pjax">
+                <i class="fa fa-user-plus"></i>
+                注 册
+              </a>
+                  </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+            <div class="container main-container ">
+
+                
+                
+                
+<div class="col-md-9 topics-index main-col">
+
+                
+    
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+
+            
+          <ul class="list-inline topic-filter">
+                <li class="popover-with-html" data-content="最后回复排序"><a href="https://laravel-china.org/topics?filter=default" class="active">活跃</a></li>
+                <li class="popover-with-html" data-content="只看加精的话题"><a href="https://laravel-china.org/topics?filter=excellent">精华</a></li>
+                <li class="popover-with-html" data-content="点赞数排序"><a href="https://laravel-china.org/topics?filter=vote">投票</a></li>
+                <li class="popover-with-html" data-content="发布时间排序"><a href="https://laravel-china.org/topics?filter=recent">最近</a></li>
+                <li class="popover-with-html" data-content="无人问津的话题"><a href="https://laravel-china.org/topics?filter=noreply">零回复</a></li>
+            </ul>
+
+          <div class="clearfix"></div>
+        </div>
+
+        
+            <div class="">
+                <div class="panel-body remove-padding-horizontal">
+                    <ul class="list-group row topic-list">
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/13206/laravel-shop-course">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       233
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       58
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       6.2k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:11:04" class="timeago">18分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/1" title="Summer">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Summer" src="https://lccdn.phphub.org/uploads/avatars/1_1530614766.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-warning">置顶</span>
+                
+                <a href="https://laravel-china.org/topics/13206/laravel-shop-course" title="《L05 Laravel 教程 - 电商实战》发布">
+
+                    
+                    
+                    
+                    
+                     《L05 Laravel 教程 - 电商实战》发布
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/14086/start-translating-elasticsearch-php-chinese-documents">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       37
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       6
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       618
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:17:21" class="timeago">1小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/1" title="Summer">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Summer" src="https://lccdn.phphub.org/uploads/avatars/1_1530614766.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-warning">置顶</span>
+                
+                <a href="https://laravel-china.org/topics/14086/start-translating-elasticsearch-php-chinese-documents" title="开始翻译 Elasticsearch-PHP 中文文档 ">
+
+                    
+                    
+                                            [进度 76.47%]
+                    
+                    
+                     开始翻译 Elasticsearch-PHP 中文文档 
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/12298/vuejs">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       171
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       46
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       9.3k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-10 11:08:08" class="timeago">2天前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/1" title="Summer">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Summer" src="https://lccdn.phphub.org/uploads/avatars/1_1530614766.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-warning">置顶</span>
+                
+                <a href="https://laravel-china.org/topics/12298/vuejs" title="Vue.js 的课程来啦 ——《Vue.js 实战教程 - 基础篇》">
+
+                    
+                    
+                    
+                    
+                     Vue.js 的课程来啦 ——《Vue.js 实战教程 - 基础篇》
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/13616/why-how-can-you-keep-your-git-history-clear">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       23
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       0
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.1k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-10 17:35:31" class="timeago">1天前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/c/translations">
+                        <img class="media-object img-thumbnail avatar avatar-middle" src="https://lccdn.phphub.org/uploads/sites/K8vB33R2NkyQ5WbLxt9a6jSE7URbk268.png"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        翻译
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/13616/why-how-can-you-keep-your-git-history-clear" title="为什么？还有怎样才能保持你的 Git 提交历史清晰？">
+
+                                                                        [进度 60％]
+                                            
+                    
+                    
+                    
+                     为什么？还有怎样才能保持你的 Git 提交历史清晰？
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/13472/teach-you-how-to-use-php-to-generate-pdf-and-image-gracefully">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       78
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       19
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       817
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:27:18" class="timeago">2分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/23089" title="xihanshui">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="xihanshui" src="https://lccdn.phphub.org/uploads/avatars/23089_1529654472.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/13472/teach-you-how-to-use-php-to-generate-pdf-and-image-gracefully" title="教你如何使用 PHP 优雅的生成 PDF 和 Image">
+
+                    
+                    
+                    
+                    
+                     教你如何使用 PHP 优雅的生成 PDF 和 Image
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/14201/how-to-use-laravel-collections-class-to-write-god-level-code">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       38
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       8
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       266
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:24:07" class="timeago">5分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/17343" title="liuqing_hu">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="liuqing_hu" src="https://lccdn.phphub.org/uploads/avatars/17343_1499073337.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/14201/how-to-use-laravel-collections-class-to-write-god-level-code" title="如何使用 Laravel Collections 类编写神级代码">
+
+                    
+                    
+                    
+                    
+                     如何使用 Laravel Collections 类编写神级代码
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/13708/optimization-of-eloquents-wherehas-plus-where-in">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       50
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       4
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       438
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:21:28" class="timeago">7分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/5583" title="huiren">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="huiren" src="https://lccdn.phphub.org/uploads/avatars/5583_1472366142.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/13708/optimization-of-eloquents-wherehas-plus-where-in" title="给 Eloquent 的 whereHas 加个 where in 的优化">
+
+                    
+                    
+                    
+                    
+                     给 Eloquent 的 whereHas 加个 where in 的优化
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/13902/passport-api-authentication-multi-table-login">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       24
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       2
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       245
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:20:33" class="timeago">8分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/16042" title="Ucer">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Ucer" src="https://lccdn.phphub.org/uploads/avatars/16042_1493680817.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/13902/passport-api-authentication-multi-table-login" title="passport API 认证 -- 多表登录 ">
+
+                    
+                    
+                    
+                    
+                     passport API 认证 -- 多表登录 
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/12611/docker-quickly-build-lnmp-development-environment">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       35
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       14
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.4k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:18:37" class="timeago">10分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/7294" title="Sparkfly">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Sparkfly" src="https://lccdn.phphub.org/uploads/avatars/7294_1481343109.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        头条
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/12611/docker-quickly-build-lnmp-development-environment" title="Docker 快速搭建 Lnmp 开发环境 ">
+
+                    
+                    
+                    
+                    
+                     Docker 快速搭建 Lnmp 开发环境 
+
+                                            <span class="share-link-site" data-link="https://github.com/helingfeng/Docker-LNMP"><i class="fa fa-link "></i> github.com</span>
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/10889/detailed-implementation-of-jwt-extensions">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       60
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       5
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.8k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:17:45" class="timeago">11分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/20312" title="skyArony">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="skyArony" src="https://lccdn.phphub.org/uploads/avatars/20312_1512278441.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/10889/detailed-implementation-of-jwt-extensions" title="JWT 扩展具体实现详解">
+
+                    
+                    
+                    
+                    
+                     JWT 扩展具体实现详解
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/14130/infinite-class-classification-infinite-nested-review-in-php">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       5
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       7
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       215
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:10:06" class="timeago">19分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/9946" title="萧潇">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="萧潇" src="https://lccdn.phphub.org/uploads/avatars/9946_1484296643.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-default">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/14130/infinite-class-classification-infinite-nested-review-in-php" title="PHP 中的无限级分类、无限嵌套评论">
+
+                    
+                    
+                    
+                    
+                     PHP 中的无限级分类、无限嵌套评论
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/12926/this-is-what-you-want-at-someones-function">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       203
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       49
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       2.1k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:04:45" class="timeago">24分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/10512" title="Jourdon">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Jourdon" src="https://lccdn.phphub.org/uploads/avatars/10512_1513244746.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/12926/this-is-what-you-want-at-someones-function" title="这是你想要的 @ 某人的功能">
+
+                    
+                    
+                    
+                    
+                     这是你想要的 @ 某人的功能
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/13162/laravel-integrated-swoole-tutorial">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       55
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       8
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.3k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:01:15" class="timeago">28分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/7913" title="LaravelChen">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="LaravelChen" src="https://lccdn.phphub.org/uploads/avatars/7913_1498784210.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/13162/laravel-integrated-swoole-tutorial" title="Laravel 集成 Swoole 教程">
+
+                    
+                    
+                    
+                    
+                     Laravel 集成 Swoole 教程
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/12727/share-one-of-the-information-you-have-prepared-for-a-php-interview">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       142
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       23
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       2.2k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 11:00:37" class="timeago">28分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/24846" title="xianyunyehe">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="xianyunyehe" src="https://lccdn.phphub.org/uploads/avatars/24846_1525090866.jpg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/12727/share-one-of-the-information-you-have-prepared-for-a-php-interview" title="分享一个自己准备 PHP 面试的资料">
+
+                    
+                    
+                    
+                    
+                     分享一个自己准备 PHP 面试的资料
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/9956/chat-rooms-implemented-by-swoolereact">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       118
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       27
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       3.0k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:59:24" class="timeago">30分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/7913" title="LaravelChen">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="LaravelChen" src="https://lccdn.phphub.org/uploads/avatars/7913_1498784210.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/9956/chat-rooms-implemented-by-swoolereact" title="Swoole+React 实现的聊天室">
+
+                    
+                    
+                    
+                    
+                     Swoole+React 实现的聊天室
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/13366/the-server-has-made-two-optimization-and-the-cpu-utilization-rate-has-been-reduced-by-40">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       158
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       37
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.9k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:52:09" class="timeago">37分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/1" title="Summer">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Summer" src="https://lccdn.phphub.org/uploads/avatars/1_1530614766.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/13366/the-server-has-made-two-optimization-and-the-cpu-utilization-rate-has-been-reduced-by-40" title="服务器做了两个优化 CPU 使用率减低 40%">
+
+                    
+                    
+                    
+                    
+                     服务器做了两个优化 CPU 使用率减低 40%
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/13394/how-to-become-a-modernized-back-end-developer-in-2018">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       118
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       3
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.9k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:50:54" class="timeago">38分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/c/translations">
+                        <img class="media-object img-thumbnail avatar avatar-middle" src="https://lccdn.phphub.org/uploads/sites/K8vB33R2NkyQ5WbLxt9a6jSE7URbk268.png"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        翻译
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/13394/how-to-become-a-modernized-back-end-developer-in-2018" title="2018年，如何成为现代化的后端开发者">
+
+                                                                        [已完成]
+                                            
+                    
+                    
+                    
+                     2018年，如何成为现代化的后端开发者
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/13265/laravel-5-kindeditor-is-the-most-recommended-html-text-editor-worthy-of-recommendation">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       18
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       3
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       470
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:48:33" class="timeago">40分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/4556" title="chenhua">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="chenhua" src="https://lccdn.phphub.org/uploads/avatars/4556_1464664954.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/13265/laravel-5-kindeditor-is-the-most-recommended-html-text-editor-worthy-of-recommendation" title="Laravel 5-KindEditor 一款值得推荐的最具情怀的 HTML 文本编辑器">
+
+                    
+                    
+                    
+                    
+                     Laravel 5-KindEditor 一款值得推荐的最具情怀的 HTML 文本编辑器
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/10885/full-use-of-jwt">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       139
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       30
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       4.3k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:45:49" class="timeago">43分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/20312" title="skyArony">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="skyArony" src="https://lccdn.phphub.org/uploads/avatars/20312_1512278441.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/10885/full-use-of-jwt" title="JWT 完整使用详解">
+
+                    
+                    
+                    
+                    
+                     JWT 完整使用详解
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/13235/blog-client-lara-app-after-third-tutorials">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       28
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       2
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       427
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:44:10" class="timeago">45分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/18316" title="zfs">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="zfs" src="https://lccdn.phphub.org/uploads/avatars/18316_1502704706.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        分享
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/13235/blog-client-lara-app-after-third-tutorials" title="看完第三部教程之后做的博客客户端 Lara-App">
+
+                    
+                    
+                    
+                    
+                     看完第三部教程之后做的博客客户端 Lara-App
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/13496/lets-encrypt-pan-domain-name-application-and-configuration">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       77
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       6
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       434
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:42:47" class="timeago">46分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/5359" title="godruoyi">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="godruoyi" src="https://lccdn.phphub.org/uploads/avatars/5359_1470894290.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/13496/lets-encrypt-pan-domain-name-application-and-configuration" title="Let&#039;s Encrypt 泛域名证书申请及配置">
+
+                    
+                    
+                    
+                    
+                     Let&#039;s Encrypt 泛域名证书申请及配置
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/12679/jwt-auth-blacklist-function">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       55
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       7
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.1k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:42:39" class="timeago">46分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/3995" title="liyu001989">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="liyu001989" src="https://lccdn.phphub.org/uploads/avatars/3995_1516760409.jpg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/12679/jwt-auth-blacklist-function" title="JWT-Auth 黑名单功能">
+
+                    
+                    
+                    
+                    
+                     JWT-Auth 黑名单功能
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/12431/share-the-latest-interview-questions-sina-chain-finance">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       54
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       26
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.8k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:42:35" class="timeago">46分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/6600" title="小能手马闯set">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="小能手马闯set" src="https://lccdn.phphub.org/uploads/avatars/6600_1477493745.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        分享
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/12431/share-the-latest-interview-questions-sina-chain-finance" title="最近一波面试题分享（新浪，链家，金融）">
+
+                    
+                    
+                    
+                    
+                     最近一波面试题分享（新浪，链家，金融）
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/14159/the-way-to-use-the-php-array">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       63
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       7
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       723
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:42:09" class="timeago">47分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/17343" title="liuqing_hu">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="liuqing_hu" src="https://lccdn.phphub.org/uploads/avatars/17343_1499073337.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/14159/the-way-to-use-the-php-array" title="PHP 数组使用之道">
+
+                    
+                    
+                    
+                    
+                     PHP 数组使用之道
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/13694/lumen-55-56-document-translation-and-proofreading-begins-welcome-interested-students-to-join-us">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       63
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       0
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       605
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:38:35" class="timeago">50分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/1" title="Summer">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Summer" src="https://lccdn.phphub.org/uploads/avatars/1_1530614766.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        公告
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/13694/lumen-55-56-document-translation-and-proofreading-begins-welcome-interested-students-to-join-us" title="Lumen 5.5 / 5.6 文档翻译和校对开始了，欢迎感兴趣的同学加入我们">
+
+                    
+                    
+                    
+                    
+                     Lumen 5.5 / 5.6 文档翻译和校对开始了，欢迎感兴趣的同学加入我们
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/9972/fix-npm-run-dev">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       45
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       8
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.5k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:29:42" class="timeago">59分钟前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/24227" title="cww0128">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="cww0128" src="https://lccdn.phphub.org/uploads/avatars/24227_1523505148.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        分享
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/9972/fix-npm-run-dev" title="新手怎么解决 NPM run dev 报错的问题，综合回答一下，希望能帮到后来人">
+
+                    
+                    
+                    
+                    
+                     新手怎么解决 NPM run dev 报错的问题，综合回答一下，希望能帮到后来人
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/13006/recommend-a-phpcs-plug-in-to-standardize-laravel-code-specification-from-local-code-to-version-control">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       70
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       12
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       4.5k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:17:46" class="timeago">1小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/5352" title="fanly">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="fanly" src="https://lccdn.phphub.org/uploads/avatars/5352_1470883282.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/13006/recommend-a-phpcs-plug-in-to-standardize-laravel-code-specification-from-local-code-to-version-control" title="推荐一款 phpcs 插件规范 Laravel 代码 (规范从本地写代码到版本控制)">
+
+                    
+                    
+                    
+                    
+                     推荐一款 phpcs 插件规范 Laravel 代码 (规范从本地写代码到版本控制)
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/10735/yum-quickly-build-lnmp-development-environment">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       26
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       2
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       854
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:16:55" class="timeago">1小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/17186" title="licheng">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="licheng" src="https://lccdn.phphub.org/uploads/avatars/17186_1498286155.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/10735/yum-quickly-build-lnmp-development-environment" title="yum 快速搭建 lnmp 开发环境">
+
+                    
+                    
+                    
+                    
+                     yum 快速搭建 lnmp 开发环境
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/10188/laravel-55-uses-passport-services-to-do-api-authentication">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       11
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       2
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       942
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:16:13" class="timeago">1小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/14139" title="994914376">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="994914376" src="https://lccdn.phphub.org/uploads/avatars/14139_1491473530.jpg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-default">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/10188/laravel-55-uses-passport-services-to-do-api-authentication" title="Laravel 5.5 使用 Passport 服务做 API 认证">
+
+                    
+                    
+                    
+                    
+                     Laravel 5.5 使用 Passport 服务做 API 认证
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/12543/how-to-use-the-laravel-framework-as-you-want">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       42
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       24
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       896
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:12:34" class="timeago">1小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/19497" title="Gebriel">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Gebriel" src="https://lccdn.phphub.org/uploads/avatars/19497_1508375798.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        问答
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/12543/how-to-use-the-laravel-framework-as-you-want" title="怎么去随心所欲的使用 Laravel 框架各种功能？">
+
+                    
+                    
+                    
+                    
+                     怎么去随心所欲的使用 Laravel 框架各种功能？
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/10126/the-configuration-and-use-of-elasticsearch-for-full-text-search">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       98
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       20
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       2.8k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:11:17" class="timeago">1小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/10512" title="Jourdon">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Jourdon" src="https://lccdn.phphub.org/uploads/avatars/10512_1513244746.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/10126/the-configuration-and-use-of-elasticsearch-for-full-text-search" title="Elasticsearch 的配置与使用，为了全文搜索">
+
+                    
+                    
+                    
+                    
+                     Elasticsearch 的配置与使用，为了全文搜索
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/13242/another-introduction-to-the-use-of-deployer">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       157
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       68
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.4k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 10:09:23" class="timeago">1小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/76" title="overtrue">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="overtrue" src="https://lccdn.phphub.org/uploads/avatars/76_1451276555.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/13242/another-introduction-to-the-use-of-deployer" title="又一篇 Deployer 的使用攻略">
+
+                    
+                    
+                    
+                    
+                     又一篇 Deployer 的使用攻略
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/12717/sharing-an-artifact-selenium-automated-testing-tool">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       91
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       21
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.7k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 09:54:19" class="timeago">1小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/6487" title="無铭">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="無铭" src="https://lccdn.phphub.org/uploads/avatars/6487_1495939311.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/12717/sharing-an-artifact-selenium-automated-testing-tool" title="分享一个神器，Selenium 自动化测试工具">
+
+                    
+                    
+                    
+                    
+                     分享一个神器，Selenium 自动化测试工具
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/14292/laravel-uses-interventionimage-to-process-pictures">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       0
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       0
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       24
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 09:26:22" class="timeago">2小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/27110" title="river_bird">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="river_bird" src="https://lccdn.phphub.org/uploads/avatars/27110_1530949376.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-default">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/14292/laravel-uses-interventionimage-to-process-pictures" title="Laravel 使用 Intervention/image 处理图片">
+
+                    
+                    
+                    
+                    
+                     Laravel 使用 Intervention/image 处理图片
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/14163/longhua-shenzhen-asia-pacific-technology-14k-16k-is-recruiting-php-engineer">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       1
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       1
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       188
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 09:18:32" class="timeago">2小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/27136" title="HQY71">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="HQY71" src="https://lccdn.phphub.org/uploads/avatars/27136_1531103010.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-default">
+                        招聘
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/14163/longhua-shenzhen-asia-pacific-technology-14k-16k-is-recruiting-php-engineer" title="【深圳龙华】亚太科技 14K-16K 诚聘 PHP 工程师">
+
+                    
+                    
+                    
+                    
+                     【深圳龙华】亚太科技 14K-16K 诚聘 PHP 工程师
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/13819/share-a-laravel-antd-pro-blogger">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       6
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       1
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       189
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 09:08:14" class="timeago">2小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/299" title="yanthink">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="yanthink" src="https://lccdn.phphub.org/uploads/avatars/299_1427370765.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-default">
+                        分享
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/13819/share-a-laravel-antd-pro-blogger" title="分享个 Laravel + antd pro 撸的博客">
+
+                    
+                    
+                    
+                    
+                     分享个 Laravel + antd pro 撸的博客
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/14290/install-composer-under-linux">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       0
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       0
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       37
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 09:01:49" class="timeago">2小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/27110" title="river_bird">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="river_bird" src="https://lccdn.phphub.org/uploads/avatars/27110_1530949376.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-default">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/14290/install-composer-under-linux" title="Linux 下安装 Composer">
+
+                    
+                    
+                    
+                    
+                     Linux 下安装 Composer
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/13889/community-laravel-open-source-module-on-line">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       201
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       31
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.1k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 08:36:42" class="timeago">2小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/1" title="Summer">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Summer" src="https://lccdn.phphub.org/uploads/avatars/1_1530614766.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        公告
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/13889/community-laravel-open-source-module-on-line" title="社区 Laravel 开源知识库上线">
+
+                    
+                    
+                    
+                    
+                     社区 Laravel 开源知识库上线
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/topics/12777/recruit-three-community-translation-administrators">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       22
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       5
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       1.0k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-12 07:26:47" class="timeago">4小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/1" title="Summer">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Summer" src="https://lccdn.phphub.org/uploads/avatars/1_1530614766.png?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        公告
+                    </span>
+                
+                <a href="https://laravel-china.org/topics/12777/recruit-three-community-translation-administrators" title="招募三名社区翻译管理员">
+
+                    
+                    
+                    
+                    
+                     招募三名社区翻译管理员
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    
+         <li class="list-group-item ">
+
+             <a class="reply_count_area hidden-xs pull-right" href="https://laravel-china.org/articles/10736/some-craters-in-mysql-8011">
+                 <div class="count_set">
+                     <span class="count_of_votes" title="投票数">
+                       37
+                    </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_replies" title="回复数">
+                       8
+                     </span>
+
+                    <span class="count_seperator">/</span>
+
+                     <span class="count_of_visits" title="查看数">
+                       3.4k
+                     </span>
+                     <span class="count_seperator">|</span>
+
+                      <abbr title="2018-07-11 22:59:08" class="timeago">12小时前</abbr>
+                 </div>
+             </a>
+
+            <div class="avatar pull-left">
+
+                                    <a href="https://laravel-china.org/users/3451" title="Jinrenjie">
+                        <img class="media-object img-thumbnail avatar avatar-middle" alt="Jinrenjie" src="https://lccdn.phphub.org/uploads/avatars/3451_1452746464.jpeg?imageView2/1/w/100/h/100"/>
+                    </a>
+                            </div>
+
+
+            <div class="infos">
+
+              <div class="media-heading">
+
+                                    <span class="hidden-xs label label-success">
+                        专栏
+                    </span>
+                
+                <a href="https://laravel-china.org/articles/10736/some-craters-in-mysql-8011" title="遇到 MySQL 8.0.11 的一些坑">
+
+                    
+                    
+                    
+                    
+                     遇到 MySQL 8.0.11 的一些坑
+
+                    
+                </a>
+
+
+              </div>
+
+            </div>
+
+        </li>
+    </ul>
+
+                </div>
+
+                <div class="panel-footer text-right remove-padding-horizontal pager-footer">
+                    <!-- Pager -->
+                    <ul class="pagination">
+        
+                    <li class="disabled"><span>&laquo;</span></li>
+        
+        
+                    
+            
+            
+                                                                        <li class="active"><span>1</span></li>
+                                                                                <li><a href="https://laravel-china.org?page=2">2</a></li>
+                                                                                <li><a href="https://laravel-china.org?page=3">3</a></li>
+                                                                                <li><a href="https://laravel-china.org?page=4">4</a></li>
+                                                                                <li><a href="https://laravel-china.org?page=5">5</a></li>
+                                                                                <li><a href="https://laravel-china.org?page=6">6</a></li>
+                                                                                <li><a href="https://laravel-china.org?page=7">7</a></li>
+                                                                                <li><a href="https://laravel-china.org?page=8">8</a></li>
+                                                                    
+                            <li class="disabled"><span>...</span></li>
+            
+            
+                                
+            
+            
+                                                                        <li><a href="https://laravel-china.org?page=18">18</a></li>
+                                                                                <li><a href="https://laravel-china.org?page=19">19</a></li>
+                                                        
+        
+                    <li><a href="https://laravel-china.org?page=2" rel="next">&raquo;</a></li>
+            </ul>
+
+                </div>
+            </div>
+
+        
+    </div>
+
+    <!-- Nodes Listing -->
+    
+</div>
+
+<div class="col-md-3 side-bar">
+
+    
+    
+    
+    
+
+    
+    
+    
+    <div class="panel panel-default corner-radius">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">社区公告</h3>
+      </div>
+
+    <div class="panel-body text-center announcement-box">
+        <ul class="list">
+                            <li>
+                    <a href="https://laravel-china.org/topics/12777" title="🔥 招募三名社区翻译管理员 ">
+                         🔥 招募三名社区翻译管理员 
+                    </a>
+                </li>
+                            <li>
+                    <a href="https://laravel-china.org/topics/13426/laravel-conf-china-2019" title="Laravel Conf China 2019 议题征集中">
+                         Laravel Conf China 2019 议题征集中
+                    </a>
+                </li>
+                            <li>
+                    <a href="https://laravel-china.org/topics/13471" title="✍️ 邀你共建高品质社区文档">
+                         ✍️ 邀你共建高品质社区文档
+                    </a>
+                </li>
+                    </ul>
+    </div>
+  </div>
+
+
+    
+    <div class="panel panel-default corner-radius panel-hot-topics">
+            <div class="panel-heading text-center">
+                <h3 class="panel-title">本周译者排行</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                                            <li class="list-group-item rm-link-color">
+                            <a href="https://laravel-china.org/users/24487" class="no-pjax rm-link-color" title="purple_ling">
+                                <img class="media-object inline-block img-thumbnail avatar avatar-middle" src="https://lccdn.phphub.org/uploads/avatars/24487_1530520651.jpg?imageView2/1/w/100/h/100" style="width: 35px;height: 35px;margin-right: 5px;">
+                                purple_ling
+                            </a>
+                                                            <span class="badge light-badge popover-with-html" style="margin-top: 5px;" data-content="共翻译了 5 段">
+                                    5
+                                </span>
+                                                    </li>
+                                            <li class="list-group-item rm-link-color">
+                            <a href="https://laravel-china.org/users/8871" class="no-pjax rm-link-color" title="benettzhang">
+                                <img class="media-object inline-block img-thumbnail avatar avatar-middle" src="https://lccdn.phphub.org/uploads/avatars/8871_1482945018.jpeg?imageView2/1/w/100/h/100" style="width: 35px;height: 35px;margin-right: 5px;">
+                                benettzhang
+                            </a>
+                                                            <span class="badge light-badge popover-with-html" style="margin-top: 5px;" data-content="共翻译了 3 段">
+                                    3
+                                </span>
+                                                    </li>
+                                            <li class="list-group-item rm-link-color">
+                            <a href="https://laravel-china.org/users/2987" class="no-pjax rm-link-color" title="Chasers9527">
+                                <img class="media-object inline-block img-thumbnail avatar avatar-middle" src="https://lccdn.phphub.org/uploads/avatars/2987_1526350422.jpg?imageView2/1/w/100/h/100" style="width: 35px;height: 35px;margin-right: 5px;">
+                                Chasers9527
+                            </a>
+                                                            <span class="badge light-badge popover-with-html" style="margin-top: 5px;" data-content="共翻译了 2 段">
+                                    2
+                                </span>
+                                                    </li>
+                                            <li class="list-group-item rm-link-color">
+                            <a href="https://laravel-china.org/users/21374" class="no-pjax rm-link-color" title="Lewis77">
+                                <img class="media-object inline-block img-thumbnail avatar avatar-middle" src="https://lccdn.phphub.org/uploads/avatars/21374_1516613782.jpg?imageView2/1/w/100/h/100" style="width: 35px;height: 35px;margin-right: 5px;">
+                                Lewis77
+                            </a>
+                                                            <span class="badge light-badge popover-with-html" style="margin-top: 5px;" data-content="共翻译了 2 段">
+                                    2
+                                </span>
+                                                    </li>
+                                            <li class="list-group-item rm-link-color">
+                            <a href="https://laravel-china.org/users/20355" class="no-pjax rm-link-color" title="Larwas">
+                                <img class="media-object inline-block img-thumbnail avatar avatar-middle" src="https://lccdn.phphub.org/uploads/avatars/20355_1512445575.jpeg?imageView2/1/w/100/h/100" style="width: 35px;height: 35px;margin-right: 5px;">
+                                Larwas
+                            </a>
+                                                            <span class="badge light-badge popover-with-html" style="margin-top: 5px;" data-content="共翻译了 1 段">
+                                    1
+                                </span>
+                                                    </li>
+                                    </ul>
+
+                <div class="text-center">
+                    <a href="https://laravel-china.org/explore/translation-ranking" style="color:#999;font-size:0.9em;margin-top: 12px;display: inline-block;">查看全部排行</a>
+                </div>
+            </div>
+        </div>
+    
+    
+    <div class="panel panel-default corner-radius sidebar-resources">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">实战课程</h3>
+      </div>
+      <div class="panel-body">
+
+        <div id="carousel-books" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators" style="border-radius: 12px;background-color: hsla(0,0%,100%,.3);margin-bottom: 0px;padding: 4px 8px;">
+                                    <li data-target="#carousel-books" data-slide-to="0" class="active " style="border: 1px solid #ff8580;background-color: #f4665f;"></li>
+                                    <li data-target="#carousel-books" data-slide-to="1" class=" " style="border: 1px solid #ff8580;background-color: #f4665f;"></li>
+                                    <li data-target="#carousel-books" data-slide-to="2" class=" " style="border: 1px solid #ff8580;background-color: #f4665f;"></li>
+                                    <li data-target="#carousel-books" data-slide-to="3" class=" " style="border: 1px solid #ff8580;background-color: #f4665f;"></li>
+                                    <li data-target="#carousel-books" data-slide-to="4" class=" " style="border: 1px solid #ff8580;background-color: #f4665f;"></li>
+                            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                        <a href="https://laravel-china.org/topics/3383/laravel-the-first-chinese-new-book-laravel-tutorial" target=&quot;_blank&quot;>
+                            <img  src="https://lccdn.phphub.org/uploads/banners/YpxKKNlSPdmwotO3u8An.jpg" alt="《L01 基础入门》" title="《L01 基础入门》"/>
+                        </a>
+                    </div>
+                                    <div class="item ">
+                        <a href="https://laravel-china.org/topics/6592" target=&quot;_blank&quot;>
+                            <img  src="https://lccdn.phphub.org/uploads/banners/iNanVVOXdnYQ6jRfMdWE.png" alt="《L02 从零构建论坛系统》" title="《L02 从零构建论坛系统》"/>
+                        </a>
+                    </div>
+                                    <div class="item ">
+                        <a href="https://laravel-china.org/topics/7657" target=&quot;_blank&quot;>
+                            <img  src="https://lccdn.phphub.org/uploads/banners/tEd4GxhMp6VMh9e0hrUH.jpg" alt="《L03 构架 API 服务器》" title="《L03 构架 API 服务器》"/>
+                        </a>
+                    </div>
+                                    <div class="item ">
+                        <a href="https://laravel-china.org/topics/10318/weapp" target=&quot;_blank&quot;>
+                            <img  src="https://lccdn.phphub.org/uploads/banners/xIZB9oqTCooYMtJ6C4OW.jpg" alt="《L04 微信小程序从零到发布》" title="《L04 微信小程序从零到发布》"/>
+                        </a>
+                    </div>
+                                    <div class="item ">
+                        <a href="https://laravel-china.org/topics/13206/laravel-shop-course" target=&quot;_blank&quot;>
+                            <img  src="https://lccdn.phphub.org/uploads/banners/kIaDSZN9YCMfJYjT0dpT.jpg" alt="《L05 电商实战》" title="《L05 电商实战》"/>
+                        </a>
+                    </div>
+                            </div>
+        </div>
+
+      </div>
+    </div>
+
+    
+    
+                    <div style="margin-bottom: 20px;text-align: center;color: #848484;background-color: white;padding: 15px;">
+              <h5>今日扩展推荐</h5>
+              <p><img alt="64x64" class="img-thumbnail avatar avatar-middle" data-src="holder.js/64x64" style="width: 26px;height: 26px;padding:0px;margin-right: 6px;" src="https://lccdn.phphub.org/uploads/avatars/27505_1530502370.png?imageView2/1/w/200/h/200" ><a href="https://laravel-china.org/projects/toin0u/geocoder-laravel">toin0u/geocoder-laravel</a></p>
+          </div>
+        
+        <div class="panel panel-default corner-radius" style="font-size: 0.98em;">
+    <div class="panel-body">
+
+        <form method="POST" action="https://laravel-china.org/tweets" accept-charset="UTF-8" id="tweet-create-form" class="tweet-form">
+            <input type="hidden" name="_token" value="COI0V0foBqRI2ycx50EkEum8clhQagfMbdTPb9Bh">
+                        <div class="input-group">
+                <textarea class="form-control custom-control simple-tweet-textarea login-required-alert" rows="1" name="body" style="resize:none;border: 1px solid #ddd;min-height: 44px;font-size: 0.98em;"  placeholder="请分享美好的事物" required ></textarea>
+                <span class="input-group-addon btn btn-primary" style="color:white" onclick="javascript:document.getElementById('tweet-create-form').submit()">动弹</span>
+            </div>
+            <div class="advance-editor-hint" style="margin-top: 13px;display:none">
+                <a href="https://laravel-china.org/tweets" data-url="https://laravel-china.org/tweets" id="advance-editor-link">
+                    前往高级编辑器 <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </form>
+
+        <br>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active"><a href="#new" aria-controls="home" role="tab" data-toggle="tab">最新</a></li>
+              <li role="presentation"><a class="rm-link-color" href="#hot" aria-controls="profile" role="tab" data-toggle="tab">热门</a></li>
+              <li role="presentation"><a class="rm-link-color" href="https://laravel-china.org/tweets">更多</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="new" style="padding: 15px 0px 5px;">
+                <div class="media" style="display:table">
+
+        <div class="media-left">
+            <a href="https://laravel-china.org/users/26734">
+                <img alt="64x64" class="media-object img-thumbnail avatar avatar-middle" data-src="holder.js/64x64" style="width: 26px;height: 26px;padding:0px;" src="https://lccdn.phphub.org/uploads/avatars/26734_1530076928.jpeg?imageView2/1/w/100/h/100" data-holder-rendered="true">
+            </a>
+        </div>
+
+        <div class="media-body" style="display:table;width:100%;table-layout:fixed">
+
+            <div class="media-body markdown-reply content-body" style="display:block;width:100%;font-size: 14px;">
+                <a href="https://laravel-china.org/users/26734" class="rm-link-color">Alexanderwmc</a>：<span class="rm-link-color clickable" onclick="javascript:Object.assign(document.createElement('a'), { href: 'https://laravel-china.org/tweets/14296'}).click();">谁能给通俗的解释一下Voyager里的slug，bread等概念？另外我要自己创建路由该怎么做？</span>
+            </div>
+
+            <span class="meta operation">
+                <a href="https://laravel-china.org/tweets/14296" class="action">15分钟前</a>
+
+                                    <a class="action" href="https://laravel-china.org/tweets/14296">
+                        <i class="fa fa-thumbs-o-up"></i> <span class="count vote-count">0</span>
+                    </a>
+                
+               <a href="https://laravel-china.org/tweets/14296" class="action"><i class="fa fa-comments-o"></i> <span class="count">0</span></a>
+            </span>
+        </div>
+
+    </div>
+    <div class="media" style="display:table">
+
+        <div class="media-left">
+            <a href="https://laravel-china.org/users/7144">
+                <img alt="64x64" class="media-object img-thumbnail avatar avatar-middle" data-src="holder.js/64x64" style="width: 26px;height: 26px;padding:0px;" src="https://lccdn.phphub.org/uploads/avatars/7144_1516953716.jpg?imageView2/1/w/100/h/100" data-holder-rendered="true">
+            </a>
+        </div>
+
+        <div class="media-body" style="display:table;width:100%;table-layout:fixed">
+
+            <div class="media-body markdown-reply content-body" style="display:block;width:100%;font-size: 14px;">
+                <a href="https://laravel-china.org/users/7144" class="rm-link-color">li-luo-ao</a>：<span class="rm-link-color clickable" onclick="javascript:Object.assign(document.createElement('a'), { href: 'https://laravel-china.org/tweets/14262'}).click();">发布  冲鸭！！！</span>
+            </div>
+
+            <span class="meta operation">
+                <a href="https://laravel-china.org/tweets/14262" class="action">21小时前</a>
+
+                                    <a class="action" href="https://laravel-china.org/tweets/14262">
+                        <i class="fa fa-thumbs-o-up"></i> <span class="count vote-count">0</span>
+                    </a>
+                
+               <a href="https://laravel-china.org/tweets/14262" class="action"><i class="fa fa-comments-o"></i> <span class="count">0</span></a>
+            </span>
+        </div>
+
+    </div>
+    <div class="media" style="display:table">
+
+        <div class="media-left">
+            <a href="https://laravel-china.org/users/5538">
+                <img alt="64x64" class="media-object img-thumbnail avatar avatar-middle" data-src="holder.js/64x64" style="width: 26px;height: 26px;padding:0px;" src="https://lccdn.phphub.org/uploads/avatars/5538_1472087148.png?imageView2/1/w/100/h/100" data-holder-rendered="true">
+            </a>
+        </div>
+
+        <div class="media-body" style="display:table;width:100%;table-layout:fixed">
+
+            <div class="media-body markdown-reply content-body" style="display:block;width:100%;font-size: 14px;">
+                <a href="https://laravel-china.org/users/5538" class="rm-link-color">DianWang</a>：<span class="rm-link-color clickable" onclick="javascript:Object.assign(document.createElement('a'), { href: 'https://laravel-china.org/tweets/14259'}).click();">教程应该有个打分的功能</span>
+            </div>
+
+            <span class="meta operation">
+                <a href="https://laravel-china.org/tweets/14259" class="action">23小时前</a>
+
+                                    <a class="action" href="https://laravel-china.org/tweets/14259">
+                        <i class="fa fa-thumbs-o-up"></i> <span class="count vote-count">1</span>
+                    </a>
+                
+               <a href="https://laravel-china.org/tweets/14259" class="action"><i class="fa fa-comments-o"></i> <span class="count">3</span></a>
+            </span>
+        </div>
+
+    </div>
+    <div class="media" style="display:table">
+
+        <div class="media-left">
+            <a href="https://laravel-china.org/users/5359">
+                <img alt="64x64" class="media-object img-thumbnail avatar avatar-middle" data-src="holder.js/64x64" style="width: 26px;height: 26px;padding:0px;" src="https://lccdn.phphub.org/uploads/avatars/5359_1470894290.jpeg?imageView2/1/w/100/h/100" data-holder-rendered="true">
+            </a>
+        </div>
+
+        <div class="media-body" style="display:table;width:100%;table-layout:fixed">
+
+            <div class="media-body markdown-reply content-body" style="display:block;width:100%;font-size: 14px;">
+                <a href="https://laravel-china.org/users/5359" class="rm-link-color">godruoyi</a>：<span class="rm-link-color clickable" onclick="javascript:Object.assign(document.createElement('a'), { href: 'https://laravel-china.org/tweets/14172'}).click();">又一个应用  :dog: :dog: :dog:</span>
+            </div>
+
+            <span class="meta operation">
+                <a href="https://laravel-china.org/tweets/14172" class="action">2天前</a>
+
+                                    <a class="action" href="https://laravel-china.org/tweets/14172">
+                        <i class="fa fa-thumbs-o-up"></i> <span class="count vote-count">1</span>
+                    </a>
+                
+               <a href="https://laravel-china.org/tweets/14172" class="action"><i class="fa fa-comments-o"></i> <span class="count">0</span></a>
+            </span>
+        </div>
+
+    </div>
+    <div class="media" style="display:table">
+
+        <div class="media-left">
+            <a href="https://laravel-china.org/users/4779">
+                <img alt="64x64" class="media-object img-thumbnail avatar avatar-middle" data-src="holder.js/64x64" style="width: 26px;height: 26px;padding:0px;" src="https://lccdn.phphub.org/uploads/avatars/4779_1522627332.gif?imageView2/1/w/100/h/100" data-holder-rendered="true">
+            </a>
+        </div>
+
+        <div class="media-body" style="display:table;width:100%;table-layout:fixed">
+
+            <div class="media-body markdown-reply content-body" style="display:block;width:100%;font-size: 14px;">
+                <a href="https://laravel-china.org/users/4779" class="rm-link-color">truesnow</a>：<span class="rm-link-color clickable" onclick="javascript:Object.assign(document.createElement('a'), { href: 'https://laravel-china.org/tweets/14124'}).click();">Editor.md 没有文字文档，也不支持粘贴上传图片，这么难用的么 :joy:</span>
+            </div>
+
+            <span class="meta operation">
+                <a href="https://laravel-china.org/tweets/14124" class="action">4天前</a>
+
+                                    <a class="action" href="https://laravel-china.org/tweets/14124">
+                        <i class="fa fa-thumbs-o-up"></i> <span class="count vote-count">0</span>
+                    </a>
+                
+               <a href="https://laravel-china.org/tweets/14124" class="action"><i class="fa fa-comments-o"></i> <span class="count">1</span></a>
+            </span>
+        </div>
+
+    </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="hot" style="padding: 15px 0px 5px;">
+                <div class="media" style="display:table">
+
+        <div class="media-left">
+            <a href="https://laravel-china.org/users/5359">
+                <img alt="64x64" class="media-object img-thumbnail avatar avatar-middle" data-src="holder.js/64x64" style="width: 26px;height: 26px;padding:0px;" src="https://lccdn.phphub.org/uploads/avatars/5359_1470894290.jpeg?imageView2/1/w/100/h/100" data-holder-rendered="true">
+            </a>
+        </div>
+
+        <div class="media-body" style="display:table;width:100%;table-layout:fixed">
+
+            <div class="media-body markdown-reply content-body" style="display:block;width:100%;font-size: 14px;">
+                <a href="https://laravel-china.org/users/5359" class="rm-link-color">godruoyi</a>：<span class="rm-link-color clickable" onclick="javascript:Object.assign(document.createElement('a'), { href: 'https://laravel-china.org/tweets/14172'}).click();">又一个应用  :dog: :dog: :dog:</span>
+            </div>
+
+            <span class="meta operation">
+                <a href="https://laravel-china.org/tweets/14172" class="action">2天前</a>
+
+                                    <a class="action" href="https://laravel-china.org/tweets/14172">
+                        <i class="fa fa-thumbs-o-up"></i> <span class="count vote-count">1</span>
+                    </a>
+                
+               <a href="https://laravel-china.org/tweets/14172" class="action"><i class="fa fa-comments-o"></i> <span class="count">0</span></a>
+            </span>
+        </div>
+
+    </div>
+    <div class="media" style="display:table">
+
+        <div class="media-left">
+            <a href="https://laravel-china.org/users/5538">
+                <img alt="64x64" class="media-object img-thumbnail avatar avatar-middle" data-src="holder.js/64x64" style="width: 26px;height: 26px;padding:0px;" src="https://lccdn.phphub.org/uploads/avatars/5538_1472087148.png?imageView2/1/w/100/h/100" data-holder-rendered="true">
+            </a>
+        </div>
+
+        <div class="media-body" style="display:table;width:100%;table-layout:fixed">
+
+            <div class="media-body markdown-reply content-body" style="display:block;width:100%;font-size: 14px;">
+                <a href="https://laravel-china.org/users/5538" class="rm-link-color">DianWang</a>：<span class="rm-link-color clickable" onclick="javascript:Object.assign(document.createElement('a'), { href: 'https://laravel-china.org/tweets/14259'}).click();">教程应该有个打分的功能</span>
+            </div>
+
+            <span class="meta operation">
+                <a href="https://laravel-china.org/tweets/14259" class="action">23小时前</a>
+
+                                    <a class="action" href="https://laravel-china.org/tweets/14259">
+                        <i class="fa fa-thumbs-o-up"></i> <span class="count vote-count">1</span>
+                    </a>
+                
+               <a href="https://laravel-china.org/tweets/14259" class="action"><i class="fa fa-comments-o"></i> <span class="count">3</span></a>
+            </span>
+        </div>
+
+    </div>
+    <div class="media" style="display:table">
+
+        <div class="media-left">
+            <a href="https://laravel-china.org/users/7144">
+                <img alt="64x64" class="media-object img-thumbnail avatar avatar-middle" data-src="holder.js/64x64" style="width: 26px;height: 26px;padding:0px;" src="https://lccdn.phphub.org/uploads/avatars/7144_1516953716.jpg?imageView2/1/w/100/h/100" data-holder-rendered="true">
+            </a>
+        </div>
+
+        <div class="media-body" style="display:table;width:100%;table-layout:fixed">
+
+            <div class="media-body markdown-reply content-body" style="display:block;width:100%;font-size: 14px;">
+                <a href="https://laravel-china.org/users/7144" class="rm-link-color">li-luo-ao</a>：<span class="rm-link-color clickable" onclick="javascript:Object.assign(document.createElement('a'), { href: 'https://laravel-china.org/tweets/14262'}).click();">发布  冲鸭！！！</span>
+            </div>
+
+            <span class="meta operation">
+                <a href="https://laravel-china.org/tweets/14262" class="action">21小时前</a>
+
+                                    <a class="action" href="https://laravel-china.org/tweets/14262">
+                        <i class="fa fa-thumbs-o-up"></i> <span class="count vote-count">0</span>
+                    </a>
+                
+               <a href="https://laravel-china.org/tweets/14262" class="action"><i class="fa fa-comments-o"></i> <span class="count">0</span></a>
+            </span>
+        </div>
+
+    </div>
+    <div class="media" style="display:table">
+
+        <div class="media-left">
+            <a href="https://laravel-china.org/users/26734">
+                <img alt="64x64" class="media-object img-thumbnail avatar avatar-middle" data-src="holder.js/64x64" style="width: 26px;height: 26px;padding:0px;" src="https://lccdn.phphub.org/uploads/avatars/26734_1530076928.jpeg?imageView2/1/w/100/h/100" data-holder-rendered="true">
+            </a>
+        </div>
+
+        <div class="media-body" style="display:table;width:100%;table-layout:fixed">
+
+            <div class="media-body markdown-reply content-body" style="display:block;width:100%;font-size: 14px;">
+                <a href="https://laravel-china.org/users/26734" class="rm-link-color">Alexanderwmc</a>：<span class="rm-link-color clickable" onclick="javascript:Object.assign(document.createElement('a'), { href: 'https://laravel-china.org/tweets/14296'}).click();">谁能给通俗的解释一下Voyager里的slug，bread等概念？另外我要自己创建路由该怎么做？</span>
+            </div>
+
+            <span class="meta operation">
+                <a href="https://laravel-china.org/tweets/14296" class="action">15分钟前</a>
+
+                                    <a class="action" href="https://laravel-china.org/tweets/14296">
+                        <i class="fa fa-thumbs-o-up"></i> <span class="count vote-count">0</span>
+                    </a>
+                
+               <a href="https://laravel-china.org/tweets/14296" class="action"><i class="fa fa-comments-o"></i> <span class="count">0</span></a>
+            </span>
+        </div>
+
+    </div>
+            </div>
+          </div>
+
+    </div>
+</div>    
+    
+    
+    
+    
+    
+    <div class="panel panel-default corner-radius">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">推荐职位</h3>
+      </div>
+
+    <div class="panel-body text-center promote_jobs-box">
+        <ul class="list">
+                            <li>
+                    <a href="https://laravel-china.org/topics/11066/beijing15k-30k-to-php-engineer" title="北京给赞招聘 PHP 工程师">
+                         [北京] [15-30K] 给赞招聘 PHP 工程师
+                    </a>
+                </li>
+                            <li>
+                    <a href="https://laravel-china.org/topics/9208" title="上海区块链公司 MyToken 招聘 ">
+                         [上海] [15~30k] 区块链公司 MyToken 招聘
+                    </a>
+                </li>
+                            <li>
+                    <a href="https://laravel-china.org/topics/9500/" title="北京无二之旅招聘高级 PHP 工程师">
+                         [北京][12-40k] 无二之旅招聘中高级工程师
+                    </a>
+                </li>
+                    </ul>
+    </div>
+  </div>
+
+    
+    <div class="panel panel-default corner-radius sidebar-resources">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">兄弟社区</h3>
+      </div>
+
+    <div class="panel-body text-center">
+        <ul class="list list-group ">
+                            <li class="list-group-item ">
+                    <a href="https://pythoncaff.com/" class="no-pjax" target=&quot;_blank&quot; title="PythonCaff.com">
+                        <img class="media-object inline-block " src="https://lccdn.phphub.org/uploads/banners/OUIFt1e7rhv9QM5i8yhR.png">
+                        PythonCaff.com
+                    </a>
+                </li>
+                            <li class="list-group-item ">
+                    <a href="https://golangcaff.com/" class="no-pjax" target=&quot;_blank&quot; title="GolangCaff.com">
+                        <img class="media-object inline-block " src="https://lccdn.phphub.org/uploads/banners/b3bMELMxl8nVVD1RR6Re.png">
+                        GolangCaff.com
+                    </a>
+                </li>
+                            <li class="list-group-item ">
+                    <a href="https://vuejscaff.com/" class="no-pjax" target=&quot;_blank&quot; title="VuejsCaff.com">
+                        <img class="media-object inline-block " src="https://lccdn.phphub.org/uploads/banners/86pNOiq6eFtxXnB2czG9.png">
+                        VuejsCaff.com
+                    </a>
+                </li>
+                    </ul>
+    </div>
+</div>
+
+    
+    <div class="panel panel-default corner-radius">
+    <div class="panel-body text-center sidebar-sponsor-box">
+                    <a class="sidebar-sponsor-link" href="https://www.ucloud.cn/site/active/gift.html?utm_source=laravelchina&amp;utm_medium=content_pic_pc_277_66&amp;utm_campaign=huodong&amp;utm_content=gift&amp;ytag=laravelchina" target="_blank">
+                <img src="https://lccdn.phphub.org/uploads/banners/DlelQbmYDfi6cCu7m4BY.jpg?imageView2/1/w/554/h/132" class="popover-with-html" data-content="服务器赞助商：UCloud" width="100%">
+            </a>
+            <hr>
+                    <a class="sidebar-sponsor-link" href="https://www.upyun.com/products/prismcdn?utm_source=laravelchina&amp;utm_medium=banner&amp;utm_campaign=prismcdn&amp;utm_content=0503" target="_blank">
+                <img src="https://lccdn.phphub.org/uploads/banners/5LNCgFww4UqiB4Jf4yPl.jpg?imageView2/1/w/554/h/132" class="popover-with-html" data-content="Composer 镜像赞助商：又拍云" width="100%">
+            </a>
+            <hr>
+                    <a class="sidebar-sponsor-link" href="http://yunpian.huodongxing.com/event/8436005424100?utm_source=%E4%B8%BB%E5%8A%9E%E6%96%B9%E9%A1%B5&amp;utm_medium=&amp;utm_campaign=orgpage" target="_blank">
+                <img src="https://lccdn.phphub.org/uploads/banners/4i0EOTZPY1kyNKvX32am.jpg?imageView2/1/w/554/h/132" class="popover-with-html" data-content="短信赞助商：云片" width="100%">
+            </a>
+            <hr>
+                    <a class="sidebar-sponsor-link" href="https://www.bagevent.com/event/1193113" target="_blank">
+                <img src="https://lccdn.phphub.org/uploads/banners/Q03zwUk9eOt4btN007p6.jpg?imageView2/1/w/554/h/132" class="popover-with-html" data-content="第四届移动互联网测试开发大会" width="100%">
+            </a>
+            <hr>
+            </div>
+  </div>
+
+    
+    <div class="panel panel-default corner-radius">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">友情社区</h3>
+      </div>
+      <div class="panel-body text-center" style="padding-top: 5px;">
+                    <a href="https://ruby-china.org" target="_blank" rel="nofollow" title="Ruby China" style="padding: 3px;line-height: 40px;">
+                <img src="https://lccdn.phphub.org/assets/images/friends/ruby-china.png" style="width:150px; margin: 3px 0;">
+            </a>
+                    <a href="https://pythoncaff.com" target="_blank" rel="nofollow" title="PythonCaff 社区" style="padding: 3px;line-height: 40px;">
+                <img src="https://lccdn.phphub.org/uploads/banners/t8haiJA74SLAJj1aL1xv.png" style="width:150px; margin: 3px 0;">
+            </a>
+                    <a href="http://cnodejs.org/" target="_blank" rel="nofollow" title="CNode：Node.js 中文社区" style="padding: 3px;line-height: 40px;">
+                <img src="https://lccdn.phphub.org/assets/images/friends/cnodejs.png" style="width:150px; margin: 3px 0;">
+            </a>
+                    <a href="https://testerhome.com" target="_blank" rel="nofollow" title="Tester Home" style="padding: 3px;line-height: 40px;">
+                <img src="https://lccdn.phphub.org/testerhome-logo.png" style="width:150px; margin: 3px 0;">
+            </a>
+                    <a href="https://www.easywechat.com/" target="_blank" rel="nofollow" title="EasyWeChat 微信开发，从未如此简单" style="padding: 3px;line-height: 40px;">
+                <img src="https://lccdn.phphub.org/uploads/banners/yN7mJNvKsNvfwYSZw2Yp.png" style="width:150px; margin: 3px 0;">
+            </a>
+              </div>
+    </div>
+  
+    
+    <div class="panel panel-default corner-radius">
+  <div class="panel-heading text-center">
+    <h3 class="panel-title">站长的订阅号</h3>
+  </div>
+  <div class="panel-body text-center" style="padding-top: 5px;">
+    <img src="https://lccdn.phphub.org/uploads/images/201806/20/1/Sw380hwqVf.jpg?imageView2/2/w/1240/h/0" width="100%">
+  </div>
+</div>
+
+
+    <div class="panel panel-default corner-radius" style="color:#a5a5a5">
+      <div class="panel-body text-center">
+          <a href="mailto:summer@yousails.com" style="color:#a5a5a5">
+              <span style="margin-top: 7px;display: inline-block;">
+                  <i class="fa fa-heart" aria-hidden="true" style="color: rgba(232, 146, 136, 0.89);"></i> 建议反馈？请私信 Summer
+              </span>
+          </a>
+      </div>
+    </div>
+
+</div>
+<div class="clearfix"></div>
+
+
+
+<div class="clearfix"></div>
+<div class="row grid topbanner">
+                        <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/composer" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/banners/Row73IltgENwnG6XXPDI.jpg?imageView2/1/w/424/h/212">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/composer" class="no-pjax">Composer 中国全量镜像</a></h3>
+                  <p class="card-description hidden-xs">将托管在 packagist.org 和 github.com 的扩展包使用国内 CDN 加速</p>
+                </div>
+              </div>
+            </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/topics/2530" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/banners/Ltw9l2xdkQX2gEv63sUG.jpg?imageView2/1/w/424/h/212">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/topics/2530" class="no-pjax">Top 100 扩展包</a></h3>
+                  <p class="card-description hidden-xs">下载量最高的 100 个 Laravel 扩展包推荐</p>
+                </div>
+              </div>
+            </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://lumen.laravel-china.org/" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/banners/v7iXEpnnYauMEBegJb4Q.png?imageView2/1/w/424/h/212">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://lumen.laravel-china.org/" class="no-pjax">Lumen 中文文档</a></h3>
+                  <p class="card-description hidden-xs">Lumen 是为速度而生，专注于构建无状态 API 的 Laravel 精简版</p>
+                </div>
+              </div>
+            </div>
+                    <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://cs.laravel-china.org/" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/banners/YCkIqPrz6v8MV0keu4pW.png?imageView2/1/w/424/h/212">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://cs.laravel-china.org/" class="no-pjax">Laravel 速查表</a></h3>
+                  <p class="card-description hidden-xs">速查表方便快速查询框架功能，支持手机访问，支持中英文版本</p>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/laravel/5.6" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201802/28/1/Jk8mC7SGI5.jpg?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/laravel/5.6" class="no-pjax">Laravel 中文文档</a></h3>
+                  <p class="card-description hidden-xs">Laravel 中文文档，由社区用户翻译和维护，将会保持一直更新</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/laravel-specification/5.5" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201803/08/1/mIpeaUvQ7Y.jpeg?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/laravel-specification/5.5" class="no-pjax"> Laravel 项目开发规范</a></h3>
+                  <p class="card-description hidden-xs">此文档的目的，就是为了提高技术团队的凝聚力、一致性和生产效率。</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/laravel-development-environment/5.5" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201801/24/1/rgMAkwm5JX.jpeg?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/laravel-development-environment/5.5" class="no-pjax">Laravel 开发环境部署</a></h3>
+                  <p class="card-description hidden-xs">开发环境的部署，开发者工具的选择，适用于 Mac 和 Windows。</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/elasticsearch-php/6.0" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201807/06/1/DKBZsKgaDg.jpeg?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/elasticsearch-php/6.0" class="no-pjax">Elasticsearch-PHP 中文文档</a></h3>
+                  <p class="card-description hidden-xs">全文搜索分析引擎 Elasticsearch PHP 端文档中文翻译</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/lumen/5.6" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201806/26/1/YiQbmFYoaK.png?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/lumen/5.6" class="no-pjax">Lumen 中文文档</a></h3>
+                  <p class="card-description hidden-xs">Lumen 中文文档，由社区用户翻译和维护，将会保持一直更新</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/graphql-php" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201806/23/1/6ELjREkwOc.png?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/graphql-php" class="no-pjax">GraphQL PHP 中文文档</a></h3>
+                  <p class="card-description hidden-xs">GraphQL PHP 项目的中文文档，教你如何开发 GraphQL API 接口</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/writing-docs" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201806/21/1/gH3fzveyW3.jpg?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/writing-docs" class="no-pjax">社区文档撰写指南</a></h3>
+                  <p class="card-description hidden-xs">一些撰写文档的技巧和思路，一个教你写出好文档的文档。</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/forum-in-laravel-tdd" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201805/16/1/fYEVSxLSlI.png?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/forum-in-laravel-tdd" class="no-pjax">TDD 构建 Laravel 论坛笔记</a></h3>
+                  <p class="card-description hidden-xs">本系列文章为 laracasts.com 的系列视频教程的课程笔记</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/psr" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201804/26/1/wAkQEDuKQZ.jpg?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/psr" class="no-pjax">PHP PSR 标准规范</a></h3>
+                  <p class="card-description hidden-xs">PSR 是由 PHP FIG 组织制定的 PHP 规范，是 PHP 开发的实践标准。</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/php-design-patterns/2018" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201803/19/1/lDtmqCGQJJ.jpeg?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/php-design-patterns/2018" class="no-pjax">PHP 设计模式全集</a></h3>
+                  <p class="card-description hidden-xs">设计模式是 PHP 架构师必备知识，本文档完整收录了 PHP 相关的设计模式。</p>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-md-3 col-sm-6 col-xs-6 projects-card grid-item">
+              <div class="thumbnail">
+                  <a href="https://laravel-china.org/docs/dingo-api/2.0.0" class="no-pjax">
+                      <img src="https://lccdn.phphub.org/uploads/images/201803/13/1/DCYvMliGXu.jpg?imageView2/1/w/600/h/296">
+                  </a>
+                <div class="caption">
+                  <h3 style="font-size:1.1em;font-weight:bord" class="card-title"><a href="https://laravel-china.org/docs/dingo-api/2.0.0" class="no-pjax">Dingo API 中文文档</a></h3>
+                  <p class="card-description hidden-xs">Laravel 下知名扩展包 Dingo API 的中文文档，Laravel API 开发必知必会</p>
+                </div>
+              </div>
+            </div>
+                <div class="clearfix"></div>
+</div>
+
+
+            </div>
+            <footer class="footer">
+      <div class="container">
+        <div class="row footer-top">
+
+          <div class="col-sm-5 col-lg-5">
+
+              <p class="padding-top-xsm">我们是高品质的 Laravel 开发者社区，致力于为 Laravel 和 PHP 开发者提供一个分享创造、结识伙伴、协同互助的平台。</p>
+
+              <div class="text-md " >
+                  <a class="popover-with-html" data-content="反馈问题" target="_blank" style="padding-right:8px" href="mailto:summer@yousails.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                  <a class="popover-with-html" data-content="站长微博" target="_blank" style="padding-right:8px" href="https://weibo.com/1837553744/profile?topnav=1&wvr=6"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+                  <a class="popover-with-html" data-content="加我微信" target="_blank" style="padding-right:8px" href="https://laravel-china.org/contact"><i class="fa fa-weixin" aria-hidden="true"></i></a>
+              </div>
+              <br>
+              <span style="font-size:0.9em">
+                  Designed by <span style="color: #e27575;font-size: 14px;">❤</span> <a href="https://github.com/summerblue" target="_blank" style="color:inherit">Summer</a>
+              </span>
+          </div>
+
+          <div class="col-sm-6 col-lg-6 col-lg-offset-1">
+
+              <div class="row">
+                <div class="col-sm-4">
+                  <h4>赞助商</h4>
+                  <ul class="list-unstyled">
+                                                                              <a href="http://www.ucloud.cn/?utm_source=zanzhu&amp;utm_campaign=phphub&amp;utm_medium=display&amp;utm_content=yejiao&amp;ytag=phphubyejiao" target="_blank"><img src="https://lccdn.phphub.org/uploads/banners/bQawWl3vT5dc2lYx5JZ7.png" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="本站服务器由 UCloud 赞助"></a>
+                                                        <a href="http://www.qiniu.com/?utm_source=phphub" target="_blank"><img src="https://lccdn.phphub.org/uploads/banners/yGLIR0idW7zsInjsNmzr.png" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="本站 CDN 服务由七牛赞助"></a>
+                                                        <a href="https://www.upyun.com/" target="_blank"><img src="https://lccdn.phphub.org/uploads/banners/XPtLlZmIN1cQbLuDFEON.png" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="Composer 镜像赞助商"></a>
+                                                        <a href="http://www.sendcloud.net/" target="_blank"><img src="https://lccdn.phphub.org/uploads/banners/JpTCK6OKYBIrBIWdtob8.png" class="popover-with-html footer-sponsor-link" width="98" data-placement="top" data-content="订阅邮件赞助商：SendCloud"></a>
+                                                                  </ul>
+                </div>
+
+                  <div class="col-sm-4">
+                    <h4>统计信息</h4>
+                    <ul class="list-unstyled">
+                        <li>社区会员: 27201 </li>
+                        <li>话题数: 11356 </li>
+                        <li>评论数: 52153 </li>
+                    </ul>
+                  </div>
+                  <div class="col-sm-4">
+                    <h4>其他信息</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="https://laravel-china.org/contact"><i class="fa fa-thumbs-up" aria-hidden="true"></i> 商务合作</a></li>
+                        <li><a href="https://laravel-china.org/sites"><i class="fa fa-globe text-md"></i> 推荐网站</a></li>
+
+                                                    <li><a href="https://laravel-china.org/issues"><i class="fa fa-envelope-o"></i> PHP / Laravel 月刊</a></li>
+                                            </ul>
+                  </div>
+
+                </div>
+
+          </div>
+        </div>
+        <br>
+        <br>
+      </div>
+    </footer>
+
+            
+        </div>
+
+        <script src="https://lccdn.phphub.org//assets/js/0f75e1934ae877733e1d-scripts.js"></script>
+
+        <script src="https://cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+
+        <script>
+            $(document).ready(function()
+            {
+                            });
+        </script>
+
+        
+<script type="text/javascript">
+
+    $(document).ready(function()
+    {
+        $('.share-link-site').click(function(e) {
+            var link = $(this).data('link');
+            var win = window.open(link, '_blank');
+            if (win) {
+                win.focus();
+            } else {
+                alert('请允许此页面的弹窗！');
+            }
+
+            e.stopPropagation();
+            return false;
+        });
+    });
+
+</script>
+
+                    <script>
+              ga('create', 'UA-53903425-6', 'auto');
+              ga('send', 'pageview');
+            </script>
+
+            <script>
+            // Baidu link submit
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+            </script>
+        
+    </body>
+</html>

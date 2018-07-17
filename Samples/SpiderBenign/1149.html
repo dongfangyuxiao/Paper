@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="gbk">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>苏锐科技微信管理系统</title>
+	<meta name="keywords" content="苏锐科技" />
+	<meta name="description" content="苏锐科技" />
+	<link rel="shortcut icon" href="http://web.suruiyun.com/web/attachment/images/global/wechat.jpg" />
+	<link href="http://web.suruiyun.com/web/resource/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://web.suruiyun.com/web/resource/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://web.suruiyun.com/web/resource/css/common.css?v=20170209" rel="stylesheet">
+	<script type="text/javascript">
+	if(navigator.appName == 'Microsoft Internet Explorer'){
+		if(navigator.userAgent.indexOf("MSIE 5.0")>0 || navigator.userAgent.indexOf("MSIE 6.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0) {
+			alert('易福源码提示：您使用的 IE 浏览器版本过低, 推荐使用 Chrome 浏览器或 IE8 及以上版本浏览器.');
+		}
+	}
+	window.sysinfo = {
+										'siteroot': 'http://web.suruiyun.com/',
+		'siteurl': 'http://www.china360.cn/web/index.php?c=user&a=login&',
+		'attachurl': 'http://www.china360.cn/attachment/',
+		'attachurl_local': 'http://www.china360.cn/attachment/',
+		'attachurl_remote': '',
+				'cookie' : {'pre': '57da_'},
+		'account' : null	};
+	</script>
+	<script>var require = { urlArgs: 'v=20170209' };</script>
+	<script type="text/javascript" src="http://web.suruiyun.com/web/resource/js/lib/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="http://web.suruiyun.com/web/resource/js/app/util.js?v=20170209"></script>
+	<script type="text/javascript" src="http://web.suruiyun.com/web/resource/js/app/common.min.js?v=20170209"></script>
+	<script type="text/javascript" src="http://web.suruiyun.com/web/resource/js/require.js?v=20170209"></script>
+	<script type="text/javascript" src="http://web.suruiyun.com/web/resource/js/app/config.js?v=20170209"></script>
+</head>
+<body>
+<link href="http://web.suruiyun.com/web/resource/css/login.css" rel="stylesheet">
+<div class="register-container container">
+    <div class="row clearfix">
+        <div class="col-md-3"></div>
+        <div class="register col-md-7">
+            <form action="" method="post" role="form" id="form1" onsubmit="return formcheck();">
+                <a href="/index.php" class="login-logo">
+                <img src="http://web.suruiyun.com/attachment/images/global/O8R8dxRXr14x11rdddiZcRR04XY3Zt.jpg">
+                </a>
+                <div class="form-group">
+                    <label for="username">账号：</label>
+                    <input type="text" id="username" name="username" placeholder="输入您的账号" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">密码：</label>
+                    <input type="password" id="password" name="password" placeholder="输入您的密码" class="form-control">
+                </div>
+								                <input type="submit" name="submit" value="登录平台" class="login-btn">
+                <input name="token" value="138ded21" type="hidden" />
+                <div class="reg-btn">
+                    <a href="file:///D:/mysite/china360-cn/index.html">立即注册</a>
+                </div>
+                            </form>
+        </div>
+    </div>
+</div>
+<br>
+<div  style = "width=500px;position:absolute;bottom:50px; left: 50%;margin-left:-250px; "> powered by 广州苏锐科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.miibeian.gov.cn/">ICP备案号：粤ICP备09219648号-4</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://www.cnzz.com/stat/website.php?web_id=30716" target="_blank" title="站长统计"  ><img border="0" hspace="0" vspace="0" src="http://icon.cnzz.com/img/pic.gif" > </a>
+</div>
+<script>
+function formcheck() {
+	if($('#remember:checked').length == 1) {
+		cookie.set('remember-username', $(':text[name="username"]').val());
+	} else {
+		cookie.del('remember-username');
+	}
+	return true;
+}
+var h = document.documentElement.clientHeight;
+$(".login").css('min-height',h);
+$('#toggle').click(function() {
+	$('#imgverify').prop('src', 'http://web.suruiyun.com/index.php?c=utility&a=code&r='+Math.round(new Date().getTime()));
+	return false;
+});
+</script>
+</body>
+</html>

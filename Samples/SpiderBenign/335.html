@@ -1,0 +1,1159 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>科技视讯 - 打造新锐科技资讯平台</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="Keywords" content="科技视讯，手机，IT，数码，OA，网络，家电，VR，AR，办公，商用，虚拟现实，istv，笔记本，酷睿，微单，索尼">
+<meta name="description" content="科技视讯www.istv.com.cn（上海久页信息科技有限公司）是中国新锐互联网IT的专业媒体，秉承“独立，开放，多元”的运营理念，提供准确及时的数码、家电、硬件、VR/AR、汽车、网络、办公等与生活相关的科技、IT行业资讯。" />
+<link rel="icon" href="/Public/statics/images/favicon.png" type="image/png" >
+    <link rel="stylesheet" href="/Public/statics/css/base.css" />
+<link rel="stylesheet"
+	href="/Public/statics/bootstrap-3.3.5/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/Public/statics/css/style.css" />
+<link rel="stylesheet" href="/Public/statics/css/video-js.css" />
+<link rel="stylesheet" href="/Public/statics/font-awesome-4.4.0/css/font-awesome.min.css" />
+<link rel="stylesheet"	href="/Public/statics/page/css/page.css" />
+    <link rel="stylesheet" href="/Public/statics/newfont/iconfont.css">
+<!-- Important Owl stylesheet -->
+<link rel="stylesheet" href="/Public/statics/owl-carousel/owl.theme.css">
+<link rel="stylesheet" href="/Public/statics/owl-carousel/owl.carousel.css">
+<link rel="stylesheet" href="/Public/statics/owl-carousel/owl.transitions.css">
+ <!---->
+<!--&lt;!&ndash; Default Theme &ndash;&gt;-->
+<!--<link rel="stylesheet" href="/Public/statics/owl-carousel/owl.theme.css">-->
+<!-- <link rel="stylesheet"
+	href="/Public/statics/bootstrap-3.3.5/css/bootstrapValidator.css" /> -->
+    <link rel="stylesheet" href="/Public/statics/src/jquery.skidder.css">
+<!--[if lt IE 9]>
+<script src="/Public/statics/js/html5.js"></script>
+<![endif]-->
+<!---->
+<style>
+.error {
+	color: red;
+}
+</style>
+<script src="/Public/statics/js/jquery-1.10.2.min.js"></script>
+<script src="/Public/statics/js/jquery.validate.min.js"></script>
+<!-- Include js plugin -->
+<script src="/Public/statics/owl-carousel/owl.carousel.js"></script>
+<script src="/Public/statics/js/comm.js"></script>
+</head>
+<body>
+	<div id="header">
+		<div class="header-logo">
+			<a href="/" ><img alt="" src="/Public/statics/images/header_logo.png" /></a> 
+					</div>
+		<input type="hidden" id="url" value="/Home/Index/index">
+<input type="hidden" id="id" value="">
+<input type="hidden" id="tag" value="">
+<div id="header-nav" class="header-nav">
+	<div class="menu">
+		<ul>
+            <li><a class="menu_hide top-menu menu_sel" href="/">首页</a></li>
+            <li><a class="menu_hide top-menu " href="/tag/1">评测</a></li>
+			<li><a class="menu_hide top-menu " href="/tag/2">专访</a></li>
+			<li><a class="menu_hide top-menu " href="/tag/3">视频</a></li>
+			<li><a class="menu_hide top-menu " href="/tag/4">新闻</a></li>
+			<li><a class="menu_hide top-menu " href="/Home/Index/topicnew">专题</a></li>
+			<li><a class="menu_hide top-menu " href="/tag/5">影集</a></li>
+			<!--<li><a class="menu_hide top-menu " href="/Home/Pic/index">图集</a></li>-->
+            <li><a class="menu_hide top-menu " href="/Home/Live/index">直播</a></li>
+
+            <li><a class="menu_hide top-menu " target="_blank" href="http://weibo.com/u/6109286498">微博</a></li>
+            <li><a class="menu_hide top-menu " target="_blank" href="https://www.douyu.com/1356299">直播互动</a></li>
+            <li><a class="menu_hide top-menu img_nav" attr="/Public/statics/images/toutiao.jpeg">头条号</a>
+                <div class="nav_img_div dn">
+                    <img src="/Public/statics/images/toutiao.jpeg">
+                </div>
+            </li>
+            <li><a class="menu_hide top-menu img_nav" attr="/Public/statics/images/weixin.jpg">微信</a>
+                <div class="nav_img_div dn">
+                    <img src="/Public/statics/images/weixin.jpg">
+                </div>
+            </li>
+
+            <script>
+                $(".img_nav").hover(function(){
+                    $(this).next('.nav_img_div').removeClass('dn');
+                },function(){
+                    $('.nav_img_div').addClass('dn');
+                })
+            </script>
+		</ul>
+        
+		<div class="header-search">
+            <input name="val" id="val" type="hidden" value="">
+			<input id="key" type="text" class="form-control posts-search-text"
+				style="border-radius: 0px; " name="key" value=""> <input type="submit"
+				class="posts-search-button" id="search" value="">
+			<div class="header-rlogin">
+				
+						<a href="#my-popup" class="cookie" rel="my-popup">登录</a>;
+                				</php>
+				<!-- <a href="#my-popup"  rel="my-popup">登录</a>&nbsp&nbsp&nbsp&nbsp<a href="/register.jpg">注册</a> -->
+			</div>
+		</div>
+		<script>
+            num=0;
+            maxnum = 5
+		$(function() {
+            $(".logout").click(function(){
+
+
+                for(var i=0;i<maxnum;i++){
+                    $.ajax({
+
+                        type:"post",
+                        url:"/Home/Member/reout",
+                        async:true,
+                        success : function(data){
+                            num+=1
+                            if(num == maxnum){
+
+                                $.ajax({
+
+                                    type: "post",
+                                    url: "/Home/Index/logout",
+                                    async: true,
+                                    data: {url: 1},
+                                    success: function (data) {
+                                        if (data.status == 1) {
+                                            window, location.reload()
+                                        }
+                                    }
+
+                                });
+                            }
+                        }
+
+                    });
+                }
+
+
+
+                    $.ajax({
+
+                        type: "post",
+                        url: "/Home/Index/logout",
+                        async: true,
+                        data: {url: 1},
+                        success: function (data) {
+                            if (data.status == 1) {
+                                alert('退出成功')
+                                window, location.reload()
+                            }
+                        }
+
+                    });
+
+            })
+//            $(".cookie").click(function(){
+//                var url = window.location.href;
+//                for(var i = 0;i<5;i++){
+//                    $.ajax({
+//
+//                        type:"post",
+//                        url:"/Home/Member/saveUrlAjax",
+//                        async:true,
+//                        data:{url:url},
+//                        success : function(data){
+//
+//                        }
+//                    });
+//                }
+//
+//            })
+
+			$('#key').keyup(function(e){
+				if(e.keyCode == 13){
+					search();
+				}			
+			});
+			
+			$('#search').click(function() {
+				search();
+			});
+			
+			var search=function(){
+                var url = ""+$("#url").val();
+                var id = $("#id").val();
+                var tag = $("#tag").val();
+                if(id){
+                    url = url +"/id/"+id;
+                }
+                if(tag){
+                    url = url+ "/tag/"+tag
+                }
+                var key = $('#key').val();
+                var gourl = url+"?key="+key;
+                location.href = gourl;
+			}
+		});
+	</script>
+	</div>
+</div>
+        <div id="header_2">
+            <div id="header_2_next">
+            <div class="jx_header">
+                <a class="menu_hide" href="/topic/1" title="影像">影像</a>
+                <div class="jx_line"></div>
+                <ul class="jx_header_ul">
+                    <li><a href="/topic_two/30" title="单反">单反</a></li>
+                    <li><a href="/topic_two/31" title="微单">微单</a></li>
+                    <li><a href="/topic_two/32" title="摄像机">摄像机</a></li>
+                    <li><a href="/topic_two/9" title="器材">器材</a></li>
+                    <li><a href="/topic_two/10" title="镜头">镜头</a></li>
+                </ul>
+            </div>
+            <div class="jx_header">
+                <a class="menu_hide" href="/topic/2" title="手机">手机</a>
+                <div class="jx_line"></div>
+                <ul class="jx_header_ul">
+                    <li><a href="/topic_two/11" title="配件">配件</a></li>
+            </ul>
+            </div>
+            <div class="jx_header">
+                <a class="menu_hide" href="/topic/3" title="个人电脑">个人电脑</a>
+                <div class="jx_line"></div>
+                <ul class="jx_header_ul">
+                    <li><a href="/topic/13" title="笔记本">笔记本</a></li>
+                    <li><a href="/topic_two/14" title="发烧硬件">发烧硬件</a></li>
+                    <li><a href="/topic_two/33" title="游戏外设">游戏外设</a></li>
+                </ul>
+            </div>
+                <div class="jx_header h4m">
+                    <a class="menu_hide" href="/topic/13" title="笔记本">笔记本</a>
+                    <div class="jx_line"></div>
+                </div>
+                <div class="jx_header h4m">
+                    <a class="menu_hide" href="/topic_two/14" title="发烧硬件">发烧硬件</a>
+                    <div class="jx_line"></div>
+                </div>
+                <div class="jx_header h5m">
+                    <a class="menu_hide" href="/topic_two/33" title="游戏外设">游戏外设</a>
+                    <div class="jx_line"></div>
+                </div>
+                <div class="jx_header h4m">
+                    <a class="menu_hide" href="/topic/4" title="家电">家电</a>
+                    <div class="jx_line"></div>
+                    <ul class="jx_header_ul">
+                        <li><a href="/topic_two/15" title="智能电视">电视机</a></li>
+                        <li><a href="/topic_two/16" title="生活电器">生活电器</a></li>
+                    </ul>
+                </div>
+
+            <div class="jx_header h4m">
+                <a class="menu_hide" href="/topic/5" title="商用办公">商用办公</a>
+                <div class="jx_line"></div>
+                <ul class="jx_header_ul">
+                    <li><a href="/topic/17" title="打印设备">办公设备</a></li>
+                    <li><a href="/topic_two/34" title="打印机">打印机</a></li>
+                    <li><a href="/topic_two/35" title="复合机">复合机</a></li>
+                    <li><a href="/topic_two/18" title="服务器">服务器</a></li>
+                    <li><a href="/topic_two/19" title="投影机">投影机</a></li>
+                    <li><a href="/topic_two/20" title="软件">软件</a></li>
+                </ul>
+            </div>
+            <div class="jx_header h4m">
+                <a class="menu_hide" href="/topic/6" title="智能设备">智能设备</a>
+                <div class="jx_line"></div>
+                <ul class="jx_header_ul">
+                    <li><a href="/topic_two/21" title="无人机">无人机</a></li>
+                    <li><a href="/topic_two/22" title="机器人">机器人</a></li>
+                    <li><a href="/topic_two/23" title="VR/AR">VR/AR</a></li>
+                </ul>
+            </div>
+
+            <div class="jx_header h4m">
+                <a class="menu_hide" href="/topic/7" title="游戏">游戏</a>
+                <div class="jx_line"></div>
+                <ul class="jx_header_ul">
+                    <li><a href="/topic_two/24" title="网络游戏">网游</a></li>
+                    <li><a href="/topic_two/25" title="手机游戏">手游</a></li>
+                    <li><a href="/topic_two/26" title="电子竞技">电竞</a></li>
+                </ul>
+            </div>
+
+        </div>
+	</div>
+
+<script>
+    $(function(){
+        $(".jx_header").hover(function(){
+            $(".jx_header").css({"background-color":"#1d97e2"})
+            $(".menu_hide").css({"color":"white"})
+            $(".jx_header_ul").slideUp(0)
+            $(this).css({"background-color":"white"})
+            $(this).find(".menu_hide").css({"color":"#1d97e2"})
+            $(this).find('ul').slideDown(0)
+        })
+
+
+        $(".topic-wapper,.top-menu,.slideshow,.details-news,.jx_live_header_img").hover(function(){
+
+            $(".jx_header").css({"background-color":"#1d97e2"})
+            $(".menu_hide").css({"color":"white"})
+            $(".jx_header_ul").slideUp(0)
+        },function(){
+
+        })
+
+
+    })
+</script><!--<div  class="posts-ad1 header_ad">-->
+    <!--</div>-->
+<div class="slideshow" style="height: 0; margin-top:5px;overflow: hidden">
+            <div class="slide"><a class="banner_href" href="http://topic.istv.com.cn/konkav1/index.html" target="_blank"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-10/5b442a82f03d4.jpg"></a>
+                            <div class="silde-text dn">科技视界 智启未来 康佳多款秋季新品震撼发布 </div>
+                         </div>        <div class="slide"><a class="banner_href" href="http://topic.istv.com.cn/worldcup2018/index.html" target="_blank"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-05/5b3d8aba98272.jpg"></a>
+                            <div class="silde-text dn">激情世界杯 全球狂欢看谁夺冠 解锁看球新姿势</div>
+                         </div>        <div class="slide"><a class="banner_href" href="http://topic.istv.com.cn/barco2018/index.html" target="_blank"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-05/5b3d833cbc7d2.jpg"></a>
+                            <div class="silde-text dn">巴可公司隆重出席2018上海首席信息官峰会</div>
+                         </div>        <div class="slide"><a class="banner_href" href="http://www.interphoto.com.cn/cn/index.aspx" target="_blank"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-04/5b3c50caf2dc6.jpg"></a>
+                            <div class="silde-text dn">第20届上海国际器材和数码影像展览会</div>
+                         </div>        <div class="slide"><a class="banner_href" href="http://topic.istv.com.cn/KONKA20180702/index.html" target="_blank"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-02/5b3a2e1c3e8df.jpg"></a>
+                            <div class="silde-text dn">智生活，快一步 康佳收购新飞领航未来家居</div>
+                         </div>        <div class="slide"><a class="banner_href" href="http://topic.istv.com.cn/qualcommgsma/index.html" target="_blank"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-02/5b39cff37d187.jpg"></a>
+                            <div class="silde-text dn">让世界智能互联 2018GSMA高通携手5G开启科技时代 </div>
+                         </div>   </div>
+<script src="/Public/statics/js/imagesloaded.js"></script>
+<script src="/Public/statics/js/smartresize.js"></script>
+<script src="/Public/statics/src/jquery.skidder.js"></script>
+<script type="text/javascript">
+    $('.slideshow').each( function() {
+        var $slideshow = $(this);
+        $slideshow.imagesLoaded( function() {
+            $slideshow.skidder({
+                slideClass    : '.slide',
+                animationType : 'css',
+                scaleSlides   : true,
+                maxWidth : 1300,
+                maxHeight: 500,
+                paging        : true,
+                autoPaging    : true,
+                pagingWrapper : ".skidder-pager",
+                pagingElement : ".skidder-pager-dot",
+                swiping       : true,
+                leftaligned   : false,
+                cycle         : true,
+                jumpback      : false,
+                speed         : 400,
+                autoplay      : true,
+                autoplayResume: true,
+                interval      : 4000,
+                transition    : "slide",
+                afterSliding  : function() {
+
+                },
+                afterInit     : function() {
+                    var dweight = parseInt($(document).width())
+                    var left = parseInt((dweight-1200)/2)
+                   $(".skidder-next").css({"margin-right":left})
+                    $(".skidder-prev").css({"margin-left":left})
+                    $(".silde-text").slideDown(500);
+                }
+            });
+        });
+    });
+
+    $(window).smartresize(function(){
+        $('.slideshow').skidder('resize');
+    });
+
+
+</script><div class="content">
+
+	
+
+	<div id="content-1">
+
+
+        <div id="ad1" class="posts-ad1">
+                    </div>
+		<div class="content-focus">
+            <div class="left_img dn">
+                <img src="/Public/statics/images/left.png">
+            </div>
+            <div class="right_img dn">
+                <img src="/Public/statics/images/right.png">
+            </div>
+			<div class="focus-header">
+                <div class="jx_focus_con1">
+				<img class="jx_icon" alt="" src="/Public/statics/images/icon/jiaodian.png">
+                <span class="jx_focus_span">今日焦点</span>
+                    <img class="dropdown" src="/Public/statics/images/dropdown.png">
+                </div>
+                                <div class="jx_focus_right_con">
+                    <a href="'/details/12320.html"><span class="jx1">●</span>超凡品质索尼超远摄定焦G大师镜头 FE 400mm F2.8 GM OSS外观评测</a>
+                </div>
+                			</div>
+			<div class="focus-list jx_focus_list">
+
+				<ul class="jx_focus_ul">
+										<li>
+                        <a href="/details/12320.html"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-10/5b44d6e44d375.jpg" alt=""/></a>
+                        <a class="jx_focus_a" href="/details/12320.html">超凡品质索尼超远摄定焦G大师镜头 FE 400mm F2.8 GM OSS外观评测</a>
+                    </li>					<li>
+                        <a href="/details/12267.html"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-09/5b431bf1e4963.jpg" alt=""/></a>
+                        <a class="jx_focus_a" href="/details/12267.html">2018年第十六届CJ新闻发布会在沪隆重召开！六大亮点先睹为快！</a>
+                    </li>					<li>
+                        <a href="/details/12237.html"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-06/5b3f2d657f6a9.png" alt=""/></a>
+                        <a class="jx_focus_a" href="/details/12237.html">索尼数码影像产品齐聚P&amp;I SHANGHAI 2018</a>
+                    </li>					<li>
+                        <a href="/details/12200.html"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-05/5b3df600d642b.jpg" alt=""/></a>
+                        <a class="jx_focus_a" href="/details/12200.html">华硕ROG STRIX B360-G电竞主板荣获Best Buy奖</a>
+                    </li>				</ul>
+			</div>
+		</div>
+        <script>
+            $(function(){
+                right_flag = false
+                left_flag = false
+                left_con = false;
+                right_con = false;
+                var li_len = $(".jx_focus_ul").find('li').length;
+                if(li_len<=4){
+                    $(".right_img").hide();
+                    $(".left_img").hide();
+                }else{
+//                    time = setInterval(function(){
+//                        $(".left_img").click()
+//                    },3000)
+                }
+                var ul_width = 290*li_len
+                var this_ul =  $(".jx_focus_ul");
+                this_ul.css({"width":ul_width+"px"})
+                var out_left = ul_width - 290*4;
+                $(".right_img").click(function(){
+                    var left = this_ul.position().left;
+//                    var right = this_ul.position().;
+                    if((out_left+left) == 0){
+                        right_con = true;
+                        left_con = false;
+                    }
+                    if(((out_left+left)==0 ||  right_con) &&!left_con){
+                        $(".left_img").click()
+                    }else {
+
+                        var this_left = left - 290
+                        if(right_flag){
+                            return
+                        }
+                         right_flag = true;
+                        this_ul.animate({"left": this_left + "px"}, 1000, function () {
+                            right_flag = false;
+                        })
+                    }
+                })
+
+                $(".left_img").click(function(){
+                    var left = this_ul.position().left;
+                    if(left == 0){
+                        left_con = true;
+                        right_con = false;
+                    }
+                    if((left == 0  && !right_con) || left_con){
+                        $(".right_img").click()
+                    }else {
+                        var this_left = left + 290
+                        if(left_flag){
+                            return
+                        }
+                        left_flag = true;
+                        this_ul.stop(true).animate({"left": this_left + "px"}, 1000, function () {
+                            left_flag = false;
+                        })
+                    }
+                })
+            })
+
+            function settime(){
+                $(".right_img").click()
+            }
+        </script>
+
+		<div class="content-left">
+			<ul class="content-topics">
+			
+			                                <div class="ad">
+                <a href="https://item.jd.com/4691352.html?dist=jd" ><img alt="频道广告" src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-04-01/5ac0e5ea69ddc.jpg"/></a>
+                </div>
+                				<li class="content-topics-list">
+
+					<div class="topics-list">
+						<div class="focus-header topics-list-header">
+                            <div class="jx_focus_con1">
+							<img class="jx_icon" src="/Public/statics/images/icon/1.png"/>
+							<span>影像</span>
+							<img class="dropdown" src="/Public/statics/images/dropdown.png"/>
+						    </div>
+                            <div class="jx_focus_ul_con">
+                                <ul>
+                                                                        <li><a href="/Home/Index/topic/id/1?key=存储卡">存储卡<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/1?key=周边附件">周边附件<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/1?key=镜头">镜头<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/1?key=运动相机">运动相机<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/1?key=摄像机">摄像机<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/1?key=卡片相机">卡片相机<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/1?key=微单">微单<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/1?key=单反">单反<a></li>
+                                                                   </ul>
+                            </div>
+                            <div class="jx_more">
+                                <a href="/Home/Index/more/id/1">更多></a>
+                            </div>
+                        </div>
+						
+												<div class="img-list">
+							<ul>
+								<li><a href="/details/11919.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-28/5b343d40eef4a.jpg style="width:330px; height:186px"></a><a href="/details/11919.html"><span>听北电特聘老师讲讲他与索尼AX700的故事</span></a></li><li><a href="/details/11641.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-15/5b238b7a2ec71.jpg style="width:330px; height:186px"></a><a href="/details/11641.html"><span>全画幅就选EOS 专访Jas Zhang:用时间沉淀出最美作品</span></a></li>							</ul>
+						</div>
+						
+						
+						
+						<div class="text-list">							
+							<div class="text-list-up">
+								<ul>
+									<li><a href="/details/11692.html"><span class="jx1">●</span>近乎完美 ——索尼黑卡RX100 VI深度评测</a></li><li><a href="/details/10893.html"><span class="jx1">●</span>【AX700直播实战系列】精准对焦 展会现场“锁定你”</a></li><li><a href="/details/11278.html"><span class="jx1">●</span>一纸纳万卷 一笔走江湖 索尼发布电子纸产品</a></li><li><a href="/details/10806.html"><span class="jx1">●</span>微单之美 索尼A6300M套机+SEL18135镜头外观评测</a></li><li><a href="/details/10778.html"><span class="jx1">●</span>全画幅就选EOS 专访李锦东：爱与泪交织出幸福画卷</a></li>								</ul>
+							</div>
+														<hr/>
+							<div class="text-list-down">
+								<ul>
+									<li><a href="/details/10555.html"><span class="jx1">●</span>联想中国手机业务迎来新调整 常程自曝新机屏占比或超95%单挑小米</a></li><li><a href="/details/9827.html"><span class="jx1">●</span>佳能微单M50，满足我对旅拍的全部需要</a></li><li><a href="/details/9732.html"><span class="jx1">●</span>出色操控 优秀画质 索尼全画幅微单A7M3评测</a></li><li><a href="/details/9832.html"><span class="jx1">●</span>柔美焦外虚化 奥林巴斯M.Zuiko Digital ED 17mm F1.2 PRO镜头评测</a></li><li><a href="/details/9611.html"><span class="jx1">●</span>【AX700直播实战系列】高画质表现 室内直播好选择</a></li>								</ul>
+							</div>
+													</div>
+					</div>
+				</li>                                <div class="ad">
+                <a href="https://item.jd.com/6946629.html" ><img alt="频道广告" src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-04-28/5ae43114932e7.jpg"/></a>
+                </div>
+                				<li class="content-topics-list">
+
+					<div class="topics-list">
+						<div class="focus-header topics-list-header">
+                            <div class="jx_focus_con1">
+							<img class="jx_icon" src="/Public/statics/images/icon/2.png"/>
+							<span>手机</span>
+							<img class="dropdown" src="/Public/statics/images/dropdown.png"/>
+						    </div>
+                            <div class="jx_focus_ul_con">
+                                <ul>
+                                                                        <li><a href="/Home/Index/topic/id/2?key=配件">配件<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/2?key=华为">华为<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/2?key=安卓">安卓<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/2?key=苹果">苹果<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/2?key=三星">三星<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/2?key=索尼">索尼<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/2?key=评测">评测<a></li>
+                                                                   </ul>
+                            </div>
+                            <div class="jx_more">
+                                <a href="/Home/Index/more/id/2">更多></a>
+                            </div>
+                        </div>
+						
+												<div class="img-list">
+							<ul>
+								<li><a href="/details/11790.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-22/5b2c54f968157.JPG style="width:330px; height:186px"></a><a href="/details/11790.html"><span>令人惊叹的vivo NEX 多项黑科技惊艳全场</span></a></li><li><a href="/details/11123.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-05-30/5b0e28e0531de.jpg style="width:330px; height:186px"></a><a href="/details/11123.html"><span>滑动精彩 东芝推出全新U365高速闪存盘</span></a></li>							</ul>
+						</div>
+						
+						
+						
+						<div class="text-list">							
+							<div class="text-list-up">
+								<ul>
+									<li><a href="/details/10703.html"><span class="jx1">●</span>索尼革新之作Xperia XZ2 实力诠释最强蜕变</a></li><li><a href="/details/9928.html"><span class="jx1">●</span>秉承匠心 Jabra捷波朗发布Elite系列新品</a></li><li><a href="/details/6086.html"><span class="jx1">●</span>黑科技实力圈粉 索尼Xperia XZ1国行版横空出世</a></li><li><a href="/details/9031.html"><span class="jx1">●</span>碾压iPhoneX vivo APEX全面屏概念机亮点解析</a></li><li><a href="/details/8398.html"><span class="jx1">●</span>全球首款屏幕指纹手机，vivo X20Plus屏幕指纹版现已全面预售</a></li>								</ul>
+							</div>
+														<hr/>
+							<div class="text-list-down">
+								<ul>
+									<li><a href="/details/8397.html"><span class="jx1">●</span>vivo X20Plus屏幕指纹版正式登场，国内外媒体如何评价？</a></li><li><a href="/details/8396.html"><span class="jx1">●</span>vivo产品经理赵典首秀《吐槽大会》！这般“吐槽”黑科技你没见过</a></li><li><a href="/details/7734.html"><span class="jx1">●</span>在冬季享受碧海蓝天 海南三亚自驾游记</a></li><li><a href="/details/7685.html"><span class="jx1">●</span>新视界 | vivo X20 看见更多星光</a></li><li><a href="/details/6838.html"><span class="jx1">●</span>除了双摄全面屏之外 一加5T还有哪些亮点？</a></li>								</ul>
+							</div>
+													</div>
+					</div>
+				</li>                                <div class="ad">
+                <a href="https://item.jd.com/7177193.html" ><img alt="频道广告" src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-04-28/5ae430d9093c9.jpg"/></a>
+                </div>
+                				<li class="content-topics-list">
+
+					<div class="topics-list">
+						<div class="focus-header topics-list-header">
+                            <div class="jx_focus_con1">
+							<img class="jx_icon" src="/Public/statics/images/icon/3.png"/>
+							<span>PC</span>
+							<img class="dropdown" src="/Public/statics/images/dropdown.png"/>
+						    </div>
+                            <div class="jx_focus_ul_con">
+                                <ul>
+                                                                        <li><a href="/Home/Index/topic/id/3?key=英特尔">英特尔<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/3?key=戴尔">戴尔<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/3?key=华硕">华硕<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/3?key=宏碁">宏碁<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/3?key=评测">评测<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/3?key=HyperX">HyperX<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/3?key=游戏装备">游戏装备<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/3?key=SSD">SSD<a></li>
+                                                                   </ul>
+                            </div>
+                            <div class="jx_more">
+                                <a href="/Home/Index/more/id/3">更多></a>
+                            </div>
+                        </div>
+						
+												<div class="img-list">
+							<ul>
+								<li><a href="/details/12078.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-02/5b39fa4fc2230.jpg style="width:330px; height:186px"></a><a href="/details/12078.html"><span>全副武装 电竞特工 华硕TUF B360M Gaming主板评测</span></a></li><li><a href="/details/11116.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-05-30/5b0e117f3fcda.jpg style="width:330px; height:186px"></a><a href="/details/11116.html"><span>属于年轻人的笔记本 惠普星系列14评测</span></a></li>							</ul>
+						</div>
+						
+						
+						
+						<div class="text-list">							
+							<div class="text-list-up">
+								<ul>
+									<li><a href="/details/11780.html"><span class="jx1">●</span>极致微边框 HDR震撼体验 戴尔S2719DM显示器评测</a></li><li><a href="/details/11252.html"><span class="jx1">●</span>华硕微博剧透：台北电脑展2018将携手盖尔·加朵发新灵耀X</a></li><li><a href="/details/11253.html"><span class="jx1">●</span>ComputeX2018：华硕将发布新灵耀X和ROG新品</a></li><li><a href="/details/11029.html"><span class="jx1">●</span>酷睿八代超快感尽在樂之 雷神新品911Air游戏本上市</a></li><li><a href="/details/10804.html"><span class="jx1">●</span>HyperX Cloud Flight天箭无线电竞耳机开箱图赏</a></li>								</ul>
+							</div>
+														<hr/>
+							<div class="text-list-down">
+								<ul>
+									<li><a href="/details/10401.html"><span class="jx1">●</span>ROG魔霸本/枪神本配备酷睿i7打造专业电竞</a></li><li><a href="/details/10377.html"><span class="jx1">●</span>斗鱼嘉年华ROG S5/S7抢镜 配备酷睿i7仅9999元起</a></li><li><a href="/details/10376.html"><span class="jx1">●</span>斗鱼嘉年华火爆 ROG新品配备酷睿i7亮相</a></li><li><a href="/details/8894.html"><span class="jx1">●</span>专为“吃鸡”而生 HyperX Cloud Alpha电竞耳机评测</a></li><li><a href="/details/8845.html"><span class="jx1">●</span>颜值魅惑 一键防窥 惠普发布高性能商务本EliteBook800 G5系列</a></li>								</ul>
+							</div>
+													</div>
+					</div>
+				</li>                				<li class="content-topics-list">
+
+					<div class="topics-list">
+						<div class="focus-header topics-list-header">
+                            <div class="jx_focus_con1">
+							<img class="jx_icon" src="/Public/statics/images/icon/4.png"/>
+							<span>家电</span>
+							<img class="dropdown" src="/Public/statics/images/dropdown.png"/>
+						    </div>
+                            <div class="jx_focus_ul_con">
+                                <ul>
+                                                                        <li><a href="/Home/Index/topic/id/4?key=4K播放器">4K播放器<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/4?key=智能电视">智能电视<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/4?key=除湿机">除湿机<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/4?key=滤水壶">滤水壶<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/4?key=智能冰箱">智能冰箱<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/4?key=空气净化">空气净化<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/4?key= 8K电视"> 8K电视<a></li>
+                                                                   </ul>
+                            </div>
+                            <div class="jx_more">
+                                <a href="/Home/Index/more/id/4">更多></a>
+                            </div>
+                        </div>
+						
+												<div class="img-list">
+							<ul>
+								<li><a href="/details/10775.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-05-17/5afd13405daf7.jpg style="width:330px; height:186px"></a><a href="/details/10775.html"><span>可升级配置的电视！海尔阿里电视评测 </span></a></li><li><a href="/details/11752.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-21/5b2b412ac81f9.png style="width:330px; height:186px"></a><a href="/details/11752.html"><span>爱奇艺电视果4G发布，4G和WiFi双模式投屏更畅快</span></a></li>							</ul>
+						</div>
+						
+						
+						
+						<div class="text-list">							
+							<div class="text-list-up">
+								<ul>
+									<li><a href="/details/11665.html"><span class="jx1">●</span>从PPTV5看人工智能电视发展本源</a></li><li><a href="/details/9922.html"><span class="jx1">●</span>CITE2018：海信世界杯电视全明星阵容亮相</a></li><li><a href="/details/10140.html"><span class="jx1">●</span>数据成就领导者 — NetApp中国创新论坛描绘数据未来</a></li><li><a href="/details/9340.html"><span class="jx1">●</span>让生活酷一点  莱克电气发布全新品牌JIMMY莱克吉米</a></li><li><a href="/details/6974.html"><span class="jx1">●</span>双旦聚惠买买买 旗舰电视一网打尽</a></li>								</ul>
+							</div>
+														<hr/>
+							<div class="text-list-down">
+								<ul>
+									<li><a href="/details/7277.html"><span class="jx1">●</span>瑞典达氏助力美兰湖球王冠军赛</a></li><li><a href="/details/6901.html"><span class="jx1">●</span>Bang &amp; Olufsen全新BeoVision Eclipse电视机与BeoLab50扬声器正式登陆中国</a></li><li><a href="/details/7254.html"><span class="jx1">●</span>飞利浦hue系列智能灯具亮相梦想家生活方式展</a></li><li><a href="/details/6906.html"><span class="jx1">●</span>BeoVision Eclipse &amp; BeoLab 50打造至上视听体验</a></li><li><a href="/details/6193.html"><span class="jx1">●</span>以声音的名义！ 索尼回音壁HT-CT290 Soundbar评测</a></li>								</ul>
+							</div>
+													</div>
+					</div>
+				</li>                                <div class="ad">
+                <a href="https://www.huaweicloud.com/?utm_source=huawei&amp;utm_medium=banner" ><img alt="频道广告" src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-04-28/5ae4315489635.jpg"/></a>
+                </div>
+                				<li class="content-topics-list">
+
+					<div class="topics-list">
+						<div class="focus-header topics-list-header">
+                            <div class="jx_focus_con1">
+							<img class="jx_icon" src="/Public/statics/images/icon/5.png"/>
+							<span>企业办公</span>
+							<img class="dropdown" src="/Public/statics/images/dropdown.png"/>
+						    </div>
+                            <div class="jx_focus_ul_con">
+                                <ul>
+                                                                        <li><a href="/Home/Index/topic/id/5?key=富士施乐">富士施乐<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/5?key=戴尔">戴尔<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/5?key=柯尼卡美能达">柯尼卡美能达<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/5?key=震旦">震旦<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/5?key=兄弟">兄弟<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/5?key=奥图码">奥图码<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/5?key=3D打印">3D打印<a></li>
+                                                                   </ul>
+                            </div>
+                            <div class="jx_more">
+                                <a href="/Home/Index/more/id/5">更多></a>
+                            </div>
+                        </div>
+						
+												<div class="img-list">
+							<ul>
+								<li><a href="/details/11849.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-26/5b32081734e38.jpg style="width:330px; height:186px"></a><a href="/details/11849.html"><span>“印”实力再现 说说彩色打印的那些事儿</span></a></li><li><a href="/details/11282.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-05/5b15ed76b8afc.jpg style="width:330px; height:186px"></a><a href="/details/11282.html"><span>开启4K智能时代 奥图码I5投影机评测</span></a></li>							</ul>
+						</div>
+						
+						
+						
+						<div class="text-list">							
+							<div class="text-list-up">
+								<ul>
+									<li><a href="/details/9530.html"><span class="jx1">●</span>办公运营新话题  TCO标准引关注 </a></li><li><a href="/details/8844.html"><span class="jx1">●</span>柯尼卡美能达：《进化 2019》 赋予数字化转型新的涵义</a></li><li><a href="/details/10253.html"><span class="jx1">●</span>爱普生！以创新之力实现“颠覆”文印时代的王者</a></li><li><a href="/details/7640.html"><span class="jx1">●</span>探索布与线的艺术魅力  —兄弟拼布课程年度回顾</a></li><li><a href="/details/7054.html"><span class="jx1">●</span>商印出色标杆 惠普M281FDW彩色激光一体机评测</a></li>								</ul>
+							</div>
+														<hr/>
+							<div class="text-list-down">
+								<ul>
+									<li><a href="/details/6839.html"><span class="jx1">●</span>打造企业的AI未来 联想ThinkSystem &amp; ThinkAgile发布</a></li><li><a href="/details/6524.html"><span class="jx1">●</span>引领桌面彩色办公 Brother MFC-L8900CDW评测</a></li><li><a href="/details/4850.html"><span class="jx1">●</span>Brother HL-L9310CDW荣获2017年度夏季BLI明智之选奖</a></li><li><a href="/details/2810.html"><span class="jx1">●</span>细说金属3D打印的品牌技术流—金属3D打印</a></li><li><a href="/details/10933.html"><span class="jx1">●</span>一小时掌控企业隐性危机 兄弟与你一起圆梦</a></li>								</ul>
+							</div>
+													</div>
+					</div>
+				</li>                				<li class="content-topics-list">
+
+					<div class="topics-list">
+						<div class="focus-header topics-list-header">
+                            <div class="jx_focus_con1">
+							<img class="jx_icon" src="/Public/statics/images/icon/6.png"/>
+							<span>智能设备</span>
+							<img class="dropdown" src="/Public/statics/images/dropdown.png"/>
+						    </div>
+                            <div class="jx_focus_ul_con">
+                                <ul>
+                                                                        <li><a href="/Home/Index/topic/id/6?key=AR">AR<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/6?key=VR">VR<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/6?key=软件">软件<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/6?key=机器人">机器人<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/6?key=无人机">无人机<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/6?key=智能音箱">智能音箱<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/6?key=SSD">SSD<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/6?key=智能穿戴">智能穿戴<a></li>
+                                                                   </ul>
+                            </div>
+                            <div class="jx_more">
+                                <a href="/Home/Index/more/id/6">更多></a>
+                            </div>
+                        </div>
+						
+												<div class="img-list">
+							<ul>
+								<li><a href="/details/10611.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-05-10/5af429d313d37.png style="width:330px; height:186px"></a><a href="/details/10611.html"><span>户外新物种 2018碧虎科技产品发布会在沪顺利召开</span></a></li><li><a href="/details/9829.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-04-08/5ac9dda917ccc.jpg style="width:330px; height:186px"></a><a href="/details/9829.html"><span>国产乐高会不会崛起？米兔智能积木上手体验</span></a></li>							</ul>
+						</div>
+						
+						
+						
+						<div class="text-list">							
+							<div class="text-list-up">
+								<ul>
+									<li><a href="/details/10223.html"><span class="jx1">●</span>三大智能摄像头大pk 谁是地表最强守护者</a></li><li><a href="/details/166.html"><span class="jx1">●</span>虚拟与未来皆在眼前 咪咕MR眼镜MIGU Glass M1评测</a></li><li><a href="/details/7169.html"><span class="jx1">●</span>360度环绕声场 科技视讯携索尼LF-S80D智能音箱迎战双十二</a></li><li><a href="/details/4876.html"><span class="jx1">●</span>IFA2017：能力风暴携全系教育机器人亮相展会</a></li><li><a href="/details/3357.html"><span class="jx1">●</span>联想与迪士尼联合推出《Star Wars》AR游戏设备</a></li>								</ul>
+							</div>
+														<hr/>
+							<div class="text-list-down">
+								<ul>
+									<li><a href="/details/3472.html"><span class="jx1">●</span>联想Tech World盛大举行 看如何玩转人工智能</a></li><li><a href="/details/2763.html"><span class="jx1">●</span>第二届全球虚拟现实大会开幕</a></li><li><a href="/details/4882.html"><span class="jx1">●</span>教育机器人品牌 能力风暴亮相IFA2017</a></li><li><a href="/details/3473.html"><span class="jx1">●</span>联想TechWorld展示如何做AI革命的推动者和赋能者</a></li><li><a href="/details/12319.html"><span class="jx1">●</span>绽放现在  预约未来   “慧健康”幸福起航</a></li>								</ul>
+							</div>
+													</div>
+					</div>
+				</li>                				<li class="content-topics-list">
+
+					<div class="topics-list">
+						<div class="focus-header topics-list-header">
+                            <div class="jx_focus_con1">
+							<img class="jx_icon" src="/Public/statics/images/icon/7.png"/>
+							<span>游戏</span>
+							<img class="dropdown" src="/Public/statics/images/dropdown.png"/>
+						    </div>
+                            <div class="jx_focus_ul_con">
+                                <ul>
+                                                                        <li><a href="/Home/Index/topic/id/7?key=4G">4G<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/7?key=酷玩">酷玩<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/7?key=软件">软件<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/7?key=安卓">安卓<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/7?key=苹果手机">苹果手机<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/7?key=移动电源">移动电源<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/7?key=数码配件">数码配件<a></li>
+                                                                       <li><a href="/Home/Index/topic/id/7?key=智能穿戴">智能穿戴<a></li>
+                                                                   </ul>
+                            </div>
+                            <div class="jx_more">
+                                <a href="/Home/Index/more/id/7">更多></a>
+                            </div>
+                        </div>
+						
+												<div class="img-list">
+							<ul>
+								<li><a href="/details/12255.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-09/5b42df2c7c3c7.jpg style="width:330px; height:186px"></a><a href="/details/12255.html"><span>头号玩家史玉柱现身 征途嘉年华是一场家人的聚会</span></a></li><li><a href="/details/12093.html"><img src=http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-03/5b3b04787ebed.png style="width:330px; height:186px"></a><a href="/details/12093.html"><span>《魔剑侠缘》7月4日测试倒计时 触发妖灵奇遇</span></a></li>							</ul>
+						</div>
+						
+						
+						
+						<div class="text-list">							
+							<div class="text-list-up">
+								<ul>
+									<li><a href="/details/12095.html"><span class="jx1">●</span>多维度国战 《三十六计》手游今日安卓测试</a></li><li><a href="/details/11989.html"><span class="jx1">●</span>福利大爆炸！2018ChinaJoy三大同期会议免费听课证限量开抢</a></li><li><a href="/details/11945.html"><span class="jx1">●</span>《天使纪元》毕业狂欢：新版本“王之觉醒”明日上线</a></li><li><a href="/details/11951.html"><span class="jx1">●</span>《传奇永恒》新服【虎啸】今日14时威武降临</a></li><li><a href="/details/11952.html"><span class="jx1">●</span>恺英网络出品经典IP影视剧《热血高校》，7月2日登陆爱奇艺</a></li>								</ul>
+							</div>
+														<hr/>
+							<div class="text-list-down">
+								<ul>
+									<li><a href="/details/11863.html"><span class="jx1">●</span>玩家决定世界走向 网易MMO端游《泰亚史诗》全球通服</a></li><li><a href="/details/11883.html"><span class="jx1">●</span>3D史诗大地图 《魔剑侠缘》四时之景地貌神还原</a></li><li><a href="/details/11885.html"><span class="jx1">●</span>情书奉上 《幻想计划》最强SSR萝莱拉即将登场</a></li><li><a href="/details/11857.html"><span class="jx1">●</span>《彩虹岛》6月25日火神阿格尼参上，首开神职霸气今夏！</a></li><li><a href="/details/11878.html"><span class="jx1">●</span>星耀五行 《天下3》2018资料片“笑望沧溟”挖宝系统全面迭代</a></li>								</ul>
+							</div>
+													</div>
+					</div>
+				</li>				
+			</ul>
+		</div>
+		<div class="content-right">
+
+
+            <div class="ad">
+                            </div>
+            <div class="ad ad1">
+                <a href="http://2018.chinajoy.net/News/Detail?Id=1528" target="_blank">
+	<img style="margin-bottom: 6px" src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-19/5b2915253389c.jpg" alt="页面广告">
+</a>
+            </div>
+            <div class="ad ad1">
+                            </div>
+            <div class="ad">
+                            </div>
+            <div class="hot-topic">
+	<div class="focus-header hot-topic-header">
+		<img class="jx_icon" src="/Public/statics/images/icon/hot.png"> <span class="jx_focus_span">精彩专题</span>
+		<img class="dropdown" src="/Public/statics/images/dropdown.png" />
+        <a class="hot-topic-more" href="/Home/Index/topicnew">更多</a>
+	</div>
+	<div class="hot-topic-list">
+		<ul>
+			<li><a href="http://topic.istv.com.cn/konkav1/index.html"><img style="width:330px;height:186px;margin-bottom: 8px" src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-10/5b442a289ec5a.jpg" /></a>
+			<a href="http://topic.istv.com.cn/konkav1/index.html"><span>科技视界 智启未来 康佳多款秋季新品震撼发布 </span></a><li><a href="http://topic.istv.com.cn/worldcup2018/index.html"><img style="width:330px;height:186px;margin-bottom: 8px" src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-05/5b3d89e912f1e.jpg" /></a>
+			<a href="http://topic.istv.com.cn/worldcup2018/index.html"><span>激情世界杯 全球狂欢看谁夺冠 解锁看球新姿势</span></a><li><a href="http://topic.istv.com.cn/barco2018/index.html"><img style="width:330px;height:186px;margin-bottom: 8px" src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-05/5b3d82eb3add5.jpg" /></a>
+			<a href="http://topic.istv.com.cn/barco2018/index.html"><span>巴可公司隆重出席2018上海首席信息官峰会</span></a>		</ul>
+	</div>
+</div>
+
+            <div class="hot-topic">
+    <div class="focus-header hot-topic-header">
+        <img class="jx_icon" src="/Public/statics/images/icon/zhibo.png"> <span class="jx_focus_span">现场直播</span>
+        <img class="dropdown" src="/Public/statics/images/dropdown.png" />
+        <a class="hot-topic-more" href="/Home/Live/index">更多</a>
+    </div>
+    <div class="hot-topic-list">
+        <ul>
+            <li>
+                    <a href="/Home/Live/live_info/live_id/9"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-03-07/5a9f4844836dc.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="" ><span>2018年夏普战略发布会直播</span></a>
+                </li><li>
+                    <a href="/Home/Live/live_info/live_id/8"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2017-12-08/5a2a1d836a38a.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="" ><span>360°解救懒癌 索尼智能蓝牙音箱情景直播</span></a>
+                </li><li>
+                    <a href="/Home/Live/live_info/live_id/7"><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp/image/20170620/1497945465547956.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="" ><span>罗技C922 Pro摄像头评测 网红直播之选</span></a>
+                </li>        </ul>
+    </div>
+</div>
+
+			<div class="hot-topic">
+	<div class="focus-header hot-topic-header">
+		<img class="jx_icon" src="/Public/statics/images/icon/shipin.png"> <span class="jx_focus_span">热门视频</span>
+		<img class="dropdown" src="/Public/statics/images/dropdown.png" />
+        <a class="hot-topic-more" href="/tag/3">更多</a>
+	</div>
+	<div class="hot-topic-list">
+		<ul>
+						<li>
+			<a href="/details/11957.html" ><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-28/5b3499146ec50.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="/details/11957.html" ><span>可靠之选 东芝ALUMY移动硬盘成就不凡商务</span></a>
+			</li>			<li>
+			<a href="/details/11467.html" ><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-12/5b1f95975f084.png" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="/details/11467.html" ><span>定义极简生活 东芝A3系列移动硬盘打造新体验</span></a>
+			</li>			<li>
+			<a href="/details/12112.html" ><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-03/5b3b23f1ca3cd.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="/details/12112.html" ><span>2018世界移动大会 vivo发布 TOF 3D超感应技术</span></a>
+			</li>		</ul>
+	</div>
+</div>
+
+            <div class="hot-topic">
+	<div class="focus-header hot-topic-header">
+		<img class="jx_icon" src="/Public/statics/images/icon/reping.png"> <span class="jx_focus_span">深度评测</span>
+		<img class="dropdown" src="/Public/statics/images/dropdown.png" />
+        <a class="hot-topic-more" href="/tag/1">更多</a>
+	</div>
+	<div class="hot-topic-list">
+		<ul>
+						<li>
+			<a href="/details/12342.html" ><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-11/5b4602afe4a48.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="/details/12342.html" ><span>尼康影像奇妙之旅开启 第20届上海P&amp;I展览会隆重开幕</span></a>
+			</li>			<li>
+			<a href="/details/12320.html" ><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-10/5b44d6da83c1d.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="/details/12320.html" ><span>超凡品质索尼超远摄定焦G大师镜头 FE 400mm F2.8 GM OSS外观评测</span></a>
+			</li>			<li>
+			<a href="/details/12310.html" ><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-10/5b4460b038821.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="/details/12310.html" ><span>又双叒叕升级！Razer雷蛇蝰蛇标准版拆解评测</span></a>
+			</li>		</ul>
+	</div>
+</div>
+            <div class="hot-topic">
+	<div class="focus-header hot-topic-header">
+		<img class="jx_icon" src="/Public/statics/images/icon/fangtan.png"> <span class="jx_focus_span">高层访谈</span>
+		<img class="dropdown" src="/Public/statics/images/dropdown.png" />
+        <a class="hot-topic-more" href="/tag/2">更多</a>
+	</div>
+	<div class="hot-topic-list">
+		<ul>
+						<li>
+			<a href="/details/12155.html" ><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-07-04/5b3c81117f5f8.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="/details/12155.html" ><span>驱动商务未来 巴可携黑科技辐射中国无线会议市场</span></a>
+			</li>			<li>
+			<a href="/details/11802.html" ><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-22/5b2c5b9b9d722.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="/details/11802.html" ><span>揭秘骁龙本 华硕全球副总裁林宗樑专访</span></a>
+			</li>			<li>
+			<a href="/details/11641.html" ><img src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2018-06-15/5b238b7a2ec71.jpg" style="width:330px;height:186px;margin-bottom: 8px"/></a> <a href="/details/11641.html" ><span>全画幅就选EOS 专访Jas Zhang:用时间沉淀出最美作品</span></a>
+			</li>		</ul>
+	</div>
+</div>			<div class="hot-topic cotract-list widget widget_text hot-topic">
+    <div class="focus-header hot-topic-header">
+        <img class="jx_icon" src="/Public/statics/images/dingyue.png"> <span class="jx_focus_span">马上订阅我们</span>
+        <img class="dropdown" src="/Public/statics/images/dropdown.png" />
+    </div>
+	<div class="textwidget">
+		<div class="social">
+            <ul class="icon_lists clear">
+
+                         <a href="http://weibo.com/u/6109286498?refer_flag=1001030101_" rel="external nofollow" title="" target="_blank" data-original-title="新浪微博">
+                <i style="color: red" class="icon iconfont icon-xinlangweibo"></i>
+            </a>
+
+            <a class="weixin" data-original-title="" title="">
+                <i style="color: #006600" class="icon iconfont icon-weixin"></i>
+                <div class="weixin-popover" style="z-index: 999">
+                    <div class="popover bottom in">
+                        <!--<div class="arrow" style="z-index: 999"></div>-->
+                        <div class="popover-title">科技视讯</div>
+                        <div style="z-index: 999" class="popover-content">
+                            <img style="z-index: 999" src="http://kjsx.oss-cn-hangzhou.aliyuncs.com/tmp//2017-06-14/5940f0df661aa.jpg">
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+			<a href="http://www.yidianzixun.com/channel/m184950" rel="external nofollow" title="" target="_blank" data-original-title="Facebook">
+				<i style="color: #0000ff" class="icon iconfont icon-yidianzixun"></i>
+			</a>
+
+
+			<a href="http://www.istv.com.cn" rel="external nofollow" title="" target="_blank" data-original-title="Email">
+				<i style="color: #27ccc0;" class="icon iconfont icon-baijiahao"></i>
+			</a> 
+
+
+			<a href="tencent://message/?uin=1440911663&amp;Site=&amp;Menu=yes" rel="external nofollow" title="" target="_blank" data-original-title="联系QQ"> 
+				<i style="color: #e74c3c" class="icon iconfont icon-QQ"></i>
+			</a> 
+
+            <a href="http://kuaibao.qq.com/s/MEDIANEWSLIST?chlid=5364556" rel="external nofollow" title="" target="_blank" data-original-title="联系QQ">
+                <i style="color: #0000ff;" class="icon iconfont icon-gongdikuaibao"></i>
+            </a>
+
+            <a href="http://www.istv.com.cn" rel="external nofollow" title="" target="_blank" data-original-title="联系QQ">
+                <i style="color: #a52a2a" class="icon iconfont icon-jingdong"></i>
+            </a>
+
+            <a href="http://m.tb.cn/a.ZT2J?userId=3046967744" rel="external nofollow" title="" target="_blank" data-original-title="联系QQ">
+                <i style="color: orangered" class="icon iconfont icon-taobao"></i>
+            </a>
+
+            <a href="http://www.toutiao.com/c/user/6961988445/#mid=6962059181" rel="external nofollow" title="" target="_blank" data-original-title="联系QQ">
+                <i style="color: #000000" class="icon iconfont icon-toutiao"></i>
+            </a>
+            </ul>
+		</div>
+
+	</div>
+</div>
+ 
+		</div>
+	</div>
+</div>
+<div class="footer">
+    <div id="footer_header">
+        <div id="footer_1_c">
+          <div id="img_div">
+              <a href="http://si.trustutn.org/info?sn=374161018024915580862&certType=1"><img src="/Public/statics/images/footer1.png"></a>
+              <a href="http://www.miibeian.gov.cn/"><img src="/Public/statics/images/footer2.png"></a>
+              <a href="http://218.242.124.22:8081/businessCheck/verifKey.do?showType=extShow&serial=9031000020160317102952000000237746-SAIC_SHOW_310000-20161026190221510213&signData=MEQCIEHIaPpeF3lRtP4VDntovaPqO5VuZvimmQ1jTmbhk/23AiAuaro1a3DFCgCvNOmA2oRRfzw6Be0VX8qRqncMQXNtwA=="><img src="/Public/statics/images/footer3.png"></a>
+              <a href="https://ss.knet.cn/verifyseal.dll?sn=e16090931010664678dghp000000&comefrom=trust&trustKey=dn&trustValue=www.istv.com.cn"><img src="/Public/statics/images/footer4.png"></a>
+              <a href="https://v.pinpaibao.com.cn/cert/site/?site=www.istv.com.cn&at=business"><img src="/Public/statics/images/footer5.png"></a>
+	      <a target="_blank" href="http://auth.zx110.org/credential/201804231652033707461DZH.htm"><img width="88" height="34" src="http://auth.zx110.org/resources/images/cred-web.png"></a>
+          </div>
+          <div id="footer_link">
+              <div id="footer_link_header">
+                  <span>友情链接</span>
+                  <span><a href="http://www.istv.com.cn/info/company.html">关于我们</a></span>
+                  <span><a href="http://www.istv.com.cn/info/address.html">联系我们</a></span>
+                  <span><a href="http://www.istv.com.cn/details/3024.html">加入我们</a></span>
+              </div>
+                            <div id="header_link_c">
+                                    <a href="https://www.acer.org.cn/" target="_blank">宏碁俱乐部</a>
+                                    <a href="https://www.jd.com/" target="_blank">京东商城</a>
+                                    <a href="http://www.88bbcn.com/index.aspx" target="_blank">棒棒贝贝</a>
+                                    <a href="http://www.suning.com/" target="_blank">苏宁易购</a>
+                                    <a href="http://www.buynow.com.cn/" target="_blank">百脑汇</a>
+                                    <a href="http://www.gfan.com/" target="_blank">机锋网</a>
+                                    <a href="http://www.cast.org.cn/" target="_blank">中国科学技术协会</a>
+                                    <a href="http://kepuchina.cn/" target="_blank">科普中国</a>
+                                    <a href="http://www.interphoto.com.cn/cn/index.aspx" target="_blank">上海国际影像器材展</a>
+                                    <a href="http://www.evolife.cn/" target="_blank">爱活网</a>
+                                    <a href="http://www.it168.com/" target="_blank">IT168</a>
+                                    <a href="http://www.pcpop.com/" target="_blank">泡泡网</a>
+                                    <a href="http://www.itheat.com/" target="_blank">52硬件</a>
+                                    <a href="http://club.kdslife.com/f_15.html" target="_blank">宽带山</a>
+                                    <a href="http://index.iresearch.com.cn/pc" target="_blank">网络媒体排名</a>
+                                    <a href="http://www.alibabagroup.com/cn/global/home" target="_blank">阿里巴巴</a>
+                                    <a href="http://www.baidu.com/" target="_blank">百度</a>
+                                    <a href="http://www.sohu.com/" target="_blank">搜狐</a>
+                                    <a href="http://www.163.com/" target="_blank">网易</a>
+                                    <a href="http://www.sina.com.cn/" target="_blank">新浪</a>
+                                    <a href="http://www.qq.com/" target="_blank">腾讯</a>
+                                    <a href="mailto:news@istv.com.cn" target="_blank">投稿给我们</a>
+                                    <a href="http://www.wangye.cn/" target="_blank">网页下载</a>
+                                    <a href="http://www.yunxi.tv/" target="_blank">云犀直播</a>
+                                    <a href="http://dpj.ingcle.com/" target="_blank">斗破诀</a>
+                                    <a href="http://zhjy.ingcle.com/" target="_blank">战火纪元</a>
+                                </div>
+          </div>
+        </div>
+    </div>
+    <div id="footer_bottom">
+        <div class="footer-renzheng" style="margin:0 auto;">
+            <div style="width:300px;margin:0 auto; padding:20px 0;">
+		Copyright © 2017 <a href="#">科技视讯</a> All rights reserved
+                021-00000000
+		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010602002645" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+			<img src='/Public/statics/images/beian.png' lazysrc="" style="float:left;"/>
+			<p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">沪公网安备 31010602002645号</p>
+		</a>
+	    </div>
+<!--
+            <div style="width:600px;margin:0 auto;">
+                Copyright © 2017 <a href="#">科技视讯</a> All rights reserved
+                021-00000000
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010802001687" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/Public/statics/images/beian.png" style="float:left;"><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">沪公网安备 31010802001687号</p></a></div>
+            </p>
+	<a target="_blank" href="http://www.miibeian.gov.cn/"> 	
+            <p> 沪ICP备16028033号-1 </p>
+	</a>
+-->
+        </div>
+    </div>
+</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?5370480c74e68bb4e97c94ccdcddfa43";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><div class="my-popup" id="my-popup">
+    <div class="my-popup-head">
+        用户登录
+        <del>×</del>
+    </div>
+    <div class="my-popup-body">
+
+        <div class="panel-body">
+            <div class="form-group user-login-group">
+                <div class="input-group user-login-input">
+								<span class="input-group-addon"> <span
+                                        class="glyphicon glyphicon-user"></span>
+								</span> <input type="text" class="form-control user-login-input"
+                                               id="usernames" name="username" placeholder="请输入手机号码" required>
+
+                </div>
+                <label id="username-errors" class="error"  style="display: inline;padding-left: 40px"></label>
+            </div>
+            <div class="form-group user-login-group">
+                <div class="input-group user-login-input">
+								<span class="input-group-addon"> <span
+                                        class="glyphicon glyphicon-lock"></span>
+								</span> <input type="password" class="form-control user-login-input"
+                                               id="passwords" name="password" placeholder="请输入密码" required>
+                </div>
+                <label id="password-errors" class="error"  style="display: inline;padding-left: 40px"></label>
+            </div>
+            <div  style="float: right;margin-right: 35px;">
+                <a href="http://beta.istv.com.cn/Home/Member/register">注册用户</a>
+            </div>
+            <div  style="float: left;margin-left: 35px;">
+                <a href="http://beta.istv.com.cn/Home/Member/findpwd">忘记密码,找回密码?</a>
+            </div>
+        </div>
+        <div class="my-popup-foot">
+            <input name="" type="" id="subs" value="登录"
+                   class="my-button my-button-blue"> <input id="del-button"
+                                                            type="button" value="取消" class="my-button">
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    var flag = true;
+    var lognum =0;
+    var maxlognum= 5
+    $(function(){
+        $("#subs").click(function(){
+            for(var i=0 ;i<$(".error").length;i++){$(".error").eq(i).html('')};
+            var username = $("#usernames").val();
+            var password = $("#passwords").val();
+            if(!username){
+                $("#username-errors").html('请输入手机号')
+                return false;
+            }
+            if(!password){
+                $("#password-errors").html('请输入密码');
+                return false;
+            }
+
+            if(!flag){
+                return false;
+            }
+            flag = false;
+            $.ajax({
+
+                type:"post",
+                url:"/Home/Member/login",
+                async:true,
+                data:{phone:username,password:password},
+                success : function(data){
+                    flag = true
+                    if(data.err_code == 0){
+                        var str = "#"+data.status+"-errors"
+                        $(str).html(data.err_msg);
+                    }else if(data.err_code == 1){
+                        var url = data.url
+                        var name = data.username;
+                        var id = data.id;
+                        for(var i=0;i<maxlognum;i++){
+                            $.ajax({
+
+                                type:"post",
+                                url:"/Home/Member/saveUrlAjax",
+                                async:true,
+                                data:{id:id,username:username},
+                                success : function(data){
+                                    lognum+=1
+                                    if(lognum == maxlognum){
+                                        alert('登录成功')
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        }
+
+//                        alert('登录成功')
+
+//                        window.location.reload();
+
+                    };
+                }
+
+            });
+        })
+    })
+
+</script>
+</html>

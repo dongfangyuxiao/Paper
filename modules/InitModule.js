@@ -93,7 +93,6 @@ function traverseSampleDir(samplePath, outputPath) {
         let dirPath = path.resolve(samplePath, dirName);
         let info = fs.statSync(dirPath);
 
-
         // 如果是文件则进行特征提取
         if (info.isFile()) {
           console.log('开始解析文件:' + dirName);
@@ -103,7 +102,7 @@ function traverseSampleDir(samplePath, outputPath) {
               if (sampleResult.length > 0) {
                 for (result of sampleResult) {
                   // 如果是白样本文件夹
-                  if (path.dirname(dirPath).indexOf('Benign') !== -1) {
+                  if (path.dirname(dirPath).indexOf('Benign') !== -1 || path.dirname(dirPath).indexOf('output') !== -1) {
                     writeSample(result, outputPath, 0);
                   } else {
                     writeSample(result, outputPath, 1);

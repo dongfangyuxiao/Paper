@@ -1,0 +1,3127 @@
+<!DOCTYPE HTML>
+<html>
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>大众网_山东新闻第一网 山东网友生活圈 移动互联新门户</title>
+<meta name="Keywords" content="山东新闻,济南新闻,大众网,2017山东高考成绩查询,2017山东高考录取查询,齐鲁晚报,大众日报,山东政务,齐鲁文化,儒家文化,黄三角,山东人才，山东房产" />
+<meta name="Description" content="山东新闻信息权威发布平台,山东重点新闻网站和外宣网站,大众报业集团网站,以中共山东省委机关报大众日报为旗帜和核心的报业集团。集团拥有大众日报、农村大众、齐鲁晚报、生活日报、鲁中晨报、半岛都市报、经济导报、青年记者、小记者等报纸、刊物。" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="baidu-site-verification" content="bzAvEXBueay7uKZa" />
+<meta name="apple-itunes-app" content="app-id=847521617">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta name="filetype" content="0" />
+<meta name="publishedtype" content="1" />
+<meta name="pagetype" content="2" />
+<meta name="catalogs" content="22" />
+<link href="//www.dzwww.com/tpl/v2015/globle.css" rel="stylesheet" type="text/css" />
+<link href="//www.dzwww.com/tpl/v2015/css20180118.css" rel="stylesheet" type="text/css" />
+<link href="//www.dzwww.com/2018/nf/css/css.css?123" rel="stylesheet" type="text/css" />
+<link href="//www.dzwww.com/2018/nf/css/globle.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://www.dzwww.com/urlcontent/bbs.js?date=201807121115"></script>
+<script src="https://www.dzwww.com/tpl/v5/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="https://www.dzwww.com/tpl/v2015/js/slides.min.jquery.js"></script>
+<script src="https://www.dzwww.com/tpl/js/city.js?v=2017"></script>
+<script type="text/javascript" src="https://www.dzwww.com/tpl/v2015/index0319.js?v=20150422"></script>
+<!--<link href="https://www.dzwww.com/2018/lh/pijian2018.css?123wefwefwefwexx1" rel="stylesheet" type="text/css" />
+<link href="//www.dzwww.com/shanghe.css" rel="stylesheet" type="text/css" />-->
+<link href="sjb.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+#layout1 .main h1 {
+font-size: 28px;
+line-height: 40px;
+text-align: center;
+}
+#layout1 .main li a{
+color:#e5344d;
+}
+#layout1 h1 a{
+color:#e5344d;
+}
+</style>
+<script type="text/javascript">
+var timeout         = 500;
+var closetimer	  = 0;
+var ddmenuitem      = 0;
+function mopen(id)
+{
+	mcancelclosetime();
+	if(ddmenuitem) ddmenuitem.style.display = 'none';
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.display = 'block';
+}
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.display = 'none';
+}
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+document.onclick = mclose;
+//设为首页
+function SetHome(obj,vrl){
+        try{
+                obj.style.behavior='url(#default#homepage)';
+				obj.setHomePage(vrl);
+        }
+        catch(e){
+                if(window.netscape){
+                        try{
+                                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+                        }catch (e){
+                        		alert("抱歉！您的浏览器不支持直接设为首页。");
+                        }
+                        var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                        prefs.setCharPref('browser.startup.homepage',vrl);
+                 }else{
+		        alert('抱歉，您的浏览器不支持自动设置首页, 请使用浏览器菜单手动设置!');
+		    }
+        }
+}
+function $_(id) {
+	if(document.getElementById) {
+		return document.getElementById(id);
+	} else if(document.all) {
+		return document.all(id);
+	} else if(document.layers) {
+		return document.layers[id];
+	} else {
+		return false;
+	}
+}
+function Handler() { };
+Handler.prototype = {
+	/* *
+	* 把eventType类型的事件绑定到element元素，并使用handler事件句柄进行处理
+	* 兼容 IE 及 Firefox 等浏览器
+	*
+	* @param element 在其上注册事件的对象（Object）
+	* @param eventType 注册的事件类型（String），不加"on"
+	* @param handler 事件句柄（Function）
+	*/
+	registerEvent : function(element, eventType, handler) {
+		if(element.attachEvent) {
+			element.attachEvent('on'+ eventType, handler);
+		} else if(element.addEventListener) {
+			element.addEventListener(eventType, handler, false);
+		} else {
+			element['on'+ eventType] = handler;
+		}
+	},
+	/*
+	* 获得带参数的事件句柄的引用
+	*
+	* @param obj 需要绑定事件处理函数的所有者，null 表示 window 对象
+	* @param func 需要绑定的事件处理函数名
+	* @param ... 第三个参数开始为绑定事件处理函数的参数，由 0 到多个构成
+	*/
+	bind : function(obj, handler) {
+		obj = obj || window;
+		var args = [];
+		for(var i =2; i < arguments.length; i++) {
+			args.push(arguments[i]);
+		}
+		return function() { handler.apply(obj, args) };
+	}
+}
+var foreach = function(array, callback, object) {
+	if(array.foreach) {
+		array.foreach(callback, object);
+	} else {
+		for(var i=0, l=array.length; i<l; i++) {
+			callback.call(object, array[i], i, array);
+		}
+	}
+}
+//头条切换 2=toplist.length - 1
+function NextTopN(v) {
+	if(TopPa) return;
+	if(v < 2) { if(TopNcur < 2) { TopNcur++; } else { TopNcur = 0; }}
+	if(v == 2) { if(TopNcur > 0) { TopNcur--; } else { TopNcur = 2; }}
+	$_('imgLink').innerHTML = '<a href="' + toplist[TopNcur].url + '">' + toplist[TopNcur].title + '</a>';
+	$_('slinks').innerHTML = toplist[TopNcur].slinks;
+	if(!v) { setTimeout("NextTopN(0)", 8000); }
+}
+function autoturn_jk_box(){
+	var obj_jtz_show_display=$('#jtz_show').css('display');
+	var obj_ksp_show_display=$('#ksp_show').css('display');
+	if(obj_jtz_show_display=='none'){
+		$('#ksp_show').css('display','none');
+		$('#jtz_show').css('display','block');
+	}else if(obj_ksp_show_display=='none'){
+		$('#jtz_show').css('display','none');
+		$('#ksp_show').css('display','block');
+	}
+}
+function rank(data,type){
+		var str = "";
+		var len = data.length<10?data.length:10;
+		for(var i=0;i<len;i++){
+			str += '<li><a target="_blank" href="'+data[i].url+'">'+data[i].title+'</a></li>' ;
+		}
+		document.getElementById('rank_'+type).innerHTML = str;
+	}
+function newsRank(data,type){
+		var str = "";
+		var len = data.length<10?data.length:10;
+		for(var i=0;i<len;i++){
+			str += '<li><a target="_blank" href="'+data[i].url+'">'+data[i].title+'</a></li>' ;
+		}
+		document.getElementById('rank_'+type).innerHTML = str;
+	}
+function turn_jk_box(obj_str){
+	$('.jtz_box').css("display","none");
+	$('.ksp_box').css("display","none");
+	$('.'+obj_str).css("display","block");
+}
+function stop_auto_jk_box(){
+	clearInterval(obj_autoturn_jk_box);
+}
+var obj_autoturn_jk_box=setInterval("autoturn_jk_box()",3000);
+</script>
+<base target="_blank"/>
+</head>
+<body>
+<!--<body>-->
+<!-- 顶栏Start -->
+<div id="top">
+<div align="center">
+<div id="ad_dingtong"></div>
+</div>
+	<div class="w1000">
+		<div class="left">
+			<a onClick="SetHome(this,window.location)" target="_self" id="header-icon2">设为首页</a><a href="http://m.dzwww.com/" class="phone">手机版</a><a href="http://www.dzwww.com/2016/sdsjb/">山东手机报</a><a href="http://sd24.dzwww.com/" class="arrow" onMouseOver="mopen('top-drop1')" onMouseOut="mclosetime()">手机客户端</a><span>新闻热线 0531-85668999</span>
+		</div>
+		<div class="right">
+			<a href="#" id="header-icon0" target="_blank" onMouseOver="mopen('top-drop2')" onMouseOut="mclosetime()" class="arrow">用户登录</a><span>大众报业集团主办</span><a href="http://www.dzwww.com/map/" target="_blank">全站导航</a><a href="http://english.dzwww.com/" target="_blank">英文</a><a href="http://kr.dzwww.com/" target="_blank">韩文</a><a href="http://jp.dzwww.com/" target="_blank">日文</a><a href="http://zzlr.dzwww.com/" target="_blank">订报卡</a><a href="http://widget.weibo.com/dialog/follow.php?fuid=2620088113&refer=www.dzwww.com&language=zh_cn&type=widget_page&vsrc=app_followbutton&backurl=http%3A%2F%2Fwww.dzwww.com%2F&rnd=1425113754303" class="btn1"><img src="/images/top-btn1-type.gif" /> 新动态</a>
+		</div>
+		<div class="clear"></div>
+		<div class="drop" id="top-drop1"  onmouseover="mcancelclosetime()" onMouseOut="mclosetime()" style="z-index:999">
+			<p><a href="http://sd24.dzwww.com/"  target="_blank">山东24小时</a><br /><a href="http://sd24.dzwww.com/"  target="_blank"><img src="/images/top-sn1.gif" /></a></p>
+			<p><a href="http://www.dzwww.com/bbs/ltzt/app/" target="_blank">大众论坛客户端</a><br /><a href="http://www.dzwww.com/bbs/ltzt/app/" target="_blank"><img src="/images/top-sn2.gif" /></a></p>
+		</div>
+		<div class="drop" id="top-drop2"  onmouseover="mcancelclosetime()" onMouseOut="mclosetime()" style="z-index:999">
+			<p><a href="http://mail.dzwww.com/"  target="_blank">大众邮箱</a></p>
+			<p><a href="http://mail.qlwb.com.cn/" target="_blank">晚报邮箱</a></p>
+			<p><a href="http://club.dzwww.com/" target="_blank">大众论坛</a></p>
+			<!--<p><a href="http://blog.dzwww.com/" target="_blank">大众博客</a></p> -->
+					</div>
+	</div>
+</div>
+<!-- 顶栏End  <div style="height:150px;width:1006px;cursor:pointer;margin:0 auto;" onclick="window.open('http://www.dzwww.com/2017/19cpcnc/')"></div>-->
+<!--<div style="height:80px;width:1316px;aligh:center;margin:0 auto;">
+	<div onclick="window.open('http://www.dzwww.com/2017/xxgcjs/')" style="height:110px;width:390px;cursor:pointer;margin:0 auto;float:left;"></div>
+	<div style="height:110px;width:600px;cursor:pointer;margin:0 auto;float:left;" onclick="window.open('http://www.dzwww.com/2017/xianci/')"></div><div style="height:110px;width:190px;cursor:pointer;margin:0 auto;float:left;" onclick="window.open('http://www.dzwww.com/2017/mk/')"></div>
+	<div style="height:110px;width:130px;cursor:pointer;margin:0 auto;float:left;" onclick="window.open('http://www.dzwww.com/2017/2017ndhzpx/')"></div>
+         <div onclick="window.open('http://www.dzwww.com/2018/sdlh/')"  style="height:80px;cursor:pointer; "></div>
+</div>-->
+<!-- 世界杯披肩Start -->
+<div id="sjb">
+	<a href="https://www.dzwww.com/2018/worldcup/" target="_blank" class="btn"></a>
+</div>
+<!-- 披肩End -->
+<!-- 外框宽1000 Start -->
+<!-- 背景图开始-->
+<style type="text/css">
+#topImg{width:1000px;margin:0 auto;height:114px; position:relative;}
+.btnClose{ position:absolute; top:15px; right:0; z-index:10;z-index:999;}
+.ztLink{float:left;}
+.ztLink a{outline:none;}
+</style>
+<script type="text/javascript">
+	$("#topImg img").click(function(){
+		$("body").css("backgroundImage","none");
+		$("#topImg").css("display","none");
+	});
+</script>
+<!--背景图结束-->
+<!--仅保留小通栏，需要拉幕转通栏时此处隐藏start-->
+<!--
+<DIV id=ad316 style="DISPLAY:none ;MARGIN: 0px auto; WIDTH: 1000px" ><a href=" " target="_blank"><img src="" width="1000px" height="30px" /></a></DIV>
+ -->
+<!--仅保留小通栏，需要拉幕转通栏时此处隐藏end -->
+<!--拉幕广告开始-->
+<script src="//www.dzwww.com/images/ad_down.js" type="text/javascript"></script>
+<DIV id=ad315 style="DISPLAY:none ; MARGIN: 0px auto; WIDTH: 1000px"></DIV>
+<DIV id=ad316 style="DISPLAY:none ; MARGIN: 0px auto; WIDTH: 1000px" ><a href=" " target="_blank"><img src="" width="1000px" height="30px" /></a></DIV>
+<script type="text/javascript">
+//所有时间单位秒
+		/*		(function(){
+						var a = AD2, dom = a.DomUtil, evt = a.DomEventUtil;
+						a.area({
+							id: 'ad315'
+						})({
+							oid: '1106746',
+							cid: '89670',
+							monitor_url: '',
+							display: 'fullscreen',
+							display_config: {
+								delay: 2, // 页面打开时，延迟时间
+								duration: 5, // 广告展开显示时间
+								show_duration: .5,
+								hide_duration: .6
+							},
+							fodder: [{
+								type: 'image', //广告类型 image/flash
+								resource_url: ' ', //广告文件
+								link_to: ' ', //链接地址flash:#
+								width: 1000, //宽度
+								height: 510, //高度
+								cover: false							}]
+						});
+						a.render('ad315');
+						a.ping.flush();
+					})(); */
+</script>
+<!--拉幕广告结束-->
+ <!--专区开始-->
+<!--专区结束-->
+<div id="wrapper" class="w1000">
+	<!-- 头部Start -->
+	<div id="header">
+		<div class="left" id="ad_left_shoulder"></div>
+		<div class="right" id="ad_right_shoulder" ></div>
+		<div class="logo"><img src="http://www.dzwww.com/tpl/v2015/images/header-logo.gif" alt="大众网" /></div>
+		<div class="clear"></div>
+	</div>
+	<!-- 头部End -->
+	<div class="blank15"></div>
+	<!-- 导航Start -->
+	<div id="nav">
+		<div class="block" style="width:212px;">
+			<p><a href="http://sd.dzwww.com/" class="strong" target="_blank" class="strong">山东</a><a href="http://culture.dzwww.com/">文化</a><a href="http://sports.dzwww.com/">体育</a><a href="http://shuhua.dzwww.com">书画</a><a href="http://www.dzwww.com/photo/">图片</a></p>
+			<p><a href="http://news.dzwww.com/" target="_blank" class="strong">要闻</a><a href="http://dv.dzwww.com/">视频</a><a href="http://ent.dzwww.com/">娱乐</a><a href="http://lady.dzwww.com/">时尚</a><a href="//xdn.dzwww.com">新动能</a></p>
+		</div>
+		<div class="line" style=" margin: 6px 15px 0 0;"></div>
+		<div class="block" style="width:170px;float: left;">
+			<p style="left: 10px;"><a href="http://club.dzwww.com/" class="strong" style=" margin-right: 12px;">论坛</a><a href="http://www.dzllzg.com/" style="margin-right: 12px;">理论</a><a href="http://www.dzwww.com/dzwpl/" style="margin-right: 12px;">时评</a><a href="http://www.sdkzjng.cn/" style="margin-right: 0px;">抗战纪念馆</a></p>
+			<p><a href="http://yuqing.dzwww.com/" class="strong" style="margin-right: 12px;">舆情</a><a href="http://bbs.dzwww.com/paike/" style=" margin-right:12px;">拍客</a><a href="http://wenjuan.dzwww.com" style="margin-right: 12px;">问卷</a><a href="http://cx.dzwww.com/" style="margin-right: 0px;">山东法信通</a></p>
+		</div>
+		<div class="line" style=" margin: 6px 15px 0px 12px;"></div>
+		<div class="block" style="width:280px;">
+			<p><a href="http://finance.dzwww.com/" class="strong">财经</a><a href="http://sdqy.dzwww.com/">鲁企</a><a href="http://house.dzwww.com/">选房</a><a href="http://elec.dzwww.com/">家电</a><a href="http://www.shandonghaiyang.com/">海洋</a><a href="http://health.dzwww.com/">健康</a><a href="http://sdqy.dzwww.com/jczt/lqxzw/">国资</a></p>
+			<p><a href="http://jiu.dzwww.com/" class="strong">酒水</a><a href="http://tour.dzwww.com/">旅游</a><a href="http://home.dzwww.com/">家居</a><a href="http://auto.dzwww.com/">汽车</a><a href="http://dzxf.dzwww.com/">消费</a><a href="http://edu.dzwww.com/">教育</a><a href="http://www.dzwww.com/ds/">电商</a></p>
+		</div>
+		<div class="line"></div>
+		<div class="block" style="width:260px;">
+			<p><a href="http://www.dzwww.com/2014/xwfbh/" class="strong">权威发布</a><a href="http://qlms.dzwww.com/">民声</a><a href="#" class="arrow" onMouseOver="mopen('nav-drop1')" onMouseOut="mclosetime()">大众网群</a><a href="#" class="arrow" style="margin:0px;" onMouseOver="mopen('nav-drop2')" onMouseOut="mclosetime()">地方频道</a></p>
+			<p><a href="http://www.dzwww.com/2016/sdaq/" class="strong">安全山东</a><a href="http://sdgy.dzwww.com/">公益</a><a href="#" class="arrow" onMouseOver="mopen('nav-drop3')" onMouseOut="mclosetime()">集团网群</a><a href="http://shexun.dzwww.com/" style="margin:0px;" >报业内网</a></p>
+		</div>
+		<div class="clear"></div>
+		<div class="drop" id="nav-drop1" onMouseOver="mcancelclosetime()" onMouseOut="mclosetime()">
+			<a href="http://www.sddzinfo.com/">信息产业公司</a><a href="http://www.dzhailan.com/">大众海蓝公司</a><a href="http://www.sdgdwljt.com/">山东有线网</a><a href="http://www.wssng.com/index.html">网上少年宫</a>
+			<div class="clear"></div>
+		</div>
+		<div class="drop" id="nav-drop2" onMouseOver="mcancelclosetime()" onMouseOut="mclosetime()">
+			<ul>
+				<li><a href="http://jinan.dzwww.com/">济南</a></li>
+				<li><a href="http://qingdao.dzwww.com/">青岛</a></li>
+				<li><a href="http://zaozhuang.dzwww.com/">枣庄</a></li>
+				<li><a href="http://weihai.dzwww.com/">威海</a></li>
+				<li><a href="http://yantai.dzwww.com/">烟台</a></li>
+				<li><a href="http://weifang.dzwww.com/">潍坊</a></li>
+				<li><a href="http://jining.dzwww.com/">济宁</a></li>
+				<li><a href="http://liaocheng.dzwww.com/">聊城</a></li>
+				<li><a href="http://rizhao.dzwww.com/">日照</a></li>
+				<li><a href="http://binzhou.dzwww.com/">滨州</a></li>
+				<li><a href="http://dezhou.dzwww.com/">德州</a></li>
+				<li><a href="http://linyi.dzwww.com/">临沂</a></li>
+				<li><a href="http://heze.dzwww.com/">菏泽</a></li>
+				<li><a href="http://dongying.dzwww.com/">东营</a></li>
+				<li><a href="http://taian.dzwww.com/">泰安</a></li>
+				<li><a href="http://zibo.dzwww.com/">淄博</a></li>
+				<li><a href="http://laiwu.dzwww.com/">莱芜</a></li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<div class="drop" id="nav-drop3" onMouseOver="mcancelclosetime()" onMouseOut="mclosetime()">
+			<ul>
+				<li><a href="http://dzrb.dzwww.com/" target="_blank">大众日报网</a></li>
+					<li><a href="http://ncdz.dzwww.com/" target="_blank">农村大众网</a></li>
+					<li><a href="http://www.qlwb.com.cn/" target="_blank">齐鲁晚报网</a></li>
+					<li><a href="http://shrb.dzwww.com/" target="_blank">生活日报网</a></li>
+					<li><a href="http://www.bandao.cn/" target="_blank">半岛网</a></li>
+					<li><a href="http://www.lznews.cn/" target="_blank">鲁中网</a></li>
+					<li><a href="http://fazhi.dzwww.com/" target="_blank">法制网</a></li>
+					<li><a href="http://www.sdenews.com/" target="_blank">导报网</a></li>
+					<li><a href="http://www.qnjz.com/" target="_blank">青年记者</a></li>
+					<li><a href=" http://dingbao.dzwww.com/" target="_blank">订报</a></li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</div>
+	<!-- 导航End -->
+	<div class="blank15"></div>
+	<!-- 文明网广告Start -->
+	<div>
+		<div class="left" style="border:1px solid #e4e6e5;" id="ad_ll"></div>
+		<div style="float:left; display:inline; margin-left:14px;"><a target="_blank" href="http://www.dzwww.com/2014/jiazhiguan/"><img border="0" width="680" height="25" src="./images/hx0512.jpg" /></a></div>
+		<div class="right" id="rightBar" style="border:1px #e4e6e5; "><!--<a target="_blank" href="http://www.dzwww.com/2012/sdhrmzzx/"><img width="140" height="25" src="/images/sdhr.jpg" /></a>--></div>
+	</div>
+	<!-- 文明网广告End -->
+	<div class="blank10"></div>
+	<!-- 链接盒子Start -->
+	<div id="linkbox">
+		
+		<div class="left" style="width:136px">
+			<ul>
+			
+			<div class=TRS_Editor><li><a title="山东宣讲网" target="_blank" href="http://sdxjw.dzwww.com/">山东宣讲网</a>&nbsp;<a title="山东地税党建" target="_blank" href="http://sdqy.dzwww.com/jczt/sdds/">山东地税党建</a></li>
+<li><a title="跟着中国品牌看中国" target="_blank" href="http://live.qdqss.cn/index.php?ac=reply&amp;reply=16746&amp;from=groupmessage&amp;isappinstalled=0">跟着中国品牌看中国</a></li>
+<li><a title="齐鲁文化人才网" target="_blank" href="http://qlwhrc.dzwww.com/">齐鲁文化人才网</a></li>
+<li><a title="山东反邪教" target="_blank" href="http://www.sdfxj.org/">山东反邪教</a>&nbsp;<a title="泛海扬帆" target="_blank" href="http://www.fhyfsd.com/">泛海扬帆</a></li></div>
+			
+			</ul>
+		</div>
+		<div class="right">
+			<ul>
+			
+			<div class=TRS_Editor><li><a title="聚焦山东“放管服”" target="_blank" href="http://sdqy.dzwww.com/jczt/lqxzw/"><font color="#ff0000">聚焦国资 精彩国企</font></a></li>
+<li><a title="山东出版集团网" href="http://www.sdpress.com.cn/">山东出版集团网</a></li>
+<li><a title="文明网山东频道" target="_blank" href="http://sd.wenming.cn/"><font color="#ff0000">文明网山东频道</font></a></li>
+<li><a title="德美山东 摄影大赛" href="http://w.dzwww.com/zt/mdsdsyds/">德美山东 摄影大赛</a></li></div>
+			
+			</ul>
+		</div>
+		<div class="middle">
+			<div class="ad" id="ad_banner2"></div>
+			
+			<div class=TRS_Editor><p><a title="山东省互联网新闻信息服务单位许可信息" href="http://sd.dzwww.com/sdnews/201802/t20180207_17021134.htm">山东省互联网新闻信息服务单位许可信息</a><!--<a title="第一份收入话题有奖调查" target="_blank" href="http://w.dzwww.com/zt/2016deej_dc/pc.php">第一份收入话题有奖调查</a>
+--><!--<a title="省文化产业投资公司招聘公告" target="_blank" href="http://sd.dzwww.com/zhaopin/"> <font color="#ff0000">省文化产业投资公司招聘公告</font>
+</a>
+<a title="文明网山东频道" target="_blank" href="http://sd.wenming.cn/">文明网山东频道</a>
+--><a title="山东文化产业创意征集平台" target="_blank" href="http://cyzj.dzwww.com/index/index"><font color="#ff0000">山东文化产业创意征集</font></a><font color="#ff0000">&nbsp;</font><a title="国家安全 人人有责" href="https://www.dzwww.com/xinwen/guoneixinwen/201804/t20180418_17278025.htm"><font color="#ff0000"><font color="#ff0000">国家安全 人人有责</font></font></a><a href="http://www.dzwww.com/xinwen/guoneixinwen/201610/t20161031_15084798.htm">违法信息举报</a> <font color="#ff0000">&nbsp;</font><a title="培训精选" href="http://peixun.dzwww.com/"><font color="#ff0000"><font color="#ff0000">培训精选</font></font></a></p></div>
+			
+		</div>
+        
+		<div class="clear"></div>
+	</div>
+	<!-- 链接盒子End -->
+	<div id="ad_a4" ></div>
+<div>
+      <div id="ad_bantongzuo"  style="float:left;"></div>
+	  <div id="ad_bantongyou" style="float:right;"></div>
+	</div>
+		<div class="blank25"></div>
+<!--专区开始-->
+	<!--	<style>
+#zhuanqu2018 .hot li a {
+    color: #e5344d;
+}
+</style>
+<div id="zhuanqu2018">
+		<a href="http://www.dzwww.com/2018/lh/" class="enter" target="_blank"></a>
+		<div class="hot">
+			
+			
+			<h4><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597477.htm" target="_blank">习近平曾为这座城写下万字长文</a></h4>
+			<p>[<a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597477.htm" target=_blank>习近平始终高度关注晋江发展</a>][<a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597477.htm" target=_blank>6年中7次深入晋江调研</a>]&nbsp;&nbsp;&nbsp;&nbsp;<a href="/synr/zy/">更多&gt;&gt;</a></p>
+			
+			<ul>
+				
+				<li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597001.htm" target="_blank">打造“升级版”中阿关系，习近平这么擘画</a></li>
+				
+				<li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597006.htm" target="_blank">阿拉伯国家专家学者积极评价习主席重要讲话</a></li>
+				
+				<li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597010.htm" target="_blank">关于新时代中阿关系，习近平给出最新判断</a></li>
+				
+				<li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597016.htm" target="_blank">《人民日报》五论组织工作，“选老实人接班”</a></li>
+				
+				<div class="clear"></div>
+			</ul>
+			
+		</div>
+		<div class="pic1" id='ad_toutiao'></div>
+		<div class="clear"></div>
+
+		<div class="blank20"></div>
+
+		<div id="layout2">
+			<div class="title">时政要闻<span></span></div>
+			<div class="content">
+   <ul>
+	
+<div class=TRS_Editor><li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596283.htm">韩正：加快推进抗癌药降价 </a></li>
+<li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596286.htm">美升级贸易战是霸凌主义对世界的挑衅</a></li>
+<li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596287.htm">看中国海洋新航程如何提速</a></li></div>
+
+   </ul>
+</div>
+			<div class="clear"></div>
+		</div>
+
+		<div class="blank20"></div>
+
+		<div class="left">
+			<div class="focus">
+				
+			<a href="https://www.dzwww.com/2018/lh/tp/201803/t20180320_17169363.htm" target="_blank"><img src="https://www.dzwww.com/2018/lh/sy/st/201803/W020180320375055235089.jpg" alt="06.jpg"/></a>
+			<p><a href="https://www.dzwww.com/2018/lh/tp/201803/t20180320_17169363.htm" target="_blank" title="十三届全国人大一次会议在北京闭幕">十三届全国人大一次会议在北京闭幕</a></p>
+			
+			<div class="shadow"></div>
+			</div>
+		</div>
+		<div class="right">
+		
+		<div class=TRS_Editor><h3><a target="_blank" href="http://www.dzwww.com/2018/lh/djzw/">李克强总理会见中外记者并回答记者提问</a> <a target="_blank" href="http://www.dzwww.com/2018/lh/lhzb/zljzh/">实录</a></h3>
+<ul class="list1">
+    <li><span>[答记者问]<a target="_blank" href="https://www.dzwww.com/2018/lh/lhzb/zljzh/zbzy/201803/t20180320_17169557.htm">中国开放如有新变化,那就是门越开越大</a> <a target="_blank" href="https://www.dzwww.com/2018/lh/lhzb/zljzh/zbzy/201803/t20180320_17169645.htm">为人民利益万难不辞万险不避</a></span></li>
+    <li><span>[答记者问]<a href="https://www.dzwww.com/2018/lh/lhzb/zljzh/zbzy/201803/t20180320_17169795.htm">要将心比心 把就业放在心上，扛在肩上</a> <a target="_blank" href="https://www.dzwww.com/2018/lh/lhzb/zljzh/zbzy/201803/t20180320_17169710.htm">给产权所有者吃上定心丸</a></span></li>
+    <li><span>[答记者问]<a target="_blank" href="https://www.dzwww.com/2018/lh/lhzb/zljzh/zbzy/201803/t20180320_17169823.htm">中美打贸易战对双方都没有好处，没有赢家</a> <a target="_blank" href="https://www.dzwww.com/2018/lh/lhzb/zljzh/zbzy/201803/t20180320_17169677.htm">尽最大努力推动半岛无核化</a></span></li>
+    <li><span>[答记者问]<a target="_blank" href="http://www.dzwww.com/2018/lh/lhzb/zljzh/zbzy/201803/t20180320_17169846.htm">不要听信竹篮子也可以打水的神话</a> <a target="_blank" href="http://www.dzwww.com/2018/lh/lhzb/zljzh/zbzy/201803/t20180320_17169887.htm">不能容忍任何台独的企图主张</a></span></li>
+</ul>
+<h3><a href="https://www.dzwww.com/2018/lh/news/201803/t20180321_17172042.htm">习近平重要讲话在全省广大干部群众中引起热烈反响</a></h3>
+<ul class="list2">
+    <li><a href="https://www.dzwww.com/2018/lh/news/201803/t20180321_17172040.htm">住鲁全国人大代表返回工作岗位</a></li>
+    <li><a href="https://www.dzwww.com/2018/lh/news/201803/t20180321_17172042.htm">凝聚强大力量奋力走在前列</a></li>
+</ul></div>
+		
+		</div>
+		<div class="clear"></div>
+		<div class="blank30"></div>
+		<div class="block1">
+		
+		<a href="http://sd.dzwww.com/sdnews/201802/t20180228_17092046.htm" target="_blank"><img src="https://www.dzwww.com/2018/lh/sy/xjdn/201802/W020180228676891506827.jpg" alt="1新旧动能.jpg"/></a>
+		
+		<ul>
+			
+			<li><a href="https://sd.dzwww.com/sdnews/201803/t20180319_17164383.htm" target="_blank" title="工业动能转换打算这么做！">工业动能转换打算这么做！</a></li>
+			
+			<li><a href="https://sd.dzwww.com/sdnews/201803/t20180319_17164372.htm" target="_blank" title="山东组建新旧动能转换专利库">山东组建新旧动能转换专利库</a></li>
+			
+			<li><a href="https://sd.dzwww.com/sdnews/201803/t20180319_17164384.htm" target="_blank" title="30个军民融合重大项目将实施">30个军民融合重大项目将实施</a></li>
+			
+		</ul>
+		<div class="clear"></div>
+	</div>
+		<div class="block2">
+		<ul>
+			
+				<li><a href="http://www.dzwww.com/2018/lh/djzw/"  target="_blank">
+				<div class="pic"><img src="./2018/lh/sy/sj/201803/W020180712405544388176.jpg" alt="总理答记者问精彩要点"/>
+				</div>
+				<div class="shadow"></div>
+				<p>总理答记者问精彩要点</p>
+			</a></li>
+				
+				<li><a href="./2018/lh/sy/sj/201803/t20180318_17163289.htm"  target="_blank">
+				<div class="pic"><img src="./2018/lh/sy/sj/201803/W020180712405557534200.gif" alt="微视频《誓言》"/>
+				</div>
+				<div class="shadow"></div>
+				<p>微视频《誓言》</p>
+			</a></li>
+				
+			<div class="clear"></div>
+		</ul>
+	</div>
+		<div class="block3">
+		<ul>
+			
+			<li><a href="https://www.dzwww.com/2018/lh/news/201803/t20180320_17171369.htm" target="_blank" title="山东手机报 每日一报（3.20）">山东手机报 每日一报（3.20）</a></li>
+			
+			<li><a href="https://www.dzwww.com/2018/lh/xy/201803/t20180320_17171551.htm" target="_blank" title="每晚十点，和你一起听两会！（3月20日）">每晚十点，和你一起听两会！（3月20日）</a></li>
+			
+		</ul>
+		
+		<a href="https://www.dzwww.com/2018/lh/news/201803/t20180320_17171369.htm" target="_blank"><img src="https://www.dzwww.com/2018/lh/sy/ch/201803/W020180320702494321529.jpg" alt="1.jpg"/></a>
+		
+		<div class="clear"></div>
+	</div>
+		<div class="clear"></div>
+	</div> -->
+<!--专区结束-->
+<div id="layout1">
+		<div class="main">
+			
+			
+			<h1><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597477.htm" target="_blank">习近平曾为这座城写下万字长文</a></h1>
+			<p>[<a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597477.htm" target=_blank>习近平始终高度关注晋江发展</a>][<a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597477.htm" target=_blank>6年中7次深入晋江调研</a>]&nbsp;&nbsp;&nbsp;&nbsp;<a href="/synr/zy/" >更多头条&gt;&gt;</a></p>
+			
+			<ul>
+				
+				<li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597001.htm" target="_blank">打造“升级版”中阿关系，习近平这么擘画</a></li>
+				
+				<li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597006.htm" target="_blank">阿拉伯国家专家学者积极评价习主席重要讲话</a></li>
+				
+				<li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597010.htm" target="_blank">关于新时代中阿关系，习近平给出最新判断</a></li>
+				
+				<li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17597016.htm" target="_blank">《人民日报》五论组织工作，“选老实人接班”</a></li>
+				
+				<div class="clear"></div>
+			</ul>
+			
+		</div>
+		<div class="photo" id='ad_toutiao'>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank20"></div>
+		<div id="layout2">
+			<div class="title">时政要闻<span></span></div>
+			<div class="content">
+   <ul>
+	
+<div class=TRS_Editor><li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596283.htm">韩正：加快推进抗癌药降价 </a></li>
+<li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596286.htm">美升级贸易战是霸凌主义对世界的挑衅</a></li>
+<li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596287.htm">看中国海洋新航程如何提速</a></li></div>
+
+   </ul>
+</div>
+			<div class="clear"></div>
+		</div>
+		<div class="blank20"></div>
+	<!-- 16年11月修改Start -->
+	<div id="layout30">
+		<div class="blank20"></div>
+		<div class="column1">
+<!--南方学习专区 -->
+<div id="zhuanqu">
+	<a href="https://www.dzwww.com/2018/zsyz/" target="_blank" class="enter"></a>
+	
+	<h5><a href="https://sd.dzwww.com/sdnews/201807/t20180711_17595166.htm" target="_blank" title="山东省招商引资招才引智工作会议举行">山东省招商引资招才引智工作会议举行</a></h5>
+	
+	<ul>
+		
+		<div class=TRS_Editor><li>【评论】<a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596503.htm">全面掀起高质量招商招才新热潮</a> <a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596484.htm">招商引资招才引智——山东高质量发展的迫切要求</a></li>
+<li>【要闻】<a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596486.htm">"双招双引",聚焦聚力高质量精准化</a> <a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596485.htm">营造最佳营商环境,制度创新是核心</a> <a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596574.htm">各方反响</a></li>
+<li>【要闻】<a href="https://sd.dzwww.com/sdnews/201807/t20180711_17594267.htm">来看省直六部门有哪些大招</a> <a href="https://sd.dzwww.com/sdnews/201807/t20180711_17594372.htm">与会人员热议"双招双引"</a> <a href="https://sd.dzwww.com/sdnews/201807/t20180712_17597315.htm">章丘“双招双引”跑步进行</a></li>
+<li>【解读】<a href="@商企 @人才 山东向你招手！">H5:@商企 @人才 山东向你招手！</a> <a href="https://www.dzwww.com/2018/zsyz/zxgx/201807/t20180711_17595626.htm">山东"双招双引"怎么做?这份攻略请收好!</a></li></div>
+                
+	</ul>
+</div>
+<div class="blank5"></div>
+<div class="blank5"></div>
+<div class="hot">
+				
+				<h2><a href="https://sd.dzwww.com/sdnews/201807/t20180711_17595104.htm" target="_blank">刘家义在省委十一届五次全体会议第二次全体会议上讲话</a></h2>
+				<ul>
+					<li><a href="https://sd.dzwww.com/sdnews/201807/t20180711_17595104.htm" target=_blank>以习近平新时代中国特色社会主义思想指导深化改革</a></li><li><a href="https://sd.dzwww.com/sdnews/201807/t20180711_17595104.htm" target=_blank>以扩大开放倒逼深化改革</a></li>
+					<div class="clear"></div>
+				</ul>
+				
+				<h2><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596594.htm" target="_blank">干在实处 走在前列|新动能不能与"新建""新兴"画等号</a></h2>
+				<ul>
+					<li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596594.htm" target=_blank>“新动能”不等于上新项目</a></li><li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596594.htm" target=_blank>培育壮大“四新”经济,规划引领至关重要</a></li>
+					<div class="clear"></div>
+				</ul>
+				
+			</div>
+			<div class="blank5"></div>
+		<div class="focus" id='slides11'>
+			 <div class="slides_container">
+			    
+				<div>
+				<a href="./tupian/wyzp/201807/t20180712_17597308.htm" target="_blank"><img src="./tupian/wyzp/201807/W020180712342658689349_600.jpg" alt="2018年7月11日，重庆洋人街水上乐园内游客多如“下饺子” 。当日，重庆市气象局发布“高温橙色预警”信号。" width="600" height="400"/></a>
+				<p><a href="./tupian/wyzp/201807/t20180712_17597308.htm" target="_blank" title="重庆高温天气水中游客如“下饺子”">重庆高温天气水中游客如“下饺子”</a></p>
+				<div class="shadow"></div>
+				</div>
+				
+				<div>
+				<a href="./tupian/wyzp/201807/t20180712_17597280.htm" target="_blank"><img src="./tupian/wyzp/201807/W020180712340614825635_600.jpg" alt="6月24日,当地公安边防部门开展巡航时记录下的“黄蓝交界”景象。" width="600" height="400"/></a>
+				<p><a href="./tupian/wyzp/201807/t20180712_17597280.htm" target="_blank" title="黄河入海口“黄蓝交界”壮观景象">黄河入海口“黄蓝交界”壮观景象</a></p>
+				<div class="shadow"></div>
+				</div>
+				
+				<div>
+				<a href="./tupian/wyzp/201807/t20180712_17597246.htm" target="_blank"><img src="./tupian/wyzp/201807/W020180712338488188854_600.jpg" alt="2018年7月11日，强台风“玛莉亚”带来的狂风暴雨导致福建省霞浦县牙城镇受灾严重，一片狼藉。" width="600" height="400"/></a>
+				<p><a href="./tupian/wyzp/201807/t20180712_17597246.htm" target="_blank" title="强台风“玛莉亚”袭来 福建牙城一片狼藉">强台风“玛莉亚”袭来 福建牙城一片狼藉</a></p>
+				<div class="shadow"></div>
+				</div>
+				
+				<div>
+				<a href="./tupian/wyzp/201807/t20180711_17594055.htm" target="_blank"><img src="./tupian/wyzp/201807/W020180711555709314311.jpg" alt="33.jpg" width="600" height="400"/></a>
+				<p><a href="./tupian/wyzp/201807/t20180711_17594055.htm" target="_blank" title="这个专业班上37名学生 男生只有一个">这个专业班上37名学生 男生只有一个</a></p>
+				<div class="shadow"></div>
+				</div>
+				
+				<div>
+				<a href="./tupian/wyzp/201807/t20180712_17597196.htm" target="_blank"><img src="./tupian/wyzp/201807/W020180712337059437044_600.jpg" alt="7月11日，游人在青岛栈桥海滨戏浪。今年第8号台风“玛莉亚”7月11日9时10分在福建连江沿海登陆，受台风外围影响，黄海海域风浪持续，青岛海滨大浪奔涌惊涛拍岸，栈桥封闭谢客。" width="600" height="400"/></a>
+				<p><a href="./tupian/wyzp/201807/t20180712_17597196.htm" target="_blank" title="青岛：受台风“玛莉亚”外围环流影响 栈桥掀起大浪">青岛：受台风“玛莉亚”外围环流影响 栈桥掀起大浪</a></p>
+				<div class="shadow"></div>
+				</div>
+				
+			</div>
+				<div class="arrow1"></div>
+				<div class="arrow2"></div>
+			</div>
+		<script type="text/javascript">
+			$('#slides11').slides({
+				preload: false,
+				preloadImage: 'img/loading.gif',
+				play: 3500,
+				pause: 2500,
+				generatePagination:false,
+				hoverPause: true,
+				next: 'arrow2',
+                prev: 'arrow1'
+			});
+		</script>
+			<div class="blank25"></div>
+			<div class="left">
+			<div id="ad_l1"></div>
+				<div class="blank20"></div>
+				<div class="block">
+					<div class="title5">
+						<span><a href="http://dv.dzwww.com/">大众视窗</a></span>
+						<label><a href="http://dv.dzwww.com/vxt/">V笑谈</a></label>
+						<!--<label><a href="http://v.dzwww.com/zyll/">周舆来了</a></label>-->
+						<div class="clear"></div>
+					</div>
+					<div class="pic-news7">
+						
+							<div class="photo">
+							<a href="http://dv.dzwww.com/jdsp/201807/t20180712_17597471.htm" target="_blank"><img src="http://dv.dzwww.com/jdsp/201807/W020180712349584900400_105.png" alt="TIM截图20180712093748.png" width="105" height="90"/></a>
+							<a href="http://dv.dzwww.com/jdsp/201807/t20180712_17597471.htm" class="play" target="_blank"></a>
+						</div>
+						<p><a href="http://dv.dzwww.com/jdsp/201807/t20180712_17597471.htm" target="_blank" title="西班牙奔牛节已致多人受伤">西班牙奔牛节已致多人受伤</a></p>
+							
+					</div>
+					<div class="list14-26 video">
+						<ul>
+							
+							<li><a href="http://dv.dzwww.com/jdsp/201807/t20180712_17597465.htm" target="_blank" title="瑞士就美国钢铝关税向WTO申诉">瑞士就美国钢铝关税向WTO申诉</a></li>
+							
+							<li><a href="http://dv.dzwww.com/jdsp/201807/t20180712_17597463.htm" target="_blank" title="皇马官方宣布C罗转会尤文">皇马官方宣布C罗转会尤文</a></li>
+							
+							<li><a href="http://dv.dzwww.com/jdsp/201807/t20180712_17597185.htm" target="_blank" title="烟台试行共有产权房常态化供应">烟台试行共有产权房常态化供应</a></li>
+							
+							<li><a href="http://dv.dzwww.com/jdsp/201807/t20180712_17597171.htm" target="_blank" title="2018年青岛市积分落户公告发布">2018年青岛市积分落户公告发布</a></li>
+							
+							<li><a href="http://dv.dzwww.com/jdsp/201807/t20180712_17597163.htm" target="_blank" title="今天填报本科提前批征集志愿">今天填报本科提前批征集志愿</a></li>
+							
+							<li><a href="http://dv.dzwww.com/jdsp/201807/t20180712_17597158.htm" target="_blank" title="山东部署汛期暑期安全生产工作">山东部署汛期暑期安全生产工作</a></li>
+							
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="blank15"></div>
+				<div class="block">
+					<div class="title5">
+						<span><a href="http://www.dzwww.com/2009jczt/">今日专题</a></span>
+						<div class="clear"></div>
+					</div>
+					<div class="pic-news7">
+						
+							<div class="photo">
+							<a href="https://www.dzwww.com/2018/worldcup/" target="_blank"><img src="https://www.dzwww.com/2009jczt/newzt/201806/W020180613644020654911_105.jpg" alt="01.jpg" width="105" height="90"/></a>
+						</div>
+						<p><a href="https://www.dzwww.com/2018/worldcup/" target="_blank" title="千顶追球--大众网2018世界杯特别报道">千顶追球--大众网2018世界杯特别报道</a></p>
+							
+					</div>
+					<div class="list14-26">
+						<ul>
+							
+							<li><a href="https://www.dzwww.com/2018/jjgjzdgc/" target="_blank" title="聚焦国家重点工程">聚焦国家重点工程</a></li>
+							
+							<li><a href="https://www.dzwww.com/2018/wlcx/" target="_blank" title="第四届网络诚信宣传日">第四届网络诚信宣传日</a></li>
+							
+							<li><a href="https://www.dzwww.com/2018/yfjs/" target="_blank" title="第二季“一封家书”网络文化活动">第二季“一封家书”网络文化活动</a></li>
+							
+							<li><a href="http://www.sd-aiguo.com/index.php?m=content&c=index&a=lists&catid=243" target="_blank" title="爱国教育基地网上展馆巡展">爱国教育基地网上展馆巡展</a></li>
+							
+							<li><a href="https://www.dzwww.com/2018/wlzgjdw/" target="_blank" title="网络中国节·端午">网络中国节·端午</a></li>
+							
+							<li><a href="https://www.dzwww.com/2018/shzzqdfh/" target="_blank" title="上合组织青岛峰会">上合组织青岛峰会</a></li>
+							
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="blank15"></div>
+				<div class="block">
+					<div class="title5">
+						<span><a href="http://www.dzwww.com/2014/xwfbh/">权威发布</a></span>
+						<div class="clear"></div>
+					</div>
+					<div class="pic-news8">
+						
+						<h4><a href="https://www.dzwww.com/2018/shljqyhz/" target="_blank" title="解读山东深化与世界500强及领军企业合作方案">解读山东深化与世界500强及领军企业合作方案</a></h4>
+						<div class="photo">
+							<a href="https://www.dzwww.com/2018/shljqyhz/" target="_blank"><img src="https://www.dzwww.com/2014/xwfbh/fbhsl/201807/W020180710382636894813_105.jpg" alt="01.jpg" width="105" height="105"/></a>
+						</div>
+						<div class="text">省政府新闻办公室定于2018年7月10日（星期二）上午10:00举行“实施新旧动能转换重大工程”系列发布会第8场，邀请省商务厅负责同志解...<a href="https://www.dzwww.com/2018/shljqyhz/" target="_blank">[详细]</a></div>
+						
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="blank15"></div>
+				<div class="block">
+					<div class="title5">
+						<span><a href="http://bbs.dzwww.com/forum-1611-1.html">爆料&nbsp;&nbsp;回声</a></span>
+						<div class="clear"></div>
+					</div>
+					<div class="list14-26">
+						<ul>
+							
+							<li><a href="http://bbs.dzwww.com/thread-57663709-1-1.html" target="_blank" title="关于《深圳鹏程医院是黑心医院》的回复">关于《深圳鹏程医院是黑心医院》的回复</a></li>
+							
+							<li><a href="http://bbs.dzwww.com/thread-57663726-1-1.html" target="_blank" title="关于《威海福神整形医院诈骗》的回复">关于《威海福神整形医院诈骗》的回复</a></li>
+							
+							<li><a href="http://bbs.dzwww.com/thread-57672321-1-1.html" target="_blank" title="关于《日照港灯盘意外落地瞬间》的回复">关于《日照港灯盘意外落地瞬间》的回复</a></li>
+							
+							<li><a href="http://bbs.dzwww.com/thread-57690742-1-1.html" target="_blank" title="关于《郓城二十五年没解决的计划生育》的回复">关于《郓城二十五年没解决的计划生育》的回复</a></li>
+							
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="right">
+				<div  id="ad_l2" ></div>
+				<div class="blank20"></div>
+				<div class="block" id='qh1'>
+					<div class="title6" id='title6'>
+						<span class="current"><a href="http://www.dzwww.com/tgmb/">图个明白</a><i></i></span>
+						<span><a href="http://www.dzwww.com/redu/">热读</a><i></i></span>
+						<div class="clear"></div>
+					</div>
+					<div class="pic-news9">
+						
+						<a href="https://www.dzwww.com/2018/zsyz/zxgx/201807/t20180711_17595225.htm" target="_blank"><img src="https://www.dzwww.com/tgmb/tb/201807/W020180712329794939165_205.jpg" alt="QQ截图20180712090900.jpg" width="205" height="145"/></a>
+						<div class="text">
+							<div class="shadow"></div>
+							<p><a href="https://www.dzwww.com/2018/zsyz/zxgx/201807/t20180711_17595225.htm" target="_blank" title="招商引资招才引智，山东省这样出大招">招商引资招才引智，山东省这样出大招</a></p>
+						</div>
+						
+					</div>
+					<div class="pic-news9">
+						
+						<a href="./redu/201807/t20180704_17566712.htm" target="_blank"><img src="https://www.dzwww.com/redu/201807/W020180705563773990957_205.jpg" alt="VCG111157002045.jpg" width="205" height="145"/></a>
+						<div class="text">
+							<div class="shadow"></div>
+							<p><a href="./redu/201807/t20180704_17566712.htm" target="_blank" title="教育部长：对大学生要合理“增负” 改变轻松毕业的情况">教育部长：对大学生要合理“增负” 改变轻松毕业的情况</a></p>
+						</div>
+						
+					</div>
+				</div>
+				<div class="blank20"></div>
+				<div class="block">
+					<div class="title6"><a href="http://www.dzwww.com/dldc/"><img src="http://www.dzwww.com/tpl/v2015/images/ly30-title1.gif" alt="独立调查" /></a></div>
+					<div class="pic-news9">
+						
+						<a href="https://www.dzwww.com/dldc/lsmyq/" target="_blank"><img src="https://www.dzwww.com/list/201806/W020180629625560024173_205.jpg" alt="审判席.jpg" width="205" height="145"/></a>
+						<div class="text">
+							<div class="shadow"></div>
+							<p><a href="https://www.dzwww.com/dldc/lsmyq/" target="_blank" title="山东首起侵犯烈士名誉权公益诉讼案宣判">山东首起侵犯烈士名誉权公益诉讼案宣判</a></p>
+						</div>
+						
+					</div>
+				</div>
+				<div class="blank20"></div>
+				<div class="block" id='qh2'>
+					<div class="title6" id='title66'>
+						<span class="current"><a href="http://www.dzwww.com/bsy/"><img src="http://www.dzwww.com/tpl/v2015/images/ly30-title2.gif" alt="爆三样" /></a><i></i></span>
+						<span><a href="http://www.dzwww.com/zzjx/"><img src="http://www.dzwww.com/tpl/v2015/images/ly30-title3.gif" alt="正在进行" /></a><i></i></span>
+						<div class="clear"></div>
+					</div>
+					<div class="pic-news9">
+						
+						<a href="./bsy/201806/t20180625_17526828.htm" target="_blank"><img src="https://www.dzwww.com/bsy/201806/W020180625394105385849_205.jpg" alt="QQ截图20180625104952.jpg" width="205" height="145"/></a>
+						<div class="text">
+							<div class="shadow"></div>
+							<p><a href="./bsy/201806/t20180625_17526828.htm" target="_blank" title="【高考】29所名校预估分数线出炉!山大：文615理626,鼓励报考！">【高考】29所名校预估分数线出炉!山大：文615理626,鼓励报考！</a></p>
+						</div>
+						
+					</div>
+					<div class="pic-news9">
+						
+						<a href="http://sd.dzwww.com/sdnews/201807/t20180711_17592077.htm" target="_blank"><img src="https://www.dzwww.com/zzjx/wk/201807/W020180711367485152778_205.jpg" alt="02.jpg" width="205" height="145"/></a>
+						<div class="text">
+							<div class="shadow"></div>
+							<p><a href="http://sd.dzwww.com/sdnews/201807/t20180711_17592077.htm" target="_blank" title="24小时待命 济南六百越野车主年救援逾千次">24小时待命 济南六百越野车主年救援逾千次</a></p>
+						</div>
+						
+					</div>
+				</div>
+				<script>
+	var navcity=L.tool.getByClass(document.getElementById("title66"),"span",'');
+	var cityCon=L.tool.getByClass(document.getElementById("qh2"),"div",'pic-news9');
+    taberFun(navcity,cityCon,{
+		on:"current",
+  		eventType:"mouseover",
+		preventBubble:false
+  	});
+  	var navcity=L.tool.getByClass(document.getElementById("title6"),"span",'');
+	var cityCon=L.tool.getByClass(document.getElementById("qh1"),"div",'pic-news9');
+    taberFun(navcity,cityCon,{
+		on:"current",
+  		eventType:"mouseover",
+		preventBubble:false
+  	});
+</script>
+				<div class="blank20"></div>
+					<div class="block2">
+					<div class="title">大众数字报</div>
+					<div class="content" id="dzwbao">
+						<select  id="selectsz1" >
+									  <option value="http://paper.dzwww.com">大众报业集团报刊</option>
+									  <option value="http://paper.dzwww.com/dzrb/">大众日报</option>
+									  <option value="http://paper.dzwww.com/ncdz/" >农村大众</option>
+									  <option value="http://paper.dzwww.com/qlwb/">齐鲁晚报</option>
+									  <option value="http://paper.dzwww.com/shrb/" > 生活日报</option>
+									  <option value="http://paper.dzwww.com/hsj/" > 黄三角早报</option>
+									  <option value="http://lzcb.lznews.cn/">鲁中晨报</option>
+									  <option value="http://bddsb.bandao.cn/">半岛都市报</option>
+									  <option value="http://lskb.bandao.cn/">蓝色快报</option>
+                                      <option value="http://jjdb.sdenews.com/">经济导报</option>
+									  <option value="http://bddsb.bandao.cn/" >城市信报</option>
+									  <option value="http://paper.dzwww.com/sdfzb/">山东法制报</option>
+									  <option value="http://paper.dzwww.com/xcb/">新晨报</option>
+									  <option value="http://paper.dzwww.com/dzrbhwbbm/">大众日报海外版(北美)</option>
+									  <option value="http://paper.dzwww.com/dzrbhwbnm/">大众日报海外版(南美)</option>
+									  <option value="http://paper.dzwww.com/dzrbhwbyn/">大众日报海外版(印尼)</option>
+									  <option value="http://epaper.langya.cn/">沂蒙晚报</option>
+									  <option value="http://epaper.langya.cn/">鲁南商报</option>
+									  <option value="http://paper.dzwww.com/inlink/wfwb.htm">潍坊晚报</option>
+								</select>
+						<select  id="selectsz3" >
+									  <option>中央知名报刊</option>
+									  <option value="http://paper.people.com.cn/">人民日报</option>
+									  <option value="http://www.people.com.cn/GB/paper39/">人民日报海外版</option>
+									  <option value="http://paper.people.com.cn/jhsb/paperindex.htm">京华时报</option>
+									  <option value="http://paper.people.com.cn/gjjrb/paperindex.htm">国际金融报</option>
+									  <option value="http://paper.people.com.cn/jnsb/paperindex.htm">江南时报</option>
+									  <option value="http://paper.people.com.cn/zgnyb/paperindex.htm">中国能源报</option>
+									  <option value="http://paper.people.com.cn/jksb/paperindex.htm">健康时报</option>
+									  <option value="http://paper.people.com.cn/smsb/paperindex.htm">生命时报</option>
+									  <option value="http://paper.people.com.cn/fcyym/paperindex.htm">讽刺与幽默</option>
+									  <option value="http://epaper.cqd.com.cn/">中国质量报</option>
+									  <option value="http://www.cpd.com.cn/gb/newspaper/14.htm">人民公安报</option>
+									  <option value="http://gb.cri.cn/world_news_journal/">世界新闻报</option>
+									  <option value="http://rmfyb.chinacourt.org/">人民法院报</option>
+									  <option value="http://paper.jyb.cn/">中国教育报</option>
+									  <option value="http://newspaper.jcrb.com/dzb/">检察日报</option>
+									  <option value="http://zqb.cyol.com/">中国青年报</option>
+									  <option value="http://qnck.cyol.com/">青年参考</option>
+									  <option value="http://www.gmw.cn/03rili/jbcx_gb.htm">光明日报</option>
+									  <option value="http://www.metrotravel.cn/">青年商旅报</option>
+									  <option value="http://ermyd.cnii.com.cn/">人民邮电报</option>
+									  <option value="http://paper.zgjtb.com/jtb/">中国交通报</option>
+									  <option value="http://www.chinamil.com.cn/site1/gfbmap/gfbmap.htm">中国国防报</option>
+									  <option value="http://www.chinamil.com.cn/site1/jfjbmap/jfjbmap.htm">解放军报</option>
+									  <option value="http://www.greentimes.com/greentimepaper/paperindex.htm">中国绿色时报</option>
+									  <option value="http://www.china-woman.com/rp/clt/main?fid=clt_ReaderFree">中国妇女报</option>
+									  <option value="http://www.zgqxb.com.cn/epaper/uniflows/default.htm">中国气象报</option>
+									  <option value="http://www.huanqiu.com/newspaper/default.html">环球时报</option>
+									  <option value="http://www.legaldaily.com.cn/bm/node_5.htm">法制日报</option>
+									  <option value="http://paper.ce.cn/">经济日报</option>
+									  <option value="http://www.clssn.com/">中国劳动保障报</option>
+									  <option value="http://211.144.158.172/jkb/">健康时报</option>
+									  <option value="http://news.idoican.com.cn/zgcjxwb/paperindex.htm">中国产经新闻报</option>
+									  <option value="http://www.farmer.com.cn/wlb/yyb/default.htm">中国渔业报</option>
+								</select>
+						<select  id="selectsz2" >
+									  <option>省内重点报刊</option>
+									  <option value="http://paper.dzwww.com/inlink/e23.htm">济南日报</option>
+									  <option value="http://jnsb1.e23.cn/">济南时报</option>
+									  <option value="http://dsnb1.e23.cn/">都市女报</option>
+									  <option value="http://jkb1.e23.cn/">当代健康报</option>
+									  <option value="http://rkb1.e23.cn/">人口导报</option>
+									  <option value="http://paper.dzwww.com/inlink/Qribao.htm">青岛日报</option>
+									  <option value="http://paper.dzwww.com/inlink/Qribao.htm">青岛早报</option>
+									  <option value="http://paper.dzwww.com/inlink/Qribao.htm">青岛晚报</option>
+									  <option value="http://paper.dzwww.com/inlink/Qribao.htm">老年生活报</option>
+									  <option value="http://epaper.qdcaijing.com/">青岛财经日报</option>
+									  <option value="http://biz.shm.com.cn/new10/paper/index.shtml">烟台日报</option>
+									  <option value="http://biz.shm.com.cn/new10/paper/index.shtml">烟台晚报</option>
+									  <option value="http://biz.shm.com.cn/new10/paper/index.shtml">今晨六点</option>
+									  <option value="http://biz.shm.com.cn/new10/paper/index.shtml">华夏酒报</option>
+									  <option value="http://epaper.jn001.com/">济宁日报</option>
+									  <option value="http://epaper.jn001.com/">济宁晚报</option>
+									  <option value="http://paper.dzwww.com/inlink/whrb.htm">威海日报</option>
+									  <option value="http://paper.dzwww.com/inlink/whrb.htm">威海晚报</option>
+									  <option value="http://paper.dzwww.com/inlink/rzrb.htm">日照日报</option>
+									  <option value="http://paper.dzwww.com/inlink/rzrb.htm">黄海晨刊</option>
+									  <option value="http://paper.dzwww.com/inlink/wfrb.htm">潍坊日报</option>
+									  <option value="http://wfwb.wfnews.com.cn/content/20110929/Page01RZ.htm">潍坊晚报</option>
+									  <option value="http://www.admaimai.com/NewsPaper/NewsletterUrl.aspx?id=259">聊城日报</option>
+									  <option value="http://lcwb.lcxw.cn/index.asp">聊城晚报</option>
+									  <option value="http://paper.dzwww.com/inlink/lwrb.htm">莱芜日报</option>
+									  <option value="http://szb.dongyingnews.cn:8018/">东营日报</option>
+									  <option value="http://paper.dzwww.com/inlink/hzrb.htm">菏泽日报</option>
+									  <option value="http://epaper.hezeribao.com/shtml/index_mdwb.shtml">牡丹晚报</option>
+									  <option value="http://epaper.my0538.com/hgzplpmrdx/taianribao/content/20110929/Page01YF.htm">泰安日报</option>
+									  <option value="http://epaper.my0538.com/hgzplpmrdx/tswb/content/20110929/PageA01YF.htm">泰山晚报</option>
+									  <option value="http://www.bzcm.net/epaper/bzrb/html/2011-09/29/node_22.htm">滨州日报</option>
+									  <option value="http://www.bzcm.net/epaper/lbwb/html/2011-09/29/node_2.htm">鲁北晚报 </option>
+									  <option value="http://www.ln632.com/zzdaily/zzrb/index.htm">枣庄日报</option>
+									  <option value="http://www.ln632.com/zzdaily/lnck/index.htm">枣庄晚报</option>
+									  <option value="http://epaper.dezhoudaily.com/">德州日报</option>
+									  <option value="http://epaper.dezhoudaily.com/">德州晚报</option>
+									  <option value="http://epaper.langya.cn/shtml/linyrb/20110929/index.shtml">临沂日报</option>
+									  <option value="http://epaper.langya.cn/shtml/ymwb/20110929/index.shtml">沂蒙晚报</option>
+									  <option value="http://epaper.langya.cn/shtml/lnsb/20110322/index.shtml">鲁南商报</option>
+									  <option value="http://www.zbnews.net/ziboribaodzb/index.htm">淄博日报</option>
+									  <option value="http://www.zbnews.net/zibowanbaodzb/index.htm">淄博晚报</option>
+									  <option value="http://www.zbnews.net/yintimeibaodzb/index.htm">音体美报</option>
+                               </select>
+						  <select id="selectsz4" >
+									  <option>省外知名报刊</option>
+									  <option value="http://epaper.dahe.cn/dhb/">大河报</option>
+									  <option value="http://epaper.hebnews.cn/main.aspx?PaperType=yzdsb">燕赵都市报</option>
+									  <option value="http://epaper.daynews.com.cn/shtml/index_sxwb.shtml">山西晚报</option>
+									  <option value="http://epaper.voc.com.cn/sxdsb">三湘都市报</option>
+									  <option value="http://ctdsb.cnhubei.com/cache/paper_ctdsb.aspx">楚天都市报</option>
+									  <option value="http://wccdaily.scol.com.cn/epaper/hxdsb">华西都市报</option>
+									  <option value="http://epaper.lnd.com.cn/index.aspx?paperType=lswb">辽沈晚报</option>
+									  <option value="http://epaper.hljnews.cn/shb/">生活报</option>
+									  <option value="http://www.nanfangdaily.com.cn/epaper/nfds/">南方都市报</option>
+									  <option value="http://www.zjdaily.com.cn/qjwb/">钱江晚报</option>
+									  <option value="http://hxdsb.fjnet.cn">海峡都市报</option>
+									  <option value="http://www.jxnews.com.cn/jndsb/">江南都市报</option>
+									  <option value="http://esqb.sanqindaily.com/">三秦都市报</option>
+									  <option value="http://ngdsb.hinews.cn/">南国都市报</option>
+									  <option value="http://epaper.yangtse.com">扬子晚报</option>
+									  <option value="http://epaper.anhuinews.com/xawb.aspx">新安晚报</option>
+									  <option value="http://epaper.bjd.com.cn/wb/">北京晚报</option>
+									  <option value="http://epaper.thebeijingnews.com/xjb">新京报</option>
+									  <option value="http://epaper.tianjinwe.com/mrxb">每日新报</option>
+									  <option value="http://www.xmwb.com.cn/xmwb">新民晚报"</option>
+								</select>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="column2">
+			<div class="blank5"></div>
+			<div class="zb">
+				<div class="left">
+					
+					<span><a href="http://zhongbo.dzwww.com/"><img src="http://www.dzwww.com/tpl/v2015/images/ly31-zb.gif" /></a></span>
+					<label><a href="http://zhongbo.dzwww.com/" target="_blank" title="高考录取分数线公布">高考录取分数线公布</a></label>
+					
+				</div>
+				<div class="right">
+					
+					<span><a href="http://bbs.dzwww.com/forum-2418-1.html"><img src="http://www.dzwww.com/tpl/v2015/images/ly31-zp.gif" /></a></span>
+					<label><a href="http://bbs.dzwww.com/thread-57726763-1-1.html" target="_blank" title="蓝石大溪地采风">蓝石大溪地采风</a></label>
+					
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="blank20"></div>
+			<div class="block">
+				<div class="title4b">
+					<span><a href="http://sd.dzwww.com/sdnews/">山东新闻</a></span><i></i>
+					<div class="clear"></div>
+				</div>
+				<ul class="list16-32">
+					
+					<div class=TRS_Editor><li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596400.htm">山东7万名河长一体化动态管理 系统管河管人管事</a></li>
+<li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596910.htm">山东出台新规！乡镇工作人员收入将高于县直机关</a></li>
+<li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596377.htm">2018年《财富》中国500强出炉 山东21家企业上榜</a></li>
+<li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596451.htm">山东今年首招公费农科生 录取分数超普通农科生</a></li>
+<li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596764.htm">济南发挥生态禀赋优势 以两山理论打造三宜之城</a></li>
+<li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596379.htm">未婚率VS老龄化率，这些城市该收“单身税”了！</a></li>
+<li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596607.htm">青岛确定实施“1045”行动 建设国际海洋名城</a></li>
+<li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596773.htm">济南PM2.5浓度首达国标 气质改善率6月排名第一</a></li>
+<li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596453.htm">淄博发高温橙色预警！山东大部地区最高温破35℃</a></li></div>
+				
+				</ul>
+			</div>
+			<div class="blank20"></div>
+			<div class="block">
+				<div class="title4b">
+					<span><a href="http://www.dzwww.com/dzwpl/gdsp/hyjy/">海右今语</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.dzwww.com/dzwpl/">敢当时评</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.dzllzg.com/">理论之光</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://binzhou.dzwww.com/bhcp/">渤海潮评</a></span><i></i>
+				<div class="clear"></div>
+				</div>
+				<ul class="list16-32 list16-32b">
+					
+					<li><span>【时评】</span><a href="http://www.dzllzg.com/gdspsy/201807/t20180712_17597816.html" target="_blank" title="激发脱贫的内生动力">激发脱贫的内生动力</a></li>
+					
+					<li><span>【时评】</span><a href="http://www.dzllzg.com/gdspsy/201807/t20180712_17597815.html" target="_blank" title="让消费回归简约自然">让消费回归简约自然</a></li>
+					
+					
+					<li><span>【理论】</span><a href="http://www.dzllzg.com/llzgsy/201807/t20180712_17597932.html" target="_blank" title="新思想开辟马克思主义新境界">新思想开辟马克思主义新境界</a></li>
+					
+					<li><span>【理论】</span><a href="http://www.dzllzg.com/llzgsy/201807/t20180712_17597931.html" target="_blank" title="认识把握意识形态工作发展态势">认识把握意识形态工作发展态势</a></li>
+					
+				</ul>
+			</div>
+			<div class="blank15"></div>
+			<div id="ad_r1"></div>
+			<div class="blank20"></div>
+				<div class="block" id='xw'>
+				<div class="title4">
+					<span><a href="#">城市新闻</a></span>
+					<label>济南</label>
+					<div class="tab" id='csxw'>
+						切换
+						<div class="tab-drop" style="display:;">
+							<dl>
+								<dd><a  data='jn'>济南</a></dd>
+								<dd><a  data='qd'>青岛</a></dd>
+								<dd><a  data='zz'>枣庄</a></dd>
+								<dd><a  data='wh'>威海</a></dd>
+								<dd><a  data='yt'>烟台</a></dd>
+								<dd><a  data='wf'>潍坊</a></dd>
+								<dd><a  data='jng'>济宁</a></dd>
+								<dd><a  data='lc'>聊城</a></dd>
+								<dd><a  data='rz'>日照</a></dd>
+								<dd><a  data='bz'>滨州</a></dd>
+								<dd><a  data='dz'>德州</a></dd>
+								<dd><a  data='ly'>临沂</a></dd>
+								<dd><a  data='hz'>菏泽</a></dd>
+								<dd><a  data='dy'>东营</a></dd>
+								<dd><a  data='ta'>泰安</a></dd>
+								<dd><a  data='zb'>淄博</a></dd>
+								<dd><a  data='lw'>莱芜</a></dd>
+								<div class="clear"></div>
+							</dl>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				 <!--城市新闻-->
+				 <!--城市新闻-->
+			</div>
+			<div class="blank20"></div>
+			<div class="block">
+				<div class="title4">
+					<span><a href="http://news.dzwww.com">要闻速递</a></span>
+					<p><a href="http://www.dzwww.com/xinwen/guoneixinwen">国内</a><a href="http://www.dzwww.com/xinwen/guojixinwen">国际</a><a href="http://sd.dzwww.com/">山东</a><a href="http://www.dzwww.com/dzwpl">评论</a><a href="http://sports.dzwww.com">体育</a><a href="http://www.dzwww.com/yule">娱乐</a><a href="http://www.dzwww.com/xinwen/shehuixinwen/">百态</a></p>
+					<div class="clear"></div>
+				</div>
+				
+					<div class=TRS_Editor><ul class="list16-32">
+    <li><b><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596768.htm">贸易战或再升级 中国不得不作出必要反制 </a></b></li>
+    <li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596655.htm">济青高铁胶州北站到红岛站区间铺轨 9月全线轨通</a></li>
+    <li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596765.htm">全军首次面向社会招考文职人员 今起网上报名</a></li>
+    <li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596745.htm">国家发改委:取消电网企业部分垄断性服务收费项目</a></li>
+    <li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596687.htm">山东新规:乡镇工作人员收入将高于县直机关</a></li>
+    <li><a target="_blank" href="https://sd.dzwww.com/sdnews/201807/t20180712_17596656.htm">未婚率VS老龄化率 山东这些城市该收"单身税"了!</a></li>
+    <li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596704.htm">毕业季房租涨了！两类人抢着租房 有中介乱收钱</a></li>
+    <li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596707.htm">中国籍姐妹在日遇害案 检方要求判处被告死刑</a></li>
+</ul>
+<div class="pic-news6"><a href="https://sd.dzwww.com/shandongtupian/201807/t20180712_17596601.htm"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" oldsrc="W020180712285433726998.jpg" complete="complete" src="./synr/ttbt/201502/W020180712285433726998.jpg" /></a>
+<h3><a target="_blank" href="https://sd.dzwww.com/shandongtupian/201807/t20180712_17596601.htm">探访青岛啤酒城精酿金啤体验馆 游客可品尝现酿啤酒</a></h3>
+</div>
+<ul class="list16-32">
+    <li><b><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596537.htm">设计方案出炉!30公里黄河公园带再现“鹊华秋色”</a></b></li>
+    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596573.htm">准备好简历!山东这家省属事业单位招聘工作人员56名</a></li>
+    <li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596694.htm">支付行业迎"断直连"监管新规 告别"补贴"时代</a></li>
+    <li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596762.htm">中国酝酿抗癌药省级专项集中采购 实现价格下降</a></li>
+    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596571.htm">济南仲宫石板路如何保护开发？有待南山大规划出台</a></li>
+    <li><a href="https://www.dzwww.com/xinwen/shehuixinwen/201807/t20180712_17596861.htm">北京西站"高价"停车场设最高封顶价:一天360元</a></li>
+    <li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596688.htm">冒险打赏网络女主播案屡发生 他为何铤而走险？ </a></li>
+    <li><a href="https://www.dzwww.com/xinwen/shehuixinwen/201807/t20180712_17596827.htm">广电总局：选秀节目播前要经专家严格评估</a></li>
+</ul>
+<div class="pic-news6"><a href="https://www.dzwww.com/2018/worldcup/news/201807/t20180712_17596147.htm"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" oldsrc="W020180712205238448326.jpg" complete="complete" src="./synr/ttbt/201502/W020180712205238448326.jpg" /></a>
+<h3><a target="_blank" href="https://www.dzwww.com/2018/worldcup/news/201807/t20180712_17596147.htm">曼朱补时绝杀 克罗地亚2-1逆转英格兰历史首进决赛</a></h3>
+</div>
+<ul class="list16-32">
+    <li><b><a href="http://sports.dzwww.com/news/201807/t20180712_17596170.htm">小国奇迹 仅420万人口建国27年踢世界杯决赛</a></b></li>
+    <li><a target="_blank" href="http://sports.dzwww.com/news/201807/t20180712_17596172.htm">失赛点后遭惊天逆转 费德勒无缘温网4强</a></li>
+    <li><a href="https://www.dzwww.com/xinwen/shehuixinwen/201807/t20180712_17596808.htm">调查:62.6%受访者不太信任"电商定制版"商品</a></li>
+    <li><a href="https://www.dzwww.com/xinwen/shehuixinwen/201807/t20180712_17596795.htm">毕业论文市场产业链调查:根据买家需要提供服务</a></li>
+    <li><a href="https://www.dzwww.com/xinwen/shehuixinwen/201807/t20180712_17596855.htm">台风蓝色预警解除 湖南江西湖北仍有大到暴雨</a></li>
+    <li><a href="https://www.dzwww.com/xinwen/shehuixinwen/201807/t20180712_17596913.htm">网约车司机开"斗气车"酿祸 涉嫌危险驾驶被拘</a></li>
+    <li><a href="https://www.dzwww.com/xinwen/shehuixinwen/201807/t20180712_17596922.htm">"两弹一星"保密柜现身 挖掘历史与现代的结合</a></li>
+    <li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596696.htm">关注网络诚信建设：撕开网络欺诈5张“假面具”</a></li>
+</ul></div>
+				
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank35"></div>
+<div class="blank15"></div>
+	<div id="layout31">
+		<div class="title">
+			<span>大众网全媒体矩阵</span>
+			<div class="line"></div>
+		</div>
+		<div class="list">
+			<ul>
+				<li><img src="http://www.dzwww.com/tpl/v2015/images/ly31-code1.gif" width="80" height="80" /><p>山东24小时</p></li>
+				<li><img src="http://www.dzwww.com/tpl/v2015/images/ly31-code2.gif" width="80" height="80" /><p>大众网官方微信</p></li>
+				<li><img src="http://www.dzwww.com/tpl/v2015/images/ly31-code3.gif" width="80" height="80" /><p>大众网官方微博</p></li>
+				<li><img src="http://www.dzwww.com/tpl/v2015/images/ly31-code6.gif" width="80" height="80" /><p>时政公众号爆三样</p></li>
+				<li><img src="http://www.dzwww.com/tpl/v2015/images/ly31-code5.gif" width="80" height="80" /><p>大众海蓝</p></li>
+				<li><img src="http://www.dzwww.com/tpl/v2015/images/ly31-code4.gif" width="80" height="80" /><p>大众网论坛</p></li>
+				<li><img src="http://www.dzwww.com/tpl/v2015/images/ly31-code7.gif" width="80" height="80" /><p>山东手机报</p></li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<div class="text">
+			<p class="strong">山东手机报订阅方式：</p>
+			<p>移动用户发送短信SD到10658000</p>
+			<p>联通用户发送短信SD到106558000678</p>
+			<p>电信用户发送短信SD到106597009</p>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank30"></div>
+    <div><div style="float:left" id="ad_gdd"></div><div style="float:right" id="ad_gdx"></div></div>
+    <div class="blank20"></div>
+	<!-- 1990 -->
+	<style>
+#subcrib .layout5{margin-bottom:15px;}
+#subcrib .title3{
+	padding:0px 25px 0px 5px;
+}
+#subcrib .title3 .more2{
+	background:url(http://www.dzwww.com/tpl/v2015/images/ly5-plus.gif) no-repeat left center;
+	padding-left:23px;
+	float:right;
+}
+#subcrib .title3 .select{
+	float:right;
+	width:885px;
+}
+#subcrib .title3 .select .btn2{
+		float:left;
+	padding:10px;
+	width:15px;
+	height:15px;
+	background:#f4f4f4 url(http://www.dzwww.com/tpl/v2015/images/ly5-minus.gif) no-repeat center center;
+	border:1px solid #e0e0e0;
+	border-top:none;
+	cursor:pointer;
+	overflow:hidden;
+}
+#subcrib .title3 .select .list{
+	float:right;
+	width:833px;
+	_padding-top:9px;
+}
+#subcrib .title3 .select .list li{
+	float:left;
+	width:49px;
+	color:#a8a8a8;
+}
+#subcrib .title3 .select .list li input{
+	vertical-align:middle;
+	margin-top:-2px;
+}
+#subcrib .layout5 .title3{
+	padding:0px 0px 0px 5px;
+}
+#subcrib .layout5 .title3 .more{
+	background:url(http://www.dzwww.com/tpl/v2015/images/ly5-plus.gif) no-repeat left center;
+	padding-left:23px;
+	margin-right:13px;
+}
+#subcrib .layout5 .title3 .select{
+	float:right;
+	width:880px;
+}
+#subcrib .layout5 .title3 .select .btn2{
+	float:left;
+	padding:10px;
+	width:15px;
+	height:15px;
+	background:#f4f4f4 url(http://www.dzwww.com/tpl/v2015/images/ly5-minus.gif) no-repeat center center;
+	border:1px solid #e0e0e0;
+	border-top:none;
+	cursor:pointer;
+	overflow:hidden;
+}
+#subcrib .layout5 .title3 .select .list{
+	float:right;
+	width:840px;
+	_padding-top:9px;
+	_height:27px;
+	padding-left:3px;
+	background:#f4f4f4;
+}
+#subcrib .layout5 .title3 .select .list li{
+	float:left;
+	width:49px;
+	color:#a8a8a8;
+}
+#subcrib .layout5 .title3 .select .list li input{
+	vertical-align:middle;
+	margin-top:-2px;
+}
+#subcrib .layout5 .title3 .btn3{
+	float:right;
+	border:1px solid #e0e0e0;
+	border-top:none;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-color:#f4f4f4;
+	height:35px;
+	width:35px;
+	cursor:pointer;
+}
+#subcrib .layout5 .title3 .plus{ background-image:url(http://www.dzwww.com/tpl/v2015/images/ly5-plus2.gif); }
+#subcrib .layout5 .title3 .minus{ background-image:url(http://www.dzwww.com/tpl/v2015/images/ly5-minus2.gif); }
+#subcrib .layout5 .content{
+	zoom:1;
+	margin:0px 0px 0px -35px;
+}
+#subcrib .layout5 .content .pic-news1{
+	float:left;
+	display:inline;
+	margin:18px 0px 0px 35px;
+	width:310px;
+	height:80px;
+	overflow:hidden;
+}
+#subcrib .layout5 .content .pic-news1 img{
+	height:80px;
+}
+#subcrib .layout5 .content .pic-news1 p{
+	color:#8c8c8c;
+	line-height:18px;
+	margin-top:5px;
+}
+	</style>
+	<div id="subcrib">
+	</div>
+	
+	<div class="blank25"></div>
+	<div id="layout6">
+		<div class="title">生活圈</div>
+		<div class="nav">
+			<ul id="local_tab_nav">
+				<li class="current" ><a href="http://club.dzwww.com/" target="_blank">论坛<br />热帖</a></li>
+				<li><a href="http://bbs.dzwww.com/paike/"  target="_blank">十七市<br />拍客</a></li>
+				<li><a href="http://www.dzwww.com/bbs/diaoyong/wyshq/pphd/" target="_blank">品牌<br />活动</a></li>
+				<li><a href="http://www.dzwww.com/bbs/diaoyong/wyshq/yhxx/" target="_blank">优惠<br />信息</a></li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<!--热帖-->
+        <div class="content" style="display:block" >加载中......
+		</div>
+        <!--热帖结束-->
+        <!--拍客-->
+        <div class="content" style="display:none;" >加载中......
+		</div>
+        <!--拍客结束-->
+        <!--品牌-->
+        <div class="content" style="display:none" >
+		<ul>
+            
+            <li>
+				<a href="http://sdqy.dzwww.com/jczt/fcmtx2018/" target="_blank"><img src="./bbs/diaoyong/wyshq/pphd/201806/W020180628580495588813.jpg" alt="“大爱民政 阳光福彩”福利彩票公益项目媒体采风活动_副本.jpg" border=0 width="160" height="120"/></a>
+				<h4><a href="http://sdqy.dzwww.com/jczt/fcmtx2018/" target="_blank" title="2018福利彩票公益项目媒体采风活动">2018福利彩票公益项目媒体采风活动</a></h4>
+			</li>
+            
+            <li>
+				<a href="https://www.dzwww.com/bbs/diaoyong/wyshq/pphd/" target="_blank"><img src="./bbs/diaoyong/wyshq/pphd/201806/W020180628579682679817.jpg" alt="聚焦新旧动能转换中的教育担当-2018媒体山东采风_副本.jpg" border=0 width="160" height="120"/></a>
+				<h4><a href="https://www.dzwww.com/bbs/diaoyong/wyshq/pphd/" target="_blank" title="聚焦新旧动能转换中的教育担当">聚焦新旧动能转换中的教育担当</a></h4>
+			</li>
+            
+            <li>
+				<a href="https://www.dzwww.com/bbs/diaoyong/wyshq/pphd/" target="_blank"><img src="./bbs/diaoyong/wyshq/pphd/201806/W020180628570101197872.jpg" alt="山东省研学旅行研讨推进会_副本.jpg" border=0 width="160" height="120"/></a>
+				<h4><a href="https://www.dzwww.com/bbs/diaoyong/wyshq/pphd/" target="_blank" title="2018山东省研学旅行研讨推进会">2018山东省研学旅行研讨推进会</a></h4>
+			</li>
+            
+            <li>
+				<a href="http://house.dzwww.com/zt/dsjfh/" target="_blank"><img src="./bbs/diaoyong/wyshq/pphd/201806/W020180628588781314100.jpg" alt="第3届山东房地产业年度峰会_副本.jpg" border=0 width="160" height="120"/></a>
+				<h4><a href="http://house.dzwww.com/zt/dsjfh/" target="_blank" title="第3届山东房地产业年度峰会">第3届山东房地产业年度峰会</a></h4>
+			</li>
+            
+            <li>
+				<a href="https://www.dzwww.com/bbs/diaoyong/wyshq/pphd/" target="_blank"><img src="./bbs/diaoyong/wyshq/pphd/201806/W020180628567659348872.jpg" alt="国际旅游交易会_副本.jpg" border=0 width="160" height="120"/></a>
+				<h4><a href="https://www.dzwww.com/bbs/diaoyong/wyshq/pphd/" target="_blank" title="2018国际旅游交易会">2018国际旅游交易会</a></h4>
+			</li>
+            
+            <li>
+				<a href="http://finance.dzwww.com/zt/0111/" target="_blank"><img src="./bbs/diaoyong/wyshq/pphd/201803/W020180312539031809520_160.jpg" alt="2018全省百万网友践行“蓝天责任”植树大行动.jpg" border=0 width="160" height="120"/></a>
+				<h4><a href="http://finance.dzwww.com/zt/0111/" target="_blank" title="2018“蓝天责任”植树大行动">2018“蓝天责任”植树大行动</a></h4>
+			</li>
+            
+            <li>
+				<a href="http://sdqy.dzwww.com/jczt/ppdll/" target="_blank"><img src="./bbs/diaoyong/wyshq/pphd/201712/W020171214584124533818.jpg" alt="未标题-1.jpg" border=0 width="160" height="120"/></a>
+				<h4><a href="http://sdqy.dzwww.com/jczt/ppdll/" target="_blank" title="山东著名品牌传播联席会">山东著名品牌传播联席会</a></h4>
+			</li>
+            
+            <li>
+				<a href="http://sdqy.dzwww.com/jczt/whxf/" target="_blank"><img src="./bbs/diaoyong/wyshq/pphd/201712/W020171214590164321035.jpg" alt="未标题-1.jpg" border=0 width="160" height="120"/></a>
+				<h4><a href="http://sdqy.dzwww.com/jczt/whxf/" target="_blank" title="首届文化惠民消费季品牌榜评选活动">首届文化惠民消费季品牌榜评选活动</a></h4>
+			</li>
+            
+            <li>
+				<a href="http://edu.dzwww.com/jxzt/xdxtzsdsj/" target="_blank"><img src="./bbs/diaoyong/wyshq/pphd/201709/W020170920494281309680.jpg" alt="现代学徒制的山东实践——2017全国网络媒体山东采风.jpg" border=0 width="160" height="120"/></a>
+				<h4><a href="http://edu.dzwww.com/jxzt/xdxtzsdsj/" target="_blank" title="现代学徒制的山东实践 全国网媒行">现代学徒制的山东实践 全国网媒行</a></h4>
+			</li>
+            
+            <li>
+				<a href="http://finance.dzwww.com/zt/17gg/" target="_blank"><img src="./bbs/diaoyong/wyshq/pphd/201709/W020170920490360751490.jpg" alt="金融服务 新旧动能转换研讨会.jpg" border=0 width="160" height="120"/></a>
+				<h4><a href="http://finance.dzwww.com/zt/17gg/" target="_blank" title="金融服务 新旧动能转换研讨峰会">金融服务 新旧动能转换研讨峰会</a></h4>
+			</li>
+            
+			<div class="clear"></div>
+			</ul>
+		</div>
+        <!--品牌结束-->
+        <!--优惠-->
+        <div class="content" style="display:none" >
+			<ul>
+				
+				<li>
+					<a href="http://www.zaisd.com/goods-4035.html" target="_blank"><img src="./bbs/diaoyong/wyshq/yhxx/js/201604/W020160927506485927028.jpg" alt="未标题-1.jpg" border=0 width="160" height="120"/></a>
+					<h4><a href="http://www.zaisd.com/goods-4035.html" target="_blank" title="日照圣谷山2015年绿茶茶叶春茶">日照圣谷山2015年绿茶茶叶春茶</a></h4>
+					<p class="bot2"><label>优惠价 69</label></p>
+				</li>
+				
+				<li>
+					<a href="http://www.zaisd.com/goods.php?id=4128" target="_blank"><img src="./bbs/diaoyong/wyshq/yhxx/js/201604/W020170519524877795619_160.png" alt="1.png" border=0 width="160" height="120"/></a>
+					<h4><a href="http://www.zaisd.com/goods.php?id=4128" target="_blank" title="正宗龙山小米袋装1千克">正宗龙山小米袋装1千克</a></h4>
+					<p class="bot2"><label>优惠价 33</label></p>
+				</li>
+				
+				<li>
+					<a href="http://www.zaisd.com/goods.php?id=4437" target="_blank"><img src="./bbs/diaoyong/wyshq/yhxx/js/201604/W020160927516147025834.jpg" alt="未标题-1.jpg" border=0 width="160" height="120"/></a>
+					<h4><a href="http://www.zaisd.com/goods.php?id=4437" target="_blank" title="宏济堂阿胶枣道地阿胶枣无核蜜枣小包装300g">宏济堂阿胶枣道地阿胶枣无核蜜枣小包 </a></h4>
+					<p class="bot2"><label>优惠价 29.8</label></p>
+				</li>
+				
+				<li>
+					<a href="http://www.zaisd.com/goods-3406.html" target="_blank"><img src="./bbs/diaoyong/wyshq/yhxx/js/201604/W020160927518490144847.jpg" alt="未标题-1.jpg" border=0 width="160" height="120"/></a>
+					<h4><a href="http://www.zaisd.com/goods-3406.html" target="_blank" title="景芝风雅 42.8°芝麻香白酒 电商专供">景芝风雅 42.8°芝麻香白酒 电商专供</a></h4>
+					<p class="bot2"><label>优惠价 368元</label></p>
+				</li>
+				
+				<li>
+					<a href="http://www.zaisd.com/goods-3316.html" target="_blank"><img src="./bbs/diaoyong/wyshq/yhxx/js/201604/W020160427624311434677_160.jpg" alt="3.jpg" border=0 width="160" height="120"/></a>
+					<h4><a href="http://www.zaisd.com/goods-3316.html" target="_blank" title="王光烧牛肉">王光烧牛肉</a></h4>
+					<p class="bot2"><label>优惠价 158元</label></p>
+				</li>
+				
+				
+				<li>
+					<a href="http://zyql.cn/scenic/info-200.html" target="_blank"><img src="./bbs/diaoyong/wyshq/yhxx/ly/201503/W020170220358896150076_160.png" alt="1.png" border=0 width="160" height="120"/></a>
+					<h4><a href="http://zyql.cn/scenic/info-200.html" target="_blank" title="泉城欧乐堡梦幻世界">泉城欧乐堡梦幻世界</a></h4>
+					<p class="bot2"><label>预定价 200元</label></p>
+				</li>
+				
+				<li>
+					<a href="http://zyql.cn/scenic/info-64.html" target="_blank"><img src="./bbs/diaoyong/wyshq/yhxx/ly/201503/W020170220361209741235.jpg" alt="2.jpg" border=0 width="160" height="120"/></a>
+					<h4><a href="http://zyql.cn/scenic/info-64.html" target="_blank" title="泉城海洋极地世界">泉城海洋极地世界</a></h4>
+					<p class="bot2"><label>预定价 180元</label></p>
+				</li>
+				
+				<li>
+					<a href="http://www.zyql.cn/scenic/info-385.html" target="_blank"><img src="./bbs/diaoyong/wyshq/yhxx/ly/201503/W020170220363354277781.jpg" alt="2.jpg" border=0 width="160" height="120"/></a>
+					<h4><a href="http://www.zyql.cn/scenic/info-385.html" target="_blank" title="济南野生动物世界">济南野生动物世界</a></h4>
+					<p class="bot2"><label>预定价 75元</label></p>
+				</li>
+				
+				<li>
+					<a href="http://www.zyql.cn/scenic/info-445.html" target="_blank"><img src="./bbs/diaoyong/wyshq/yhxx/ly/201503/W020170220364736777515.jpg" alt="2.jpg" border=0 width="160" height="120"/></a>
+					<h4><a href="http://www.zyql.cn/scenic/info-445.html" target="_blank" title="灵岩寺">灵岩寺</a></h4>
+					<p class="bot2"><label>预定价 55元</label></p>
+				</li>
+				
+				<li>
+					<a href="http://www.zyql.cn/scenic/info-390.html" target="_blank"><img src="./bbs/diaoyong/wyshq/yhxx/ly/201503/W020170220371648804817.jpg" alt="2.jpg" border=0 width="160" height="120"/></a>
+					<h4><a href="http://www.zyql.cn/scenic/info-390.html" target="_blank" title="梦想小镇儿童职业体验中心">梦想小镇儿童职业体验中心</a></h4>
+					<p class="bot2"><label>预定价 25元</label></p>
+				</li>
+				
+				<div class="clear"></div>
+			</ul>
+		</div>
+        <!--优惠结束-->
+		<div class="clear" ></div>
+	</div>
+	<div class="blank25"></div>
+	<div id="layout7" class="news-category">
+		<div class="main2">
+			<div class="title3">
+				<span><a href="http://sd.dzwww.com/" target="_blank">山东新闻</a></span>
+				<p class="more"><a href="http://www.dzwww.com/xinwen/shandongdongtai/" target="_blank">政务</a>·<a href="http://sd.dzwww.com//shrx/" target="_blank">社会</a>·<a href="http://www.dzwww.com/shandong/cj/" target="_blank">经济</a></p>
+				<div class="clear"></div>
+			</div>
+			<div class="left">
+				<div class="pic-news1">
+					
+                    <a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596763.htm" target="_blank"><img src="https://sd.dzwww.com/sdnews/201807/W020180712300894870329_90.jpg" alt="1_副本.jpg" border=0 width="90" height="70"/></a>
+	                <h3><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596763.htm" target="_blank" title="山东力度空前的“双招双引”咋施行？看图了解一下">山东力度空前的“双招双引”咋施行？看图了解一 </a></h3>
+                    
+					<div class="clear"></div>
+				</div>
+				<ul class="list14-30a">
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596740.htm" target="_blank" title="山东公费农科生首招，分数远超普通农科生">山东公费农科生首招，分数远超普通农科生</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596743.htm" target="_blank" title="淄博发高温橙色预警！山东大部地区最高温破35℃">淄博发高温橙色预警！山东大部地区最高温破35℃</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598278.htm" target="_blank" title="德州17个项目向全省金融部门推介 总投资392亿">德州17个项目向全省金融部门推介 总投资392亿</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598277.htm" target="_blank" title="山东省发首个“百强高企”榜 德州市4家入围">山东省发首个“百强高企”榜 德州市4家入围</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598181.htm" target="_blank" title="黄河公园带设计方案出炉 再现“鹊华秋色”">黄河公园带设计方案出炉 再现“鹊华秋色”</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598140.htm" target="_blank" title="决心有多大，“双招双引”的质量就有多高">决心有多大，“双招双引”的质量就有多高</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598084.htm" target="_blank" title="青岛“文明乡村·美丽家园” 微视频大赛启动">青岛“文明乡村·美丽家园” 微视频大赛启动</a></li>
+					
+				</ul>
+			</div>
+			<div class="right">
+				<div class="pic-news1">
+					
+                    <a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596701.htm" target="_blank"><img src="https://sd.dzwww.com/sdnews/201807/W020180712301637007038_90.jpg" alt="2_副本.jpg" border=0 width="90" height="70"/></a>
+	                <h3><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17596701.htm" target="_blank" title="不一样的啤酒节！世界最大灯光焰火秀将点亮青岛啤酒城">不一样的啤酒节！世界最大灯光焰火秀将点亮青岛啤酒城</a></h3>
+                    
+					<div class="clear"></div>
+				</div>
+				<ul class="list14-30a">
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598060.htm" target="_blank" title="华南理工大学—都灵理工大学联队创意满满 以竹筒屋为原型打造节能住宅">华南理工大学—都灵理工大学联队创意满满 以竹筒屋 </a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598059.htm" target="_blank" title="德州融入京津冀协同发展2018工作实施方案出台">德州融入京津冀协同发展2018工作实施方案出台</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598058.htm" target="_blank" title="济青高铁低速段铺轨 烟台至济南将缩短到2小时">济青高铁低速段铺轨 烟台至济南将缩短到2小时</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598056.htm" target="_blank" title="烟台中小学生7月16日至9月2日放暑假9月3日开学">烟台中小学生7月16日至9月2日放暑假9月3日开学</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598047.htm" target="_blank" title="乳山市农村精神文明建设:用文明之花扮靓美丽乡村">乳山市农村精神文明建设:用文明之花扮靓美丽乡村</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598045.htm" target="_blank" title="烟台大海阳路北段主车道11日完工 今晨7:00通车">烟台大海阳路北段主车道11日完工 今晨7:00通车</a></li>
+					
+                    <li><a href="https://sd.dzwww.com/sdnews/201807/t20180712_17598043.htm" target="_blank" title="抓乡风促文明 临沂积极推进乡村文明建设工程">抓乡风促文明 临沂积极推进乡村文明建设工程</a></li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="side2">
+			<div class="title3">
+				<span><a href="http://www.dzwww.com/dzwpl/" target="_blank">敢当时评</a></span>
+				<p class="more"><a href="http://www.dzwww.com/dzwpl/mspl/" target="_blank">剪子巷</a>·<a href="http://www.dzwww.com/dzwpl/gdyc/" target="_blank">PK台</a></p>
+				<div class="clear"></div>
+			</div>
+			
+            <div class="pic-news2">
+				
+                <h3><a href="./dzwpl/mspl/201807/t20180712_17598065.htm" target="_blank" title="决心有多大，“双招双引”的质量就有多高">决心有多大，“双招双引”的质量就有多高</a></h3>
+				
+				<p>招商引资的高质量源自高质量谋划，源自不断开辟对外开放新境界，源自一个又一个务实创新之举。决心有多...<a target="_blank"  href='https://www.dzwww.com/dzwpl/mspl/201807/t20180712_17598065.htm'>[详细]</a></p>
+                
+				<div class="clear"></div>
+			</div>
+			<ul class="list14-30b">
+				
+				  <li><a href="./dzwpl/mspl/201807/t20180712_17597698.htm" target="_blank" title="高质量发展，当下有为未来可期">高质量发展，当下有为未来可期</a></li>
+				  <li><a href="./dzwpl/mspl/201807/t20180711_17591642.htm" target="_blank" title="南方“取经”，以乐学勤思挥洒敢当情怀">南方“取经”，以乐学勤思挥洒敢当情怀</a></li>
+				  <li><a href="./dzwpl/mspl/201807/t20180711_17591596.htm" target="_blank" title="既要集中攻坚也要久久为功">既要集中攻坚也要久久为功</a></li>
+				  <li><a href="./dzwpl/mspl/201807/t20180710_17587556.htm" target="_blank" title="美丽中国呼唤全民行动">美丽中国呼唤全民行动</a></li>
+				  <li><a href="./dzwpl/mspl/201807/t20180710_17586481.htm" target="_blank" title="“走出去”激发山东“走上去”">“走出去”激发山东“走上去”</a></li>
+				  <li><a href="./dzwpl/mspl/201807/t20180709_17584225.htm" target="_blank" title="网络平台绝非失信者的“避风港”">网络平台绝非失信者的“避风港”</a></li>
+			</ul>
+            
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank10"></div>
+    <div style="width:1000px; margin:0 auto;"><div id="ad_a13" style="float:left"></div><div id="ad_a14" style="float:right"></div></div>
+    <div class="blank20"></div>
+	<div id="layout8" onmouseover="stop_auto_jk_box()">
+		<div class="jtz_box" id="jtz_show">
+			<div class="title3">
+				<span class="spanturn curspanturn"><a href="http://dzwww.com/special/ts/jtz/" target="_blank" onmouseover="turn_jk_box('jtz_box')">掘图志</a></span>
+				<span class="spanturn"><a href="http://v.dzwww.com/" target="_blank" onmouseover="turn_jk_box('ksp_box')">酷视频</a></span>
+				<div class="nav">
+					<ul id="juetu_tab_nav"><li class="current">1</li><li id="cicheng2">2</li><li id="cicheng3">3</li><div class="clear"></div></ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="content" style="display:block">
+				<ul>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180706_17576221.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180706583807962304_158.jpg" alt="7月4日，在济南泉城广场，记者发现泉标周围已经设有隔离区域，工人们正在泉标旁搭架子，据了解，本次泉标粉刷维修包括对泉标进行加固、密封、清洗和粉刷。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180706_17576221.htm" target="_blank" title="泉城广场泉标做“美容”">泉城广场泉标做“美容”</a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180706_17576218.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180706583133677260_158.jpg" alt="2018年7月5日，游人在青岛第一海水浴场避暑。7月以来，全国多地迎35度以上的高温酷暑天，海滨城市青岛气温持续维持在20多度，凉爽宜人。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180706_17576218.htm" target="_blank" title="青岛海水浴场下饺子般洗海澡">青岛海水浴场下饺子般洗 </a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180706_17576196.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180706579159292620_158.jpg" alt="2018年7月6日，在山东聊城大学图书馆内，大学生正在紧张的复习、备考，大学生席地而坐，认真背书和整理资料，走廊里、大厅内、窗户边也站着不少学生正在加紧的复习功课。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180706_17576196.htm" target="_blank" title="聊城：大学生期末努力奋战">聊城：大学生期末努力奋战</a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180706_17576192.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180706577726864458_158.jpg" alt="2018年7月6日，航拍济南新旧动能转换先行区管委会办公区域，简洁大气，现代感强，形似“快艇”，快速前行。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180706_17576192.htm" target="_blank" title="航拍济南新旧动能转换先行区办公区">航拍济南新旧动能转换先 </a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180704_17568156.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180704621969957200_158.jpg" alt="2018年7月3日上午，山东省博物馆迎来了“中正仁和——走进养心殿”大展开展，众多济南市民第一时间来到博物馆“尝鲜”看展。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180704_17568156.htm" target="_blank" title="故宫养心殿“摆驾”山东博物馆">故宫养心殿“摆驾”山东 </a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180704_17568112.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180704616637906077_158.jpg" alt="2018年7月4日讯（具体拍摄时间不详），英国威尔士，美丽的自然保护区巴德西岛正在招聘新“岛主”。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180704_17568112.htm" target="_blank" title="英小岛14万年薪招聘“岛主”">英小岛14万年薪招聘“岛 </a></p>
+					</li>
+					
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="content" style="display:none">
+				<ul>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180704_17568061.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180704612037451272_158.jpg" alt="2018年7月2日消息，山东枣庄。受持续干旱无有效降水和运河沿岸农业用水的影响，京杭运河山东枣庄段水位持续下降，目前已造成近500艘船舶滞留航道等待过闸。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180704_17568061.htm" target="_blank" title="京杭运河山东枣庄段限航">京杭运河山东枣庄段限航</a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180704_17568044.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180704609129498582_158.jpg" alt="7月3日，上海，只听说过给西瓜施肥浇水的，“喝”了牛奶的西瓜第一次看到，别人的西瓜论斤卖，这里的西瓜论个卖。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180704_17568044.htm" target="_blank" title="喝牛奶长大的西瓜">喝牛奶长大的西瓜</a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180702_17558246.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180702570147981389_158.jpg" alt="2018年7月1日，济南依旧是高温天气，当日最高气温达到了32℃，很多市民、游客来到护城河边亲泉纳凉，享受夏日清凉。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180702_17558246.htm" target="_blank" title="济南市民游客泉边纳凉">济南市民游客泉边纳凉</a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180702_17558231.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180702566707107851_158.jpg" alt="6月30日，济南绕城高速公路光伏公路试验段，由于路面的光伏电池破损，被施工单位封闭维修。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180702_17558231.htm" target="_blank" title="济南光伏公路运行半年破损挺多">济南光伏公路运行半年破 </a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180702_17558221.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180702564943680559_158.jpg" alt="当地时间2018年7月1日，美国，加州莱克县“波尼”(Pawnee)大火持续蔓延，现场烈火熊熊，过火面积达30000英亩（约合12150公顷）。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180702_17558221.htm" target="_blank" title="美加州火灾持续">美加州火灾持续</a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201807/t20180702_17558172.htm" target="_blank"><img src="./special/ts/jtz/201807/W020180702562002423145_158.jpg" alt="2018年7月1日，青岛市，随海潮涌入的浒苔将连三岛近海一线染绿，放眼望去彷如“绿洲”。" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201807/t20180702_17558172.htm" target="_blank" title="青岛又逢浒苔季">青岛又逢浒苔季</a></p>
+					</li>
+					
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="content" style="display:none">
+				<ul>
+					
+					<li>
+						<a href="./special/ts/jtz/201806/t20180628_17541405.htm" target="_blank"><img src="./special/ts/jtz/201806/W020180628353122672118_158.jpg" alt="VCG111157002027.jpg" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201806/t20180628_17541405.htm" target="_blank" title="中国传媒大学举行2018届毕业典礼 高颜值毕业生抢镜">中国传媒大学举行2018届 </a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201806/t20180628_17541401.htm" target="_blank"><img src="./special/ts/jtz/201806/W020180628353075719614_158.jpg" alt="VCG111157003972.jpg" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201806/t20180628_17541401.htm" target="_blank" title="雨后沂蒙山云海翻腾">雨后沂蒙山云海翻腾</a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201806/t20180628_17541400.htm" target="_blank"><img src="./special/ts/jtz/201806/W020180628353044619449_158.jpg" alt="VCG31N984885550.jpg" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201806/t20180628_17541400.htm" target="_blank" title="印度飞机遇鸽群被层层包围">印度飞机遇鸽群被层层包围</a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201806/t20180628_17541398.htm" target="_blank"><img src="./special/ts/jtz/201806/W020180628353013767651_158.jpg" alt="VCG111156930749.jpg" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201806/t20180628_17541398.htm" target="_blank" title="济南防空洞改造提升变避暑纳凉点">济南防空洞改造提升变避 </a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201806/t20180628_17541396.htm" target="_blank"><img src="./special/ts/jtz/201806/W020180628352965284636_158.jpg" alt="VCG111156939547.jpg" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201806/t20180628_17541396.htm" target="_blank" title="盛夏季节 青岛海鲜市场食材丰富">盛夏季节 青岛海鲜市场食 </a></p>
+					</li>
+					
+					<li>
+						<a href="./special/ts/jtz/201806/t20180628_17541393.htm" target="_blank"><img src="./special/ts/jtz/201806/W020180628352928267554_158.jpg" alt="VCG111156776508.jpg" border=0 width="158" height="110"/></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="./special/ts/jtz/201806/t20180628_17541393.htm" target="_blank" title="为防“喵星人”偷吃鱼 日照一农家院现三架山寨“战斗机”">为防“喵星人”偷吃鱼 日 </a></p>
+					</li>
+					
+					<div class="clear"></div>
+				</ul>
+			</div>
+			
+		</div>
+		<div class="ksp_box" style="display:none;" id="ksp_show">
+			<div class="title3">
+				<span class="spanturn"><a href="http://dzwww.com/special/ts/jtz/" target="_blank" onmouseover="turn_jk_box('jtz_box')">掘图志</a></span>
+				<span class="spanturn curspanturn"><a href="http://v.dzwww.com/" target="_blank" onmouseover="turn_jk_box('ksp_box')">酷视频</a></span>
+				<div class="nav">
+					<ul id="ksp_tab_nav"><li class="current">1</li><li id="cicheng2">2</li><li id="cicheng3">3</li><div class="clear"></div></ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="content" style="display:block">
+				<ul>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201806/t20180615_17495565.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201806/W020180615620245612514.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201806/t20180615_17495565.htm" target="_blank" title="大夫,我儿子是不是有心理障碍">大夫,我儿子是不是有心理 </a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201806/t20180615_17495497.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201806/W020180615611875230249.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201806/t20180615_17495497.htm" target="_blank" title="砍价很容易，只需一个动作">砍价很容易，只需一个动作</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201806/t20180601_17437822.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201806/W020180601373219810713.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201806/t20180601_17437822.htm" target="_blank" title="高考生们，请保护好视力">高考生们，请保护好视力</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201805/t20180524_17410210.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201805/W020180524394391983257.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201805/t20180524_17410210.htm" target="_blank" title="永远不要相信女人说的气话">永远不要相信女人说的气话</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201804/t20180423_17292827.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201804/W020180423344780651184.jpg" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201804/t20180423_17292827.htm" target="_blank" title="这只鹦鹉是属弹簧的">这只鹦鹉是属弹簧的</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201804/t20180408_17232668.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201804/W020180408340335206197.jpg" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201804/t20180408_17232668.htm" target="_blank" title="妹子，你这样能找到对象吗">妹子，你这样能找到对象吗</a></p>
+					</li>
+					
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="content" style="display:none">
+				<ul>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201804/t20180402_17214593.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201804/W020180402336172582450.jpg" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201804/t20180402_17214593.htm" target="_blank" title="英雄，你快过来啊">英雄，你快过来啊</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201804/t20180402_17214584.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201804/W020180402334373484235.jpg" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201804/t20180402_17214584.htm" target="_blank" title="一听到吃饭，脚下虎虎生风">一听到吃饭，脚下虎虎生风</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201803/t20180330_17207421.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201803/W020180330502502095886.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201803/t20180330_17207421.htm" target="_blank" title="忍痛割爱大概就是这样吧">忍痛割爱大概就是这样吧</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201803/t20180323_17181082.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201803/W020180323340184320991.jpg" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201803/t20180323_17181082.htm" target="_blank" title="策狗奔腾的感觉就是这样">策狗奔腾的感觉就是这样</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201803/t20180323_17180998.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201803/W020180323335964091212.jpg" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201803/t20180323_17180998.htm" target="_blank" title="好狗不吃眼前亏">好狗不吃眼前亏</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201803/t20180307_17121818.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201803/W020180307559329200986.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201803/t20180307_17121818.htm" target="_blank" title="喜迎客的小兔基">喜迎客的小兔基</a></p>
+					</li>
+					
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="content" style="display:none">
+				<ul>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201803/t20180307_17121789.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201803/W020180307558811249718.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201803/t20180307_17121789.htm" target="_blank" title="好像交了一堆新朋友">好像交了一堆新朋友</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201803/t20180307_17121763.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201803/W020180307558393658512.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201803/t20180307_17121763.htm" target="_blank" title="臭并快乐着">臭并快乐着</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201803/t20180307_17121269.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201803/W020180307500453015863.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201803/t20180307_17121269.htm" target="_blank" title="我问你爱我吗有这么可笑吗">我问你爱我吗有这么可笑吗</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201803/t20180307_17121267.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201803/W020180307500036734369.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201803/t20180307_17121267.htm" target="_blank" title="顽皮可爱蠢萌的柴柴">顽皮可爱蠢萌的柴柴</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201803/t20180306_17116655.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201803/W020180306580470813473.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201803/t20180306_17116655.htm" target="_blank" title="剑拔弩张不如突然尬舞">剑拔弩张不如突然尬舞</a></p>
+					</li>
+					
+					<li>
+						<a href="http://dv.dzwww.com/ksp/201803/t20180305_17111566.htm"><img width="200" height="110" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://dv.dzwww.com/ksp/201803/W020180305532581413616.png" /></a>
+						<div class="textbg1"></div>
+						<p class="img-title1"><a href="http://dv.dzwww.com/ksp/201803/t20180305_17111566.htm" target="_blank" title="看得我好捉急">看得我好捉急</a></p>
+					</li>
+					
+					<div class="clear"></div>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+	<div class="blank40"></div>
+	<div id="layout9" class="news-category">
+		<div class="main2">
+			<div class="title3">
+				<span><a href="http://news.dzwww.com/" target="_blank" >要闻速递</a></span>
+				<p class="more"><a href="http://news.dzwww.com/guoneixinwen/" target="_blank">国内</a>·<a href="http://news.dzwww.com/guojixinwen/" target="_blank">国际</a>·<a href="http://news.dzwww.com/shehuixinwen/" target="_blank">社会</a></p>
+				<div class="clear"></div>
+			</div>
+			<div class="left">
+				
+				<div class="pic-news1">
+					
+                    <a href="./xinwen/guoneixinwen/201807/t20180712_17596762.htm" target="_blank"><img src="./xinwen/guoneixinwen/201807/W020180712302485621338_90.png" alt="11.png" border=0 width="90" height="70"/></a>
+					<h3><a href="./xinwen/guoneixinwen/201807/t20180712_17596762.htm" target="_blank" title="中国酝酿抗癌药省级专项集中采购 实现价格明显下降">中国酝酿抗癌药省级专项集中采购 实现价格明显下 </a></h3>
+                    
+					<div class="clear"></div>
+				</div>
+				<ul class="list14-30a">
+                    
+                    <li><a href="./xinwen/guoneixinwen/201807/t20180712_17598275.htm" target="_blank" title="【脱贫攻坚在行动】缺氧不缺精神 塔什库尔干雄鹰展翅“醉美”高原">【脱贫攻坚在行动】缺氧不缺精神 塔什库尔干雄鹰展 </a></li>
+                  
+                    <li><a href="./xinwen/guoneixinwen/201807/t20180712_17598229.htm" target="_blank" title="【脱贫攻坚在行动】C位出道！这些“小萌宠”正撬动甘肃“大扶贫” 创造亿元扶贫产值">【脱贫攻坚在行动】C位出道！这些“小萌宠”正撬动 </a></li>
+                  
+                    <li><a href="./xinwen/guoneixinwen/201807/t20180712_17598220.htm" target="_blank" title="【脱贫攻坚在行动】甘肃广河：走出去引进来变思路 特色扶贫搭“一带一路”快车">【脱贫攻坚在行动】甘肃广河：走出去引进来变思路  </a></li>
+                  
+                    <li><a href="./xinwen/guoneixinwen/201807/t20180712_17598218.htm" target="_blank" title="【脱贫攻坚在行动】开网店巧养牛 广河县扶贫有高招">【脱贫攻坚在行动】开网店巧养牛 广河县扶贫有高招</a></li>
+                  
+                    <li><a href="./xinwen/guoneixinwen/201807/t20180712_17598216.htm" target="_blank" title="C位出道！这些“小萌宠”正撬动甘肃“大扶贫” 创造亿元扶贫产值">C位出道！这些“小萌宠”正撬动甘肃“大扶贫” 创 </a></li>
+                  
+                    <li><a href="./xinwen/guoneixinwen/201807/t20180712_17598215.htm" target="_blank" title="缺氧不缺精神 塔什库尔干雄鹰展翅“醉美”高原">缺氧不缺精神 塔什库尔干雄鹰展翅“醉美”高原</a></li>
+                  
+                    <li><a href="./xinwen/guoneixinwen/201807/t20180712_17598209.htm" target="_blank" title="工信部再出手 与不明扣费“老套路”说再见">工信部再出手 与不明扣费“老套路”说再见</a></li>
+                  
+                    <li><a href="./xinwen/guoneixinwen/201807/t20180712_17598184.htm" target="_blank" title="这项退役大学生士兵优抚安置政策缘何赢得三方点赞"><font color="#0000000">这项退役大学生士兵优抚安置政策缘何赢得三方点赞</font></a></li>
+                  
+                    <li><a href="./xinwen/guoneixinwen/201807/t20180712_17598183.htm" target="_blank" title="暑假时间如何安排 不妨分“三期”"><font color="#0000000">暑假时间如何安排 不妨分“三期”</font></a></li>
+                  
+				</ul>
+			
+			</div>
+			<div class="right">
+				
+				<div class="pic-news1">
+					
+                    <a href="./xinwen/shehuixinwen/201807/t20180712_17596861.htm" target="_blank"><img src="./xinwen/shehuixinwen/201807/W020180712385114399284_90.png" alt="ting.png" border=0 width="90" height="70"/></a>
+					<h3><a href="./xinwen/shehuixinwen/201807/t20180712_17596861.htm" target="_blank" title="北京西站&quot;高价&quot;停车场设最高封顶价:一天360元">北京西站"高价"停车场设最高封顶价:一天360元</a></h3>
+                      
+					<div class="clear"></div>
+				</div>
+				<ul class="list14-30a">
+                    
+                    <li><a href="./xinwen/shehuixinwen/201807/t20180712_17598238.htm" target="_blank" title="世界杯期间公安机关严查赌球 百余赌球团伙被打掉"><font color="#0000000">世界杯期间公安机关严查赌球 百余赌球团伙被打掉</font></a></li>
+                     
+                    <li><a href="./xinwen/shehuixinwen/201807/t20180712_17598237.htm" target="_blank" title="撞人后司机乘客“移形换位” 涉嫌“肇事逃逸”被行拘"><font color="#0000000">撞人后司机乘客“移形换位” 涉嫌“肇事逃逸”被行 </font></a></li>
+                     
+                    <li><a href="./xinwen/shehuixinwen/201807/t20180712_17598236.htm" target="_blank" title="小伙打球后猛吹电扇患面瘫 夏季切莫长时间直吹空调"><font color="#0000000">小伙打球后猛吹电扇患面瘫 夏季切莫长时间直吹空调</font></a></li>
+                     
+                    <li><a href="./xinwen/shehuixinwen/201807/t20180712_17598235.htm" target="_blank" title="5分钟11辆电动车飞驰上下人行天桥 交管部门:严查"><font color="#0000000">5分钟11辆电动车飞驰上下人行天桥 交管部门:严查</font></a></li>
+                     
+                    <li><a href="./xinwen/shehuixinwen/201807/t20180712_17598234.htm" target="_blank" title="视频｜泰国少年获救后首曝光 在病房神情轻松开心挥手"><font color="#0000000">视频｜泰国少年获救后首曝光 在病房神情轻松开心挥 </font></a></li>
+                     
+                    <li><a href="./xinwen/shehuixinwen/201807/t20180712_17598231.htm" target="_blank" title="5分钟11辆电动车飞驰上下人行天桥 交管部门:严查">5分钟11辆电动车飞驰上下人行天桥 交管部门:严查</a></li>
+                     
+                    <li><a href="./xinwen/shehuixinwen/201807/t20180712_17598230.htm" target="_blank" title="小伙打球后猛吹电扇患面瘫 夏季切莫长时间直吹空调">小伙打球后猛吹电扇患面瘫 夏季切莫长时间直吹空调</a></li>
+                     
+                    <li><a href="./xinwen/shehuixinwen/201807/t20180712_17598228.htm" target="_blank" title="3万斤好西瓜被猪獾拱了一半 村民防不住又打不得">3万斤好西瓜被猪獾拱了一半 村民防不住又打不得</a></li>
+                     
+                    <li><a href="./xinwen/shehuixinwen/201807/t20180712_17598227.htm" target="_blank" title="海南出台意见保护司法人员依法履职">海南出台意见保护司法人员依法履职</a></li>
+                     
+				</ul>
+				
+			</div>
+                   <div class="blank10"></div>
+                   <div id="ad_yw" style="height:75px;"></div>
+		</div>
+		<div class="side2">
+			<div class="title3">
+				<span><a href="http://www.dzllzg.com/" target="_blank">理论之光</a></span>
+				<p class="more"><a href="http://www.dzllzg.com/llzt/" target="_blank">专题</a>·<a href="http://www.dzllzg.com/mjzl/" target="_blank">专栏</a>·<a href="http://www.dzllzg.com/dzjt/" target="_blank">访谈</a></p>
+				<div class="clear"></div>
+			</div>
+			
+            <div class="pic-news2">
+				
+                <h3><a href="http://www.dzllzg.com/lltt/201807/t20180712_17597894.html" target="_blank" title="新思想开辟马克思主义新境界">新思想开辟马克思主义新境界</a></h3>
+				
+				<p>构建人类命运共同体思想，深刻反映世界各国人民的愿望，受到国际社会的高度评价和热烈响应，已多次被写...<a target="_blank"  href='http://www.dzllzg.com/lltt/201807/t20180712_17597894.html'>[详细]</a></p>
+                
+				<div class="clear"></div>
+			</div>
+			<ul class="list14-30b">
+				
+				  <li><a href="http://www.dzllzg.com/lltt/201807/t20180711_17591990.html" target="_blank" title="一以贯之增强忧患意识">一以贯之增强忧患意识</a></li>
+				  <li><a href="http://www.dzllzg.com/lltt/201807/t20180709_17582148.html" target="_blank" title="为携手建设人类命运共同体作出更大贡献">为携手建设人类命运共同体作出更大贡献</a></li>
+				  <li><a href="http://www.dzllzg.com/lltt/201807/t20180706_17574390.html" target="_blank" title="加强农村文化扶贫工作 助推全面建成小康社会">加强农村文化扶贫工作 助推全面建成小康社会</a></li>
+			</ul>
+            
+		  <div class="blank10"></div>
+		  <div id="ad_llzg" style="height:230px;"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank10"></div>
+	<div class="blank10"></div>
+	<div id="layout10" class="news-category">
+		<div class="main2">
+			<div class="left">
+				<div class="title3">
+					<span><a href="http://ent.dzwww.com" target="_blank">娱乐</a></span>
+					<p class="more"><a href="http://ent.dzwww.com/tt/" target="_blank">头条</a>·<a href="http://ent.dzwww.com/gt/" target="_blank">明星</a>·<a href="http://ent.dzwww.com/dy/" target="_blank">电影</a></p>
+					<div class="clear"></div>
+				</div>
+				<div class=TRS_Editor><div class="pic-news3">
+<div class="photo"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" src="http://ent.dzwww.com/zzy/201502/W020180710583336728120.png" OLDSRC="W020180710583336728120.png" /><br />
+<p class="img-title2"><a href="http://ent.dzwww.com/tt/201807/t20180710_17588733.htm">年过40,梅婷胡静仍冻龄</a></p>
+</div>
+<div class="photo"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" src="http://ent.dzwww.com/zzy/201502/W020180710583339208310.png" OLDSRC="W020180710583339208310.png" /><br />
+<p class="img-title2"><a href="http://ent.dzwww.com/tt/201807/t20180710_17588731.htm">跳水皇后吴敏霞宣布怀孕</a></p>
+</div>
+</div>
+<ul class="list14-30a">
+    <li><a href="http://ent.dzwww.com/tt/201807/t20180709_17582291.htm">《邪不压正》姜文王菲携手首发推广曲MV</a></li>
+    <li><a href="http://ent.dzwww.com/tt/201807/t20180710_17588732.htm">新版《流星花园》争议多？道明寺回应菠萝头造型</a></li>
+    <li><a href="http://ent.dzwww.com/tt/201807/t20180710_17588638.htm">黄圣依戴别致"花瓣"贵妇帽穿印花长裙携安迪出游</a></li>
+    <li><a href="http://ent.dzwww.com/tt/201807/t20180710_17588595.htm">被曝假吃爆米花获辟谣 Baby拍戏只喝水狂保养</a></li>
+    <li><a href="http://ent.dzwww.com/nd/201807/t20180709_17582489.htm">38岁姚明用7年读完交大本科 任毕业生代表发言</a></li>
+</ul></div>
+			</div>
+			<div class="right">
+				<div class="title3">
+					<span><a href="http://sports.dzwww.com/" target="_blank">体育</a></span>
+					<p class="more"><a href="http://sports.dzwww.com/news/" target="_blank">热点</a>·<a href="http://sports.dzwww.com/china/ln/" target="_blank">鲁能</a>·<a href="http://sports.dzwww.com/basketball/sdnl/" target="_blank">高速</a>·<a href="http://sports.dzwww.com/basketball/nba/" target="_blank">NBA</a></p>
+					<div class="clear"></div>
+				</div>
+                <div class=TRS_Editor><div class="pic-news4"><a target="_blank" href="http://sports.dzwww.com/news/201807/t20180710_17587423.htm"><img src="http://sports.dzwww.com/zzy_79517/201502/W020180710410338453372.jpg" style="border-width: 0px;" alt="" OLDSRC="W020180710410338453372.jpg" /></a>
+<div class="textbg2">&nbsp;</div>
+<p class="img-title2"><a target="_blank" href="http://sports.dzwww.com/news/201807/t20180710_17587423.htm">正式签约!詹皇终于成湖人一员 官推:国王已经降临</a></p>
+</div>
+<ul class="list14-30a">
+    <li><a target="_blank" href="http://sports.dzwww.com/news/201807/t20180710_17587444.htm">温网世界杯决赛"撞车" 费德勒发话了</a></li>
+    <li><a target="_blank" href="http://sports.dzwww.com/news/201807/t20180710_17587453.htm">曝山东本月可敲定小外援 已和新疆弃将深入谈判</a></li>
+    <li><a target="_blank" href="http://sports.dzwww.com/news/201807/t20180710_17587462.htm">苏炳添结束欧洲比赛:验证训练 坚持做自己!</a></li>
+    <li><a target="_blank" href="http://sports.dzwww.com/news/201807/t20180710_17587399.htm">惨淡世界杯后无人报价 莱万又想继续留拜仁</a></li>
+    <li><a target="_blank" href="http://sports.dzwww.com/news/201807/t20180710_17587518.htm">保利尼奥已抵达广州 卡纳瓦罗欢迎</a></li>
+</ul></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="side2">
+			<div class="title3">
+				<span><a href="http://lady.dzwww.com/" target="_blank">时尚</a></span>
+				<p class="more"><a href="http://lady.dzwww.com/yw/" target="_blank">焦点</a>·<a href="http://lady.dzwww.com/tp/" target="_blank">美图</a>·<a href="http://lady.dzwww.com/sex/" target="_blank">情感</a>·<a href="http://www.k618.cn/" target="_blank">未来网</a></p>
+				<div class="clear"></div>
+			</div>
+            
+			<div class=TRS_Editor><div class="pic-news3">
+<div class="photo"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" oldsrc="W020180706551274473607.jpg" src="http://lady.dzwww.com/zzy/201709/W020180706551274473607.jpg" /><br />
+<p class="img-title2"><a href="http://lady.dzwww.com/yw/201807/t20180706_17575728.htm">荧光绿“卷土来袭”</a></p>
+</div>
+<div class="photo"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" oldsrc="W020180709417390624901.jpg" src="http://lady.dzwww.com/zzy/201709/W020180709417390624901.jpg" /><br />
+<p class="img-title2"><a href="http://lady.dzwww.com/tp/201807/t20180709_17582884.htm">微胖与夏日无缘？</a></p>
+</div>
+</div>
+<ul class="list14-30a">
+    <li><a href="http://lady.dzwww.com/yw/201807/t20180709_17582970.htm">舒淇与纳塔利·沃佳诺娃撞衫，看谁更胜一筹</a></li>
+    <li><a href="http://lady.dzwww.com/yw/201807/t20180709_17582903.htm">夏日借你一个"胆" 亮色球鞋行走的调色盘</a></li>
+    <li><a href="http://lady.dzwww.com/yw/201807/t20180709_17582896.htm">网纱拼接上衣拖地喇叭裤平底鞋 简约知性</a></li>
+    <li><a href="http://lady.dzwww.com/yw/201807/t20180709_17582854.htm">80后校服设计师：校服也能穿出时髦感</a></li>
+    <li><a href="http://lady.dzwww.com/tp/201807/t20180709_17582884.htm">微胖无缘夏日？排口连衣裙集瘦与优雅于一身 </a></li>
+</ul></div>
+			
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank15"></div>
+	<div id="layout11" class="news-category">
+		<div class="main2">
+			<div class="left">
+				<div class="title3">
+					<span><a href="http://culture.dzwww.com" target="_blank">文化</a></span>
+					<p class="more"><a href="http://culture.dzwww.com/dzwwhcp/lxt/" target="_blank">历下亭</a>·<a href="http://culture.dzwww.com/dzwwhcp/zs/" target="_blank">众说</a>·<a href="http://culture.dzwww.com/cfjm/" target="_blank">尘封揭秘</a></p>
+					<div class="clear"></div>
+				</div>
+              <div class="pic-news1">
+ 
+<a href="http://culture.dzwww.com/lbtp/201807/t20180709_17582961.htm"><img width="90" height="70" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://culture.dzwww.com/lbtp/201807/W020180709411294086519.jpg" /></a>
+<h3><a href="http://culture.dzwww.com/lbtp/201807/t20180709_17582961.htm" target="_blank">探访斫琴技艺传承人  两年制作一张琴完成200道工序</a></h3>
+  
+<div class="clear">&nbsp;</div>
+</div>
+<ul class="list14-30a">
+ 
+    <div class=TRS_Editor><li><a href="http://culture.dzwww.com/gdxw/201807/t20180712_17598071.htm">90后作家群体写作首次被集体梳理</a></li>
+<li><a href="http://culture.dzwww.com/gdxw/201807/t20180712_17597806.htm">忆作家何为，那缕挥不去的乡愁</a></li>
+<li><a href="http://culture.dzwww.com/gdxw/201807/t20180712_17597962.htm">福州路：文化杠杆激活传统书业</a></li></div>
+  
+  
+    <li><a href="http://culture.dzwww.com/zx/201807/t20180712_17598160.htm" target="_blank">社交方式改变 微信时代您还写信吗？</a></li>
+  
+    <li><a href="http://culture.dzwww.com/zx/201807/t20180712_17598093.htm" target="_blank"><font color="#0000000">《射雕英雄传》何以能和《魔戒》殊途同归</font></a></li>
+  
+    <li><a href="http://culture.dzwww.com/zx/201807/t20180712_17598094.htm" target="_blank"><font color="#0000000">《美食大冒险之英雄烩》海报预告双发</font></a></li>
+  
+</ul>
+			</div>
+			<div class="right">
+				<div class="title3">
+					<span><a href="http://culture.dzwww.com/ts/" target="_blank">读书</a></span>
+					<p class="more"><a href="http://culture.dzwww.com/wtwx/" target="_blank">文坛万象</a>·<a href="http://culture.dzwww.com/jcsp/" target="_blank">精彩书评</a>·<a href="http://culture.dzwww.com/qshd/" target="_blank">抢新书</a></p>
+					<div class="clear"></div>
+				</div>
+				<div class="pic-news5">
+				
+				<div class="photo"><a href="http://culture.dzwww.com/xstj/201807/t20180710_17587501.htm"><img width="95" height="140" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://culture.dzwww.com/xstj/201807/W020180710404109720257.jpg" /></a>&nbsp;
+				<p><a href="http://culture.dzwww.com/xstj/201807/t20180710_17587501.htm" target="_blank">驾驭情绪的力量</a></p>
+				</div>
+				 
+				<div class="photo"><a href="http://culture.dzwww.com/xstj/201807/t20180704_17567336.htm"><img width="95" height="140" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://culture.dzwww.com/xstj/201807/W020180704536861147258.jpg" /></a>&nbsp;
+				<p><a href="http://culture.dzwww.com/xstj/201807/t20180704_17567336.htm" target="_blank">中国不可无岳飞</a></p>
+				</div>
+				 
+				 
+				<div class="photo"><a href="http://culture.dzwww.com/hsb/201807/t20180703_17562741.htm"><img width="95" height="140" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" complete="complete" src="http://culture.dzwww.com/hsb/201807/W020180703514510935672.jpg" /></a>&nbsp;
+				<p><a href="http://culture.dzwww.com/hsb/201807/t20180703_17562741.htm" target="_blank">被偷走的灵魂</a></p>
+				</div>
+				 
+				<div class="clear">&nbsp;</div>
+				</div>
+					<div class=TRS_Editor><ul class="list14-30a">
+    <li><a href="http://culture.dzwww.com/gdxw/201807/t20180712_17597905.htm">《收获》推出青年作家小说专辑</a></li>
+    <li><a href="http://culture.dzwww.com/gdxw/201807/t20180712_17597966.htm">读《西湖诗词曲选》:淡妆浓抹咏西湖</a></li>
+    <li><a href="http://culture.dzwww.com/gdxw/201807/t20180711_17591701.htm">终生与“宋词”相伴的唐圭璋</a></li>
+</ul></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="side2">
+			<div class="title3">
+				<span><a href="http://shuhua.dzwww.com/" target="_blank">书画</a></span>
+				<a href="http://shuhua.dzwww.com/" class="more">更多</a>
+				<div class="clear"></div>
+			</div>
+            <div class=TRS_Editor><div class="pic-news1"><img width="125" height="82" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" complete="complete" alt="" src="http://shuhua.dzwww.com/zzy_79518/201502/W020180530514741809630.jpg" OLDSRC="W020180530514741809630.jpg" /><br />
+<h3><a href="http://shuhua.dzwww.com/tplb/201805/t20180513_17363444.htm">待到山花烂漫时·青年花鸟画家提名展在省博举行</a></h3>
+</div>
+<div class="clear">&nbsp;</div>
+<ul class="list14-30a">
+    <li><a se_prerender_url="complete" href="http://shuhua.dzwww.com/zxdt/201804/t20180419_17282210.htm">【专访】读单应桂先生和她的年画</a></li>
+    <li><a href="http://shuhua.dzwww.com/tplb/201804/t20180419_17281567.htm">【展讯】吴泽浩先生艺术成就展在济举办</a></li>
+    <li><a se_prerender_url="complete" href="http://shuhua.dzwww.com/zxdt/201805/t20180506_17338913.htm">【展讯】春之熠书写新时代书法文化惠民活动</a></li>
+    <li><a href="http://shuhua.dzwww.com/zxdt/201805/t20180511_17360028.htm">【书法】致虚极 守静笃——王建梁的哲学意蕴</a></li>
+    <li><a se_prerender_url="loading" href="http://shuhua.dzwww.com/tplb/201805/t20180521_17396421.htm">【展讯】超越“物象”直抵“心像”刘明亮作品</a></li>
+    <li><a href="http://shuhua.dzwww.com/tplb/201805/t20180517_17379795.htm">【画家】向传统致敬-浅谈毕波的山水画</a></li>
+</ul></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank15"></div>
+	<div id="layout12" class="news-category">
+		<div class="main2">
+			<div class="left">
+				<div class="title3">
+					<span><a href="http://www.wssng.com/index.html" target="_blank" >少年宫</a></span>
+					<a href="#" class="more">更多</a>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="pic-news1">
+					
+                    <a href="./sng/201806/t20180605_17451947.htm" target="_blank"><img src="./sng/201806/W020180605356100450782_90.jpg" border=0 width="90" height="70"/></a>
+					<h3><a href="./sng/201806/t20180605_17451947.htm" target="_blank" title="济南高新区河套小学少先大队迎来新队员">济南高新区河套小学少先大队迎来新队员</a></h3>
+                    
+					<div class="clear"></div>
+				</div>
+				<ul class="list14-30a">
+					
+                    <li><a href="./sng/201806/t20180605_17451949.htm" target="_blank" title="山师附小一年级：多彩活动伴我成长">山师附小一年级：多彩活动伴我成长</a></li>
+					
+                    <li><a href="./sng/201806/t20180605_17451948.htm" target="_blank" title="高新区南郭而小学开展书香诗韵庆六一活动">高新区南郭而小学开展书香诗韵庆六一活动</a></li>
+					
+                    <li><a href="http://edu.dzwww.com/rcjy/zpxx/201805/t20180521_17394724.htm" target="_blank" title="让每朵艺术之花都绽放——明睿小学班级艺术节华丽上演">让每朵艺术之花都绽放——明睿小学班级艺术 </a></li>
+					
+                    <li><a href="http://edu.dzwww.com/rcjy/zpxx/201805/t20180518_17387264.htm" target="_blank" title="“以画汇美 以艺启慧”——珑城小学举办首届班级书画展">“以画汇美 以艺启慧”——珑城小学举办首届 </a></li>
+					
+                    <li><a href="http://edu.dzwww.com/rcjy/zpxx/201805/t20180518_17387163.htm" target="_blank" title="珑城小学开展“教师职业幸福”专题讲座">珑城小学开展“教师职业幸福”专题讲座</a></li>
+					
+                    <li><a href="http://edu.dzwww.com/rcjy/zpxx/201805/t20180518_17387130.htm" target="_blank" title="与白血病儿童手拉手，圆上学梦">与白血病儿童手拉手，圆上学梦</a></li>
+					
+				</ul>
+			
+			</div>
+			<div class="right">
+				<div class="title3">
+					<span><a href="http://www.dzwww.com/fxj/" target="_blank">山东反邪教</a></span>
+					<a href="http://www.sdfxj.org/"  target="_blank" class="more">更多</a>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="pic-news1">
+					
+                    <a href="./fxj/201804/t20180402_17216939.htm" target="_blank"><img src="./fxj/201804/W020180402637076280859_90.jpg" alt="QQ截图20180402174608.jpg" border=0 width="90" height="70"/></a>
+					<h3><a href="./fxj/201804/t20180402_17216939.htm" target="_blank" title="揭秘美国邪教NXIVM 发展女星 养性奴 勾结达赖">揭秘美国邪教NXIVM 发展女星 养性奴 勾结达赖</a></h3>
+                   
+					<div class="clear"></div>
+				</div>
+				<ul class="list14-30a">
+				   
+					<li><a href="./fxj/201806/t20180606_17459308.htm" target="_blank">案发3年后 “5·28”招远麦当劳杀人案女犯 </a></li>
+				
+					<li><a href="./fxj/201806/t20180606_17458837.htm" target="_blank">特约评论员：决不让“5·28”血案重演</a></li>
+				
+					<li><a href="./fxj/201806/t20180606_17458869.htm" target="_blank">“全能神”在青岛敛财2676万元 14人被判刑</a></li>
+				
+					<li><a href="./fxj/201806/t20180606_17458941.htm" target="_blank">韩媒：“神韵演出”是“法轮功”的闹剧演出</a></li>
+				
+					<li><a href="./fxj/201806/t20180606_17459307.htm" target="_blank">铁的事实面前，谣言无处遁形——记中国器 </a></li>
+				
+					<li><a href="./fxj/201806/t20180606_17458850.htm" target="_blank">“新部门”全部亮相 接下来还有哪些大事</a></li>
+				
+				  </ul>
+				
+			</div>
+			<div class="clear"></div>
+		</div>
+			<div class="side2">
+		    <div class="title3"> <span><a href="http://yuqing.dzwww.com/" target="_blank">舆情</a></span> <a  href="http://yuqing.dzwww.com/" target="_blank" class="more">更多</a>
+		      <div class="clear"></div>
+	        </div>
+			
+		    <div class="pic-news1">
+				
+				<a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596694.htm" target="_blank"><img src="http://yuqing.dzwww.com/yqjd/201807/W020180712335776267970_90.jpg" alt="1565699832416213962.jpg" border=0 width="90" height="70"/></a>
+				<h3><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596694.htm" target="_blank" title="支付行业迎“断直连”监管新规 告别“补贴”时代">支付行业迎“断直连”监管新规 告别“补贴”时代</a></h3>
+				
+				<div class="clear"></div>
+			</div>
+			<ul class="list14-30a">
+				
+                <li><a href="http://www.dzwww.com/xinwen/guoneixinwen/201807/t20180712_17596688.htm" target="_blank" title="冒险打赏网络女主播案屡发生 他为何铤而走险？">冒险打赏网络女主播案屡发生 他为何铤而走险 </a></li>
+				
+                <li><a href="https://www.dzwww.com/xinwen/shehuixinwen/201807/t20180712_17596795.htm" target="_blank" title="毕业论文市场产业链调查:根据买家需要提供服务">毕业论文市场产业链调查:根据买家需要提供服 </a></li>
+				
+                <li><a href="https://www.dzwww.com/xinwen/shehuixinwen/201807/t20180712_17596808.htm" target="_blank" title="调查:62.6%受访者不太信任&quot;电商定制版&quot;商品">调查:62.6%受访者不太信任"电商定制版"商品</a></li>
+				
+			</ul>
+			
+			<div class="title-yqzw">
+              <h4><a href="http://yuqing.dzwww.com/wxphb/sdzwyxlbd/" target="_blank">山东政务微榜单</a></h4>
+            </div>
+            <ul class="list14-30a">
+           
+              <li><a href="http://yuqing.dzwww.com/wxphb/sdzwyxlbd/zw/201807/t20180711_17593414.html" target="_blank" title="政务榜|招远警方32小时破杀人案获赞 暑期来临孩子安全问题引关注">政务榜|招远警方32小时破杀人案获赞 暑期来临孩子安全问题引关注</a></li>
+             
+ 
+              <li><a href="http://yuqing.dzwww.com/wxphb/sdzwyxlbd/zf/201807/t20180711_17593521.html" target="_blank" title="政法榜|司法部规范醉驾酒精测定标准引关注 评选投票类稿件热度高">政法榜|司法部规范醉驾酒精测定标准引关注 评选投票类稿件热度高</a></li>
+             
+            </ul>
+            <style>
+			  .title-yqzw {
+				  position:relative;
+				  height: 15px;
+				  line-height: 30px;
+				  margin-bottom:15px;
+				  font-size: 16px;
+				  border-bottom:1px solid #b64d4a;
+			  }
+			  .title-yqzw h4 {
+				  text-align:center;
+				  height: 30px;
+				  line-height: 30px;
+				  font-weight:normal;
+			  }
+			  .title-yqzw a {
+				  color:#b64d4a;
+				  padding:0 15px;
+				  background:#fff;
+			  }
+            </style>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank15"></div>
+          <div id="ad_jtz"></div>
+         <div class="blank20"></div>
+	<div id="layout13" class="news-category">
+		<div class="main2">
+			<div class="left">
+				<div class="title3">
+					<span><a href="http://finance.dzwww.com/" target="_blank">财经</a></span>
+					<p class="more"><a href="http://finance.dzwww.com/yinhang/yhxw/" target="_blank">银行</a>·<a href="http://finance.dzwww.com/baoxian/" target="_blank">保险</a>·<a href="http://finance.dzwww.com/sdcj/" target="_blank">山东财经</a></p>
+					<div class="clear"></div>
+				</div>
+                <div class=TRS_Editor><div class="pic-news1"><a href="http://finance.dzwww.com/jiaodian/zxbb/201807/t20180705_17569877.html"><img width="90" height="70" style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-top-width: 0px" alt="" oldsrc="W020180709320358148217.jpg" src="http://finance.dzwww.com/zzy/201502/W020180709320358148217.jpg" /></a>&nbsp;
+<h3><a href="http://finance.dzwww.com/jiaodian/zxbb/201807/t20180710_17586470.html">油价上调创年内最大涨幅</a></h3>
+<div class="clear">&nbsp;</div>
+</div>
+<ul class="list14-30d">
+    <li><span>[<a href="http://finance.dzwww.com/sdcj/">山东财经</a>] </span><a href="http://finance.dzwww.com/sdcj/201807/t20180706_17574660.html">山东提出到2020年新增名牌产品700个</a></li>
+    <li><span>[<a href="http://finance.dzwww.com/sdcj/">山东财经</a>]</span> <a href="http://finance.dzwww.com/sdcj/201807/t20180706_17574651.html">山东107家省级社会组织参加双百扶贫行动</a></li>
+    <li><span>[<a href="http://finance.dzwww.com/jiaodian/zxbb/">钱沿热点</a>]</span> <a href="http://finance.dzwww.com/jiaodian/zxbb/201807/t20180709_17581772.html">商务部：前5月我国服务进出口同比增12%</a></li>
+    <li><span>[<a href="http://finance.dzwww.com/jiaodian/zxbb/">钱沿热点</a>]</span> <a href="http://finance.dzwww.com/jiaodian/zxbb/201807/t20180709_17581732.html">关税降了，价格何时降？</a></li>
+    <li><span>[<a href="http://finance.dzwww.com/yinhang/yhxw/">银行资讯</a>]</span> <a href="http://finance.dzwww.com/jiaodian/zxbb/201807/t20180705_17569930.html">央行定向降准今日落地</a></li>
+    <li><span>[<a href="http://finance.dzwww.com/baoxian/">保险资讯</a>]</span> <a href="http://finance.dzwww.com/baoxian/bxzx/201807/t20180705_17569946.html">银保监下文：刮骨疗伤治理保险八大乱象！</a></li>
+</ul>
+<div>&nbsp;</div></div>
+			</div>
+			<div class="right">
+				<div class="title3">
+					<span><a href="http://sdqy.dzwww.com/" target="_blank">鲁企</a></span>
+					<p class="more"><a href="http://sdqy.dzwww.com/sdgz/sdgq/" target="_blank">国企</a>·<a href="http://sdqy.dzwww.com/lqyw/" target="_blank">要闻</a>·<a href="http://sdqy.dzwww.com/jczt/" target="_blank">专题</a></p>
+					<div class="clear"></div>
+				</div>
+                <div class=TRS_Editor><div class="pic-news1">
+<h3><a href="http://sdqy.dzwww.com/lqyw/201807/t20180710_17589585.htm"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" oldsrc="W020180710669822375975.jpg" complete="complete" src="http://sdqy.dzwww.com/sydy/201512/W020180710669822375975.jpg" />山东新旧动能转换重大工程走进上海，签约20个项目” </a></h3>
+</div>
+<ul class="list14-30d">
+    <li><a href="http://sdqy.dzwww.com/lqyw/201807/t20180711_17593693.htm">放大招！山东省级机关公务用车全部采购新能源车 </a></li>
+    <li><a href="http://sdqy.dzwww.com/lqyw/201807/t20180712_17598135.htm">《财富》公布2018中国500强 山东上榜21家</a></li>
+    <li><a href="http://sdqy.dzwww.com/lqyw/201807/t20180706_17574827.htm">山东体彩60万助学金资助120名贫困大学新生</a></li>
+    <li><a href="http://sdqy.dzwww.com/lqyw/201807/t20180705_17570250.htm">山东19厅局齐发文：运用资本市场助推新旧动能转换 </a></li>
+    <li><a href="http://sdqy.dzwww.com/lqyw/201807/t20180706_17574108.htm">山东创新创业智库招募百名创业师资</a></li>
+    <li><a href="http://sdqy.dzwww.com/lqyw/201807/t20180710_17589586.htm">山东发布首个“百强高企”榜单 济青烟占据半壁江山</a></li>
+</ul></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="side2">
+			<div class="title3">
+				<span><a href="http://health.dzwww.com/" target="_blank">健康</a></span>
+				<p class="more"><a href="http://health.dzwww.com/yjft/ftf/" target="_blank">院长</a>·<a href="http://health.dzwww.com/yjft/jkdjt/" target="_blank">名医</a>·<a href="http://health.dzwww.com/wszs/" target="_blank">专题</a></p>
+				<div class="clear"></div>
+			</div>
+			<div class="pic-news1">
+				
+			    <a href="http://health.dzwww.com/yjft/jkdjt/hqz/" target="_blank"><img src="http://health.dzwww.com/jkxw/jkkb/201807/W020180712364973250535_90.jpg" alt="QQ截图20180710105501.jpg" border=0 width="90" height="70"/></a>
+	            <h3><a href="http://health.dzwww.com/yjft/jkdjt/hqz/" target="_blank" title="《名医大讲堂》--山东省立医院西院心肺疾病中心韩其政">《名医大讲堂》--山东省立医院西院心肺疾病中心韩其政</a></h3>
+                
+				<div class="clear"></div>
+			</div>
+			<ul class="list14-30a">
+				
+                <li><a href="http://health.dzwww.com/jkxw/shgz/201807/t20180709_17584715.htm" target="_blank" title="关爱儿童眼健康，山大二院启动暑期“寻望晨星”行动">关爱儿童眼健康，山大二院启动暑期“寻望晨 </a></li>
+				
+                <li><a href="http://health.dzwww.com/jkxw/shgz/201807/t20180709_17581551.htm" target="_blank" title="下月起，这14种药品大病保险能报销了！">下月起，这14种药品大病保险能报销了！</a></li>
+				
+                <li><a href="http://health.dzwww.com/jkxw/shgz/201807/t20180706_17576223.htm" target="_blank" title="第一届中日医养健康（介护）高峰论坛召开">第一届中日医养健康（介护）高峰论坛召开</a></li>
+				
+			</ul>
+			<ul class="list12-21">
+				
+                <li><a href="http://health.dzwww.com/yjft/ftf/" target="_blank" title="院长在线">院长在线</a></li>
+				
+                <li><a href="http://health.dzwww.com/yjft/jkdjt/" target="_blank" title="名医大讲堂">名医大讲堂</a></li>
+				
+                <li><a href="http://health.dzwww.com/yjft/gdft/" target="_blank" title="医药会客厅">医药会客厅</a></li>
+				
+                <li><a href="http://health.dzwww.com/zt/zjsss/" target="_blank" title="直击手术室">直击手术室</a></li>
+				
+                <li><a href="http://health.dzwww.com/jkxw/gyxw/" target="_blank" title="爱心公益">爱心公益</a></li>
+				
+                <li><a href="http://health.dzwww.com/jkxw/baoguang/" target="_blank" title="曝光台">曝光台</a></li>
+				
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank15"></div>
+	<div id="layout14" class="news-category">
+		<div class="main2">
+			<div class="left">
+				<div class="title3">
+					<span><a href="http://tour.dzwww.com/" target="_blank">旅游</a></span>
+					<p class="more"><a href="http://www.jejuqunar.com/" target="_blank">自游韩国</a>·<a href="http://travel.zaisd.com" target="_blank">景区</a>·<a href="http://tour.dzwww.com/shandong/mstc/" target="_blank">美食</a>·<a href="http://tour.dzwww.com/touzi/" target="_blank">投资</a>·<a href="http://tour.dzwww.com/sn/xcy/" target="_blank">乡村</a></p>
+					<div class="clear"></div>
+				</div>
+				<div class=TRS_Editor><div class="pic-news1">&nbsp;
+<h3><a style="font-size: 12pt; line-height: 1" href="http://tour.dzwww.com/lvnews/201806/t20180620_17508342.htm"><img style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-top-width: 0px" alt="" oldsrc="W020180620368513940164.jpg" src="http://tour.dzwww.com/zzy_79519/201502/W020180620368513940164.jpg" />高质量发展,打造全域旅游山东样板</a></h3>
+<div class="clear">　　</div>
+</div>
+<ul class="list14-30a">
+    <li><a href="http://tour.dzwww.com/lvnews/201807/t20180702_17559229.htm">新时代旅游融合创新营销学习会抢先看</a></li>
+    <li><a href="http://tour.dzwww.com/lvnews/201807/t20180703_17561269.htm">朱家林田园综合体项目入选全省新旧动能转换重大项目库第一批文化旅游类优选项目</a></li>
+    <li><a href="http://tour.dzwww.com/lvnews/201807/t20180703_17561253.htm">山东省将开展新一批省级购物旅游示范场所评定 满两年再复核</a></li>
+    <li><a href="http://tour.dzwww.com/lvnews/201807/t20180703_17561249.htm">青岛地铁应对旅游季调整列车运行图 3号线发车间隔缩短</a></li>
+    <li><a href="http://tour.dzwww.com/lvnews/201807/t20180703_17561243.htm">日照市东港区规划特色小镇 助力乡村振兴</a></li>
+    <li><a href="http://tour.dzwww.com/lvnews/201807/t20180703_17561255.htm">蓬莱：文旅融合向海而兴 八仙过海各展其能</a></li>
+</ul>
+<div>&nbsp;</div></div>
+			</div>
+			<div class="right">
+				<div class="title3">
+					<span><a href="http://auto.dzwww.com" target="_blank">汽车</a></span>
+					<p class="more"><a href="http://auto.dzwww.com/news/hq/" target="_blank">车市</a>·<a href="http://auto.dzwww.com/data/news/dujia.html" target="_blank">导购</a>·<a href="http://auto.dzwww.com/news/jjxx/" target="_blank">降价</a></p>
+					<div class="clear"></div>
+				</div>
+                <div class=TRS_Editor><div class="pic-news3">
+<div class="photo"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" complete="complete" alt="" src="http://auto.dzwww.com/zzy_79524/201502/W020180711438576720028.jpg" OLDSRC="W020180711438576720028.jpg" />&nbsp;
+<div class="textbg2">&nbsp;</div>
+<p class="img-title2"><a href="http://auto.dzwww.com/dg/xc/201807/t20180711_17592485.htm">东风启辰首款小型SUV谍照曝光</a></p>
+</div>
+<div class="photo"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" complete="complete" alt="" src="http://auto.dzwww.com/zzy_79524/201502/W020180711438578463674.jpg" OLDSRC="W020180711438578463674.jpg" />&nbsp;
+<div class="textbg2">&nbsp;</div>
+<p class="img-title2"><a href="http://auto.dzwww.com/dg/xc/201807/t20180711_17592772.htm">广汽本田新奥德赛即将上市</a></p>
+</div>
+<div class="clear">&nbsp;</div>
+<ul class="list14-30a">
+    <li><span>【<a href="http://auto.dzwww.com/news/xw/">车闻</a>】</span><a href="http://auto.dzwww.com/news/xw/201807/t20180711_17592739.htm">公新能源车蓄电池回收新规8月1日起施行</a></li>
+    <li><span>【<a href="http://auto.dzwww.com/news/xw/">车闻</a>】</span><a href="http://auto.dzwww.com/news/xw/201807/t20180711_17592098.htm">济南二环东路山大北路路口南北向禁左转和掉头</a></li>
+    <li><span>【<a href="http://auto.dzwww.com/news/xw/">车闻</a>】</span><a href="http://auto.dzwww.com/news/xw/201807/t20180711_17592075.htm">山东驾考配备卫星定位</a></li>
+    <li><span>【<a href="http://auto.dzwww.com/dg/dg/">导购</a>】</span><a href="http://auto.dzwww.com/dg/dg/201807/t20180711_17592967.htm">性能与品牌的比较，鸡头与凤尾你会怎么选？</a></li>
+    <li><span>【<a href="http://auto.dzwww.com/yc/bywx/">保养</a>】</span><a href="http://auto.dzwww.com/yc/bywx/201807/t20180711_17592374.htm">车身美容可能“毁容” 保养车漆门道多</a></li>
+</ul>
+</div></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="side2">
+			<div class="title3">
+				<span><a href="http://edu.dzwww.com/" target="_blank">教育</a></span>
+				<p class="more"><a href="http://edu.dzwww.com/dzjyxw/redian/" target="_blank">热点</a>·<a href="http://edu.dzwww.com/dzjyxw/sdjx/" target="_blank">山东</a>·<a href="http://peixun.dzwww.com/" target="_blank">培训</p>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="pic-news1">
+			   
+               <a href="http://edu.dzwww.com/dzjyxw/sdjx/201807/t20180711_17593928.htm" target="_blank"><img src="http://edu.dzwww.com/dzjyxw/sdjx/201807/W020180711544622349569_90.jpg" alt="QQ截图20180711150753.jpg" border=0 width="90" height="70"/></a>
+				<h3><a href="http://edu.dzwww.com/dzjyxw/sdjx/201807/t20180711_17593928.htm" target="_blank" title="《山东省中小学生健康体检组织管理细则》 下发">《山东省中小学生健康体检组织管理细则》 下发</a></h3>
+                
+				<div class="clear"></div>
+			</div>
+			<ul class="list14-30a">
+				<li><a href="http://edu.dzwww.com/dzjyxw/sdjx/201807/t20180711_17591833.htm" target="_blank" title="2018年山东具有招生资格的高校名单公布">2018年山东具有招生资格的高校名单公布</a></li>
+				<li><a href="http://edu.dzwww.com/dzjyxw/sdjx/201807/t20180710_17588675.htm" target="_blank" title="山东42名技能小将入选世界技能大赛“国家队”">山东42名技能小将入选世界技能大赛“国家队”</a></li>
+				<li><a href="http://edu.dzwww.com/dzjyxw/sdjx/201807/t20180710_17588561.htm" target="_blank" title="我省打造“组团式”教育援疆山东样板">我省打造“组团式”教育援疆山东样板</a></li>
+				<li><a href="http://edu.dzwww.com/dzjyxw/sdjx/201807/t20180710_17588517.htm" target="_blank" title="山东今年招收定向培养士官2529人">山东今年招收定向培养士官2529人</a></li>
+				<li><a href="http://edu.dzwww.com/dzjyxw/sdjx/201807/t20180710_17588491.htm" target="_blank" title="怎样为残疾人提供适合的高等教育">怎样为残疾人提供适合的高等教育</a></li>
+				<li><a href="http://edu.dzwww.com/dzjyxw/sdjx/201807/t20180710_17588418.htm" target="_blank" title="德州学院两名青年讲师直升教授">德州学院两名青年讲师直升教授</a></li>
+				
+			</ul>
+			
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank15"></div>
+	<div id="layout15" class="news-category">
+		<div class="main2">
+			<div class="left">
+				<div class="title3">
+					<span><a href="http://house.dzwww.com/" target="_blank">房产</a></span>
+					<p class="more"><a href="http://house.dzwww.com/news/" target="_blank">楼市</a>·<a href="http://house.dzwww.com/esf/" target="_blank">租房</a>·<a href="http://house.dzwww.com/house/" target="_blank">打折</a></p>
+					<div class="clear"></div>
+				</div>
+                 
+                <div class=TRS_Editor><div class="pic-news1"><img style="border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-top-width: 0px" alt="" oldsrc="W020170519602937797640.jpg" src="./synr/fc/201705/W020170519602937797640.jpg" />&nbsp;
+<h3><a href="http://house.dzwww.com/news/yw/201806/t20180629_6170822.htm">7月济南楼市预计8个项目开盘加推 3个为纯新盘入市 </a></h3>
+<div class="clear">&nbsp;</div>
+</div>
+<ul class="list14-30a">
+    <li><a href="http://house.dzwww.com/news/yw/201807/t20180709_6171003.htm">济南规范商品房预售，严查毛坯变精装等行为</a></li>
+    <li><a href="http://house.dzwww.com/news/yw/201807/t20180710_6171004.htm">安家水泥厂拆迁任务完成 曾是雪山片区建设拦路虎</a></li>
+    <li><a href="http://house.dzwww.com/news/yw/201807/t20180709_6171000.htm">下半年济南楼市开盘第一发去化不佳，楼市凉了吗</a></li>
+    <li><a href="http://house.dzwww.com/news/yw/201806/t20180614_6170512.htm">济南楼市在售小户型盘点 刚需买房人看过来！</a></li>
+    <li><a href="http://house.dzwww.com/news/yw/201806/t20180607_6170345.htm">还没买房？别着急，济南这些楼盘还有房在售 </a></li>
+    <li><a href="http://house.dzwww.com/news/yw/201806/t20180627_6170764.htm">济南新房办证2个工作日 二手房办证有望再提速 </a></li>
+</ul></div>
+                
+			</div>
+			<div class="right">
+				<div class="title3">
+					<span><a href="http://home.dzwww.com/" target="_blank">家居</a></span>
+					<a href="http://home.dzwww.com/" target="_blank" class="more">更多</a></p>
+					<div class="clear"></div>
+				</div>
+                <div class=TRS_Editor><div class="pic-news1"><a href="#"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" width="90" height="70" oldsrc="W020170420302345762982.jpg" complete="complete" src="http://home.dzwww.com/zzy_79523/201704/W020170420302345762982.jpg" /></a>
+<h3><a href="http://home.dzwww.com/qykx/201806/t20180627_17538722.htm">挥泪总结装修易犯的错误 你中了多少</a></h3>
+<div class="clear">&nbsp;</div>
+</div>
+<ul class="list14-30a">
+    <li><a href="http://home.dzwww.com/jrtt/201806/t20180613_17484736.htm">鲁公大宅实木复合门锯开竟有夹心纸</a></li>
+    <li><a href="http://home.dzwww.com/qykx/201806/t20180627_17538726.htm">小房子大变身 36平公寓可以装成这样！</a></li>
+    <li><a href="http://home.dzwww.com/qykx/201806/t20180627_17538710.htm">瓷砖选购的五大误区与真相 揭秘</a></li>
+    <li><a href="http://home.dzwww.com/qykx/201806/t20180627_17538705.htm">家装合同纠纷居高不下究竟为哪般？</a></li>
+    <li><a href="http://home.dzwww.com/qykx/201806/t20180627_17538688.htm">卫生间八大经典问题解决方案</a></li>
+    <li><a href="http://home.dzwww.com/qykx/201806/t20180627_17538677.htm">全屋定制问题频发，急需出台相关标准</a></li>
+</ul></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="side2">
+			<div class="title3">
+				<span><a href="http://elec.dzwww.com/" target="_blank">家电</a></span>
+				<p class="more"><a href="http://elec.dzwww.com/mczx/" target="_blank">卖场</a>·<a href="http://elec.dzwww.com/cpzx/" target="_blank">品牌</a>·<a href="http://elec.dzwww.com/cxdz/" target="_blank">促销</a></p>
+				<div class="clear"></div>
+			</div>
+			
+<div class=TRS_Editor><div class="pic-news1" align="center"><img style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" src="http://elec.dzwww.com/zzy_79527/201502/W020180702409829386252.png" OLDSRC="W020180702409829386252.png" /><br />
+<h3><a href="http://elec.dzwww.com/hyxw/201807/t20180702_17555845.htm">《电饭煲烹饪米饭品质评价方法》标准发布</a>&nbsp;</h3>
+<div class="clear">&nbsp;</div>
+</div>
+<ul class="list14-30a">
+    <li><a href="http://elec.dzwww.com/hyxw/201807/t20180702_17556830.htm">“海尔“人单合一”模式：自驱动、自组织、自演进</a></li>
+    <li><a href="http://elec.dzwww.com/hyxw/201807/t20180702_17555843.htm">竞争加剧 彩电企业加快转型</a></li>
+    <li><a href="http://elec.dzwww.com/qydt/201807/t20180702_17556025.htm">海尔焕新中国行洗出中国家庭“空调洗澡水”灰度地图</a></li>
+    <li><a href="http://elec.dzwww.com/qydt/201807/t20180702_17556244.htm">大学生做设计师！第27届金犊奖统帅电器14组作品获奖</a></li>
+    <li><a href="http://elec.dzwww.com/news/201807/t20180702_17556033.htm">海尔衣联网生态平台成立跨行业洗涤联盟</a></li>
+    <li><a href="http://elec.dzwww.com/cpzx/201807/t20180702_17556224.htm">从洗衣到护衣 Leader维真洗衣机引领“感应洗”趋势</a></li>
+</ul></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank15"></div>
+	<div id="layout16" class="news-category">
+		<div class="main2">
+			<div class="left">
+				<div class="title3">
+					<span><a href="http://jiu.dzwww.com/" target="_blank">酒水</a></span>
+					<p class="more"><a href="http://www.zaisd.com/zt/jzjy/" target="_blank">鲁酒馆</a>·<a href="http://jiu.dzwww.com/zt/" target="_blank">策划</a>·<a href="http://jiu.dzwww.com/jiuye/jyqyjs/" target="_blank">名酒</a></p>
+					<div class="clear"></div>
+				</div>
+                <div class=TRS_Editor><div class="pic-news1"><a href="#"><img width="93" height="73" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" oldsrc="W020151221382381065236.jpg" complete="complete" src="http://jiu.dzwww.com/zzy_79525/201502/W020151221382381065236.jpg" /></a>
+<h3><a href="http://jiu.dzwww.com/news/news/201807/t20180711_17593605.htm">俄罗斯人真的爱喝酒吗</a></h3>
+<h3>&nbsp;</h3>
+<p><b><img width="114" height="79" style="border-right-width: 0px; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" alt="" oldsrc="W020180430284585425317.jpg" complete="complete" src="http://jiu.dzwww.com/zzy_79525/201502/W020180430284585425317.jpg" /></b></p>
+<h3><a href="http://jiu.dzwww.com/news/news/201807/t20180709_17582009.htm">“抱团”聚焦低度浓香，鲁酒吹响了什么号角？</a></h3>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul class="list14-30a">
+    <li><a href="http://jiu.dzwww.com/news/news/201807/t20180706_17575466.htm">筑梦爱心球场 崂山啤酒播种正能量</a></li>
+    <li><a href="http://jiu.dzwww.com/news/news/201807/t20180709_17581992.htm">销量井喷 世界杯带火啤酒经济</a></li>
+    <li><a news="" jiu.dzwww.com="" href="http://jiu.dzwww.com/news/news/201807/t20180709_17581980.htm">运动饮料能否让体能更充沛</a></li>
+    <li><a href="http://jiu.dzwww.com/news/news/201807/t20180709_17581864.htm">山东省生产力学会第四届会员大会在济南召开</a></li>
+    <li><a href="http://jiu.dzwww.com/news/news/201807/t20180704_17567155.htm">五粮液被评为具有世界影响力白酒品牌</a></li>
+</ul>
+</div></div>
+			</div>
+			<div class="right">
+				<div class="title3">
+					<span><a href="http://dzxf.dzwww.com/" target="_blank">消费</a></span>
+					<a href="http://dzxf.dzwww.com/" target="_blank" class="more">更多</a></p>
+					<div class="clear"></div>
+				</div>
+				<div class="pic-news1">
+					
+                    <a href="http://dzxf.dzwww.com/ttxw/201806/t20180611_17477428.htm" target="_blank"><img src="http://dzxf.dzwww.com/jdtp/201806/W020180617296818309297.png" width="90" height="70" border="0" alt='蒙牛世界杯 山东少年踏上俄罗斯征程' /></img></a>
+					<h3><a href="http://dzxf.dzwww.com/ttxw/201806/t20180611_17477428.htm" target="_blank" title="蒙牛世界杯 山东少年踏上俄罗斯征程">蒙牛世界杯 山东少年踏上俄罗斯征程</a></h3>
+                    
+					<div class="clear"></div>
+				</div>
+				<ul class="list14-30a">
+					
+                    <li><a href="http://dzxf.dzwww.com/ttxw/201807/t20180712_17597078.htm" target="_blank" title="爱他美奶粉有问题？海关总署提醒慎从海外购买">爱他美奶粉有问题？海关总署提醒慎从海外购买</a></li>
+					
+                    <li><a href="http://dzxf.dzwww.com/ttxw/201807/t20180712_17597077.htm" target="_blank" title="商务部：7月第一周生产资料价格保持下降 锌下降3.9%">商务部：7月第一周生产资料价格保持下降 锌 </a></li>
+					
+                    <li><a href="http://dzxf.dzwww.com/ttxw/201807/t20180712_17597073.htm" target="_blank" title="“自然孕绿 为爱新生” 贝因美全面升级再出发">“自然孕绿 为爱新生” 贝因美全面升级再出发</a></li>
+					
+                    <li><a href="http://dzxf.dzwww.com/ttxw/201807/t20180711_17591536.htm" target="_blank" title="农业农村部公布农产品质量安全执法监管十大典型案例">农业农村部公布农产品质量安全执法监管十大 </a></li>
+					
+				</ul>
+				<div class="pic-news4">
+					
+                    <a href="http://dzxf.dzwww.com/jdtp/201807/t20180709_17585097.htm" target="_blank"><img src="http://dzxf.dzwww.com/jdtp/201807/W020180709736314497862.jpg" width="315" height="125" border="0" alt='山东省首次评选公布高新技术企业创新能力百强' /></img></a>
+					<div class="textbg2"></div>
+					<p class="img-title2"><a href="http://dzxf.dzwww.com/jdtp/201807/t20180709_17585097.htm" target="_blank" title="山东省首次评选公布高新技术企业创新能力百强">山东省首次评选公布高新技术企业创新能力百强</a></p>
+                    
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="blank20"></div>
+			<div id="ad_jsjd"></div>
+		</div>
+		<div class="side2">
+			<div class="block1" id="rank_tab_con">
+				<div class="title-nav">
+					<ul id="rank_tab_nav">
+						<li class="current"><a href="#">新闻排行</a></li>
+						<li><a href="#">山东排行</a></li>
+						<li><a href="#">热帖排行</a></li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<ul class="rank" id="rank_22" style="display:block">
+					<div class=TRS_Editor><li><a target="_blank" href="http://www.dzwww.com/xinwen/shehuixinwen/201709/t20170920_16444627.htm">神秘怪鱼流入长沙市场 久煮不烂口感如橡胶</a></li>
+<li><a target="_blank" href="http://www.dzwww.com/xinwen/shehuixinwen/201709/t20170919_16439870.htm">小周周绝妙涂鸦画 周杰伦跪地傻看半小时</a></li>
+<li><a target="_blank" href="http://www.dzwww.com/xinwen/shehuixinwen/201709/t20170918_16437239.htm">上海14年“最牛钉子屋”被拆除 曾横亘马路中间多年</a></li>
+<li><a target="_blank" href="http://www.dzwww.com/tupian/wyzp/201709/t20170920_16444477.htm">118道“石头菜”组“满汉全席”</a></li>
+<li><a target="_blank" href="http://www.dzwww.com/tupian/wyzp/201709/t20170920_16444677.htm">青岛渔民捕获野生“虾王” 26公分仅售50元</a></li>
+<li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201709/t20170920_16444360.htm">一级建造师考试疑泄题 住建部联合公安部等展开调查</a></li>
+<li><a target="_blank" href="http://www.dzwww.com/xinwen/guoneixinwen/201709/t20170919_16441794.htm">九寨沟震后形成新景观 景区有望逐步分区域开放</a></li>
+<li><a target="_blank" href="http://www.dzwww.com/tupian/wyzp/201709/t20170920_16444482.htm">墨西哥7.1级地震 建筑严重损毁民众街道避难</a></li>
+<li><a target="_blank" href="http://news.dzwww.com/guoneixinwen/201709/t20170918_16436279.htm">中国天眼之父曾舍高薪回国 1年工资等于国外1天</a></li>
+<li><a target="_blank" href="http://www.dzwww.com/xinwen/shehuixinwen/201709/t20170919_16442477.htm">央视中秋晚会名单 大咖云集</a></li></div>
+				</ul>
+                <ul class="rank" style="display:none" id="rank_202">
+					<div class=TRS_Editor><li><a href="http://sd.dzwww.com/sdnews/201709/t20170920_16444031.htm">以后寄快递得先出示身份证了！山东已要求全面推广</a></li>
+<li><a href="http://sd.dzwww.com/shandongtupian/201709/t20170920_16443977.htm">青岛聋哑夫妻开“无声的文身店” (1/8)</a></li>
+<li><a href="http://sd.dzwww.com/sdnews/201709/t20170920_16444084.htm">山东跨省异地就医实现即时结算，垫付跑腿报销成历史</a></li>
+<li><a href="http://sd.dzwww.com/sdnews/201709/t20170920_16444326.htm">临沂轨道交通近期建设3条线路 约投资550亿</a></li>
+<li><a href="http://sd.dzwww.com/sdnews/201709/t20170920_16444030.htm">实名制动真格了!山东要求全面推广寄快递出示身份证</a></li>
+<li><a href="http://sd.dzwww.com/sdnews/201709/t20170920_16444501.htm">日照入围2017国家森林城市 全国仅19市入围</a></li>
+<li><a href="http://sd.dzwww.com/sdnews/201709/t20170920_16444141.htm">济南鱼翅皇宫大酒店上报拆违拆临台账 曾辉煌一时</a></li>
+<li><a href="http://sd.dzwww.com/sdnews/201709/t20170920_16444301.htm">济南刚需族辛酸买房记：辛苦等待4个月 因首付低被“忽略”</a></li>
+<li><a href="http://sd.dzwww.com/sdnews/201709/t20170920_16444483.htm">临沂不老莓将绿遍沙漠 2年内实现1.5万亩全覆盖</a></li>
+<li><a href="http://sd.dzwww.com/sdnews/201709/t20170913_16417024.htm">开展“喜迎十九大， 说说心里话”主题征文活动</a></li></div>
+				</ul>
+                <ul class="rank" style="display:none" id="club_top_tag">
+					<div class=TRS_Editor><li><a href="http://bbs.dzwww.com/thread-46326917-1-1.html">即将拆线的德州城隍庙市场的“前世今生”</a></li>
+<li><a href="http://bbs.dzwww.com/thread-46325434-1-1.html">拼车过年活动参与者来抢奖品啦！</a></li>
+<li><a href="http://bbs.dzwww.com/thread-46330021-1-1.html">回乡偶遇</a></li>
+<li><a href="http://bbs.dzwww.com/thread-46329025-1-1.html">手机卡失效3小时，银行卡被盗刷！</a></li>
+<li><a href="http://bbs.dzwww.com/thread-46329016-1-1.html">降息了！对我们将有哪些影响？</a></li>
+<li><a href="http://bbs.dzwww.com/thread-46328463-1-1.html">雪铁龙烟台君美公司真坑人</a></li>
+<li><a href="http://bbs.dzwww.com/thread-46328445-1-1.html">真不明白，大陆人怎么这么不招人待见</a></li>
+<li><a href="http://bbs.dzwww.com/thread-46328441-1-1.html">家里变污水池 物业该不该赔偿？</a></li>
+<li><a href="http://bbs.dzwww.com/thread-46328437-1-1.html">山东移动公司的陷阱何时填平？</a></li>
+<li><a href="http://bbs.dzwww.com/thread-46328431-1-1.html">火车站餐馆有问题，职能部门一去就没问题，为什么？ </a></li></div>
+				</ul>
+			</div>
+			<div class="blank15"></div>
+			<div class="block2" id="dontai_tab_con">
+				<div class="title-nav">
+					<ul id="dongtai_tab_nav">
+						<li class="current"><a href="#">本网动态</a></li>
+						<li><a href="#">网络精品</a></li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<ul class="list14-30a" id="acheng-div1" style="display:block">
+                    
+                    <li><a href="./benzhangonggao/201710/t20171019_16552824.htm" target="_blank" title="省委书记刘家义到网媒集团走访调研">省委书记刘家义到网媒集团走访调研</a></li>
+                    
+                    <li><a href="./benzhangonggao/201710/t20171019_16552962.htm" target="_blank" title="山东手机报市县专刊落地扎根">山东手机报市县专刊落地扎根</a></li>
+                    
+                    <li><a href="./benzhangonggao/201710/t20171019_16552837.htm" target="_blank" title="大众网内容建设大会召开">大众网内容建设大会召开</a></li>
+                    
+                    <li><a href="./benzhangonggao/201710/t20171019_16552744.htm" target="_blank" title="山东手机报个人付费版用户达到278万">山东手机报个人付费版用户达到278万</a></li>
+                    
+                    <li><a href="./benzhangonggao/201710/t20171019_16552738.htm" target="_blank" title="大众网：全力以赴，出色完成十九大宣传报道任务">大众网：全力以赴，出色完成十九大宣传报道 </a></li>
+                    
+				</ul>
+                <ul class="list14-30a" id="acheng-div2" style="display:none">
+					
+                    <li><a href="http://fxsczx.cntv.cn" target="_blank" title="发现双创之星">发现双创之星</a></li>
+                    
+                    <li><a href="http://ah.anhuinews.com/system/2015/07/16/006877402.shtml" target="_blank" title="万里长辞 音容&quot;皖&quot;在">万里长辞 音容"皖"在</a></li>
+                    
+                    <li><a href="http://nb8185.cnnb.com.cn/plus/list.php?tid=1507" target="_blank" title="争做中国好网民">争做中国好网民</a></li>
+                    
+                    <li><a href="http://www.xinhuanet.com/forum/sqgj/zghwm/index.htm" target="_blank" title="中国好网民">中国好网民</a></li>
+                    
+                    <li><a href="http://zt.cnnb.com.cn/system/2015/05/29/008328196.shtml" target="_blank" title="全国网络媒体总编辑宁波行">全国网络媒体总编辑宁波行</a></li>
+                    
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="blank25"></div>
+	<div id="layout17" >
+		<div class="title-nav">
+			<ul id="link_tab_nav">
+				<li class="current" >大众网群</li>
+				<li>合作网站</li>
+				<li>地方网联</li>
+				<li>山东政府网站</li>
+				<li>全国媒体网站</li>
+				<li>战略网站</li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+		<div class="content" id="bcheng-div1" style="display:block">
+			<ul>
+				
+				<li><a href="http://www.dzllzg.com/" target="_blank">理论之光网</a></li>
+				
+				<li><a href="http://www.sdgdwljt.com/" target="_blank">山东有线网</a></li>
+				
+				<li><a href="http://sd.wenming.cn/" target="_blank">山东文明网</a></li>
+				
+				<li><a href="http://peixun.dzwww.com/" target="_blank">培训导学</a></li>
+				
+				<li><a href="http://www.zaisd.com/" target="_blank">"在山东"网上商城</a></li>
+				
+				<li><a href="http://www.sdticai.com/" target="_blank">山东体彩网</a></li>
+				
+				<li><a href="http://www.sdcp.cn" target="_blank">山东彩票</a></li>
+				
+				<li><a href="http://www.dezhoudaily.com/" target="_blank">德州新闻网</a></li>
+				
+				<li><a href="http://www.51186.com.cn/" target="_blank">山东联通网上商城</a></li>
+				
+				<li><a href="http://www.beelink.com/index.htm" target="_blank">百灵网</a></li>
+				
+				<li><a href="http://www.jiaodong.net/" target="_blank">胶东在线</a></li>
+				
+				<li><a href="http://www.sdjnnews.com/" target="_blank">网上济宁</a></li>
+				
+				<li><a href="http://www.531springs.com/" target="_blank">天下泉城</a></li>
+				
+				<li><a href="http://www.lznews.cn/" target="_blank">鲁中新闻网</a></li>
+				
+				<li><a href="http://www.ymwbw.cn/" target="_blank">沂蒙晚报网</a></li>
+				
+				<li><a href="http://xwshw.dzwww.com/" target="_blank">新闻书画网</a></li>
+				
+				<li><a href="http://www.wfnews.com.cn/" target="_blank">潍坊新闻网</a></li>
+				
+				<li><a href="http://sdqnb.dzwww.com/" target="_blank">山东青年报</a></li>
+				
+				<li><a href="http://www.ln632.com/" target="_blank">鲁南在线</a></li>
+				
+				<li><a href="http://www.e23.cn/" target="_blank">舜网</a></li>
+				
+				<li><a href="http://www.bandao.cn/" target="_blank">半岛网</a></li>
+				
+				<li><a href="http://www.chinakongzi.org/" target="_blank">中国孔子网</a></li>
+				
+				<li><a href="http://www.slofnews.com/" target="_blank">胜利新闻网</a></li>
+				
+				<li><a href="http://www.sdenews.com/" target="_blank">山东财经网</a></li>
+				
+				<li><a href="http://www.znxf.com/" target="_blank">祝你幸福</a></li>
+				
+				<li><a href="http://www.rzw.com.cn/" target="_blank">日照网</a></li>
+				
+				<li><a href="http://www.lcxw.cn" target="_blank">聊城新闻网</a></li>
+				
+				<li><a href="http://jdqy.ujn.edu.cn/" target="_blank">济南大学泉城学院</a></li>
+				
+				<li><a href="http://fazhi.dzwww.com/" target="_blank">山东法制网</a></li>
+				
+				<div class="clear"></div>
+			</ul>
+		</div>
+        <div class="content" id="bcheng-div2" style="display:none">
+			<ul>
+				
+				<li><a href="http://www.beian.gov.cn/portal/index" target="_blank">互联网站安全管理服务平台</a></li>
+				
+				<li><a href="http://sdblj.dzwww.com/" target="_blank">北京八路军山东抗日根据地研究会</a></li>
+				
+				<li><a href="http://www.chinaso.com/" target="_blank">中国搜索</a></li>
+				
+				<li><a href="http://www.chinawbsyxh.com/" target="_blank">中国晚报摄影学会网</a></li>
+				
+				<li><a href="http://www.sd.chinanews.com.cn/" target="_blank">中国新闻网山东频道</a></li>
+				
+				<li><a href="http://www.ce.cn" target="_blank">中国经济网</a></li>
+				
+				<li><a href="http://365jilin.com/" target="_blank">吉和网</a></li>
+				
+				<li><a href="http://www.gmw.cn/" target="_blank">光明网</a></li>
+				
+				<li><a href="http://www.cyol.net" target="_blank">中青在线</a></li>
+				
+				<li><a href="http://www.9ask.cn/" target="_blank">中顾法律网</a></li>
+				
+				<li><a href="http://newshainan.com" target="_blank">海南网</a></li>
+				
+				<li><a href="http://www.youth.cn/" target="_blank">中青网</a></li>
+				
+				<li><a href="http://sd.china.com/" target="_blank">中华网山东频道</a></li>
+				
+				<li><a href="http://shandong.kaiwind.com/" target="_blank">凯风网山东频道</a></li>
+				
+				<li><a href="http://www.hnol.net" target="_blank">湖南在线</a></li>
+				
+				<li><a href="http://www.tibetinfor.com.cn" target="_blank">中国西藏</a></li>
+				
+				<li><a href="http://www.sxgov.cn" target="_blank">黄河新闻网</a></li>
+				
+				<li><a href="http://www.hebnews.cn" target="_blank">河北新闻网</a></li>
+				
+				<li><a href="http://www.sxrb.com/" target="_blank">山西新闻网</a></li>
+				
+				<li><a href="http://www.edu-hb.com/" target="_blank">教育信息网</a></li>
+				
+				<li><a href="http://www.0710fz.com/" target="_blank">襄阳房产网</a></li>
+				
+				<li><a href="http://www.china.com.cn/" target="_blank">中国网</a></li>
+				
+				<li><a href="http://www.anhuinews.com" target="_blank">中安网</a></li>
+				
+				<li><a href="http://www.jxcn.cn" target="_blank">中国江西</a></li>
+				
+				<li><a href="http://www.chinataiwan.org/xwzx/morelink/" target="_blank">中国台湾网</a></li>
+				
+				<li><a href="http://www.xjkunlun.cn/" target="_blank">昆仑网</a></li>
+				
+				<li><a href="http://www.sd.cninfo.net" target="_blank">齐鲁热线</a></li>
+				
+				<li><a href="http://www.subaonet.com/" target="_blank">苏州新闻网</a></li>
+				
+				<li><a href="http://www.k618.cn/" target="_blank">未来网</a></li>
+				
+				<li><a href="http://www.chuangyetv.com/" target="_blank">创视网</a></li>
+				
+				<li><a href="http://www.sdqb.cn/" target="_blank">华商国际网</a></li>
+				
+				<li><a href="http://www.guancha.cn/" target="_blank">观察者网</a></li>
+				
+				<li><a href="http://www.fhyfsd.com/" target="_blank">泛海扬帆-山东大学生创业行动</a></li>
+				
+				<div class="clear"></div>
+			</ul>
+		</div>
+        <div class="content" id="bcheng-div3" style="display:none">
+			<ul>
+				
+				<li><a href="http://www.rednet.cn/" target="_blank">红网</a></li>
+				
+				<li><a href="http://www.cqnews.net/" target="_blank">华龙网</a></li>
+				
+				<li><a href="http://www.iyaxin.com/" target="_blank">亚心网</a></li>
+				
+				<li><a href="http://www.gxnews.com.cn" target="_blank">桂龙网</a></li>
+				
+				<li><a href="http://www.gywb.cn" target="_blank">贵阳网</a></li>
+				
+				<li><a href="http://www.allnet.cn" target="_blank">陕西通网</a></li>
+				
+				<li><a href="http://www.newssc.org/" target="_blank">四川新闻网</a></li>
+				
+				<li><a href="http://www.jschina.com.cn" target="_blank">中国江苏网</a></li>
+				
+				<li><a href="http://www.hebei.com.cn/" target="_blank">长城网</a></li>
+				
+				<li><a href="http://www.hsw.cn/" target="_blank">华商网</a></li>
+				
+				<li><a href="http://www.dbw.cn" target="_blank">东北网</a></li>
+				
+				<li><a href="http://www.nen.com.cn" target="_blank">东北新闻网</a></li>
+				
+				<li><a href="http://www.hinews.cn/" target="_blank">南海网</a></li>
+				
+				<li><a href="http://www.scol.com.cn" target="_blank">四川在线</a></li>
+				
+				<li><a href="http://www.enorth.com.cn" target="_blank">北方网</a></li>
+				
+				<li><a href="http://www.southcn.com" target="_blank">南方网</a></li>
+				
+				<li><a href="http://www.cnwest.com" target="_blank">西部网</a></li>
+				
+				<li><a href="http://www.yunnan.cn" target="_blank">云南网</a></li>
+				
+				<li><a href="http://www.nxnews.net" target="_blank">宁夏新闻网</a></li>
+				
+				<li><a href="http://www.qhnews.com" target="_blank">青海新闻网</a></li>
+				
+				<li><a href="http://www.sdchina.com/" target="_blank">中国山东网</a></li>
+				
+				<li><a href="http://www.iqilu.com/" target="_blank">齐鲁网</a></li>
+				
+				<li><a href="http://www.runsky.com" target="_blank">大连天健网</a></li>
+				
+				<li><a href="http://www.cnhubei.com" target="_blank">湖北荆楚网</a></li>
+				
+				<li><a href="http://www.zjol.com.cn" target="_blank">浙江在线</a></li>
+				
+				<li><a href="http://www.ts.cn" target="_blank">新疆天山网</a></li>
+				
+				<li><a href="http://www.sxrb.com" target="_blank">山西新闻网</a></li>
+				
+				<li><a href="http://www.dahe.cn" target="_blank">大河网</a></li>
+				
+				<li><a href="http://www.eastday.com" target="_blank">东方网</a></li>
+				
+				<li><a href="http://www.lnd.com.cn" target="_blank">北国网</a></li>
+				
+				<li><a href="http://www.gscn.com.cn" target="_blank">中国甘肃网</a></li>
+				
+				<li><a href="http://www.jxnews.com.cn" target="_blank">大江网</a></li>
+				
+				<li><a href="http://www.xhby.net" target="_blank">新华报业网</a></li>
+				
+				<li><a href="http://www.jxwmw.cn" target="_blank">江西文明网</a></li>
+				
+				<li><a href="http://www.gog.cn/" target="_blank">多彩贵州网</a></li>
+				
+				<li><a href="http://www.hebgcdy.com/" target="_blank">河北共产党员网</a></li>
+				
+				<div class="clear"></div>
+			</ul>
+		</div>
+        <div class="content" id="bcheng-div4" style="display:none">
+			<ul>
+				
+				<li><a href="http://www.sdpost.com.cn/" target="_blank">山东邮政在线</a></li>
+				
+				<li><a href="http://www.sdfz.gov.cn" target="_blank">山东法治网</a></li>
+				
+				<li><a href="http://www.sdjj.gov.cn/" target="_blank">山东省纪委监察厅</a></li>
+				
+				<li><a href="http://www.sdwht.gov.cn/" target="_blank">山东省文化厅</a></li>
+				
+				<li><a href="http://www.sdjrb.gov.cn" target="_blank">山东省金融工作办公室</a></li>
+				
+				<li><a href="http://www.sd.gov.cn" target="_blank">山东省政府</a></li>
+				
+				<li><a href="http://www.sdeic.gov.cn/" target="_blank">山东省经济和信息化委员会</a></li>
+				
+				<li><a href="http://www.sdhh.gov.cn" target="_blank">山东黄河</a></li>
+				
+				<li><a href="http://www.nishan.org.cn/" target="_blank">尼山论坛</a></li>
+				
+				<li><a href="http://www.eqsd.gov.cn/" target="_blank">山东省地震局</a></li>
+				
+				<li><a href="http://www.sdein.gov.cn" target="_blank">山东省环保局</a></li>
+				
+				<li><a href="http://www.sdyl.gov.cn" target="_blank">山东省共青团</a></li>
+				
+				<li><a href="http://www.rsks.sdrs.gov.cn/" target="_blank">山东人事信息网</a></li>
+				
+				<li><a href="http://www.sdab.gov.cn" target="_blank">山东省档案信息网</a></li>
+				
+				<li><a href="http://www.sdzk.gov.cn" target="_blank">山东省自考信息网</a></li>
+				
+				<li><a href="http://www.sdxm.gov.cn" target="_blank">山东省畜牧局</a></li>
+				
+				<li><a href="http://www.jwjy.com.cn" target="_blank">中国境外就业网</a></li>
+				
+				<li><a href="http://www.sdwsjs.gov.cn/" target="_blank">山东省卫生和计划生育委员会</a></li>
+				
+				<li><a href="http://www.sdmz.gov.cn" target="_blank">山东民政信息网</a></li>
+				
+				<li><a href="http://www.sdny.gov.cn" target="_blank">山东农业信息网</a></li>
+				
+				<li><a href="http://www.sd.cei.gov.cn" target="_blank">山东经济信息网</a></li>
+				
+				<li><a href="http://www.infobase.gov.cn" target="_blank">山东省情资料网</a></li>
+				
+				<li><a href="http://www.sdjs.gov.cn" target="_blank">山东建设信息网</a></li>
+				
+				<li><a href="http://www.sdcoal.gov.cn" target="_blank">山东省煤炭信息网</a></li>
+				
+				<li><a href="http://www.sdchem.com.cn/" target="_blank">山东化工网</a></li>
+				
+				<li><a href="http://www.jinan.gov.cn" target="_blank">济南市政府信息网</a></li>
+				
+				<li><a href="http://www.jnga.gov.cn" target="_blank">济南公安服务在线</a></li>
+				
+				<li><a href="http://www.jnmsjw.gov.cn/" target="_blank">济南民生警务平台</a></li>
+				
+				<li><a href="http://www.jinandpf.org/" target="_blank">济南市残疾人联合会</a></li>
+				
+				<li><a href="http://www.qingdao.gov.cn" target="_blank">青岛市政府</a></li>
+				
+				<li><a href="http://www.zibo.gov.cn" target="_blank">淄博市政府</a></li>
+				
+				<li><a href="http://www.zaozhuang.gov.cn" target="_blank">枣庄市政府</a></li>
+				
+				<li><a href="http://www.taian.gov.cn" target="_blank">泰安市政府</a></li>
+				
+				<li><a href="http://www.laiwu.gov.cn" target="_blank">莱芜市政府</a></li>
+				
+				<li><a href="http://www.weifang.gov.cn" target="_blank">潍坊市政府</a></li>
+				
+				<li><a href="http://www.yantai.gov.cn" target="_blank">烟台市政府</a></li>
+				
+				<li><a href="http://www.weihai.gov.cn" target="_blank">威海市政府</a></li>
+				
+				<li><a href="http://www.jining.gov.cn" target="_blank">济宁市政府</a></li>
+				
+				<li><a href="http://www.linyi.gov.cn" target="_blank">临沂市政府</a></li>
+				
+				<li><a href="http://www.rizhao.gov.cn" target="_blank">日照市政府</a></li>
+				
+				<li><a href="http://www.heze.gov.cn" target="_blank">菏泽市政府</a></li>
+				
+				<li><a href="http://www.liaocheng.gov.cn" target="_blank">聊城市政府</a></li>
+				
+				<li><a href="http://www.dezhou.gov.cn" target="_blank">德州市政府</a></li>
+				
+				<li><a href="http://www.binzhou.gov.cn" target="_blank">滨州市政府</a></li>
+				
+				<li><a href="http://www.dongying.gov.cn" target="_blank">东营市政府</a></li>
+				
+				<li><a href="http://www.aizhangqiu.cn/" target="_blank">章丘在线</a></li>
+				
+				<div class="clear"></div>
+			</ul>
+		</div>
+        <div class="content" id="bcheng-div5" style="display:none">
+			<ul>
+				
+				<li><a href="http://www.lgbzj.com/" target="_blank">老干部之家</a></li>
+				
+				<li><a href="http://www.workercn.cn/" target="_blank">中工网</a></li>
+				
+				<li><a href="http://www.xw1806.com/" target="_blank">兴闻在线</a></li>
+				
+				<li><a href="http://www.jfdaily.com.cn" target="_blank">解放日报</a></li>
+				
+				<li><a href="http://www.zjdaily.com.cn" target="_blank">浙江日报</a></li>
+				
+				<li><a href="http://www.nmgnews.com.cn" target="_blank">内蒙古日报</a></li>
+				
+				<li><a href="http://www.chinajilin.com.cn" target="_blank">吉林日报</a></li>
+				
+				<li><a href="http://www.fjsen.com/" target="_blank">福建日报</a></li>
+				
+				<li><a href="http://www.huamanche.com/" target="_blank">中国汽车网</a></li>
+				
+				<li><a href="http://www.ccdy.cn/" target="_blank">中国文化传媒</a></li>
+				
+				<li><a href="http://www.gansudaily.com.cn" target="_blank">甘肃日报</a></li>
+				
+				<li><a href="http://www.yndaily.com" target="_blank">云南日报</a></li>
+				
+				<li><a href="http://www.ahrb.com.cn" target="_blank">安徽日报</a></li>
+				
+				<li><a href="http://www.sxdaily.com.cn" target="_blank">陕西日报</a></li>
+				
+				<li><a href="http://www.sdtv.cn" target="_blank">山东电视台</a></li>
+				
+				<li><a href="http://www.brtn.cn/" target="_blank">北京电视台</a></li>
+				
+				<li><a href="http://www.enshifdc.com/" target="_blank">恩施房产网</a></li>
+				
+				<li><a href="http://www.haiwainet.cn" target="_blank">海外网</a></li>
+				
+				<li><a href="http://www.jxgdw.com" target="_blank">今视网</a></li>
+				
+				<li><a href="http://www.huaxunwang.com.cn/" target="_blank">华讯网</a></li>
+				
+				<li><a href="http://www.xmnn.cn/" target="_blank">厦门网</a></li>
+				
+				<li><a href="http://www.xwh.cn/" target="_blank">新文化网</a></li>
+				
+				<div class="clear"></div>
+			</ul>
+		</div>
+       	<div class="content" id="bcheng-div6" style="display:none">
+			<ul>
+				
+				<li><a href="http://www.jiaoyubao.cn/" target="_blank">教育宝</a></li>
+				
+				<li><a href="http://www.sh.com.cn/" target="_blank">“在上海”网上商城</a></li>
+				
+				<li><a href="http://www.sg.com.cn" target="_blank">精品购物指南</a></li>
+				
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</div>
+	<div class="blank20"></div>
+	<div id="ad_wei" ></div>
+</div>
+<!-- 外框宽1000 End -->
+<!-- 页脚Start -->
+<div id="footer" class="w1000">
+	<div class="menu"><a href="http://www.dzwww.com/xinwen/guoneixinwen/201703/t20170324_15685403.htm">关于我们</a> - <a href="http://www.dzwww.com/yedineirong/banquanshengming.htm"></a><a href="http://www.dzwww.com/yedineirong/jituanjianjie.htm">报业集团</a> - <a href="http://www.dzwww.com/xinwen/guoneixinwen/201703/t20170324_15685409.htm">省网媒集团</a>  - <a href="http://www.dzwww.com/yedineirong/banquanshengming.htm">版权声明</a> - <a href="http://www.dzwww.com/2010/scb/">广告业务</a> - <a href="http://www.dzwww.com/about/lxfs/">联系方式</a> - <a href="http://www.dzwww.com/map/">站点地图</a> - <a href="http://www.cctls.cn/index.html">法律顾问</a>
+	 </div>
+	 <p>Copyright (C) 2001-2017  &nbsp; dzwww.com. All Rights Reserved</p>
+	 <p>山东省互联网传媒集团主办 Email:<a href="mailto:webmaster@dzwww.com">webmaster@dzwww.com</a> <a href="//www.dzwww.com/about/xwxk/" target="_blank">新闻信息服务许可证</a>&nbsp; <a>音像制品出版许可证</a>&nbsp; <a href="//www.dzwww.com/about/gbxk/">广播电视节目制作经营许可证</a></p>
+	 <p>鲁ICP备09023866号 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010202000111" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;" />鲁公网安备 37010202000111号</a> <a>新出网证（鲁）字02号</a>  <a href="https://www.dzwww.com/about/lww" target="_blank">鲁网文[2016]0501-001号</a>   <a>网络视听许可证</a> 违法不良信息举报电话：0531-85196540</p>
+	<p class="blank10"></p>
+	  <p><img width="40" height="50" src="/images/biaoshi.gif" alt="标志" />&nbsp;<a href="http://jinan.cyberpolice.cn/xuzhi1.htm" target="_blank"><img border="0" width="100" height="50" src="/images/jnbjwlogo2.JPG" alt="网络110报警服务" /></a>&nbsp;<a href="http://www.sdjubao.cn/"><img width="100" height="50" src="/images/sdjubao.gif" alt="山东省互联网违法和不良信息举报中心" /></a>&nbsp;<a href="http://www.12377.cn" target="_blank"><img width="115" height="48" src="/images/footer-pic1.jpg" /></a>&nbsp;&nbsp;<a href="http://www.sdmsjw.gov.cn/index.html" target="_blank"><img width="106" height="50" src="/images/footer-pic2.gif" /></a><!--可信网站图片LOGO安装开始-->
+<script src="http://kxlogo.knet.cn/seallogo.dll?sn=e12052111010021789307708&size=0"></script>
+<!--可信网站图片LOGO安装结束--></p>
+</div>
+<!-- 页脚结束End -->
+<!--ad-->
+<script type="text/javascript" src="https://www.dzwww.com/tpl/v2015/js/ext2.js"></script>
+<script type="text/javascript" src="https://www.dzwww.com/js/swfobject.js"></script>
+<script type="text/javascript">
+function fill_news(list){
+	var news = "";
+	for(var i=0;i<list.length;i++){
+		news+=list[i];
+	}
+	$("#xw").append(news);
+}
+(function(){
+	var script=document.createElement("script"),
+		head=document.getElementsByTagName('head')[0]||document.documentElement;
+	script.src="https://ad.dzwww.com/js/ad20161230.js?t="+getCacheDate();
+	script.charset="gb2312";
+	document.body.appendChild(script);
+})();
+(function(){
+	var script=document.createElement("script"),
+		head=document.getElementsByTagName('head')[0]||document.documentElement;
+	script.src="https://jinan.dzwww.com/dfxw/default.js?t="+getCacheDate();
+	script.charset="gb2312";
+	document.body.appendChild(script);
+})();
+(function(){
+	var script=document.createElement("script"),
+		head=document.getElementsByTagName('head')[0]||document.documentElement;
+	script.src="https://jinan.dzwww.com/dfxw/index_50367.js?t="+getCacheDate();
+	script.charset="gb2312";
+	document.body.appendChild(script);
+})();
+(function(){
+//新闻排行
+	var script=document.createElement("script"),
+		head=document.getElementsByTagName('head')[0]||document.documentElement;
+	script.src="https://zt.dzwww.com/2013/rank/data/22_202.js?t="+getCacheDate();
+	script.charset="utf-8";
+	document.body.appendChild(script);
+})();
+function trim(str){ //删除左右两端的空格
+　　     return str.replace(/(^\s*)|(\s*$)/g, "");
+　　 }
+var zgss='';
+function searchSuggest(){
+		var keywordUrl = '//zt.dzwww.com/2015/chinaso/get.php?t=1';   //默认提示词
+		var htmlkeyContent = '';
+		$.ajax({
+			type : 'get',
+			url : keywordUrl,
+			async : true,
+			cache : false,
+			dataType : 'jsonp',
+			timeout:5000,
+			contenttype: "application/json; charset=utf-8",
+			jsonp: "jsoncallback",
+	        jsonpCallback:"keyWordCallback",
+			success:function(data){
+				var keyWord = data.list;
+				htmlkeyContent += keyWord[0].title;
+				//alert(htmlkeyContent);
+				//$_('China_guan1').value=htmlkeyContent;
+				zgss=htmlkeyContent;
+				//$('China_guan1').attr('placeHolder',htmlkeyContent);
+				//suggestHide();
+	    	},
+	    	error:function(errMsg) {
+	        	//$("#searchHotWord").html("网络出错，请稍后重试");
+	        }
+		});
+	}
+	function getData() {
+		//jsonp接口
+		var hotwordUrl = '//zt.dzwww.com/2015/chinaso/get.php?t=2';   //下方热搜词
+		var htmlhotContent = '';
+		$.ajax({
+			type : 'get',
+			url : hotwordUrl,
+			async : true,
+			cache : false,
+			dataType : 'jsonp',
+			timeout:5000,
+			jsonp: "jsoncallback",
+	        jsonpCallback:"hotWordsCallback",
+			success:function(data){
+				var hotList = data.list;
+				htmlhotContent += '<span>热词：</span>';
+				for (i=0; i<3; i++) {
+					htmlhotContent += '<a href="' + hotList[i].url + '" target="_blank">' + hotList[i].title + '</a>';
+				}
+				$("#chinaso_hotkeyword").html(htmlhotContent);
+	    	},
+	    	error:function(errMsg) {
+	        	$("#chinaso_hotkeyword").html("网络出错，请稍后重试");
+	        }
+		});
+	}
+searchSuggest();
+getData();
+/*
+$_('China_guan1').onfocus = function() {
+	if(trim(this.value) == zgss) { this.value = ''; }
+};
+$_('China_guan1').onblur = function() {
+if(trim(this.value) == '') { this.value = zgss} };
+*/
+</script>
+<script type="text/javascript" src="//cbjs.baidu.com/js/m.js"></script>
+<script type="text/javascript">
+BAIDU_CLB_fillSlotAsync('5834072');
+</script>
+<!-- 广告位：主站首页对联 -->
+<script>
+(function() {
+    var s = "_" + Math.random().toString(36).slice(2);
+    document.write('<div id="' + s + '"></div>');
+    (window.slotbydup=window.slotbydup || []).push({
+        id: '5651996',
+        container: s,
+        size: '110,300',
+        display: 'inlay-fix'
+    });
+})();
+</script>
+<script src="//dup.baidustatic.com/js/os.js"></script>
+<!--左下角广告-->
+<!--<DIV id=lovemeng style='Z-INDEX: 100; left: 50%;margin-left:500px; POSITION: fixed; top:300px; '>
+<a href="https://www.dzwww.com/2016/sdaq/wxhd/gygg/201805/t20180529_17432024.html"><img src="https://ad.dzwww.com/2018adpic/05/61.jpg" width="80" height="80" /></a>
+<p onclick="this.parentNode.innerHTML='';" style="background:#ccc;text-align:right;color:#fff;"><span>关闭</span></p>
+</DIV>-->
+<!--<DIV id=lovemeng style='Z-INDEX: 100; left: 10px; POSITION: absolute; bottom:20px;'>
+<a href="https://www.dzwww.com/2016/sdaq/wxhd/gygg/201805/t20180529_17432024.html"><img src="https://ad.dzwww.com/2018adpic/05/61.jpg" width="80" height="80" /></a></DIV>
+<script language=javascript>
+lastScrollY=0;
+function heartBeat0(){
+diffY=document.body.scrollTop;
+percent=.1*(diffY-lastScrollY);
+if(percent>0)percent=Math.ceil(percent);
+else percent=Math.floor(percent);
+document.all.lovexin0.style.pixelTop+=percent;
+lastScrollY=lastScrollY+percent;}
+window.setInterval("heartBeat0()",1);
+</script>-->
+<!--左下角广告结束-->
+<!-- 万瑞统计 begin-->
+<script type="text/javascript">
+//<![CDATA[
+document.write('<'+'s'+'cript type="text'+'\/'+'java'+'script" src='+'"https:\/\/ad.dzwww.com\/js\/getacc.js"><'+'\/'+'scr'+'ipt>');
+//]]>
+</script>
+<!-- 万瑞统计 end-->
+</body>
+<img src="//idigger.qtmojo.com/main/s?d=idigger&i=l29878,66129,66808&t=91" />
+<img src="http://secure-chn.imrworldwide.com/cgi-bin/gn?prd=chn&ci=ent580866&am=3&at=view&rt=banner&st=image&ca=cmp121352&cr=crv480406&pc=plc3403847&r=[timestamp]" style="position:fixed;bottom:0;left:0;" />
+<!-- 1991 -->
+	<!-- 1992
+	<script language="javascript" type="text/javascript" src="//int.dpool.sina.com.cn/iplookup/iplookup.php?format=js" id="dzf_script"></script>  -->
+</html>

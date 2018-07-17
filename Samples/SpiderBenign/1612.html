@@ -1,0 +1,2884 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=7" />
+		<meta target="_blank">
+		<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var browser = {
+				versions: function() {
+					var u = navigator.userAgent,
+					app = navigator.appVersion;
+					return { //移动终端浏览器版本信息
+						trident: u.indexOf('Trident') > -1,
+						//IE内核
+						presto: u.indexOf('Presto') > -1,
+						//opera内核
+						webKit: u.indexOf('AppleWebKit') > -1,
+						//苹果、谷歌内核
+						gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+						//火狐内核
+						mobile: !!u.match(/AppleWebKit.*Mobile.*/),
+						//是否为移动终端
+						ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+						//ios终端
+						android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+						//android终端或uc浏览器
+						iPhone: u.indexOf('iPhone') > -1,
+						//是否为iPhone或者QQHD浏览器
+						iPad: u.indexOf('iPad') > -1,
+						//是否iPad
+						webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+					};
+				} (),
+				language: (navigator.browserLanguage || navigator.language).toLowerCase()
+			}
+			//document.writeln("语言版本: "+browser.language);
+			//document.writeln(" 是否为移动终端: "+browser.versions.mobile);
+			//document.writeln(" ios终端: "+browser.versions.ios);
+			//document.writeln(" android终端: "+browser.versions.android);
+			//document.writeln(" 是否为iPhone: "+browser.versions.iPhone);
+			//document.writeln(" 是否iPad: "+browser.versions.iPad);
+			//document.writeln(navigator.userAgent);
+			if (browser.versions.iPhone || browser.versions.mobile || browser.versions.android) {
+				window.location.href = "http://www.d1net.com/wap_index.html";
+			}
+		</script>
+		<title>
+			企业网D1Net_企业IT第1门户		</title>
+		<meta name="keywords" content="云计算,数据通信,数据中心,统一通信,协作,视频会议,视频监控,呼叫中心,IP语音,存储,企业通信,企业业务,安全,测试,移动办公,服务器,虚拟化">
+		<meta name="description" content="企业网(www.D1Net.com):定位于企业网络通信,面向企事业单位的IT主管,提供资讯类及采购指南,商情,产品点评等服务.涵盖范围:云计算,数据通信,数据中心,UC协作,视频会议,视频监控,呼叫中心,IP语音,存储,安全,测试,移动办公,服务器,虚拟化等.拥有企业会员近五百家,专业个人注册会员十九万人,针对大中型行业企业客户,重点服务中高端厂商和方案,服务提供商以及境内外运营商.">
+		<link rel="alternate" type="application/rss+xml" href="http://www.d1net.com/P/rss/95"
+		title="企业网D1NET" />
+		<link href="http://www.d1com.com/statics/css/indexnew.css" rel="stylesheet" type="text/css" />
+		<style>
+			.channeltab {position:relative;}
+			.wrap .rightside .channel .channeltab a.more {color: #c00;font-size: 12px;font-weight: normal;position: absolute;right: 10px;text-decoration: none;}
+			.wx_float_left{position:fixed;left:5px;top:200px;} .wx_float_right{position:fixed;right:5px;top:200px;}
+			.wx_float_left span,.wx_float_right span{display:block;background:#eee;text-align:center;padding:5px;font-weight:bold;color:#666}
+		</style>
+		<script type="text/javascript" src="http://www.d1com.com/statics/js/jquery.min.js"></script>
+		<script type="text/javascript" src="http://www.d1com.com/statics/js/cookie.js"></script>
+		<script type="text/javascript" src="http://www.d1com.com/statics/js/jquery.suggest.js"></script>
+		<script type="text/javascript" src="http://www.d1com.com/statics/js/MSclass.js"></script>
+	</head>
+	<body>
+		<div id="d1net_topbg">
+			<div class="top">
+				<script type="text/javascript">
+					document.write('<iframe src="http://www.d1com.com/index.php?m=member&c=index&a=mini&forward=' + encodeURIComponent(location.href) + '&siteid=1" allowTransparency="true"  width="650" height="30" frameborder="0" scrolling="no"></iframe>')
+				</script>
+				<div class="topright">
+					<div class="index_d1net">
+						<a href=# onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.d1net.com/');">
+							设为首页
+						</a>
+					</div>
+					<div class="rss_d1net">
+						<a href="/p/rss/" target="_blank">
+							<img src="http://www.d1com.com/statics/images/indexnew/rss.jpg" alt="RSS订阅" width="23" height="13"
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="d1net_nav">
+			<!-- <script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=28">
+			
+			</script> -->
+			<div class="fl" style="margin-right:6px;">
+				<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=252"></script>
+			</div>
+			<div class="fl">
+				<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=253"></script>
+			</div>
+			<div class="d1net_logo">
+				<a href="http://www.d1net.com/">
+					<img alt="企业网D1Net" src="http://www.d1com.com/statics/images/indexnew/logo.png" />
+				</a>
+			</div>
+			<div class="nav_l" id="nav_l">
+				<ul style="overflow:hidden;">
+					<li><a href="http://www.d1net.com/cloud/">云计算</a></li>
+					<li class="li7"><a href="http://www.d1net.com/scity/">智慧城市</a></li>
+					<li><a href="http://www.d1net.com/datacenter/">数据中心</a></li>
+					<li><a href="http://www.d1net.com/bigdata/">大数据</a></li>
+					<li><span style="color:#1F3986;font-size:12px;">网络/</span><a href="http://www.d1net.com/data/">数据通信</a></a></li>
+					<li><a href="http://www.d1net.com/em-app/">企业移动应用</a></li>
+					<li><a href="http://www.d1net.com/byod/">BYOD</a></li>
+					<li><a href="http://www.d1net.com/server/">服务器</a></li>
+					<li class="li7"><a href="http://www.d1net.com/storage/">存储</a></li>
+					<li class="li7"><a href="http://www.d1net.com/security/">安全</a></li>
+					<li><a href="http://www.d1net.com/uc/">UC协作</a></li>
+					<li><a href="http://www.d1net.com/vc/">视频会议</a></li>
+					<li><a href="http://www.d1net.com/ipvs/">视频监控</a></li>
+					<li><a href="http://www.d1net.com/cc/">呼叫中心</a></li>
+					<li><a href="http://www.d1net.com/iot/">物联网</a></li>
+					<li><a href="http://www.d1net.com/virtual/">虚拟化</a></li>
+					<li><a href="http://www.d1net.com/voip/">IP语音</a></li>
+					<li class="li6"><a href="http://www.d1net.com/software/">企业应用软件</a></li>
+					<li class="li7"><a href="http://www.d1net.com/testing/">测试</a></li>
+					<li class="li8"><a href="http://www.d1net.com/carrier/">运营商企业业务</a></li>
+					<li><a href="http://www.d1net.com/wl/">无线通信</a></li>
+					<li class="li7"><a href="http://www.d1net.com/power/">电源</a></li>
+					<li class="li7"><a href="http://www.d1net.com/chip/">芯片</a></li>
+					<!-- <li class="li5"><span><a href="http://www.d1com.com/" target="_blank">运营与增值</a></span></li> -->
+				</ul>
+			</div>
+			<div class="nav_r">
+				<ul style="overflow:hidden;">
+					<li><a href="http://www.d1net.com/cio/" target="_blank">CIO频道</a></li>
+					<li><a href="http://www.d1net.com/aboutus/ad/" target="_blank">广告</a></li>
+					<li><span><a href="http://bbs.d1net.com" target="_blank">论坛</a></span></li>
+					<li><a href="http://www.d1net.com/buyer/" target="_blank">采购频道</a></li>
+					<!-- <li><span><a href="/aboutus/hr/" target="_blank">加入我们</a></span></li> -->
+					<li class="li5"><span><a href="http://www.d1com.com/" target="_blank">运营增值</a></span></li>
+					<!-- <li><a href="http://www.d1net.com/aboutus/contact/" target="_blank">联系我们</a></li>-->
+					<li><a href="http://www.d1net.com/iv/" target="_blank"><!-- 高端 -->访谈</a></li>
+					<li><a href="http://www.d1net.com/index.php?m=rss&c=index&a=register_step1" target="_blank">周刊<!-- 订阅 --></a></li>
+					<li class="li5"><span><a href="http://www.d1net.com/vendor/login/index.html" target="_blank">企业入驻区</a></span></li>
+				</ul>
+			</div>
+		</div>
+		<div id="adsearchad">
+			<div class="fl">
+				<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=124">
+				</script>
+			</div>
+			<div id="search">
+				<ul style="width:330px; height:25px;">
+					<li>
+						<a href="javascript:;" onclick="setnsid(0, $(this));" class="on">
+							资讯
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" onclick="setnsid(6, $(this));">
+							图片
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" onclick="setnsid(5, $(this));">
+							展会
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" onclick="setnsid(7, $(this));">
+							专题
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" onclick="setnsid(4, $(this));">
+							供应商
+						</a>
+					</li>
+					<li style="width:30px;">
+						<a href="javascript:;"  onclick="setnsid(1, $(this));" style=" color:#C00; float:right;">
+							论坛
+						</a>
+					</li>
+					<li style="width:23px;">
+						<img alt="企业网D1Net官方论坛" src="http://cache.d1net.com//images/indexnew/nav-hot.gif"
+						border="0" style="position:relative; top:-5px" />
+					</li>
+				</ul>
+				<form action="http://zhannei.d1net.com/cse/search" target="_blank">
+					<input type="hidden" name="s" value="14159233583289465656">
+					<input type="text" name="q">
+					<input type="hidden" id="nsid" name="nsid" />
+					<button type="submit" class="ss_btn" value="搜 索"></button>
+				</form>
+
+			</div>
+			<script>
+				function setnsid(nsid,obj1){
+					obj1.attr("class","on");
+					obj1.parent().siblings().children("a").removeAttr("class");
+					$("#nsid").val(nsid);
+				}
+			</script>
+			<div class="fr">
+				<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=126">
+				</script>
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+		<div id="main_first">
+			<div class="productmap fl">
+				<div class="tab_l">
+					D1Net推荐
+				</div>
+				<div class="content">
+					<div class="p_item_pinpai">
+						<strong>
+							旗下品牌
+						</strong>
+						<ul>
+							<li style="margin-left:5px;">
+								<span>
+									<a href="http://ccca.d1net.com/" target="_blank">
+										CCCA中国云计算大奖
+									</a>
+								</span>
+							</li>
+							<li style="margin-left:5px;">
+								<span>
+									<a href="http://cena.d1net.com/" target="_blank">
+										CENA企业网络通信大奖
+									</a>
+								</span>
+							</li>
+							<br />
+						</ul>
+					</div>
+					<div class="p_item_serv">
+						<strong>
+							互动
+						</strong>
+						<ul>
+							<!--<li><a href="/building.html" target="_blank">博客</a></li>-->
+							<li>
+								<a href="http://www.d1net.com/newpoints/32/" target="_blank" title="分享：中兴2014智慧城市建设经验谈">
+									新视点
+								</a>
+							</li>
+							<br />
+							<li>
+								<span style="display:inline-block;width:100px;float:left;margin-left:13px;">
+									<wb:follow-button uid="1827770050" type="gray_2" width="150" height="24">
+									</wb:follow-button>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="p_item_reco">
+						<strong>
+							推荐
+						</strong>
+						<ul>
+							<li>
+								<a href="http://www.d1net.com/iv/" target="_blank">
+									访谈
+								</a>
+							</li>
+							<li>
+								<a href="http://www.d1net.com/expo/" target="_blank">
+									展会频道
+								</a>
+							</li>
+							<br />
+							<li>
+								<a href="http://www.d1net.com/index.php?m=rss&c=index&a=register_step1" target="_blank">
+									电子周刊
+								</a>
+							</li>
+							<li>
+								<a href="http://www.d1net.com/fun/" target="_blank">休闲频道</a>
+							</li>
+						</ul>
+					</div>
+					<div class="p_item_buyer">
+						<strong>
+							采购指南
+						</strong>
+						<ul>
+							<li style="margin-right:0;padding-right:0;float:left;">
+								<a href="http://www.d1net.com/buyer/cloud/" target="_blank">
+									云计算
+								</a>
+							</li>
+							<li style="float:left;">
+								<span style="color:#1F3986;font-size:12px;">
+									网络/
+								</span>
+								<a href="http://www.d1net.com/data/">
+									数据通信
+								</a>
+								</a>
+							</li>
+							<br />
+							<li>
+								<a href="http://www.d1net.com/buyer/cc/" target="_blank">
+									呼叫中心
+								</a>
+							</li>
+							<li>
+								<span>
+									<a href="http://www.d1net.com/buyer/" target="_blank">
+										更多
+									</a>
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="first">
+				<div class="tab_m" style="position:relative;">
+					今日焦点
+					<!--<div class="tab current"></div>
+					<div class="tab"></div>
+					<div class="tab"></div>
+					<div class="tab"></div>-->
+					<a class="more" href="http://www.d1net.com/index.php?m=content&c=index&a=more_index_first_screen" style="color: #660000;font-weight: bold;font-size: 14px;position:absolute;right:20px;" target="_blank">
+						更多>>
+					</a>
+				</div>
+				<h1>
+					 					<a href="http://www.d1net.com/uc/company/468818.html" target="_blank" title="" class="pos-1-1-1">
+											</a>
+					 				</h1>
+				<h2>
+					<ul>
+																				<li>[<a target="_blank" title="" href="http://www.d1net.com/cloud/news/468812.html" class="pos-1-2-1"></a>]</li>
+																																	<li>[<a target="_blank" title="" href="http://www.d1net.com/cloud/news/468817.html" class="pos-1-3-2"></a>]</li>
+							<br />
+																																	<li>[<a target="_blank" title="" href="http://www.d1net.com/wl/vendor/352953.html" class="pos-1-4-1">微软将推跨平台无线服务Microsoft WiFi</a>]</li>
+																																	<li>[<a target="_blank" title="" href="http://www.d1net.com/cloud/vendors/352960.html" class="pos-1-5-2">联想高管更迭凸显移动业务危机</a>]</li>
+																		</ul>
+				</h2>
+				<h3>
+					<ul>
+						<div style="width:444px;">
+																																<li><a class="pos-2-1-1" target="_blank" title="容器应用得到发展或将代替私有云" href="http://www.d1net.com/cloud/news/468825.html" ></a></li> |
+																																	<li><a class="pos-2-1-2" target="_blank" title="企业业务移动到云端但需降低风险" href="http://www.d1net.com/cloud/news/468824.html" > </a></li>
+																													</div>
+						<div style="width:444px;">
+																												<li><a class="pos-2-2-1" target="_blank" title="满足企业IT需求的原生Azure监控工具"href="http://www.d1net.com/cloud/tech/468830.html" ></a></li> | 
+																												<li><a class="pos-2-2-2" target="_blank" title="保护公共云和混合云中的数据" href="http://www.d1net.com/cloud/tech/468827.html" ></a></li>
+																											</div>
+						<div style="width:444px;">
+																												<li><a class="pos-2-3-1" target="_blank" title="双峰信息技术(IT)的成功秘诀：老虎团队、“臭鼬工厂”和骆驼的鼻子" href="http://www.d1net.com/cio/ciotech/468831.html" ></a></li> |
+																												<li><a class="pos-2-3-2" target="_blank" title="阻碍大数据成功的常见问题" href="http://www.d1net.com/bigdata/news/468821.html" ></a></li>
+																											</div>
+						<div style="width:444px;">
+																												<li a=""><a class="pos-2-4-1" target="_blank" title="容器热潮：还在等什么？" href="http://www.d1net.com/cloud/news/468823.html" ></a></li> |
+																												<li a=""><a class="pos-2-4-2" target="_blank" title="YouTube押注亚洲市场 积极拓展本地化内容业务" href="http://www.d1net.com/uc/company/468811.html" ></a></li>
+																											</div>
+						<div style="width:444px;">
+																												<li a=""><a class="pos-2-5-1" target="_blank" title="融合与超融合：数据中心该如何选择?" href="http://www.d1net.com/datacenter/news/468819.html" ></a></li> |
+                            														
+							<li a=""><a class="pos-2-5-2" target="_blank" title="网络安全技能短缺 对技术创新有影响" href="http://www.d1net.com/security/news/468816.html" ></a></li>
+                            
+																											</div>
+						<div style="width:444px;">
+																												<li a=""><a class="pos-2-6-1" target="_blank" title="联通大数据业务考虑成立合资公司 引入互联网企业" href="http://www.d1net.com/bigdata/news/468813.html" ></a></li>|
+																												<li a=""><a class="pos-2-6-2" target="_blank" title="谷歌Facebook称霸数字广告市场 包揽整个行业营收增长" href="http://www.d1net.com/uc/company/468810.html" ></a></li>
+																											</div>
+					</ul>
+				</h3>
+			</div>
+			<div class="fr">
+				<div class="clear">
+				</div>
+			</div>
+			<div class="topic fr">
+				<div class="tab_r">
+					热点专题
+					<a class="more" href="http://www.d1net.com/s/" target="_blank">
+						更多>>
+					</a>
+				</div>
+				 				<dl>
+					<dt>
+						<a href="http://www.d1net.com/s/hc2/" target="_blank">
+							全球化沟通指南&mdash;&mdash;云视频会议领导						</a>
+					</dt>
+					<dd>
+						<a href="http://www.d1net.com/s/hc2/" target="_blank">
+							<img alt="全球化沟通指南——云视频会议领导者会畅通讯" src="http://www.d1net.com/uploadfile/2017/0414/20170414115330461.jpg" width="120" height="90" />
+						</a>
+						<div class="text">
+							近年来，越来越多的中国企业走出国门开拓海外市场。，如何及时地进...							<span>
+								<a href="http://www.d1net.com/s/hc2/" target="_blank">
+									[详情]
+								</a>
+							</span>
+						</div>
+					</dd>
+				</dl>
+				 				<ul class="special1">
+					 					<li>
+						<a href="http://www.d1net.com/s/h3c_navigate/" target="_blank" title="H3C Navigate 2017 新华三领航者峰会——D1Net现场直播">
+							H3C Navigate 2017 新华三领...						</a>
+					</li>
+										<li>
+						<a href="http://www.d1net.com/s/lojitech2017/" target="_blank" title="罗技视频会议，打造全视频沟通环境">
+							罗技视频会议，打造全视频沟通环境						</a>
+					</li>
+										<li>
+						<a href="http://www.d1net.com/s/H3C_subway/" target="_blank" title="新华三全国地铁信息化版图">
+							新华三全国地铁信息化版图						</a>
+					</li>
+										<li>
+						<a href="http://www.d1net.com/s/hwtransformWuZhen/" target="_blank" title="华为2016运营转型峰会">
+							华为2016运营转型峰会						</a>
+					</li>
+										<li>
+						<a href="http://www.d1net.com/s/xt_zx/" target="_blank" title="转型进行时：信天通信弄潮“互联网+”蓝海">
+							转型进行时：信天通信弄潮&ldquo;互联...						</a>
+					</li>
+					 				</ul>
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+		<div class="wrap">
+			<div class="leftside">
+				<div class="mar_b">
+					<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=127">
+					</script>
+				</div>
+				<div class="column mar_b">
+					<div class="tab_l">
+						<a href="http://www.d1net.com/iv/" target="_blank">
+							高端访谈
+						</a>
+					</div>
+															<dl>
+						<dt>
+							<a href="http://www.d1net.com/iv/corporation/464444.html" target="_blank">
+								<img src="http://www.d1net.com/uploadfile/2017/0401/20170401074724489.jpg" alt="曹图强：思科正成为全数字化转型基石" width="164" height="123" />
+							</a>
+						</dt>
+						<dd>
+							<a target="_blank" title="曹图强：思科正成为全数字化转型基石" href="http://www.d1net.com/iv/corporation/464444.html">
+								曹图强：思科正成为全数字化转型							</a>
+						</dd>
+					</dl>
+										<dl>
+						<dt>
+							<a href="http://www.d1net.com/uc/company/451885.html" target="_blank">
+								<img src="http://www.d1net.com/uploadfile/2017/0111/20170111092436926.jpg" alt="捷视飞通蒋延春：打开视频通信创新之门" width="164" height="123" />
+							</a>
+						</dt>
+						<dd>
+							<a target="_blank" title="捷视飞通蒋延春：打开视频通信创新之门" href="http://www.d1net.com/uc/company/451885.html">
+								捷视飞通蒋延春：打开视频通信创							</a>
+						</dd>
+					</dl>
+														</div>
+				<div class="column">
+					<div class="tab_l">
+						<a href="http://www.d1net.com/fun/" target="_blank">休闲频道</a>
+					</div>
+					<ul>
+																		<li>
+							<a title="2017年节假日放假安排来了！" target="_blank" href="http://www.d1net.com/fun/445357.html">2017年节假日放假安排来了！</a>
+						</li>
+												<li>
+							<a title="头皮屑太多要注意  专家说竟然是得了这种病！" target="_blank" href="http://www.d1net.com/fun/443294.html">头皮屑太多要注意  专家说竟</a>
+						</li>
+												<li>
+							<a title="硬板床害死中国人？西方人都睡软床垫？究竟是谁睡错了？" target="_blank" href="http://www.d1net.com/fun/443293.html">硬板床害死中国人？西方人都睡</a>
+						</li>
+												<li>
+							<a title="专家支十招 助你拥有好睡眠" target="_blank" href="http://www.d1net.com/fun/443292.html">专家支十招 助你拥有好睡眠</a>
+						</li>
+												<li>
+							<a title="交警喊话：忽视这个小问题，分分钟吊销驾照！" target="_blank" href="http://www.d1net.com/fun/443291.html">交警喊话：忽视这个小问题，分</a>
+						</li>
+												<li>
+							<a title="你有胆子去玩吗？中国最惊险刺激的四大景点！" target="_blank" href="http://www.d1net.com/fun/442934.html">你有胆子去玩吗？中国最惊险刺</a>
+						</li>
+												<li>
+							<a title="哪一个最让你震撼？看中国最美五大峡谷！" target="_blank" href="http://www.d1net.com/fun/442933.html">哪一个最让你震撼？看中国最美</a>
+						</li>
+												<li>
+							<a title="出汗就是排毒？你太天真了！" target="_blank" href="http://www.d1net.com/fun/442932.html">出汗就是排毒？你太天真了！</a>
+						</li>
+																	</ul>
+
+				</div>
+			</div>
+			<div class="rightside">
+				<div class="textad mar_b">
+					<dl class="fl">
+						<dt>
+							<a href="http://www.bizconf.cn/" target="_blank">
+								<img alt="上海会畅通讯" src="http://www.d1com.com/statics/images/indexnew/hc.gif" width="60" height="23"
+								/>
+							</a>
+						</dt>
+						<dd id="textad1">
+							.<a href="http://www.d1net.com/vc/news/91603.html" target="_blank">CIO需迎接多方通信3.0</a>
+							·<a href="http://www.d1net.com/vc/cnews/94514.html" target="_blank">上海会畅通讯推出多方通信3.0</a>
+							.<a href="http://www.d1net.com/vc/cnews/93462.html" target="_blank">多方通信：服务才是硬道理</a>
+							·<a href="http://www.d1net.com/vc/product/90316.html" target="_blank">上海会畅通讯为企业生产力创新注入"绿色"动力</a>
+							·<a href="http://www.d1net.com/vc/example/94159.html" target="_blank">上海会畅通讯——绿色会议的实践者</a>
+							·<a href="http://www.d1net.com/iv/corporation/98165.html" target="_blank">上海会畅通讯——无价值不成活 会畅通讯领衔多方通信强势逆袭</a>
+						</dd>
+					</dl>
+					<div class="fenge fl">
+					</div>
+					<dl class="fr">
+						<dt>
+							<a href="http://vendor.d1net.com/eastcom/index/" target="_blank">
+								<img alt="东信" src="http://www.d1com.com/statics/images/indexnew/dx.gif" width="60" height="23" />
+							</a>
+						</dt>
+						<dd id="textad2">
+							<a href="http://www.d1net.com/expo/activity/73870.html" target="_blank">
+								东信VAS产品亮相亚洲通信展
+							</a>
+							·
+							<a href="http://www.d1com.com/vas/vendor/34072.html" target="_blank">
+								东信发布EVP平台
+							</a>
+							·
+							<a href="http://www.d1net.com/expo/activity/74105.html" target="_blank">
+								东信闪耀亚洲增值业务论坛
+							</a>
+						</dd>
+					</dl>
+					<script language="javascript">
+						var marquee1 = new Marquee("textad1");
+
+						marquee1.Direction = "left";
+
+						marquee1.Step = 1;
+
+						marquee1.Width = 300;
+
+						marquee1.Height = 16;
+
+						marquee1.Timer = 50;
+
+						marquee1.DelayTime = 0;
+
+						marquee1.WaitTime = 2000;
+
+						marquee1.ScrollStep = 21;
+
+						marquee1.Start();
+
+						var marquee2 = new Marquee("textad2");
+
+						marquee2.Direction = "left";
+
+						marquee2.Step = 1;
+
+						marquee2.Width = 300;
+
+						marquee2.Height = 16;
+
+						marquee2.Timer = 50;
+
+						marquee2.DelayTime = 0;
+
+						marquee2.WaitTime = 2000;
+
+						marquee2.ScrollStep = 21;
+
+						marquee2.Start();
+					</script>
+				</div>
+				<div class="channel fl">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/cloud/">
+							云计算
+						</a>
+						<a class="more" href="http://www.d1net.com/cloud/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/cloud/news/468745.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426084147319.jpg" alt="如何做到传统业务的云化创新？" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="如何做到传统业务的云化创新？" href="http://www.d1net.com/cloud/news/468745.html">
+																	</a>
+							</dd>
+							 						</dl>
+						  						<h4>
+							<a target="_blank" title="2017 CCS云计算渠道伙伴合作高峰论坛即将盛大开幕" href="http://www.d1net.com/cloud/news/464163.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="今目标收费是加速灭亡还是绝地反击？" href="http://www.d1net.com/cloud/news/457987.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="CIO选型看什么？2016CEIA中国企业IT大奖正式揭晓" href="http://www.d1net.com/cloud/news/451630.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="三重保证 让每一签都是上上签" href="http://www.d1net.com/cloud/vendors/447178.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="D1net阅闻：半导体行业最大收购：高通470亿美元收购恩智浦" href="http://www.d1net.com/cloud/news/439363.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+						 						<li>
+							<a href="http://www.d1net.com/cloud/solution/468888.html" target="_blank" title="以联盟的名义，如何以一当十？"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/cloud/cases/468832.html" target="_blank" title="“快鱼”时代的“双创”样本"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/cloud/tech/468830.html" target="_blank" title="满足企业IT需求的原生Azure监控工具"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/cloud/tech/468827.html" target="_blank" title="保护公共云和混合云中的数据"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/cloud/news/468825.html" target="_blank" title="容器应用得到发展或将代替私有云"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="channel fr" style="border:none; width:375px; height:291px;">
+					<div class="v_ad">
+						<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=160">
+						</script>
+					</div>
+					<div class="vendor">
+						<div class="channeltab">
+							<a href="http://vendor.d1net.com/" target="_blank">
+								供应商列表
+							</a>
+							<a class="more" href="http://vendor.d1net.com/" target="_blank">
+								更多>>
+							</a>
+						</div>
+						<div class="v_logo">
+							<ul id="v_logo">
+								 								<li>
+									<a target="_blank" href="http://www.cisco.com/web/CN/index.html">
+										<img alt="Cisco" src="http://www.d1net.com/uploadfile/2014/0103/20140103052744841.jpg" />
+									</a>
+								</li>
+																<li>
+									<a target="_blank" href="http://www.orange.com/en/home">
+										<img alt="OBS" src="http://www.d1net.com/uploadfile/2014/0102/20140102053102645.png" />
+									</a>
+								</li>
+																<li>
+									<a target="_blank" href="http://www.ibm.com/cn/zh/">
+										<img alt="ibm" src="http://www.d1net.com/uploadfile/2011/0601/20110601044252893.jpg" />
+									</a>
+								</li>
+																<li>
+									<a target="_blank" href="http://windows.microsoft.com/zh-cn/windows/home">
+										<img alt="Microsoft" src="http://www.d1net.com/uploadfile/2014/0103/20140103042720148.jpg" />
+									</a>
+								</li>
+																<li>
+									<a target="_blank" href="http://www.oracle.com/cn/index.html">
+										<img alt="甲骨文（ORACLE)" src="http://www.d1net.com/uploadfile/2014/0103/20140103042531814.jpg" />
+									</a>
+								</li>
+																<li>
+									<a target="_blank" href="http://www.huawei.com/cn/">
+										<img alt="华为" src="http://www.d1net.com/uploadfile/2014/0103/20140103041802708.jpg" />
+									</a>
+								</li>
+								 							</ul>
+						</div>
+						<div class="clear">
+						</div>
+						<ul class="v_text">
+							 							<li>
+								<a href="http://www.dell.com.cn/" title="详细了解 DELL" target="_blank">
+									DELL								</a>
+							</li>
+														<li>
+								<a href="http://www8.hp.com/cn/zh/home.html" title="详细了解 惠普" target="_blank">
+									惠普								</a>
+							</li>
+														<li>
+								<a href="http://www.vmware.com/cn/" title="详细了解 Vmware" target="_blank">
+									Vmware								</a>
+							</li>
+														<li>
+								<a href="http://www.citrix.com.cn/" title="详细了解 思杰Citrix" target="_blank">
+									思杰Citrix								</a>
+							</li>
+														<li>
+								<a href="http://www.zte.com.cn/cn/" title="详细了解 中兴" target="_blank">
+									中兴								</a>
+							</li>
+														<li>
+								<a href="http://www.intel.cn/content/www/cn/zh/homepage.html" title="详细了解 Intel" target="_blank">
+									Intel								</a>
+							</li>
+														<li>
+								<a href="http://www.h3c.com/portal/" title="详细了解 H3C" target="_blank">
+									H3C								</a>
+							</li>
+														<li>
+								<a href="http://www.netapp.com/cn/" title="详细了解 NetApp" target="_blank">
+									NetApp								</a>
+							</li>
+														<li>
+								<a href="http://www.bestsapchina.com/index.aspx" title="详细了解 SAP" target="_blank">
+									SAP								</a>
+							</li>
+														<li>
+								<a href="http://www.siemens.com/answers/cn/zh/" title="详细了解 Siemens" target="_blank">
+									Siemens								</a>
+							</li>
+														<li>
+								<a href="http://www.ca.com/us/default.aspx" title="详细了解 CA Technologies" target="_blank">
+									CA Technologies								</a>
+							</li>
+														<li>
+								<a href="http://www.digitalchina.com/" title="详细了解 神州数码" target="_blank">
+									神州数码								</a>
+							</li>
+														<li>
+								<a href="http://www.dyxnet.com/home/home.aspx?lang=zh-CN" title="详细了解 第一线" target="_blank">
+									第一线								</a>
+							</li>
+														<li>
+								<a href="http://vendor.d1net.com/grandstream/index/" title="详细了解 潮流网络" target="_blank">
+									潮流网络								</a>
+							</li>
+														<li>
+								<a href="http://www.meeteasy.com.cn/" title="详细了解 好会通" target="_blank">
+									好会通								</a>
+							</li>
+														<li>
+								<a href="http://www.blisscloud.com/" title="详细了解 赞云中国" target="_blank">
+									赞云中国								</a>
+							</li>
+														<li>
+								<a href="http://www.yuneasy.cn/index.htm" title="详细了解 云翌通信" target="_blank">
+									云翌通信								</a>
+							</li>
+							 						</ul>
+					</div>
+				</div>
+				<div class="channel fl">
+					<div class="channeltab">
+						<span style="color:#1F3986;font-size:12px;">
+							网络/
+						</span>
+						<a href="http://www.d1net.com/data/">
+							数据通信
+						</a>
+						<a class="more" href="http://www.d1net.com/data/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/data/news/468700.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426102247340.jpg" alt="工信部：我国5G技术已进入第二阶段试验" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="工信部：我国5G技术已进入第二阶段试验" href="http://www.d1net.com/data/news/468700.html">
+																	</a>
+							</dd>
+							 						</dl>
+												 						<h4>
+							<a target="_blank" title="欧盟网络中立为何被“喝倒彩”？" href="http://www.d1net.com/data/news/437560.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="网络新特征之：SDN的软件血统" href="http://www.d1net.com/data/news/437124.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="软件SDN  云杉启航" href="http://www.d1net.com/data/vendor/437123.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="5G将为欧洲带来超千亿欧元社会经济效益" href="http://www.d1net.com/data/news/436291.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="我国5G先期研究取得五方面重要进展" href="http://www.d1net.com/data/news/434403.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+																		<li>
+							<a href="http://www.d1net.com/data/vendor/468842.html" target="_blank" title="汕头大学与思科携手开启校企合作新篇章"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/data/news/468694.html" target="_blank" title="4种方法缓解网络瓶颈问题"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/data/vendor/468455.html" target="_blank" title="Riverbed收购Xirrus 增强SD-WAN能力"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/data/news/468434.html" target="_blank" title="确定部署SDN：这些具体问题要先明确"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/data/news/468326.html" target="_blank" title="欧盟的这个决定，将影响5G的发展"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="channel fr">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/datacenter/">
+							数据中心
+						</a>
+						<a class="more" href="http://www.d1net.com/datacenter/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/datacenter/news/468482.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426084619409.jpg" width="120" height="90" alt="1瓦的价值 | 超过30家数据中心的研究进展汇报" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="1瓦的价值 | 超过30家数据中心的研究进展汇报" href="http://www.d1net.com/datacenter/news/468482.html">
+																	</a>
+							</dd>
+							 						</dl>
+												 						<h4>
+							<a target="_blank" title="匠心爆品：揭密锐捷式创新三大内涵" href="http://www.d1net.com/datacenter/vender/464492.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="数据中心网络如何由繁至简" href="http://www.d1net.com/datacenter/tech/439375.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="人工智能将重塑数据中心环境" href="http://www.d1net.com/datacenter/tech/439374.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="衡量数据中心好坏标准的隐性指标" href="http://www.d1net.com/datacenter/tech/439218.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="数据中心安全问题令人堪忧" href="http://www.d1net.com/datacenter/news/436882.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+																		<li>
+							<a href="http://www.d1net.com/datacenter/news/468822.html" target="_blank" title="全球数据中心自动化年复合增长率19.6%"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/datacenter/vender/468820.html" target="_blank" title="DP Facilities公司在弗吉尼亚州开通运营一个数据中心"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/datacenter/news/468819.html" target="_blank" title="融合与超融合：数据中心该如何选择?"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/datacenter/news/468561.html" target="_blank" title="研究表明巴黎的托管数据中心市场恢复增长"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/datacenter/vender/468560.html" target="_blank" title="巴林GFH公司在美国投资建设数据中心"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="fl">
+					<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=131">
+					</script>
+				</div>
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="wrap">
+			<div class="leftside">
+				<div class="column mar_b">
+					<div class="tab_l">
+						<a href="http://www.d1net.com/p/">
+							电子周刊
+						</a>
+					</div>
+					<div class="eweekly">
+						<dl>
+							  							<dt>
+								<a target="_blank" href="http://www.d1com.com/p/eweekly/572/">
+									<img src="http://www.d1net.com/uploadfile/2017/0209/20170209043934848.jpg" alt="公共云，私有云或混合云：如何选择最佳云选项" width="137" height="185"
+									border="0" />
+								</a>
+								<div class="title">
+									<a target="_blank" href="http://www.d1com.com/p/eweekly/572/">
+										公共云，私有云或混合云：如									</a>
+								</div>
+							</dt>
+							<dd>
+								<ul>
+									<li class="current">
+										<a href="http://www.d1com.com/p/eweekly/572/" target="_blank">
+											572期
+										</a>
+									</li>
+									  									<li>
+										<a href="http://www.d1com.com/p/eweekly/571/" target="_blank">
+											571期
+										</a>
+									</li>
+									  									<li>
+										<a href="http://www.d1com.com/p/eweekly/570/" target="_blank">
+											570期
+										</a>
+									</li>
+									  									<li>
+										<a href="http://www.d1com.com/p/eweekly/569/" target="_blank">
+											569期
+										</a>
+									</li>
+									  									<li>
+										<a href="http://www.d1com.com/p/eweekly/568/" target="_blank">
+											568期
+										</a>
+									</li>
+									  									<li>
+										<a href="http://www.d1com.com/p/eweekly/567/" target="_blank">
+											567期
+										</a>
+									</li>
+									  									<li>
+										<a href="http://www.d1com.com/p/eweekly/566/" target="_blank">
+											566期
+										</a>
+									</li>
+									  									<li>
+										<a href="http://www.d1net.com/p/" target="_blank">
+											更多
+										</a>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+					</div>
+					<form>
+						输入您的邮箱订阅电子周刊
+						<input type="text" value="例:abc@d1net.com" id="txtemail" name="txtemail"
+						onclick='clearContent()' />
+						<a id="rssaction">
+							<img alt="周刊订阅" src="http://cache.d1net.com/images/channel/cc_ico17.gif" />
+						</a>
+						</button>
+					</form>
+				</div>
+				<div class="column">
+					<div class="tab_l">
+						技术专区
+					</div>
+					<ul>
+																		<li>
+							<a href="http://www.d1net.com/uc/tech/467278.html" target="_blank" title="8个重要的适合小企业的生产力和协作应用"  style="" >
+								8个重要的适合小企业的生产							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/voip/edu/353478.html" target="_blank" title="面对骚扰电话，政企单位如何选择电话交换机"  style="" >
+								面对骚扰电话，政企单位如何							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/uc/tech/312374.html" target="_blank" title="不要让统一通信平台停滞在 “小”数据时代"  style="" >
+								不要让统一通信平台停滞在 							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/voip/edu/294566.html" target="_blank" title="VoIP市场暗藏“专利?弹”，电话机厂商需小心选择方案"  style="" >
+								VoIP市场暗藏&ldquo;专利?弹&rdquo;，							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/uc/tech/293825.html" target="_blank" title="如何确保高质量的WebRTC用户体验？"  style="" >
+								如何确保高质量的WebRTC用户							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/cio/ciotech/292481.html" target="_blank" title="微信企业号判了OA、UC等应用厂商死刑吗？"  style="" >
+								微信企业号判了OA、UC等应用							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/uc/tech/285784.html" target="_blank" title="这是香蕉那是猫：谷歌让智能设备"看图识物""  style="" >
+								这是香蕉那是猫：谷歌让智能							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/data/tech/270369.html" target="_blank" title="UC和VoIP场景下的广域网虚拟化部署"  style="" >
+								UC和VoIP场景下的广域网虚拟							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/voip/edu/269267.html" target="_blank" title="VOIP取代固定电话的六种方式"  style="" >
+								VOIP取代固定电话的六种方式							</a>
+						</li>
+						 					</ul>
+				</div>
+			</div>
+			<div class="rightside">
+				<div class="channel fl">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/virtual/">
+							虚拟化
+						</a>
+						<a class="more" href="http://www.d1net.com/virtual/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/virtual/news/467633.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0420/20170420114001929.jpg" alt="世界首个虚拟化技术与10G-EPON相结合的实证实验宣告成功" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="世界首个虚拟化技术与10G-EPON相结合的实证实验宣告成功" href="http://www.d1net.com/virtual/news/467633.html">
+																	</a>
+							</dd>
+							 						</dl>
+												 						<h4 style="overflow:hidden;height:20px;">
+							<a style="overflow:hidden;white-space:nowarp;" target="_blank" title="思科收购虚拟容器公司 ContainerX，向软件定义和虚拟化网络进军"
+							href="http://www.d1net.com/virtual/news/430542.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="容器化安全：虚拟化的下一场演进？" href="http://www.d1net.com/virtual/news/428766.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="虚拟基础设施资源监控的最佳实践" href="http://www.d1net.com/virtual/news/425561.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="为什么5G能够驱动虚拟化发展？" href="http://www.d1net.com/virtual/news/424010.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="开源，新的平台之战" href="http://www.d1net.com/virtual/news/418074.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+																		<li>
+							<a href="http://www.d1net.com/virtual/news/465105.html" target="_blank" title="2017年虚拟化的五大安全趋势"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/virtual/news/463859.html" target="_blank" title="虚拟化迷宫：应用分层放哪好？"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/virtual/news/463439.html" target="_blank" title="如何应对三种最棘手的VDI挑战"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/virtual/news/459311.html" target="_blank" title="IT对移动瘦客户机持谨慎乐观态度"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/virtual/news/458779.html" target="_blank" title="我们该如何选择适合自己的虚拟桌面部署模式？"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="channel fr">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/uc/" target="_blank">
+							统一通信
+						</a>
+						<a class="more" href="http://www.d1net.com/uc/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/uc/news/464059.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0328/20170328022001243.jpg" alt="" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="协作和通信，会是叮叮和微信的菜吗？" href="http://www.d1net.com/uc/news/464059.html">
+																	</a>
+							</dd>
+							 						</dl>
+						  						<h4>
+							<a target="_blank" title="协作和通信，会是叮叮和微信的菜吗？" href="http://www.d1net.com/uc/news/464059.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="一场影响美国大选的战争利器：邮件安全+协作即时" href="http://www.d1net.com/uc/company/442975.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="白宫开发Facebook机器人代理奥巴马与民众聊天：已开源" href="http://www.d1net.com/uc/news/436738.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="华为企业云通信：为业务插上通信的翅膀" href="http://www.d1net.com/uc/company/436456.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="Facebook已经过时，蜂巢新网络崛起" href="http://www.d1net.com/uc/company/436319.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+						 						<li>
+							<a href="http://www.d1net.com/uc/company/468850.html" target="_blank" title="思科引领“协作新时代”"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/uc/company/468818.html" target="_blank" title="雅虎敲响数字新闻业丧钟，仅靠广告盈利已是死路一条"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/uc/company/468814.html" target="_blank" title="当初10亿美元没白花 Instagram月活跃用户数破7亿"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/uc/company/468811.html" target="_blank" title="YouTube押注亚洲市场 积极拓展本地化内容业务"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/uc/company/468810.html" target="_blank" title="谷歌Facebook称霸数字广告市场 包揽整个行业营收增长"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<style type="text/css">
+					.channel .imgtext h4 {height:22px;line-height:22px;overflow:hidden;}
+				</style>
+				<div class="channel fl">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/cc/">
+							呼叫中心
+						</a>
+						<a class="more" href="http://www.d1net.com/cc/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/cc/news/468194.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426105941377.jpg" alt="" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="呼叫中心行业前景无限 市场格局趋于稳定" href="http://www.d1net.com/cc/news/468194.html">
+																	</a>
+							</dd>
+							 						</dl>
+												 						<h4>
+							<a target="_blank" title="“小A云”亮相   Avaya的云转型之路正式起步" href="http://www.d1net.com/cc/factary/464227.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="呼叫中心到底能给企业带来些什么？" href="http://www.d1net.com/cc/news/435504.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="互联网时代下的呼叫中心该如何发展" href="http://www.d1net.com/cc/news/433983.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="关于呼叫中心运营管理的个人分析理解" href="http://www.d1net.com/cc/news/432452.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="呼叫中心管理之：让座席看见自己" href="http://www.d1net.com/cc/news/431258.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+																		<li>
+							<a href="http://www.d1net.com/cc/news/468449.html" target="_blank" title="呼叫中心话语的人际意义研究"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/cc/news/468194.html" target="_blank" title="呼叫中心行业前景无限 市场格局趋于稳定"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/cc/solution/466423.html" target="_blank" title="基于云计算的呼叫中心解决方案的16个优势"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/cc/factary/464391.html" target="_blank" title="AWS推出基于云计算的联络中心Amazon Connect"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/cc/factary/464351.html" target="_blank" title="解决企业呼叫中心难题 Avaya和容联推出“小A云”"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="channel fr">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/voip/">
+							IP语音
+						</a>
+						<a class="more" href="http://www.d1net.com/voip/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/voip/news/460897.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0309/20170309091506706.jpg" alt="2021年移动VoLTE用户将猛增至30亿 首超OTT应用用户" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="2021年移动VoLTE用户将猛增至30亿 首超OTT应用用户" href="http://www.d1net.com/voip/news/460897.html">
+																	</a>
+							</dd>
+							 						</dl>
+												 						<h4>
+							<a target="_blank" title="免费电话全部腰斩！运营商下得一手好棋" href="http://www.d1net.com/voip/news/430663.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="研究预测2022年全球VoLTE市场规模达348亿美元" href="http://www.d1net.com/voip/news/422836.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="互联网电话用户行为报告出炉" href="http://www.d1net.com/voip/cnews/399896.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="微软下月将不再支持Skype Qik移动视频聊天应用" href="http://www.d1net.com/voip/cnews/398264.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="语音OTT成为O2O重要入口：未来3年通话将免费？" href="http://www.d1net.com/voip/cnews/396546.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+																		<li>
+							<a href="http://www.d1net.com/voip/cnews/464495.html" target="_blank" title="继续撤出欧洲 微软将关闭Skype瑞典办事处"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/voip/cnews/459201.html" target="_blank" title="微软宣布3月31日关闭Skype WiFi服务"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/voip/news/457877.html" target="_blank" title="2020年40%语音通话将使用VoLTE技术"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/voip/cnews/456416.html" target="_blank" title="AWS推Amazon Chime：拟与商务版Skype抗衡"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/voip/cnews/447302.html" target="_blank" title="Skype实时翻译现在适用于对手机和固定电话呼叫"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+			</div>
+			<div class="fl">
+				<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=128">
+				</script>
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="wrap" style=" margin-top:0;">
+			<div class="leftside">
+				<div class="mar_b">
+					<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=129">
+					</script>
+					</a>
+				</div>
+				<div class="column mar_b">
+					<div class="tab_l">
+						解决方案
+					</div>
+					<ul>
+																		<li>
+							<a href="http://www.d1net.com/uc/solution/369656.html" target="_blank" title="微信智慧校园解决方案上线 覆盖全国多所高校"  style="" >
+								微信智慧校园解决方案上线 							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/uc/solution/354306.html" target="_blank" title="CENCE&CCS大会盘点：宇高通信——提供最先进的录音监控解决方案"  style="" >
+								CENCE&amp;CCS大会盘点：宇高通							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/uc/solution/354206.html" target="_blank" title="2015 CENCE&CCS大会闭幕 最畅行的会议解决方案大盘点"  style="" >
+								2015 CENCE&amp;CCS大会闭幕 							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/uc/solution/351914.html" target="_blank" title="聚焦·服务·创新——中国联通助力企业应用创新"  style="" >
+								聚焦&middot;服务&middot;创新&mdash;&mdash;中国联							</a>
+						</li>
+						 					</ul>
+				</div>
+				<div class="column" style="height:140px;">
+					<div class="tab_l">
+						应用案例
+					</div>
+					<ul>
+						 						<li>
+							<a href="http://www.d1net.com/cloud/cases/468832.html" target="_blank" title="“快鱼”时代的“双创”样本"  style="" >
+								“快鱼”时代的“双创”样本							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/cloud/cases/468183.html" target="_blank" title="衢州，“最多跑一次”的先行者"  style="" >
+								衢州，&ldquo;最多跑一次&rdquo;的先行							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/vc/example/464232.html" target="_blank" title="温感科技，与远程会诊中心见证“木板男孩” 挺直胸膛"  style="" >
+								温感科技，与远程会诊中心见							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/data/case/464021.html" target="_blank" title="海尔“数字化转型” 从连接到智能制造"  style="" >
+								海尔&ldquo;数字化转型&rdquo; 从连接							</a>
+						</li>
+						 					</ul>
+				</div>
+			</div>
+			<div class="rightside">
+				<div class="channel fl">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/vc/">
+							视频会议
+						</a>
+						<a class="more" href="http://www.d1net.com/vc/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<!--<dl> 
+						<dt><script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=146"></script></dt>
+						<dd><a href="http://vendor.d1net.com/vmediax/index/" target="_blank" title="专业多媒体通讯解决方案提供商">多媒体解决方案提供商</a></dd>
+						</dl>
+						-->
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/vc/news/467857.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426111309510.jpg" alt="数说市场 2017年3月视频会议系统怎么样？" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="数说市场 2017年3月视频会议系统怎么样？" href="http://www.d1net.com/vc/news/467857.html">
+																	</a>
+							</dd>
+							 						</dl>
+												 						<h4>
+							<a target="_blank" title="视频会议再添猛将：视源股份推出有“情怀”的MAXHUB会议平台" href="http://www.d1net.com/vc/cnews/464116.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="谷歌获得新专利 视频会议系统乘上无人机" href="http://www.d1net.com/vc/news/426896.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="微软面向小企业发布免费视频会议工具Skype Meetings" href="http://www.d1net.com/vc/news/420808.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="如何计算视频会议系统的价格?" href="http://www.d1net.com/vc/news/414406.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="视频会议成未来办公趋势 四个问题需重视" href="http://www.d1net.com/vc/news/407888.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+																		<li>
+							<a href="http://www.d1net.com/vc/cnews/468941.html" target="_blank" title="视频会议解决方案提供商Huddly获得1000万美元资金"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/vc/news/468216.html" target="_blank" title="“软”“硬”结合 视频会议才能“疗效好”"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/vc/news/464204.html" target="_blank" title="视频通信云服务成新蓝海，潜力巨大"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/vc/cnews/464116.html" target="_blank" title="视频会议再添猛将：视源股份推出有“情怀”的MAXHUB会议平台"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/vc/cnews/461289.html" target="_blank" title="华为发布面向合作伙伴的企业通信云服务"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="channel fr">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/ipvs/">
+							视频监控
+						</a>
+						<a class="more" href="http://www.d1net.com/ipvs/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/ipvs/news/468468.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426101457813.jpg" alt="安防行业市场现状及投资研究报告" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="安防行业市场现状及投资研究报告" href="http://www.d1net.com/ipvs/news/468468.html">
+																	</a>
+							</dd>
+							 						</dl>
+						  						<h4>
+							<a target="_blank" title="如今的中国安防市场到底是个什么样" href="http://www.d1net.com/ipvs/news/437214.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="监控与侵犯隐私的对立关系谁来破解?" href="http://www.d1net.com/ipvs/news/436242.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="安防服务成为行业新热点 企业跨界融合渐成趋势" href="http://www.d1net.com/ipvs/news/434413.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="市场竞争日趋激烈，安防企业如何冲破产业桎梏突出重围？" href="http://www.d1net.com/ipvs/news/433545.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="安防行业相关标准、法律及规划一览" href="http://www.d1net.com/ipvs/news/432840.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+						 						<li>
+							<a href="http://www.d1net.com/ipvs/news/466318.html" target="_blank" title="《人民的名义》霸屏，如何戏里戏外看安防?"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/ipvs/news/465824.html" target="_blank" title="当工地装上监控，摄像头的作用不仅是安全!"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/ipvs/vendor/463912.html" target="_blank" title="红云可视“扬帆” 扬州广电媒体融合“触网”"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/ipvs/news/462944.html" target="_blank" title="人工智能蓄势待发 安防迎接机遇与挑战"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/ipvs/news/462564.html" target="_blank" title="“315晚会”轻松破解人脸识别在安防领域可没这么容易!"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="channel fl">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/storage/">
+							存储
+						</a>
+						<a class="more" href="http://www.d1net.com/storage/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/storage/news/468558.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426100808461.jpg" alt="软件定义存储的4个趋势" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="软件定义存储的4个趋势" href="http://www.d1net.com/storage/news/468558.html">
+																	</a>
+							</dd>
+							 						</dl>
+												 						<h4>
+							<a target="_blank" title="中国明年将推自主生产3D NAND闪存：32层堆栈" href="http://www.d1net.com/storage/news/437472.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="对象存储的兴起" href="http://www.d1net.com/storage/news/436205.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="IDC：第二季度全球专用备份设备实现双位数增长" href="http://www.d1net.com/storage/news/434565.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="效能优势结合降价诱因 SSD扩大攻占储存市场" href="http://www.d1net.com/storage/news/433522.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="IDC：第二季度全球企业存储市场保持稳定" href="http://www.d1net.com/storage/news/432797.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+																		<li>
+							<a href="http://www.d1net.com/storage/solution/468915.html" target="_blank" title="几根光纤搞定以往IOE全套活儿？"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/storage/news/468558.html" target="_blank" title="软件定义存储的4个趋势"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/storage/enterprise/468071.html" target="_blank" title="东芝闪存业务备受追捧： 到日本买技术？"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/storage/news/467724.html" target="_blank" title="数据备份必将终结"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/storage/enterprise/467720.html" target="_blank" title="西数或与日本基金联合买东芝芯片 对手仅剩三家?"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="channel fr">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/security/">
+							安全
+						</a>
+						<a class="more" href="http://www.d1net.com/security/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/security/news/468758.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426104834353.jpg" alt="“熊”出没！俄罗斯黑客又干扰了法国大选？" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="“熊”出没！俄罗斯黑客又干扰了法国大选？" href="http://www.d1net.com/security/news/468758.html">
+																	</a>
+							</dd>
+							 						</dl>
+												 						<h4>
+							<a target="_blank" title="思科发布面向终端的高级恶意软件防护(AMP forEndpoints)" href="http://www.d1net.com/security/vendor/440066.html">
+								思科发布面向终端的高级恶意							</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="传说中黑了美国大选的神秘组织“奇幻熊”究竟是什么样的存在？" href="http://www.d1net.com/security/news/437563.html">
+									传说中黑了美国大选的神秘组								</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="信息安全的基石 集成电路自主可控势在必行" href="http://www.d1net.com/security/news/436262.html">
+									信息安全的基石 集成电路自								</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="保护信息安全是关键" href="http://www.d1net.com/security/news/436261.html">
+									保护信息安全是关键								</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="采用加密技术进行数据保护的5大优势" href="http://www.d1net.com/security/news/434567.html">
+									采用加密技术进行数据保护的								</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+																		<li>
+							<a href="http://www.d1net.com/security/news/468816.html" target="_blank" title="网络安全技能短缺 对技术创新有影响"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/security/vendor/468555.html" target="_blank" title="谷歌调整搜索算法打击假新闻：不当信息将被下调"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/security/vendor/468553.html" target="_blank" title="卡巴斯基将可能不会对微软垄断行为提起诉讼"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/security/news/468457.html" target="_blank" title="15款针对Android手机的免费攻击App"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/security/news/468200.html" target="_blank" title="清除勒索软件 不容忽视的三大绝招！"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+			</div>
+			<div class="fl">
+				<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=130">
+				</script>
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="wrap" style=" margin-top:0;">
+			<div class="leftside">
+				<div class="column mar_b">
+					<div class="tab_l">
+						<a href="http://www.d1net.com/expo/" target="_blank">
+							展会频道
+						</a>
+					</div>
+					<div class="expo">
+						<dl>
+							<dt>
+								<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=162">
+								</script>
+							</dt>
+							<dd>
+							</dd>
+						</dl>
+					</div>
+					<ul>
+						 						<li>
+							<a href="http://www.d1net.com/expo/news/467845.html" target="_blank" title="创新驱动高效 优化构筑安全"  style="" >
+								创新驱动高效 优化构筑安全							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/expo/news/466542.html" target="_blank" title="中国移动联合AT&T正式启动ONAP国际开源社区"  style="" >
+								中国移动联合AT&amp;T正式启动ON							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/expo/news/463670.html" target="_blank" title="信息化驱动创新   标本兼治“脱虚向实”"  style="" >
+								信息化驱动创新   标本兼							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/expo/news/452750.html" target="_blank" title="2017中国零售供应链与物流峰会将于5月份在沪召开"  style="" >
+								2017中国零售供应链与物流峰							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/expo/news/448929.html" target="_blank" title="第十一届中国IDC产业年度大典在京盛大开幕"  style="" >
+								第十一届中国IDC产业年度大							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/expo/news/446943.html" target="_blank" title="2016中国存储峰会：论道新存储、探讨新常态、展望新应用"  style="" >
+								2016中国存储峰会：论道新存							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/expo/news/446718.html" target="_blank" title="2016中小企业服务高峰论坛顺利召开 “互联网+”中小企业平台正式上线"  style="" >
+								2016中小企业服务高峰论坛顺							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/expo/news/446349.html" target="_blank" title="DCD Hyperscale China今日开幕，将加速超大规模下的泛数据中心产业未来"  style="" >
+								DCD Hyperscale China今日							</a>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/expo/news/445703.html" target="_blank" title="OSCAR第二次成果发布会在京召开"  style="" >
+								OSCAR第二次成果发布会在京							</a>
+						</li>
+						 					</ul>
+				</div>
+				<div class="fl">
+					<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=39">
+					</script>
+					<div class="fl" style="margin-top:2px;">
+						<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=40">
+						</script>
+					</div>
+				</div>
+			</div>
+			<div class="rightside">
+				<div class="channel fl">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/testing/">
+							测试
+						</a>
+						<a class="more" href="http://www.d1net.com/testing/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/testing/news/463328.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0323/20170323095322446.jpg" alt="从三个角度看ZigBee EMI/EMC预一致性测试" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="从三个角度看ZigBee EMI/EMC预一致性测试" href="http://www.d1net.com/testing/news/463328.html">
+																	</a>
+							</dd>
+							 						</dl>
+						  						<h4>
+							<a target="_blank" title="5G测试完毕，梦想能否照进现实" href="http://www.d1net.com/testing/news/434526.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li style="overflow:hidden;height:24px;">
+								<a target="_blank" title="网络新高速：T比特网络技术实现成功测试" href="http://www.d1net.com/testing/news/433419.html">
+																	</a>
+							</li>
+							  							<li style="overflow:hidden;height:24px;">
+								<a target="_blank" title="TD产业联盟起底5G测试：三大需求与五大挑战" href="http://www.d1net.com/testing/news/428932.html">
+																	</a>
+							</li>
+							  							<li style="overflow:hidden;height:24px;">
+								<a target="_blank" title="美国第一大移动运营商的5G战略：已进入预商用测试" href="http://www.d1net.com/testing/news/423109.html">
+																	</a>
+							</li>
+							  							<li style="overflow:hidden;height:24px;">
+								<a target="_blank" title="美国运营商进行5G网络测试：速度峰值可达10Gbps" href="http://www.d1net.com/testing/news/416016.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+						 						<li>
+							<a href="http://www.d1net.com/testing/vendor/463724.html" target="_blank" title="阿联酋运营商Etisalat将于2018年开始5G测试"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/testing/vendor/463175.html" target="_blank" title="爱立信携法国布依格电信5G测试 实现25.2Gbps速率"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/testing/vendor/459457.html" target="_blank" title="三星携Arqiva进行英国首个5G固定无线接入网络测试"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/testing/vendor/459456.html" target="_blank" title="爱立信携手DoCoMo和沃达丰 测试5G NR无线系统"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/testing/news/458393.html" target="_blank" title="Charter Communications宣布将进行5G测试"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="channel fr">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/wl/">
+							无线通信
+						</a>
+						<a class="more" href="http://www.d1net.com/wl/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/wl/news/468616.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426102932445.jpg" alt="Wi-Fi的未来：最好的还没有到来" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="Wi-Fi的未来：最好的还没有到来" href="http://www.d1net.com/wl/news/468616.html">
+																	</a>
+							</dd>
+							 						</dl>
+						  						<h4>
+							<a target="_blank" title="Ovum预测五年内无线宽带接入将为全球3.5亿家庭提供宽带服务" href="http://www.d1net.com/wl/news/437394.html">
+								Ovum预测五年内无线宽带接入							</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="德国WIFI很“穷” 远不如欧美他国" href="http://www.d1net.com/wl/news/435813.html">
+									德国WIFI很&ldquo;穷&rdquo; 远不如欧								</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="除了打广告，商业WiFi公司还有哪些模式?" href="http://www.d1net.com/wl/news/433168.html">
+									除了打广告，商业WiFi公司还								</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="欧盟：2020年之前普及免费WiFi网络" href="http://www.d1net.com/wl/news/432742.html">
+									欧盟：2020年之前普及免费Wi								</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="安全性堪忧，WiFi或可用于盗取密码" href="http://www.d1net.com/wl/news/429797.html">
+									安全性堪忧，WiFi或可用于盗								</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+						 						<li>
+							<a href="http://www.d1net.com/wl/vendor/465680.html" target="_blank" title="AT&T宣布16亿美元收购一小型无线创业公司"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/wl/news/465136.html" target="_blank" title="2017年企业无线技术发展将会更多集中在Wi-Fi、蓝牙和900MHz方面"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/wl/vendor/463987.html" target="_blank" title="美无线运营商推出无限制数据服务 Wi-Fi未来或遭淘汰"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/wl/news/463845.html" target="_blank" title="印度将把1000个村庄的电线杆改造成免费Wi-Fi热点"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/wl/vendor/463432.html" target="_blank" title="诺基亚联手FB要干大事儿 他们想让海底光缆的传输速度再提升"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="channel fl">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/server/">
+							服务器
+						</a>
+						<a class="more" href="http://www.d1net.com/server/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/server/news/468193.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426100603760.jpg" alt="云服务器有什么好 能让云大佬们竞争如此激烈" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="云服务器有什么好 能让云大佬们竞争如此激烈" href="http://www.d1net.com/server/news/468193.html">
+																	</a>
+							</dd>
+							 						</dl>
+						  						<h4>
+							<a target="_blank" title="Gartner：2016年Q3全球PC出货量下滑5.7% 连续八个季度出现下滑" href="http://www.d1net.com/server/news/437572.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="超融合是独立服务器边缘化的“元凶”" href="http://www.d1net.com/server/news/436197.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="Gartner Q2服务器市场报告5大要点" href="http://www.d1net.com/server/news/433290.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="全球服务器市场大浪中，谁最平稳谁最动荡？" href="http://www.d1net.com/server/news/432624.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="探讨未来服务器发展：路在远方" href="http://www.d1net.com/server/news/430154.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+
+					<ul>
+						 						<li>
+							<a href="http://www.d1net.com/server/tech/468930.html" target="_blank" title="《速度与激情8》饕餮盛宴"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/server/tech/468923.html" target="_blank" title="100秒看懂：神经质CP组合就此诞生!"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/server/tech/468908.html" target="_blank" title="急！即刻更改500台服务器BIOS！"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/server/vendor/468815.html" target="_blank" title="谷歌吃螃蟹 成首家在古巴架设服务器外国互联网公司"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/server/news/468193.html" target="_blank" title="云服务器有什么好 能让云大佬们竞争如此激烈"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+				<div class="channel fr">
+					<div class="channeltab">
+						<a href="http://www.d1net.com/power/">
+							电源
+						</a>
+						<a class="more" href="http://www.d1net.com/power/" target="_blank">
+							更多>>
+						</a>
+					</div>
+					<div class="imgtext">
+						<dl>
+							 							<dt>
+								<a href="http://www.d1net.com/power/news/468738.html" target="_blank">
+									<img src="http://www.d1net.com/uploadfile/2017/0426/20170426103349337.jpg" alt="2017分布式光伏拐点已至" />
+								</a>
+							</dt>
+							<dd>
+								<a target="_blank" title="2017分布式光伏拐点已至" href="http://www.d1net.com/power/news/468738.html">
+																	</a>
+							</dd>
+							 						</dl>
+						  						<h4>
+							<a target="_blank" title="怎样以逆向思维将屋顶建成百万光伏电站？" href="http://www.d1net.com/power/news/437515.html">
+															</a>
+						</h4>
+						<ul>
+							  							<li>
+								<a target="_blank" title="印度研发太阳能树实现全方位光伏发电" href="http://www.d1net.com/power/news/436256.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="光伏业市场化大限逼近 “狼”恐怕是真的要来了" href="http://www.d1net.com/power/news/434424.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="资本迟迟不肯进场 光伏还要怎么玩？" href="http://www.d1net.com/power/news/433072.html">
+																	</a>
+							</li>
+							  							<li>
+								<a target="_blank" title="光伏电站故障分析：“直击雷”与“感应雷”" href="http://www.d1net.com/power/news/432850.html">
+																	</a>
+							</li>
+							 						</ul>
+											</div>
+					<ul>
+						 						<li>
+							<a href="http://www.d1net.com/power/vendor/463944.html" target="_blank" title="GE将在美投资建17MW太阳能光伏电站"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/power/news/462965.html" target="_blank" title="光伏产业“马太效应”或将凸显"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/power/news/462370.html" target="_blank" title="纽交所光伏企业要退市 这些人究竟打的什么算盘"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/power/news/462350.html" target="_blank" title="美国纽约州光伏安装量爆棚 5年激增800%"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+												<li>
+							<a href="http://www.d1net.com/power/vendor/460749.html" target="_blank" title="爱尔兰WElink Energy宣布在葡萄牙建立220MW太阳能光伏项目"  style="" >
+															</a>
+							<span>
+								01-01							</span>
+						</li>
+						 					</ul>
+				</div>
+			</div>
+			<div class="clear">
+			</div>
+			<div class="d1netbottom_ad">
+				<div class="fl mar_r">
+					<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=35">
+					</script>
+				</div>
+				<div class="fl mar_r">
+					<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=36">
+					</script>
+				</div>
+				<div class="fl mar_r">
+					<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=37">
+					</script>
+				</div>
+				<div class="fr">
+					<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=38">
+					</script>
+				</div>
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="wrap">
+			<div class="d1comreco">
+				<div class="title">
+					<a href="http://www.d1com.com/" target="_blank">
+						D1Com热门文章推荐
+					</a>
+				</div>
+				<div class="recotext">
+					<ul id=d1comreco>
+																		<li>
+							<a href="http://www.d1com.com/vas/mvas/99327.html" target="_blank" title="产业互联网大会解密未来20年"  style="" >
+								产业互联网大会解密未来20年							</a>
+							<span>
+								12-15							</span>
+						</li>
+						 						<li>
+							<a href="http://www.d1com.com/vas/market/98624.html" target="_blank" title="“流量虚拟货币化”是业务难题 运营商需需合理解决"  style="" >
+								“流量虚拟货币化”是业务难题 运营商需需合理解决							</a>
+							<span>
+								12-03							</span>
+						</li>
+												<br />
+						 						<li>
+							<a href="http://www.d1com.com/vas/market/98623.html" target="_blank" title="语音通话“自杀”未遂 “他杀”亦难成功"  style="" >
+								语音通话“自杀”未遂 “他杀”亦难成功							</a>
+							<span>
+								12-03							</span>
+						</li>
+						 						<li>
+							<a href="http://www.d1com.com/vas/market/98582.html" target="_blank" title="运营商改变策略走流量增值服务为业务核心"  style="" >
+								运营商改变策略走流量增值服务为业务核心							</a>
+							<span>
+								12-02							</span>
+						</li>
+												<br />
+						 						<li>
+							<a href="http://www.d1com.com/vas/market/98577.html" target="_blank" title="社交属性爆棚的微信会被谁革命？"  style="" >
+								社交属性爆棚的微信会被谁革命？							</a>
+							<span>
+								12-02							</span>
+						</li>
+						 						<li>
+							<a href="http://www.d1com.com/vas/market/98574.html" target="_blank" title="垃圾短信处罚力度过轻或难以从根本遏止"  style="" >
+								垃圾短信处罚力度过轻或难以从根本遏止							</a>
+							<span>
+								12-02							</span>
+						</li>
+												<br />
+						 						<li>
+							<a href="http://www.d1com.com/vas/market/98573.html" target="_blank" title="央视再报道苹果 iMessage垃圾短信泛滥"  style="" >
+								央视再报道苹果 iMessage垃圾短信泛滥							</a>
+							<span>
+								12-02							</span>
+						</li>
+						 						<li>
+							<a href="http://www.d1com.com/vas/mvas/98492.html" target="_blank" title="微信二维码支付打央行“暂停令”擦边球"  style="" >
+								微信二维码支付打央行“暂停令”擦边球							</a>
+							<span>
+								11-28							</span>
+						</li>
+												<br />
+						 						<li>
+							<a href="http://www.d1com.com/vas/mvas/98450.html" target="_blank" title="银联搭建移动互联网平台谋求全球发展"  style="" >
+								银联搭建移动互联网平台谋求全球发展							</a>
+							<span>
+								11-27							</span>
+						</li>
+						 						<li>
+							<a href="http://www.d1com.com/vas/market/98446.html" target="_blank" title="腾讯阿里再次宣战 微信微博成主战场"  style="" >
+								腾讯阿里再次宣战 微信微博成主战场							</a>
+							<span>
+								11-27							</span>
+						</li>
+												<br />
+						  					</ul>
+					<script language="javascript">
+						var marquee1 = new Marquee("d1comreco");
+
+						marquee1.Direction = "top";
+
+						marquee1.Step = 1;
+
+						marquee1.Width = 770;
+
+						marquee1.Height = 16;
+
+						marquee1.Timer = 50;
+
+						marquee1.DelayTime = 5000;
+
+						marquee1.WaitTime = 2000;
+
+						marquee1.ScrollStep = 20;
+
+						marquee1.Start();
+					</script>
+				</div>
+			</div>
+		</div>
+		<div id="link">
+			<h5>
+				合作伙伴
+				<span style="background:url(http://cache.d1net.com/images/youxiang.png) right 1px no-repeat;width:543px;">
+					申请本频道友情链接必须PR>=4,通信、IT及相关行业媒体！请发送信至:
+				</span>
+			</h5>
+						<ul>
+								<li>
+					<a target="_blank" href="http://labs.chinamobile.com/">
+						移动Labs					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://tele.hc360.com/">
+						慧聪通信网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cww.net.cn/">
+						通信世界网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.c114.net/">
+						C114中国通信网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ccw.com.cn/">
+						计世网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.china-cloud.com/">
+						中云网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.spforum.net/">
+						上方网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ciw.com.cn/">
+						中国计算机行业网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ciweek.com/">
+						互联网周刊					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://tech.china.com/">
+						中华网科技					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://tech.qianlong.com/">
+						千龙科技					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.rti.cn/">
+						广播电视信息					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://tech.ifeng.com/">
+						凤凰网科技					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.dvbcn.com/">
+						DVBCN数字电视网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.eepw.com.cn/">
+						电子产品世界					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.veryol.com/">
+						非常在线					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cbinews.com/">
+						电脑商情在线					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.jifang360.com/">
+						机房360					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cnw.com.cn/">
+						网界网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.rfidworld.com.cn/">
+						RFID世界网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.iotworld.com.cn/">
+						物联网世界					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ciotimes.com/">
+						CIO时代网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.spn.com.cn">
+						睿商在线					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ceocio.com.cn/">
+						经理世界网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cio.com.cn/  ">
+						e行网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ezcom.cn/">
+						中国通信在线					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ck365.cn/">
+						中国测控网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cioinsight.com.cn/">
+						CIOINSIGHT/信息方略					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.c-fol.net/">
+						光纤在线					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ichina.net.cn/">
+						中国信息化杂志社					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.smartqian.com/">
+						国脉电子服务网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cnw.com.cn/network/">
+						网络世界通信频道					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cbismb.com/">
+						中小企业IT网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.im2m.com.cn/">
+						国脉物联网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.idcun.com/">
+						中国IDC产业联盟网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ccmw.net/">
+						客户世界					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.spchina.net.cn/main/index.php">
+						中国SP联盟					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.chn3g.cn/">
+						3G通信网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.comcw.cn/">
+						中国通信运维网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.billingchina.com/">
+						中国计费网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.chnsourcing.com.cn/">
+						中国外包网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.echinagov.com/gov/index.shtml">
+						国脉电子政务网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://labs.chinamobile.com/ims">
+						移动Labs-IMS门户					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.comjn.cn/">
+						中国通信节能网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://tx.tmjob88.com/">
+						通信英才网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.xinfengit.com/">
+						新风IT教育网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.rfidchina.org">
+						RFID中国网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.eguan.cn/">
+						易观网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cecb2b.com/">
+						元器件交易网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.9000558.com">
+						铁算盘心水论坛					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.thebigdata.cn/">
+						大数据					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.51touch.com/">
+						中国触摸屏网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.sumszw.com/">
+						商舟网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cnscn.com.cn/">
+						中国智慧城市网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.hnetn.com/">
+						新科技					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.sinosvo.cn/">
+						中国硅谷在线					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.21cn.com/">
+						21CN					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.bigdatas.cn   ">
+						大数据中国门户					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.tonews.cn/">
+						ToNews					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.jinghua.cn/">
+						京华网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ca800.com/">
+						中国自动化网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ebrun.com/about/link.shtml">
+						亿邦动力					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.iterduo.com/">
+						IT耳朵					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.e-works.net.cn/">
+						e-works					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.vsharing.com/">
+						畅享网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.bxkxw.com">
+						百讯新闻网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.admin5.com/">
+						A5站长网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.smarterchina.cn/">
+						智慧中国网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cps.com.cn">
+						CPS中安网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.21af.com">
+						中国安防器材网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://news.hiapk.com/  ">
+						安卓新闻					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.iot101.com">
+						物联网智库					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.soft6.com/">
+						中国软件网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cebnet.com.cn/">
+						中国电子银行网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.chnvc.com/">
+						中国投资网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.tele.com.cn/">
+						通讯世界网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://ch.tmjob88.com/">
+						一览测绘英才网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.gg-iot.com/">
+						高工物联网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ctocio.com.cn/">
+						IT专家网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.itkx.net">
+						IT快讯网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.doit.com.cn/ ">
+						DOIT					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.cio360.net">
+						中国信息主管网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.ccatv.com">
+						中国有线电视信息网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.sumszw.com">
+						商讯网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.smartcn.cn/">
+						数智网					</a>
+				</li>
+								<li>
+					<a target="_blank" href="http://www.dochannel.com/">
+						渠道在线					</a>
+				</li>
+							</ul>
+					</div>
+		<div class="wx_float_left">
+			<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=260">
+			</script>
+			<!-- <img src="http://www.d1com.com/statics/images//d1netdingyue.jpg" width="100" title="企业网D1net_微信公众平台_订阅号"
+			alt="企业网D1net_微信公众平台_订阅号"/>
+			-->
+			<!--<a target="_blank" href="http://a1791.oadz.com/link/C/1791/1340/MY8ZHck9HAAQv8.hrkogfXJQxr0_/p02c/0/http://activity.hwclouds.com/lavish_gifts02/"><img src="http://cache.d1net.com/images/indexnew/huaeriyun.jpg" width="100" title="" alt=""/>
+			</a>-->
+			<!--<span>微信订阅号</span>-->
+		</div>
+		<div class="wx_float_right">
+			<script language="javascript" src="http://www.d1com.com/index.php?m=poster&c=index&a=show_poster&id=265">
+			</script>
+			<!-- <img src="http://www.d1com.com/statics/images//d1netfuwu.jpg" width="100" title="企业网D1net_微信公众平台_服务号"
+			alt="企业网D1net_微信公众平台_服务号"/>
+			<a target="_blank" href="http://a1791.oadz.com/link/C/1791/1340/MY8ZHck9HAAQv8.hrkogfXJQxr0_/p02c/0/http://activity.hwclouds.com/lavish_gifts02/">
+				<img src="http://cache.d1net.com/images/indexnew/huaeriyun.jpg" width="100"
+				title="" alt="" />
+			</a>
+			<span>
+				微信服务号
+			</span>
+			-->
+		</div>
+		<img src="http://ad.doubleclick.net/ad/N4517.1631088.D1NET.COM/B8276473.112529780;sz=1x1;ord=[timestamp]?" style="width:1px;height:1px;" alt="left" />
+		<div id="foot">
+    
+	<div class="foot_text">
+
+    
+    	<a target="_blank" href="http://www.d1net.com/cloud/">云计算</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/cio/">CIO频道</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/uc/">统一通信/协作</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/scity/">智慧城市</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/byod/">移动办公</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/bigdata/">大数据</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/iv/">访谈</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/ipvs/">视频监控/安防</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/datacenter/">数据中心</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/data/">数据通信</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/wl/">无线</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/virtual/">虚拟化</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/power/">电源</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/fun/">休闲频道</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/server/">服务器</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/security/">安全</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/cc/">呼叫中心/联络中心</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/voip/">IP语音</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/testing/">测试</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/storage/">存储</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/vc/">视频会议/网络会议</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/software/">企业应用软件</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/carrier/">运营商企业业务</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/buyer/">采购频道</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/iot/">物联网</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/chip/">芯片</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/itconsult/">IT咨询</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/em-app/">企业移动应用</a> - 
+
+    
+    	<a target="_blank" href="http://www.d1net.com/vendors/">供应商列表</a> - 
+
+    
+    </div>
+
+
+	<div class="foot_noindex">
+
+    	<p><a href="#this" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.d1net.com');return false;">设为主页</a> | <a href="#this" onclick="window.external.AddFavorite(location.href,document.title);return false;">加入收藏</a> | <a href="/aboutus/ad/">广告服务</a> | <a href="/link/">友情链接</a> | <a href="/aboutus/copyright/">版权声明</a> | <a href="/aboutus/contact/">联系我们</a> | <a href="/aboutus/member/">会员服务</a> | <a href="/aboutus/editor/">投稿中心</a> | <a href="/aboutus/aboutus/">关于我们</a> | <a href="/aboutus/hr/">招贤纳士</a></p>
+
+        <p>北京新网达通文化传媒有限公司  版权所有  &copy;2010-2014 <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备09108050号-6</a></p>
+    </div>
+
+</div>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3cd737c3363ef4c91f10ec1b951b0e81' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe94c34ef198ef729b95d3040fdbf2464' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<div style="display:none;">
+</div>
+<a href="http://www.anquan.org/seccenter/search/www.d1net.com" style="display:none;" name="A5BNqfqAGsLyAJmKZwrn4QioUtFd9C3kSZXLH6mlYxiHnwyS8h" >安全联盟</a>
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+$(function(){
+
+	$(".picbig").each(function(i){
+
+		var cur = $(this).find('.img-wrap').eq(0);
+
+		var w = cur.width();
+
+		var h = cur.height();
+
+	   $(this).find('.img-wrap img').LoadImage(true, w, h,'http://www.d1com.com/statics/images/s_nopic.gif');
+
+	});
+
+})
+
+</script>
+ 
+<script type="text/javascript">
+try{ 
+var pageTracker = _gat._getTracker("UA-26676443-1");
+pageTracker._trackPageview();
+} catch(err) {} 
+</script> 
+		<script language="javascript">
+			function clearContent()
+
+			{
+
+				var content = document.getElementById("txtemail").value;
+
+				if (content == "例:abc@d1net.com") {
+
+					document.getElementById("txtemail").value = "";
+
+				}
+
+			}
+		</script>
+		<script language="javascript">
+			var Marquee1 = new Marquee("v_logo");
+
+			Marquee1.Direction = "left";
+
+			Marquee1.Step = 1;
+
+			Marquee1.Width = 353;
+
+			Marquee1.Height = 48;
+
+			Marquee1.Timer = 50;
+
+			//Marquee1.DelayTime = 5000; 
+
+			//Marquee1.WaitTime = 1000; 
+
+			Marquee1.ScrollStep = 52;
+
+			Marquee1.Start();
+
+			$("#rssaction").click(function() {
+
+				var reg = /^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/;
+
+				var rss = $("#txtemail").val();
+
+				if (rss == '')
+
+				{
+
+					alert("请填写Email");
+
+					return false;
+
+				}
+
+				else if (!reg.test(rss))
+
+				{
+
+					alert("Email格式不正确");
+
+					return false;
+
+				}
+
+				else
+
+				{
+
+					$(this).attr("href", "http://www.d1net.com/index.php?m=rss&c=index&a=register_step1&mail=" + rss);
+
+				}
+
+			});
+
+			$("#rssaction2").click(function() {
+
+				var reg = /^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/;
+
+				var rss = $("#txtemail2").val();
+
+				if (rss == '')
+
+				{
+
+					alert("请填写Email");
+
+					return false;
+
+				}
+
+				else if (!reg.test(rss))
+
+				{
+
+					alert("Email格式不正确");
+
+					return false;
+				} else {
+					$(this).attr("href", "http://www.d1net.com/index.php?m=rss&c=index&a=register_step1&mail=" + rss);
+				}
+			});
+		</script>

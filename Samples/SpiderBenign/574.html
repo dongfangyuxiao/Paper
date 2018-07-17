@@ -1,0 +1,1613 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="mobile-agent" content="format=html5; url=http://mip.86kx.com/" />
+<meta name="mobile-agent" content="format=xhtml; url=http://mip.86kx.com/" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>白领网（白领开心网）-中国白领人士资讯门户网站</title>
+<meta name="description" content="白领网(白领开心网)面向中国白领上班族、职场商务成功人士的资讯门户网站。集新闻、购物指南、职场白领、白领学习、奢侈品、休闲生活、白领交友、商务社交等服务为一体的白领综合门户网站。86kx白领网内容涵盖白领关注的高品位内容和理念。" />
+<meta name="keywords" content="中国白领网,白领,白领网,职场,白领交友,奢侈品,上班族" />
+<meta name="baidu-site-verification" content="CaiIIG08Ae" />
+<meta property="qc:admins" content="15523267276063063757" />
+<link href="https://www.86kx.com/templets/default/css/style.css" rel="stylesheet" media="screen" type="text/css" />
+<script src="https://www.86kx.com/templets/default/js/jquery.js" language="javascript" type="text/javascript"></script>
+<script src="https://www.86kx.com/templets/default/js/a.js" language="javascript" type="text/javascript"></script>
+<script src="/plus/auto_create_indexhtml.php" type="text/javascript"></script>
+<script src="/images/uaredirect.js" type="text/javascript"></script>
+<script type="text/javascript">uaredirect("http://mip.86kx.com");</script>
+<script language="javascript" type="text/javascript">
+
+    $(function(){
+        //一次横向滚动一个666
+        $('#marquee1').kxbdSuperMarquee({
+            distance:182,
+            time:3,
+            btnGo:{left:'#slide-left',right:'#slide-right'},
+            direction:'left'
+        });
+    });       
+
+    $(function(){
+            $("dl.tbox dt span.label a[_for]").mouseover(function(){
+                    $(this).parents("span.label").children("a[_for]").removeClass("thisclass").parents("dl.tbox").children("dd").hide();
+                    $(this).addClass("thisclass").blur();
+                    $("#"+$(this).attr("_for")).show();
+            });
+            $("a[_for=uc_member]").mouseover();
+            //右侧文章划过效果
+            $(".index-row-right ul li").mouseover(function(){
+                $(this).siblings('li').find('.content').hide();
+                $(this).find('.content').show();
+            });
+    });
+
+   
+
+</script>
+<script type="text/javascript">
+$(function() {
+	var sWidth = $("#index-hot-flash-focus").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#index-hot-flash-focus ul li").length; //获取焦点图个数
+	var index = 0;
+	var picTimer;
+	
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
+	var btn = "<div class='btn'>";
+	for(var i=0; i < len; i++) {
+		btn += "<span></span>";
+	}
+	btn += "</div>";
+	$("#index-hot-flash-focus").append(btn);
+	
+
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
+	$("#index-hot-flash-focus .btn span").mouseenter(function() {
+		index = $("#index-hot-flash-focus .btn span").index(this);
+		showPics(index);
+	}).eq(0).trigger("mouseenter");
+
+
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+	$("#index-hot-flash-focus ul").css("width",sWidth * (len));
+	
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+	$("#index-hot-flash-focus").hover(function() {
+		clearInterval(picTimer);
+	},function() {
+		picTimer = setInterval(function() {
+			showPics(index);
+			index++;
+			if(index == len) {index = 0;}
+		},4000); //此4000代表自动播放的间隔，单位：毫秒
+	}).trigger("mouseleave");
+	
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#index-hot-flash-focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+		$("#index-hot-flash-focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+	}
+});
+</script>
+</head>
+<body class="index">
+<!--toolbar start-->
+<div class="index-tool-warp">
+    <div class="index-tool">
+        <ul class="tool-left">
+            <li><a target="_blank" specxxx="1" href="https://www.86kx.com/">白领网首页</a></li>
+            <li><a target="_blank" specxxx="1" href="//m.86kx.com">手机版</a></li>
+            <li><a target="_blank" specxxx="1" href="/" class="app">白领网APP</a></li>
+        </ul>
+        <style type="text/css">
+    #tool_right .login{position: relative;}
+    #tool_right .droplistlogin{position: absolute;width:100%;left:-1px;background: #ECECEC;border: 1px solid #D9D9D9;display:none;}
+    #tool_right .droplistlogin a{background: none;padding-right: 0px;text-align: center;display: block;}
+</style>
+
+<div class="tool-right" id="tool_right">
+    <!--此处做成动态调用-->
+</div>
+
+<script>
+    $(function() {
+        $.ajax({
+            url: '//api.86kx.com/plus/iflogin.php',
+            dataType : 'jsonp',  
+            jsonp:"jsoncallback",  
+            success: function(data) {
+                $("#tool_right").html(data.result);
+            }
+        });
+        $("#tool_right .login").live("mouseover",function(){
+           $(this).find(".droplistlogin").show();
+        });
+        $("#tool_right .login").live("mouseout",function(){
+           $(this).find(".droplistlogin").hide();
+        });
+    });
+</script>
+
+
+    </div>
+</div>
+<!--toolbar end-->
+<!--header start-->
+<div class="index-header">
+    <h1 class="logo"><a target="_blank" specxxx="1" href="https://www.86kx.com/"><img src="https://www.86kx.com/templets/default/images/logo.gif" alt="" /></a></h1>
+    <div class="links">
+        <a target="_blank" specxxx="1" href="/data/sitemap.html" target='_blank'>MAP</a>
+        <a target="_blank" specxxx="1" href="/tags.php" target='_blank'>TAG</a>
+        <a target="_blank" specxxx="1" href="/data/rssmap.html" target='_blank' class="last">RSS</a>
+    </div>
+</div>
+<!--header end-->
+<!--nav start-->
+<ul class="index-nav">
+    <li class="home active"><a target="_blank" specxxx="1" href="https://www.86kx.com/">首页</a></li>
+    <li><a target="_blank" specxxx="1" href="/html/spyy/">影视</a></li>
+    <li class="subnav"><a target="_blank" specxxx="1" href="/html/spyy/dyfy/">电影</a><a target="_blank" specxxx="1" href="/html/spyy/dypd/">电视</a><a target="_blank" specxxx="1" href="/html/spyy/dypd/">综艺</a><a target="_blank" specxxx="1" href="/html/spyy/yyxs/">音乐</a></li>
+    <li><a target="_blank" specxxx="1" href="/star/">明星</a></li>
+    <li class="subnav"><a target="_blank" specxxx="1" href="/star/neidi/">内地</a><a target="_blank" specxxx="1" href="/star/gt/">港台</a><a target="_blank" specxxx="1" href="/star/rihan/">日韩</a><a target="_blank" specxxx="1" href="/star/oumei/">欧美</a></li>
+    <li><a target="_blank" specxxx="1" href="/gouwu/">购物</a></li>     
+    <li class="subnav"><a target="_blank" specxxx="1" href="/gouwu/zhinan/">指南</a><a target="_blank" specxxx="1" href="/gouwu/shechipin/">奢品</a><a target="_blank" specxxx="1" href="/gouwu/">品牌</a><a target="_blank" specxxx="1" href="http://dapei.86kx.com/">搭配</a></li>
+    <li><a target="_blank" specxxx="1" href="/html/kxsh/">生活</a></li>      
+    <li class="subnav"><a target="_blank" specxxx="1" href="/html/kxsh/shbt/">热点</a><a target="_blank" specxxx="1" href="/html/kxsh/msbd/">美食</a><a target="_blank" specxxx="1" href="/hunjia/">婚嫁</a><a target="_blank" specxxx="1" href="/html/wlzy/zhishibaike/">百科</a></li>
+    <li><a target="_blank" specxxx="1" href="/zhichang/">职场</a></li>
+    <li><a target="_blank" specxxx="1" href="/yule/">娱乐</a></li>
+    <li><a target="_blank" specxxx="1" href="http://tuku.86kx.com">图库</a></li>
+    <li><a target="_blank" specxxx="1" href="/zt/">专题</a></li>
+</ul>
+<!--nav end-->
+<style>
+   ul.index-nav li.home a:hover{color:white;}
+</style>
+<meta property="wb:webmaster" content="1dd94ef87fd28b76" />
+<!--search form start-->
+<div class="index-search-form">
+    <div class="search-form-left">
+        <strong>栏目推荐:</strong><a target="_blank" specxxx="1" href="/faxing/">发型</a><a target="_blank" specxxx="1" href="/zhichang/gonglve/">职场攻略</a><a target="_blank" specxxx="1" href="/html/wlzy/zhishibaike/">生活百科</a><a target="_blank" specxxx="1" href="/star/">当红明星</a><a target="_blank" specxxx="1" href="/html/kxsh/shbt/">每日趣闻</a><a target="_blank" specxxx="1" href="">最新更新</a><a target="_blank" specxxx="1" href="">每日一刊</a> 
+    </div>
+  
+
+	<form action="//search.86kx.com/cse/search" accept-charset="utf-8" onsubmit="document.charset='utf-8';" target="_blank">
+        <span>搜索:</span>
+        <input type="hidden" name="s" value="6498884231592812265">
+        <input type="text" name="q" class="input-text">
+        <input type="submit" class="input-btn" value="">
+    </form>
+</div>
+<!--search form end-->
+
+<style>
+	#bdcs{
+		float: right;
+position: relative;
+top: 5px;
+right: 5px;
+	}
+		
+</style>
+
+<!--f1 start-->
+<div class="index-row">
+    <div class="index-flash">
+        <div id="index-hot-flash-focus">
+          <ul>
+                
+              <li><a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/1201/116253.html" title="赵本山最丑女徒弟成功减110斤 赵丹个人资料减肥前后对比照"><img width="290px" height="410px" alt="赵本山最丑女徒弟成功减110斤 赵丹个人资料减肥前后对比照" src="/uploads/flink/1612011719054907.jpg" /></a></li><li><a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/0715/101202.html" title="鹿晗转发爱国微博上菲律宾热搜 鹿晗被菲律宾粉丝威胁脱粉"><img width="290px" height="410px" alt="鹿晗转发爱国微博上菲律宾热搜 鹿晗被菲律宾粉丝威胁脱粉" src="/uploads/flink/1607151807242792.jpg" /></a></li><li><a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/1107/113406.html" title="电影你的名字拍摄地在哪 你的名字拍摄地取景地介绍"><img width="290px" height="410px" alt="电影你的名字拍摄地在哪 你的名字拍摄地取景地介绍" src="/uploads/flink/1612011723061996.jpg" /></a></li><li><a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/1130/116147.html" title="杨幂确定出演电视剧《扶摇皇后》 《扶摇皇后》男主是谁"><img width="290px" height="410px" alt="杨幂确定出演电视剧《扶摇皇后》 《扶摇皇后》男主是谁" src="/uploads/flink/1612011802061982.jpg" /></a></li><li><a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/1201/116256.html" title="网曝刘翔吴莎斐济低调完婚 刘翔吴莎婚礼现场视频曝光"><img width="290px" height="410px" alt="网曝刘翔吴莎斐济低调完婚 刘翔吴莎婚礼现场视频曝光" src="/uploads/flink/1612011803298900.jpg" /></a></li>  
+
+          </ul>
+        </div>
+    </div>
+    <div class="index-hot">
+        
+        <dl>
+            <dt><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2018/0110/138676.html" target='_blank'>蓝洁瑛自曝性侵人是曾志伟 曾志伟微博发</a></dt>
+            <dd>蓝洁瑛自曝性侵大佬就是曾志伟。就在刚刚，曾志伟微博发文回应蓝洁瑛性侵事件，...<a target="_blank" specxxx="1" href="https://www.86kx.com/html/2018/0110/138676.html" target='_blank'>[详情]</a></dd>
+        </dl>
+<dl>
+            <dt><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2018/0105/138535.html" target='_blank'>姚贝娜生前经纪人发声 微博发文称pgone自作</a></dt>
+            <dd>网曝pgone比赛时的一段battle视频中用姚贝娜当韵脚，姚贝娜生前经纪人微博发文称pg...<a target="_blank" specxxx="1" href="https://www.86kx.com/html/2018/0105/138535.html" target='_blank'>[详情]</a></dd>
+        </dl>
+<dl>
+            <dt><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2018/0102/138412.html" target='_blank'>苍井空宣布要结婚 苍井空老公是谁</a></dt>
+            <dd>日本女星苍井空在新年突然宣布结婚了！各国粉丝都沸腾了！相信小伙伴们一定很在...<a target="_blank" specxxx="1" href="https://www.86kx.com/html/2018/0102/138412.html" target='_blank'>[详情]</a></dd>
+        </dl>
+
+        
+        <ul>
+            <li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/1213/137965.html" target='_blank'>刘鑫律师单方面解约 怒怼刘鑫两面三刀</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0927/135535.html" target='_blank'>2017微博电视影响力盛典完整版视频 首届微博电</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0922/135301.html" target='_blank'>史上第一!王俊凯18岁成年礼应援名单大盘点</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0922/135303.html" target='_blank'>电视剧限酬令正式发布：演员总片酬不得超超总</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0908/134674.html" target='_blank'>林志颖晒P图被判侵权赔偿30万 网友:装坏了这</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0908/134626.html" target='_blank'>快手伪慈善事件判处结果出炉 快手杰哥黑叔被</a></li>
+
+        </ul>
+    </div>
+    <div class="index-interaction-warp">
+        <div class="index-interaction-bottom">
+            <div class="index-interaction-content">
+                <div class="index-interaction-title">
+                    <span>互动中心</span>
+                    <a class='cur' target="_blank" specxxx="1" href="/member/caicai.php">踩踩</a>
+                    <a target="_blank" specxxx="1" href="/">评论</a>
+                    <a target="_blank" specxxx="1" href="">最新</a>
+                </div>
+                <div class="index-interaction-slide">
+                    <div id="slide-left" class="slide-left"></div>
+                    <div class="slide-content" id="marquee1">
+                        <ul>
+                            <li style="display:block;">
+                              <a target="_blank" specxxx="1" title="工科型男alex肌肉图" href="//tuku.86kx.com/shuaige/61291.html" target="_blank">
+                                <img width="180px" height="135px" alt="工科型男alex肌肉图" src="https://www.86kx.com/uploads/allimg/150610/1-1506101606100-L.jpg" /><span>工科型男alex肌肉图</span>
+                              </a>
+                            </li>
+<li style="display:block;">
+                              <a target="_blank" specxxx="1" title="《武媚娘传奇》范" href="//tuku.86kx.com/yingshi/64454.html" target="_blank">
+                                <img width="180px" height="135px" alt="《武媚娘传奇》范" src="https://www.86kx.com/uploads/allimg/141224/2289-1412241F1270-L.jpg" /><span>《武媚娘传奇》范</span>
+                              </a>
+                            </li>
+<li style="display:block;">
+                              <a target="_blank" specxxx="1" title="白百何时尚写真" href="//tuku.86kx.com/shishang/64238.html" target="_blank">
+                                <img width="180px" height="135px" alt="白百何时尚写真" src="https://www.86kx.com/uploads/allimg/141219/2289-1412191030020-L.jpg" /><span>白百何时尚写真</span>
+                              </a>
+                            </li>
+<li style="display:block;">
+                              <a target="_blank" specxxx="1" title="康宁冬日暖色写真" href="//tuku.86kx.com/meinv/64235.html" target="_blank">
+                                <img width="180px" height="135px" alt="康宁冬日暖色写真" src="https://www.86kx.com/uploads/allimg/141219/2289-1412191025290-L.jpg" /><span>康宁冬日暖色写真</span>
+                              </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div id="slide-right" class="slide-right"></div><!--a></a-->
+                </div><!--a></a-->
+                <ul class="index-interaction-news"><!--a></a-->
+                    <li><a target="_blank" specxxx="1" title="叶一茜小亮仔与狗狗互动超" href="//tuku.86kx.com/tianxia/131496.html" target="_blank"><span>·</span>叶一茜小亮仔与狗狗互动超</a></li>
+<li><a target="_blank" specxxx="1" title="胡耘豪最新写真 混搭绅士范" href="//tuku.86kx.com/mingxing/131494.html" target="_blank"><span>·</span>胡耘豪最新写真 混搭绅士范</a></li>
+<li><a target="_blank" specxxx="1" title="张超夏日写真 帅气迷人活力" href="//tuku.86kx.com/shuaige/131493.html" target="_blank"><span>·</span>张超夏日写真 帅气迷人活力</a></li>
+<li><a target="_blank" specxxx="1" title="孙嘉璐夏日写真 简约清新玉" href="//tuku.86kx.com/meinv/131491.html" target="_blank"><span>·</span>孙嘉璐夏日写真 简约清新玉</a></li>
+<li><a target="_blank" specxxx="1" title="baby亮相巴黎奢侈品70周年展" href="//tuku.86kx.com/yule/131490.html" target="_blank"><span>·</span>baby亮相巴黎奢侈品70周年展</a></li>
+
+                </ul>
+                <ul class="index-interaction-news" style="display:none;"><!--a></a-->
+                    <li><a target="_blank" specxxx="1" title="杰克逊旧居鬼魂、M" href="/feedback/29945.html" target="_blank"><span>·</span>MJ鬼魂？如果是真的话，他的粉丝应该一起到他的旧居半夜听他</a></li><li><a target="_blank" specxxx="1" title="1999年发生了什么?99年" href="/feedback/139254.html" target="_blank"><span>·</span>说的跟真的一样</a></li><li><a target="_blank" specxxx="1" title="十大放心奶粉品牌排" href="/feedback/141099.html" target="_blank"><span>·</span>谢谢分享</a></li><li><a target="_blank" specxxx="1" title="斗鱼骚白怎么不直播" href="/feedback/139791.html" target="_blank"><span>·</span>吹个屁，真么厉害巅峰赛都不敢打？</a></li><li><a target="_blank" specxxx="1" title="丽江恶性打人抢劫事" href="/feedback/122061.html" target="_blank"><span>·</span>三天？</a></li>
+                </ul>
+                <ul class="index-interaction-news" style="display:none;"><!--a></a--><!--a></a-->
+                    <li><a target="_blank" specxxx="1" title="极限挑战第四季路人美女盘" href="https://www.86kx.com/html/2018/0712/142554.html" target="_blank"><span>·</span>极限挑战第四季路人美女盘</a></li>
+<li><a target="_blank" specxxx="1" title="PDD得了什么病?PDD病情最新消" href="https://www.86kx.com/html/2018/0712/142551.html" target="_blank"><span>·</span>PDD得了什么病?PDD病情最新消</a></li>
+<li><a target="_blank" specxxx="1" title="富二代豪掷2.4亿包养的女主" href="https://www.86kx.com/html/2018/0712/142549.html" target="_blank"><span>·</span>富二代豪掷2.4亿包养的女主</a></li>
+<li><a target="_blank" specxxx="1" title="富二代诈骗1.7亿养网红主播" href="https://www.86kx.com/html/2018/0712/142548.html" target="_blank"><span>·</span>富二代诈骗1.7亿养网红主播</a></li>
+<li><a target="_blank" specxxx="1" title="杨旭文最新写真 桌游达人显" href="https://www.86kx.com/html/2018/0711/142541.html" target="_blank"><span>·</span>杨旭文最新写真 桌游达人显</a></li>
+<li><a target="_blank" specxxx="1" title="彭于晏最新写真 新电影《邪" href="//tuku.86kx.com/mingxing/142540.html" target="_blank"><span>·</span>彭于晏最新写真 新电影《邪</a></li>
+<li><a target="_blank" specxxx="1" title="谢霆锋林依晨现身圣彼得堡" href="//tuku.86kx.com/yule/142536.html" target="_blank"><span>·</span>谢霆锋林依晨现身圣彼得堡</a></li>
+<li><a target="_blank" specxxx="1" title="蒋璐霞创意运动 双人拳击训" href="//tuku.86kx.com/titan/142537.html" target="_blank"><span>·</span>蒋璐霞创意运动 双人拳击训</a></li>
+<li><a target="_blank" specxxx="1" title="杨玏时尚写真 沉静儒雅熟男" href="https://www.86kx.com/html/2018/0711/142543.html" target="_blank"><span>·</span>杨玏时尚写真 沉静儒雅熟男</a></li>
+<li><a target="_blank" specxxx="1" title="魏伸洲英伦写真 俏皮英气小" href="//tuku.86kx.com/shuaige/142539.html" target="_blank"><span>·</span>魏伸洲英伦写真 俏皮英气小</a></li>
+<li><a target="_blank" specxxx="1" title="崔航足球风街拍 阳光时尚实" href="https://www.86kx.com/html/2018/0711/142542.html" target="_blank"><span>·</span>崔航足球风街拍 阳光时尚实</a></li>
+<li><a target="_blank" specxxx="1" title="抖音网红美女排行榜2018 抖" href="https://www.86kx.com/html/2018/0711/142534.html" target="_blank"><span>·</span>抖音网红美女排行榜2018 抖</a></li>
+<li><a target="_blank" specxxx="1" title="实况足球和fifa的哪个好玩吗" href="https://www.86kx.com/html/2018/0711/142532.html" target="_blank"><span>·</span>实况足球和fifa的哪个好玩吗</a></li>
+<li><a target="_blank" specxxx="1" title="油管是什么意思?YouTube被称" href="https://www.86kx.com/html/2018/0711/142531.html" target="_blank"><span>·</span>油管是什么意思?YouTube被称</a></li>
+<li><a target="_blank" specxxx="1" title="2018年好玩的单机游戏推荐" href="https://www.86kx.com/html/2018/0711/142529.html" target="_blank"><span>·</span>2018年好玩的单机游戏推荐</a></li>
+<li><a target="_blank" specxxx="1" title="英雄联盟S8辅助派克怎么出" href="https://www.86kx.com/html/2018/0711/142533.html" target="_blank"><span>·</span>英雄联盟S8辅助派克怎么出</a></li>
+<li><a target="_blank" specxxx="1" title="幸存者危城进不去游戏怎么" href="https://www.86kx.com/html/2018/0711/142530.html" target="_blank"><span>·</span>幸存者危城进不去游戏怎么</a></li>
+<li><a target="_blank" specxxx="1" title="风之大陆什么职业好 最厉害" href="https://www.86kx.com/html/2018/0711/142528.html" target="_blank"><span>·</span>风之大陆什么职业好 最厉害</a></li>
+<li><a target="_blank" specxxx="1" title="非人学园太白怎么玩 太白金" href="https://www.86kx.com/html/2018/0711/142526.html" target="_blank"><span>·</span>非人学园太白怎么玩 太白金</a></li>
+<li><a target="_blank" specxxx="1" title="逆水寒碎梦副本输出手法攻" href="https://www.86kx.com/html/2018/0711/142524.html" target="_blank"><span>·</span>逆水寒碎梦副本输出手法攻</a></li>
+<li><a target="_blank" specxxx="1" title="逆水寒仗剑行宗师三怎么打" href="https://www.86kx.com/html/2018/0711/142523.html" target="_blank"><span>·</span>逆水寒仗剑行宗师三怎么打</a></li>
+<li><a target="_blank" specxxx="1" title="杜玉明和计春华太像了 杜玉" href="https://www.86kx.com/html/2018/0711/142527.html" target="_blank"><span>·</span>杜玉明和计春华太像了 杜玉</a></li>
+<li><a target="_blank" specxxx="1" title="冯小刚发文反击崔永元！冯" href="https://www.86kx.com/html/2018/0711/142525.html" target="_blank"><span>·</span>冯小刚发文反击崔永元！冯</a></li>
+<li><a target="_blank" specxxx="1" title="电影邪不压正是根据什么改" href="https://www.86kx.com/html/2018/0711/142522.html" target="_blank"><span>·</span>电影邪不压正是根据什么改</a></li>
+<li><a target="_blank" specxxx="1" title="邪不压正经典台词盘点 邪不" href="https://www.86kx.com/html/2018/0711/142521.html" target="_blank"><span>·</span>邪不压正经典台词盘点 邪不</a></li>
+<li><a target="_blank" specxxx="1" title="逆水寒牢狱风云任务怎么做" href="https://www.86kx.com/html/2018/0711/142520.html" target="_blank"><span>·</span>逆水寒牢狱风云任务怎么做</a></li>
+<li><a target="_blank" specxxx="1" title="英雄联盟S8打野剑魔怎么出" href="https://www.86kx.com/html/2018/0711/142519.html" target="_blank"><span>·</span>英雄联盟S8打野剑魔怎么出</a></li>
+<li><a target="_blank" specxxx="1" title="王者荣耀边境突围模式玩法" href="https://www.86kx.com/html/2018/0711/142516.html" target="_blank"><span>·</span>王者荣耀边境突围模式玩法</a></li>
+
+                </ul>
+            </div><!--a></a-->
+        </div>
+    </div><!--a></a-->
+</div><!--a></a-->
+<style>
+    .index-interaction-title{padding-top: 3px;border-bottom:1px solid #E1E1E1;line-height: 35px;height:35px;background:#eeeeee;margin:0px;margin-top:10px;padding:0px;width:242px;margin-bottom: 14px;}
+    .index-interaction-title span{display: inline-block;font-weight: bold;font-size: 19px;color: #000;}
+    .index-interaction-title a{width:45px;display:inline-block;text-align: center;}
+    .index-interaction-title a.cur{color:#EC1854;border:1px solid #E1E1E1;border-bottom:1px solid #F9F9F9;background:#F9F9F9;}
+</style>
+<script>
+    $(function(){
+        $(".index-interaction-title a").mouseover(function(){
+            $(this).siblings('a').removeClass('cur');
+            $(this).addClass('cur');
+            var i=$(this).index()-1;
+            $("ul.index-interaction-news").hide();
+            $("ul.index-interaction-news").eq(i).show();
+        });
+    });
+</script>
+<!--f1 end-->
+        <div align="center">
+		<!-- 广告位：白领网-整站广告通栏-头部（1000*90） -->
+		<script type="text/javascript" >BAIDU_CLB_SLOT_ID = "970574";</script>
+        <script type="text/javascript" src="//cbjs.baidu.com/js/o.js"> </script>
+		
+		</div>
+<div class="clear"></div>
+<!--f2 start-->
+<div class="index-row">
+    <div class="index-title">
+        <h2><img src="https://www.86kx.com/templets/default/images/index-title-01.gif" /></h2>
+        <div class="links"><a target="_blank" specxxx="1" href="/html/spyy/dyfy/" class="first">电影</a><a target="_blank" specxxx="1" href="/html/juqing/">电视剧</a><a target="_blank" specxxx="1" href="/html/spyy/dypd/">综艺节目</a><a target="_blank" specxxx="1" href="/html/spyy/yyxs/">音乐资讯</a><a target="_blank" specxxx="1" href="/html/spyy/jdsp/">视频</a></div>
+    </div>
+    <dl class="index-television">
+        <dt><a target="_blank" specxxx="1" title="魔兽电影第二部上映时间揭晓" href="//www.86kx.com/html/2016/0612/97674.html" target="_blank"><img alt="魔兽电影第二部上映时间揭晓" src="/uploads/flink/1606161729543796.jpg" width="260" height="350" /></a></dt>
+        <dd>
+            <a target="_blank" specxxx="1" title="魔兽电影第二部上映时间揭晓" href="//www.86kx.com/html/2016/0612/97674.html" target="_blank">
+            魔兽电影第二部上映时间揭晓</a>
+            <p>电影《魔兽》在中国上映8天票房就高达11.29亿，如此强大的票房吸引力也说明魔兽这个IP有多么强大，而随着高票房后与玩家观众的激情满满后!许多网友都好奇影片故事只讲了前奏，那么影片第二部会不会出现呢？让我们一起来看看导演的看法吧！！
+...<a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/0612/97674.html">[查看全文]</a></p>
+        </dd>
+        
+    </dl>
+    <div class="index-television-hot">
+        <dl class="hot">
+            <dt><a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/0614/97929.html"><img alt="余罪2编剧乱写遭作者公开指责" src="/uploads/flink/1606161749556463.jpg" /></a></dt>
+            <dd>
+                <a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/0614/97929.html">余罪2编剧乱写遭作者公开指责</a>
+                <p>千呼万唤，《余罪》第二季终于可以看了！但是看第二季的时候，越看越不对劲，各种槽点此起彼伏，豆瓣评分从第一季的8.5跌到了目前的7.6，小编觉得应该还会继续跌。...<a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/0614/97929.html">[详情]</a></p>
+            </dd>
+        </dl>
+        <dl class="news">
+            <dt><div class="b"></div>
+                <div class="t">超少年密码预告视频 </div><a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/0616/98068.html"><img src="/uploads/flink/1606161747549812.jpg" /></a>
+            </dt>
+            <dd>
+                <strong>电影/电视</strong>
+                <ul>
+                    <li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0601/130395.html"><span>·</span>电影迷失z城在线观看资源 迷失Z城电影完</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0307/125199.html"><span>·</span>陈坤电视剧凰权弈天下女主曝光 凰权弈天</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0222/123999.html"><span>·</span>刘烨电视剧《治愈者》女主是谁演 电视剧</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0107/120223.html"><span>·</span>时间都知道电视剧男主是谁演的 时间都知</a></li>
+
+                </ul>
+            </dd>
+        </dl>
+        <dl class="news">
+            <dt><div class="b"></div>
+                <div class="t">十二道锋味3嘉宾介绍 </div><a target="_blank" specxxx="1" href="//www.86kx.com/html/2016/0616/98060.html"><img src="/uploads/flink/1606161748341808.jpg" /></a>
+            </dt>
+            <dd>
+                <strong>综艺/音乐/视频</strong>
+                <ul>
+                    <li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0731/132673.html"><span>·</span>中餐厅张亮做的菜菜谱大全 张亮菜谱</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0324/126532.html"><span>·</span>IU《夜信》mv歌词介绍 李知恩IU新专辑</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0325/126562.html"><span>·</span>大力女都奉顺OST5MAMAMOO《Double Trouble </a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0323/126393.html"><span>·</span>易烊千玺为弟弟楠楠献唱《宝贝》视频</a></li>
+
+                </ul>
+            </dd>
+        </dl>
+    </div>
+    <dl class="index-row-right">
+        <dt><img src="https://www.86kx.com/templets/default/images/title-recommended.gif" /></dt>
+        <dd>
+            <ul>
+                <li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0828/134034.html" target='_blank'>香港视听展美女空姐黄静</a>
+                    <div class="content" >
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0828/134034.html" target='_blank'>
+                                <img alt="香港视听展美女空姐黄静" src="https://www.86kx.com/uploads/allimg/170828/2318-1FRQ500220-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>日前，香港视听展上索尼的宣传模特美女空姐在网上火了，美女空姐黄静蓝的一段短视</p>
+                            <div class="c">
+                            1
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0731/132673.html" target='_blank'>中餐厅张亮做的菜菜谱大</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0731/132673.html" target='_blank'>
+                                <img alt="中餐厅张亮做的菜菜谱大" src="https://www.86kx.com/uploads/allimg/170731/2326-1FI11619230-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>张亮真是个低调大厨。做菜一级棒，情商一级高。做的每一道菜看上去都好好吃的样子</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0601/130395.html" target='_blank'>电影迷失z城在线观看资源</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0601/130395.html" target='_blank'>
+                                <img alt="电影迷失z城在线观看资源" src="https://www.86kx.com/uploads/allimg/170601/2306-1F601110H90-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>电影迷失z城在哪里可以看？电影迷失z城在线观看资源哪里有？迷失Z城电影完整版视频</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0517/129537.html" target='_blank'>刘洲成老婆林苗微博自曝</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0517/129537.html" target='_blank'>
+                                <img alt="刘洲成老婆林苗微博自曝" src="https://www.86kx.com/uploads/allimg/170517/2318-1F51G401180-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>5月15日，刘洲成老婆林苗微博自曝遭受多次家暴，孕期先后受到6次家暴！林苗在5月1</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0516/129464.html" target='_blank'>周杰伦演唱会男粉丝开窗</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0516/129464.html" target='_blank'>
+                                <img alt="周杰伦演唱会男粉丝开窗" src="https://www.86kx.com/uploads/allimg/170516/2318-1F5161610180-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>5月14日晚，周杰伦在重庆举行“地表最强”世界巡回演唱会，当晚吸引来了近4万的歌迷</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0515/129354.html" target='_blank'>we战队老板是谁 we战队老板</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0515/129354.html" target='_blank'>
+                                <img alt="we战队老板是谁 we战队老板" src="https://www.86kx.com/uploads/allimg/170515/2318-1F5151130140-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>WE战队老板是谁呢？2017LOL春季赛WE以LPL赛区第一的身份参加2017MSI季中赛，更是在小组赛</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0427/128586.html" target='_blank'>有生之年系列！央视巨作</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0427/128586.html" target='_blank'>
+                                <img alt="有生之年系列！央视巨作" src="https://www.86kx.com/uploads/allimg/170427/2318-1F42G051250-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>此前十分火热的国产动漫《围棋少年》第三部海报日前曝光。对于围棋少年这类有生之</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0417/127933.html" target='_blank'>王乐乐和小不点吵架殴打</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0417/127933.html" target='_blank'>
+                                <img alt="王乐乐和小不点吵架殴打" src="https://www.86kx.com/uploads/allimg/170417/2301-1F41G633020-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>王乐乐杨清柠在一起，小不点杨清柠还怀了王乐乐的孩子，但是网红就是戏多，最近，</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0324/126532.html" target='_blank'>IU《夜信》mv歌词介绍 李知</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0324/126532.html" target='_blank'>
+                                <img alt="IU《夜信》mv歌词介绍 李知" src="https://www.86kx.com/uploads/allimg/170324/2298-1F3241512150-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>IU日前公开了先行曲《夜信》，有少女感性的民谣旋律，和美得像复古电影的MV画风，令</p>
+                            <div class="c">
+                            1
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0325/126562.html" target='_blank'>大力女都奉顺OST5MAMAMOO《</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0325/126562.html" target='_blank'>
+                                <img alt="大力女都奉顺OST5MAMAMOO《" src="https://www.86kx.com/uploads/allimg/170325/2298-1F3250ZP00-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>《大力女都奉顺》正在热播中，日前该剧公开了OST Part.5MV--MAMAMOO演唱的《Double Trouble </p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0323/126393.html" target='_blank'>易烊千玺为弟弟楠楠献唱</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0323/126393.html" target='_blank'>
+                                <img alt="易烊千玺为弟弟楠楠献唱" src="https://www.86kx.com/uploads/allimg/170323/2298-1F3231020220-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>多才多艺易烊千玺令不少网友颇为喜欢，日前曝光了他为弟弟演唱的《宝贝》在网上疯</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </dd>
+    </dl>
+</div>
+<!--f2 end-->
+
+<!--ad start-->
+<div class="index-ad">
+    <div class="ad-left"><!-- 广告位：白领网-整站广告通栏-头部（728*90） --><script type="text/javascript" >BAIDU_CLB_SLOT_ID = "970730";</script>
+<script type="text/javascript" src="//cbjs.baidu.com/js/o.js"></script></div>
+
+    <div class="ad-right"><!-- 广告位：白领网-整站广告通栏-头部（260*90） --><script type="text/javascript" >BAIDU_CLB_SLOT_ID = "970733";</script>
+<script type="text/javascript" src="//cbjs.baidu.com/js/o.js"></script>
+	
+</div>
+</div>
+<!--ad end-->
+
+<!--f3 start-->
+<div class="index-row">
+    <div class="index-title index-title-star">
+        <h2><img src="https://www.86kx.com/templets/default/images/index-title-02.gif" /></h2>
+        <div class="links"><a target="_blank" specxxx="1" href="/star/neidi/" class="first">内地</a><a target="_blank" specxxx="1" href="/star/gt/">港台</a><a target="_blank" specxxx="1" href="/star/oumei/">欧美</a><a target="_blank" specxxx="1" href="/star/rihan/">日韩</a><a target="_blank" specxxx="1" href="/star/dongnanya/">东南亚</a></div>
+    </div>
+    <dl class="index-stars">
+        <dt><a target="_blank" specxxx="1" href="/star">[进入明星库]</a><strong>热门明星</strong></dt>
+        <dd class="c">
+            <ul>
+                <li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/rihan/117334.html"><div class="face"><span>1</span><img src="https://www.86kx.com/uploads/allimg/161209/2298-1612091644300-L.jpg" width='70' height='70' /></div><span>金高银</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/71875.html"><div class="face"><span>2</span><img src="https://www.86kx.com/uploads/allimg/150624/2294-1506241J4170-L.jpg" width='70' height='70' /></div><span>汪涵</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/gt/73036.html"><div class="face"><span>3</span><img src="https://www.86kx.com/uploads/allimg/150715/2294-150G51H0060-L.jpg" width='70' height='70' /></div><span>陈冠希</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/120845.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/170112/2298-1F1121F4310-L.jpg" width='70' height='70' /></div><span>陈思成</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/72715.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/150709/2294-150F91H4500-L.jpg" width='70' height='70' /></div><span>袁姗姗</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/72889.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/150713/2294-150G31HJ40-L.jpg" width='70' height='70' /></div><span>徐璐</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/rihan/84480.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/160106/2298-1601061100310-L.jpg" width='70' height='70' /></div><span>朴灿烈</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/rihan/89893.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/160315/2298-1603151JG60-L.jpg" width='70' height='70' /></div><span>宋承宪</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/89405.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/160310/2298-1603101I1280-L.jpg" width='70' height='70' /></div><span>叶良辰</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/72384.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/150703/2294-150F31J1110-L.jpg" width='70' height='70' /></div><span>武艺</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/117779.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/161214/2298-1612141JA20-L.jpg" width='70' height='70' /></div><span>杨洋</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/gt/71878.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/150624/2294-1506241K4410-L.jpg" width='70' height='70' /></div><span>欧阳娜娜</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/rihan/85418.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/160115/2298-1601151504190-L.jpg" width='70' height='70' /></div><span>吴世勋</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/oumei/64766.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/141230/2295-1412301420240-L.jpg" width='70' height='70' /></div><span>丹尼尔·克雷格</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/92810.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/160420/2298-1604201K1270-L.jpg" width='70' height='70' /></div><span>李念</span></a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/72575.html"><div class="face"><img src="https://www.86kx.com/uploads/allimg/150707/2294-150FGJ1570-L.jpg" width='70' height='70' /></div><span>何炅</span></a></li>
+
+            </ul>
+        </dd>
+        <dd>
+            <a target="_blank" specxxx="1" href="/star" class="more">更多</a>
+        </dd>
+    </dl>
+    <div class="index-stars-hot">
+        <dl class="search">
+            <dt><span>选择明星名字首个字母检索！</span><strong>明星检索</strong></dt>
+            <dd>
+                <a target="_blank" specxxx="1" href="/star">ALL</a>
+                <a target="_blank" specxxx="1" href="/star/A/">A</a>
+                <a target="_blank" specxxx="1" href="/star/B/">B</a>
+                <a target="_blank" specxxx="1" href="/star/C/">C</a>
+                <a target="_blank" specxxx="1" href="/star/D/">D</a>
+                <a target="_blank" specxxx="1" href="/star/E/">E</a>
+                <a target="_blank" specxxx="1" href="/star/F/">F</a>
+                <a target="_blank" specxxx="1" href="/star/G/">G</a>
+                <a target="_blank" specxxx="1" href="/star/H/">H</a>
+                <a target="_blank" specxxx="1" href="/star/I/">I</a>
+                <a target="_blank" specxxx="1" href="/star/J/">J</a>
+                <a target="_blank" specxxx="1" href="/star/K/">K</a>
+                <a target="_blank" specxxx="1" href="/star/L/">L</a>
+                <a target="_blank" specxxx="1" href="/star/M/">M</a>
+                <a target="_blank" specxxx="1" href="/star/N/">N</a>
+                <a target="_blank" specxxx="1" href="/star/O/">O</a>
+                <a target="_blank" specxxx="1" href="/star/P/">P</a>
+                <a target="_blank" specxxx="1" href="/star/Q/">Q</a>
+                <a target="_blank" specxxx="1" href="/star/R/">R</a>
+                <a target="_blank" specxxx="1" href="/star/S/">S</a>
+                <a target="_blank" specxxx="1" href="/star/T/">T</a>
+                <a target="_blank" specxxx="1" href="/star/U/">U</a>
+                <a target="_blank" specxxx="1" href="/star/V/">V</a>
+                <a target="_blank" specxxx="1" href="/star/W/">W</a>
+                <a target="_blank" specxxx="1" href="/star/X/">X</a>
+                <a target="_blank" specxxx="1" href="/star/Y/">Y</a>
+                <a target="_blank" specxxx="1" href="/star/Z/">Z</a>
+            </dd>
+        </dl>
+        <dl class="star-man">
+            <dt><strong>最新明星</strong></dt>
+            <dd>
+                <a target="_blank" specxxx="1" href="https://www.86kx.com/star/gt/128418.html">陈柏霖</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/127821.html">姚晨</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/127679.html">陈羽凡</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/127576.html">李菲儿</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/127552.html">石文嵩</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/127444.html">唐菀</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/gt/127396.html">王大陆</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/gt/127315.html">林宥嘉</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/127255.html">叶璇</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/127111.html">秦昊</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/127008.html">马伊琍</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/126900.html">韩红</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/126787.html">龚琳娜</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/gt/126734.html">林志炫</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/126727.html">黎姿</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/gt/126724.html">朱茵</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/126615.html">焦俊艳</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/126590.html">梁博</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/126539.html">林忆莲</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/neidi/126439.html">徐静蕾</a>
+<a target="_blank" specxxx="1" href="https://www.86kx.com/star/126412.html">徐海乔</a>
+
+            </dd>
+        </dl>
+    </div>
+    <dl class="index-row-right">
+        <dt><img src="https://www.86kx.com/templets/default/images/title-entertainment.gif" /></dt>
+        <dd>
+            <ul>
+                <li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0517/129537.html" target='_blank'>刘洲成老婆林苗微博自曝</a>
+                            <div class="content" >
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0517/129537.html" target='_blank'>
+                                        <img alt="刘洲成老婆林苗微博自曝" src="https://www.86kx.com/uploads/allimg/170517/2318-1F51G401180-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>5月15日，刘洲成老婆林苗微博自曝遭受多次家暴，孕期先后受到6次家暴！林苗在5月1</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0516/129464.html" target='_blank'>周杰伦演唱会男粉丝开窗</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0516/129464.html" target='_blank'>
+                                        <img alt="周杰伦演唱会男粉丝开窗" src="https://www.86kx.com/uploads/allimg/170516/2318-1F5161610180-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>5月14日晚，周杰伦在重庆举行“地表最强”世界巡回演唱会，当晚吸引来了近4万的歌迷</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0417/127933.html" target='_blank'>王乐乐和小不点吵架殴打</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0417/127933.html" target='_blank'>
+                                        <img alt="王乐乐和小不点吵架殴打" src="https://www.86kx.com/uploads/allimg/170417/2301-1F41G633020-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>王乐乐杨清柠在一起，小不点杨清柠还怀了王乐乐的孩子，但是网红就是戏多，最近，</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0228/124710.html" target='_blank'>这很鹿晗！鹿晗新歌怒怼</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0228/124710.html" target='_blank'>
+                                        <img alt="这很鹿晗！鹿晗新歌怒怼" src="https://www.86kx.com/uploads/allimg/170228/2290-1F22Q63Q00-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>此前一直被私生饭、黄牛跟车的鹿晗曾经不止一次的怒怼了这些人，而鹿晗这次参与新</p>
+                                    <div class="c">
+                                    1
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0228/124684.html" target='_blank'>骚男微博宣布结婚 骚男老</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0228/124684.html" target='_blank'>
+                                        <img alt="骚男微博宣布结婚 骚男老" src="https://www.86kx.com/uploads/allimg/170228/2292-1F22Q546140-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>虎牙人气主播骚男今天在自己的微博上晒出结婚证，并称最近几天要去补办婚纱照了，</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0227/124528.html" target='_blank'>帅哭！易烊千玺粉丝破2</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0227/124528.html" target='_blank'>
+                                        <img alt="帅哭！易烊千玺粉丝破2" src="https://www.86kx.com/uploads/allimg/170227/2290-1F22G421590-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>帅哭了！易烊千玺粉丝突破2000万，特意给千纸鹤粉丝们编排了一段舞蹈，超级用心的视</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0220/123728.html" target='_blank'>2月19日张学友台北演唱会</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0220/123728.html" target='_blank'>
+                                        <img alt="2月19日张学友台北演唱会" src="https://www.86kx.com/uploads/allimg/170220/2318-1F220164Z20-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>据悉，2月19日是张学友在台北小巨蛋演唱会的最后一天，作为开春后第一场演唱会，吸</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0217/123494.html" target='_blank'>林志颖p图被索赔110万 林志</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0217/123494.html" target='_blank'>
+                                        <img alt="林志颖p图被索赔110万 林志" src="https://www.86kx.com/uploads/allimg/170217/2298-1F21G423000-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>近日，林志穎因4年前在微博分享了一张自己的光头PS照被知名摄影师朱庆福老师以PS照</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0203/122154.html" target='_blank'>王源联合国直播完整版!王</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0203/122154.html" target='_blank'>
+                                        <img alt="王源联合国直播完整版!王" src="https://www.86kx.com/uploads/allimg/170203/2301-1F2031013530-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>前段时间，王源接受了联合国青年论坛的邀请，让源粉们兴奋不已。近日，王源出席联</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0124/122001.html" target='_blank'>五月天2017全新巡回演唱会</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0124/122001.html" target='_blank'>
+                                        <img alt="五月天2017全新巡回演唱会" src="https://www.86kx.com/uploads/allimg/170124/2290-1F1241526120-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>五月天2017巡回演唱会行程终于曝光啦！！广州、厦门、郑州、合肥、杭州等城市均在巡</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0117/121345.html" target='_blank'>yy1931女团成员资料大盘点</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0117/121345.html" target='_blank'>
+                                        <img alt="yy1931女团成员资料大盘点" src="https://www.86kx.com/uploads/allimg/170117/2318-1F11G553380-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>yy1931女团成员资料大盘点 yy1931女子成员都有谁？yy1931女子成员总共有几个人？yy1931女子</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+            </ul>
+        </dd>
+    </dl>
+</div>
+<!--f3 end-->
+<div class="clear"></div>
+<!--f4 start-->
+<div class="index-row">
+    <div class="index-title index-title-shopping">
+        <h2><img src="https://www.86kx.com/templets/default/images/index-title-03.gif" /></h2>
+        <div class="links"><a target="_blank" specxxx="1" href="/gouwu/zhinan/" class="first">购物指南</a><a target="_blank" specxxx="1" href="/gouwu/shechipin/">奢侈品</a><a target="_blank" specxxx="1" href="/gouwu/qiye/">品牌介绍</a></div>
+    </div>
+    <div class="clear"></div>
+    <dl class="index-shopping">
+        <dt>
+            <ul>
+                <li><a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0304/67142.html"><img src="/uploads/flink/1503051656401402.jpg" /><strong>你能hold住这样的背带裤吗？</strong></a></li>
+            </ul>
+        </dt>
+        <dd>
+            <ul>
+                <li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2015/0212/66601.html">杨幂刘恺威四爷刘诗诗 明星情侣</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2015/0109/65231.html">大牌也玩撞衫 美艳华服似曾相识</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2015/0103/64883.html">奔跑吧兄弟李晨内裤同款、奔跑吧</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2014/1231/64819.html">派对闪亮全场!女生需备一条性感</a></li>
+
+            </ul>
+        </dd>
+    </dl>
+    <div class="index-shopping-hot">
+        <dl class="first">
+            <dt><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0424/128415.html"><img src="https://www.86kx.com/uploads/allimg/170424/2298-1F4241645120-L.jpg" width='100' height='120' /></a></dt>
+            <dd>
+                <p>
+                <a style="height:22px;overflow:hidden;display: block;font-size: 15px;font-weight: bold;" target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0424/128415.html">
+                [购物指南]<span style="color:#666;">焦急的罗曼史李宥美（宋智恩）同</span>
+                </a>
+                <span style="display:block;height: 44px;overflow: hidden;">韩剧《焦急的罗曼史》正在热播中，该剧开播后深受众多不少观众网友们追捧，</span>
+                </p>
+                <div class="n"><span>0</span></div>
+            </dd>
+        </dl>
+<dl class="first">
+            <dt><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0418/127984.html"><img src="https://www.86kx.com/uploads/allimg/170418/2298-1F41Q00R40-L.jpg" width='100' height='120' /></a></dt>
+            <dd>
+                <p>
+                <a style="height:22px;overflow:hidden;display: block;font-size: 15px;font-weight: bold;" target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0418/127984.html">
+                [购物指南]<span style="color:#666;">花儿与少年第三季明星同款包包品</span>
+                </a>
+                <span style="display:block;height: 44px;overflow: hidden;">令人期待的《花儿与少年3》终于要定档开播了，不少有心的朋友都会观察明星</span>
+                </p>
+                <div class="n"><span>0</span></div>
+            </dd>
+        </dl>
+<dl class="first">
+            <dt><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0331/127105.html"><img src="https://www.86kx.com/uploads/allimg/170331/2290-1F3311521100-L.jpg" width='100' height='120' /></a></dt>
+            <dd>
+                <p>
+                <a style="height:22px;overflow:hidden;display: block;font-size: 15px;font-weight: bold;" target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0331/127105.html">
+                [购物时尚]<span style="color:#666;">漂洋过海来看你郑楚（朱亚文）同</span>
+                </a>
+                <span style="display:block;height: 44px;overflow: hidden;">电视剧《漂洋过海来看你》中朱亚文饰演的郑楚阳光帅气，风趣幽默，货真价实</span>
+                </p>
+                <div class="n"><span>0</span></div>
+            </dd>
+        </dl>
+<dl class="first">
+            <dt><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0331/127102.html"><img src="https://www.86kx.com/uploads/allimg/170331/2290-1F3311501100-L.jpg" width='100' height='120' /></a></dt>
+            <dd>
+                <p>
+                <a style="height:22px;overflow:hidden;display: block;font-size: 15px;font-weight: bold;" target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0331/127102.html">
+                [购物时尚]<span style="color:#666;">漂洋过海来看你苏芒（王丽坤）同</span>
+                </a>
+                <span style="display:block;height: 44px;overflow: hidden;">电视剧《漂洋过海来看你》中王丽坤饰演的职场女强人苏芒在剧中的形象也是十</span>
+                </p>
+                <div class="n"><span>0</span></div>
+            </dd>
+        </dl>
+
+        <div class="more"><a target="_blank" specxxx="1" href="/gouwu/">更多</a></div>
+    </div>
+    <dl class="index-row-right">
+        <dt><img src="https://www.86kx.com/templets/default/images/title-shopping.gif" /></dt>
+        <dd>
+            <ul>
+                <li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0424/128415.html" target='_blank'>焦急的罗曼史李宥美（宋</a>
+                    <div class="content" >
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0424/128415.html" target='_blank'>
+                                <img alt="焦急的罗曼史李宥美（宋" src="https://www.86kx.com/uploads/allimg/170424/2298-1F4241645120-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>韩剧《焦急的罗曼史》正在热播中，该剧开播后深受众多不少观众网友们追捧，</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0418/127984.html" target='_blank'>花儿与少年第三季明星同</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0418/127984.html" target='_blank'>
+                                <img alt="花儿与少年第三季明星同" src="https://www.86kx.com/uploads/allimg/170418/2298-1F41Q00R40-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>令人期待的《花儿与少年3》终于要定档开播了，不少有心的朋友都会观察明星</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0331/127105.html" target='_blank'>漂洋过海来看你郑楚（朱</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0331/127105.html" target='_blank'>
+                                <img alt="漂洋过海来看你郑楚（朱" src="https://www.86kx.com/uploads/allimg/170331/2290-1F3311521100-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>电视剧《漂洋过海来看你》中朱亚文饰演的郑楚阳光帅气，风趣幽默，货真价实</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0331/127102.html" target='_blank'>漂洋过海来看你苏芒（王</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0331/127102.html" target='_blank'>
+                                <img alt="漂洋过海来看你苏芒（王" src="https://www.86kx.com/uploads/allimg/170331/2290-1F3311501100-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>电视剧《漂洋过海来看你》中王丽坤饰演的职场女强人苏芒在剧中的形象也是十</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0325/126605.html" target='_blank'>拒绝溺水!美国Kingii手环功</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0325/126605.html" target='_blank'>
+                                <img alt="拒绝溺水!美国Kingii手环功" src="https://www.86kx.com/uploads/allimg/170325/2298-1F3251430370-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>美国加州格里德历的一家公司开发了一款可以穿戴的充气救生设备Kingii手环！用</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0323/126450.html" target='_blank'>看不见的TA小焦（焦俊艳）</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0323/126450.html" target='_blank'>
+                                <img alt="看不见的TA小焦（焦俊艳）" src="https://www.86kx.com/uploads/allimg/170323/2290-1F3231629320-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>微电影《看不见的TA之时间裂缝》的播出让很多网友很喜欢片中焦俊艳饰演的小</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0323/126454.html" target='_blank'>OPPO R9s清新绿在哪里可以买</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0323/126454.html" target='_blank'>
+                                <img alt="OPPO R9s清新绿在哪里可以买" src="https://www.86kx.com/uploads/allimg/170323/2290-1F3231641240-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>不少网友看了微电影《看不见的TA之时间裂缝》对OPPO R9s性推出的清新绿表示很</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0321/126268.html" target='_blank'>她爱上了我的谎尹素琳(朴</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0321/126268.html" target='_blank'>
+                                <img alt="她爱上了我的谎尹素琳(朴" src="https://www.86kx.com/uploads/allimg/170321/2298-1F3211613080-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>韩剧《她爱上了我的谎》正在热播中，该剧开播后深受众多观众们的好作品，剧</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0308/125279.html" target='_blank'>大力女都奉顺喝的饮料是</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0308/125279.html" target='_blank'>
+                                <img alt="大力女都奉顺喝的饮料是" src="https://www.86kx.com/uploads/allimg/170308/2298-1F30Q143570-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>韩剧《大力女都奉顺》正在火爆热播中，不少观众也非常的好奇之前在鬼怪新娘</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0308/125269.html" target='_blank'>大力女都奉顺朴宝英口红</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0308/125269.html" target='_blank'>
+                                <img alt="大力女都奉顺朴宝英口红" src="https://www.86kx.com/uploads/allimg/170308/2298-1F30Q10J30-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>韩剧《大力女都奉顺》正在火爆热播中，剧中朴宝英饰演都奉顺短发和口红色号</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+<li>
+                    <a target="_blank" specxxx="1" href="https://www.86kx.com/gouwu/125264.html" target='_blank'>放开我北鼻第二季哈琳背</a>
+                    <div class="content" style='display:none;'>
+                        <div class="l">
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/gouwu/125264.html" target='_blank'>
+                                <img alt="放开我北鼻第二季哈琳背" src="https://www.86kx.com/uploads/allimg/170308/2292-1F30Q033280-L.jpg" width='120px' height='140px' />
+                            </a>
+                        </div>
+                        <div class="r">
+                            <p>在放开我北鼻第二季中哈琳身背一个小猛牛的背包也萌哭好多观众，许多有北鼻</p>
+                            <div class="c">
+                            0
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </dd>
+    </dl>
+</div>
+<!--f4 end-->
+
+    <!--ad start-->
+		<!--
+        <div class="index-ad">
+            <div class="ad-left">
+			   广告位：白领网-首页广告01（728*90） 
+				<script type="text/javascript" >BAIDU_CLB_SLOT_ID = "970877";</script>
+				<script type="text/javascript" src="//cbjs.baidu.com/js/o.js"></script>
+			</div>
+
+            <div class="ad-right">
+				广告位：白领网-首页广告02（260*90）
+				<script type="text/javascript" >BAIDU_CLB_SLOT_ID = "970885";</script>
+				<script type="text/javascript" src="//cbjs.baidu.com/js/o.js"></script>
+			</div>
+       </div>
+	   -->
+        <!--ad end-->
+		
+		
+        <!--f5 start-->
+        <div class="index-row">
+            <div class="index-title index-title-encyclopedias">
+                <h2><img src="https://www.86kx.com/templets/default/images/index-title-04.gif" /></h2>
+                <div class="links"><a target="_blank" specxxx="1" href="//www.86kx.com/html/kxsh/shbt/" class="first">热点</a><a target="_blank" specxxx="1" href="://www.86kx.com/html/kxsh/shxqm/">窍门</a><a target="_blank" specxxx="1" href="//www.86kx.com/html/kxsh/msbd/">美食</a><a target="_blank" specxxx="1" href="//www.86kx.com/html/kxsh/lywh/">旅游</a><a target="_blank" specxxx="1" href="//www.86kx.com/html/kxsh/car/">汽车</a><a target="_blank" specxxx="1" href="//www.86kx.com/html/kxsh/xzcs/">星座</a><a target="_blank" specxxx="1" href="//www.86kx.com/hunjia/">婚嫁</a><a target="_blank" specxxx="1" href="//www.86kx.com/html/yd/nsjs/">养生</a><a target="_blank" specxxx="1" href="//www.86kx.com/html/wlzy/zhishibaike/">百科</a></div>
+            </div>
+            <dl class="index-encyclopedias">
+                <dt><a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0403/68417.html"><img src="/uploads/flink/1504031453448254.jpg" /><strong>当樱花汇流成河</strong></a></dt>
+                <dd>
+                    <p>听说过樱花草、樱花树、樱花园，可你听说过樱花河吗？落英缤纷满河谷，如佳人略施粉黛、似仙子身着华装。如果说樱花盛开的时候是惊艳，那樱花谢了，就是另一番忧伤的美丽。落...<a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0403/68417.html">[查看全文]</a></p>
+                    <ul>
+                       <li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2018/0110/138676.html">蓝洁瑛自曝性侵人是曾志伟 曾志</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2018/0105/138535.html">姚贝娜生前经纪人发声 微博发文</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2018/0102/138412.html">苍井空宣布要结婚 苍井空老公是</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/1227/138320.html">女星毛林林发文宣布出柜 毛林林</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0922/135303.html">电视剧限酬令正式发布：演员总片</a></li>
+
+                    </ul>
+                </dd>
+            </dl>
+            <div class="index-encyclopedias-hot">
+                <dl class="hot">
+                    <dt><a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0403/68419.html"><img src="/uploads/flink/1504031456497272.jpg" /></a></dt>
+                    <dd>
+                        <a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0403/68419.html">南京零距离记者扮孕妇</a>
+                        <p>南京零距离JSBC在地铁上陷害熟睡年轻人的假孕妇被扒出来了，是江苏卫视的记者@season季小记微博（已改名@脸小三分）。据网友称，这个女记者下车后就把肚子里的枕头掏出来了。...<a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0403/68419.html">[详情]</a></p>
+                    </dd>
+                </dl>
+                <dl class="news">
+                    <dt><div class="b"></div>
+                        <div class="t">新的炸锅问题又来了 </div><a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0331/68258.html"><img src="/uploads/flink/1504031502586729.jpg" /></a>
+                    </dt>
+                    <dd>
+                        <ul>
+                            <li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/1001/135758.html">罗志祥摘金钟奖现场喜极而泣 小猪双眼</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0627/131151.html">2017NBA颁奖典礼完整版视频 2017nba年度颁</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0519/129688.html">女子健身房内倒地身亡视频 健身房健身</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0516/129459.html">男子手指被列车门夹住视频 安然无恙随</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0411/127625.html">90后女孩戏耍乞丐欧打致死视频 被判有</a></li>
+
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="news">
+                    <dt><div class="b"></div>
+                        <div class="t">别人家的数学老师 </div><a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0330/68210.html"><img src="/uploads/flink/1504031505313865.jpg" /></a>
+                    </dt>
+                    <dd>
+                        <ul>
+                            <li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0320/126150.html">求助大神这是什么歌第四弹视频 给跪！</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0315/125792.html">2017年中国品牌好感度红黑榜大全 华为成</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0306/125145.html">6岁男孩屡次遭父亲虐待暴打视频 只因男</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0303/125060.html">私家车故意阻挡救护车视频、患者当天</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0302/124954.html">王健林旧年言论被挖出（视频） 王健林</a></li>
+
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <dl class="index-row-right">
+                <dt><img src="https://www.86kx.com/templets/default/images/title-encyclopedias.gif" /></dt>
+                <dd>
+                    <ul>
+                        <li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/1001/135758.html" target='_blank'>罗志祥摘金钟奖现场喜极</a>
+                            <div class="content" >
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/1001/135758.html" target='_blank'>
+                                        <img alt="罗志祥摘金钟奖现场喜极" src="https://www.86kx.com/uploads/180124/2292-1P1241I603930.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>近日，第52届台湾电视金钟奖颁奖典礼在台北举行，在典礼中，小猪罗志祥夺得金钟奖</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0627/131151.html" target='_blank'>2017NBA颁奖典礼完整版视频</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0627/131151.html" target='_blank'>
+                                        <img alt="2017NBA颁奖典礼完整版视频" src="https://www.86kx.com/uploads/allimg/170627/2301-1F62G040180-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>NBA总决赛后这两三个月就没赛事看了，不过今天2016-2017NBA首届颁奖典礼27日正式开幕了</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0519/129688.html" target='_blank'>女子健身房内倒地身亡视</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0519/129688.html" target='_blank'>
+                                        <img alt="女子健身房内倒地身亡视" src="https://www.86kx.com/uploads/allimg/170519/2318-1F5191440130-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>5月18日，杭州一女子健身房内倒地身亡引起许多网友关注！那么，健身房健身需要注意</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0516/129459.html" target='_blank'>男子手指被列车门夹住视</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0516/129459.html" target='_blank'>
+                                        <img alt="男子手指被列车门夹住视" src="https://www.86kx.com/uploads/allimg/170516/2318-1F5161531050-L.png" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>日前，一位在常州站下车的乘客下车时手指被车门夹住，上演惊险一幕！虽然乘客安然</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0411/127625.html" target='_blank'>90后女孩戏耍乞丐欧打致死</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0411/127625.html" target='_blank'>
+                                        <img alt="90后女孩戏耍乞丐欧打致死" src="https://www.86kx.com/uploads/allimg/170411/2318-1F4111H4560-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>近日，网传90后女孩戏耍乞丐欧打致死的消息引起许多网友热议，而对于女子仅背叛有</p>
+                                    <div class="c">
+                                    1
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0320/126150.html" target='_blank'>求助大神这是什么歌第四</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0320/126150.html" target='_blank'>
+                                        <img alt="求助大神这是什么歌第四" src="https://www.86kx.com/uploads/allimg/170320/2298-1F3201536010-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>哈哈哈哈，这视频有毒！日前求助大神这是什么歌第四弹曝光！四斤大豆，三根皮带哈</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0315/125792.html" target='_blank'>2017年中国品牌好感度红黑</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0315/125792.html" target='_blank'>
+                                        <img alt="2017年中国品牌好感度红黑" src="https://www.86kx.com/uploads/allimg/170315/2318-1F3151414450-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>近日，2017年中国品牌好感度红黑榜新鲜出炉！据悉，这是第七年展开的特别调查！调查</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0306/125145.html" target='_blank'>6岁男孩屡次遭父亲虐待暴</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0306/125145.html" target='_blank'>
+                                        <img alt="6岁男孩屡次遭父亲虐待暴" src="https://www.86kx.com/uploads/allimg/170306/2298-1F3061552040-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>6岁小男孩“犯错误”被父亲毒打，睡在车底不敢回家！太狠心！据悉只因为没关好窗户</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0303/125060.html" target='_blank'>私家车故意阻挡救护车视</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0303/125060.html" target='_blank'>
+                                        <img alt="私家车故意阻挡救护车视" src="https://www.86kx.com/uploads/allimg/170303/2298-1F303164J00-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>急救路被堵！据悉是私家车故意阻挡救护车，遗憾的是患者当天不治身亡！真的是很可</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0302/124954.html" target='_blank'>王健林旧年言论被挖出（</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0302/124954.html" target='_blank'>
+                                        <img alt="王健林旧年言论被挖出（" src="https://www.86kx.com/uploads/allimg/170302/2298-1F3021HS00-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>王健林旧年言论被挖出，王健林：几十亿的资金，不能说是小意思吧，这么说太狂了，</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+<li>
+                            <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0225/124437.html" target='_blank'>台湾群众向蔡英文办公室</a>
+                            <div class="content" style='display:none;'>
+                                <div class="l">
+                                    <a target="_blank" specxxx="1" href="https://www.86kx.com/html/2017/0225/124437.html" target='_blank'>
+                                        <img alt="台湾群众向蔡英文办公室" src="https://www.86kx.com/uploads/allimg/170225/2318-1F225161A30-L.jpg" width='120px' height='140px' />
+                                    </a>
+                                </div>
+                                <div class="r">
+                                    <p>台湾年金改革在近日举行，而在当天下午蔡办前凯达格兰大道现场便涌入上万抗争群众</p>
+                                    <div class="c">
+                                    0
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <!--f5 end-->
+        
+        <!--f6 start-->
+        <div class="index-row">
+            <div class="index-title index-title-worckplace">
+                <h2><img src="https://www.86kx.com/templets/default/images/index-title-05.gif" /></h2>
+                <div class="links"><a target="_blank" specxxx="1" href="/zhichang/yaowen/" class="first">职场要闻</a><a target="_blank" specxxx="1" href="//www.86kx.com/zhichang/gonglve/">职场攻略</a><a target="_blank" specxxx="1" href="/zhichang/faze/">职场法则</a><a target="_blank" specxxx="1" href="/zhichang/zongjie/">工作总结</a><a target="_blank" specxxx="1" href="//www.86kx.com/cehua/">方案策划</a></div>
+            </div>
+            <dl class="index-worckplace">
+                
+                <dt><a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0401/68333.html"><img src="/uploads/flink/1504031701004020.jpg" /></a><strong>白领职场新人必懂的22条潜规则</strong></dt>
+                <dd>
+                    <p>白领职场中不可避免的就是被潜规则，本文将介绍白领职场新人必懂的22条潜规则，一起来看看吧！...<a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0401/68333.html">[详情]</a></p>
+                    <ul>
+                       <li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2015/0114/65437.html">盘点2015年热门的20个IT行业岗位及</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2014/1205/63672.html">人际交往对于内向者来说是一项投</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2014/1201/63480.html">大衣套西装气死办公室傲娇女</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2014/1201/63477.html">看看人家的实习薪资 谷歌最高达</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2014/1122/63129.html">提高自身执行力的三大方法</a></li>
+
+                    </ul>
+                </dd>
+            </dl>
+            <div class="index-worckplace-hot">
+                <dl class="hot">
+                    <dt><a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0331/68282.html"><img src="/uploads/flink/1504031651439285.jpg" /></a></dt>
+                    <dd>
+                        <a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0331/68282.html">草莓族的职场反击兵法</a>
+                        <p>初入职场难免被老前辈使唤，步入职场几个月后，你是否被扣上一个“草莓族”的称号了呢？那 “草莓族”职场如何反击？...<a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0331/68282.html">[详情]</a></p>
+                    </dd>
+                </dl>
+                <ul class="worckplace-news">
+                    <li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2014/0905/60405.html">如何应对职场中的不公平现象？</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2013/1227/46030.html">职场警惕 十种白领最有可能被老板干掉</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2013/1129/44406.html">老板让我离职,我该怎么办?</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2013/1114/43512.html">大学生面试的三个法宝：着装、礼仪、能力</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2013/0913/41075.html">9.13程序员节,苦逼的程序猿们节日快乐</a></li>
+
+                </ul>
+                <dl class="news">
+                    <dt><div class="b"></div>
+                        <div class="t">职场新人如何提升价值?</div><a target="_blank" specxxx="1" href="//www.86kx.com/html/2015/0330/68230.html"><img src="/uploads/flink/1504031657224914.jpg" /></a>
+                    </dt>
+                    <dd>
+                        <strong>白领职场</strong>
+                        <ul>
+                            <li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2013/1227/46030.html">职场警惕 十种白领最有可能被老板干掉</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2011/1030/26170.html">收入证明范本,个人收入证明范本(表格式)</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2011/1028/26151.html">白领职场潜规则22条,你要懂得！</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2011/0816/25305.html">职场必知三大定律</a></li>
+<li><a target="_blank" specxxx="1" href="https://www.86kx.com/html/2011/0801/25048.html"><font color='#FF0000'>职场“确认”为什么重要？</font></a></li>
+
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <dl class="index-row-right">
+                <dt><img src="https://www.86kx.com/templets/default/images/title-hotspot.gif" /></dt>
+                <dd>
+                    <ul>
+                        
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <!--f6 end-->
+        
+        <!--f7 start-->
+        <div class="index-row">
+            <div class="index-title">
+                <h2><img src="https://www.86kx.com/templets/default/images/index-title-06.gif" /></h2>
+                <div class="links"><a target="_blank" specxxx="1" href="http://tuku.86kx.com/tianxia/" class="first">热点</a><a target="_blank" specxxx="1" href="http://tuku.86kx.com/yule/">八卦</a><a target="_blank" specxxx="1" href="http://tuku.86kx.com/meinv/">美女</a><a target="_blank" specxxx="1" href="http://tuku.86kx.com/shuaige/">帅哥</a><a target="_blank" specxxx="1" href="http://tuku.86kx.com/junshi/">军事</a><a target="_blank" specxxx="1" href="http://tuku.86kx.com/shishang/">时尚</a><a target="_blank" specxxx="1" href="http://tuku.86kx.com/jiepai/">街拍</a></div>
+            </div>
+            <dl class="index-picture">
+                <dt class="one">
+                    <div class="b"></div><div class="t">王丽坤时尚潮搭 街头秀潮妹范</div><a target="_blank" specxxx="1" href="//tuku.86kx.com/mingxing/72655.html"><img src="/uploads/flink/1507091722563481.jpg" /></a>
+                </dt>
+                <dt class="two">
+                    <div class="b"></div><div class="t">张慧雯最新写真 大气女神范</div><a target="_blank" specxxx="1" href="//tuku.86kx.com/shishang/72654.html"><img src="/uploads/flink/1507091720359068.jpg" /></a>
+                </dt>
+                <dd>
+                    <div class="top">
+                        <div class="b"></div><div class="t">何晟铭扮“虞姬”纪念永远的张国荣</div><a target="_blank" specxxx="1" href="//tuku.86kx.com/shuaige/68354.html"><img src="/uploads/flink/1504031710157253.jpg" /></a>
+                    </div>
+                    <div class="bottom">
+                        <div class="b"></div><div class="t">大S和小S合体写真 性感撩人清爽夏日风</div><a target="_blank" specxxx="1" href="//tuku.86kx.com/mingxing/68387.html"><img src="/uploads/flink/1504031712321261.jpg" /></a>
+                    </div>
+                </dd>
+                <dd>
+                    <div class="top">
+                        <div class="b"></div><div class="t">梦丽睡衣写真 妩媚妖娆人气足</div><a target="_blank" specxxx="1" href="//tuku.86kx.com/nvlang/68393.html"><img src="/uploads/flink/1504031711307706.jpg" /></a>
+                    </div>
+                    <div class="bottom">
+                        <div class="b"></div><div class="t">张雨绮写真 女神范十足</div><a target="_blank" specxxx="1" href="//tuku.86kx.com/mingxing/72027.html"><img src="/uploads/flink/1507091727466661.jpg" /></a>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <!--f7 end-->
+        
+        
+
+        <!--friendlinks start-->
+<dl class="friendlinks">
+    <dt>
+        <a target="_blank" specxxx="1" href="/about/links.html" class="more">更多&raquo;</a>
+        <div class="tab-title">
+            <strong>友情链接</strong>
+            
+            <a target="_blank" href="javascript:;" class="active">综合网站</a>
+            <a target="_blank" href="javascript:;">娱乐/时尚类</a>
+            <a target="_blank" href="javascript:;">教育/情感类</a>
+        </div>
+    </dt>
+    <dd>
+        <div class="links" style="display:block;">
+            <a href='http://www.baidu.com/s?wd=www.86kx.com' target='_blank'>百度一下</a> <a href='http://www.dianmi.net/' target='_blank'>点米网</a> <a href='http://www.duzhebao.com/' target='_blank'>读者宝</a> <a href='http://mip.86kx.com/' target='_blank'>白领网</a> <a href='http://www.jirou.com/' target='_blank'>健身</a> <a href='http://xzh.86kx.com/' target='_blank'>白领网熊掌号</a> <a href='http://m.blssw.com' target='_blank'>白领网</a> <a href='http://www.blssw.com/' target='_blank'>白领时尚网</a> <a href='http://www.86kx.com' target='_blank'>白领网</a> <a href='http://www.7723.cn' target='_blank'>7723手机游戏</a> <a href='http://jd.daqiso.com/' target='_blank'>家电网</a> <a href='http://www.jianshen8.com/' target='_blank'>健身吧</a> <a href='http://www.duanwenxue.com/' target='_blank'>文学</a> <a href='http://www.197c.com/' target='_blank'>微电影</a> <a href='http://www.xzw.com/' target='_blank'>星座查询</a> <a href='http://www.jushuo.com/' target='_blank'>娱乐新闻</a> <a href='http://www.faxingzhan.com/' target='_blank'>发型设计网</a> <a href='http://nv.99.com.cn/' target='_blank'>99女性</a> <a href='http://www.globrand.com/' target='_blank'>加盟网</a> <a href='http://www.chinapp.com/' target='_blank'>中国品牌网</a> <a href='http://www.souid.com/' target='_blank'>世界之最</a> <a href='http://bailingliren.86kx.com/' target='_blank'>白领丽人</a> <a href='http://www.ixiumei.com/' target='_blank'>爱秀美</a> <a href='http://www.myday.cn/' target='_blank'>日本代购</a> <a href='http://www.shangc.net/' target='_blank'>娱乐八卦</a> <a href='http://www.fengdu100.com/' target='_blank'>风度男人网</a> <a href='http://www.9000wy.com/' target='_blank'>分类信息网</a> <a href='http://www.xiziwang.net/' target='_blank'>发型</a> <a href='http://jiaju.86kx.com/' target='_blank'>家具品牌</a> <a href='http://health.pclady.com.cn/' target='_blank'>女性健康</a> <a href='http://www.jihaoba.com/' target='_blank'>手机号码网</a> <a href='http://www.qi-che.com' target='_blank'>汽车中国</a> <a href='http://www.5011.net/' target='_blank'>军事新闻</a> <a href='http://www.mingxing.com/' target='_blank'>明星网</a> <a href='http://www.popo.cn/' target='_blank'>泡泡网</a> <a href='http://www.faxingw.cn/' target='_blank'>流行发型</a> <a href='http://www.ooqiu.com/' target='_blank'>全球电竞网</a> <a href='http://www.menww.com/' target='_blank'>男人世界</a> <a href='http://www.cntaijiquan.com/' target='_blank'>太极拳</a> <a href='http://www.xingzuo360.cn/' target='_blank'>星座查询</a> <a href='http://www.d1xz.net/' target='_blank'>星座</a> <a href='http://www.aitingwang.com/' target='_blank'>爱听网</a> <a href='https://www.gucheng.com/' target='_blank'>股城网</a> <a href='http://www.mmbang.com/' target='_blank'>妈妈帮</a> <a href='http://www.zuocai.tv/' target='_blank'>做菜网</a> <a href='http://www.akjunshi.com/' target='_blank'>娱乐八卦</a> <a href='http://www.hxnews.com' target='_blank'>海峡网</a> <a href='http://ishare.iask.sina.com.cn/' target='_blank'>爱问共享资料</a> <a href='http://www.83133.com/' target='_blank'>百山探索</a> <a href='https://www.dugoogle.com/' target='_blank'>世界之最大全</a> <a href='https://www.taoguba.com.cn' target='_blank'>淘股吧</a> <a href='http://www.gouzan.com/' target='_blank'>够赞网</a> <a href='https://www.1diandian.net/' target='_blank'>生日礼物</a> <a href='http://www.upandashi.com' target='_blank'>u盘启动盘制作工具</a> <a href='http://www.tongyongpe.com/' target='_blank'>pe工具箱</a> <a href='http://www.zbird.com/' target='_blank'>钻戒网</a> 
+        </div>
+        <div class="links">
+            <a href='http://www.daqiso.com/' target='_blank'>大奇搜</a> <a href='http://ent.qianzhan.com/' target='_blank'>娱乐新闻</a> <a href='http://vogue.moonbasa.com/' target='_blank'>梦芭莎时尚网</a> <a href='http://www.bbstoday.net/' target='_blank'>娱乐新闻</a> <a href='http://www.facang.com' target='_blank'>发型网</a> <a href='http://dapei.86kx.com/' target='_blank'>搭配网</a> <a href='http://www.tupianzj.com/' target='_blank'>图片之家</a> <a href='http://www.darryring.com/' target='_blank'>戴瑞珠宝</a> <a href='http://www.wudage.com/' target='_blank'>娱乐新闻</a> <a href='http://www.nvsay.com/' target='_blank'>女人说</a> <a href='http://luxury.zdface.com/' target='_blank'>女性时尚网</a> <a href='http://www.94hnr.com/' target='_blank'>坏男人网</a> <a href='http://www.mshishang.com/' target='_blank'>中国时尚网</a> <a href='http://yl.szhk.com/' target='_blank'>娱乐新闻</a> 
+        </div>
+        <div class="links">
+            <a href='http://www.beva.com' target='_blank'>贝瓦网</a> <a href='http://www.36683.com/' target='_blank'>生活常识</a> <a href='http://www.pingguolv.com/' target='_blank'>苹果绿养生网</a> <a href='http://tool.xdf.cn/' target='_blank'>学习宝典</a> <a href='http://www.tulaoshi.com/' target='_blank'>健康</a> <a href='http://www.cnys.com/' target='_blank'>养生健康</a> 
+        </div>
+    </dd>
+</dl>
+<!--friendlinks end-->
+
+ 
+
+
+
+<!--查看全文弹出二维码-->
+<div class="ck">
+	<div class="note-erweima" style="display: none;">
+		<img id="qr_code" src="https://www.86kx.com/images/qr_1510799378811.jpg">
+		<em></em>
+	</div>
+	<div class="opt" style="display: none;"></div>
+</div>
+
+<!--查看全文弹出二维码-->
+<div class="gz">
+	<div class="note-erweima" style="display: none;background:url(https://www.86kx.com/images/gz-bg.png) no-repeat;">
+		<img id="" src="https://www.86kx.com/images/article_gz.jpg">
+		<em></em>
+	</div>
+	<div class="opt" style="display: none;"></div>
+</div>
+
+
+
+
+
+<script>
+	/*
+	$('.article').find('.time').append('<div class="article_gz" style="float: right;height: 32px;line-height: 32px;width: 60px;text-align: center;border-radius:5px;background-color:#ff8100;color: #fff;cursor: pointer;">关注</div>');
+	*/
+	$('.article_gz').on('click',function(){
+		$('.gz .note-erweima').show();
+		$('.gz .opt').show();
+	})
+	$('.gz em').on('click',function(){
+		$('.gz .note-erweima').hide();
+		$('.gz .opt').hide();
+	})
+	
+	$('#chakan').click(function(){
+		$('.ck .note-erweima').show();
+		$('.ck .opt').show();
+	})
+	$('.ck em').click(function(){
+		$('.ck .note-erweima').hide();
+		$('.ck .opt').hide();
+	})
+</script>
+<!--footer start-->
+<div class="footer-warp">
+    <div class="footer">
+        <div class="footer-left">
+            <a target="_blank" specxxx="1" href="/about/about.html" class='first' target="_blank">关于我们</a> | 
+            <a target="_blank" specxxx="1" href="/about/contact.html" target="_blank">联系我们</a> | 
+         <a target="_blank" specxxx="1" href="/about/master.html" target="_blank">团队介绍</a> |  
+         <a target="_blank" specxxx="1" href="/about/advertise.html" target="_blank">广告合作</a> | 
+         <a target="_blank" specxxx="1" href="/about/law.html" target="_blank">免责声明</a> |
+         <script src='//www.86kx.com/images/tj.js' language='javascript'></script>
+            <div class="clear"></div>
+            Powered by <a target="_blank" specxxx="1" href="//www.86kx.com" title="白领网" target="_blank">白领网</a> © 2004-2012 <a target="_blank" specxxx="1" href="//www.86kx.com/" target="_blank">86kx</a> Inc. Copyright © 2008-2012 www.86kx.com. <br />
+            Copyright &copy; 2008-2015  厦门佰领网络科技有限公司 版权所有 许可证： 闽ICP备11010592号-1<br />
+           
+		</div>
+        <div class="footer-right">
+            <strong>联系我们</strong>
+            <dl>
+                <dt><a target="_blank" specxxx="1" ><img src="https://www.86kx.com/templets/default/images/weixin.gif" /><span>扫一扫关注我们</span></a></dt>
+                <dd>
+                    客服QQ: 请在线留言或者邮件<br />
+                    E-mail: service@86kx.com<br />
+                    微信号: www86kxcom
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<!--footer end-->
+
+
+
+
+<!-- /footer -->
+
+<!-- 双十一ad -->
+<script src="https://www.86kx.com/templets/default/blgg/bltbk1.js" ></script>
+
+</body>
+</html>

@@ -1,0 +1,1403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=1000"/>
+<title>茶语网,当代茶文化推广者_茶语_茶网_中国茶叶</title>
+<meta name="keywords" content="茶语,茶语网,茶文化,茶网,中国茶叶,中国茶叶网,茶叶网,茶" />
+<meta name="description" content="茶语网，当代茶文化推广者。致力于创造中国茶叶品牌消费品饮的评分系统,融品饮私享、审评排行、健康常识、生活美学及关于茶生活的一切为核心内容,故为“通茶语 会知己”。" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="http://m.chayu.com"/>
+<meta name="mobile-agent" content="format=[wml|xhtml|html5]; url=http://m.chayu.com"/>
+<meta property="qc:admins" content="34504477216301156375" />
+<link rel="stylesheet" type="text/css" href="http://static.chayu.com/css/core.css"/>
+<link rel="stylesheet" type="text/css" href="http://static.chayu.com/css/style.css"/>
+<link href="http://static.chayu.com/js/util_libs/layer_v1.85/skin/layer.css" type="text/css" rel="stylesheet"/>
+<!--20151216将jq入口修改为header_js-->
+<script src="http://static.chayu.com/js/jumpUrl.js"></script>
+<script src="http://static.chayu.com/js/md5.js"></script>
+<script src="http://static.chayu.com/js/getpageinfo.js"></script>
+<script type="text/javascript">
+var GV = {
+    USER: {
+        UID: null,
+        NICKNAME: null,
+        AVATAR:null,
+    },
+    URL: "http://www.chayu.com",
+    URL_PC_MAIN: "http://www.chayu.com",
+    URL_PC_USER: "http://user.chayu.com",
+    URL_PC_SHIJI: "http://shiji.chayu.com",
+    URL_PC_QUANZI: "http://quanzi.chayu.com",
+    URL_PC_CHAPING: "http://chaping.chayu.com",
+    URL_PC_CHAT: "",
+    URL_PC_CASHIER: "https://cashier.chayu.com",
+    URL_MOBILE_MAIN: "http://m.chayu.com",
+    URL_MOBILE_USER: "http://m.user.chayu.com",
+    URL_MOBILE_SHIJI: "http://m.shiji.chayu.com",
+    URL_MOBILE_QUANZI: "http://m.quanzi.chayu.com",
+    URL_MOBILE_CHAPING: "http://m.chaping.chayu.com",
+    URL_MOBILE_CHAT: "",
+    URL_MOBILE_CASHIER: "https://cashierm.chayu.com",
+    URL_STATIC: "http://static.chayu.com",
+    WEB_SOCKET_CHAT: "wss://wss.chayu.com:24433",
+    JS_VERSION: "20160106",
+    JS_ROOT: "http://static.chayu.com/js/",
+    IS_EJECT_BIND: "",
+    CROSS_DOMAIN: "chayu.com",
+    TOKEN: ""
+}
+</script>
+<script type="text/javascript" src="http://static.chayu.com/js/chayu.js"></script>
+
+<script type="text/javascript" src="http://static.chayu.com/js/cathe_local.js"></script>
+<script type="text/javascript">
+Wind.use('jquery','plugs','global', function() {
+	//幻灯
+	$('#home_slider').flexslider({
+		animation : 'fade',
+		controlNav : true,
+		directionNav : false,
+		animationLoop : true,
+		slideshow : true
+	});
+	//友情链接和合作机构切换
+	$(function() {
+        $(".friend_link a[data-type]").hover(function(){
+        		$(this).addClass("select").siblings().removeClass("select");
+        		var type=$(this).attr("data-type");
+        		$("#"+type).show().siblings().hide();
+        });
+     });
+	function formAction(){
+		$(".top_search .aaa").attr("action","http://shiji.chayu.com/lists");
+	}
+	formAction();
+});
+//茶字母	
+function htmlStr(letter){
+	$('.brandLetter').removeClass("on");
+	$('#brand_'+letter).addClass("on");
+	$.ajax({
+		url: GV.URL_PC_CHAPING+'/tea/htmlLetter?letter=' + letter,
+		type: 'get',
+		dataType: 'jsonp',
+		jsonp:'jsonp_handler',
+		error: function(){},
+		success: function(data){
+			var html = '';
+			if (data) { 				
+				$.each(data, function(idx, item) {  
+					var newUrl = GV.URL_PC_CHAPING + '?brandid=' + item.id;
+					html += '<li><a href="' + newUrl +'" target="_blank">' + item.name +'</a></li>';     
+				});			
+			}
+			$('#brandBlock').html(html);
+		} 
+	});
+}
+</script>
+</head>
+<body>
+<div id="header" class="header Yahei">
+    <div class="m">
+        <div class="cylogo"><a href="http://www.chayu.com" title="茶语"><img src="http://static.chayu.com/images/logo/logo_121x75.png" alt="茶语" /></a></div>
+        <div class="fr top_user" id="top_user">
+
+        </div>
+                <div class="top_search">
+            <form action="http://shiji.chayu.com/lists" method="get" name ="loginform" onsubmit="return searchtxtIsNull();document.loginform.submit();" target="_blank" class="aaa">
+                <div class="typelist">
+                    <input type="hidden" name="t" value="goods" class="inputhidden" />
+                    <div class="listlft">                       
+                        <a class="defautval current">市集</a>
+                        <div class="listcon hide">
+                            <p><a class="listup">全部</a></p> 
+                            <p><a class="val">市集</a></p>
+                            <p><a class="val">茶评</a></p>
+                            <p><a class="val">茶样</a></p>
+                            <p><a class="val">文章</a></p>
+                            <p><a class="val">话题</a></p>
+                            <p><a class="val">百科</a></p>
+                        </div>
+                    </div>
+                    <input name="q" class="searchtxt" value="2017牛肉预售"onblur="if(!value){value=defaultValue;this.style.color='#ccc'}"
+                    onfocus="if(value==defaultValue){value='';this.style.color='#333'}" />
+                </div>
+                <input type="submit" class="searchbtn" value="搜索" />
+            </form>
+        </div>
+    </div>
+</div>
+<!--- // 导航 start -->
+<div id="sub-nav">
+    <div class="m">
+        <ul class="nav">
+            <li class="current"><a href="http://www.chayu.com" title="" target="_blank">首页</a></li>
+            <li class=""><a href="http://chaping.chayu.com" title="" target="_blank">茶评</a></li>
+            <li class=""><a href="http://chaping.chayu.com/sample" title="" target="_blank">茶样</a></li>
+            <li class=""><a href="http://shiji.chayu.com" title="" target="_blank">市集<i class="hot"></i></a></li>
+            <li class=""><a href="http://fenxiao.chayu.com" title="" target="_blank">分销<i class="new"></i></a></li>
+            <li class=""><a href="http://www.chayu.com/article/lecha" title="" target="_blank">乐茶</a></li>
+            <li class=""><a href="http://www.chayu.com/article/chalv" title="" target="_blank">茶旅</a></li>
+            <li class=""><a href="http://www.chayu.com/article/culture" title="" target="_blank">文化</a></li>
+            <li class=""><a href="http://www.chayu.com/article/special" title="" target="_blank">专题</a></li>
+            <li class=""><a href="http://www.chayu.com/article/news" title="" target="_blank">新闻</a></li>
+            <li class=""><a href="http://www.chayu.com/brand" title="" target="_blank">品牌</a></li>
+            <li class=""><a href="http://quanzi.chayu.com" title="" target="_blank">社区</a></li>
+            <li class=""><a href="http://chaping.chayu.com/top" title="" class="last" target="_blank">排行</a></li>
+        </ul>
+    </div>
+</div>
+<!--- // 导航 end -->
+<div class="main">
+	<div class="m">
+		<div id="left_menu" class="left_menu">
+			<ul class="nav_menu">
+										
+					<li>
+						<a class="cate" href="http://chaping.chayu.com?bid=1" target="_blank">绿茶<span>></span></a>
+						<ul class="sub_menu">
+													<li><a href="http://chaping.chayu.com?sid=1" target="_blank">西湖龙井</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=76" target="_blank">恩施玉露</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=74" target="_blank">南京雨花</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=73" target="_blank">蒙顶甘露</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=72" target="_blank">崂山绿茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=68" target="_blank">碧螺春</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=55" target="_blank">竹叶青</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=54" target="_blank">六安瓜片</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=53" target="_blank">黄山毛峰</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=52" target="_blank">永川秀芽</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=18" target="_blank">日照绿茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=17" target="_blank">长兴紫笋茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=16" target="_blank">婺源绿茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=15" target="_blank">千岛玉叶 </a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=14" target="_blank">开化龙顶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=13" target="_blank">湄潭翠芽</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=12" target="_blank">紫阳富硒茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=11" target="_blank">蒲江雀舌</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=10" target="_blank">径山茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=9" target="_blank">太平猴魁</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=8" target="_blank">都匀毛尖</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=7" target="_blank">蒙顶山茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=6" target="_blank">越乡龙井</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=5" target="_blank">安吉白茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=4" target="_blank">大佛龙井</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=3" target="_blank">洞庭碧螺春</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=2" target="_blank">信阳毛尖</a></li>  		
+																				
+						</ul>
+					</li>    
+										
+					<li>
+						<a class="cate" href="http://chaping.chayu.com?bid=2" target="_blank">乌龙<span>></span></a>
+						<ul class="sub_menu">
+													<li><a href="http://chaping.chayu.com?sid=81" target="_blank">其它</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=77" target="_blank">肉桂</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=58" target="_blank">单丛</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=23" target="_blank">安溪黄金桂</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=22" target="_blank">永春佛手</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=21" target="_blank">白芽奇兰</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=20" target="_blank">武夷山大红袍</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=19" target="_blank">安溪铁观音</a></li>  		
+																				
+						</ul>
+					</li>    
+										
+					<li>
+						<a class="cate" href="http://chaping.chayu.com?bid=3" target="_blank">红茶<span>></span></a>
+						<ul class="sub_menu">
+													<li><a href="http://chaping.chayu.com?sid=79" target="_blank">湘红</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=70" target="_blank">金芽红茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=67" target="_blank">闽红</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=56" target="_blank">川红工夫</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=32" target="_blank">国外红茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=31" target="_blank">红碎茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=30" target="_blank">宁红工夫</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=29" target="_blank">政和工夫</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=28" target="_blank">滇红</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=27" target="_blank">英德红茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=26" target="_blank">正山小种</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=25" target="_blank">祁门红茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=24" target="_blank">金骏眉</a></li>  		
+																				
+						</ul>
+					</li>    
+										
+					<li>
+						<a class="cate" href="http://chaping.chayu.com?bid=4" target="_blank">普洱<span>></span></a>
+						<ul class="sub_menu">
+													<li><a href="http://chaping.chayu.com?sid=41" target="_blank">熟茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=40" target="_blank">生茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=39" target="_blank">山头茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=38" target="_blank">纯料茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=37" target="_blank">经典拼配</a></li>  		
+																				
+						</ul>
+					</li>    
+										
+					<li>
+						<a class="cate" href="http://chaping.chayu.com?bid=5" target="_blank">黑茶<span>></span></a>
+						<ul class="sub_menu">
+													<li><a href="http://chaping.chayu.com?sid=78" target="_blank">天尖</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=69" target="_blank">安化黑茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=59" target="_blank">四川黑茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=36" target="_blank">老青砖</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=35" target="_blank">藏茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=34" target="_blank">茯砖</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=33" target="_blank">六堡茶</a></li>  		
+																				
+						</ul>
+					</li>    
+										
+					<li>
+						<a class="cate" href="http://chaping.chayu.com?bid=6" target="_blank">白茶<span>></span></a>
+						<ul class="sub_menu">
+													<li><a href="http://chaping.chayu.com?sid=71" target="_blank">其它</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=57" target="_blank">寿眉</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=46" target="_blank">新工艺白茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=45" target="_blank">老白茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=44" target="_blank">白茶饼</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=43" target="_blank">白牡丹</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=42" target="_blank">白毫银针</a></li>  		
+																				
+						</ul>
+					</li>    
+										
+					<li>
+						<a class="cate" href="http://chaping.chayu.com?bid=7" target="_blank">黄茶<span>></span></a>
+						<ul class="sub_menu">
+													<li><a href="http://chaping.chayu.com?sid=62" target="_blank">黄小茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=61" target="_blank">黄大茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=48" target="_blank">蒙顶黄茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=47" target="_blank">霍山黄芽</a></li>  		
+																				
+						</ul>
+					</li>    
+										
+					<li>
+						<a class="cate" href="http://chaping.chayu.com?bid=8" target="_blank">花茶<span>></span></a>
+						<ul class="sub_menu">
+													<li><a href="http://chaping.chayu.com?sid=64" target="_blank">茉莉花茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=63" target="_blank">其他</a></li>  		
+																				
+						</ul>
+					</li>    
+										
+					<li>
+						<a class="cate" href="http://chaping.chayu.com?bid=9" target="_blank">袋泡<span>></span></a>
+						<ul class="sub_menu">
+													<li><a href="http://chaping.chayu.com?sid=65" target="_blank">袋泡茶</a></li>  		
+																				
+						</ul>
+					</li>    
+										
+					<li>
+						<a class="cate" href="http://chaping.chayu.com?bid=10" target="_blank">速溶茶<span>></span></a>
+						<ul class="sub_menu">
+													<li><a href="http://chaping.chayu.com?sid=66" target="_blank">粉茶</a></li>  		
+													<li><a href="http://chaping.chayu.com?sid=60" target="_blank">茶膏</a></li>  		
+																				
+						</ul>
+					</li>    
+																												
+			</ul>
+            <div class="line"></div>
+			<ul class="nav_menu2">
+				<li>
+					<a class="cate">产区<span>></span></a>
+                    <ul class="sub_menu">
+																				
+							<li><a href="http://chaping.chayu.com?districtid=1" target="_blank">福建</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=2" target="_blank">云南</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=3" target="_blank">四川</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=4" target="_blank">台湾</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=5" target="_blank">湖北</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=6" target="_blank">浙江</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=7" target="_blank">安徽</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=8" target="_blank">广东</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=9" target="_blank">贵州</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=10" target="_blank">广西</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=11" target="_blank">江西</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=12" target="_blank">陕西</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=13" target="_blank">北京</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=14" target="_blank">国外</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=15" target="_blank">河南</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=16" target="_blank">山东</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=17" target="_blank">海南</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=18" target="_blank">山西</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=19" target="_blank">西藏</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=20" target="_blank">湖南</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=21" target="_blank">重庆</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=22" target="_blank">江苏</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=23" target="_blank">上海</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=24" target="_blank">天津</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=25" target="_blank">宁夏</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=26" target="_blank">辽宁</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=27" target="_blank">吉林</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=28" target="_blank">香港</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=29" target="_blank">黑龙江</a></li>    
+														
+							<li><a href="http://chaping.chayu.com?districtid=30" target="_blank">甘肃</a></li>    
+											</ul>
+				</li>
+				<li>
+					<a class="cate">价格<span>></span></a>
+                    <ul class="sub_menu">
+														
+							<li><a href="http://chaping.chayu.com?price=1" target="_blank"><100</a></li>
+								
+							<li><a href="http://chaping.chayu.com?price=2" target="_blank">1~300</a></li>
+								
+							<li><a href="http://chaping.chayu.com?price=3" target="_blank">300～500</a></li>
+								
+							<li><a href="http://chaping.chayu.com?price=4" target="_blank">500～800</a></li>
+								
+							<li><a href="http://chaping.chayu.com?price=5" target="_blank">800～1000</a></li>
+								
+							<li><a href="http://chaping.chayu.com?price=6" target="_blank">1000～3000</a></li>
+								
+							<li><a href="http://chaping.chayu.com?price=7" target="_blank">3000～5000</a></li>
+								
+							<li><a href="http://chaping.chayu.com?price=8" target="_blank">>5000</a></li>
+											</ul>
+				</li>
+				<li>
+					<a class="cate">品牌<span>></span></a>
+					<div class="sub_menu brand">
+                    <p class="letter">
+					  					  					 	 <a href="javascript:htmlStr('A')" class="brandLetter" id="brand_A" >A</a>
+					  					 	 <a href="javascript:htmlStr('B')" class="brandLetter" id="brand_B" >B</a>
+					  					 	 <a href="javascript:htmlStr('C')" class="brandLetter" id="brand_C" >C</a>
+					  					 	 <a href="javascript:htmlStr('D')" class="brandLetter" id="brand_D" >D</a>
+					  					 	 <a href="javascript:htmlStr('E')" class="brandLetter" id="brand_E" >E</a>
+					  					 	 <a href="javascript:htmlStr('F')" class="brandLetter" id="brand_F" >F</a>
+					  					 	 <a href="javascript:htmlStr('G')" class="brandLetter" id="brand_G" >G</a>
+					  					 	 <a href="javascript:htmlStr('H')" class="brandLetter" id="brand_H" >H</a>
+					  					 	 <a href="javascript:htmlStr('I')" class="brandLetter" id="brand_I" >I</a>
+					  					 	 <a href="javascript:htmlStr('J')" class="brandLetter" id="brand_J" >J</a>
+					  					 	 <a href="javascript:htmlStr('K')" class="brandLetter" id="brand_K" >K</a>
+					  					 	 <a href="javascript:htmlStr('L')" class="brandLetter" id="brand_L" >L</a>
+					  					 	 <a href="javascript:htmlStr('M')" class="brandLetter" id="brand_M" >M</a>
+					  					 	 <a href="javascript:htmlStr('N')" class="brandLetter" id="brand_N" >N</a>
+					  					 	 <a href="javascript:htmlStr('O')" class="brandLetter" id="brand_O" >O</a>
+					  					 	 <a href="javascript:htmlStr('P')" class="brandLetter" id="brand_P" >P</a>
+					  					 	 <a href="javascript:htmlStr('Q')" class="brandLetter" id="brand_Q" >Q</a>
+					  					 	 <a href="javascript:htmlStr('R')" class="brandLetter" id="brand_R" >R</a>
+					  					 	 <a href="javascript:htmlStr('S')" class="brandLetter" id="brand_S" >S</a>
+					  					 	 <a href="javascript:htmlStr('T')" class="brandLetter" id="brand_T" >T</a>
+					  					 	 <a href="javascript:htmlStr('U')" class="brandLetter" id="brand_U" >U</a>
+					  					 	 <a href="javascript:htmlStr('V')" class="brandLetter" id="brand_V" >V</a>
+					  					 	 <a href="javascript:htmlStr('W')" class="brandLetter" id="brand_W" >W</a>
+					  					 	 <a href="javascript:htmlStr('X')" class="brandLetter" id="brand_X" >X</a>
+					  					 	 <a href="javascript:htmlStr('Y')" class="brandLetter" id="brand_Y" >Y</a>
+					  					 	 <a href="javascript:htmlStr('Z')" class="brandLetter" id="brand_Z" >Z</a>
+					  					</p>
+						<ul id="brandBlock"> </ul>
+					</div>
+				</li>
+			</ul>
+			<div class="all"><a href="http://chaping.chayu.com/tea/menu" target="_blank" class="color444">全部茶叶分类</a></div>
+		</div>
+		<!-- 右侧 -->
+		<div class="home_right">
+        	<div class="home_news_block">
+                <div id="home_slider" class="home_slider flexslider">
+                <ul class="slides">
+                																	<li>
+												<a href="http://www.chayu.com/article/198488?from=pc-shouyelunbo-1" target="_blank" title="我余生最大心愿，便是开一个这样的茶主题民宿"><img src="https://img.chayu.com/block/1807/11/4115b45beb89f34a.jpg" alt="我余生最大心愿，便是开一个这样的茶主题民宿" /></a>
+						
+						</li>
+																<li>
+												<a href="http://www.chayu.com/article/195398?from=pc-shouyelunbo-2" target="_blank" title="武夷岩茶非遗传承十年记：艰难与回忆　传承和发扬"><img src="https://img.chayu.com/block/1807/11/7375b45bed18edbe.jpg" alt="武夷岩茶非遗传承十年记：艰难与回忆　传承和发扬" /></a>
+						
+						</li>
+																			
+                </ul>
+                </div>
+                                
+                <!-- 今日头条 start -->
+                <div class="home_new_commend">
+                    <div class="commend_top">
+											                    	<h5><span>今日头条</span><a href="http://www.chayu.com/article/198491?from=pc-toutiao-1" class="color444" target="_blank" alt="武夷岩茶的传承和推广需创新" title="武夷岩茶的传承和推广需创新">武夷岩茶的传承和推广需创新</a></h5>
+						<p class="con mr5 color999">一场名为“传承者”的活动正在朝前推进着。</p>
+																
+                    </div>
+                    <ul class="lists">
+                    													                    		<li><a  href="http://www.chayu.com/article/198488?from=pc-toutiao-2" target="_blank" alt="茶室变成民宿标配？" title="茶室变成民宿标配？">茶室变成民宿标配？</a></li>
+                        						                    		<li><a  href="http://www.chayu.com/article/198483?from=pc-toutiao-3" target="_blank" alt="你对花道误解有多深？" title="你对花道误解有多深？">你对花道误解有多深？</a></li>
+                        						                    		<li><a  href="http://www.chayu.com/article/198476?from=pc-toutiao-4" target="_blank" alt="则道打响“曼松”品牌保卫战" title="则道打响“曼松”品牌保卫战">则道打响“曼松”品牌保卫战</a></li>
+                        						                    		<li><a  href="http://www.chayu.com/article/198475?from=pc-toutiao-5" target="_blank" alt="茶语网再揭网络骗局！" title="茶语网再揭网络骗局！">茶语网再揭网络骗局！</a></li>
+                        						                    		<li><a class="lastnews" href="http://www.chayu.com/article/198471?from=pc-toutiao-6" target="_blank" alt="哪个特征是你心中的易武味?" title="哪个特征是你心中的易武味?">哪个特征是你心中的易武味?</a></li>
+                                            </ul>
+                </div>                
+                <!-- 今日头条 end -->
+            </div>
+					
+			<div class="home_read">
+				<div class="c_tit1">
+                	<span class="fl">茶评·<em>最新评鉴</em></span>
+                    <span class="fr"><em class="color999 mr10">已收录茶评4125款</em><a href="http://chaping.chayu.com" class="colorc0501f" target="_blank">更多</a></span>
+                </div>
+				<ul>
+																		<li>
+						<a href="http://chaping.chayu.com/tea/4354?from=pc-chapingnew-1" target="_blank">
+							<img src="https://img.chayu.com/tea/1806/22/5795b2cb7732eaea.jpg!120120" class="regtange" alt="黄金茶（2018）" />
+						</a>
+						<div class="info">
+                        	<a href="http://chaping.chayu.com/tea/4354?from=pc-chapingnew-1" target="_blank" class="nam">黄金茶（2018）</a>
+                        	<p class="color999">评分：<em class="colorde5406">8.4</em>分</p>
+                        </div>
+					</li>
+														<li>
+						<a href="http://chaping.chayu.com/tea/4353?from=pc-chapingnew-2" target="_blank">
+							<img src="https://img.chayu.com/tea/1806/22/8025b2cb51f062cc.jpg!120120" class="regtange" alt="十二檀六安瓜片（2018）" />
+						</a>
+						<div class="info">
+                        	<a href="http://chaping.chayu.com/tea/4353?from=pc-chapingnew-2" target="_blank" class="nam">十二檀六安瓜片（2018）</a>
+                        	<p class="color999">评分：<em class="colorde5406">8.1</em>分</p>
+                        </div>
+					</li>
+														<li>
+						<a href="http://chaping.chayu.com/tea/4352?from=pc-chapingnew-3" target="_blank">
+							<img src="https://img.chayu.com/tea/1806/22/3145b2cb2da81bce.jpg!120120" class="regtange" alt="蒙顶黄芽（2018）" />
+						</a>
+						<div class="info">
+                        	<a href="http://chaping.chayu.com/tea/4352?from=pc-chapingnew-3" target="_blank" class="nam">蒙顶黄芽（2018）</a>
+                        	<p class="color999">评分：<em class="colorde5406">9.0</em>分</p>
+                        </div>
+					</li>
+														<li>
+						<a href="http://chaping.chayu.com/tea/4351?from=pc-chapingnew-4" target="_blank">
+							<img src="https://img.chayu.com/tea/1806/21/1615b2bcaf094594.jpg!120120" class="regtange" alt="特一级六安瓜片（2018）" />
+						</a>
+						<div class="info">
+                        	<a href="http://chaping.chayu.com/tea/4351?from=pc-chapingnew-4" target="_blank" class="nam">特一级六安瓜片（2018）</a>
+                        	<p class="color999">评分：<em class="colorde5406">8.0</em>分</p>
+                        </div>
+					</li>
+						
+				</ul>
+                <div class="home_read_line"></div>
+                
+                <!--推荐市集-->
+                <div class="c_tit1">
+                	<span class="fl">茶语市集<i class="icon_hot"></i></span>
+                    <span class="fr"><a class="colorc0501f" href="http://shiji.chayu.com" target="_blank">更多</a></span>
+                </div>
+                <ul class="home_tjzt">
+                	                                        					<li><a href="http://shiji.chayu.com//goods/13236?from=pc-shiji-1" target="_blank"><img src="https://img.chayu.com/mallblock/1710/09/75159db22482710e.jpg!160120" alt="凤凰单丛·兰香" /><span>凤凰单丛·兰香</span></a></li>
+					                    					<li><a href="http://shiji.chayu.com//goods/11957?from=pc-shiji-2" target="_blank"><img src="https://img.chayu.com/mallblock/1710/09/89559db22736602d.jpg!160120" alt="吉州窑·木叶盏" /><span>吉州窑·木叶盏</span></a></li>
+					                    					<li><a href="http://shiji.chayu.com//goods/13738?from=pc-shiji-3" target="_blank"><img src="https://img.chayu.com/mallblock/1710/09/53459db238b88a19.jpg!160120" alt="岁月知味·小青柑" /><span>岁月知味·小青柑</span></a></li>
+										
+                </ul>
+                <!--/推荐市集-->
+                <div class="home_read_line"></div>
+                
+                <div class="c_tit1">
+                	<span class="fl">茶样·<em>最新上架</em></span>
+                    <span class="fr"><em class="color999 mr10">已收录茶样2484款，当前可兑换4款</em>
+                    	<a href="http://chaping.chayu.com/sample" class="colorc0501f" target="_blank">更多</a>
+                    </span>
+                </div>
+				<ul>				
+																	<li>
+							<a href="http://chaping.chayu.com/sample/5449?from=pc-chayangnew-1" target="_blank">
+							  <img src="https://img.chayu.com/tea/1712/28/9395a44984fd280a.jpg!160120" alt="畅颜茶（2017）" />
+							</a>
+							<div class="info">
+								<a href="http://chaping.chayu.com/sample/5449?from=pc-chayangnew-1" class="nam" target="_blank">畅颜茶（2017）</a>
+								<p class="color999">价格：<em class="colorde5406">258</em>茶币</p>
+							</div>
+						</li>
+																	<li>
+							<a href="http://chaping.chayu.com/sample/5463?from=pc-chayangnew-2" target="_blank">
+							  <img src="https://img.chayu.com/tea/1801/26/8785a6a8c9a3380c.jpg!160120" alt="老树红茶（2017）" />
+							</a>
+							<div class="info">
+								<a href="http://chaping.chayu.com/sample/5463?from=pc-chayangnew-2" class="nam" target="_blank">老树红茶（2017）</a>
+								<p class="color999">价格：<em class="colorde5406">248</em>茶币</p>
+							</div>
+						</li>
+																	<li>
+							<a href="http://chaping.chayu.com/sample/5462?from=pc-chayangnew-3" target="_blank">
+							  <img src="https://img.chayu.com/tea/1711/21/6035a13c13e0ac04.jpg!160120" alt="英红九号（2017）" />
+							</a>
+							<div class="info">
+								<a href="http://chaping.chayu.com/sample/5462?from=pc-chayangnew-3" class="nam" target="_blank">英红九号（2017）</a>
+								<p class="color999">价格：<em class="colorde5406">260</em>茶币</p>
+							</div>
+						</li>
+																	<li>
+							<a href="http://chaping.chayu.com/sample/5371?from=pc-chayangnew-4" target="_blank">
+							  <img src="https://img.chayu.com/tea/1801/31/5085a71283103137.jpg!160120" alt="黄牌精选红茶（2017）" />
+							</a>
+							<div class="info">
+								<a href="http://chaping.chayu.com/sample/5371?from=pc-chayangnew-4" class="nam" target="_blank">黄牌精选红茶（2017）</a>
+								<p class="color999">价格：<em class="colorde5406">251</em>茶币</p>
+							</div>
+						</li>
+										
+				</ul>              
+                
+            </div>
+            <!-- ranking -->
+			<div class="ranking">
+              <div class="scores_ranking">
+                    <div class="c_tit1">
+                        <span class="fl">茶语评分排行<em>（按评分）</em></span>
+                        <span class="fr"><a class="colorc0501f" href="http://chaping.chayu.com/top/official?timetype=1" target="_blank">更多</a></span>
+                    </div>
+                    <ul class="con">
+																			<li>
+								<a class="fl" href="http://chaping.chayu.com/tea/4352?from=pc-chapingpaihang" target="_blank">
+								[茶知道]蒙顶黄芽（2018）</a>
+								<span class="fr"><em>9.0</em>分</span>
+							</li>
+													<li>
+								<a class="fl" href="http://chaping.chayu.com/tea/4354?from=pc-chapingpaihang" target="_blank">
+								[壹人壹]黄金茶（2018）</a>
+								<span class="fr"><em>8.4</em>分</span>
+							</li>
+													<li>
+								<a class="fl" href="http://chaping.chayu.com/tea/4350?from=pc-chapingpaihang" target="_blank">
+								[味独珍]早春石花（2018）</a>
+								<span class="fr"><em>8.3</em>分</span>
+							</li>
+													<li>
+								<a class="fl" href="http://chaping.chayu.com/tea/4353?from=pc-chapingpaihang" target="_blank">
+								[一笑堂]十二檀六安瓜片（2018）</a>
+								<span class="fr"><em>8.1</em>分</span>
+							</li>
+							                 
+                    </ul>
+                    <p class="tjqj">统计区间：2018-06-12至2018-07-11</p>
+                </div>
+                
+                <div class="scores_ranking">
+                    <div class="c_tit1">
+                        <span class="fl">茶样兑换排行<em>（按兑换量）</em></span>
+                        <span class="fr"><a class="colorc0501f" href="http://chaping.chayu.com/top/exchange" target="_blank">更多</a></span>
+                    </div>
+                    <ul class="con">
+					                        <li>
+                        <a class="fl" href="http://chaping.chayu.com/sample/4388?from=pc-chayangpaihang" target="_blank">
+                        [云南普洱茶集团]里程碑（熟茶）(2016)</a>
+                        <span class="fr">162</span>
+                        </li>
+					                        <li>
+                        <a class="fl" href="http://chaping.chayu.com/sample/4052?from=pc-chayangpaihang" target="_blank">
+                        [中茶]野韵天成六堡茶(2016)</a>
+                        <span class="fr">115</span>
+                        </li>
+					                        <li>
+                        <a class="fl" href="http://chaping.chayu.com/sample/5276?from=pc-chayangpaihang" target="_blank">
+                        [川雅]青砖茶（2014）</a>
+                        <span class="fr">103</span>
+                        </li>
+					                        <li>
+                        <a class="fl" href="http://chaping.chayu.com/sample/5292?from=pc-chayangpaihang" target="_blank">
+                        [三湘四水]特质茯砖茶（2011）</a>
+                        <span class="fr">73</span>
+                        </li>
+					                   
+                    </ul>
+                    <p class="tjqj">统计截止：2018-07-11</p>
+                </div>
+                <!-- 人气值排行 -->
+                  <div class="scores_ranking sjrqb">
+                    <div class="c_tit1">
+                        <span class="fl">市集人气榜<i class="icon_hot"></i></span>
+                    </div>
+                    <ul class="con">
+                        							<li><a class="fl" href="http://shiji.chayu.com//goods/10152?from=pc-shijirenqi" target="_blank">新工艺花茶栀子花红茶</a><span class="fr">95625</span></li>
+													<li><a class="fl" href="http://shiji.chayu.com//goods/13738?from=pc-shijirenqi" target="_blank">岁月知味小青柑</a><span class="fr">58736</span></li>
+													<li><a class="fl" href="http://shiji.chayu.com//goods/13236?from=pc-shijirenqi" target="_blank">凤凰单丛·兰香</a><span class="fr">45789</span></li>
+													<li><a class="fl" href="http://shiji.chayu.com//goods/10325?from=pc-shijirenqi" target="_blank">岩茶·正岩奇香大红袍</a><span class="fr">25354</span></li>
+													<li><a class="fl" href="http://shiji.chayu.com//goods/10309?from=pc-shijirenqi" target="_blank"> 红茶·滇红口粮茶 红松针</a><span class="fr">18967</span></li>
+						               
+                    </ul>
+                 </div>
+                
+			</div>
+			<!-- 推荐阅读 -->
+		</div>
+	
+		<div class="brandlist">
+			<ul>
+						
+				<li>
+					<a href="/brand/1042" target="_blank"><img src="http://img.chayu.com/brand/1608/19/21357b68bcddc7c0.jpg!160160" alt="佤山映象" /></a>
+					<a href="/brand/1042" title="佤山映象" target="_blank">佤山映象</a>
+				</li>
+						
+				<li>
+					<a href="/brand/852" target="_blank"><img src="http://img.chayu.com/brand/1611/04/654581c49b22ff60.jpg!160160" alt="陈升福元昌" /></a>
+					<a href="/brand/852" title="陈升福元昌" target="_blank">陈升福元昌</a>
+				</li>
+						
+				<li>
+					<a href="/brand/1666" target="_blank"><img src="http://img.chayu.com/brand/1703/31/57858de12d1b1497.jpg!160160" alt="鼎白茶业" /></a>
+					<a href="/brand/1666" title="鼎白茶业" target="_blank">鼎白茶业</a>
+				</li>
+						
+				<li>
+					<a href="/brand/1363" target="_blank"><img src="http://img.chayu.com/brand/1706/22/346594b5cc0458de.jpg!160160" alt="武夷星" /></a>
+					<a href="/brand/1363" title="武夷星" target="_blank">武夷星</a>
+				</li>
+						
+				<li>
+					<a href="/brand/193" target="_blank"><img src="http://img.chayu.com/brand/1411/04/54589c9c5d3c01zxf.png!160160" alt="祥源茶" /></a>
+					<a href="/brand/193" title="祥源茶" target="_blank">祥源茶</a>
+				</li>
+						
+				<li>
+					<a href="/brand/208" target="_blank"><img src="http://img.chayu.com/brand/1601/08/568f541c8d768ybz1.jpg!160160" alt="川红集团" /></a>
+					<a href="/brand/208" title="川红集团" target="_blank">川红集团</a>
+				</li>
+						
+				<li>
+					<a href="/brand/501" target="_blank"><img src="http://img.chayu.com/brand/1610/28/2675812c0dc8532f.jpg!160160" alt="中吉号" /></a>
+					<a href="/brand/501" title="中吉号" target="_blank">中吉号</a>
+				</li>
+						
+				<li>
+					<a href="/brand/213" target="_blank"><img src="http://img.chayu.com/brand/1412/29/54a0de23337a34xgn.jpg!160160" alt="斗记茶业" /></a>
+					<a href="/brand/213" title="斗记茶业" target="_blank">斗记茶业</a>
+				</li>
+						
+				<li>
+					<a href="/brand/54" target="_blank"><img src="http://img.chayu.com/brand/1411/05/5459e1deeba72w74m.png!160160" alt="陈升号" /></a>
+					<a href="/brand/54" title="陈升号" target="_blank">陈升号</a>
+				</li>
+						
+				<li>
+					<a href="/brand/121" target="_blank"><img src="http://img.chayu.com/brand/1411/04/54589c4416e0av58d.png!160160" alt="吴裕泰" /></a>
+					<a href="/brand/121" title="吴裕泰" target="_blank">吴裕泰</a>
+				</li>
+						
+				<li>
+					<a href="/brand/216" target="_blank"><img src="http://img.chayu.com/brand/1504/27/553d9c7a102424moi.png!160160" alt="下关沱茶" /></a>
+					<a href="/brand/216" title="下关沱茶" target="_blank">下关沱茶</a>
+				</li>
+						
+				<li>
+					<a href="/brand/853" target="_blank"><img src="http://img.chayu.com/brand/1601/08/568f5479088a399b0.jpg!160160" alt="孝文家茶" /></a>
+					<a href="/brand/853" title="孝文家茶" target="_blank">孝文家茶</a>
+				</li>
+				
+			</ul>
+		</div>
+		
+		<div class="w690 fl">
+			<!--茶生活 -->
+            <div class="happy_tea_title">
+            	<span class="fl">
+            	<a href="http://shiji.chayu.com" class="current" >市集<i class="icon_hot"></i></a>
+				<a href="http://www.chayu.com/article/lecha">乐茶</a>
+				<a href="http://www.chayu.com/article/culture">文化</a>
+				<a href="http://www.chayu.com/article/chalv">茶旅</a>
+				<a href="http://www.chayu.com/article/special">专题</a>
+				<a href="http://www.chayu.com/article/shangqi">赏器</a>
+				<a href="http://www.chayu.com/article/news">新闻</a></span>
+            </div>
+			
+            <div class="home_search_list">
+            
+               	<!-- 市集 -->
+                <div class="search_list happy_tea_lists bgcolor_fff" id="pushList">
+										    <div class="list">
+	                        <div class="thumb">
+	                        	                            
+	                            <a href="http://shiji.chayu.com/goods/17547" target="_blank" title="红茶·高等级祁门红茶特茗">
+	                        	                        <img alt="红茶·高等级祁门红茶特茗" src="https://img.chayu.com/avatar/000/24/76/20/568d2fcc6d72c.jpg!160120" /></a></div>
+	                            <h5><a href="http://shiji.chayu.com/goods/17547" target="_blank" title="">红茶·高等级祁门红茶特茗</a></h5>
+	                            <div class="param">
+	                            <p class="con">
+	非遗技艺传承人陆国富全程手工精制，经17道考究的工艺，从4月到6月，历时约百天方成。
+
+
+	这款茶，总体风格甜蜜丰富，祁门红茶独到的花、果、蜜混合香气纯正而浓郁，...	                            	<a href="http://shiji.chayu.com/goods/17547">[详细]</a></p>   
+	                        </div>
+	                    </div>
+										    <div class="list">
+	                        <div class="thumb">
+	                        	                            
+	                            <a href="http://shiji.chayu.com/goods/14780" target="_blank" title="龙泉青瓷【粉青斗笠杯】">
+	                        	                        <img alt="龙泉青瓷【粉青斗笠杯】" src="https://img.chayu.com/avatar/001/36/54/44/595dc69f5c0d7.jpg!160120" /></a></div>
+	                            <h5><a href="http://shiji.chayu.com/goods/14780" target="_blank" title="">龙泉青瓷【粉青斗笠杯】</a></h5>
+	                            <div class="param">
+	                            <p class="con">
+	粉青斗笠杯，由龙泉青瓷名匠陈华手制。甄选本地泥土，独家调配釉水配方，经高温烧制而成。形如斗笠，色泽粉青相间，收藏、自用均相宜。 
+	                            	<a href="http://shiji.chayu.com/goods/14780">[详细]</a></p>   
+	                        </div>
+	                    </div>
+										    <div class="list">
+	                        <div class="thumb">
+	                        	                            
+	                            <a href="http://shiji.chayu.com/goods/17948" target="_blank" title="花茶·新工艺栀子花红茶">
+	                        	                        <img alt="花茶·新工艺栀子花红茶" src="https://img.chayu.com/avatar/000/25/01/39/575d18df89249.jpg!160120" /></a></div>
+	                            <h5><a href="http://shiji.chayu.com/goods/17948" target="_blank" title="">花茶·新工艺栀子花红茶</a></h5>
+	                            <div class="param">
+	                            <p class="con">栀子花红茶，继茉莉花茶后，业内首次尝试使用红茶作为茶坯、栀子花为花材的新工艺花茶。以具有药用价值的黄栀子为花材，香气极为清透，茶汤滑过口中有如丝绸般顺滑、有如糖水般甜...	                            	<a href="http://shiji.chayu.com/goods/17948">[详细]</a></p>   
+	                        </div>
+	                    </div>
+										    <div class="list">
+	                        <div class="thumb">
+	                        	                            
+	                            <a href="http://shiji.chayu.com/goods/10152" target="_blank" title="花茶·新工艺栀子花红茶">
+	                        	                        <img alt="花茶·新工艺栀子花红茶" src="https://img.chayu.com/avatar/000/25/01/39/575d18df89249.jpg!160120" /></a></div>
+	                            <h5><a href="http://shiji.chayu.com/goods/10152" target="_blank" title="">花茶·新工艺栀子花红茶</a></h5>
+	                            <div class="param">
+	                            <p class="con">栀子花红茶，继茉莉花茶后，业内首次尝试使用红茶作为茶坯、栀子花为花材的新工艺花茶。以具有药用价值的黄栀子为花材，香气极为清透，茶汤滑过口中有如丝绸般顺滑、有如糖水般甜...	                            	<a href="http://shiji.chayu.com/goods/10152">[详细]</a></p>   
+	                        </div>
+	                    </div>
+										    <div class="list">
+	                        <div class="thumb">
+	                        	                            <a href="http://shiji.chayu.com/goods/10108" target="_blank" title="岩茶·名岩三仰峰雀舌">
+	                        	                        <img alt="岩茶·名岩三仰峰雀舌" src="https://img.chayu.com/avatar/000/25/99/89/56f26871e8817.jpg!160120" /></a></div>
+	                            <h5><a href="http://shiji.chayu.com/goods/10108" target="_blank" title="">岩茶·名岩三仰峰雀舌</a></h5>
+	                            <div class="param">
+	                            <p class="con">武夷岩茶小品种雀舌，原料采自武夷山景区顶峰——三仰峰正岩山场，由武夷岩茶制茶名门当家人应魁寿监制，香气清透、茶汤甜美清爽，将雀舌的品种特点、山场特征发挥得淋漓尽致。	                            	<a href="http://shiji.chayu.com/goods/10108">[详细]</a></p>   
+	                        </div>
+	                    </div>
+										    <div class="list">
+	                        <div class="thumb">
+	                        	                            
+	                            <a href="http://shiji.chayu.com/goods/10101" target="_blank" title="乌龙茶·凤凰单丛红丝线">
+	                        	                        <img alt="乌龙茶·凤凰单丛红丝线" src="https://img.chayu.com/avatar/000/25/77/60/56f266b74afc3.jpg!160120" /></a></div>
+	                            <h5><a href="http://shiji.chayu.com/goods/10101" target="_blank" title="">乌龙茶·凤凰单丛红丝线</a></h5>
+	                            <div class="param">
+	                            <p class="con">非遗传人郑楚辉手制，凤凰单丛小众品种红丝线，其原材来自海拔1000米的核心产区李子坝。独特的果甜香和爽活的汤感是凤凰单丛小众品种的个性表达，因着口感讨喜，其辨识度高，...	                            	<a href="http://shiji.chayu.com/goods/10101">[详细]</a></p>   
+	                        </div>
+	                    </div>
+					                </div>
+            
+				<!-- 乐茶 -->
+                <div class="search_list happy_tea_lists bgcolor_fff hide">
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197942" target="_blank" title="市集丨以失传700年的绝技复烧,非遗传人手制木叶盏,限量10只分享"><img alt="市集丨以失传700年的绝技复烧,非遗传人手制木叶盏,限量10只分享" src="https://img.chayu.com/article/1711/29/2075a1e5aa929923.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197942" target="_blank" title="市集丨以失传700年的绝技复烧,非遗传人手制木叶盏,限量10只分享">市集丨以失传700年的绝技复烧,非遗传人手制木叶...</a></h5>
+                            <div class="param">
+                            <p class="con">木叶似乎镌刻在茶汤里，随波晃动，目眩神迷不过如此。<a href="http://www.chayu.com/article/197942" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197941" target="_blank" title="12位国非遗传承人巅峰岩茶手作合集,茶语独家首发,仅有数百份存世!"><img alt="12位国非遗传承人巅峰岩茶手作合集,茶语独家首发,仅有数百份存世!" src="https://img.chayu.com/article/1711/28/9615a1d0cb3411da.png!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197941" target="_blank" title="12位国非遗传承人巅峰岩茶手作合集,茶语独家首发,仅有数百份存世!">12位国非遗传承人巅峰岩茶手作合集,茶语独家首发...</a></h5>
+                            <div class="param">
+                            <p class="con">一场顶级盛会，正以睥睨群雄的姿态，突袭整个岩茶圈。<a href="http://www.chayu.com/article/197941" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197936" target="_blank" title="100斤竹子，只取8两，制成细如发丝的竹丝，编成这套茶具！"><img alt="100斤竹子，只取8两，制成细如发丝的竹丝，编成这套茶具！" src="https://img.chayu.com/article/1711/27/3495a1bd2a638269.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197936" target="_blank" title="100斤竹子，只取8两，制成细如发丝的竹丝，编成这套茶具！">100斤竹子，只取8两，制成细如发丝的竹丝，编成...</a></h5>
+                            <div class="param">
+                            <p class="con">希望这门民间手艺，能走进更多茶友的生活空间。<a href="http://www.chayu.com/article/197936" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197935" target="_blank" title="他的紫砂众筹曾两轮爆仓,这次致敬大师壶型的手工复刻将再次惊艳"><img alt="他的紫砂众筹曾两轮爆仓,这次致敬大师壶型的手工复刻将再次惊艳" src="https://img.chayu.com/article/1711/26/4635a1a969843a7c.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197935" target="_blank" title="他的紫砂众筹曾两轮爆仓,这次致敬大师壶型的手工复刻将再次惊艳">他的紫砂众筹曾两轮爆仓,这次致敬大师壶型的手工复...</a></h5>
+                            <div class="param">
+                            <p class="con">爱壶人如果要挑一把石瓢，我们认为如歌先生的这把复刻之作很值得入手。
+<a href="http://www.chayu.com/article/197935" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197923" target="_blank" title="市集丨冬季进补怕上火？喝它祛火还降燥，仅需98元/350g"><img alt="市集丨冬季进补怕上火？喝它祛火还降燥，仅需98元/350g" src="https://img.chayu.com/article/1711/23/4265a167a1d8ef65.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197923" target="_blank" title="市集丨冬季进补怕上火？喝它祛火还降燥，仅需98元/350g">市集丨冬季进补怕上火？喝它祛火还降燥，仅需98元...</a></h5>
+                            <div class="param">
+                            <p class="con">想要不上火、发胖和保持健康，只需加上一味白茶，你就能拥有一条“小清新式”的轻进补路线。<a href="http://www.chayu.com/article/197923" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197922" target="_blank" title="茗星私享丨15年的坚持，是瓷器上的一笔一划，是生活最好的沉淀"><img alt="茗星私享丨15年的坚持，是瓷器上的一笔一划，是生活最好的沉淀" src="https://img.chayu.com/article/1711/23/8775a1679ec5cb22.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197922" target="_blank" title="茗星私享丨15年的坚持，是瓷器上的一笔一划，是生活最好的沉淀">茗星私享丨15年的坚持，是瓷器上的一笔一划，是生...</a></h5>
+                            <div class="param">
+                            <p class="con">纵情花鸟乐趣之间，可让心绪也游尘世外，茶席间随意认领一只，就自得其乐。<a href="http://www.chayu.com/article/197922" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+				                </div>
+                
+                <!-- 文化 -->
+                <div class="search_list happy_tea_lists bgcolor_fff hide">
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197947" target="_blank" title="茶圈黑话揭秘:旧社会茶馆曾当作公堂审案,进出茶馆也危机重重"><img alt="茶圈黑话揭秘:旧社会茶馆曾当作公堂审案,进出茶馆也危机重重" src="https://img.chayu.com/article/1712/01/5565a20cccb19ff9.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197947" target="_blank" title="茶圈黑话揭秘:旧社会茶馆曾当作公堂审案,进出茶馆也危机重重">茶圈黑话揭秘:旧社会茶馆曾当作公堂审案,进出茶馆...</a></h5>
+                            <div class="param">
+                            <p class="con">黑话，又称行话或春口，最初特指江湖中人互相交流的密语。<a href="http://www.chayu.com/article/197947" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197945" target="_blank" title="茶资讯丨史上干货最多的一次茶课笔记，茶界名师大讲堂等你来上课"><img alt="茶资讯丨史上干货最多的一次茶课笔记，茶界名师大讲堂等你来上课" src="https://img.chayu.com/article/1711/29/5515a1e9259893d4.png!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197945" target="_blank" title="茶资讯丨史上干货最多的一次茶课笔记，茶界名师大讲堂等你来上课">茶资讯丨史上干货最多的一次茶课笔记，茶界名师大讲...</a></h5>
+                            <div class="param">
+                            <p class="con">一茶一世界，这个世界致广大而尽精微。<a href="http://www.chayu.com/article/197945" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197943" target="_blank" title="清茶为汤,青花为杯,我们党用这杯茶邀请全球政党一起开大会!"><img alt="清茶为汤,青花为杯,我们党用这杯茶邀请全球政党一起开大会!" src="https://img.chayu.com/article/1711/29/5075a1e66578a551.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197943" target="_blank" title="清茶为汤,青花为杯,我们党用这杯茶邀请全球政党一起开大会!">清茶为汤,青花为杯,我们党用这杯茶邀请全球政党一...</a></h5>
+                            <div class="param">
+                            <p class="con">作为中国元素的典型代表，一杯茶，如何走上世界瞩目的舞台？<a href="http://www.chayu.com/article/197943" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197938" target="_blank" title="陈升号的十年与一天（陈升号十周年庆记）"><img alt="陈升号的十年与一天（陈升号十周年庆记）" src="https://img.chayu.com/article/1711/27/9395a1bd381c86d9.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197938" target="_blank" title="陈升号的十年与一天（陈升号十周年庆记）">陈升号的十年与一天（陈升号十周年庆记）</a></h5>
+                            <div class="param">
+                            <p class="con">我做了40多年的茶，但有一个梦想，希望做出天下最好的普洱茶。<a href="http://www.chayu.com/article/197938" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197931" target="_blank" title="他们用十年热血青春和追梦赤子心,只为奉献真正大树茶的味道!"><img alt="他们用十年热血青春和追梦赤子心,只为奉献真正大树茶的味道!" src="https://img.chayu.com/article/1711/25/5445a1922d671ab3.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197931" target="_blank" title="他们用十年热血青春和追梦赤子心,只为奉献真正大树茶的味道!">他们用十年热血青春和追梦赤子心,只为奉献真正大树...</a></h5>
+                            <div class="param">
+                            <p class="con">陈升号百年品牌之路，从这个十年开始起步。<a href="http://www.chayu.com/article/197931" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197924" target="_blank" title="茶企大疑问:谁买了我的茶?《中国茶叶消费指数数据报告》干货详解"><img alt="茶企大疑问:谁买了我的茶?《中国茶叶消费指数数据报告》干货详解" src="https://img.chayu.com/article/1711/23/6035a167a6101c0c.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197924" target="_blank" title="茶企大疑问:谁买了我的茶?《中国茶叶消费指数数据报告》干货详解">茶企大疑问:谁买了我的茶?《中国茶叶消费指数数据...</a></h5>
+                            <div class="param">
+                            <p class="con">未来中国茶行业首份消费数据报告——《中国茶叶消费指数报告》，正式进入整个茶叶领域。<a href="http://www.chayu.com/article/197924" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+				                </div>
+                
+                <!-- 茶旅 -->
+                <div class="search_list happy_tea_lists bgcolor_fff hide">
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197846" target="_blank" title="斗记茶之旅丨赏旖旎风光，品茶前世今生，敬可爱之人"><img alt="" src="https://img.chayu.com/article/1711/01/56159f9768f93a76.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197846" target="_blank" title="斗记茶之旅丨赏旖旎风光，品茶前世今生，敬可爱之人">斗记茶之旅丨赏旖旎风光，品茶前世今生，敬可爱之人</a></h5>
+                            <div class="param">
+                            <p class="con">从采摘鲜叶，到观摩斗记初制所杀青过程，似乎更像一场生命延续的庄严仪式。<a href="http://www.chayu.com/article/197846" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197825" target="_blank" title="再上茶山，再论普洱"><img alt="" src="https://img.chayu.com/article/1710/26/96359f19feee1682.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197825" target="_blank" title="再上茶山，再论普洱">再上茶山，再论普洱</a></h5>
+                            <div class="param">
+                            <p class="con">如果快乐会上瘾，那么我不推荐“纯麻黑”，万一哪天这款茶没了，快乐岂非不可复得？<a href="http://www.chayu.com/article/197825" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197811" target="_blank" title="只有亲自去旖旎茶山走一遭,才能体会这家茶企十年如一日的品质坚持!"><img alt="" src="https://img.chayu.com/article/1710/22/84059ec8b1a6ea62.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197811" target="_blank" title="只有亲自去旖旎茶山走一遭,才能体会这家茶企十年如一日的品质坚持!">只有亲自去旖旎茶山走一遭,才能体会这家茶企十年如...</a></h5>
+                            <div class="param">
+                            <p class="con">当初秋时节遇上西双版纳的茶旅，莫过于人生中最温暖的事之一。<a href="http://www.chayu.com/article/197811" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197762" target="_blank" title="茶之旅丨想过一个安静的国庆节？你或许可以来一场探寻茶韵的原乡茶路之旅"><img alt="" src="https://img.chayu.com/article/1709/30/40259cf519670e9c.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197762" target="_blank" title="茶之旅丨想过一个安静的国庆节？你或许可以来一场探寻茶韵的原乡茶路之旅">茶之旅丨想过一个安静的国庆节？你或许可以来一场探...</a></h5>
+                            <div class="param">
+                            <p class="con">作为爱茶的你，国庆来一趟茶山之旅能治愈你对假期出游人群的密集恐惧症，还能在茶韵中了解更多的茶区故事。<a href="http://www.chayu.com/article/197762" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197700" target="_blank" title="斗记茶之旅丨在极致美茶中聆听爱茶人的故事"><img alt="" src="https://img.chayu.com/article/1709/14/70559ba334246b2f.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197700" target="_blank" title="斗记茶之旅丨在极致美茶中聆听爱茶人的故事">斗记茶之旅丨在极致美茶中聆听爱茶人的故事</a></h5>
+                            <div class="param">
+                            <p class="con">在一场极致美茶中，聆听爱茶人的故事。<a href="http://www.chayu.com/article/197700" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197677" target="_blank" title="斗记茶之旅丨透过细节看用心做茶的“斗记精神”"><img alt="" src="https://img.chayu.com/article/1709/08/49959b2511965461.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/197677" target="_blank" title="斗记茶之旅丨透过细节看用心做茶的“斗记精神”">斗记茶之旅丨透过细节看用心做茶的“斗记精神”</a></h5>
+                            <div class="param">
+                            <p class="con">做一款茶，细节很重要，做一款好茶，细节必须要完美。<a href="http://www.chayu.com/article/197677" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+				                </div>
+                
+                <!-- 专题 -->
+                <div class="search_list happy_tea_lists bgcolor_fff hide">
+					
+                    <div class="list">
+                        <div class="thumb">
+							<a href="http://www.chayu.com/special/chuncha2017" target="_blank" title="2017年茶语春茶即时报"><img alt="2017年茶语春茶即时报" src="https://img.chayu.com/article/1703/06/41858bd2bf8dc626.jpg!160120" /></a>	
+						</div>
+                        <h5><a href="http://www.chayu.com/special/chuncha2017" target="_blank" title="2017年茶语春茶即时报">2017年茶语春茶即时报</a></h5>
+                        <div class="param">
+                            <p class="con">因为地理位置不同,气候、土壤条件不同,各地春茶上市时间不尽相同，2017年茶语网春茶即时报专题为茶友提供详细的春茶信息！<a href="http://www.chayu.com/special/chuncha2017" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb">
+							<a href="http://www.chayu.com/special/top2016" target="_blank" title="茶语2016年度千款茶评榜"><img alt="茶语2016年度千款茶评榜" src="https://img.chayu.com/article/1701/20/6845881dc263626e.jpg!160120" /></a>	
+						</div>
+                        <h5><a href="http://www.chayu.com/special/top2016" target="_blank" title="茶语2016年度千款茶评榜">茶语2016年度千款茶评榜</a></h5>
+                        <div class="param">
+                            <p class="con">茶语网专业评茶组、数十名领衔茶叶专家、上千名行业达人、以及近万名的网友共同参与了这场跨度整个2016年、覆盖全国茶界的茶评活动。<a href="http://www.chayu.com/special/top2016" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb">
+							<a href="http://www.chayu.com/special/top2015" target="_blank" title="茶语网2015年度千款茶评榜"><img alt="茶语网2015年度千款茶评榜" src="https://img.chayu.com/article/1607/15/5245788b88e61a81.jpg!160120" /></a>	
+						</div>
+                        <h5><a href="http://www.chayu.com/special/top2015" target="_blank" title="茶语网2015年度千款茶评榜">茶语网2015年度千款茶评榜</a></h5>
+                        <div class="param">
+                            <p class="con">本年度的“千款茶评榜”，共涉及六大茶类、国内外品牌、以及再加工茶的1000款茶品。<a href="http://www.chayu.com/special/top2015" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb">
+							<a href="http://www.chayu.com/article/195489" target="_blank" title="我们也不知道为什么  就是想开个绿茶武林大会"><img alt="我们也不知道为什么  就是想开个绿茶武林大会" src="https://img.chayu.com/article/1606/15/9415760ef747ed37.jpg!160120" /></a>	
+						</div>
+                        <h5><a href="http://www.chayu.com/article/195489" target="_blank" title="我们也不知道为什么  就是想开个绿茶武林大会">我们也不知道为什么  就是想开个绿茶武林大会</a></h5>
+                        <div class="param">
+                            <p class="con">“一撮一杯皆甘苦，到君案头须等待”。当下时光正好，无须再等待，春茶早已退却了火气，正是喝茶时。<a href="http://www.chayu.com/article/195489" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb">
+							<a href="http://www.chayu.com/special/chuncha2016" target="_blank" title="2016年春茶即时报 "><img alt="2016年春茶即时报 " src="https://img.chayu.com/article/1603/21/56ef63913d6abltnq.jpg!160120" /></a>	
+						</div>
+                        <h5><a href="http://www.chayu.com/special/chuncha2016" target="_blank" title="2016年春茶即时报 ">2016年春茶即时报 </a></h5>
+                        <div class="param">
+                            <p class="con">2016年春茶季，因为地理位置不同,气候、土壤条件不同,各地春茶上市时间不尽相同，在大多数人的固有印象中,秋天才是收获的季节,但对于茶行业来说,更能代表收获的是春季,...<a href="http://www.chayu.com/special/chuncha2016" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb">
+							<a href="http://www.chayu.com/zt/cs" target="_blank" title="茶膳"><img alt="茶膳" src="https://img.chayu.com/article/1411/04/5458ce5d6553c2lzg.jpg!160120" /></a>	
+						</div>
+                        <h5><a href="http://www.chayu.com/zt/cs" target="_blank" title="茶膳">茶膳</a></h5>
+                        <div class="param">
+                            <p class="con">茶叶入膳，用茶来料理美食，取茶叶的清香，使茶与食物完美结合，成为茶香满溢的茶膳。从“饮茶”到“吃茶”，将乌龙茶、红茶或绿茶的茶末、茶粉加入到食品中，从而创出全新的食品...<a href="http://www.chayu.com/zt/cs" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+				                </div>
+
+                <!-- 赏器 -->
+                <div class="search_list happy_tea_lists bgcolor_fff hide">
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/128116" target="_blank" title="解密茶具图纹的编码信息（信息量太大我怕你接受不了！）"><img alt="解密茶具图纹的编码信息（信息量太大我怕你接受不了！）" src="https://img.chayu.com/article/1609/14/82157d915b8bef55.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/128116" target="_blank" title="解密茶具图纹的编码信息（信息量太大我怕你接受不了！）">解密茶具图纹的编码信息（信息量太大我怕你接受不了...</a></h5>
+                            <div class="param">
+                            <p class="con">瓷器上的几何纹，你认识几个？<a href="http://www.chayu.com/article/128116" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/128109" target="_blank" title="玩物尚志！这30件格调茶具你倾家荡产也得买（为了这次推荐，我们把淘宝翻了个底朝天）"><img alt="玩物尚志！这30件格调茶具你倾家荡产也得买（为了这次推荐，我们把淘宝翻了个底朝天）" src="https://img.chayu.com/article/1505/19/555a99093ebb534uy.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/128109" target="_blank" title="玩物尚志！这30件格调茶具你倾家荡产也得买（为了这次推荐，我们把淘宝翻了个底朝天）">玩物尚志！这30件格调茶具你倾家荡产也得买（为了...</a></h5>
+                            <div class="param">
+                            <p class="con">小编呕心沥血整理的30款物廉价美的茶具单品，有你的款吗？<a href="http://www.chayu.com/article/128109" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/128177" target="_blank" title="用“植物”传递信息是种什么体验？茶具图纹解码手册2"><img alt="用“植物”传递信息是种什么体验？茶具图纹解码手册2" src="https://img.chayu.com/article/1506/16/557fbe5e85a9dfsi9.png!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/128177" target="_blank" title="用“植物”传递信息是种什么体验？茶具图纹解码手册2">用“植物”传递信息是种什么体验？茶具图纹解码手册...</a></h5>
+                            <div class="param">
+                            <p class="con">茶具上的密码，茶语网小编带你解读一二。<a href="http://www.chayu.com/article/128177" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/127287" target="_blank" title="中国茶器的10类常见图纹"><img alt="中国茶器的10类常见图纹" src="https://img.chayu.com/article/1409/16/458c7e87911197lf3.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/127287" target="_blank" title="中国茶器的10类常见图纹">中国茶器的10类常见图纹</a></h5>
+                            <div class="param">
+                            <p class="con">茶器属于生活品，在实用功能之外还有不少的艺术创造，其中，图纹便是最大的看点之一，它们不光体现出艺术家的智慧，还有中国人的审美情趣，而有10类图纹则经常在茶器上出现。...<a href="http://www.chayu.com/article/127287" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/127572" target="_blank" title="看！这个妖精正剪下了一段岁月，修补你我的时光"><img alt="看！这个妖精正剪下了一段岁月，修补你我的时光" src="https://img.chayu.com/article/1412/30/54a2787e5357ewy38.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/127572" target="_blank" title="看！这个妖精正剪下了一段岁月，修补你我的时光">看！这个妖精正剪下了一段岁月，修补你我的时光</a></h5>
+                            <div class="param">
+                            <p class="con">看到夕阳的斜晖照在小e身上，一丝不落，却不乏风情。此时此刻，她就像个妖精，穿过茶，抚摸着茶器，用心修补着时间的沧桑，认真地向残缺致敬。<a href="http://www.chayu.com/article/127572" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/127616" target="_blank" title="给我一块金子，给你补个杯子"><img alt="给我一块金子，给你补个杯子" src="https://img.chayu.com/article/1501/09/54afae72ac306gevd.jpg!160120" /></a></div>
+                            <h5><a href="http://www.chayu.com/article/127616" target="_blank" title="给我一块金子，给你补个杯子">给我一块金子，给你补个杯子</a></h5>
+                            <div class="param">
+                            <p class="con">与焗瓷是中国传统瓷器修复技术不同，金缮是源自日本的传统瓷器修复技术<a href="http://www.chayu.com/article/127616" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+				                </div>
+
+                <!-- 新闻 -->
+                <div class="search_list happy_tea_lists bgcolor_fff hide">		
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197946" target="_blank" title="2017广州茶博会全面升级进入新时代"><img alt="" src="https://img.chayu.com/article/1711/30/1895a1f9d666b0a3.jpg!160120" /></a></div>
+                        <h5><a href="http://www.chayu.com/article/197946" target="_blank" title="2017广州茶博会全面升级进入新时代">2017广州茶博会全面升级进入新时代</a></h5>
+                        <div class="param">
+                            <p class="con">11月27日下午，暮色下的广州广交会展馆C区，熙熙攘攘的人潮在不舍中渐渐退去，为期5天的2017中国（广州）国际茶业博览会（简称广州茶博会）圆满画下句号。<a href="http://www.chayu.com/article/197946" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197944" target="_blank" title="祥源武夷岩茶牛肉获第十二届“中茶杯”全国名优茶评比一等"><img alt="" src="https://img.chayu.com/article/1711/29/1975a1e6ee9191f0.jpg!160120" /></a></div>
+                        <h5><a href="http://www.chayu.com/article/197944" target="_blank" title="祥源武夷岩茶牛肉获第十二届“中茶杯”全国名优茶评比一等">祥源武夷岩茶牛肉获第十二届“中茶杯”全国名优茶评...</a></h5>
+                        <div class="param">
+                            <p class="con">第十二届“中茶杯”全国名优茶评比（第二阶段）于2017年11月1日圆满结束。祥源茶业股份有限公司选送的祥源牌牛栏坑肉桂获乌龙茶类一等奖。
+<a href="http://www.chayu.com/article/197944" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197940" target="_blank" title="茶转载丨正是这份责任感，让我从黑暗走向了光明"><img alt="" src="https://img.chayu.com/article/1711/28/4495a1d0beb38ed8.jpg!160120" /></a></div>
+                        <h5><a href="http://www.chayu.com/article/197940" target="_blank" title="茶转载丨正是这份责任感，让我从黑暗走向了光明">茶转载丨正是这份责任感，让我从黑暗走向了光明</a></h5>
+                        <div class="param">
+                            <p class="con">这是最好的时代，这是光明的季节。<a href="http://www.chayu.com/article/197940" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197939" target="_blank" title="茶转载丨正皓茶业总部落成庆典暨营销战略峰会圆满成功"><img alt="" src="https://img.chayu.com/article/1711/28/4935a1d0afd7618f.jpg!160120" /></a></div>
+                        <h5><a href="http://www.chayu.com/article/197939" target="_blank" title="茶转载丨正皓茶业总部落成庆典暨营销战略峰会圆满成功">茶转载丨正皓茶业总部落成庆典暨营销战略峰会圆满成...</a></h5>
+                        <div class="param">
+                            <p class="con">11月26日，正皓茶业总部落成庆典暨营销战略峰会在广州芳村盛大举行，来自全国各地的领导嘉宾、经销商、茶友代表和媒体等千余人出席了此次活动。<a href="http://www.chayu.com/article/197939" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197937" target="_blank" title="第二届国际茶席设计大赛圆满落幕 开启两岸茶席美学之路"><img alt="" src="https://img.chayu.com/article/1711/27/4655a1bd3503f349.jpg!160120" /></a></div>
+                        <h5><a href="http://www.chayu.com/article/197937" target="_blank" title="第二届国际茶席设计大赛圆满落幕 开启两岸茶席美学之路">第二届国际茶席设计大赛圆满落幕 开启两岸茶席美学...</a></h5>
+                        <div class="param">
+                            <p class="con">一器成名只为茗，悦来客满是茶香。<a href="http://www.chayu.com/article/197937" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+					
+                    <div class="list">
+                        <div class="thumb"><a href="http://www.chayu.com/article/197917" target="_blank" title="广州茶博会福利前瞻：茶王品鉴会、老白茶赠饮……鼎白邀您共享王者荣耀！"><img alt="" src="https://img.chayu.com/article/1711/21/8835a13d711d3b98.png!160120" /></a></div>
+                        <h5><a href="http://www.chayu.com/article/197917" target="_blank" title="广州茶博会福利前瞻：茶王品鉴会、老白茶赠饮……鼎白邀您共享王者荣耀！">广州茶博会福利前瞻：茶王品鉴会、老白茶赠饮……鼎...</a></h5>
+                        <div class="param">
+                            <p class="con">不仅可以免费品鉴白茶“茶王”，还能打包带走“珍藏岁月”系列老白茶！<a href="http://www.chayu.com/article/197917" target="_blank">[详细]</a></p>   
+                        </div>
+                    </div>
+				                </div>
+
+            </div>
+            <!--home_search_list_more-->
+            <div class="home_search_list_more">
+                <a class="colorc0501f" href="http://shiji.chayu.com/lists">更多</a>
+            </div>
+            <!--/home_search_list_more-->
+            <!--home_community-->		
+            <div class="home_community">
+            	<div class="happy_tea_title"><span class="fl"><a href="javascript:void(0)" class="current" style="cursor:default;text-decoration:none;">社区</a></span></div>
+               <div class="search_list home_community_lists">
+			   
+			                       <div class="list">                    
+                        <h5><a href="http://quanzi.chayu.com/topic/731305" target="_blank" title="">【玖斋•陈皮普洱】</a></h5>
+                        <div class="param">
+                        <p class="con">陈皮普洱，这个料子我们用了岩茶的工艺又重新焙火，有普洱之味，有岩茶之感～皮子也是我们独家的制作手艺，<a href="http://quanzi.chayu.com/topic/731305" target="_blank">[详细]</a></p> 
+                        
+                        <div class="info"><span class="fl">来自<a class="u_nam" href="http://quanzi.chayu.com/group/21" target="_blank">晒茶</a>圈子</span><span class="fl pl10 color999 f12">3小时前</span><span class="fr icon_com"><a href="http://quanzi.chayu.com/topic/731305#j_post_id" target="_blank">回复</a>(<i>0</i>)</span></div>
+                        </div>
+                    </div>
+			                      <div class="list">                    
+                        <h5><a href="http://quanzi.chayu.com/topic/731304" target="_blank" title="">爱上福今，爱上这该死的口感！</a></h5>
+                        <div class="param">
+                        <p class="con">自从接触到05年的福今茶王之后，这口感和层次感，深深的被迷住了！<a href="http://quanzi.chayu.com/topic/731304" target="_blank">[详细]</a></p> 
+                        
+                        <div class="info"><span class="fl">来自<a class="u_nam" href="http://quanzi.chayu.com/group/21" target="_blank">晒茶</a>圈子</span><span class="fl pl10 color999 f12">12小时前</span><span class="fr icon_com"><a href="http://quanzi.chayu.com/topic/731304#j_post_id" target="_blank">回复</a>(<i>8</i>)</span></div>
+                        </div>
+                    </div>
+			                      <div class="list">                    
+                        <h5><a href="http://quanzi.chayu.com/topic/731301" target="_blank" title="">杏仁香</a></h5>
+                        <div class="param">
+                        <p class="con">锯朵仔（杏仁香）甘甜柔滑，带着独特的杏仁味，入口即化，先甘后香，滋味香甜，茶汤非常清亮，好茶看得见[<a href="http://quanzi.chayu.com/topic/731301" target="_blank">[详细]</a></p> 
+                        
+                        <div class="info"><span class="fl">来自<a class="u_nam" href="http://quanzi.chayu.com/group/21" target="_blank">晒茶</a>圈子</span><span class="fl pl10 color999 f12">14小时前</span><span class="fr icon_com"><a href="http://quanzi.chayu.com/topic/731301#j_post_id" target="_blank">回复</a>(<i>1</i>)</span></div>
+                        </div>
+                    </div>
+			                      <div class="list">                    
+                        <h5><a href="http://quanzi.chayu.com/topic/731300" target="_blank" title="">歙砚石茶盘</a></h5>
+                        <div class="param">
+                        <p class="con">歙砚茶盘自产自销批发<a href="http://quanzi.chayu.com/topic/731300" target="_blank">[详细]</a></p> 
+                        
+                        <div class="info"><span class="fl">来自<a class="u_nam" href="http://quanzi.chayu.com/group/4" target="_blank">茶器搜索营</a>圈子</span><span class="fl pl10 color999 f12">14小时前</span><span class="fr icon_com"><a href="http://quanzi.chayu.com/topic/731300#j_post_id" target="_blank">回复</a>(<i>0</i>)</span></div>
+                        </div>
+                    </div>
+			  	
+            
+                </div> 
+
+            </div>
+            <!--home_community_more-->
+            <div class="home_community_more">
+                <a class="colorc0501f" href="http://quanzi.chayu.com" target="_blank">更多</a>
+            </div>
+            <!--/home_community_more-->
+            <!--/home_community-->
+		</div>
+        <!--w300-->
+		<div class="w300 fr">
+             <div class="scores_ranking mt10">
+                <div class="c_tit1">
+                    <span class="fl">社区话题排行<em>（按点击量）</em></span>
+                    <span class="fr"><a class="colorc0501f" href="http://chaping.chayu.com/top/group?timetype=1" target="_blank">更多</a></span>
+                </div>
+                <ul class="con">
+																<li><a class="fl" href="http://quanzi.chayu.com/topic/731056" target="_blank">炎炎夏日，茶语抢答第二季送凉意！</a><span class="fr">3267</span></li>
+											<li><a class="fl" href="http://quanzi.chayu.com/topic/730824" target="_blank">【雾山】  小写意</a><span class="fr">3083</span></li>
+											<li><a class="fl" href="http://quanzi.chayu.com/topic/730724" target="_blank">茶桌一角</a><span class="fr">2897</span></li>
+											<li><a class="fl" href="http://quanzi.chayu.com/topic/730782" target="_blank">【不问】谁才是刮油王？不客观，真体验！图片可能引起不适慎入！</a><span class="fr">2881</span></li>
+					                
+                </ul>
+                <p class="tjqj">统计区间：2018-06-12至2018-07-11</p>
+              </div>
+            
+           <div class="scores_ranking mt10">
+               <div class="c_tit1">
+                   <span class="fl">茶语热搜排行<em>（按点击量）</em></span>
+                   <span class="fr"><a class="colorc0501f" href="http://chaping.chayu.com/top/search" target="_blank">更多</a></span>
+               </div>
+               <ul class="con">
+	           		         <li>
+				      <a class="fl" href="http://chaping.chayu.com/tea/2673" target="_blank">
+				      [大益]经典普洱（2016）</a>
+				      <span class="fr">281746</span>
+		         /li>
+	            		         <li>
+				      <a class="fl" href="http://chaping.chayu.com/tea/709" target="_blank">
+				      [剡茗茶业社]越乡龙井 特级</a>
+				      <span class="fr">281222</span>
+		         /li>
+	            		         <li>
+				      <a class="fl" href="http://chaping.chayu.com/tea/67" target="_blank">
+				      [王德传]冻顶乌龙</a>
+				      <span class="fr">262533</span>
+		         /li>
+	            		         <li>
+				      <a class="fl" href="http://chaping.chayu.com/tea/726" target="_blank">
+				      [强氏茗茶]雨前特级南京雨花茶</a>
+				      <span class="fr">215322</span>
+		         /li>
+	            	 
+               </ul>
+               <p class="tjqj">统计截止：2018-07-11</p>
+           </div>
+              
+		</div>
+        <!--/w300-->
+	</div>
+</div>
+<!--weibo_index-->
+<div class="weibo_index"></div>
+<!--/weibo_index-->
+<!--APP引导广告-->
+<div class="apps_download"></div>
+<!--/APP引导广告-->
+
+<!--首页右侧二维码-->
+<div class="weibo_index"></div>
+<!--/首页右侧二维码-->
+<!--return mobile-->
+<div id="return_mobile">
+	<a href="javascript:;" onclick="backToMobile('http://m.chayu.com')">返回手机版</a>
+</div>
+<!--友情链接 合作机构-->
+<div class="friend_link">
+	<p>
+				<a href="javascript:void 0;" data-type="hot"  class="select">热门分类</a>
+			    		<a href="javascript:void 0;" data-type="links" >友情链接</a>
+						<a href="javascript:void 0;" data-type="orgs" >合作机构</a>
+				
+	</p>
+	<div class="con">
+				<div class="hot" id="hot">
+			<ul>
+			   				<li class="">
+					<a target="_blank" title="学茶" href="http://quanzi.chayu.com/group/23" ><em>.</em>学茶</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶叶话题" href="http://quanzi.chayu.com/group/235" ><em>.</em>茶叶话题</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶语众筹" href="http://quanzi.chayu.com/topic/705139" ><em>.</em>茶语众筹</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶百科" href="http://www.chayu.com/baike" ><em>.</em>茶百科</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶问答" href="http://quanzi.chayu.com/group/150" ><em>.</em>茶问答</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="学茶" href="http://quanzi.chayu.com/group/23" ><em>.</em>学茶</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶叶论坛" href="http://quanzi.chayu.com/" ><em>.</em>茶叶论坛</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶语试用中心" href=" http://quanzi.chayu.com/group/244" ><em>.</em>茶语试用中心</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶评" href="http://chaping.chayu.com" ><em>.</em>茶评</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶样" href="http://chaping.chayu.com/sample" ><em>.</em>茶样</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶叶品牌" href="http://www.chayu.com/brand" ><em>.</em>茶叶品牌</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶语圈子" href="http://quanzi.chayu.com" ><em>.</em>茶语圈子</a>
+				</li>
+			   			</ul>			
+		</div>
+						<div class="links" id="links">
+			<ul >
+			    				<li>
+					<a target="_blank" title="凤凰网" href="http://cq.ifeng.com/" rel="nofollow" ><em>.</em>凤凰网</a>
+				</li>
+		        				<li>
+					<a target="_blank" title="今日头条" href="http://www.toutiao.com/" rel="nofollow" ><em>.</em>今日头条</a>
+				</li>
+		        				<li>
+					<a target="_blank" title="大渝网" href="http://cq.qq.com/" rel="nofollow" ><em>.</em>大渝网</a>
+				</li>
+		        				<li>
+					<a target="_blank" title="华龙网" href="http://www.cqnews.net/" rel="nofollow" ><em>.</em>华龙网</a>
+				</li>
+		        				<li>
+					<a target="_blank" title="新浪重庆" href="http://cq.sina.com.cn/" rel="nofollow" ><em>.</em>新浪重庆</a>
+				</li>
+		        			</ul>
+		</div>
+						<div id="orgs" class="orgs">
+			<ul>
+			   				<li class="">
+					<a target="_blank" title="中国茶叶协会" href="http://www.ctma.com.cn/" rel="nofollow"><em>.</em>中国茶叶协会</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶博会" href="http://www.goodtea.cc" rel="nofollow"><em>.</em>茶博会</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="中国农业科学院茶叶研究所" href="http://www.tricaas.com/" rel="nofollow"><em>.</em>中国农业科学</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶叶科学" href="http://www.tea-science.com/" rel="nofollow"><em>.</em>茶叶科学</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="科学技术协会" href="http://www.cast.org.cn/" rel="nofollow"><em>.</em>科学技术协会</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="茶叶质检中心" href="http://www.teatesting.com/about.php" rel="nofollow"><em>.</em>茶叶质检中心</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="中国茶叶学会" href="http://www.chinatss.cn/" rel="nofollow"><em>.</em>中国茶叶学会</a>
+				</li>
+			   				<li class="">
+					<a target="_blank" title="农业科学院" href="http://www.cqaas.cn/" rel="nofollow"><em>.</em>农业科学院</a>
+				</li>
+			   			</ul>			
+		</div>
+				
+	</div>
+</div>
+<!--/友情链接-合作机构-->
+<!--/return mobile-->
+<div id="footer" class="footer Song">
+	<div class="m">
+		<div class="fl">
+			<p class="f14">
+				<a href="http://www.chayu.com/about" target="_blank">关于我们</a>  |  
+                <a href="http://www.chayu.com/service" target="_blank">服务中心</a>  |  
+				<a href="http://www.chayu.com/about/contactus" target="_blank">联系我们</a>  |  
+				<a href="http://www.chayu.com/about/advice" target="_blank">意见反馈</a>  |  
+				<a href="http://www.chayu.com/about/service" target="_blank">服务条例</a>  |  
+				<a href="http://www.chayu.com/about/declaration" target="_blank">免责声明</a>  |  
+				<a href="http://www.chayu.com/about/tenet" target="_blank">指导原则</a>  |  
+				<a href="http://www.chayu.com/about/link" target="_blank">友情链接</a>  |  
+				<a href="http://www.chayu.com/about/map" target="_blank">网站地图</a> <!--  |
+               <a href="http://mirror.chayu.com/" target="_blank">APP下载</a>-->
+			</p>
+			<p class="contact">运营电话：400-967-5866 市集电话：400-892-5066 帮助邮箱：feedback@chayu.com</p>
+			<p class="icp">备案号：<a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow">渝ICP备15010439号</a>  增值电信业务经营许可证：渝B2-20150093  <img src="http://static.chayu.com/images/icon_icp.png" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50010302001231" rel='nofollow,noindex' target="_blank">渝公网安备 50010302001231号</a></p>
+			<p>Copyright © 2014-2017 chayu.com All Rights Reserved 重庆茶语网络信息技术有限公司</p>
+		</div>
+		<div class="code"><img src="http://static.chayu.com/images/wangzhi.gif" alt="扫描二维码，进入站点" /><br />扫描二维码，进入站点</div>
+		<div class="twiter line">
+			<a class="sina">新浪微博</a>
+			<a class="weixin">腾讯微博</a>
+		</div>
+	</div>
+</div>
+<link href="http://static.chayu.com/libs/artDialog/skins/aero.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?01f9b6ae85ae1f5d5c2f5c022f0e0020";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!--cnzz统计-->
+<div style="display:none">
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257188419'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257188419' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+<!--cnzz统计end-->
+
+<!--茶语数据统计代码-->
+<div style="display: none;">
+    <script type="text/javascript" src="http://static.chayu.com/js/statistics.js"></script>
+
+	<script type="text/javascript" src="http://statistics.chayu.com/js/tongji/statistics.js?agent=1" id="chayu_statistics_js"></script>
+
+</div>
+<!--/茶语数据统计代码--></body>
+</html>

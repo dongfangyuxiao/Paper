@@ -1,0 +1,2145 @@
+<!doctype html>
+
+
+
+
+<html xmlns:wb="http://open.weibo.com/wb">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="refresh" content="1200"/>
+    <title>财新网-原创财经新媒体-CAIXIN.COM</title>
+    <meta property="qc:admins" content="234046631563110166375" />
+    <meta name="keywords" content="财新网,《新世纪》,财经,财经新闻,金融,商业,产经,政经,基金,改制,改革，财经网站" />
+    <meta name="description" content="财新网（caixin.com）与财新《新世纪》、财新《中国改革》、《比较》同属财新传媒。财新网定位于原创财经新媒体，整合资讯、观点、多媒体、互动等信息时代形态丰富的媒体产品，以客观、专业的视角，实时输出高品质原创内容，为中国政界、学界和产业界精英提供每日经济活动必需的财经新闻和资讯评论" />
+    <meta name="apple-itunes-app" content="app-id=356023612"/>
+    <meta property="wb:webmaster" content="876ffe54d1507cb0" />
+    <link rel="stylesheet" type="text/css" href="http://file.caixin.com/webchannel/home/css/all_v6.css">
+    <script>
+        var topNavIndex = 1;
+    </script>
+    <script src="http://file.caixin.com/webjs/jquery-1.7.2.min.js" ></script>
+    <script src="http://file.caixin.com/webchannel/home/js/all_v6.js" ></script>
+    <script src="http://file.caixin.com/webjs/comment/count_comment.js" ></script>
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2046696190" type="text/javascript" charset="utf-8"></script>
+    <script>var topAdCode=3</script>
+<script src="http://dup.baidustatic.com/js/ds.js"></script>
+<script>
+
+    var blockIndexLoadMore = false;
+
+    function getMoreNewsForIndex(type,fn){
+
+        var nextNewsItem = $('.news_list > dl').size() + 1;
+        var nextImageItem = $('.news_list > .news_img_box').size() + 1;
+        //var url = 'http://tag.caixin.com/news/homeInterface.jsp';
+        var url = 'https://gateway.caixin.com/api/extapi/homeInterface.jsp';
+        var data = {
+            subject : type,
+            start : type === '100589266' ? nextNewsItem : nextImageItem,
+            count:type === '100589266' ? 8 : 2,
+            picdim : '_266_177',
+            type:2,
+            callback : '?'
+        }
+        $.ajax({
+            type: 'GET',
+            url: url,
+            dataType: 'jsonp',
+            data:data,
+            success: function (json) {
+                fn && fn(json);
+            },
+            complete: function(XMLHttpRequest, textStatus){
+                //
+            }
+        });
+
+    }
+
+    function renderIndexMoreList() {
+
+        if(blockIndexLoadMore) return;
+        $('#moreArticle > a').html('加载中...');
+        blockIndexLoadMore = true;
+
+        getMoreNewsForIndex('100589266',function (newsJson) {
+
+            getMoreNewsForIndex('101117089',function (imgJson) {
+
+                var newsList = newsJson.datas,imgList = imgJson.datas;
+
+                var finalStr = '';
+
+                for(var i=0; i<10;i++){
+
+                    if(i === 0 || i === 5){
+                        finalStr += bulidImageStr(imgList.splice(0,1)[0])
+                    }else{
+                        finalStr += buildMobAllString(newsList.splice(0,1)[0])
+                    }
+
+                }
+
+                $('.news_list').append(finalStr);
+
+                blockIndexLoadMore = false;
+                $('#moreArticle > a').html('加载更多文章');
+
+                setTimeout(function () {
+                    countComment();
+                },100)
+
+            })
+        });
+    }
+
+
+    function bulidImageStr(imgObj){
+
+        if(!imgObj) return '';
+
+        var html = '';
+        var imgs = imgObj.pict.imgs || [];
+        if(imgs.length === 0) return '';
+        var time = '';
+
+        if(imgObj.time.indexOf('-')>0){
+            time=imgObj.time.substr(5,2)+'月'+imgObj.time.substr(8,2)+'日 '+imgObj.time.substr(11,5);
+        }else{
+            time=imgObj.time;
+        }
+
+        html += '<div class="news_img_box">';
+        html += '<div class="tit">';
+        html += '<p>';
+        html += '<a href="'+imgObj.link+'">'+ imgObj.desc +'</a>';
+        if(imgObj.attr==5){html+='<span class="icon_key" title="收费文章"></span>';}
+        if(imgObj.attr!=5 && imgObj.freeTime){html+=('<span class="icon_time_'+ imgObj.freeDuration +'" title="限时免费"></span>');}
+        html += "</p>";
+        html += "<em aid='"+imgObj.comm.aid+"' tid='"+imgObj.comm.tid+"'>0</em></div>";
+        html += '<ul>';
+        for(var i=0;i<imgs.length;i++){
+            var row = imgs[i];
+            html += '<li>';
+            html += '<a href="'+imgObj.link+'"><img src="'+row.url+'" /></a>';
+            html += '</li>';
+        }
+        html += '</ul>';
+        html += '<span>'+time+'</span>';
+        html += '</div>';
+        return html;
+    }
+
+
+
+    function buildMobAllString(obj){
+        var html="";
+        var time = "";
+        var date=new Date();
+        var year=date.getFullYear();
+        if(obj.time.indexOf('-')>0){
+            time=obj.time.substr(5,2)+'月'+obj.time.substr(8,2)+'日 '+obj.time.substr(11,5);
+        }else{
+            time=obj.time;
+        }
+        html+="<dl>";
+        if(obj.pict!=null&&obj.pict.imgs!=null&&obj.pict.imgs[0].url!=null){
+            html+="<dt><img src='"+obj.pict.imgs[0].url+"'>";
+            html += obj.video === '' ? '<span></span></dt>': '<span><img src="http://file.caixin.com/webchannel/home/img/icon_video.png"></span></dt>'
+        }else{
+            if(obj.cate.indexOf('101098167')!== -1){
+                //数据加使用写死的图片
+                html+="<dt><img src='https://img.caixin.com/2018-04-10/1523327881747430.jpg'>";
+                html += obj.video === '' ? '<span></span></dt>': '<span><img src="http://file.caixin.com/webchannel/home/img/icon_video.png"></span></dt>'
+            }
+        }
+
+        html+="<dd><div class='tit'><em>"+obj.channelDesc.replace("频道","")+"</em>";
+        html+="<a href='"+obj.link+"#gocomment'><i>";
+        html+="<em aid='"+obj.comm.aid+"' tid='"+obj.comm.tid+"'>0</em></i></a></div>";
+        html+="<p><a href='"+obj.link+"'>"+obj.desc+"</a>";
+        if(obj.attr==5){html+='<span class="icon_key" title="收费文章"></span>';}
+        if(obj.attr!=5 && obj.freeTime){html+=('<span class="icon_time_'+ obj.freeDuration +'" title="限时免费"></span>');}
+        html+="</p>";
+        html+="<span>"+obj.edit.name+"  "+time+"</span></dd></dl>";
+        return html;
+    }
+
+</script>
+    <base target="_blank" />
+</head>
+  <style type="text/css">
+        /*20170911-------------*/
+        /*样式添加*/
+        .icon_time,.icon_key{display: inline-block;}
+        .icon_time{background:url(http://file.caixin.com/webchannel/all/img/icon_time.png) no-repeat 5px 2px ;width: 20px;height: 19px;}
+        .icon_key{background:url(http://file.caixin.com/webchannel/all/img/icon_key.png) no-repeat 5px 0 ;width: 26px;height: 10px;vertical-align: middle;}
+    </style>
+<body class="gray">
+<script language="javascript">
+    ads_display(574)
+</script>
+<!--top begin-->
+<!--top begin-->
+ <style type="text/css">
+        /*20170911-------------*/
+        /*样式添加*/
+        .icon_time,.icon_key{display: inline-block;}       .icon_key{background:url(http://file.caixin.com/webchannel/all/img/icon_key.png) no-repeat 5px 0 ;width: 26px;height: 10px;vertical-align: middle;}
+    </style>
+
+<div class="head">
+    <div class="siteNav">
+        <div class="quickMenu-left"></div>
+        <div class="siteNavBox">
+            <div class="loginInfo">
+                <ul id="showLoginId">
+                </ul>
+            </div>
+           
+<div class="searchBox">
+                <form method="get" id="searchform"
+                      action="http://search.caixin.com/search/search.jsp">
+                    <input class="keyword" name="keyword" id="keyword" type="text"
+                           onFocus="if(this.value=='请输入要搜索的信息') this.value='';"
+                           onBlur="if(this.value=='') this.value='请输入要搜索的信息';"
+                           value="请输入要搜索的信息" />
+                    <input class="seachBtn" type="image"
+                           onClick="if(document.getElementById('keyword').value=='请输入要搜索的信息')document.getElementById('keyword').value='';jQuery('#searchform').submit();"
+                           src="http://file.caixin.com/webchannel/home/img/seachBtn.png" />
+                </form>
+            </div>
+
+            <div class="quickMenu">
+                <a
+                    href="http://www.wusuobuneng.com/">无所不能</a> <a
+                    href="http://www.healthpoint.cn/">健康点</a> <a
+                    href="http://sports.caixin.com/">运动家</a>
+                <div class="quickMenu-right"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="topUp">
+
+        <div class="topAd">
+            <script language="javascript">
+                setTopLogin();
+                if (typeof (topAdCode) != "undefined")
+                    ads_display(topAdCode);
+            </script>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    <div class="nav-long-line">
+        <div class="seach-banner">
+            <div class="navLink">
+                <div>
+<span><a href="http://www.caixin.com/subscribe/">个人订阅</a ></span>
+<span><a href="http://corp.caixin.com/group/">机构订阅</a ></span>
+<span><a href="http://course.caixin.com/?channel=02300">私房课</a></span>
+<span><a href="http://k.caixin.com/">财新一线</a></span>
+<span><a href="http://mobile.caixin.com/home/">应用下载</a></span>
+ <span><a href="http://m.corp.caixin.com/m/caixinhelp/">帮助</a></span>
+
+                   <!--<span><a href="http://mall.caixin.com/mall/web/list/list.html?type=100">订阅</a></span>-->
+                </div>
+                <div>
+
+ <span><a href="http://cxdata.caixin.com/index">数据+</a></span>
+ <span><a href="http://index.caixin.com/">智库指数</a></span>
+ <span><a href="http://promote.caixin.com/">Promotion</a></span>
+  <span><a href="http://conferences.caixin.com/">会议/培训</a></span>
+                </div>
+            </div>
+            <a alt="财新网" target="_self" href="http://www.caixin.com/" class="logo"><img src="http://file.caixin.com/webchannel/all/img/logo.png"></a>
+            <a href="http://mall.caixin.com/" class="shopBtn" rel="nofollow"><span>商城</span></a>
+<a href="http://www.caixin.com/subscribe/">
+                <div class="btn_dingyue">立即订阅</div>
+            </a>
+           
+        </div>
+    </div>
+    <div class="mainNav">
+        <table class="nav">
+            <tr>
+                <td class="btn_mulu">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <script type="text/javascript">
+                        $(function() {
+                            $('.btn_mulu ul').click(function() {
+                                var bgHeight = Math.max(document.documentElement.clientHeight, document.documentElement.scrollHeight) + "px";
+                                var muluMenuH = $('.homepageCon').height() + $('.code_box').height() + $('.bottom').height() + 75;
+                                $('.mulu_menu').css({'height': bgHeight});
+                                $('.mulu-ul-f').css({'padding-top':$(window).scrollTop() + 20});
+                                $('.mulu_bg').css('height', bgHeight);
+                                $(document.body).css('overflow','hidden');
+                                $('.mulu_menu,.mulu_bg').show();
+                            });
+                            $('.mulu_menu li,.mulu_menu .shopBtn,.mulu_bg').click(function() {
+                                $('.mulu_menu,.mulu_bg').hide();
+                                $(document.body).css('overflow','auto');
+                            })
+                        })
+                    </script>
+                </td>
+                <td class="homepage"><a  id="nav0" href="http://www.caixin.com/">首页</a></td>
+                <td class="economy"><a  id="nav1" href="http://economy.caixin.com/">经济</a></td>
+                <td class="finance"><a  id="nav2" href="http://finance.caixin.com/">金融</a></td>
+                <td class="companies"><a  id="nav3" href="http://companies.caixin.com/">公司</a></td>
+<!--
+                <td class="cnbc"><a  id="nav12" href="http://gbiz.caixin.com/">全球财经</a></td>
+-->
+                <td class="china"><a  id="nav4" href="http://china.caixin.com/">政经</a></td>
+                <td class="science"><a  id="nav16" href="http://science.caixin.com/">环科</a></td>
+                <td class="international"><a  id="nav5" href="http://international.caixin.com/">世界</a></td>
+                <td class="opinion"><a  id="nav6" href="http://opinion.caixin.com/">观点网</a></td>
+                <td class="life"><a  id="nav7" href="http://culture.caixin.com/">文化</a></td>
+                <td class="blog"><a  id="nav8" href="http://blog.caixin.com/">博客</a></td>
+                <td class="magazine"><a  id="nav9" href="http://weekly.caixin.com/">周刊</a></td>
+                <td class="picture"><a  id="nav10" href="http://photos.caixin.com/">图片</a></td>
+                <td class="video"><a  id="nav11" href="http://video.caixin.com/">视听</a></td>
+                <td class="shuzishuo"><a  id="nav15" href="http://datanews.caixin.com/">数字说</a></td>
+                <td class="zhishu"><a  id="nav13" href="http://nei.caixin.com/">NEI</a></td>
+                <td class="english"><a id="nav14" href="http://www.caixinglobal.com/">English</a></td>
+            </tr>
+        </table>
+
+        <div class="menu_con">
+            <div class="menu_con_box">
+                <div style="display: none;" id="subnav_common">
+                    <a href="http://datanews.caixin.com/">数字说</a><a
+                        href="http://special.caixin.com/weekend/">财新周末</a><a
+                        href="http://special.caixin.com/interview/">精英访谈</a><a
+                        href="http://special.caixin.com/mark/">纪念日</a>
+                </div>
+                <div class="sub-menu" id="subnav-1" style="display: none; height: 0 !important;"></div>
+                <div class="sub-menu" id="subnav0" style="display: none;"></div>
+                <div class="sub-menu" id="subnav1" style="display: none;">
+                    <a href="http://pmi.caixin.com/">财新PMI</a>
+                    <a href="http://economy.caixin.com/centralbank/">读懂央行</a><a
+                        href="http://economy.caixin.com/revenue/">理解万税</a><a
+                        href="http://economy.caixin.com/daily_forecast/">天天预测</a><a
+                        href="http://economy.caixin.com/policy/">政策信息</a><a
+                        href="http://economy.caixin.com/macro_economy/">宏观数据</a><a
+                        href="http://economy.caixin.com/trade_investment/">贸易投资</a><a
+                        href="http://economy.caixin.com/local_economy/">地方经济</a><a
+                        href="http://economy.caixin.com/global_economy/">国际经济</a>
+                   <a href="http://economy.caixin.com/ceic_articles/">CEIC聚焦</a>
+                </div>
+                <div class="sub-menu" id="subnav2" style="display: none;">
+                    <a href="http://finance.caixin.com/regulation/">监管</a><a
+                        href="http://finance.caixin.com/bank/">银行</a><a
+                        href="http://finance.caixin.com/stock/">证券基金</a><a
+                        href="http://finance.caixin.com/insurance_trust/">信托保险</a><a
+                        href="http://finance.caixin.com/investment/">投资</a><a
+                        href="http://finance.caixin.com/innovation/">创新</a><a
+                        href="http://finance.caixin.com/market/">市场</a>
+                    <a href="http://finance.caixin.com/assets/">欢乐财新闻</a>
+                </div>
+                <div class="sub-menu" id="subnav3" style="display: none;">
+                    <a href="http://companies.caixin.com/tmt/">TMT</a><a
+                        href="http://companies.caixin.com/djt/">大家谈</a><a
+                        href="http://companies.caixin.com/automobile/">汽车</a><a
+                        href="http://companies.caixin.com/energynews/">能源资源</a><a
+                        href="http://companies.caixin.com/traffic/">交通基建</a><a
+                        href="http://companies.caixin.com/property/">房地产</a><a
+                        href="http://companies.caixin.com/consume/">消费</a>
+                    <a href="http://companies.caixin.com/sports/">体育</a>
+                </div>
+<!--
+                <div class="sub-menu" id="subnav12" style="display: none;">
+                    <a href="http://gbiz.caixin.com/chinafocus/">中国聚焦</a>
+                    <a href="http://gbiz.caixin.com/global_market/">全球市场</a>
+                    <a href="http://gbiz.caixin.com/company/">全球公司</a>
+                    <a href="http://gbiz.caixin.com/tech/">科技创业</a>
+                    <a href="http://gbiz.caixin.com/people/">人物访谈</a>
+                </div>
+-->
+                <div class="sub-menu" id="subnav4" style="display: none;">
+                    <a href="http://china.caixin.com/anticorruption/">反腐纪事</a><a
+                        href="http://china.caixin.com/ups_and_downs/">人事观察</a><a
+                        href="http://china.caixin.com/wuyang/">无恙</a><a
+                        href="http://china.caixin.com/on_equaducation/">有教无类</a><a
+                        href="http://china.caixin.com/law/">法治</a><a
+                        href="http://china.caixin.com/politics/">时政</a><a
+                        href="http://china.caixin.com/medicare/">民生</a><a
+                        href="http://china.caixin.com/society/">社会</a><a
+                        href="http://china.caixin.com/agriculture/">三农</a>
+                </div>
+                <div class="sub-menu" id="subnav16" style="display: none;">
+                     <a href="http://science.caixin.com/environment/ ">环境 </a><a
+                        href=" http://science.caixin.com/scitech/">新科技</a>
+                </div>
+                <div class="sub-menu" id="subnav5" style="display: none;">
+                    <a href="http://international.caixin.com/2015/gjpdxwsl/">全球直播 </a><a
+                        href="http://international.caixin.com/onchina/">旁观中国</a><a
+                        href="http://international.caixin.com/global_tale/">天下事</a><a
+                        href="http://international.caixin.com/globusnews/">世界说 </a>
+                </div>
+                <div class="sub-menu" id="subnav6" style="display: none;">
+                    <a href="http://opinion.caixin.com/columns/">财新名家</a><a
+                        href="http://opinion.caixin.com/upfront/">火线评论</a><a
+                        href="http://opinion.caixin.com/opinion_leader/">意见领袖</a><a
+                        href="http://opinion.caixin.com/editorial/">社评</a><a
+                        href="http://opinion.caixin.com/wyll/">聚焦</a><a
+                        href="http://opinion.caixin.com/opinion_video/">视听</a><a
+                        href="http://cnreform.caixin.com/">《中国改革》</a><a
+                        href="http://bijiao.caixin.com/">《比较》</a>
+                    <a href="http://learn.caixin.com/xp_product/">谢平互金九讲</a>
+                    <a href="http://opinion.caixin.com/ws_product/">王烁学习报告</a>
+                </div>
+                <div class="sub-menu" id="subnav7" style="display: none;">
+                    <a href="http://culture.caixin.com/chilong/">明朝历史传奇小说《赤龙》</a>
+                    <a href="http://culture.caixin.com/zhuanlan/">专栏</a><a
+                        href="http://culture.caixin.com/wh_philosophy/">评论</a><a
+                        href="http://culture.caixin.com/novel/">文学</a><a
+                        href="http://culture.caixin.com/art/">艺术</a><a
+                        href="http://culture.caixin.com/dead/">逝者</a><a
+                        href="http://culture.caixin.com/books/">阅读</a>
+                </div>
+                <div class="sub-menu" id="subnav8" style="display: none;" >
+                    <a href="http://blog.caixin.com/archives/category/%E7%BB%8F%E6%B5%8E">经济</a><a
+                        href="http://blog.caixin.com/archives/category/民生">民生</a><a
+                        href="http://blog.caixin.com/archives/category/%e4%ba%ba%e6%96%87">人文</a><a
+                        href="http://blog.caixin.com/archives/category/%E7%94%9F%E6%B4%BB">生活</a>
+                    <a  href="http://blog.caixin.com/archives/category/%E7%A7%91%E6%8A%80">科技</a><a
+                        href="http://blog.caixin.com/latest">最新更新</a>
+                </div>
+                <div class="sub-menu" id="subnav9" style="display: none;">
+                    <!--<a href="http://magazine.caixin.com/history/">钩沉</a>-->
+                </div>
+                <div class="sub-menu" id="subnav10" style="display: none;">
+                    <a href="http://photos.caixin.com/dailynews/">滚动新闻</a><a
+                        href="http://photos.caixin.com/photostory/">图片故事</a><a
+                        href="http://photos.caixin.com/cxtj/">专题报道</a><a
+                        href="http://photos.caixin.com/photoreport/">一周天下</a><a
+                        href="http://photos.caixin.com/newsmaker/">一周人物</a><a
+                        href="http://photos.caixin.com/showcase/">奇闻趣事</a><a
+                        href="http://photos.caixin.com/caixindj/">财新独家</a>
+                </div>
+                <div class="sub-menu" id="subnav11" style="display: none;">
+                    <a href="http://video.caixin.com/financialexpress/">短视频</a><a
+                        href="http://video.caixin.com/audio/">音频</a><a
+                        href="http://video.caixin.com/shulisj/">财新时间</a>
+                    <a href="http://video.caixin.com/2017/yxrw2/">一线人物</a>
+                    <a href="http://video.caixin.com/bbc/">BBC视野</a><a
+                        href="http://video.caixin.com/notesonnow/">微纪录</a>
+                </div>
+                <div class="sub-menu" id="subnav15" style="display:none;">
+                    <a href="http://datanews.caixin.com/datatopic/">互动新闻</a><a
+                        href="http://special.caixin.com/mark/">纪念日</a>
+                </div>
+                <div class="sub-menu" id="subnav13" style="display: none;">
+                </div>
+                 <div class="sub-menu" id="subnav14" style="display: none;"> <a href="//www.caixinglobal.com/finance/">Finance</a><a
+                        href="//www.caixinglobal.com/economy/">Economy</a>
+                    <a href="//www.caixinglobal.com/business-and-tech/">Business&Tech</a>
+                    <a href="//www.caixinglobal.com/regulation/">Regulation</a>
+                    <a href="//www.caixinglobal.com/environment/">Environment</a><a
+                            href="//www.caixinglobal.com/people/">People</a><a
+                            href="//k.caixinglobal.com/">CX Flash</a><a
+                            href="//www.caixinglobal.com/opinion/">Opinion</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<img style="width: 0; height: 0; overflow: hidden; display: block"
+     src="http://file.caixin.com/file/weixin/cx_logo.jpg" alt="财新传媒" />
+<!--top end-->
+<!--top end-->
+
+<!--首页 begin-->
+<div class="homepageCon">
+
+    <!--滚动新闻 begin-->
+    <div class="topSubNav"> <span class="tit"><a href="http://www.caixin.com/search/scroll/index.jsp">滚动新闻：</a></span>
+        <div class="scrollnews">
+            <ul>
+                <li> <a href="http://opinion.caixin.com/2018-07-12/101300609.html">“国有金融资本管理指导意见”为何是件大事</a><span>07-12 11:04</span></li>
+<li> <a href="http://opinion.caixin.com/2018-07-12/101300589.html">朱格拉周期与投资决策</a><span>07-12 10:51</span></li>
+<li> <a href="http://opinion.caixin.com/2018-07-12/101300526.html">没有人是药神，医保也不是</a><span>07-12 10:15</span></li>
+<li> <a href="http://opinion.caixin.com/2018-07-12/101300517.html">梁建章：至少要用GDP的2%到5%来补贴和奖励生育</a><span>07-12 10:14</span></li>
+<li> <a href="http://opinion.caixin.com/2018-07-12/101300503.html">中美贸易战升级对经济的影响</a><span>07-12 10:05</span></li>
+<li> <a href="http://companies.caixin.com/2018-07-12/101300478.html">国航航班飞行途中氧气面罩脱落 民航局介入调查</a><span>07-12 09:50</span></li>
+<li> <a href="http://finance.caixin.com/2018-07-12/101300426.html">今日开盘：两市双双低开 沪指跌幅 0.24%</a><span>07-12 09:28</span></li>
+<li> <a href="http://companies.caixin.com/2018-07-12/101300403.html">发改委取消电网部分垄断收费项目</a><span>07-12 09:14</span></li>
+<li> <a href="http://china.caixin.com/2018-07-12/101300369.html">反腐扫向涉台系统 30天内广东台办三官员相继被查</a><span>07-12 09:05</span></li>
+<li> <a href="http://international.caixin.com/2018-07-12/101300365.html">美商务部与中兴达成托管协议 禁令解除在即</a><span>07-12 09:04</span></li>
+<li> <a href="http://photos.caixin.com/2018-07-12/101300330.html">四川多地遇暴雨 内涝严重列车停运</a><span>07-12 08:49</span></li>
+<li> <a href="http://opinion.caixin.com/2018-07-12/101300290.html">俞可平：像追求阳光一样去追求正义</a><span>07-12 08:33</span></li>
+<li> <a href="http://photos.caixin.com/2018-07-12/101300274.html">克罗地亚2-1逆转英格兰 首进决赛创历史</a><span>07-12 08:24</span></li>
+<li> <a href="http://china.caixin.com/2018-07-12/101300203.html">四川多地降大暴雨 启动Ⅱ级防汛应急响应</a><span>07-12 07:04</span></li>
+<li> <a href="http://companies.caixin.com/2018-07-11/101300115.html">小鹏汽车回应员工窃密案  涉事者系普通员工</a><span>07-11 22:58</span></li>
+<li> <a href="http://china.caixin.com/2018-07-11/101300080.html">广东省委常委曾志权落马 事涉任职财厅期间</a><span>07-11 22:22</span></li>
+<li> <a href="http://companies.caixin.com/2018-07-11/101300069.html">普华永道：售电公司将迎来第一轮洗牌</a><span>07-11 21:58</span></li>
+<li> <a href="http://china.caixin.com/2018-07-11/101300065.html">人事观察|最高法政治部主任徐家新转岗吉林省高院</a><span>07-11 21:12</span></li>
+<li> <a href="http://china.caixin.com/2018-07-11/101300052.html">广东省委常委、统战部部长曾志权接受调查</a><span>07-11 20:14</span></li>
+<li> <a href="http://companies.caixin.com/2018-07-11/101300037.html">东航增发募资148亿 国调基金、吉祥航空入股</a><span>07-11 20:05</span></li>
+
+            </ul>
+        </div>
+        <!--
+<div class="morenews"><a style="background:#368160; color:#fff;margin-right:8px;" href="http://course.caixin.com">私房课</a><a href="http://datanews.caixin.com/">数字说</a>  <a href="http://special.caixin.com/interview/">精英访谈</a><a href="http://special.caixin.com/mark/">纪念日</a> </div>
+-->
+        <div class="clear"></div>
+    </div>
+    <!--滚动新闻 end-->
+
+    <!-- 通栏广告 begin -->
+       <div style="position:relative;margin-bottom:8px;"><script language="javascript"> 
+            bgyouhua(629)
+            </script>
+
+</div> 
+    <!-- 通栏广告 end -->
+
+    <!-- 通栏碎片 begin -->
+     
+    <!-- 通栏碎片 end -->
+
+    <!--头条 begin-->
+    <div class="toutiao_box">
+        <div class="left">
+            <div class="demolNews">
+                
+
+<dl><dt><a href="http://international.caixin.com/2018-07-12/101300365.html">美商务部与中兴达成托管协议 禁令解除在即 </a> <span class="icon_key" title="收费文章"></span>  </dt>
+<dd>
+<span>财新驻华盛顿记者 张琪 07月12日 09:04 </span>
+</dd>
+</dl>
+
+
+
+
+<dl><dt><a href="http://economy.caixin.com/2018-07-11/101299793.html">学者建言个税法修正 <br>减税效应如何落到实处？</a> <span class="icon_key" title="收费文章"></span> </dt>
+<dd>
+<span>财新记者 任蕙兰 07月12日 07:00 </span>
+</dd>
+</dl>
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="middle">
+            <div class="changePic">
+                <div class="lstjtibd">
+        <div class="wlmiritit">
+            <div id="zyqhpg" class="lstjtiri" style="POSITION: static">
+                <li onclick="ohpage(0)" class="sxs"></li>
+                <li onclick="ohpage(1)" class="sxs"></li>
+                <li onclick="ohpage(2)" class="sxs1"></li>
+                <li onclick="ohpage(3)" class="sxs"></li>
+            </div>
+        </div>
+    </div>
+    <!--数量 end-->
+    <!--内容 begin-->
+    <div id="zyqh" class="lstjbd">
+
+
+        <dl align="center" style="display: none;"><span><a href="http://photos.caixin.com/2018-07-12/101300330.html"><img src="http://image1.caixin.com/2018-07-12/1531356110502077_480_320.jpg"></a></span>
+            <div class="wzdf"><a href="http://photos.caixin.com/2018-07-12/101300330.html">四川多地遇暴雨 内涝严重列车停运</a> </div>
+        </dl>
+
+
+            <dl align="center" style="display: none;"><span><a href="http://photos.caixin.com/2018-07-12/101300274.html"><img src="http://image1.caixin.com/2018-07-12/1531354418665755_480_320.jpg"></a></span>
+            <div class="wzdf"><a href="http://photos.caixin.com/2018-07-12/101300274.html">克罗地亚2-1逆转英格兰 首进决赛创历史</a> </div>
+        </dl>
+
+
+
+        <dl align="center" style="display: none;"><span><a href="http://photos.caixin.com/2018-07-11/101299714.html"><img src="http://image1.caixin.com/2018-07-11/1531293515160829_480_320.jpg"></a></span>
+            <div class="wzdf"><a href="http://photos.caixin.com/2018-07-11/101299714.html">强台风“玛莉亚”登陆 福州城区风雨交加</a> </div>
+        </dl>
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <!--广告 begin-->
+        <!--这三行代码一定不要改！！一定保证广告下面还有一条内容！切记！-->
+        <script>
+        ads_display(3197)
+        </script>
+        <!--广告 end-->
+        
+         
+       <dl align="center" style="display: none;"><span><a href="http://video.caixin.com/2018-07-09/101296500.html">
+       <img src="http://img.caixin.com/2018-07-12/1531354802589831_480_320.jpg"> 
+       <div class="wzdf"><img src="http://file.caixin.com/webchannel/all/img/t-icon-video.png" width="14"> 
+       <a href="http://video.caixin.com/2018-07-09/101296500.html">【微纪录】“抱团”一年
+    </a></div>
+        </dl>
+    </div>
+    <!--内容 end-->
+                <script type="text/javascript">
+                    //图片跑马灯
+                    var zyqhnumber = 0;
+                    var indexlb;
+
+                    function ohpage(dz) {
+                        dom = document.getElementById("zyqh").getElementsByTagName("dl");
+                        for(var i = 0; i < dom.length; i++) {
+                            dom[i].style.display = 'none';
+                        }
+                        if(dz == "++") {
+                            window.clearInterval(indexlb);
+                            zyqhnumber++;
+                            if(zyqhnumber == dom.length) {
+                                zyqhnumber = 0;
+                            }
+                            clickpage(zyqhnumber);
+                        } else if(dz != null) {
+                            window.clearInterval(indexlb);
+                            zyqhnumber = dz;
+                            clickpage(zyqhnumber);
+                        } else {
+                            zyqhnumber = 0;
+                        }
+
+                        dom[zyqhnumber].style.display = '';
+                        indexlb = setTimeout("ohpage('++')", 3000);
+                    }
+
+                    //首页初始化列表按钮
+                    function thepagecsh() {
+                        dom = document.getElementById("zyqh").getElementsByTagName("dl");
+                        var str = "";
+                        for(var i = 0; i < dom.length; i++) {
+                            if(i == zyqhnumber) {
+                                str += "<li onclick='ohpage(" + i + ")' class='sxs1'>" + (i + 1) + "</li>";
+                            } else {
+                                str += "<li onclick='ohpage(" + i + ")' class='sxs'>" + (i + 1) + "</li>";
+                            }
+                        }
+                        document.getElementById("zyqhpg").innerHTML = str;
+                    }
+
+                    function clickpage(dz) {
+                        if(dz < dom.length) {
+                            dom1 = document.getElementById("zyqhpg").getElementsByTagName("li");
+                            for(var i = 0; i < dom1.length; i++) {
+                                dom1[i].className = 'sxs';
+                            }
+                            dom1[zyqhnumber].className = "sxs1";
+                        }
+                    }
+                </script>
+                <script>
+                    thepagecsh();
+                    ohpage();
+                </script>
+            </div>
+        </div>
+        <div class="right">
+            <div class="demolNews">
+                <dl><dt><a href="http://opinion.caixin.com/2018-07-11/101299357.html">余永定回顾展望贸易战(之三)：301调查报告的指控站得住脚吗？ </a> <a href="http://opinion.caixin.com/2018-07-10/101297940.html">(之一)</a> | <a href="http://opinion.caixin.com/2018-07-10/101298339.html">(之二)</a><span class="icon_time_48" title="限时免费"></span></dt>
+<dd>
+<span>财新特约作者 余永定 07月12日 07:00</span>
+</dd>
+</dl>
+
+
+<dl><dt><a href="http://finance.caixin.com/2018-07-11/101299732.html">姚刚十年受贿6961万 十年前内幕交易获利210万 </a> <span class="icon_key" title="收费文章"></span>  </dt>
+<dd>
+<span>财新记者 刘彩萍 07月12日 07:00 </span>
+</dd>
+</dl>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!--头条 end-->
+
+    <!-- 图片列表头条 begin -->
+    <div class="img_list_box">
+        
+            <ul>
+
+<li>
+                <span><a href="http://opinion.caixin.com/2018-07-12/101300526.html"><img src="http://img.caixin.com/2018-07-12/1531362514167641_300_200.jpg"></a></span>
+                <em><a href="http://opinion.caixin.com/columns/">财新名家</a></em>
+                <p>
+                    <a href="http://opinion.caixin.com/2018-07-12/101300526.html">朱恒鹏：没有人是药神，医保也不是 
+</a><span class="icon_time_48" title="限时免费"></span></p>
+            </li>
+
+
+
+
+
+
+<li>
+                <span><a href="http://opinion.caixin.com/2018-07-12/101300517.html"><img src="http://img.caixin.com/2012-04-25/201204250066_300_200.jpg"></a></span>
+                <em><a href="http://opinion.caixin.com/columns/">财新名家</a></em>
+                <p>
+                <a href="http://opinion.caixin.com/2018-07-12/101300517.html">至少要用GDP的2%到5%来补贴和奖励生育</a></p>
+            </li>
+
+
+<li>
+                <span><a href="https://course.caixin.com/expert.course/course/reserve?courseTimes=1528098593&amp;channel=02300"><img src="http://img.caixin.com/2017-09-12/1505176604500275_300_200.jpg"></a></span>
+                <em><a href="http://opinion.caixin.com/columns/">财新私房课</a></em>
+                <p>
+                <a href="https://course.caixin.com/expert.course/course/reserve?courseTimes=1528098593&amp;channel=02300">叶明欣：如何有效构建决策框架</a><span class="icon_key" title="收费文章"></span></p>
+            </li>
+
+
+
+
+<li>
+        <span><a href="http://opinion.caixin.com/2018-07-12/101300290.html"><img src="http://img.caixin.com/2018-07-12/1531356678427341_300_200.jpg"></a></span>
+        <em><a href="http://opinion.caixin.com/columns/">财新名家</a></em>
+        <p>
+            <a href="http://opinion.caixin.com/2018-07-12/101300290.html">俞可平：像追求阳光一样去追求正义</a><span class="icon_time_48" title="限时免费"></span></p>
+    </li>
+
+
+
+
+
+			
+
+<li>
+        <span><a href="http://companies.caixin.com/2018-07-11/101300022.html"><img src="http://img.caixin.com/2018-07-11/1531310586455169_300_200.jpg"></a></span>
+        <em><a href="http://companies.caixin.com/2018-07-11/101300022.html">楼市观察</a></em>
+        <p>
+            <a href="http://companies.caixin.com/2018-07-11/101300022.html">中美贸易战对商业地产影响几何</a><span class="icon_key" title="收费文章"></span></p>
+    </li>
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <!-- 图片列表头条 end -->
+
+    <!-- 主体内容 begin -->
+    <div class="main_con">
+
+        <!-- 主体内容左侧 begin -->
+        <div class="main_left">
+
+            <!-- 左侧通栏广告1 begin -->
+            <div class="indexTopAd">
+  <script language="javascript"> 
+            bgyouhua(2986)
+            </script>
+</div>
+            <!-- 左侧通栏广告1 end -->
+
+            <!-- 新闻主体 begin -->
+             
+                <div class='news_list'><dl><dt><img src='http://img.caixin.com/2018-07-12/1531357902804725_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://china.caixin.com'>政经</a></em><a href="http://china.caixin.com/2018-07-12/101300369.html#gocomment"><i><em aid="100" tid="101300369">0</em></i></a></div><p><a href='http://china.caixin.com/2018-07-12/101300369.html'>反腐扫向涉台系统 30天内广东台办三官员相继被查</a><span class="icon_key" title="收费文章"></span></p><span>见习记者 张子竹 07月12日 09:05</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-12/1531353835172775_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://china.caixin.com'>政经</a></em><a href="http://china.caixin.com/2018-07-12/101300203.html#gocomment"><i><em aid="100" tid="101300203">0</em></i></a></div><p><a href='http://china.caixin.com/2018-07-12/101300203.html'>四川多地降大暴雨 启动Ⅱ级防汛应急响应</a><span class="icon_key" title="收费文章"></span></p><span>实习记者 覃建行 王瑞琪 张榕潇 记者 孙良滋 07月12日 07:04</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531319669665472_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-11/101300086.html#gocomment"><i><em aid="100" tid="101300086">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-11/101300086.html'>《创造101》等养成类综艺大热 广电总局发布“限秀令”</a><span class="icon_key" title="收费文章"></span></p><span>见习记者 钱童 记者 石睿 07月11日 22:27</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531320543502087_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://china.caixin.com'>政经</a></em><a href="http://china.caixin.com/2018-07-11/101300080.html#gocomment"><i><em aid="100" tid="101300080">0</em></i></a></div><p><a href='http://china.caixin.com/2018-07-11/101300080.html'>广东省委常委曾志权落马 事涉任职财厅期间</a><span class="icon_key" title="收费文章"></span></p><span>记者 王婧 07月11日 22:22</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531319133685495_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-11/101300075.html#gocomment"><i><em aid="100" tid="101300075">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-11/101300075.html'>特稿|微信小程序发成绩单 张小龙做系统级生态有哪些动作？</a><span class="icon_key" title="收费文章"></span></p><span>记者 陈梦凡 07月11日 22:19</span></dd></dl>
+            
+            
+                <div class='index-ad-o'></div><dl><dt><img src='http://img.caixin.com/2018-07-12/1531364735836736_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://science.caixin.com'>环科</a></em><a href="http://science.caixin.com/2018-07-12/101300555.html#gocomment"><i><em aid="100" tid="101300555">0</em></i></a></div><p><a href='http://science.caixin.com/2018-07-12/101300555.html'>陕西上陈遗址被发现 古人类210万年前或已走出非洲</a><span class="icon_key" title="收费文章"></span></p><span>记者 秦梓奕 07月12日 10:38</span></dd></dl><dl><dt><img src='http://img.caixin.com/2017-12-11/1512953950938711_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-12/101300478.html#gocomment"><i><em aid="100" tid="101300478">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-12/101300478.html'>国航航班飞行途中氧气面罩脱落 民航局介入调查</a><span class="icon_key" title="收费文章"></span></p><span>记者 黄荣 07月12日 09:50</span></dd></dl><dl><dd><div class='tit'><em><a href='http://finance.caixin.com'>金融</a></em><a href="http://finance.caixin.com/2018-07-12/101300426.html#gocomment"><i><em aid="100" tid="101300426">0</em></i></a></div><p><a href='http://finance.caixin.com/2018-07-12/101300426.html'>今日开盘：两市双双低开 沪指跌幅 0.24%</a></p><span>07月12日 09:28</span></dd></dl><div class='news_img_box'><div class='tit'><p><a href='http://photos.caixin.com/2018-07-12/101300330.html'>四川多地遇暴雨 内涝严重列车停运</a></p><a href="http://photos.caixin.com/2018-07-12/101300330.html#gocomment"><em aid="100" tid="101300330">0</em></a></div><ul><li><a href='http://photos.caixin.com/2018-07-12/101300330.html'><img src='http://image1.caixin.com/2018-07-12/1531356110502077_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-12/101300330.html'><img src='http://image1.caixin.com/2018-07-12/1531356130707460_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-12/101300330.html'><img src='http://image1.caixin.com/2018-07-12/1531356146698460_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-12/101300330.html'><img src='http://image1.caixin.com/2018-07-12/1531356159478677_266_177.jpg'></a></li></ul><span>07月12日 08:49</span></div><dl><dt><img src='http://img.caixin.com/2018-07-12/1531358403002947_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-12/101300403.html#gocomment"><i><em aid="100" tid="101300403">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-12/101300403.html'>发改委取消电网部分垄断收费项目</a><span class="icon_key" title="收费文章"></span></p><span>实习记者 蓝鸣 记者  罗国平 07月12日 09:14</span></dd></dl><div class='index-ad-o'></div><dl><dt><img src='http://img.caixin.com/2018-04-21/1524276039664325_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-12/101300291.html#gocomment"><i><em aid="100" tid="101300291">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-12/101300291.html'>T早报|美国与中兴达成资金托管协议 解禁在即；博通189亿美元收购软件公司CA Technologies；微信小程序上线数量超百万</a><span class="icon_key" title="收费文章"></span></p><span>07月12日 08:34</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531321439513936_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-11/101300115.html#gocomment"><i><em aid="100" tid="101300115">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-11/101300115.html'>小鹏汽车回应员工窃密案  涉事者系普通员工</a><span class="icon_key" title="收费文章"></span></p><span>记者 郑丽纯 彭岩锋 07月11日 22:58</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531318372977726_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-11/101300069.html#gocomment"><i><em aid="100" tid="101300069">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-11/101300069.html'>普华永道：售电公司将迎来第一轮洗牌</a><span class="icon_key" title="收费文章"></span></p><span>见习记者 曾凌轲 07月11日 21:58</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531315157064251_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://china.caixin.com'>政经</a></em><a href="http://china.caixin.com/2018-07-11/101300065.html#gocomment"><i><em aid="100" tid="101300065">0</em></i></a></div><p><a href='http://china.caixin.com/2018-07-11/101300065.html'>人事观察|最高法政治部主任徐家新转岗吉林省高院</a><span class="icon_key" title="收费文章"></span></p><span>记者 林韵诗 07月11日 21:12</span></dd></dl><div class='news_img_box'><div class='tit'><p><a href='http://photos.caixin.com/2018-07-12/101300274.html'>克罗地亚2-1逆转英格兰 首进决赛创历史</a></p><a href="http://photos.caixin.com/2018-07-12/101300274.html#gocomment"><em aid="100" tid="101300274">0</em></a></div><ul><li><a href='http://photos.caixin.com/2018-07-12/101300274.html'><img src='http://image1.caixin.com/2018-07-12/1531354418665755_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-12/101300274.html'><img src='http://image1.caixin.com/2018-07-12/1531354439767656_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-12/101300274.html'><img src='http://image1.caixin.com/2018-07-12/1531354453761215_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-12/101300274.html'><img src='http://image1.caixin.com/2018-07-12/1531354468154748_266_177.jpg'></a></li></ul><span>07月12日 08:24</span></div><div class='index-ad-o'></div><dl><dt><img src='http://img.caixin.com/2017-06-23/1498193940742296_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-11/101300042.html#gocomment"><i><em aid="100" tid="101300042">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-11/101300042.html'>万达电影重组遭深交所37问 申请延期回复</a><span class="icon_key" title="收费文章"></span></p><span>记者  石睿 07月11日 20:05</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531311165391952_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-11/101300037.html#gocomment"><i><em aid="100" tid="101300037">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-11/101300037.html'>东航增发募资148亿 国调基金、吉祥航空入股</a><span class="icon_key" title="收费文章"></span></p><span>记者 黄荣 07月11日 20:05</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531310586455169_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-11/101300022.html#gocomment"><i><em aid="100" tid="101300022">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-11/101300022.html'>楼市观察|中美贸易战对商业地产影响几何</a><span class="icon_key" title="收费文章"></span></p><span>记者 王婧 07月11日 19:54</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531308664001831_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://international.caixin.com'>世界</a></em><a href="http://international.caixin.com/2018-07-11/101300005.html#gocomment"><i><em aid="100" tid="101300005">0</em></i></a></div><p><a href='http://international.caixin.com/2018-07-11/101300005.html'>巴基斯坦外汇储备短缺 中方：相信巴方能克服暂时困难</a><span class="icon_time_48"  title="限时免费"></span></p><span>07月11日 19:27</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531303473235233_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-11/101299945.html#gocomment"><i><em aid="100" tid="101299945">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-11/101299945.html'>菜鸟控股即时配送公司点我达 不与蜂鸟整合</a><a target='_blank' href='http://www.caixinglobal.com/2018-07-12/alibabas-cainiao-buys-control-of-dianwoda-101300166.html'><img src='http://file.caixin.com/webchannel/home/img/icon_en02.png'></a><span class="icon_key" title="收费文章"></span></p><span>记者 王琼慧 07月11日 17:57</span></dd></dl><div class='news_img_box'><div class='tit'><p><a href='http://photos.caixin.com/2018-07-11/101299754.html'>北京南三环主路启动大修 预计10月底前完工</a></p><a href="http://photos.caixin.com/2018-07-11/101299754.html#gocomment"><em aid="100" tid="101299754">0</em></a></div><ul><li><a href='http://photos.caixin.com/2018-07-11/101299754.html'><img src='http://image1.caixin.com/2018-07-11/1531295239526582_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-11/101299754.html'><img src='http://image1.caixin.com/2018-07-11/1531295250892385_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-11/101299754.html'><img src='http://image1.caixin.com/2018-07-11/1531295262553240_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-11/101299754.html'><img src='http://image1.caixin.com/2018-07-11/1531295208624442_266_177.jpg'></a></li></ul><span>07月11日 15:59</span></div><dl><dt><img src='http://img.caixin.com/2018-03-23/1521795353381027_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-11/101299891.html#gocomment"><i><em aid="100" tid="101299891">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-11/101299891.html'>腾讯高管谈投资：目光不应该只看外卖和比特币</a><span class="icon_key" title="收费文章"></span></p><span>特派记者 侯奇江 发自新加坡 07月11日 17:15</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531300612518670_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://finance.caixin.com'>金融</a></em><a href="http://finance.caixin.com/2018-07-11/101299885.html#gocomment"><i><em aid="100" tid="101299885">0</em></i></a></div><p><a href='http://finance.caixin.com/2018-07-11/101299885.html'>老虎证券完成C轮融资 菜鸟战略控股点我达 | 每日数据精华</a></p><span>苏雪妮 07月11日 17:11</span></dd></dl><dl><dt><img src='http://img.caixin.com/2017-10-11/1507727341782383_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://finance.caixin.com'>金融</a></em><a href="http://finance.caixin.com/2018-07-11/101299824.html#gocomment"><i><em aid="100" tid="101299824">0</em></i></a></div><p><a href='http://finance.caixin.com/2018-07-11/101299824.html'>互金平台两月炸雷逾百家 万家乐否认投资P2P</a><span class="icon_key" title="收费文章"></span></p><span>记者 黎柳茜 07月11日 16:40</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531298121708733_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://science.caixin.com'>环科</a></em><a href="http://science.caixin.com/2018-07-11/101299798.html#gocomment"><i><em aid="100" tid="101299798">0</em></i></a></div><p><a href='http://science.caixin.com/2018-07-11/101299798.html'>“玛莉亚”今日登陆福建 全国多地强降雨</a><span class="icon_key" title="收费文章"></span></p><span>实习记者 姚晓辉 07月11日 16:30</span></dd></dl><dl><dt><img src='http://img.caixin.com/2017-07-11/1499780657418491_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://science.caixin.com'>环科</a></em><a href="http://science.caixin.com/2018-07-11/101299696.html#gocomment"><i><em aid="100" tid="101299696">0</em></i></a></div><p><a href='http://science.caixin.com/2018-07-11/101299696.html'>京津冀及周边地区大气污染防治领导小组成立</a><span class="icon_key" title="收费文章"></span></p><span>记者 周泰来 07月11日 15:16</span></dd></dl><div class='news_img_box'><div class='tit'><p><a href='http://photos.caixin.com/2018-07-11/101299111.html'>云南破获一起网络贩卖野生动物案 涉案鸟类401只</a></p><a href="http://photos.caixin.com/2018-07-11/101299111.html#gocomment"><em aid="100" tid="101299111">0</em></a></div><ul><li><a href='http://photos.caixin.com/2018-07-11/101299111.html'><img src='http://image1.caixin.com/2018-07-11/1531270790569779_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-11/101299111.html'><img src='http://image1.caixin.com/2018-07-11/1531270810624383_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-11/101299111.html'><img src='http://image1.caixin.com/2018-07-11/1531270825568685_266_177.jpg'></a></li><li><a href='http://photos.caixin.com/2018-07-11/101299111.html'><img src='http://image1.caixin.com/2018-07-11/1531270837386831_266_177.jpg'></a></li></ul><span>07月11日 09:04</span></div><dl><dt><img src='http://img.caixin.com/2018-07-11/1531292646468564_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://finance.caixin.com'>金融</a></em><a href="http://finance.caixin.com/2018-07-11/101299671.html#gocomment"><i><em aid="100" tid="101299671">0</em></i></a></div><p><a href='http://finance.caixin.com/2018-07-11/101299671.html'>今日收盘：科技类股领跌 沪指失守2800点跌1.76%</a></p><span>记者 陈曦 曹文姣 覃洁 07月11日 15:00</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531268497250443_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://china.caixin.com'>政经</a></em><a href="http://china.caixin.com/2018-07-11/101299010.html#gocomment"><i><em aid="100" tid="101299010">0</em></i></a></div><p><a href='http://china.caixin.com/2018-07-11/101299010.html'>辽宁省鼓励“造人”和“抢人” 率先提出新思路</a><span class="icon_key" title="收费文章"></span></p><span>实习记者 汤佩兰 07月11日 08:04</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531292252209281_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://china.caixin.com'>政经</a></em><a href="http://china.caixin.com/2018-07-11/101299659.html#gocomment"><i><em aid="100" tid="101299659">0</em></i></a></div><p><a href='http://china.caixin.com/2018-07-11/101299659.html'>中国银行开平支行案主犯许超凡被从美国强制遣返</a><span class="icon_time_48"  title="限时免费"></span></p><span>07月11日 14:53</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-06/1530865261318185_266_177.png'><span><img src='http://file.caixin.com/webchannel/home/img/icon_video.png'></span></dt><dd><div class='tit'><em><a href='http://video.caixin.com'>视听</a></em><a href="http://video.caixin.com/2018-07-11/101295115.html#gocomment"><i><em aid="100" tid="101295115">0</em></i></a></div><p><a href='http://video.caixin.com/2018-07-11/101295115.html'>这位模特想用连心眉挑战美丑边界 </a></p><span>07月11日 14:50</span></dd></dl><dl><dt><img src='http://img.caixin.com/2018-07-11/1531289019415224_266_177.jpg'><span></span></dt><dd><div class='tit'><em><a href='http://companies.caixin.com'>公司</a></em><a href="http://companies.caixin.com/2018-07-11/101299591.html#gocomment"><i><em aid="100" tid="101299591">0</em></i></a></div><p><a href='http://companies.caixin.com/2018-07-11/101299591.html'>重组庞巴迪 空客推出新机型A220系列</a><span class="icon_key" title="收费文章"></span></p><span>实习记者 杨佩佩 记者 黄荣 07月11日 13:58</span></dd></dl></div><div id="moreArticle" class="load_more"><a target="_self" href="javascript:void(0);" onclick="renderIndexMoreList();">加载更多文章</a></div>
+            
+            <!-- 新闻主体 end -->
+        </div>
+        <!-- 主体内容左侧 end -->
+
+        <!-- 主体内容右侧 begin -->
+        <div class="main_right">
+
+            <!-- 画中画广告 begin -->
+            <div class="indexRigAd">
+  <script language="javascript"> 
+            bgyouhua(6)
+            </script>
+</div>
+
+            <!-- 画中画广告 end -->
+
+            <!-- 观点 begin -->
+            <div class="guandian_box">
+    <h3><a href="http://opinion.caixin.com/">观点</a></h3>
+    <div class="lImg_rArt">
+
+<dl>
+      <dt><a href="http://opinion.caixin.com/zhangtao_mjxx/"><img src="http://www.caixin.com/upload/zhuanlan/100777156_100_100.jpg"></a></dt>
+
+			<dd><p><a href="http://opinion.caixin.com/2018-07-12/101300609.html">“国有金融资本管理指导意见”为何是件大事</a><span class="icon_time_48" title="限时免费"></span>
+</p><span>专栏作家 张涛</span>
+            </dd>
+        	</dl>
+
+	
+<dl>
+      <dt><a href="http://opinion.caixin.com/wanzhao_mjxx/"><img src="http://www.caixin.com/upload/zhuanlan/100861497_100_100.jpg"></a></dt>
+
+			<dd><p><a href="http://opinion.caixin.com/2018-07-11/101299504.html">中美贸易战阴云下，如何促进居民消费</a><span class="icon_time_48" title="限时免费"></span>
+</p><span>专栏作家 万钊</span>
+            </dd>
+        	</dl>
+	
+	
+			<dl>
+            <dt><a href="http://opinion.caixin.com/2018-07-11/101299653.html"><img src="http://img.caixin.com/2018-07-11/1531292119982442.jpg"></a></dt>
+
+			<dd><p><a href="http://opinion.caixin.com/2018-07-11/101299653.html">美国最高法院向中资企业发出的信号 </a><span class="icon_time_48" title="限时免费"></span>
+</p><span>文|Eric Mahr</span>
+            </dd>
+        </dl>	
+	
+
+
+
+
+			
+			
+
+</div>
+</div>	
+            <!-- 观点 end -->
+           
+             <!-- 精彩特惠 begin 
+             
+                <div class="thjx"><h3><ul class="top10Nav1"><li id="top101"><a href='http://www.caixin.com/tehui/'>单篇特惠</a></li></ul></h3><div class="top10Con">
+	<dl>            
+		<dd>
+		<a href="http://china.caixin.com/2018-01-27/101203835.html" title="大学教授常州老家房屋遭强拆 曾宽慰母亲：不会强拆的">大学教授常州老家房屋遭强拆 曾宽慰母亲：不会强拆的</a>          
+	   </dd>
+  </dl>
+	<dl>            
+		<dd>
+		<a href="http://weekly.caixin.com/2017-12-23/101188750.html" title="魏民洲西安沉浮录|特稿精选">魏民洲西安沉浮录|特稿精选</a>          
+	   </dd>
+  </dl>
+	<dl>            
+		<dd>
+		<a href="http://china.caixin.com/2017-12-28/101190756.html" title="特写|大气环境执法在邯郸：很多轮检查 很多新问题">特写|大气环境执法在邯郸：很多轮检查 很多新问题</a>          
+	   </dd>
+  </dl>
+	<dl>            
+		<dd>
+		<a href="http://china.caixin.com/2018-01-09/101195474.html" title="履新四天 佳木斯人大常委会副主任梅振学坠亡 ">履新四天 佳木斯人大常委会副主任梅振学坠亡 </a>          
+	   </dd>
+  </dl>
+	<dl>            
+		<dd>
+		<a href="http://china.caixin.com/2018-01-08/101195125.html" title="法院称纵火案保姆接受指派辩护 合法性引争议">法院称纵火案保姆接受指派辩护 合法性引争议</a>          
+	   </dd>
+  </dl></div></div>
+            
+         精彩特惠 end -->
+
+            <!-- 排行榜 begin -->
+             <div class="top10">
+ <h3>
+  <ul class="top10Nav">
+   <li id="top101" class="current" onmouseover="setTab('top10',1,2)">点击排行榜</li>
+   <li id="top102" class="" onmouseover="setTab('top10',2,2)">评论排行榜</li>
+  </ul>
+ </h3>
+ <div class="top10Con">
+  <div id="col_top10_1" style="display: block;">
+        <dl>            
+   <dt>1</dt>
+   <dd>
+    <a href="http://international.caixin.com/2018-07-11/101299027.html" title="美公布对华2000亿美元关税清单 贸易战恐再升级">美公布对华2000亿美元关税清单 贸易战恐再升级</a>          
+   </dd>
+  </dl>
+          <dl>            
+   <dt>2</dt>
+   <dd>
+    <a href="http://finance.caixin.com/2018-07-11/101299732.html" title="姚刚十年受贿6961万  十年前内幕交易获利210万">姚刚十年受贿6961万  十年前内幕交易获利210万</a>          
+   </dd>
+  </dl>
+          <dl>            
+   <dt>3</dt>
+   <dd>
+    <a href="http://china.caixin.com/2018-07-11/101299010.html" title="辽宁省鼓励“造人”和“抢人” 率先提出新思路">辽宁省鼓励“造人”和“抢人” 率先提出新思路</a>          
+   </dd>
+  </dl>
+          <dl>            
+   <dt>4</dt>
+   <dd>
+    <a href="http://international.caixin.com/2018-07-11/101299527.html" title="商务部：对美方行为感到震惊 将作出反制">商务部：对美方行为感到震惊 将作出反制</a>          
+   </dd>
+  </dl>
+          <dl>            
+   <dt>5</dt>
+   <dd>
+    <a href="http://china.caixin.com/2018-07-11/101298948.html" title="中大教授性骚扰学生被处理 沈阳张康之案尚无结论">中大教授性骚扰学生被处理 沈阳张康之案尚无结论</a>          
+   </dd>
+  </dl>
+          <dl>            
+   <dt>6</dt>
+   <dd>
+    <a href="http://international.caixin.com/2018-07-11/101299765.html" title="外交部回应美发动贸易战：这是一场强权与规则之战">外交部回应美发动贸易战：这是一场强权与规则之战</a>          
+   </dd>
+  </dl>
+          <dl>            
+   <dt>7</dt>
+   <dd>
+    <a href="http://opinion.caixin.com/2018-07-11/101299504.html" title="中美贸易战阴云下，如何促进居民消费">中美贸易战阴云下，如何促进居民消费</a>          
+   </dd>
+  </dl>
+          <dl>            
+   <dt>8</dt>
+   <dd>
+    <a href="http://opinion.caixin.com/2018-07-11/101299229.html" title="全程未提“性骚扰”，中山大学处理张鹏事件的尴尬">全程未提“性骚扰”，中山大学处理张鹏事件的尴尬</a>          
+   </dd>
+  </dl>
+                                         
+  </div>
+  <div id="col_top10_2" style="display: none;"> 
+     <dl>            
+  <dt>1</dt>
+  <dd>
+   <a href="http://international.caixin.com/2018-07-11/101299027.html" title="美公布对华2000亿美元关税清单 贸易战恐再升级">美公布对华2000亿美元关税清单 贸易战恐再升级</a><span>(216)</span>    
+  </dd>
+ </dl>
+    <dl>            
+  <dt>2</dt>
+  <dd>
+   <a href="http://companies.caixin.com/2018-07-06/101295124.html" title="中美贸易战开打 美国产进口车关税升至40%">中美贸易战开打 美国产进口车关税升至40%</a><span>(167)</span>    
+  </dd>
+ </dl>
+    <dl>            
+  <dt>3</dt>
+  <dd>
+   <a href="http://finance.caixin.com/2018-07-10/101298255.html" title="招商证券研究所所长杨晔家中去世 年仅48岁">招商证券研究所所长杨晔家中去世 年仅48岁</a><span>(153)</span>    
+  </dd>
+ </dl>
+    <dl>            
+  <dt>4</dt>
+  <dd>
+   <a href="http://china.caixin.com/2018-07-10/101298839.html" title="登海种业承认“误种”2590亩转基因玉米 公司高管被新疆警方拘押">登海种业承认“误种”2590亩转基因玉米 公司高管被新疆警方拘押</a><span>(136)</span>    
+  </dd>
+ </dl>
+    <dl>            
+  <dt>5</dt>
+  <dd>
+   <a href="http://gbiz.caixin.com/2018-07-06/101294648.html" title="中美贸易战开打 美猪肉产业损失高达数十亿美元">中美贸易战开打 美猪肉产业损失高达数十亿美元</a><span>(128)</span>    
+  </dd>
+ </dl>
+    <dl>            
+  <dt>6</dt>
+  <dd>
+   <a href="http://finance.caixin.com/2018-07-06/101294482.html" title="马骏：500亿美元贸易战对中国经济影响有限">马骏：500亿美元贸易战对中国经济影响有限</a><span>(111)</span>    
+  </dd>
+ </dl>
+    <dl>            
+  <dt>7</dt>
+  <dd>
+   <a href="http://economy.caixin.com/2018-07-05/101293911.html" title="杨伟民：实体经济不会因货币放水得益">杨伟民：实体经济不会因货币放水得益</a><span>(108)</span>    
+  </dd>
+ </dl>
+    <dl>            
+  <dt>8</dt>
+  <dd>
+   <a href="http://finance.caixin.com/2018-07-11/101299732.html" title="姚刚十年受贿6961万 十年前内幕交易获利210万">姚刚十年受贿6961万 十年前内幕交易获利210万</a><span>(104)</span>    
+  </dd>
+ </dl>
+  
+  </div>
+ </div>
+</div>
+            <!-- 排行榜 close -->
+            <!--财新一线begin-->
+            
+            <!--财新一线end-->
+
+            
+            <!--广告位begin-->
+            <div class="indexRigAd">
+  <script language="javascript"> 
+            bgyouhua(3095)
+            </script>
+</div>
+
+            <!--广告位end-->
+
+            <!-- 特别呈现 begin -->
+            <div class="indexRigAd">
+    <script language="javascript">
+        ads_display(872)
+    </script>
+</div>
+            <!-- 特别呈现 end -->
+
+            <!--右侧视频 begin-->
+            <div class="videoBox">
+    <h3><a href="http://video.caixin.com/">视频</a></h3>
+    <dl>
+        <dd>
+
+<script src="http://player.caixin.com/player_tide/js/tidePlayer.cx.js"></script><script> new tidePlayer({width:"300",height:"180",autoplay:false,json:"http://player.caixin.com/v/g/c/2018/7/11/1531298754295.json",channel:"1966,2050"});var letvcloud_player_conf ={"uu":"kd9ksjef36","vu":"a2896ce581"};</script>
+
+
+<h4><a href="http://video.caixin.com/2018-07-11/101299849.html">印度胖警察被强制减肥 瘦不下来或将失业</a></h4>
+ 
+<h4><a href="http://video.caixin.com/2017/artin/">视频专题 | 看得见的未来</a></h4>
+                                                    
+        </dd>
+
+    </dl>
+
+</div>
+            <!--右侧视频 end-->
+
+            <!-- 指数行情 begin -->
+            <!--数据行情 begin-->
+<div class="caixinyixian">
+	  <h3><span><a href="http://data.caixin.com"><img src="http://file.caixin.com/webchannel/all/img/caixin-shujux2.png" width="73" height="16"/></a></span><a href="http://stock.caixin.com/">指数行情</a></h3>
+<div class="sjhq"><iframe src="http://stock.caixin.com/plugins/" width="100%" height="245" border="0" style="border:0;width: 100%;margin: 0;padding: 0; overflow: hidden;"></iframe></div>
+</div>
+<!--数据行情 end-->
+
+<style>.yixianCon{height:200px;}</style>
+            <!-- 指数行情 end -->
+
+            <!-- 右侧竖幅广告 begin -->
+            <div class="indexRigAd">
+    <script language="javascript">
+        bgyouhua(7)
+    </script>
+</div>
+            <!-- 右侧竖幅广告 begin -->
+
+            <!--Caixin Global begin-->
+            <h3><a href="http://www.caixinglobal.com/">English - Caixin Global</a></h3>
+            <div class="stutitXwen stutitXwenenglish">
+                
+                    <dl><dd><div class="pic"><a href="http://www.caixinglobal.com/2018-07-12/thursday-tech-briefing-zte-ofo-xiaopeng-101300554.html"><img src="http://img.caixin.com/2018-07-10/1531215310893521_145_97.jpg" style="width:75px;height:auto;"/></a></div><div class="txt"><h4><a href="http://www.caixinglobal.com/2018-07-12/thursday-tech-briefing-zte-ofo-xiaopeng-101300554.html">Thursday Tech Briefing: ZTE, Ofo, Xiaopeng</a></h4></div></dd></dl><dl><dd><div class="txt"><h4><a href="http://www.caixinglobal.com/2018-07-12/quick-take-canadas-tim-hortons-to-tap-chinas-appetite-101300186.html">Quick Take: Canada’s Tim Hortons to Tap China’s Appetite</a></h4></div></dd></dl><dl style="border-bottom:none;"><dd><div class="pic"><a href="http://www.caixinglobal.com/2018-07-12/furongbao-investment-by-guangdong-macro-collapses-101300177.html"><img src="http://img.caixin.com/2018-06-05/1528169880819849_145_97.jpg" style="width:75px;height:auto;"/></a></div><div class="txt"><h4><a href="http://www.caixinglobal.com/2018-07-12/furongbao-investment-by-guangdong-macro-collapses-101300177.html">Furongbao Investment by Guangdong Macro Collapses</a></h4></div></dd></dl>
+                
+                <dd><a href="http://www.caixinglobal.com/" class="link">Read More</a></dd>
+            </div>
+            <!--Caixin Global end -->
+
+            <!--新华社消息 公司快讯 begin -->
+            <style>
+.vnewsBox h4{line-height:23px;}
+</style>
+<div class="top10 gskx">
+ <h3>
+  <ul class="top10Nav">
+   <li id="gskx1" class="current" onmouseover="setTab('gskx',1,2);" ><a href="http://www.caixin.com/xinhua_news/" target="_blank">新华社消息</a></li>
+
+<!--
+   <li id="gskx2" class="" onmouseover="setTab('gskx',2,2);">
+    <p>公司快讯</p>
+   </li>
+-->
+  </ul>
+ </h3>
+ <div id="demo" style="overflow-y:scroll;height:230px;margin-bottom:20px;">
+  <div id="col_gskx_1" style="display:block;">
+  <div style="font-size:12px; color:#ae1f23;">此版块由新华社提供</div>
+   <div class="vnewsBox">
+    <ul>
+       <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-07-11/101299662.html">中国银行开平支行案主犯许超凡被从美国强制遣返</a></h4><span style="color:#858585;">07月11日 14:53</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-07-08/101296185.html">41名中国公民在泰国普吉岛翻船事故中遇难</a></h4><span style="color:#858585;">07月08日 14:19</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-07-06/101294292.html">泰国普吉府翻船事故致1名中国游客死亡 53人失踪</a></h4><span style="color:#858585;">07月06日 08:33</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-07-05/101294010.html">习近平：把乡村振兴战略摆在优先位置 </a></h4><span style="color:#858585;">07月05日 20:03</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-07-03/101291070.html">国务院印发《打赢蓝天保卫战三年行动计划》 提六大任务</a></h4><span style="color:#858585;">07月03日 17:24</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-29/101288667.html">习近平主持中央政治局会议：培养选拔优秀年轻干部</a></h4><span style="color:#858585;">06月29日 21:03</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-29/101288173.html">国家副主席王岐山获聘中国红十字会名誉会长</a></h4><span style="color:#858585;">06月29日 14:29</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://china.caixin.com/2018-06-26/101284628.html">李克强：中国绝不允许强制转让技术</a></h4><span style="color:#858585;">06月26日 19:53</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://finance.caixin.com/2018-06-24/101283791.html">央行定向降准0.5个百分点 支持债转股小微融资</a></h4><span style="color:#858585;">06月24日 17:31</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-23/101283722.html">习近平谈对外工作：弄清楚世界格局演变中我国的地位和作用</a></h4><span style="color:#858585;">06月23日 20:17</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-20/101273595.html">习近平会见金正恩 愿同朝方互学互鉴团结合作</a></h4><span style="color:#858585;">06月20日 17:40</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-19/101272926.html">习近平与金正恩会谈 高度评价“金特会”成果支持朝鲜经济发展</a></h4><span style="color:#858585;">06月19日 10:20</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://china.caixin.com/2018-06-15/101271673.html">北京收紧机动车进京证 每年限办12次每证7天</a></h4><span style="color:#858585;">06月15日 15:28</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-15/101271243.html">美国务卿见习近平 转致特朗普关于半岛问题的谢意</a></h4><span style="color:#858585;">06月15日 07:43</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-14/101271021.html">原保监会主席项俊波受贿案一审开庭 被控受贿1942万</a></h4><span style="color:#858585;">06月14日 17:11</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-14/101270626.html">习近平：推动长江经济带发展是关系国家发展全局的重大战略</a></h4><span style="color:#858585;">06月14日 10:40</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-13/101269897.html">美国国务卿蓬佩奥将于6月14日访华</a></h4><span style="color:#858585;">06月13日 11:16</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://china.caixin.com/2018-06-11/101268326.html">公安部公开通缉十名重大文物犯罪在逃人员</a></h4><span style="color:#858585;">06月11日 15:54</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-10/101268339.html">习近平主持中俄蒙元首会晤 着力推进三国经济走廊</a></h4><span style="color:#858585;">06月10日 08:09</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-06/101268340.html">汪洋将出访刚果（布）、乌干达和肯尼亚</a></h4><span style="color:#858585;">06月06日 15:20</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-06-01/101268342.html">湖南广播电视台原副台长罗毅一审被判刑5年半</a></h4><span style="color:#858585;">06月01日 21:49</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-05-31/101268344.html">中央政治局召开会议 审议《乡村振兴战略规划》</a></h4><span style="color:#858585;">05月31日 18:52</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-05-28/101258215.html">习近平：不能让报表和审批耽误科学家精力</a></h4><span style="color:#858585;">05月28日 20:55</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-05-26/101268345.html">王岐山在第二十二届圣彼得堡国际经济论坛上的致辞（全文）</a></h4><span style="color:#858585;">05月26日 08:09</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-05-25/101268346.html">刘鹤应约与美商务部长通话 对方将率团访华继续磋商</a></h4><span style="color:#858585;">05月25日 10:58</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-05-18/101252153.html">特朗普会见刘鹤 盼在能源、制造业领域重点加强合作</a></h4><span style="color:#858585;">05月18日 12:52</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-05-18/101268352.html">商务部终止对原产美国高粱的“双反”调查</a></h4><span style="color:#858585;">05月18日 11:04</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-05-17/101251471.html">刘鹤在美分别会见基辛格及参众两院重要议员</a></h4><span style="color:#858585;">05月17日 12:48</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-05-16/101268357.html">王岐山会见中美工商领袖和前高官对话美方代表</a></h4><span style="color:#858585;">05月16日 09:42</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://www.caixin.com/2018-05-15/101250281.html">刘鹤普及金融常识：做生意是要有本钱的</a></h4><span style="color:#858585;">05月15日 21:20</span></li>
+             
+    </ul>
+   </div>
+  </div>
+  <div id="col_gskx_2" style="display:none;">
+  <div style="font-size:12px; color:#ae1f23;">此版块由证券时报网提供</div>
+   <div class="vnewsBox">
+    <ul>
+       <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2018-07-03/101290880.html">华人文化A轮融资近百亿 万科阿里腾讯领投</a></h4><span style="color:#858585;">07月03日 15:16</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2018-04-20/101236836.html">中兴通讯关于美国商务部激活拒绝令的声明</a></h4><span style="color:#858585;">04月20日 09:43</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-28/101177204.html">谷歌确认正在中国组建AI团队</a></h4><span style="color:#858585;">11月28日 14:03</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-24/101175960.html">杭电股份：实控人拟5000万元-1亿元增持股份</a></h4><span style="color:#858585;">11月24日 20:33</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-24/101175955.html">华谊集团：5.3亿转让欣正房地产及上海轮胎公司</a></h4><span style="color:#858585;">11月24日 20:33</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-24/101175957.html">博腾股份：引入战投招商局资本旗下慧林基金</a></h4><span style="color:#858585;">11月24日 20:33</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-24/101175962.html">平高电气：控股股东签订17.3亿元国际项目合同</a></h4><span style="color:#858585;">11月24日 20:33</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-24/101175961.html">交通银行将在港设立全资子公司“交银香港”</a></h4><span style="color:#858585;">11月24日 20:33</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-24/101175958.html">中国船舶：拟收购外高桥造船和澄西船舶部分股权</a></h4><span style="color:#858585;">11月24日 20:33</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-24/101175959.html">维维股份：控股股东增持逾317万股 拟继续增持</a></h4><span style="color:#858585;">11月24日 20:33</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-24/101175956.html">华谊兄弟I计划发布 公开30余部剧集、综艺片单</a></h4><span style="color:#858585;">11月24日 20:33</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-22/101174754.html">分众传媒今日现4.55亿元大宗交易 折价近10%</a></h4><span style="color:#858585;">11月22日 17:32</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-22/101174752.html">梦网集团：拟3至5亿元回购公司股票</a></h4><span style="color:#858585;">11月22日 17:31</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-22/101174753.html">中兴通讯与日本软银在4.5GHz频段开启5G试验 拟2020年商用</a></h4><span style="color:#858585;">11月22日 17:31</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-22/101174717.html">合众思壮：联合中标逾10亿元PPP项目</a></h4><span style="color:#858585;">11月22日 16:50</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-22/101174718.html">人福医药：退出氨基酸原料业务 子公司药品获批在美销售</a></h4><span style="color:#858585;">11月22日 16:50</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-22/101174716.html">中金环境：董事长增持逾40万股</a></h4><span style="color:#858585;">11月22日 16:50</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-22/101174715.html">中铝与商飞战略合作 推动机用铝合金材料国产化应用</a></h4><span style="color:#858585;">11月22日 16:50</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174321.html">大东方：控股股东增持股份 将继续增持</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174319.html">海南海药：筹划重大事项 明起停牌</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174314.html">中国国旅：子公司筹划与日上上海合作</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174320.html">东邦御厨中标1468万元万达城酒店工程项目</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174327.html">唐德影视：4.65亿向两家电台授予《赢天下》首轮卫视播映权</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174318.html">鹏博士：获准变更移动通信转售业务试点营业范围</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174316.html">瑞科汉斯拟定增募集6000万元</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174322.html">林洋能源：控股股东减持林洋转债300万张</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174326.html">裕隆股份联合中标4.91亿元引黄调蓄工程</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174313.html">西部黄金：伊犁公司发生安全事故 已自行停产</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174325.html">天佳科技进入IPO辅导阶段 上半年盈利1782万元</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+  <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://companies.caixin.com/2017-11-21/101174323.html">奥特佳：成比亚迪电动压缩机供货商</a></h4><span style="color:#858585;">11月21日 19:56</span></li>
+              
+    </ul>
+   </div>
+  </div>
+  <div style="display:none;">
+  <div style="font-size:12px; color:#ae1f23;">此版块由华尔街见闻网提供</div>
+   <div class="vnewsBox">
+    <ul>
+     <li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://live.wallstreetcn.com/">英国石油公司签署关于伊拉克Rumaila油田的修正协议，其最终产量目标由285万桶/日降为210万桶/日。</a></h4><span style="color:#858585;">09月04日 18:00</span></li><li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://live.wallstreetcn.com/">人民币对美元收盘报6.1386，盘中一度触及近半年高点的6.1339元，上涨0.04%，上日报6.1411。</a></h4><span style="color:#858585;">09月04日 17:48</span></li><li style="padding:5px 0;"><h4 style="font-size:14px;font-weight:normal;"><a href="http://live.wallstreetcn.com/">乌克兰军方发言人LYSENKO：过去24小时里，乌克兰政府军在16个镇与俄罗斯军、分裂分子发生了22次战斗。俄罗斯炮击了乌克兰边防哨所。</a></h4><span style="color:#858585;">09月04日 17:47</span></li>               
+    </ul>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+
+
+            <!--新华社消息 公司快讯 end -->
+
+            <!--博客  begin -->
+            <div class="guandian_box blog_box">
+<h3><a href="http://blog.caixin.com/">博客</a></h3>
+<div class="lImg_rArt">
+<dl>
+<dt><a href="http://wuxiaobo.blog.caixin.com"><img src="http://getavatar.caixin.com/000/00/25/38_real_avatar_middle.jpg"></a></dt>
+<dd>
+<p><a href="http://wuxiaobo.blog.caixin.com/archives/183930">从费正清、基辛格到班农</a> </p><span>吴晓波</span> </dd></dl>
+<dl>
+<dt><a href="http://hugaiguancha.blog.caixin.com"><img src="http://getavatar.caixin.com/006/95/90/70_real_avatar_middle.jpg"></a></dt>
+<dd>
+<p><a href="http://hugaiguancha.blog.caixin.com/archives/183903">“抢人大战”背后的户籍人口老龄化危机</a> </p><span>户改观察</span> </dd></dl>
+</div></div>
+
+            <!--博客  end -->
+
+            <!--杂志期刊 begin -->
+            <div class="magBox">
+        <h3><ul class="tab-nav mgz-nav cf">
+          <li class="tab-selected"><a href="http://weekly.caixin.com/">《财新周刊》</a></li><li><a href="http://cnreform.caixin.com/">《中国改革》</a></li><li><a href="http://bijiao.caixin.com/">《比较》</a></li>
+        </ul></h3>
+        <ul class="tab-cons mgz-cons">
+          <li class="display">
+            <div class="cover-img"><a href="http://weekly.caixin.com/2018/cw812/"><img src="http://img.caixin.com/2018-07-06/1530837937467337.gif" alt="财新周刊"></a></div>
+            <dl>
+              <dt><span>【封面报道】</span><a href="http://weekly.caixin.com/2018/cw812/">新经济IPO热与冷</a>
+              </dt>
+              <dd>
+              <p><a href="http://weekly.caixin.com/2018/cw812/">在未来不确定预期推动下突然形成的上市“窗口期”，是新经济公司们面对的一把“双刃剑”</a></p>
+                <span>出版:2018-07-09<br/>年度期号:27 总期号:812</span>
+              </dd>
+            </dl>
+          </li>
+          
+          <li>
+            <div class="cover-img"><a href="http://cnreform.caixin.com/2018/cr400/"><img src="http://img.caixin.com/2018-07-04/1530692456294655.jpg" alt=" 中国改革  "></a></div>
+            <dl>
+              <dt><span>【封面报道】</span><a href="http://cnreform.caixin.com/2018/cr400/">宏观经济政策年中探路</a>
+              </dt>
+              <dd>
+              <p><a href="http://cnreform.caixin.com/2018/cr400/">2018年4月下旬以来，随着中美贸易冲突愈演愈烈，国内政策出现了一些松动迹象</a></p>
+                  <span>出版:2018-07-01 <br />年度期号:4 总期号:400</span>
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <div class="cover-img"><a href="http://bijiao.caixin.com/2018/cs_95/"><img src="http://img.caixin.com/2018-06-20/1529477889857828.jpg" alt="比较"></a></div>
+            <dl>
+              <dt><span>主打文章</span><a href="http://bijiao.caixin.com/2018/cs_95/">绿色产业政策：促进经济结构向富裕绿色经济转型  </a>
+              </dt>
+              <dd>
+                <p><a href="http://bijiao.caixin.com/2018/cs_95/">蒂尔曼·阿尔滕堡 丹尼·罗德里克</a></p>
+                <span>出版:2018-04 <br />年度期号:2 总期号:95</span>
+              </dd>
+            </dl>
+          </li>
+        </ul>
+        <ul class="mgz-other">
+          <li class="mgz-take-bt"><a href="http://mall.caixin.com/">在线订阅</a></li>
+        </ul>
+    </div>
+    <script>
+    tabChangePc('mgz')
+      function tabChangePc(cls){
+        $(".magBox ." + cls + "-nav li").mouseover(function(){
+            var index = $(this).index();
+            $("." + cls + "-nav li,." + cls + "-cons>li").attr("class","")
+            $(this).attr("class","tab-selected")
+            $("." + cls + "-cons>li").eq(index).attr("class","display")
+        })
+    }
+    </script>
+            <!--杂志期刊 end -->
+
+            <!--反侵权|公告板|编辑更正 begin -->
+            <div class="ggbBox">
+        <h3>
+            <ul class="ggbNav">
+                <li onmouseover="setTab('ggb',1,3)" class="current" id="ggb1"><a href="http://www.caixin.com/anti_infringement/">反侵权</a></li>
+                <li onmouseover="setTab('ggb',2,3)" id="ggb2" class=""><a href="http://www.caixin.com/announcement/">公告板</a></li>
+                <li onmouseover="setTab('ggb',3,3)" id="ggb3" class=""><a href="http://weekly.caixin.com/cw_correction/">编辑更正</a></li>
+            </ul>
+        </h3>
+        <div class="ggbCon">
+            <div id="col_ggb_1" style="display:block;">
+            
+            <dl>
+                    <dt>06月20日</dt>
+                    <dd>
+                        <a href="http://www.caixin.com/2018-06-20/101273657.html">反侵权公告(第41号)：对新浪财经屡次侵权的声明</a>
+                    </dd>
+                </dl>
+            
+            
+                <dl>
+                    <dt>03月26日</dt>
+                    <dd>
+                        <a href="http://www.caixin.com/2018-03-26/101226735.html">反侵权公告(第40号)：对腾讯网等媒体侵权的严正声明
+                        </a>
+                    </dd>
+                </dl>
+                
+        
+            
+            </div>
+    
+            <div id="col_ggb_2" style="display:none;">
+    
+    <dl>
+                    <dt>06月11日 </dt>
+                    <dd>
+                        <a href="http://www.caixin.com/2018-06-11/101268533.html">全球经济数据库CEIC全面上线 现享免费试用
+    
+    
+                        </a>
+                    </dd>
+                </dl>	
+    
+            
+    <dl>
+                    <dt>06月08日</dt>
+                    <dd>
+                        <a href="http://www.caixin.com/2018-06-08/101267313.html">财新峰会香港场召开 聚焦“开放新格局 共享新机遇”
+                        </a>
+                    </dd>
+                </dl>
+    
+        
+        
+    
+        
+        
+                
+            
+                    
+    
+        
+    
+           
+            </div>
+    
+    
+            <div id="col_ggb_3" style="display:none;">
+    
+            <dl>
+                    <dt>2018年第25期</dt>
+                    <dd>
+                        <a href="http://weekly.caixin.com/2018-06-30/101288707.html" rel="nofollow">《财新周刊》编辑更正</a>
+                    </dd>
+                </dl>
+                
+                  
+    
+
+                    <dl>
+                            <dt>2018年第24期</dt>
+                            <dd>
+                                <a href="http://weekly.caixin.com/2018-06-23/101283584.html" rel="nofollow">《财新周刊》编辑更正</a>
+                            </dd>
+                        </dl>
+        
+    
+                
+                
+            
+     
+        
+    
+            </div>
+        </div>
+    </div>
+            <!--反侵权|公告板|编辑更正 end -->
+            <!--特别呈现b-->
+            <div class="subBox">
+    <h3>
+        <ul class="subNav">
+            <li id="sub3" class="current"><a href="http://promote.caixin.com/">特别呈现</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </h3>
+    <div class="subCon">
+        <div id="col_sub_3" style="display:block;">
+            <dl>
+                <dt><a href="http://promote.caixin.com/madmenclub/" target="_blank"><img src="http://img.caixin.com/2018-01-30/1517286083102641.jpg"></a></dt>
+                <dd><a href="http://promote.caixin.com/2017/zhizao/" target="_blank">智造＋，专注于制造业升级与发展</a>
+
+
+
+             
+</dd></dl>
+            <ul>
+
+
+
+
+<li><a href="http://promote.caixin.com/2018-07-02/101289269.html" target="_blank">特别呈现 | 微众银行副行长马智涛： 以金融科技助力普惠金融，借贷起点可低至500元</a></li>
+
+
+
+<li><a href="http://promote.caixin.com/2018-06-25/101283446.html" target="_blank">特别呈现 | 海通证券与华为技术有限公司签署全面战略合作协议</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="http://promote.caixin.com/2018-06-25/101283448.html" target="_blank">特别呈现 | 华为kunlun小型机，护航武汉财政核心业务系统</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="http://promote.caixin.com/2018-06-25/101283459.html" target="_blank">特别呈现 | 开会不必舟车劳顿 盛京银行高清视频会议可以“天涯若比邻”</a></li>
+
+
+
+
+
+
+
+<li><a href="http://promote.caixin.com/2018-06-14/101270888.html" target="_blank">特别呈现 | 嘉实投资仇小川：投资背后的三个价值信条</a></li>
+
+
+
+
+
+
+
+
+<li><a href="http://promote.caixin.com/2018-06-12/101269148.html" target="_blank">特别呈现 | 中银国际亮相财新峰会香港场 助力中国金融业进一步扩大开放</a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="http://promote.caixin.com/2018-06-01/101261069.html" target="_blank">“国际化的上海：百年外滩 璀璨黄浦”推介活动在外滩源举行</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+            <!--特别呈现e-->
+            <!--文化 begin -->
+            <div class="cultureBox" _extended="true">
+                <h3 _extended="true"><a href="http://culture.caixin.com/">文化</a></h3>
+<div class="demolNews" _extended="true">
+<dl _extended="true">
+<dt _extended="true"><a href="http://weekly.caixin.com/essay/">【随笔】</a><a href="http://weekly.caixin.com/2018-07-06/101294519.html">枫叶为谁红</a></dt>
+<dd _extended="true"><span _extended="true">安纳</span> </dd></dl>
+<dl _extended="true">
+<dt _extended="true"><a href="http://weekly.caixin.com/essay/">【随笔】</a><a href="http://weekly.caixin.com/2018-07-06/101294583.html">假如总统痴呆了</a></dt>
+<dd _extended="true"><span _extended="true">王一方</span> </dd></dl>
+<dl _extended="true">
+<dt _extended="true"><a href="http://weekly.caixin.com/essay/">【随笔】</a><a href="http://weekly.caixin.com/2018-07-06/101294567.html">正念禅坐坐什么</a></dt>
+<dd _extended="true"><span _extended="true">张钊维</span> </dd></dl></div>
+                <!-- 更多专栏作家 begin -->
+                <div class="zlzj_box">
+    <p class="more_zlzj">更多专栏作家</p>
+    <div class="scroll_cont">
+        <div class="leftBtn" onmousedown="pa.ISL_GoUp_1()" onmouseup="pa.ISL_StopUp_1()" onmouseout="pa.ISL_StopUp_1()"></div>
+        <div class="scrollBox" id="ISL_Cont_1" style="display:inline;">
+            <div class="imgList">
+                <ul id="List1_1">
+
+                    <li>
+                        <a href="http://culture.caixin.com/daoerdeng/">
+                            <img src="http://img.caixin.com/2011-11-07/201111070065_145_97.jpg"><span>刀尔登</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://culture.caixin.com/hansong/">
+                            <img src="http://culture.caixin.com/upload/zhuanlan/100697323_102_102.jpg"><span>韩松</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://culture.caixin.com/yangdu/">
+                            <img src="http://img.caixin.com/2015-09-06/1441505500856538.jpg"><span>杨渡</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://culture.caixin.com/liusuli/">
+                            <img src="http://img.caixin.com/2015-04-09/1428563030068277.jpg"><span>刘苏里</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://culture.caixin.com/ruanyifeng/">
+                            <img src="http://culture.caixin.com/upload/zhuanlan/100748954_100_100.jpg"><span>阮一峰</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="http://culture.caixin.com/wangyan/">
+                            <img src="http://img.caixin.com/2015-04-09/1428567877964744.jpg"><span>王焱</span>
+
+                        </a>
+                    </li>
+
+                </ul>
+                <ul id="List2_1">
+                    <!-- 不要在这个ul中添加任何代码，所有专栏作家列表都添加到上一个列表中 -->
+                </ul>
+            </div>
+        </div>
+        <div class="rightBtn" onmousedown="pa.ISL_GoDown_1()" onmouseup="pa.ISL_StopDown_1()" onmouseout="pa.ISL_StopDown_1()"></div>
+        <div class="clr"></div>
+    </div>
+    <script type="text/javascript">
+        var pa = new ScrollObject('ISL_Cont_1', 'List1_1', 'List2_1', "pa", {
+            "PageWidth_1": "92"
+        });
+    </script>
+</div>
+                <!-- 更多专栏作家 end -->
+
+            </div>
+            <!--文化 end -->
+        </div>
+        <!-- 主体内容右侧 end -->
+
+        <div class="clear"></div>
+
+        <!-- 底部通栏广告1 begin -->
+        <div class="indexBotAd">
+ <script language="javascript"> 
+bgyouhua(289)
+</script>
+</div>
+<div class="">
+ <script language="javascript"> 
+bgyouhua(10)
+</script>
+</div>
+<!--背投图广告-->
+ <script language="javascript"> 
+      bgyouhua(1605)
+   </script>
+<!--背投图广告-->
+        <!-- 底部通栏广告1 end -->
+
+    </div>
+    <!-- 主体内容 end -->
+
+</div>
+<!--首页 end-->
+
+<!-- 二维码 begin -->
+<div class="code_box">
+    <div class="code_con">
+        <div class="left">
+            <dl>
+                <dt><img src="http://file.caixin.com/webchannel/home/img/ewm_img_03.jpg"></dt>
+                <dd>扫描左侧二维码<br>下载财新App,随时随地看新闻</dd>
+            </dl>
+        </div>
+        <div class="right">
+            <ul>
+                <li class="weChat">
+                    <a href="#">微信公号</a>
+                    <img style="display:none;" src="http://file.caixin.com/file/content/images/weixin_code.jpg">
+                </li>
+
+                <li class="email">
+                    <a href="http://other.caixin.com/e_newsletter/?id=1&email=">邮件订阅</a>
+                </li>
+
+                <li class="sina">
+                    <a href="http://user.caixin.com/userlogin/loginurl/?source=blog_sina">新浪微博</a>
+                </li>
+
+                <li class="relation">
+                    <a href="http://corp.caixin.com/contactus/">联系我们</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+<script>
+$('.weChat').mouseenter(function(){
+$('.weChat img').show();
+})
+$('.weChat').mouseleave(function(){
+$('.weChat img').hide();
+})
+</script>
+<!-- 二维码 end -->
+
+<!-- 底部通栏广告2 begin -->
+
+<!-- 底部通栏广告2 end -->
+
+<!--底部 begin-->
+<div class="clear"></div>
+
+<!--底部end-->
+
+<!--  <style>.cxw-hotWord-all{ background:#EFEFEB;font-family:"微软雅黑"; color:#60605E; font-size:14px; margin:13px auto 35px; width:990px;}.cxw-hotWord-all dl{ overflow:hidden;zoom:1; line-height:180%; padding:20px 0 20px 30px; }.cxw-hotWord-all dt{ float:left; margin-right:35px;}.cxw-hotWord-all dd{ overflow:hidden;}.cxw-hotWord-all dd a{ color:#369; margin:0 30px 0 0; }.cxw-hotWord-all dd a:hover{ color:#eb8c14;}@media (max-width: 768px){.cxw-hotWord-all{padding:30px 0; color:#60605E; font-size:14px; margin:10px 5%;width:auto;background:#fff;}.cxw-hotWord-all dl{ padding:0;}.cxw-hotWord-all dt{ font-size:18px; color:#000; font-weight:bold; line-height:32px;float:none; margin:0 0 10px;}.cxw-hotWord-all dd a{ color:#369; margin:0 5% 0 0; overflow:hidden; display:inline-block; } }</style><div class="cxw-hotWord-all"><dl><dt>热词推荐：</dt><dd><a href="http://www.caixin.com/2016-06-28/100959807.html">中国共产党问责条例</a> <a href="http://www.caixin.com/2016-07-09/100964730.html">中国南海最新消息</a> <a href="http://www.caixin.com/2016-06-29/100960250.html">严肃党内政治生活</a> <a href="http://www.caixin.com/2016-06-29/100960315.html">7月1日建党节</a> <a href="http://www.caixin.com/2016-07-01/100960986.html">建党95周年讲话视频</a> <a href="http://www.caixin.com/2016-07-10/100964934.html">美国</a> <a href="http://www.caixin.com/2016-07-12/100965666.html">南海仲裁最新消息</a> <a href="http://www.caixin.com/2016-07-13/100965783.html">南海仲裁</a> <a href="http://www.caixin.com/2016-07-13/100965844_1.html">南海事件</a> <a href="http://www.caixin.com/2016-07-12/100965416.html">洪灾</a> <a href="http://opinion.caixin.com/2016-04-13/100931361.html">日元升值的原因</a> <a href="http://international.caixin.com/2016-07-01/100961266.html">南极臭氧空洞减小</a> <a href="http://video.caixin.com/2016-06-30/100960652.html">雷洋尸检结果公布</a> <a href="http://finance.caixin.com/2016-07-04/100961793.html">快鹿集团</a> <a href="http://finance.caixin.com/2016-07-15/100966933.html">香港经济</a> </dd></dl></div>  -->
+<!-- 全站公用尾部 begin -->
+<div class="bottom">
+    <div class="navBottom">
+        <a rel="nofollow" href="http://corp.caixin.com/aboutus/">关于我们</a>
+        <a rel="nofollow" href="http://corp.caixin.com/joinus/">加入我们</a>
+        <a rel="nofollow" href="http://www.caixinfoundation.org/">财新公益基金会
+        </a>
+        <a rel="nofollow" href="http://service.caixin.com/usermanage/guestbookadd">意见与反馈</a>
+        <a rel="nofollow" href="http://service.caixin.com/contribute/">提供新闻线索</a>
+        <a rel="nofollow" href="http://corp.caixin.com/contactus/">联系我们</a>
+        <a rel="nofollow" href="http://other.caixin.com/links/">友情链接</a>
+        <a href="http://www.caixin.com/sitemap.html">网站地图</a>
+    </div>
+    <div class="copyright">财新网所刊载内容之知识产权为财新传媒及/或相关权利人专属所有或持有。未经许可，禁止进行转载、摘编、复制及建立镜像等任何使用。 <br />
+        <a style="color:#797878;" href="http://download.caixin.com/upload/icp2015.PDF" rel="nofollow">京ICP证090880号</a> 京ICP备：10026701 | <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502034662" > <img src="http://img.caixin.com/2017-11-29/1511950030301165.png" width="15px;">京公网安备 11010502034662号 </a> |
+        <a style="color:#797878;" href="http://download.caixin.com/upload/gdxk2015.pdf">广播电视节目制作经营许可证：京第1015号</a> |
+        <a style="color:#797878;" href="http://download.caixin.com/upload/cbw2015.pdf" rel="nofollow">出版物经营许可证：第直100013号</a><br /> Copyright 财新网 All Rights Reserved 版权所有 复制必究<br>违法和不良信息举报电话：010-85905141　举报邮箱：laixin@caixin.com</div>
+
+    <div class="logo"><img src="http://file.caixin.com/file/content/images/new/logo_bottom.png" /></div>
+</div>
+<!-- 全站公用尾部 ebd -->
+<script type="text/javascript">var etuser='{"siteurl":"http://www.caixin.com","pubdir":"http://www.caixin.com/","setok":"","my_uid":"","user_name":"","nickname":"","space":"","user_id":"","clsid":"0"}';var stalk='';</script><script type="text/javascript" src="http://file.caixin.com/file/common/js/common.js"></script>
+<div class="gotop"><button onclick="indextop();" title="返回顶部"><span>返回顶部</span></button></div>
+<!--caixin analytics start-->
+<script type="text/javascript" src="https://files.caixin.com/webjs/common/caixinlog.js"></script>
+<!--caixin analytics end-->
+<script type="text/javascript">
+    var cxuid = getCookie("SA_USER_UID");
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create','UA-27956240-1','auto');
+    ga('send','pageview');
+    ga('set', 'userId', cxuid);
+</script>
+
+<script type='text/javascript'>
+    !function(e,t,n,g,i){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},n=t.createElement("script"),tag=t.getElementsByTagName("script")[0],n.async=1,n.src=('https:'==document.location.protocol?'https://':'http://')+g,tag.parentNode.insertBefore(n,tag)}(window,document,"script","assets.growingio.com/2.1/gio.js","gio");
+    gio('init', '872f3eaac31f373e', {'setImp':'false'});
+
+    //custom page code begin here
+    (function(){
+        var cxname = getCookie("SA_USER_NICK_NAME");
+        if(cxuid && cxname ){
+            gio('setUserId', cxuid);
+        }
+
+        (function(){//当天文章统计
+            var pubDateArr = location.pathname.match(/\d{4}-\d{2}-\d{2}/);
+            if(pubDateArr){
+                var pubDate = pubDateArr[0];
+                var nowDate = new Date().toISOString().slice(0,10);
+                if(pubDate==nowDate){
+                    setTimeout(function(){
+                        gio('track','todayarticle',{ todayarticleid: srcinfoid+'', viewtime:nowDate, viewuser:GetCookieValue("SA_USER_UID")||"0" });
+                    },2000);
+                }
+            }
+        })();
+
+    })();
+    //custom page code end here
+
+    gio('send');
+</script>
+
+<noscript><iframe src="//api.growingio.com/nojs/872f3eaac31f373e/pv" height="0" width="0" style="hidden:true;visibility:true"></iframe></noscript>
+<script>
+
+    //艾瑞统计代码 add 20170427
+    (function (G,D,s,c,p) {
+        c={//监测配置
+            UA:"UA-caixin-000001", //客户项目编号,由系统生成
+            NO_FLS:0,
+            WITH_REF:1,
+            URL:'https://file.caixin.com/webjs/common/iwt-min.js'//iwt.js的URL位置，请客户自行托管JS文件，只需修改此值
+        };
+        G._iwt?G._iwt.track(c,p):(G._iwtTQ=G._iwtTQ || []).push([c,p]),!G._iwtLoading && lo();
+        function lo(t) {
+            G._iwtLoading=1;s=D.createElement("script");s.src=c.URL;
+            t=D.getElementsByTagName("script");t=t[t.length-1];
+            t.parentNode.insertBefore(s,t);
+        }
+    })(this,document);
+
+</script>
+
+
+<style>
+    /*yahoo*/
+    .tanchu02{z-index:120;position:fixed;padding:0;margin:0;width:440px;top:179.5px;left:454.5px;text-align:left;color:#000;border:medium none;background-color:transparent;cursor:default}
+    .messageDiv02{padding:14px}
+    .messageDiv02title{height:30px;overflow:hidden}
+    .messageDiv02title dt{float:left;font-family:"黑体";font-size:16px}
+    .messageDiv02title dd{float:right}
+    #bg02{width:100%;height:100%;top:0;left:0;position:absolute;z-index:110;-z-index:0;filter:Alpha(opacity=50);opacity:.5;background:#000;display:none}
+    #popbox02{position:absolute;width:480px;height:200px;left:50%;top:50%;margin:-100px 0 0 -240px;display:none;background:#eaeaea}
+    .yahooTips02{padding:0 20px 0 20px}
+    .yahooTips02 p{font-family:"微软雅黑";font-size:16px;font-weight:700;line-height:180%}
+    .yahooTips02 ul{overflow:hidden;zoom:1;margin-top:30px;padding-left:150px}
+    .yahooTips02 ul li{float:left;margin:0 10px}
+    .yahooTips02 li .button{background:#fd9717;height:30px;line-height:30px;color:#fff;font-size:14px;padding:0 15px;cursor:pointer}
+</style>
+
+<div id="bg02">&nbsp;</div>
+<div class="tanchu02">
+    <div id="popbox02" style="display:none;">
+        <div class="messageDiv02">
+            <dl class="messageDiv02title">
+                <dd>
+                    <a href="javascript:;" onClick="$('#bg02').hide();$('#popbox02').hide();" target="_self"><img src="http://file.caixin.com/file/other/images/close_03.gif" /></a>
+                </dd>
+            </dl>
+            <!--发表 begin-->
+            <div class="yahooTips02">
+                <p>您好！由于中国雅虎邮箱将于2013年8月19日全部停止服务，建议您更换邮箱，以便不影响日常操作。</p>
+                <ul>
+                    <li>
+                        <input type="button" onClick="window.location.href='http://user.caixin.com/yahooemail/index'" class="button" value="更换邮箱" />
+                    </li>
+                </ul>
+            </div>
+            <!--发表 end-->
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        var uid = GetCookieValue('SA_USER_UID');
+        var email = GetCookieValue('SA_USER_USER_NAME');
+        if(uid && email && (email.indexOf("yahoo.com.cn") > 0 || email.indexOf("yahoo.cn") > 0)) {
+            //$('#bg02').attr('style', 'display:block');
+            $('#bg02').show();
+            document.getElementById("bg02").style.height = Math.max(document.documentElement.clientHeight, document.documentElement.scrollHeight) + "px";
+            $('#popbox02').show();
+        }
+    });
+</script>
+<!-- 广告 开始 -->
+<div class="index-ad-r">
+    <script>
+        ads_display(3018)
+    </script>
+</div>
+<!-- 广告 结束 -->
+<!-- 广告 开始 -->
+<div class="index-ad-r">
+    <script>
+        ads_display(3019)
+    </script>
+</div>
+<!-- 广告 结束 -->
+<!-- 广告 开始 -->
+<div class="index-ad-r">
+    <script>
+        ads_display(3020)
+    </script>
+</div>
+<!-- 广告 结束 -->
+<script>
+var adsContainers = $('.index-ad-o');
+var adsAll = $('.index-ad-r > div');
+for(var i=0; i<adsAll.length; i++){
+
+    //var insideAds = $(adsAll[i]).find('.adsame-banner-box');
+      var insideAds = $(adsAll[i]);
+
+    if(insideAds.size() && adsContainers[i]){
+        $(adsContainers[i]).append(insideAds).addClass('ad_border');
+    }
+}
+</script>
+<!-- 目录的背景图 -->
+<div class="mulu_bg">&nbsp;</div>
+<!-- 目录 -->
+<div class="mulu_menu">
+    <ul class="mulu-ul-f">
+        <li>
+            <a href="http://course.caixin.com">私房课</a>
+        </li>
+        <li>
+            <a href="http://stock.caixin.com/">行情</a>
+        </li>
+        <li>
+            <a href="http://k.caixin.com/">财新一线</a>
+        </li>
+        <li>
+            <a href="http://mobile.caixin.com/home/">财新移动</a>
+        </li>
+        <li>
+            <a href="http://beltroad.caixin.com/">一带一路</a>
+        </li>
+        <li>
+            <a href="http://cebm.caixin.com/">财新莫尼塔</a>
+        </li>
+        <li>
+            <a href="http://www.caixininsight.com/">财新智库</a>
+        </li>
+        <li>
+            <a href="http://promote.caixin.com/">Promotion</a>
+        </li>
+        <li>
+            <a href="http://conferences.caixin.com/">会议/培训</a>
+        </li>
+    </ul>
+    <ul class="mulu-ul-s">
+        <li>
+            <a href="http://economy.caixin.com/">经济</a>
+        </li>
+        <li>
+            <a href="http://finance.caixin.com/">金融</a>
+        </li>
+        <li>
+            <a href="http://companies.caixin.com/">公司</a>
+        </li>
+        <li>
+            <a href="http://gbiz.caixin.com/">CNBC</a>
+        </li>
+        <li>
+            <a href="http://china.caixin.com/">政经</a>
+        </li>
+        <li>
+            <a href="http://international.caixin.com/">世界</a>
+        </li>
+        <li>
+            <a href="http://opinion.caixin.com/">观点网</a>
+        </li>
+        <li>
+            <a href="http://culture.caixin.com/">文化</a>
+        </li>
+        <li>
+            <a href="http://blog.caixin.com/">博客</a>
+        </li>
+        <li>
+            <a href="http://weekly.caixin.com/">周刊</a>
+        </li>
+        <li>
+            <a href="http://photos.caixin.com/">图片</a>
+        </li>
+        <li>
+            <a href="http://video.caixin.com/">视频</a>
+        </li>
+        <li>
+            <a href="http://datanews.caixin.com/">数字说</a>
+        </li>
+        <li>
+            <a href="http://index.caixin.com/">指数</a>
+        </li>
+        <li>
+            <a href="http://www.caixinglobal.com/">English</a>
+        </li>
+    </ul>
+    <ul class="mulu-ul-t">
+        <li>
+            <a href="http://www.whyenjoy.com/">Enjoy雅趣</a>
+        </li>
+        <li>
+            <a href="http://www.wusuobuneng.com/">无所不能</a>
+        </li>
+        <li>
+            <a href="http://www.healthpoint.cn/">健康点</a>
+        </li>
+        <li>
+            <a href="http://sports.caixin.com/">运动家</a>
+        </li>
+    </ul>
+    <ul class="mulu-ul-t">
+        <li>
+            <a href="http://mall.caixin.com/" rel="nofollow"><span>财新商城</span></a>
+        </li>
+    </ul>
+</div>
+
+<script>
+    $(function(){
+        //获取要定位元素距离浏览器顶部的距离
+        var navH = $(".mainNav").offset().top;
+
+        //滚动条事件
+        $(window).scroll(function(){
+            //获取滚动条的滑动距离
+            var scroH = $(this).scrollTop();
+            //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
+            if(scroH>=navH){
+                $(".mainNav").css({"position":"fixed","top":-19});
+            }else if(scroH<navH){
+                $(".mainNav").css({"position":"static","top":"auto"});
+            }
+        })
+    })
+</script>
+
+</body>
+</html>
+

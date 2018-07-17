@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TAPD-腾讯敏捷产品研发平台</title>
+	<meta charset="utf-8">
+			<meta itemprop="name" content="TAPD-腾讯敏捷产品研发平台" />
+		<meta itemprop="image" content="https://www.tapd.cn/img/help/share-icon.png"/>
+		<meta name="keywords" content="TAPD,团队,协作,可视化,轻量,定制化,看板,报表,便捷,项目,管理,敏捷,开发,任务板,燃烧图,故事墙,效率,插件化,工作流,wiki,缺陷,需求,迭代">
+		<meta name="description" content="TAPD是源自于腾讯的敏捷产品研发协作平台，提供贯穿敏捷研发生命周期的一站式服务。覆盖从产品概念形成、产品规划、需求分析、项目规划和跟踪、质量测试到构建发布、用户反馈跟踪的产品研发全生命周期，提供了灵活的可定制化应用和强大的集成能力，帮助研发团队有效地管理需求、资源、进度和质量，规范和改进产品研发过程，提高研发效率和产品质量。">
+	<meta name="description" itemprop="description" content="高效研发协作平台，腾讯团队协作理念与敏捷研发精髓沉淀。">
+	<meta name="baidu-site-verification" content="Bi8SB5veOo" />
+	<meta name="google-site-verification" content="ByUVxM8aDnQa-hngQECk6feO7Q3J9zXHkSJIYnfA5M0" />
+	<meta name="360-site-verification" content="ab14abe3183b05805ad0913985f2f97e" />
+	<meta name="sogou_site_verification" content="qudPralQcl"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<script type="text/javascript">
+	var _base = 'https://www.tapd.cn/';
+
+	
+	var tfl_path = "https://tdl.tapd.cn/tfl/";
+	var cdn_enabled = "";
+	var _domain = 'tapd.cn';
+	var jsVersion = '131548';
+	var tui_skin = 'lego';
+	var isExternal = true;
+	var isCloud = true;
+	var tui_content_skin = 'lego';
+	var isDev = '';
+	var is_idc_odc_network_failure = false;
+	var isGrayEditor = false;
+	var cloud_vpc_site = 'www.tapd.cn';
+	var enableHebe = false;
+	var enableAvatar = false;
+	try{document.domain = _domain;}catch(e){}
+</script>	<script type="text/javascript" src="/js_dist/raven.min+170511165744.js"></script><script type="text/javascript">
+	var RavenOptions = {
+		environment: 'dev',
+		ignoreErrors: ["Failed to read the 'contentDocument' property from 'HTMLIFrameElement"],
+		ignoreUrls: ["tfl/js_dist/messager+"],
+		instrument: {
+			'tryCatch': false
+		}
+	}
+	var RavenConfigUrl = 'https://b471e961fb1a4a52b3c6440c3bc16517@sentry.pot.tencent.com/22';
+		Raven.config(RavenConfigUrl,RavenOptions).install();
+	if (typeof user_id != 'undefined' && typeof user_nick != 'undefined') {
+		Raven.setUserContext({
+			id : user_id,
+			nick : user_nick
+		});
+	}
+</script>
+	<script>DIST_VERSION_MAP=[];</script><script src="https://www.tapd.cn/dist/dist_version_map.js?v=131548"></script><script src="https://tdl.tapd.cn/tfl/dist/dist_version_map.js?v=131548"></script><script src="https://tdl.tapd.cn/tfl-hebe/dist/dist_version_map.js?v=131548"></script>	<link rel="stylesheet" type="text/css" href="https://tdl.tapd.cn/tfl/css_dist/tfl-style+151112155596.css" />	<link rel="stylesheet" type="text/css" href="/css_dist/tcloud/official/home-common+180308172662.css" />	<script type="text/javascript" src="/js_dist/jquery-mix+151202175520.js"></script>	<script type="text/javascript" src="https://tajs.qq.com/stats?sId=55832707" charset="UTF-8"></script>
+	<script>
+		tfl_path = 'https://tdl.tapd.cn/tfl/';
+		_base = 'https://www.tapd.cn/';
+	</script>
+	<script type="text/javascript" src="https://tdl.tapd.cn/tfl/js/compress/core|dialog|dropdown|tselect|tips|cluetip|template.js?v=131548&compress=1"></script><script src="https://www.tapd.cn/js/compress/lib_2326e42059ef3c58867f09986869106a131548_min.js"></script></head>
+<body class=" show-overflow">
+<div class="bodywrap">
+<div class="home-navigation index-navigation clearfix" id="index-navigation">
+	<div class="navigation-wrap clearfix">
+		<div class="logo">		
+			<a href="https://www.tapd.cn/official/index">
+				<svg width="219" height="37">
+				  	<image xlink:href="https://www.tapd.cn/img/tapd_logo_svg_new.svg" src="https://www.tapd.cn/img/tapd_logo_svg_fix_new.png" width="219" height="37" />
+				</svg>
+			</a>
+		</div>
+				<div class="menu-operation">
+			<ul class="menu">
+				<li>
+					<a class="level1-nav">产品</a>
+					<ul class="second-menu clearfix">
+						<li>
+							<div class="level2-nav">
+								<div class="product-inner">
+									<h2><a href="https://www.tapd.cn/official/lite">协作&沟通</a></h2>
+									<ul class="product-ul">
+										<li><a href="https://www.tapd.cn/official/lite#intro-board">看板</a></li>
+										<li><a href="https://www.tapd.cn/official/lite#intro-mindmap">思维导图</a></li>
+										<li><a href="https://www.tapd.cn/official/lite#intro-word">在线文档</a></li>
+										<li><a href="https://www.tapd.cn/official/lite#intro-wechat">企业微信集成</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="level2-nav">
+								<div class="product-inner product-inner-agile">
+									<h2><a href="https://www.tapd.cn/official/agile">规划&跟踪</a></h2>
+									<ul class="product-ul">
+										<li><a href="https://www.tapd.cn/official/agile#intro-story">敏捷需求规划</a></li>
+										<li><a href="https://www.tapd.cn/official/agile#intro-iteration">迭代计划&跟踪</a></li>
+										<li><a href="https://www.tapd.cn/official/agile#intro-bug">缺陷跟踪管理</a></li>
+										<li><a href="https://www.tapd.cn/official/agile#intro-test-plan">测试计划&用例</a></li>
+										<li><a href="https://www.tapd.cn/official/agile#intro-task">任务&工时</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="level2-nav">
+								<div class="product-inner">
+									<h2><a href="https://www.tapd.cn/official/solution/devops">构建&交付</a></h2>
+									<ul class="product-ul">
+										<li><a href="https://www.tapd.cn/official/solution/devops?tab=2#devops-solution">代码集成</a></li>
+										<li><a href="https://www.tapd.cn/official/solution/devops?tab=3#devops-solution">持续集成&交付</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="level2-nav">
+								<div class="product-inner">
+									<h2>应用&扩展</h2>
+									<ul class="product-ul">
+										<li><a href="https://www.tapd.cn/official/tcube">T魔方</a></li>
+										<li><a href="https://www.tapd.cn/official/service_integration ">第三方集成</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a class="level1-nav">解决方案</a>
+					<ul class="second-menu clearfix">
+						<li>
+							<div class="level2-nav">
+								<div class="product-inner">
+									<ul class="product-ul">
+										<li><a href="https://www.tapd.cn/official/solution/lite">轻量协作</a></li>
+										<li><a href="https://www.tapd.cn/official/solution/agile">敏捷研发</a></li>
+										<li><a href="https://www.tapd.cn/official/solution/devops">DevOps持续交付</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a class="level1-nav"  href="https://www.tapd.cn/official/cases">客户案例</a>
+				</li>
+					
+				<li>
+					<a class="level1-nav">支持</a>
+					<ul class="second-menu clearfix">
+						<li>
+							<div class="level2-nav">
+								<div class="product-inner">
+									<h2><a href="https://www.tapd.cn/help">在线帮助</a></h2>
+									<ul class="product-ul">
+										<li><a href="https://www.tapd.cn/help#page-video">上手视频</a></li>
+										<li><a href="https://www.tapd.cn/help#page-wikidoc">帮助文档</a></li>
+										<li><a href="https://www.tapd.cn/help#page-manual">使用手册</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="level2-nav">
+								<div class="product-inner support-inner">
+									<h2>服务支持</h2>
+									<ul class="product-ul">
+										<li><a href="https://www.tapd.cn/official/support">客户服务</a></li>
+										<li><a href="https://www.tapd.cn/official/ecology">生态合作</a></li>
+									</ul>
+									<ul class="support-link">
+										<li><span class="support-phone"><i class="font-official font-official-phone"></i>4009-100-100</span></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li><a class="level1-nav" href="https://www.tapd.cn/forum">社区</a></li>
+			</ul>
+		</div>
+		<div class="operation">
+												<a href="https://www.tapd.cn/cloud_logins/login" class="user-login user-btn">登录</a>
+													<a href="https://www.tapd.cn/official/select_version" class="user-register user-btn">注册</a>
+									</div>
+			</div>
+</div><link rel="stylesheet" type="text/css" href="/css_dist/tcloud/official/index+180308172659.css" /><div class="home-banner">
+	<div class="banner-content animate">
+		<div class="banner-text fade-animate">
+			<h1><span class="en">TAPD</span><span class="zh">,让协作更敏捷</span></h1>
+			<h4>一站式敏捷研发协作云平台</h4>
+			<h4>凝聚腾讯研发方法及敏捷实践精髓</h4>
+			<h4>助力企业研发更高效、协作更敏捷</h4>
+			<a class="btn-has-animate banner-register" href="https://www.tapd.cn/official/select_version"><span>免费注册</span></a>
+		</div>
+		<div class="banner-img dynamic-wrap">
+			<img class="dynamic-intro dynamic-banner" src="https://www.tapd.cn/img/official/home-banner.png">
+			<div class="dynamic-intro home-icon-dynamic-banner-plane"></div>
+		</div>	
+	</div>
+	<div class="index-bg">
+		<img src="https://www.tapd.cn/img/official/home-banner-bottom.jpg">
+	</div>
+</div>
+<div class="home-page category">
+	<h2>一站式服务，全方位解决协作与研发痛点</h2>
+	<h5>团队协作与产品研发全生命周期支持</h5>
+	<ul class="category-list" animate fade-animate>
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-taskboard"></i>
+				<p class="category-main">看板</p>
+				<p class="category-second">高效任务管理</p>
+			</div>
+		</li>
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-document"></i>
+				<p class="category-main">在线文档</p>
+				<p class="category-second">多人实时协作</p>
+			</div>
+		</li>
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-mindmap"></i>
+				<p class="category-main">思维导图</p>
+				<p class="category-second">在线头脑风暴</p>
+			</div>
+		</li>
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-story"></i>
+				<p class="category-main">敏捷需求规划</p>
+				<p class="category-second">专业需求管理</p>
+			</div>
+		</li>
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-iteration"></i>
+				<p class="category-main">迭代计划&跟踪</p>
+				<p class="category-second">研发过程跟进</p>
+			</div>
+		</li>
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-storywall"></i>
+				<p class="category-main">故事墙</p>
+				<p class="category-second">透明进度管理</p>
+			</div>
+		</li>	
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-bug"></i>
+				<p class="category-main">缺陷跟踪</p>
+				<p class="category-second">Bug跟踪管理</p>
+			</div>
+		</li>
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-task"></i>
+				<p class="category-main">任务管理</p>
+				<p class="category-second">资源工时管理</p>
+			</div>
+		</li>
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-test-plan"></i>
+				<p class="category-main">测试计划&用例</p>
+				<p class="category-second">产品质量把控</p>
+			</div>
+		</li>					
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-code"></i>
+				<p class="category-main">代码集成</p>
+				<p class="category-second">Git代码关联</p>
+			</div>
+		</li>
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-devops"></i>
+				<p class="category-main">持续集成&交付</p>
+				<p class="category-second">一站式DevOps</p>
+			</div>
+		</li>
+		<li class="category-item">
+			<div class="category-content">
+				<i class="font-official font-official-report"></i>
+				<p class="category-main">统计分析</p>
+				<p class="category-second">可视化图表&报告</p>
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="home-page intro">
+	<h2>TAPD，助力团队协作与研发效率提升</h2>
+	<h5>TAPD能够为团队带来哪些改变</h5>
+	<div class="intro-item animate fade-animate clearfix">
+		<div class="intro-img intro-img-1 dynamic-wrap">
+			<div class="dynamic-intro home-icon-dynamic-big-base dynamic-platform-big-base"></div>
+			<div class="dynamic-intro home-icon-dynamic-platform-line"></div>
+			<div class="dynamic-intro home-icon-dynamic-platform-small-base"></div>
+			<div class="dynamic-intro home-icon-dynamic-platform-target"></div>
+			<div class="dynamic-intro home-icon-dynamic-platform-people"></div>
+		</div>
+		<div class="intro-text animate fade-animate intro-text-1">
+			<h3>一个平台，让团队聚焦目标，专注协作</h3>
+			<hr>
+			<ul class="intro-list">
+				<li>简单高效的团队沟通，可视化多人协作，清晰透明的过程反馈，</li>
+				<li>帮助团队提升潜能，轻松工作</li>
+			</ul>
+		</div>
+	</div>
+	<div class="intro-item animate fade-animate clearfix">
+		<div class="intro-text animate fade-animate">
+			<h3>专业方案，提升产品研发效能</h3>
+			<hr>
+			<ul class="intro-list">
+				<li>腾讯十余年敏捷研发精髓，量身打造的产品研发全生命周期解决方案，</li>
+				<li>帮助团队解决项目管理过程问题，提升研发效能</li>
+			</ul>
+		</div>
+		<div class="intro-img intro-img-2 dynamic-wrap">
+			<div class="dynamic-intro home-icon-dynamic-big-base dynamic-effect-big-base"></div>
+			<div class="dynamic-intro home-icon-dynamic-effect-devops"></div>
+			<div class="dynamic-intro home-icon-dynamic-effect-devops-g"></div>
+			<div class="dynamic-intro home-icon-dynamic-effect-column"></div>
+			<div class="dynamic-intro home-icon-dynamic-effect-cake"></div>
+			<div class="dynamic-intro home-icon-dynamic-effect-chart-b"></div>
+			<div class="dynamic-intro home-icon-dynamic-effect-chart-g"></div>
+		</div>		
+	</div>
+	<div class="intro-item animate fade-animate clearfix">
+		<div class="intro-img intro-img-3 dynamic-wrap">
+			<div class="dynamic-intro home-icon-dynamic-big-base dynamic-team-big-base"></div>
+			<div class="dynamic-intro home-icon-dynamic-team-mountain"></div>
+			<div class="dynamic-intro home-icon-dynamic-team-b1"></div>
+			<div class="dynamic-intro home-icon-dynamic-team-b2"></div>
+			<div class="dynamic-intro home-icon-dynamic-team-b3"></div>
+			<div class="dynamic-intro home-icon-dynamic-team-flag"></div>
+		</div>
+		<div class="intro-text intro-text-3 animate fade-animate">
+			<h3>随需而变，助力团队成长</h3>
+			<hr>
+			<ul class="intro-list">
+				<li>模块化定制，可插拔应用，第三方扩展，灵活的解决方案组合，</li>
+				<li>满足企业内部不同成熟度团队需要</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="home-page solution animate fade-animate">
+	<h2>量身打造的产品解决方案</h2>
+	<div class="solution-wrap">
+		<div class="solution-item">
+			<div class="solution-bg"><div class="solution-title"></div></div>
+			<div class="solution-inner">
+				<div class="solution-title">轻量协作</div>
+				<div class="solution-content">
+					<div class="solution-icon">
+						<i class="home-icon-home-solution-lite"></i>
+					</div>				
+					<p>适用于不同行业协作场景</p>
+					<p>满足任务协同，文档协作，即时沟通场景所需</p>
+					<a class="btn-has-animate solution-link" href="https://www.tapd.cn/official/solution/lite"><span>了解详情</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="solution-item">
+			<div class="solution-bg"><div class="solution-title"></div></div>
+			<div class="solution-inner">
+				<div class="solution-title">敏捷研发</div>
+				<div class="solution-content">
+					<div class="solution-icon">
+						<i class="home-icon-home-solution-agile"></i>
+					</div>
+					<p>专为产品研发场景打造</p>
+					<p>针对研发痛点，提供高效敏捷项目管理解决方案</p>
+					<a class="btn-has-animate solution-link" href="https://www.tapd.cn/official/solution/agile"><span>了解详情</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="solution-item">
+			<div class="solution-bg"><div class="solution-title"></div></div>
+			<div class="solution-inner">
+				<div class="solution-title">DevOps持续交付</div>
+				<div class="solution-content">
+					<div class="solution-icon">
+						<i  class="home-icon-home-solution-devops"></i>
+					</div>
+					<p>专为DevOps持续交付场景打造</p>
+					<p>深度整合研发工具链，快速构建&发布产品</p>
+					<a class="btn-has-animate solution-link" href="https://www.tapd.cn/official/solution/devops"><span>了解详情</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="home-page safe animate fade-animate">
+	<div class="safe-item clearfix">
+		<div class="safe-text">
+			<h3>安全可靠，坚如磐石</h3>
+			<ul class="safe-list">
+				<li>基础建设安全，打造铜墙铁壁</li>
+				<li>严格数据监控，全面安全保障</li>
+				<li>专业技术团队，一体安全防护</li>
+			</ul>
+		</div>
+		<div class="safe-img">
+			<img src="https://www.tapd.cn/img/official/home-safe-new.png" alt="安全保障">
+		</div>				
+	</div>
+</div>
+<div class="home-page cases clearfix animate">
+	<div class="home-title">
+		<h2>和他们一起使用TAPD，让梦想成为可能</h2>
+	</div>	
+	<ul class="case-category-list">
+					<li><a>社交&娱乐</a></li>
+					<li><a>电商&新零售</a></li>
+					<li><a>生活服务</a></li>
+					<li><a>金融&地产</a></li>
+					<li><a>企业服务&人工智能</a></li>
+					<li><a>教育&医疗</a></li>
+					<li><a>视频&直播</a></li>
+					<li><a>更多行业</a></li>
+			</ul>
+	<ul class="list" id="case-list">
+					<li>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001659">
+						<i class="home-icon-i-wechat"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001659">
+						<i class="home-icon-i-qq"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001659">
+						<i class="home-icon-i-lianmeng"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-meitu"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-kuwo"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001660">
+						<i class="home-icon-i-wangzhe"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001660">
+						<i class="home-icon-i-lol"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001660">
+						<i class="home-icon-i-ledou"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001660">
+						<i class="home-icon-i-huanlehuyu"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001660">
+						<i class="home-icon-i-xianlai"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001659">
+						<i class="home-icon-i-yy"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001660">
+						<i class="home-icon-i-kaiying"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001660">
+						<i class="home-icon-i-dianhun"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001660">
+						<i class="home-icon-i-feiyu"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001660">
+						<i class="home-icon-i-mobilefish"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001659">
+						<i class="home-icon-i-zhenai"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-jinrichuanmei"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001660">
+						<i class="home-icon-i-yupaopao"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-qutoutiao"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001659">
+						<i class="home-icon-i-qiushibaike"></i>
+					</a>
+							</li>
+					<li>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001664">
+						<i class="home-icon-i-jd"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001664">
+						<i class="home-icon-i-zhuanzhuan"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001664">
+						<i class="home-icon-i-meiriyouxian"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-watsons"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001664">
+						<i class="home-icon-i-zhejiangzhiyu"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001664">
+						<i class="home-icon-i-mogujie"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001664">
+						<i class="home-icon-i-kidswant"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001664">
+						<i class="home-icon-i-banggood"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001664">
+						<i class="home-icon-i-weimob"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001664">
+						<i class="home-icon-i-yunji"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001664">
+						<i class="home-icon-i-renrenyoupin"></i>
+					</a>
+							</li>
+					<li>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001700">
+						<i class="home-icon-i-meituan"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001700">
+						<i class="home-icon-i-dianping"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001662">
+						<i class="home-icon-i-tongcheng"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001700">
+						<i class="home-icon-i-fengchao"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-tubatu"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-moji"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001662">
+						<i class="home-icon-i-mafengwo"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001662">
+						<i class="home-icon-i-woqu"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001700">
+						<i class="home-icon-i-baixing"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-zuzhe"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001662">
+						<i class="home-icon-i-8pings"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001663">
+						<i class="home-icon-i-lakala"></i>
+					</a>
+							</li>
+					<li>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001663">
+						<i class="home-icon-i-futu"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001663">
+						<i class="home-icon-i-webank"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001663">
+						<i class="home-icon-i-lexin"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001663">
+						<i class="home-icon-i-xiaoniu"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001663">
+						<i class="home-icon-i-youpin"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-henda"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-lianjia"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001662">
+						<i class="home-icon-i-plateno"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001663">
+						<i class="home-icon-i-houben"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001663">
+						<i class="home-icon-i-xiaoying"></i>
+					</a>
+							</li>
+					<li>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001667">
+						<i class="home-icon-i-kingdee"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001667">
+						<i class="home-icon-i-xiaoke"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001667">
+						<i class="home-icon-i-jingtai"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001667">
+						<i class="home-icon-i-icarbonx"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001667">
+						<i class="home-icon-i-keda"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-kexueyuan"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001667">
+						<i class="home-icon-i-cambricon"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001667">
+						<i class="home-icon-i-xiaoman"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001667">
+						<i class="home-icon-i-qiweiyun"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001667">
+						<i class="home-icon-i-ec"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001667">
+						<i class="home-icon-i-changyi"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-invena"></i>
+					</a>
+							</li>
+					<li>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-xdf"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-meten"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-webi"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-vipkid"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001662">
+						<i class="home-icon-i-youban"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001665">
+						<i class="home-icon-i-zhuojian"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001665">
+						<i class="home-icon-i-elian"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001665">
+						<i class="home-icon-i-dxy"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001665">
+						<i class="home-icon-i-lizhu"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001665">
+						<i class="home-icon-i-qie"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001665">
+						<i class="home-icon-i-easyhin"></i>
+					</a>
+							</li>
+					<li>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001668">
+						<i class="home-icon-i-qvedio"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001668">
+						<i class="home-icon-i-bilibili"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001668">
+						<i class="home-icon-i-mangotv"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-fm"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-lanren"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001668">
+						<i class="home-icon-i-huya"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001662">
+						<i class="home-icon-i-now"></i>
+					</a>
+							</li>
+					<li>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-chinapost"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-skyworth"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-tcl"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-oppein"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-changan"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-dongfeng"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-weichai"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-aisino"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-aomen"></i>
+					</a>
+									<a href="https://www.tapd.cn/official/cases#1120106291001001669">
+						<i class="home-icon-i-huarun"></i>
+					</a>
+							</li>
+			</ul>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$('.case-category-list li').eq(0).addClass('active');
+		$('#case-list li').eq(0).addClass('active');
+		var indexTimer;
+		$('.case-category-list a').bind('mouseenter',function(){
+			var $li = $(this).parent();
+			if ($li.hasClass('active')) return;
+			var index = $(this).parent().index();
+			clearTimeout(indexTimer);
+			indexTimer = setTimeout(function(){
+				$('.case-category-list li:visible').removeClass('active');
+				$('.case-category-list li').eq(index).addClass('active');
+				$('#case-list li:visible').fadeOut(100,function(){
+					$('#case-list li').eq(index).fadeIn(300);
+				});
+			},300);
+		}).bind('mouseleave',function(){
+			clearTimeout(indexTimer);
+		});
+	});
+</script><div class="right-slider" id="home-slider">
+	<li>
+		<a>
+			<i class="home-icon-slider-tel"></i>
+		</a>
+		<div class="slider-tips tel-tips">
+			<div class="tel-number">电话服务：4009-100-100</div>
+			<span class="arrow-outer"></span>
+			<span class="arrow-in"></span>
+		</div>
+	</li>
+	<li>
+		<a>
+			<i class="home-icon-slider-qcode"></i>
+		</a>
+		<div class="slider-tips qrcode-tips">
+			<div class="qrcode">
+				<img src="https://www.tapd.cn/img/qrcode_for_cloud_wechat.jpg">
+				<span>关注TAPD公众号<br>随时随地查看工作事项</span>
+			</div>
+			<span class="arrow-outer"></span>
+			<span class="arrow-in"></span>
+		</div>
+	</li>
+	<li>
+		<a id="scroll-to-top">
+			<i class="home-icon-slider-top"></i>
+		</a>
+	</li>
+</div>
+<script type="text/javascript" src="/js_dist/md5+160414185253.js"></script><script type="text/javascript" src="/js_dist/dsc+180208173061.js"></script><div class="start-wrap footer-custom-wrap">
+	<div class="start-wrap-title animate fade-animate">
+		<span>敏捷协作，助力团队效率提升</span>
+								<a class="new-btn" href="https://www.tapd.cn/official/select_version"><span>现在开始</span></a>
+		
+			</div>
+</div>
+
+
+<div id="tapd-track"><script type="text/javascript">
+        $(document).ready(function() {
+            if(typeof(window._client_time_init) != "undefined") {
+                window._client_script_time = new Date() - window._client_time_init;
+            }
+        });
+        if(typeof(window._client_time_init) != "undefined") {
+            window._client_dom_time = new Date() - window._client_time_init;
+        }
+
+        </script><script type="text/javascript">window._osslog = {"action_time":1,"before_filter_time":19,"cache_read_time":6,"cache_write_time":0,"http_method":"GET","ip":"123.112.15.221","isdev":false,"render_layout_time":3,"render_view_time":7,"server_ip":"172.21.1.78","sql_read_time":0,"sql_write_time":0,"system":"TAPD","time_cost":40,"token":"78d178d3ce244777427c93c56499f7575e0fd129"};
+	        window._osslog.tracker_api_path = "https://tdl.tapd.cn/tbl/apis/tracker.php";
+	        $(document).ready(function() {if(typeof(window._client_script_time) != "undefined") {window._osslog.client_script_time = window._client_script_time;}});
+	        if(typeof(window._client_dom_time) != "undefined") {window._osslog.client_dom_time = window._client_dom_time;}
+	        if(typeof(window._client_field3) != "undefined") {window._osslog.field3 = window._client_field3;}
+	        </script><script type="text/javascript" src="https://tdl.tapd.cn/tfl/js/tracker.js?r=2" defer="defer"></script></div>
+
+
+<div class="footer ">
+	<div class="foot-inner">
+		<div class="foot-link">
+			<div class="quick-link">
+				<div class="link-list">
+					<span>产品</span>
+					<span class="foot-separator"></span>
+					<a href="https://www.tapd.cn/official/lite">协作&沟通</a>
+					<a href="https://www.tapd.cn/official/agile">规划&跟踪</a>
+					<a href="https://www.tapd.cn/official/solution/devops">构建&交付</a>
+					<a href="https://www.tapd.cn/official/service_integration">应用&扩展</a>
+				</div>
+				<div class="link-list">
+					<span>解决方案</span>
+					<span class="foot-separator"></span>
+					<a href="https://www.tapd.cn/official/solution/lite">轻量协作</a>
+					<a href="https://www.tapd.cn/official/solution/agile">敏捷研发</a>
+					<a href="https://www.tapd.cn/official/solution/devops">DevOps持续交付</a>
+				</div>
+				<div class="link-list">
+					<span>服务</span>
+					<span class="foot-separator"></span>
+					<a href="https://www.tapd.cn/official/support">客户服务</a>
+					<a href="https://www.tapd.cn/official/ecology">生态合作</a>
+					<a href="https://www.tapd.cn/official/security">安全保障</a>
+					<a href="https://www.tapd.cn/official/release_note">更新日志</a>
+					<a href="https://www.tapd.cn/official/official_wechat">企业微信集成</a>
+				</div>
+				<div class="link-list">
+					<span>合作伙伴</span>
+					<span class="foot-separator"></span>
+					<a href="http://www.qcloud.com/" target="_blank">腾讯云</a>
+					<a href="http://work.weixin.qq.com/" target="_blank">企业微信</a>
+					<a href="http://qidian.qq.com/" target="_blank">腾讯企点</a>
+					<a href="http://zc.open.qq.com/" target="_blank">众创空间</a>
+				</div>
+			</div>
+			<div class="link-us">
+				<a class="link-top" href="https://www.tapd.cn/official/support">支持</a>
+				<span class="foot-separator"></span>
+				<a class="help-link" href="https://www.tapd.cn/help"><i class="font-official font-official-help"></i>帮助中心</a>
+				<a class="help-link tel-link"><i class="font-official font-official-phone"></i>4009-100-100</a>
+				<a class="help-link" href="mailto:support@tapd.cn"><i class="font-official font-official-email"></i>support@tapd.cn</a>
+			</div>
+		</div>
+		<div class="cooperation">
+			<span class="cooperation-text">友情链接&nbsp;：</span>
+			<a target="_blank" href="https://lexiangla.com/?formSource=tapd">腾讯乐享</a><span class="separate">|</span>
+			<a target="_blank" href="http://code.tencent.com/?formSource=tapd">腾讯工蜂</a>
+		</div>	
+	</div>
+	<div class="copyright-inner">
+		<div class="copyright clearfix">
+			<ul class="footer-links">
+				<li><a target="_blank" href="http://www.qq.com/contract.shtml">腾讯服务协议</a></li>
+				<li><a target="_blank" href="https://www.tapd.cn/help">帮助中心</a></li>
+				<li><a href="mailto:support@tapd.cn">反馈建议</a></li>
+				<li><a target="_blank" href="http://privacy.qq.com">隐私政策</a></li>
+			</ul>
+			<div class="copyright-text">
+				<span>Copyright ©1998-2018 Tencent  All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粤ICP备B2-20090059-69</span>
+			</div>
+		</div>
+	</div>	
+</div><script type="text/javascript" src="/js_dist/tcloud/official/home-common+180308172662.js"></script></div>
+<!-- WPA start -->
+<script id="qd28520639741574fde8398c4632314d88341239fe57" src="https://wp.qiye.qq.com/qidian/2852063974/1574fde8398c4632314d88341239fe57" charset="utf-8" async defer></script>
+<!-- WPA end -->
+</body>
+</html>	

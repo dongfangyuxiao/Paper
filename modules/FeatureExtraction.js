@@ -3,27 +3,7 @@
  * @author Lijingtao
  * 6/25/18.
  */
-const esprima = require('esprima');
-const fs = require('fs');
-
-/**
- * 根据文本解析得到AST对象
- * @param text
- * @param fileName
- * @returns {*}
- */
-function initASTObj(text, fileName) {
-  let ASTObj;
-  try {
-    ASTObj = esprima.parseScript(text.trim(), {range: false, loc: false, comment: true});
-  } catch (e) {
-    console.error('AST parse error. File: ' + fileName);
-    // 失败样本写入文件记录
-    fs.writeFile('./result/ErrorSample2.txt', fileName + '\n', {flag: 'a'});
-    return null;
-  }
-  return ASTObj;
-}
+const common = require('./CommonModule');
 
 /**
  * Feature1 计算文本的熵
@@ -68,7 +48,7 @@ function calEntropy(text) {
  * @returns {number|*} 最长单词长度
  */
 function getLongestWord(text, fileName) {
-  let astObj = initASTObj(text, fileName);
+  let astObj = common.initASTObj(text, fileName);
   if (astObj !== null) {
     // 所有语法单元
     let units = astObj.body;
@@ -143,7 +123,7 @@ function averageChPerLine(text) {
 
 // Feature6 AST深度
 function getASTDepth(text, fileName) {
-  let ASTObj = initASTObj(text, fileName);
+  let ASTObj = common.initASTObj(text, fileName);
   return depthCallBack(ASTObj);
 
   function depthCallBack(ASTObj) {
@@ -175,7 +155,7 @@ function getASTDepth(text, fileName) {
 // Feature7 危险函数调用，URL变化次数，URL变化也是使用危险函数调用，所以合并为同一个
 // Feature Plus 1 操作DOM,从DOM节点中取文本的RiskAPI
 function funWithRisk(text, fileName) {
-  let astObj = initASTObj(text, fileName);
+  let astObj = common.initASTObj(text, fileName);
 
   if (astObj === null) {
     return null;
@@ -188,7 +168,7 @@ function funWithRisk(text, fileName) {
     'replaceChild', 'appendChild', 'charAt', 'charCodeAt', 'fromCharCode',
     'indexOf', 'split', 'location', 'unescape'];
   // 以下为添加DOM交互的特征
-  let htmlRiskArr = ['innerText', 'childNodes', 'children', 'URL', 'domain', 'getAttribute',
+  let htmlRiskArr = ['innerText', 'childNodes', 'children', 'URL', 'domain', "getAttribute",
     'nodeValue', 'appendChild', 'addEventListener', 'attachEvent', 'createElement'];
   // DOM 事件特征
   let eventRiskArr = ['mouseover', 'mouseout', 'mousemove'];

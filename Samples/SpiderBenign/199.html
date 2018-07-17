@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<!--
+
+          Worktile v6.2.27，更好的企业协作平台
+
+`WWWWWWWWWWWWWWW+   `WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW+
+`OOOOOOOOOOOOOOO+   `OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO+
+`RRRRRRRRRRRRRRR+   `RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR+
+`KKKKKKKKKKKKKKK+   `KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK+
+`TTTTTTTTTTTTTTT+   `TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT+
+`IIIIIIIIIIIIIII+   `IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII+
+`LLLLLLLLLLLLLLL+   `LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL+
+`EEEEEEEEEEEEEEE+   `EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE+
+                                        `WWWWWWWWWWWWWWW+
+                                        `TTTTTTTTTTTTTTT+
+`WWWWWWWWWWWWWWW+   `WWWWWWWWWWWWWWW+   `WWWWWWWWWWWWWWW+
+`OOOOOOOOOOOOOOO+   `OOOOOOOOOOOOOOO+   `OOOOOOOOOOOOOOO+
+`RRRRRRRRRRRRRRR+   `RRRRRRRRRRRRRRR+   `RRRRRRRRRRRRRRR+
+`KKKKKKKKKKKKKKK+   `KKKKKKKKKKKKKKK+   `KKKKKKKKKKKKKKK+
+`TTTTTTTTTTTTTTT+   `TTTTTTTTTTTTTTT+   `TTTTTTTTTTTTTTT+
+`IIIIIIIIIIIIIII+   `IIIIIIIIIIIIIII+   `IIIIIIIIIIIIIII+
+`LLLLLLLLLLLLLLL+   `LLLLLLLLLLLLLLL+   `LLLLLLLLLLLLLLL+
+`EEEEEEEEEEEEEEE+   `EEEEEEEEEEEEEEE+   `EEEEEEEEEEEEEEE+
+
+-->
+<html ng-app="">
+<head>
+    <title>Worktile - 更好的企业协作平台</title>
+    <meta name="robots" content="nofollow"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="Worktile,企业协作,团队协同,项目管理,任务管理,团队日程,审批,企业微信,周报,在线办公,SAAS,云协作,企业办公,移动办公,工时,甘特图,销售管理,工作流程">
+    <meta name="description" content="Worktile是更好的企业协作平台, 贯通企业IM、项目管理、日程安排、电话会议、日报周报月报、企业网盘、审批、考勤、CRM,以及100+ 服务集成,让企业协作更高效、更简单">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="Shortcut Icon" href="https://cdn.worktile.com/assets/images/favicon.ico?v=6.2.27">
+    <meta name="apple-itunes-app" content="app-id=919808188"/>
+<link href="https://cdn.worktile.com/assets/css/app.min-6.2.27.css" rel="stylesheet"></head>
+<body class="language--zh-cn">
+<nav id="navbar-worktile" class="navbar navbar-fixed-top ">
+    
+        <div class="navbar-container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand all-index-logo" href="/" title="worktile">
+                    <!--<i class="lcfont lc-logo wtfont1"></i>-->
+                    <!--<i class="lcfont lc-worktile wtfont2"></i>-->
+                    <!--<svg class="icon worktile-logo" aria-hidden="true">-->
+                    <!--<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lc-worktile-logo"></use>-->
+                    <!--</svg>-->
+                    <img class="all-index-logo-img" src="https://cdn.worktile.com/assets/images/logos/logo-worldcup-new.png" />
+                    <img class="all-index-logo-img img-white" src="https://cdn.worktile.com/assets/images/logos/logo-white.png" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <a href="/tour" class="version-link ">
+                            产品
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/pricing" class="version-link ">
+                            价格
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/solution" class="version-link ">
+                            解决方案
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/support" class="version-link ">
+                            服务
+                        </a>
+                    </li>
+
+                    <!--<li>-->
+                    <!--<a href="https://my.worktile.com" class="version-link">Worktile 基础版</a>-->
+                    <!--</li>-->
+                    <li>
+                        <a href="/signup" class="btn btn-regist">
+                            注册
+                        </a>
+                    </li>
+                    <li class="text-center">
+                        <a href="/signin" class="btn btn-login">
+                            登录
+                                <!--<i class="fa fa-sort-desc "></i>-->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</nav>
+
+<div class="index-wrap">
+    <div class="index-banner-wrap index-relative">
+        <div class="index-banner">
+            <div class="index-banner-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="index-banner-item-img col-md-6 col-xs-12">
+                            <img src="https://cdn.worktile.com/assets/images/home/index-banner-img-worldcup.png"/>
+                        </div>
+                        <div class="col-md-6 col-xs-12 index-banner-item-content">
+                            <div class="index-banner-title">
+                                更好的企业协作平台
+                            </div>
+                            <div class="index-banner-desc">
+                                专注于提升企业办公和管理效率，节约企业管理成本，进而提升企业核心竞争力。
+                            </div>
+                            <div class="index-banner-action">
+                                <div class="input-group">
+                                    <input id="signup-mobile" type="text" class="form-control"
+                                           placeholder="请输入您的手机号">
+                                    <div class="separate"></div>
+                                    <div id="signup-btn" class="input-group-addon">免费注册
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="index-platform-wrap index-bg index-relative">
+        <div class="index-platform index-part-common">
+            <div class="index-platform-header" data-aos="fade-up">
+                <div class="index-part-title">
+                    一个平台满足企业协作办公需求
+                </div>
+                <div class="index-part-desc">
+                    包括哪些服务
+                </div>
+            </div>
+
+            <div class="index-platform-body" data-aos="fade-up">
+                <div class="index-platform-mark">
+                    <img src="https://cdn.worktile.com/assets/images/home/index-platform-img.png"
+                         class="img-responsive index-platform-img"/>
+                </div>
+                <div class="index-platform-items">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="index-platform-item" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="index-platform-item-img">
+                                        <img src="https://cdn.worktile.com/assets/images/home/index-platform-item-msg.png"
+                                             class=""/>
+                                    </div>
+                                    <div class="index-platform-item-body">
+                                        <div class="index-platform-item-title">即时沟通
+                                        </div>
+                                        <div class="index-platform-item-content">专为工作场景打造的企业即时沟通工具，成员之间保持实时联系，随时协调工作
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="index-platform-item" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="index-platform-item-img">
+                                        <img src="https://cdn.worktile.com/assets/images/home/index-platform-item-project.png"
+                                             class=""/>
+                                    </div>
+                                    <div class="index-platform-item-body">
+                                        <div class="index-platform-item-title">项目管理
+                                        </div>
+                                        <div class="index-platform-item-content">丰富的业务场景模板，敏捷开发、缺陷管理等，直观有效的管理项目进度与质量
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="index-platform-item" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="index-platform-item-img index-platform-item-img-left">
+                                        <img src="https://cdn.worktile.com/assets/images/home/index-platform-item-oa.png"
+                                             class=""/>
+                                    </div>
+                                    <div class="index-platform-item-body">
+                                        <div class="index-platform-item-title">办公管理
+                                        </div>
+                                        <div class="index-platform-item-content">提供简报、公告、门户、审批应用，办公事务可以随时跟踪，进度实时掌控
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="index-platform-item" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="index-platform-item-img">
+                                        <img src="https://cdn.worktile.com/assets/images/home/index-platform-item-customer.png"
+                                             class=""/>
+                                    </div>
+                                    <div class="index-platform-item-body">
+                                        <div class="index-platform-item-title">客户管理
+                                        </div>
+                                        <div class="index-platform-item-content">灵活有效的客户、联系人、合同管理，实现全过程客户管理
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="index-platform-item" data-aos="fade-up" data-aos-delay="400">
+                                    <div class="index-platform-item-img">
+                                        <img src="https://cdn.worktile.com/assets/images/home/index-platform-item-hr.png"
+                                             class=""/>
+                                    </div>
+                                    <div class="index-platform-item-body">
+                                        <div class="index-platform-item-title">人事管理
+                                        </div>
+                                        <div class="index-platform-item-content">从目标管理OKR到考勤、考核管理，一站式解决人事管理的痛点
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="index-platform-item" data-aos="fade-up" data-aos-delay="500">
+                                    <div class="index-platform-item-img">
+                                        <img src="https://cdn.worktile.com/assets/images/home/index-platform-item-dashboard.png"
+                                             class=""/>
+                                    </div>
+                                    <div class="index-platform-item-body">
+                                        <div class="index-platform-item-title">管理后台
+                                        </div>
+                                        <div class="index-platform-item-content">强大的企业管理后台，帮助企业管理员在企业内部推广落地协作平台
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index-oa-wrap index-relative">
+        <div class="index-oa index-part-common">
+            <div class="index-oa-header" data-aos="fade-up">
+                <div class="index-part-title">
+                    专为企业协作办公场景而设计
+                </div>
+                <div class="index-part-desc">
+                    给企业带来什么好处
+                </div>
+            </div>
+            <div class="index-oa-body index-oa-body1" data-aos="fade-up">
+                <div class="index-oa-item-img index-oa-item-img-left">
+                    <img src="https://cdn.worktile.com/assets/images/home/index-oa-img1.png"/>
+                </div>
+                <div class="index-oa-item">
+                    <div class="index-oa-item-title">
+                        一体化办公，降低企业成本
+                    </div>
+                    <ul class="index-oa-item-content">
+                        <li>
+                            <i class="disc"></i>管理层在一个地方看到各项工作进展
+                        </li>
+                        <li>
+                            <i class="disc"></i>员工不需要在多个不同系统之间切换
+                        </li>
+                        <li>
+                            <i class="disc"></i>IT管理人员不用维护多套系统及组织架构和人员信息
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="index-oa-body index-oa-body2" data-aos="fade-up">
+                <div class="index-oa-item">
+                    <div class="index-oa-item-title">
+                        激发员工潜能，提高工作效率
+                    </div>
+                    <ul class="index-oa-item-content">
+                        <li>
+                            <i class="disc"></i>可视化的管理跟踪，让公司管理更规范
+                        </li>
+                        <li>
+                            <i class="disc"></i>有序安排每日工作，让员工工作更有效
+                        </li>
+                        <li>
+                            <i class="disc"></i>目标信息透明，让每个人都了解公司目标
+                        </li>
+                    </ul>
+                </div>
+                <div class="index-oa-item-img index-oa-item-img-right">
+                    <img src="https://cdn.worktile.com/assets/images/home/index-oa-img2.png"/>
+                </div>
+            </div>
+            <div class="index-oa-body index-oa-body3" data-aos="fade-up">
+                <div class="index-oa-item-img index-oa-item-img-left">
+                    <img src="https://cdn.worktile.com/assets/images/home/index-oa-img3.png"/>
+                </div>
+                <div class="index-oa-item">
+                    <div class="index-oa-item-title">
+                        打破信息孤岛，数据产生价值
+                    </div>
+                    <ul class="index-oa-item-content">
+                        <li>
+                            <i class="disc"></i>企业数据集中在一个地方，不再散落各处
+                        </li>
+                        <li>
+                            <i class="disc"></i>产生的数据形成企业的沉淀资产
+                        </li>
+                        <li>
+                            <i class="disc"></i>通过数据分析形成决策报表
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index-enterprise-wrap index-bg index-relative">
+        <div class="index-enterprise index-part-common" data-aos="fade-up">
+            <div class="index-enterprise-header">
+                <div class="index-part-title">
+                    数百万企业的共同选择
+                </div>
+                <div class="index-part-desc">
+                    谁在使用
+                </div>
+            </div>
+
+            <div class="index-enterprise-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            <div class="index-enterprise-item" data-aos="fade-up">
+                                <div class="index-enterprise-item-picture">
+                                    <img src="https://cdn.worktile.com/assets/images/home/index-enterprise-img1.png"
+                                         class="img-responsive index-enterprise-img"/>
+                                </div>
+                                <div class="index-enterprise-item-title">
+                                    奔驰
+                                </div>
+                                <div class="index-enterprise-item-desc">
+                                    "Worktile是以项目管理为核心打造的企业协作平台，从沟通、协作、办公以及连接四个方面服务于企业日常办公流程。"
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <div class="index-enterprise-item" data-aos="fade-up" data-aos-delay="100">
+                                <div class="index-enterprise-item-picture">
+                                    <img src="https://cdn.worktile.com/assets/images/home/index-enterprise-img2.png"
+                                         class="img-responsive index-enterprise-img"/>
+                                </div>
+                                <div class="index-enterprise-item-title">
+                                    小红书
+                                </div>
+                                <div class="index-enterprise-item-desc">
+                                    “市场竞争下，效率决定了企业的核心竞争力；Worktile服务于企业协作场景，同时帮助企业打通数据孤岛，实现办公流程化、无纸化，最终沉淀企业工作数字资产。”
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <div class="index-enterprise-item" data-aos="fade-up" data-aos-delay="200">
+                                <div class="index-enterprise-item-picture">
+                                    <img src="https://cdn.worktile.com/assets/images/home/index-enterprise-img3.png"
+                                         class="img-responsive index-enterprise-img"/>
+                                </div>
+                                <div class="index-enterprise-item-title">
+                                    京东金融
+                                </div>
+                                <div class="index-enterprise-item-desc">
+                                    “在过去，企业协作过程中存在着许多问题，诸如：权责不清、流程混乱等。Worktile的出现很好的解决这些问题。它是基于企业真实场景提供的一站式协作办公解决方案。”
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index-partner-wrap index-bg index-relative">
+    <div class="index-partner index-part-common">
+        <div class="index-partner-header" data-aos="fade-up">
+            <div class="index-partner-title">
+                超过 50万 企业使用
+            </div>
+        </div>
+        <div class="index-partner-body">
+            <div id="slides">
+                <div class="col2 clearfix">
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up"
+                             src="https://cdn.worktile.com/assets/images/home/logos/1.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="100"
+                             src="https://cdn.worktile.com/assets/images/home/logos/2.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="200"
+                             src="https://cdn.worktile.com/assets/images/home/logos/3.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="300"
+                             src="https://cdn.worktile.com/assets/images/home/logos/4.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="400"
+                             src="https://cdn.worktile.com/assets/images/home/logos/5.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="500"
+                             src="https://cdn.worktile.com/assets/images/home/logos/6.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="600"
+                             src="https://cdn.worktile.com/assets/images/home/logos/7.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="700"
+                             src="https://cdn.worktile.com/assets/images/home/logos/8.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="800"
+                             src="https://cdn.worktile.com/assets/images/home/logos/9.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="900"
+                             src="https://cdn.worktile.com/assets/images/home/logos/10.png">
+                    </div>
+                </div>
+                <div class="col2 clearfix">
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up"
+                             src="https://cdn.worktile.com/assets/images/home/logos/11.jpg">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="100"
+                             src="https://cdn.worktile.com/assets/images/home/logos/12.jpg">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="200"
+                             src="https://cdn.worktile.com/assets/images/home/logos/13.jpg">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="300"
+                             src="https://cdn.worktile.com/assets/images/home/logos/14-2.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="400"
+                             src="https://cdn.worktile.com/assets/images/home/logos/15.jpg">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="500"
+                             src="https://cdn.worktile.com/assets/images/home/logos/16.jpg">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="600"
+                             src="https://cdn.worktile.com/assets/images/home/logos/17.jpg">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="700"
+                             src="https://cdn.worktile.com/assets/images/home/logos/21.png">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="700"
+                             src="https://cdn.worktile.com/assets/images/home/logos/19.jpg">
+                    </div>
+                    <div class="index-partner-item">
+                        <img class="index-partner-img" data-aos="fade-up" data-aos-delay="700"
+                             src="https://cdn.worktile.com/assets/images/home/logos/20.png">
+                    </div>
+                </div>
+
+                <!--<div class="col5 clearfix">-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/1.png">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="100"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/2.png">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="200"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/3.png">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="300"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/4.png">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col5 clearfix">-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="400"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/5.png">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="500"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/6.png">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="600"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/7.png">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="700"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/8.png">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col5 clearfix">-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="800"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/9.png">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="900"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/10.png">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/11.jpg">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="100"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/12.jpg">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col5 clearfix">-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="200"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/13.jpg">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="300"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/14.jpg">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="400"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/15.jpg">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="500"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/16.jpg">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col5 clearfix">-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="600"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/17.jpg">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="700"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/18.jpg">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="700"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/19.jpg">-->
+                    <!--</div>-->
+                    <!--<div class="index-partner-item">-->
+                        <!--<img class="index-partner-img" data-aos="fade-up" data-aos-delay="700"-->
+                             <!--src="https://cdn.worktile.com/assets/images/home/logos/20.png">-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="index-bottom index-relative">
+    <div class="index-bottom-content" data-aos="fade-up">
+        <div class="index-bottom-title">
+            专注协作办公，马上开始免费使用
+        </div>
+        <div class="index-bottom-action">
+            <div class="input-group">
+                <input id="signup-mobile-bottom" type="text" class="form-control" placeholder="请输入您的手机号">
+                <div class="separate"></div>
+                <div id="signup-btn-bottom" class="input-group-addon">免费注册 <i class="lcfont lc-arrow-back2"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="home-footer">
+    <div class="map-link">
+        <div class="box clearfix">
+            <div class="left-side">
+                <ul class="column">
+                    <li><h2>产品</h2></li>
+                    <li><a target="_self" href="/tour">产品介绍</a></li>
+                    <li><a target="_self" href="/pricing">价格</a></li>
+                    <li><a target="_self" href="/client">客户端</a></li>
+                    <li><a target="_self" href="/changelog">更新日志</a></li>
+                    <li><a target="_self" href="/security">数据安全</a></li>
+                    <li><a target="_self" href="/developer">开发者中心</a></li>
+                </ul>
+                <ul class="column">
+                    <li><h2>服务</h2></li>
+                    <li><a target="_self" href="/solution">解决方案</a></li>
+                    <li><a target="_self" href="/case">客户案例</a></li>
+                    <li><a target="_blank" href="//help.worktile.com">帮助中心</a></li>
+                    <li><a target="_self" href="/videos">视频教程</a></li>
+                    <li><a target="_self" href="/blog">官方博客</a></li>
+                    <li><a target="_self" href="/club">用户社区</a></li>
+                </ul>
+                <ul class="column">
+                    <li><h2>公司</h2></li>
+                    <li><a target="_self" href="/about">关于我们</a></li>
+                    <li><a target="_self" href="/press">媒体报道</a></li>
+                    <li><a target="_self" href="/contact">联系我们</a></li>
+                    <li><a target="_self" href="/privacy">隐私声明</a></li>
+                    <li><a target="_self" href="/terms">服务条款</a></li>
+                  <!--  <li><a target="_self" href="/careers">加入我们</a></li>-->
+                </ul>
+                <ul class="column">
+                    <li><h2>更多</h2></li>
+                    <li><a target="_self" href="/partner">合作伙伴</a></li>
+                    <li><a target="_blank" href="/plus">创业扶持计划</a></li>
+<!--                    <li><a target="_self" href="#">公益计划</a></li>-->
+                    <li><a target="_blank" href="/workshop">Workshop</a></li>
+                    <li>
+                        <a target="_blank" href="https://my.worktile.com" class="version-link">Worktile 基础版</a>
+                </ul>
+                <ul class="column column-right">
+
+                    <li><h2>联系客户顾问</h2></li>
+                    <li><a class="tel" target="_self" href="/contact">+86 400 805 6966</a>
+                    </li>
+                    <li>
+                        <div class="language-switch">
+                            <select class="language-switch-select" current="index">
+                                
+                                <option value="zh-cn" selected="selected">简体中文</option>
+                                
+
+                                
+                                <option value="zh-tw">繁體中文</option>
+                                
+
+                                
+                                <option value="en-us">English</option>
+                                
+                            </select>
+                            <div class="shadow">
+                                <i class="lcfont lc-earth"></i>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="link">
+                            <a class="a-icon a-weixin">
+                                <i class="lcfont lc-wechat"></i>
+                                <div>
+                                    <!--<i class="lcfont lc-angle-down"></i>-->
+                                    微信公众号:
+                                    <img width="100%" src="https://cdn.worktile.com/assets/images/home/weixin.png" alt="">
+                                </div>
+                            </a>
+                            <a class="a-icon" href="http://weibo.com/worktile" target="_blank">
+                                <i class="lcfont lc-sina"></i>
+                            </a>
+                            <a class="a-icon a-mail">
+                                <i class="lcfont lc-qq"></i>
+                                <div>
+                                    <!--<i class="lcfont lc-angle-down"></i>-->
+                                    qq群:
+
+                                    <span class="qq">110257147</span>
+                                    <span class="qq">371897560</span>
+                                    <span class="qq">325482073</span>
+
+                                </div>
+                            </a>
+                            <a class="a-icon" href="/blog/rss" target="_blank">
+                                <i class="lcfont lc-rss1"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="visible-xs mini-content">
+                <a target="_self" href="/tour">产品介绍</a>
+                <a target="_self" href="/pricing">价格</a>
+                <a target="_self" href="/client">客户端</a>
+                <a target="_self" href="/changelog">更新日志</a>
+                <a target="_self" href="/security">数据安全</a>
+                <a target="_self" href="/developer">开发者中心</a>
+                <a target="_self" href="/solution/dev">解决方案</a>
+                <a target="_self" href="/case">客户案例</a>
+                <a target="_self" href="//help.worktile.com">帮助中心</a>
+                <a target="_self" href="/videos">视频教程</a>
+                <a target="_self" href="/blog">官方博客</a>
+                <a target="_self" href="/club">用户社区</a>
+                <a target="_self" href="/about">关于我们</a>
+                <a target="_self" href="/press">媒体报道</a>
+                <a target="_self" href="/contact">联系我们</a>
+                <a target="_self" href="/privacy">隐私声明</a>
+                <a target="_self" href="/terms">服务条款</a>
+               <!-- <a target="_self" href="/careers">加入我们</a>-->
+                <a target="_self" href="/partner">合作伙伴</a>
+                <a target="_blank" href="/plus">创业扶持计划</a>
+                <!--<a target="_self" href="#">公益计划</a>-->
+                <a target="_blank" href="/workshop">Workshop</a>
+                <a>&nbsp;</a>
+            </div>
+            <br/>
+            <div class="visible-xs mini-contact">
+                <a class="tel" target="_self" href="/contact">+86 400 805 6966</a>
+                <div class="language-switch">
+                    <select class="language-switch-select" current="index">
+                        
+                        <option value="zh-cn" selected="selected">简体中文</option>
+                        
+
+                        
+                        <option value="zh-tw">繁體中文</option>
+                        
+
+                        
+                        <option value="en-us">English</option>
+                        
+                    </select>
+                    <div class="shadow">
+                        <i class="lcfont lc-earth"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="investigation">
+        <div class="investigation-content">
+            <div>
+                <span class="text1">© 2018 Worktile.com</span>
+            </div>
+            <div>
+                <span class="text2">京ICP备13017353号-3</span>
+                <span class="text3">京公网安备11010802012357号</span>
+                <span class="img">
+                <a class="trust-icon" rel="nofollow" href="http://t.knet.cn/index_new.jsp" target="_blank">
+                    <img src="https://cdn.worktile.com/assets/images/home/trust-icon.png" alt="">
+                </a>
+                <a class="safe-icon" rel="nofollow"
+                   href="https://seal.godaddy.com/verifySeal?sealID=yPHt8p0KLviEhwFacMjEXfEVvyVCWMml6bbEWEoDA4zNg0JnL5Bxz9HZ2nVP"
+                   target="_blank">
+                    <img src="https://cdn.worktile.com/assets/images/home/safe-icon.gif" alt="">
+                </a>
+            </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Start Alexa Certify Javascript -->
+    <!--<script type="text/javascript">-->
+    <!--_atrk_opts = {atrk_acct: "I+xBi1a4ZP00O9", domain: "adswiz.com", dynamic: true};-->
+    <!--(function () {-->
+    <!--var as = document.createElement('script');-->
+    <!--as.type = 'text/javascript';-->
+    <!--as.async = true;-->
+    <!--as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js";-->
+    <!--var s = document.getElementsByTagName('script')[0];-->
+    <!--s.parentNode.insertBefore(as, s);-->
+    <!--})();-->
+    <!--</script>-->
+    <!--<noscript>-->
+    <!--<img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=I+xBi1a4ZP00O9" style="display:none" height="1"-->
+    <!--width="1" alt=""/>-->
+    <!--</noscript>-->
+    <!-- End Alexa Certify Javascript -->
+
+    <!-- Analytics -->
+    <script>
+        var d = document,
+            g = d.createElement('script'),
+            s = d.getElementsByTagName('script')[0];
+        var myDate = new Date();
+        date = myDate.getFullYear() + '' + myDate.getMonth() + '' + myDate.getDate();
+        g.type = 'text/javascript';
+        g.defer = true;
+        g.async = true;
+        g.src = "//analytics.jiuzhilan.com/codes/jiuzhilan_18938.js?" + date;
+        s.parentNode.insertBefore(g, s);
+    </script>
+    <!-- End Analytics Code -->
+
+    <!-- Start 百度统计 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?1bc242ebe6c6720b70bdfbcf348d5bd4";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- End 百度统计 -->
+
+    <script>
+        (function (para) {
+            var p = para.sdk_url,
+                n = para.name,
+                w = window,
+                d = document,
+                s = 'script',
+                x = null,
+                y = null;
+            w['sensorsDataAnalytic201505'] = n;
+            w[n] = w[n] || function (a) {
+                return function () {
+                    (w[n]._q = w[n]._q || []).push([a, arguments]);
+                }
+            };
+            var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'clearAllRegister',
+                'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile',
+                'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink',
+                'clearAllRegister'
+            ];
+            for (var i = 0; i < ifs.length; i++) {
+                w[n][ifs[i]] = w[n].call(null, ifs[i]);
+            }
+            if (!w[n]._t) {
+                x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+                x.async = 1;
+                x.src = p;
+                y.parentNode.insertBefore(x, y);
+                w[n].para = para;
+            }
+        })({
+            sdk_url: '/thirdparty/sensorsdata.min.js',
+            name: 'sa',
+            server_url: 'https://worktile.com/sa',
+            show_log: false,
+            heatmap: {
+                loadTimeout: 3000,
+                collect_url: function () {
+                    return true;
+                }
+            }
+        });
+        sa.quick('autoTrack');
+    </script>
+    
+<script type="text/javascript" src="https://cdn.worktile.com/assets/js/app.min-6.2.27.js"></script></body>
+</html>

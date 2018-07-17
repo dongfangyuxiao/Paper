@@ -1,0 +1,2745 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+             	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>中信网上银行_理财产品、申请信用卡、个人贷款-中信银行官网</title>
+<meta name="keywords" content="中信网上银行,中信理财产品,申请中信信用卡,中信个人贷款,,中信银行借记卡申请办理" />
+<meta name="description" content="中信银行是中信集团旗下最大子公司，您可通过中信银行官方网站了解并办理理财、私人银行、出国金融、申请信用卡、个人不动产抵押贷款等业务，为您提供一站式综合金融服务，让您快乐享不停！" />
+		<link type="text/css" href="./images/bootstrap.css" rel="stylesheet" />
+		<link type="text/css" href="./images/main.css" rel="stylesheet" />
+		<script type="text/javascript" src="./images/jquery-1.11.3.js"></script>
+		<script type="text/javascript" src="./images/bootstrap.js"></script>
+		<script type="text/javascript" src="./images/touchswipe.min.js"></script>
+		<script type="text/javascript" src="./images/common.js"></script>
+<script>
+define = null;
+require = null;
+</script>
+<script src="./images/enc-md5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./images/enc-sha1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./images/enc-core.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./images/enc-base64.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./images/enc-aes.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="./images/enc-rsa.js" type="text/javascript" charset="utf-8"></script>
+               <script src="./images/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+			//依赖CryptoJS v3.0.2
+			//code.google.com/p/crypto-js
+
+			var $n = "8291bbce580f3a4a83b4b5b0add2485209edf6e05b05afe446a4ad5898fade77f8e8a3ff675970aed7f9230cc749cfb507a866caf4bb0c5f3b27a300d4cb342904b3a8c292630a123ed1aa70e7d76d88ee4404dc61cdc91a0df831a27e8cbd4c9442efa894fb80d8d8a3290a717852324eea845406ced25e827e7427535f164b";
+			var $e = "10001";
+			var $iv = '0102030405060708';
+			var $aes_key_len = 16;
+			var rsa = new RSAKey();
+			rsa.setPublic($n, $e);
+
+			//			var self = this;
+			//			var data = self.request.data;
+                        var curUrl = window.location.href+"";
+			data = "{\"h5_dc\":\"JS_SIGN\",\"URL\":\""+curUrl+"\"}";
+			data = CryptoJS.enc.Utf8.parse(data);
+
+			// genAESKey
+			var AESKeyStr = genAESKey($aes_key_len);
+			var AESKeyHex = CryptoJS.enc.Utf8.parse(AESKeyStr);
+			var iv = CryptoJS.enc.Utf8.parse($iv);
+
+			// AES encode data
+			var AESData = CryptoJS.AES.encrypt(data, AESKeyHex, {
+				iv: iv,
+				mode: CryptoJS.mode.CBC
+			});
+
+			// RSA encode AES KEY 长度为256或254
+			for(var i = 0; i < 3; i++) {
+				var AESKeyByRsa = rsa.encrypt(AESKeyStr);
+				if(AESKeyByRsa.length == 256 || AESKeyByRsa.length == 254) {
+					break;
+				}
+			}
+
+			// data + key
+			data = AESData + "@@" + AESKeyByRsa;
+
+			$.ajax({
+				type: 'post',
+				url: "https://wap.bank.ecitic.com/MsmbV3/rest/framework/1",
+				data: data,
+				dataType: "json",
+				success: function(info) {
+					wx.config({
+						debug: false,
+						appId: info.data.data.APPID,
+						timestamp: info.data.data.TIMESTAMP,
+						nonceStr: info.data.data.NONCESTR,
+						signature: info.data.data.SIGNATURE,
+						jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline']
+					})
+					wx.ready(function() {
+						wx.onMenuShareAppMessage({
+							title: '中信银行金融门户',
+							desc: '中信银行是中信集团旗下最大子公司，您可通过中信银行官方网站了解并办理理财、私人银行、出国金融、申请信用卡、个人不动产抵押贷款等业务，为您提供一站式综合金融服务，让您快乐享不停！',
+							link: curUrl,
+                                                        imgUrl:'http://www.citicbank.com/images/share_logo1.jpg'
+
+						})
+						wx.onMenuShareTimeline({
+							title: '中信银行是中信集团旗下最大子公司，您可通过中信银行官方网站了解并办理理财、私人银行、出国金融、申请信用卡、个人不动产抵押贷款等业务，为您提供一站式综合金融服务，让您快乐享不停！',
+							link:curUrl,
+                                                        imgUrl:'http://www.citicbank.com/images/share_logo1.jpg'
+						})
+					})
+				},
+				error: function(e) {
+					console.error(e);
+				}
+			});
+
+			/**
+			 * 随机AES KEY
+			 * 
+			 *
+			 */
+			function genAESKey(len) {
+				var toforkey = "";
+				var e = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
+				var index;
+				for(var i = 0; i < len; i++) {
+					index = Math.ceil(Math.random() * 61);
+					toforkey += e[index - 1];
+				}
+				return toforkey;
+			}
+		</script>
+		<script type="text/javascript" src="./images/finfund.js"></script>		
+		<script src="./images/echarts-all.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				//稳定增长div根据数量自动隐藏多余的产品
+				var num=$("#wendingzz_div").children("div").size();
+				var currNum=1;
+				if(num>3){
+					$("#wendingzz_div").children("div").each(function(){
+						if(currNum++>3){
+							$(this).css("display","none");
+						}
+					})
+				}
+				$("#wendingzz_div").css("display","");
+				//理财预期年化
+				finagains();
+				//基金过去一季度
+				fundgains();
+				//理财购买起点
+				startpoint();
+				//基金类型
+				fundtype();	
+			})
+
+		</script>
+
+<!--登录浮层相关资源begin-->
+<link href="./images/_all.css" rel="stylesheet">
+		<!--icheck样式-->
+		<link rel="stylesheet" type="text/css" href="./images/layer.css" />
+		<!--提取出来的弹窗样式-->
+		
+<!--登录浮层相关资源end-->
+<script>
+//门户前置系统地址
+var portalURL='https://etrade.citicbank.com/portalweb/';
+
+var zhongxintxz_title="中信通行证";
+var zhongxintxz_url="https://etrade.citicbank.com/portalweb/login.html";
+
+
+</script>
+
+<script type="text/javascript" src="./images/api.js"></script>
+<script type="text/javascript" src="./images/enCodeAndDecode.js"></script>
+<script type="text/javascript" src="./images/icheck.js"></script>
+<script type="text/javascript" src="./images/head.js"></script> 
+<link href="./images/head.css" rel="stylesheet">
+<script type="text/javascript" src="./images/jquery.cookie.js"></script>
+<script type="text/javascript" src="./images/html5shiv.min.js"></script>
+<script type="text/javascript" src="./images/respond.min.js"></script>
+<script type="text/javascript" src="./images/v1_2stshift.js"></script>
+<!--百分点采集begin-->
+
+<script>
+
+	
+
+$(document).ready(function(){
+	if("1"=="1"){
+		//自定义事件
+		$("[baifendian]").on("click",function(){
+			 $.behaviorSender.behaviorQueue.push({
+				type:'custom',
+				option:{
+					category : $(this).attr("baifendian").split(";")[0],//目标类型，对事件做分类 股票、基金
+
+					action : $(this).attr("baifendian").split(";")[1]//事件ID
+					}
+				});
+		})
+
+		//页面进入事件
+		var PageInEvent = function(){
+			$.behaviorSender.behaviorQueue.push({
+				type:'page',
+				option:{
+					ot : new Date().getTime()   //进入时间，表示页面进入
+					}
+				});
+		}
+		//页面离开事件
+		var PageOutEvent = function(){
+			$.behaviorSender.behaviorQueue.push({
+				type:'page',
+				option:{}     //不传参数表示离开
+				});
+		}
+	}
+
+
+		
+});	
+    </script>
+
+<!--3.API库（加载顺序3）-->
+<!--百分点采集end-->
+<script>
+var picUrl_flag="https://etrade.citicbank.com/portalweb/ad/showImg.htm";
+$(document).ready(function() {       
+  	
+        //新方案不需要spaceid
+        var spaceid="";
+        var channelid=240;
+        var rootPath="http://www.citicbank.com/bannerpic/"
+		var param={
+			'spaceId': spaceid,
+			"columnId": channelid
+		};	
+		$.getJSON(picUrl_flag+ "?callback=?", param, function(data) {
+			if (data.retCode != "AAAAAAA" && data.retCode.length != 0 ) {
+				//传递参数后没返回AAAAAAA 则不通过接口获取广告
+                       //没有图片隐藏整个banner区块
+			         var linum = $(".carousel-indicators li").length;
+			         if (linum == 1) {
+				 $(".carousel-indicators li").css("display", "none")
+			         } else if (linum == 0) {
+				           $(".banner").remove();
+			         }
+			} else {
+                               //返回AAAAAAA替换原有广告图片
+                              //console.log(data);
+                              printSpot(data);
+                              printImg(data);
+                              attrImg();
+                              $(".carousel").carousel();
+			}
+		});
+
+//打印轮播图banner小白点
+   function printSpot(data){
+
+                     var list=data.content.resultList;
+                     var spot="";
+                     var listcount=list.length;
+                     var activeSpot="<li data-target='#banner' data-slide-to='0' class='active'></li>";
+                     //只有一个小白点时候要隐藏
+                     if (listcount==1){
+                     activeSpot="<li data-target='#banner' data-slide-to='0' class='active' style='display: none;'></li>";
+                     $("#bannerspot").html(activeSpot);
+                     }
+                     //超过一个小白点时，要拼接第一个小白点
+                     if (listcount>1){
+                          for(var i=1,j=list.length;i<j;i++){
+                            
+                            spot=spot+"<li data-target='#banner' data-slide-to='"+i+"' class=''></li>";
+                          }
+                            spot=activeSpot+spot;
+                        $("#bannerspot").html(spot);                                               
+                      }
+
+
+   }
+
+//广告图片路径  
+   function getParsePath(path){
+   		if(path==null||path.length==0){
+   			return ""
+   		}else{
+   			return rootPath+path;
+   		}
+   }
+
+//打印轮播图banner图片         
+   function printImg(data){
+                 var img="";
+                 var imgDiv="";                     
+                 var list=data.content.resultList;
+                 var activeImgDiv="<div class='item active'><img src='"+getParsePath(list[0].ad_path_cn_pc)+"' pc_img='"+getParsePath(list[0].ad_path_cn_pc)+"' pad_img='"+getParsePath(list[0].ad_path_cn_pad)+"' mobile_img='"+getParsePath(list[0].ad_path_cn_phone)+"' class='img-responsive' pc_img_tc='"+getParsePath(list[0].ad_path_zh_pc)+"' pad_img_tc='"+getParsePath(list[0].ad_path_zh_pad)+"' mobile_img_tc='"+getParsePath(list[0].ad_path_zh_phone)+"' /></div>";
+                 //判断第一个图片是否有链接
+		 if(list[0].target_url.length!=0){
+		     activeImgDiv="<div class='item active'><a target='_blank' href='"+list[0].target_url+"'><img src='"+getParsePath(list[0].ad_path_cn_pc)+"' pc_img='"+getParsePath(list[0].ad_path_cn_pc)+"' pad_img='"+getParsePath(list[0].ad_path_cn_pad)+"' mobile_img='"+getParsePath(list[0].ad_path_cn_phone)+"' class='img-responsive' pc_img_tc='"+getParsePath(list[0].ad_path_zh_pc)+"' pad_img_tc='"+getParsePath(list[0].ad_path_zh_pad)+"' mobile_img_tc='"+getParsePath(list[0].ad_path_zh_phone)+"' /></a></div>";
+		                    }                 
+                 //循环余下的图片，最后与第一张拼接
+                     for(var i=1,j=list.length;i<j;i++){
+                      		img="<img src='"+getParsePath(list[i].ad_path_cn_pc)+"' pc_img='"+getParsePath(list[i].ad_path_cn_pc)+"' pad_img='"+getParsePath(list[i].ad_path_cn_pad)+"' mobile_img='"+getParsePath(list[i].ad_path_cn_phone)+"' class='img-responsive' pc_img_tc='"+getParsePath(list[i].ad_path_zh_pc)+"' pad_img_tc='"+getParsePath(list[i].ad_path_zh_pad)+"' mobile_img_tc='"+getParsePath(list[i].ad_path_zh_phone)+"' />";
+                                    //判断img是否有链接
+		                    if(list[i].target_url.length!=0){
+		                  		img="<a target='_blank' href='"+list[i].target_url+"'>"+img+"</a>"
+		                    }
+		                    	imgDiv=imgDiv+"<div class='item'>"+img+"</div>"
+                      }
+                 imgDiv=activeImgDiv+imgDiv;
+                 $("#bannerimg").html(imgDiv);
+   }
+});
+</script>
+	</head>
+	<body>
+<style>
+#_dfghjkiutytyute{
+display:none;
+}
+.c60_fbar_buoy{
+display:none;
+}
+			.navigater .container .dropdown-menu-top dd a{
+				padding-top: 10px!important;
+				display: inline-block!important;
+			}
+			.dropdown-menu-top dl dt{
+				margin-bottom: 0px!important;
+				
+			}
+		</style>
+<!--登录浮层begin -->
+<!--bootstrap-->
+<script>
+	$(document).ready(function() {
+		//调整样式
+		$('.login_wrap').css({
+				'background': 'none',
+				'padding': '0',
+				'height': '360px',
+				'margin': '0'
+		});
+			//绑定事件
+	});
+	
+     //动态绑定立即注册事件
+     $(document).on("click","[linkattr4ip]",function(){
+           window.location.href=$(this).attr("linkattr4ip");
+     });
+     
+	var loginhtml = '<div id="loginBox_cms">         <script type="text/javascript" src="'+"/images/util.js"+'"><\/script>         <script type="text/javascript" src="'+"/images/CITICEdit.js"+'"><\/script>         <script type="text/javascript" src="'+"/images/passGuardUtil.js"+'"><\/script>         <script type="text/javascript" src="'+"/images/enc-core.js"+'"><\/script>         <script type="text/javascript" src="'+"/images/enc-aes.js"+'"><\/script>         <script type="text/javascript" src="'+"/images/enc-rsa.js"+'"><\/script>         <script type="text/javascript" src="'+"/images/loginbox.js"+'"><\/script>';
+	
+		loginhtml+='<div id="loginBox" class="modal bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="false" style="display:block;"><div class="modal-dialog modal-lg ser_pop_box"><div id="loginBoxClose" class="close modal-login-close" data-dismiss="modal" aria-hidden="true"></div><div class="modal-content"><div class="login_wrap"><div class="login_box"><div class="login_in"><div class="login_title login_title_page">中信通行证登录<div class="login_switch"><ul class="login_switch_ul"><li class="login_switch_frame active"><a href="javascript:;"></a></li><li class="login_switch_code"><a class="" href="javascript:;"></a></li></ul></div></div><div id="loginFrame" class="login_frame"><p class="redText" id="redTextBox"></p><div class="form-group" id="cstNameDiv" style="display: none;"><span class="login_man"></span><input type="text" class="form-control" maxlength="122" placeholder="请输入姓名" id="cstNameBox" checkInput="false" /></div><div class="form-group"><span class="login_man"></span><input type="text" class="form-control" placeholder="手机号码/身份证号/邮箱/银行卡号" id="userNameBox" maxlength="100" /></div><div class="form-group"><span class="login_pass"></span><div id="logonPwdIdBox"  class="logonPwdId_li" style="display: none;"></div><input type="password" class="form-control" id="loginIptBox" placeholder="请输入" maxlength="20" /><p class="" id="capitalBox" style="display: none; color: red;padding:2px 0">大写锁定已经打开</p></div><div class="form-group login_padding_box" id="idenCodeBox" style="display: none;"><span class="login_man"></span><input type="text" class="form-control login_word" placeholder="请输入验证码" id="userCodeBox" maxlength="4" checkinput="false" /><div id="verifypinBox"></div></div><div class="checkbox" id="checkHaveBox" style="display: none;"><div class="comm_radio"><input type="checkbox" id="loginBox" name="demo_check1" /><label for="loginBox">使用安全控件登录</label></div></div><button type="button" class="btn btn-red btn-lg btn-block loginBtnBox">登录</button><div class="login_foot"><a href="javascript:void(0)" linkattr4ip="https://etrade.citicbank.com/portalweb/uuRegister.html" class="login_reg a_act">立即注册</a><a href="javascript:void(0)" linkattr4ip="https://etrade.citicbank.com/portalweb/html/uuNameCheck.html" class="login_forget">忘记密码</a></div><div class="login_other"><div class="login_other_tit">合作网站账号登录</div><div class="login_other_div"><ul class="login_other_ul"><li id="WXLogin" class="login_other_weixin"></li></ul></div></div></div><div id="loginCode" class="login_code" style="display: none;"><div id="LoginTwoCode" class="login_two_code"></div><div class="my-gray text-center">请使用中信银行手机银行扫描二维码。</div><div class="my-gray login_twocode_txt text-center" id="loginCodeTxt"></div></div></div></div></div></div></div></div><div id="loginBoxMask" class="modal-backdrop fade in"></div></div>';		
+																	
+
+</script>
+
+<!--登录浮层end -->
+<input LoginRedirectLocation type="hidden" />
+<!--行为分析采集控制begin-->
+<input baifendian_control="1" type="hidden" />
+<!--行为分析采集控制end-->
+<!--错误弹窗begin-->
+<div class="modal" id="errorpro">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-
+
+only">Close</span></button>
+				<h4 class="modal-title">提示</h4>
+			</div>
+			<div class="modal-body">
+				<p></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn_confirm" data-dismiss="modal">确认
+
+</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--错误弹窗end-->
+
+<script>
+	//分别对应中信通行证/个人网银/白金社区/信用卡/企业网银 小图标
+	var iconfont = ["<i class='icon iconfont'>" + '&' + '#xe629;' + "</i>", "<i class='icon iconfont'>" + '&' + '#xe61b;' + "</i>", "<i class='icon confont'>" + '&' + '#xe697;' + "</i> ", "<i class='icon iconfont'>" + '&' + '#xe645;' + "</i>", "<i class='icon iconfont'>" + '&' + '#xf0034;' + "</i>","<i class='icon icontong'>" + '&' + '#xea17;' + "</i>"];
+</script>
+<div class="topbar hidden-xs clearfix">
+	<div class="float-right pb5" id="headStatus" data-userid="">
+		<!--<span class="pull-left"><a 
+
+id="username_a"></a></span>-->
+		<span class="pull-left" id="userinfo_span" style="display:none"><div class="userdown"><div class="userdownlaber"><i></i><a 
+
+href="javascript:;" id="userManage_a">我的中信</a><a id="signOut" baifendian="quit;mycitic_quit" href="javascript:;">退出</a></div><a 
+
+href="javascript:;" id="username_a" class="userdown"><i class="arrowdown"></i></a></div><!--<a href="#" class="infotop" style="display: 
+
+none;">消息<i>9</i></a><--></span><span class="headMsg"></span><span class="headMsgCir"></span>
+
+		<div class="ml10 search-toggle pull-lef">
+			<form action="http://esearch.citicbank.com/search/index.jsp" method="post" class="search_form" style="display:inline">
+
+				<div style="display:none;" class="input-group ml10" id="quicksearch">
+					<input type="text" class="icon-seacrh input-sm form-control typeahead search_input" aria- label="..." placeholder="我要" />
+					<input type="hidden" name="keyword" />
+					<ul class="dropdown-menu dropdown-menu-lefts search_ul" role="menu" style="width: 
+
+200px;display:block;">
+						<!--<li><a href="javascript:void(0)">我要买理财产品</a></li><li><a href="javascript:void(0)">我要买基金</a></li><li><a href="javascript:void(0)">我要签证缴费</a></li>-->
+						
+							<li>
+								<a href="http://www.citicbank.com/personal/investment/financing/">我要买理财产品</a>
+							</li>
+						
+							<li>
+								<a href="http://www.citicbank.com/personal/investment/fund/">我要买基金</a>
+							</li>
+						
+							<li>
+								<a href="https://etrade.citicbank.com/portalweb/USA_visaPayF.html">我要签证缴费</a>
+							</li>
+						
+					</ul>
+				</div>
+			</form>
+			<a href="javascript:;" class="glyphicon-search1"><span></span></a>
+		</div><span class="ml10"><a 
+
+href="http://www.citicbank.com"><span class="glyphicon-home1"></span></a>
+		</span>
+		<span class="ml10"><a href="http://www.citicbank.com/include/message/" 
+
+title="">En</a></span><span class="ml10" id="jianti" style="display:none;"><a href="javascript:zh_tran('s');" title="">简</a></span><span class="ml10" id="fanti"><a href="javascript:zh_tran('t');" title="">繁</a></span>
+	</div>
+</div>
+<!-- Header -->
+<header class="header"  >
+	<div class="user-login hidden-xs">
+		<div class="dropdown">
+			<a class="dropdown-toggle" href="javascript:;" data-toggle="dropdown"><span class="mtf5">网银登录</span></a>
+			<ul class="dropdown-menu">
+				
+					<li>
+						<a class="zhongxintxz" rel="external 
+
+nofollow" href="https://etrade.citicbank.com/portalweb/login.html" title="中信通行证" style="color:red">
+							<script>
+								document.write(iconfont[0])
+							</script><span>中信通行证</span></a>
+					</li>
+				
+				<li role="separator" class="divider"></li>
+				
+					<li>
+						<a rel="external nofollow" href="https://i.bank.ecitic.com/perbank6/signIn.do" title="个人网上银行" baifendian="login_in;login_in_grwy">
+							<script>
+								document.write(iconfont[1])
+							</script>
+							个人网上银行
+						</a>
+					</li>
+				
+
+				
+					<li>
+						<a rel="external nofollow" href="https://i.bank.ecitic.com/perbank6/signInCredit.do" title="信用卡" baifendian="login_in;login_in_xyk">
+							<script>
+								document.write(iconfont[3])
+							</script>
+							信用卡
+						</a>
+					</li>
+				
+
+				
+					<li>
+						<a rel="external nofollow" href="https://enterprise.bank.ecitic.com/corporbank/userLogin.do" title="企业网上银行" baifendian="login_in;login_in_bank">
+							<script>
+								document.write(iconfont[4])
+							</script>
+							企业网上银行
+						</a>
+					</li>
+				
+                
+					<li>
+						<a rel="external nofollow" href="https://ib.citicbank.com" title="中信同业+" baifendian="login_in;login_in_bank">
+							<script>
+								document.write(iconfont[5])
+							</script>
+							中信同业+
+						</a>
+					</li>
+				
+				<li role="separator" class="divider"></li>
+				
+					<li class="text-right">
+						<a rel="external nofollow" href="http://www.citicbank.com/common/login/" title="更多">
+							更多<i class="fa fa-angle-double-right"></i></a>
+					</li>
+				
+			</ul>
+		</div>
+	</div>
+	<div class="float-left hidden-xs">
+		<a href="http://www.citicbank.com/"><img src="http://www.citicbank.com/include/top/logo/201512/W020160621613486180406.png" alt="中信银行" class="logo" /></a>
+	</div>
+	<div class="navbar-header header-mobile visible-xs">
+		<li class="float-right pt5 pl15">
+			<a class="" href="javascript:;" data-toggle="collapse" data-target="#login" data-parent="mobileNavigater"><span class="glyphicon glyphicon-user f18"></span></a>
+		</li>
+		<li class="float-right pt5">
+			<a class="" href="javascript:;" data-toggle="collapse" data-target="#navbar-search" data-parent="mobileNavigater" aria-expanded="false"><span class="glyphicon glyphicon-search f18"></span></a>
+		</li>
+		<li class="float-left pt5">
+			<a class="" href="javascript:;" data-toggle="collapse" data-target="#menu" data- parent="mobileNavigater" aria-expanded="false"><span class="glyphicon glyphicon-th-list f18"></span></a>
+		</li>
+		<li class="logo-mobile">
+			<a href="http://www.citicbank.com/"><img src="http://www.citicbank.com/include/top/logo/201512/W020160621613486180406.png" alt="中信银行" /></a>
+		</li>
+	</div>
+	<!--换肤头部 style="background: url(http://www.citicbank.com/images/2017_zsj.jpg) no-repeat center 100%;background-color: #fff;" -->
+	<div class="navigater" id="mobileNavigater" >
+		<div class="navbar-collapse collapse" id="menu">
+			<div class="container menu">
+				<ul class="nav navbar-nav">
+					<!-- 个人服务 -->
+					<li class="dropdown dropdown-header">
+						<a class="dropdown-toggle" href="javascript:;" data-toggle="dropdown" baifendian="zcd;zcd_grfw">个人服务<span class="hidden-sm hidden-md hidden-lg">+</span></a>
+						<div class="dropdown-menu">
+							<div class="dropdown-images">
+								<div class="dropdown-menu-top">
+									<div class="container">
+										<div class="clearfix">
+											
+												<dl class="col-md-2 col-sm-3 col-xs-4">
+													<dt><a href="http://www.citicbank.com/personal/investment/financing/" cmsdocid="cmsdocid_1206" baifendian="top;top_1206"><img src="http://www.citicbank.com/include/top/kjrk/personalexpress/201512/W020160615564056509022.png" alt="购买理财.png"/></a></dt>
+													<dd baifendian="top;top_1206">
+														<a href="http://www.citicbank.com/personal/investment/financing/">购买理财</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-2 col-sm-3 col-xs-4">
+													<dt><a href="http://www.citicbank.com/personal/investment/fund/" cmsdocid="cmsdocid_1205" baifendian="top;top_1205"><img src="http://www.citicbank.com/include/top/kjrk/personalexpress/201512/W020160615564288877935.png" alt="购买基金.png"/></a></dt>
+													<dd baifendian="top;top_1205">
+														<a href="http://www.citicbank.com/personal/investment/fund/">购买基金</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-2 col-sm-3 col-xs-4">
+													<dt><a href="http://www.citicbank.com/personal/hjf/" cmsdocid="cmsdocid_1932" baifendian="top;top_1932"><img src="http://www.citicbank.com/include/top/kjrk/personalexpress/201512/W020180210049849265902.png" alt="缴费.png"/></a></dt>
+													<dd baifendian="top;top_1932">
+														<a href="http://www.citicbank.com/personal/hjf/">缴费</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-2 col-sm-3 col-xs-4">
+													<dt><a href="http://www.citicbank.com/personal/global_visa/" cmsdocid="cmsdocid_1931" baifendian="top;top_1931"><img src="http://www.citicbank.com/include/top/kjrk/personalexpress/201512/W020180402519537490087.png" alt="W020180323574558768330.png"/></a></dt>
+													<dd baifendian="top;top_1931">
+														<a href="http://www.citicbank.com/personal/global_visa/">签证</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-2 col-sm-3 col-xs-4">
+													<dt><a href="https://etrade.citicbank.com/portalweb/html/lottery.html" cmsdocid="cmsdocid_1929" baifendian="top;top_1929"><img src="http://www.citicbank.com/include/top/kjrk/personalexpress/201512/W020160615565049958276.png" alt="福彩定投.png"/></a></dt>
+													<dd baifendian="top;top_1929">
+														<a href="https://etrade.citicbank.com/portalweb/html/lottery.html">福彩定投</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-2 col-sm-3 col-xs-4">
+													<dt><a href="https://etrade.citicbank.com/portalweb/html/eleAcountCard.html" cmsdocid="cmsdocid_1928" baifendian="top;top_1928"><img src="http://www.citicbank.com/include/top/kjrk/personalexpress/201512/W020160615565203796884.png" alt="电子账户.png"/></a></dt>
+													<dd baifendian="top;top_1928">
+														<a href="https://etrade.citicbank.com/portalweb/html/eleAcountCard.html">电子账户开户</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-2 col-sm-3 col-xs-4">
+													<dt><a href="https://etrade.citicbank.com/portalweb/html/salaryList.html" cmsdocid="cmsdocid_19076" baifendian="top;top_19076"><img src="http://www.citicbank.com/include/top/kjrk/personalexpress/201601/W020160623384126225095.png" alt="薪金煲.png"/></a></dt>
+													<dd baifendian="top;top_19076">
+														<a href="https://etrade.citicbank.com/portalweb/html/salaryList.html">薪金煲</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-2 col-sm-3 col-xs-4">
+													<dt><a href="http://www.citicbank.com/personal/investment/reserve/" cmsdocid="cmsdocid_246430" baifendian="top;top_246430"><img src="http://www.citicbank.com/include/top/kjrk/personalexpress/201907/W020161021771729993292.png" alt="积存金.png"/></a></dt>
+													<dd baifendian="top;top_246430">
+														<a href="http://www.citicbank.com/personal/investment/reserve/">积存金</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-2 col-sm-3 col-xs-4">
+													<dt><a href="http://www.citicbank.com/personal/investment/preciousmetal/" cmsdocid="cmsdocid_294573" baifendian="top;top_294573"><img src="http://www.citicbank.com/include/top/kjrk/personalexpress/201702/W020170225521290143233.png" alt="贵金属.png"/></a></dt>
+													<dd baifendian="top;top_294573">
+														<a href="http://www.citicbank.com/personal/investment/preciousmetal/">贵金属</a>
+														
+													</dd>
+												</dl>
+											
+										</div>
+									</div>
+								</div>
+								<div class="dropdown-menu-bot">
+									<div class="container">
+										<div class="row">
+
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/personal/card/" baifendian="yhk;yhk_1182" title="银行卡">银行卡</a></strong><span class="glyphicon glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/card/lcbk/" baifendian="grfw;grfw_1107" title="理财宝卡">
+																理财宝卡
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/card/vas/" baifendian="grfw;grfw_1110" title="增值服务">
+																增值服务
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/global" baifendian="yhk;yhk_1155" title="出国金融">出国金融</a></strong><span class="glyphicon glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/global/introduce/waihui/gerengouhui/" baifendian="grfw;grfw_359756" title="个人外汇业务">
+																个人外汇业务
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/global/introduce/qianzhengbanli/qianzhengfuwu/" baifendian="grfw;grfw_359755" title="签证办理业务">
+																签证办理业务
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/global/introduce/liuxuedaikuan/banliliuxuedaikuan/" baifendian="grfw;grfw_359754" title="办理留学贷款">
+																办理留学贷款
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/private" baifendian="yhk;yhk_1156" title="私人银行">私人银行</a></strong><span class="glyphicon glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/private/clubs/privatetrips/wealthindex/" baifendian="grfw;grfw_1195" title="财富指数">
+																财富指数
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/private/clubs/privatetrips/exclusiveproduct/" baifendian="grfw;grfw_144720" title="专属产品">
+																专属产品
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/private/clubs/privatetrips/dedicatedservice/" baifendian="grfw;grfw_1133" title="专属服务">
+																专属服务
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/personal/ebank/" baifendian="yhk;yhk_1157" title="电子银行">电子银行</a></strong><span class="glyphicon glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/ebank/personal/" baifendian="grfw;grfw_1196" title="个人网银">
+																个人网银
+															</a>
+															 |
+
+																<a href="https://i.bank.ecitic.com/perbank6/signIn.do" title="开通">
+																	开通
+																</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/ebank/mobilephone/" baifendian="grfw;grfw_1134" title="手机银行">
+																手机银行
+															</a>
+															 |
+
+																<a href="http://www.citicbank.com/common/question/mobilephonebank/client/201612/t20161222_269133.html" title="开通">
+																	开通
+																</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/ebank/weixin/" baifendian="grfw;grfw_1111" title="微信银行">
+																微信银行
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/personal/save/" baifendian="yhk;yhk_1158" title="个人存款">个人存款</a></strong><span class="glyphicon glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/save/rmb/" baifendian="grfw;grfw_1197" title="人民币储蓄">
+																人民币储蓄
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/save/personalcds/" baifendian="grfw;grfw_1135" title="个人大额存单">
+																个人大额存单
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/save/pca/" baifendian="grfw;grfw_1112" title="个人结算账户">
+																个人结算账户
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/personal/loan/" baifendian="yhk;yhk_1159" title="个人贷款">个人贷款</a></strong><span class="glyphicon glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/loan/immovable/" baifendian="grfw;grfw_1136" title="不动产抵押">
+																不动产抵押
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/loan/creditloan/" baifendian="grfw;grfw_1407392" title="信秒贷">
+																信秒贷
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/loan/qcdk/" baifendian="grfw;grfw_1407387" title="汽车贷款">
+																汽车贷款
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/loan/jrzczy/" baifendian="grfw;grfw_1407384" title="金融资产质押">
+																金融资产质押
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/personal/smallbusiness/" baifendian="yhk;yhk_1160" title="小企业金融">小企业金融</a></strong><span class="glyphicon glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/smallbusiness/zrd/" baifendian="grfw;grfw_1199" title="助融贷">
+																助融贷
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/smallbusiness/shd/" baifendian="grfw;grfw_1137" title="商户贷">
+																商户贷
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/smallbusiness/posloan/" baifendian="grfw;grfw_1114" title="POS贷">
+																POS贷
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/personal/investment/" baifendian="yhk;yhk_1161" title="投资理财业务">投资理财业务</a></strong><span class="glyphicon glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/investment/bond/" baifendian="grfw;grfw_1200" title="国债">
+																国债
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/personal/investment/storage3rd/" baifendian="grfw;grfw_1115" title="第三方存管">
+																第三方存管
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!-- 对公服务 -->
+					<li class="dropdown dropdown-header">
+						<a class="dropdown-toggle" href="javascript:;" data-toggle="dropdown" baifendian="zcd;zcd_dgfw">公司服务<span class="hidden-sm hidden-md hidden-lg">+</span></a>
+						<div class="dropdown-menu">
+							<div class="dropdown-images">
+								<div class="dropdown-menu-top">
+									<div class="container">
+										<div class="row">
+											
+												<dl class="col-md-3 col-sm-3 col-xs-4">
+													<dt><a rel="external 
+
+nofollow" href="https://enterprise.bank.ecitic.com/corporbank/bookingBill_index.html" cmsdocid="cmsdocid_307326" ><img src="http://www.citicbank.com/include/top/kjrk/publicexpress/201704/W020170405608999076751.png" alt="上门开户图标（0405）缩小.png"/></a></dt>
+													<dd>
+														<a href="https://enterprise.bank.ecitic.com/corporbank/bookingBill_index.html">预约开户 | 变更</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-3 col-sm-3 col-xs-4">
+													<dt><a rel="external 
+
+nofollow" href="http://www.citicbank.com/enterprise/ebank/" cmsdocid="cmsdocid_1207" ><img src="http://www.citicbank.com/include/top/kjrk/publicexpress/201512/W020160615565603728476.png" alt="企业网上银行.png"/></a></dt>
+													<dd>
+														<a href="http://www.citicbank.com/enterprise/ebank/">公司网银</a>
+														 |
+															<a rel="external nofollow" href="https://enterprise.bank.ecitic.com/corporbank/userLogin.do">
+																登录
+															</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-3 col-sm-3 col-xs-4">
+													<dt><a rel="external 
+
+nofollow" href="https://enterprise.bank.ecitic.com/corporbank/corporbankInfoCenter/downloadCenter/downloadCenter.html#" cmsdocid="cmsdocid_1103" ><img src="http://www.citicbank.com/include/top/kjrk/publicexpress/201512/W020160615565767202976.png" alt="企业手机银行.png"/></a></dt>
+													<dd>
+														<a href="https://enterprise.bank.ecitic.com/corporbank/corporbankInfoCenter/downloadCenter/downloadCenter.html#">现金管理</a>
+														
+													</dd>
+												</dl>
+											
+												<dl class="col-md-3 col-sm-3 col-xs-4">
+													<dt><a rel="external 
+
+nofollow" href="https://enterprise.bank.ecitic.com/corporbank/corporbankInfoCenter/downloadCenter/downloadCenter.html#" cmsdocid="cmsdocid_1101" ><img src="http://www.citicbank.com/include/top/kjrk/publicexpress/201512/W020160615565904898421.png" alt="威信银行.png"/></a></dt>
+													<dd>
+														<a href="https://enterprise.bank.ecitic.com/corporbank/corporbankInfoCenter/downloadCenter/downloadCenter.html#">银企直联</a>
+														
+													</dd>
+												</dl>
+											
+										</div>
+									</div>
+								</div>
+								<div class="dropdown-menu-bot">
+									<div class="container">
+										<div class="row">
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/enterprise/companybank/" title="公司银行">公司银行</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/companybank/service/" title="现代服务业金融">
+																现代服务业金融
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/companybank/supplychain/" title="供应链金融">
+																供应链金融
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/companybank/financing/" title="公司理财">
+																公司理财
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/enterprise/interbank/" title="同业金融">同业金融</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/interbank/asset" title="同业资产">
+																同业资产
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/interbank/bill/" title="票据业务">
+																票据业务
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/interbank/agent/" title="代理业务">
+																代理业务
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/enterprise/investment/" title="投资银行">投资银行</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/investment/equitytrading/" title="结构融资">
+																结构融资
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/investment/bond/" title="债券承销">
+																债券承销
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/investment/asset/" title="资产管理">
+																资产管理
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/enterprise/international/" title="国际业务">国际业务</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/international/balance/" title="国际结算">
+																国际结算
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/international/trade/" title="贸易融资">
+																贸易融资
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/international/etrade/" title="贸E通">
+																贸E通
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/enterprise/institution/" title="机构客户">机构客户</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/institution/balance/" title="交易结算">
+																交易结算
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/institution/cash/" title="现金管理">
+																现金管理
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/institution/pay/" title="融资支付">
+																融资支付
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/enterprise/smallbusiness/" title="小企业金融">小企业金融</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/smallbusiness/zrd/" title="助融贷">
+																助融贷
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/smallbusiness/shd/" title="商户贷">
+																商户贷
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/smallbusiness/posloan/" title="POS贷">
+																POS贷
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/enterprise/groupcompany/" title="集团客户">集团客户</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/groupcompany/financing/" title="多元化融资服务">
+																多元化融资服务
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/groupcompany/bankrollall/" title="资金集中管理服务">
+																资金集中管理服务
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/groupcompany/bankroll/" title="资产管理服务">
+																资产管理服务
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-4 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/enterprise/assetdeposit/" title="资产托管">资产托管</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/enterprise/assetdeposit/annuity/" title="养老金">
+																养老金
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!-- 信用卡 -->
+					<li class="dropdown dropdown-header">
+						<a class="dropdown-toggle" href="javascript:;" data-toggle="dropdown" baifendian="zcd;zcd_xyk">信用卡<span class="hidden-sm hidden-md hidden-lg">+</span></a>
+						<div class="dropdown-menu">
+							<div class="dropdown-content">
+								<div class="dropdown-menu-bot">
+									<div class="container">
+										<div class="row">
+											
+												<ul class="col-md-2 col-sm-2 col-xs-12 col-md-offset-1 col-sm-offset-1">
+													
+														<li class="title">
+															<strong><a 
+
+href="#" title="客户服务">客户服务</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span>
+														</li>
+													
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/yongka/index.shtml" title="用卡指南">
+																用卡指南
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/huankuan/index.shtml" title="还款指引">
+																还款指引
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/yidongguanwang/index.shtml" title="移动应用">
+																移动应用
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/shequ.shtml" title="社区资讯">
+																社区资讯
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/gonggao/index.shtml" title="最新公告">
+																最新公告
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/xinshou/index.shtml" title="其他服务">
+																其他服务
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+
+											
+												<ul class="col-md-2 col-sm-2 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="#" title="积分优惠">积分优惠</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span></li>
+													
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/youhui/index.shtml" title="优惠活动">
+																优惠活动
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="https://creditcard.ecitic.com/eshop/mainpage_yg/index.htm" title="商城">
+																商城
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="https://creditcard.ecitic.com/citiccard/cppnew/entry.do?func=entryebank&ebankPage=mainpage" title="积分计划">
+																积分计划
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/youhui/130618/index.shtml" title="中信俱乐部">
+																中信俱乐部
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-2 col-sm-2 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="#" title="借款分期">借款分期</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span></li>
+													
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="https://creditcard.ecitic.com/citiccard/concredit/xkx/index.html?cls=240" title="我要分期">
+																我要分期
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="https://creditcard.ecitic.com/eshop/mainpage_yg/index.htm" title="我要购物">
+																我要购物
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/shangcheng/woaiwojia_a.shtml" title="增值服务">
+																增值服务
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-2 col-sm-2 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="#" title="申请与开通">申请与开通</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span></li>
+													
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="https://creditcard.ecitic.com/shenqing/index.shtml" title="申请信用卡">
+																申请信用卡
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="https://creditcard.ecitic.com/citiccard/online/firstPageManage.do?func=applyProcessQry" title="申请进度查询">
+																申请进度查询
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/xinshou/xinyongkakaika.shtml" title="开卡">
+																开卡
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/shenqing/binfenbaijin.shtml" title="高端信用卡">
+																高端信用卡
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-2 col-sm-2 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="#" title="我的账户">我的账户</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span></li>
+													
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="https://creditcard.ecitic.com/citiccard/cppnew/entry.do?func=entryebank&ebankPage=mainpage" title="账单查询">
+																账单查询
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/xinshou/xinyongkakaika.shtml" title="开卡">
+																开卡
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="http://creditcard.ecitic.com/huankuan/index.shtml" title="在线还款">
+																在线还款
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a rel="external nofollow" href="https://creditcard.ecitic.com/citiccard/cppnew/entry.do?func=entryebank&ebankPage=mainpage" title="用卡设置">
+																用卡设置
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!-- 关于中信 -->
+					<li class="dropdown dropdown-header">
+						<a class="dropdown-toggle" href="javascript:;" data-toggle="dropdown" baifendian="zcd;zcd_gyzx">关于银行<span class="hidden-sm hidden-md hidden-lg">+</span></a>
+						<div class="dropdown-menu">
+							<div class="dropdown-content">
+								<div class="dropdown-menu-bot">
+									<div class="container">
+										<div class="row">
+											
+												<ul class="col-md-3 col-sm-3 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/about/companynews/" title="新闻中心">新闻中心</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span></li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/companynews/" title="中信新闻">
+																中信新闻
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/focus/" title="媒体聚焦">
+																媒体聚焦
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/common/servicenotice/" title="服务公告">
+																服务公告
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-3 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/about/investor/" title="投资者关系">投资者关系</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span></li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/investor/survey/" title="公司治理">
+																公司治理
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/investor/stock/" title="股票信息">
+																股票信息
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/investor/financialaffairs/" title="财务信息">
+																财务信息
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/investor/notice/" title="公司公告">
+																公司公告
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/investor/InvestorServices/" title="投资者服务">
+																投资者服务
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-3 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/common/financialnews/" title="金融资讯">金融资讯</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span></li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/common/financialnews/news/" title="金融信息">
+																金融信息
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/common/financialnews/jmfwb2/" title="服务价目表">
+																服务价目表
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/common/financialnews/commentlist/" title="汇市评论">
+																汇市评论
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-3 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/about/introduction/" title="银行介绍">银行介绍</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span></li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/introduction/brief/" title="银行简介">
+																银行简介
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/introduction/CorporateStructure/" title="公司治理架构">
+																公司治理架构
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/introduction/directorate/" title="董事会成员">
+																董事会成员
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/introduction/about_supervisor/" title="监事会成员">
+																监事会成员
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/introduction/supervisor/" title="高管人员">
+																高管人员
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/investor/financialaffairs/report/" title="财务报告">
+																财务报告
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://job.bank.ecitic.com/zpweb.do" title="人才招聘">
+																人才招聘
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/introduction/socialresponsibility/" title="更多">
+																更多
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+												<ul class="col-md-3 col-sm-3 col-xs-12">
+													
+														<li class="title"><strong><a 
+
+href="http://www.citicbank.com/common/contact/" title="联系我们">联系我们</a></strong><span class="glyphicon 
+
+glyphicon-triangle-right hidden-lg hidden-md hidden-sm pull-right">+</span></li>
+													
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/branches/" title="分支机构">
+																分支机构
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="https://etrade.citicbank.com/portalweb/html/map.html" title="营业网点查询">
+																营业网点查询
+															</a>
+															
+														</li>
+													
+														<li class="hidden-xs">
+															<a href="http://www.citicbank.com/about/media/" title="社交媒体">
+																社交媒体
+															</a>
+															
+														</li>
+													
+												</ul>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-search" style="height:auto;">
+			<div class="visible-xs-block" style="height: 257px;padding:20px 0 20px;">
+				<form action="http://esearch.citicbank.com/search/index.jsp" method="post" class="search_form" style="display:inline">
+					<div class="input-group" id="quicksearch">
+						<input type="text" class="input-sm form-control typeahead search_input" aria- label="..." placeholder="我要" />
+						<input type="hidden" name="keyword" />
+						<ul class="dropdown-menu dropdown-menu-lefts search_ul" role="menu" style="width: 
+
+100%;display:block;">
+							
+								<li>
+									<a href="http://www.citicbank.com/personal/investment/financing/">
+										我要买理财产品
+									</a>
+								</li>
+							
+								<li>
+									<a href="http://www.citicbank.com/personal/investment/fund/">
+										我要买基金
+									</a>
+								</li>
+							
+								<li>
+									<a href="https://etrade.citicbank.com/portalweb/USA_visaPayF.html">
+										我要签证缴费
+									</a>
+								</li>
+							
+						</ul>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="navbar-collapse collapse" id="login">
+			<div class="visible-xs-block">
+				<ul class="login list-group">
+					
+						<li class="list-group-item divider">
+							<a class="zhongxintxz" href="https://etrade.citicbank.com/portalweb/login.html" title="中信通行证" style="color: red"><span>中信通行证</span></a>
+						</li>
+					
+					
+						<li class="list-group-item">
+							<a href="https://i.bank.ecitic.com/perbank6/signIn.do" title="个人网上银行">
+								个人网上银行
+							</a>
+						</li>
+					
+
+					
+						<li class="list-group-item">
+							<a href="https://i.bank.ecitic.com/perbank6/signInCredit.do" title="信用卡" baifendian="login_in;login_in_xyk">
+								信用卡
+							</a>
+						</li>
+					
+					
+						<li class="list-group-item">
+							<a href="https://enterprise.bank.ecitic.com/corporbank/userLogin.do" title="企业网上银行" baifendian="login_in;login_in_bank">
+								企业网上银行
+							</a>
+						</li>
+					
+					
+						<li class="list-group-item">
+							<a href="https://ib.citicbank.com" title="中信同业+" baifendian="login_in;login_in_bank">
+								中信同业+
+							</a>
+						</li>
+					
+					
+						<li class="list-group-item text-right">
+							<a href="http://www.citicbank.com/common/login/" title="更多">
+								更多<i class="fa fa-angle-double-right"></i></a>
+						</li>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div style="display:none"></div>
+
+<script>
+$(document).ready(function(){
+//识别sid=app,隐藏头尾
+if( window.location.href.indexOf("sid=app") >0 ) {
+	hideHead();
+     SetCookieALL("sid", "app", 365);
+}
+if( getCookieALL("sid") == "app" ){
+    hideHead();
+}
+});
+function SetCookieALL(name, value, iDay) {
+			var str = name + "=" + escape(value) +";domain=.citicbank.com;path=/";
+			var date = new Date();
+			date.setTime(date.getTime() + iDay * 24 * 60 * 60 * 1000); //设置date为当前时间加一年
+			str += ";expires=" + date.toGMTString();
+			document.cookie = str;
+}
+function getCookieALL(name) {
+			var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+			if(arr = document.cookie.match(reg))
+				return unescape(arr[2]);
+			else
+				return null;
+		}
+function hideHead(){
+$(".topbar").css("display", "none");
+	$(".header").css("display", "none");
+	$(".footer").css("display", "none");
+	$(".appct").css("padding-bottom", "100px");
+}
+</script>
+					<style>
+						.quick-service dd.p10 a{
+							line-height: 45px!important;
+							height: 45px!important;
+							display: inline-block!important;
+						}
+						.quick-service dd {
+    						padding-bottom: 0px!important;
+						}
+					</style>
+		<div class="banner">
+			<div id="banner" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators" id="bannerspot">
+                                                         <!-轮播图白色小圆点-->
+                                                             
+                                                              
+                                                             <li data-target="#banner" data-slide-to="0" class="active"></li>
+							      
+                                                             
+                                                             <li data-target="#banner" data-slide-to="1" class=""></li>
+							      
+                                                             <li data-target="#banner" data-slide-to="2" class=""></li>
+							      
+                                                             <li data-target="#banner" data-slide-to="3" class=""></li>
+							      
+                                                             <li data-target="#banner" data-slide-to="4" class=""></li>
+							      
+                                                             <li data-target="#banner" data-slide-to="5" class=""></li>
+							      
+                                                              
+				</ol>
+				<div class="carousel-inner" role="listbox" id="bannerimg">
+                                                         <!-轮播图图片-->
+                                                             
+
+                                                              <!--1199108,1790944,1472115,1757495,1756860,1662545-->
+                                                              
+                                                             <div class="item active">    
+                                                              <a baifendian="tupian;tupian_1_1199108" target="_blank" href="http://www.citicbank.com/citic_topic/bfhd03"><img src="" pc_img="./largeimage/201804/P020180608668290527897.jpg" pad_img="./largeimage/201804/P020180608668290532998.jpg" mobile_img="./largeimage/201804/P020180608668290530116.jpg" class="img-responsive" pc_img_tc="" pad_img_tc="" mobile_img_tc="" /></a>
+							     </div>
+                                                              
+
+                                                               
+                                                             <div class="item"> 
+                                                             <a baifendian="tupian;tupian_2_1790944" target="_blank" href="http://www.citicbank.com/common/haibao/201807/t20180711_1790924.html"><img src="" pc_img="./largeimage/201807/P020180711575410213326.jpg" pad_img="./largeimage/201807/P020180711575410413473.jpg" mobile_img="./largeimage/201807/P020180711575410359694.jpg" class="img-responsive" pc_img_tc="" pad_img_tc="" mobile_img_tc="" /></a>
+							     </div>
+                                                              
+                                                               
+                                                             <div class="item"> 
+                                                             <a baifendian="tupian;tupian_3_1472115" target="_blank" href="http://www.citicbank.com/citic_topic/bfhd04"><img src="" pc_img="./largeimage/201805/P020180604349836781272.png" pad_img="./largeimage/201805/P020180604349837096095.png" mobile_img="./largeimage/201805/P020180604349836980739.png" class="img-responsive" pc_img_tc="" pad_img_tc="" mobile_img_tc="" /></a>
+							     </div>
+                                                              
+                                                               
+                                                             <div class="item"> 
+                                                             <a baifendian="tupian;tupian_4_1757495" target="_blank" href="http://www.citicbank.com/common/haibao/201807/t20180705_1766684.html"><img src="" pc_img="./largeimage/201807/P020180703628920708519.jpg" pad_img="./largeimage/201807/P020180703628920942137.jpg" mobile_img="./largeimage/201807/P020180703628920866006.jpg" class="img-responsive" pc_img_tc="" pad_img_tc="" mobile_img_tc="" /></a>
+							     </div>
+                                                              
+                                                               
+                                                             <div class="item"> 
+                                                             <a baifendian="tupian;tupian_5_1756860" target="_blank" href="http://www.citicbank.com/common/banner_url_all/banner_url_3177/"><img src="" pc_img="./largeimage/201807/P020180703562904846787.jpg" pad_img="./largeimage/201807/P020180703562904885866.jpg" mobile_img="./largeimage/201807/P020180703562904878048.jpg" class="img-responsive" pc_img_tc="" pad_img_tc="" mobile_img_tc="" /></a>
+							     </div>
+                                                              
+                                                               
+                                                             <div class="item"> 
+                                                             <a baifendian="tupian;tupian_6b_1662545" target="_blank" href="http://www.citicbank.com/common/haibao/201806/t20180612_1662539.html"><img src="" pc_img="./largeimage/201806/P020180612567708890910.jpg" pad_img="./largeimage/201806/P020180612567708929030.jpg" mobile_img="./largeimage/201806/P020180612567708916297.jpg" class="img-responsive" pc_img_tc="" pad_img_tc="" mobile_img_tc="" /></a>
+							     </div>
+                                                              
+                                                              
+
+                                                              
+				</div>
+			</div>
+		</div>
+		<!-- Content -->
+
+		<div class="green-channel">
+			<div class="container">
+				<div class="quick-service">
+					
+					<h1 class="syy_title syy_titles">一站式金融生活平台</h1>
+					<dl class="col-md-2 col-sm-2 col-xs-4">
+                         <!-购买理财-->
+                                              
+						<dd>
+							<a href="http://www.citicbank.com/personal/investment/financing/" baifendian="shpt;shpt_buylc" ><img src="./index/financiallife/201512/W020180302383044576571.png" alt="购买理财.png"/></a>
+						</dd>
+						<dd class="p10" baifendian="shpt;shpt_buylc" ><a href="http://www.citicbank.com/personal/investment/financing/">购买理财</a></dd>
+                                              
+						<div class="container index-pop hidden-xs">
+							<h3 class="text-left dhy_benzhou">本周热卖
+                    	<a href="https://etrade.citicbank.com/portalweb/html/finList.html" >更多</a>
+                    </h3>
+                                                  
+							<div class="col-md-4 col-sm-4 f_recom">
+								<div class="f_recom_item">
+									<h3><a target="_blank" href="./personal/investment/financing/B160A0417.html">乐赢稳健周期91天A款</a></h3>
+									<div class="f_percent"><span  finagains="0.048500" finprodno=="B160A0417"></span></div>
+									<p class="f_textnew">预期年化收益率</p>
+									<ul class="f_tc">
+										<li>
+											<p class="f_rmb"  startpoint="50000.00         "></p>
+											<p class="f_text">购买起点</p>
+										</li>
+										<li>
+											<p class="f_rmb"><script>prddeadline('91')</script></p>
+											<p class="f_text">产品期限</p>
+										</li>
+										<li class="f_echatstop">
+											<div id="rementj1" remain_prod_no="B160A0417" style=" width:70px; height:70px;"></div>
+											<!--理财首页热门推荐一-->
+										</li>
+									</ul>
+									<div class="f_btngroup">
+										<div class="f_btn_buy">
+										
+										
+															
+															
+															    
+															    
+																<!--可购买-->
+																	<a class="btn f_btn" finaCheck="true" prodNo="B160A0417" baifendian="shpt;shpt_buylc_buy" >购买</a>
+																																
+																
+															
+										
+
+										</div>
+										<div class="f_atten">
+											<!--f_active代表红心 默认为灰色-->
+											<p class="f_heart"><a href="javascript:void(0)"  focus_prod_no="B160A0417" focus_prod_name="乐赢稳健周期91天A款" focus_prod_type="02" baifendian="shpt;shpt_buylc_gz" >关注</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+                                                  
+							<div class="col-md-8 col-sm-8" style="padding:0px">
+								<h4 class="text-left licai_p">理财产品推荐</h4>
+								<div class="index-pop-right">
+									<ul>
+                                                  
+										<li class="col-xs-3 text-center"><a target="_blank" href="./personal/investment/financing/B160A0417.html">乐赢稳健周期91天A款</a></li>
+                                                  
+										<li class="col-xs-3 text-center"><a target="_blank" href="./personal/investment/financing/B170A0171.html">乐赢稳健轻松投35天A款</a></li>
+                                                  
+										<li class="col-xs-3 text-center"><a target="_blank" href="./personal/investment/financing/B160A0364.html">乐赢稳健步步高A</a></li>
+                                                  
+										<li class="col-xs-3 text-center"><a target="_blank" href="./personal/investment/financing/B160A0366.html">乐赢稳健天天快A</a></li>
+                                                  
+									</ul>
+								</div>
+							</div>
+							<div class="triangle-down"></div>
+						</div>
+					</dl>
+
+					<dl class="col-md-2 col-sm-2 col-xs-4">
+                         <!-购买基金-->
+                                              
+						<dd>
+							<a href="http://www.citicbank.com/personal/investment/fund/"  baifendian="shpt;shpt_buyjj" ><img src="./index/financiallife/201512/W020180302383136049641.png" alt="购买基金.png"/></a>
+						</dd>
+						<dd class="p10" baifendian="shpt;shpt_buyjj" ><a href="http://www.citicbank.com/personal/investment/fund/">购买基金</a></dd>
+                                              
+						<div class="container index-pop hidden-xs index-pop-er">
+							<h3 class="text-left dhy_benzhou">本周热卖
+                    	<a href="https://etrade.citicbank.com/portalweb/html/foundList.html">更多</a>
+                    </h3>
+                                             
+                                             	<!--非货币基金-->
+                                             	
+							<div class="col-md-4 col-sm-4 f_recom">
+								<div class="f_recom_item">
+									<h3><a target="_blank" href="./personal/investment/fund/540006.html">汇丰晋信大盘</a></h3>
+									<div class="f_percent"><span  fundgains="-10.80550"></span></div>
+									<p class="f_textnew">过去一个季度基金回报率</p>
+									<ul class="f_tc index_ftc">
+										<li>
+											<p class="f_rmb"><script>numFomat("2.92870", 4)</script></p>
+											<p class="f_text">当前净值</p>
+										</li>
+										<li>
+											<p class="f_rmb" fundtype="1"></p>
+											<p class="f_text">基金类型</p>
+										</li>
+									</ul>
+									<div class="f_btngroup">
+										<div class="f_btn_buy">
+															
+															
+																
+																
+																
+																<!--定投-->
+																	<a class="btn f_btn" fundCheck="true" prodNo="540006" baifendian="shpt;shpt_buyjj_buy" >购买</a>
+																		  
+															
+											
+										</div>
+										<div class="f_atten">
+											<!--f_active代表红心 默认为灰色-->
+											<p class="f_heart"><a href="javascript:void(0)"  focus_prod_no="540006" focus_prod_name="汇丰晋信大盘" focus_prod_type="01" baifendian="shpt;shpt_buyjj_gz" >关注</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							                      
+							                      <!--货币基金-->
+							                      
+                                                  
+							<div class="col-md-8 col-sm-8" style="padding:0px">
+								<h4 class="text-left licai_p">基金产品推荐</h4>
+								<div class="index-pop-right">
+									<ul>
+                                             
+										<li class="col-xs-3 text-center"><a target="_blank" href="./personal/investment/fund/000452.html">南方医保</a></li>
+                                             
+										<li class="col-xs-3 text-center"><a target="_blank" href="./personal/investment/fund/001416.html">嘉实事件驱动股票</a></li>
+                                             
+										<li class="col-xs-3 text-center"><a target="_blank" href="./personal/investment/fund/110013.html">易方达科翔</a></li>
+                                             
+										<li class="col-xs-3 text-center"><a target="_blank" href="./personal/investment/fund/160127.html">南方新兴消费增长分</a></li>
+                                             
+										<li class="col-xs-3 text-center"><a target="_blank" href="./personal/investment/fund/161028.html">富国新能源</a></li>
+                                             
+										<li class="col-xs-3 text-center"><a target="_blank" href="./personal/investment/fund/161819.html">银华中证内地资源主</a></li>
+                                             
+									</ul>
+								</div>
+							</div>
+							<div class="triangle-down"></div>
+						</div>
+
+					</dl>
+                          
+					<dl class="col-md-2 col-sm-2 col-xs-4">
+						<dd class="pmg">
+							<a href="https://etrade.citicbank.com/portalweb/html/salaryList.html" baifendian="shpt;shpt_360575" ><img src="./index/financiallife/201708/W020180302383231048230.png" alt="薪金煲.png"/></a>
+						</dd>
+						<dd class="p10">
+							<a href="https://etrade.citicbank.com/portalweb/html/salaryList.html" baifendian="shpt;shpt_360575" >
+								薪金煲
+							</a>
+							
+							
+						</dd>
+					</dl>
+                          
+					<dl class="col-md-2 col-sm-2 col-xs-4">
+						<dd class="pmg">
+							<a href="http://creditcard.ecitic.com/shenqing/index.shtml" baifendian="shpt;shpt_1253" ><img src="./index/financiallife/201512/W020180302383323040791.png" alt="申请信用卡.png"/></a>
+						</dd>
+						<dd class="p10">
+							<a href="http://creditcard.ecitic.com/shenqing/index.shtml" baifendian="shpt;shpt_1253" >
+								申请信用卡
+							</a>
+							
+							
+						</dd>
+					</dl>
+                          
+					<dl class="col-md-2 col-sm-2 col-xs-4">
+						<dd class="pmg">
+							<a href="http://www.citicbank.com/personal/hjf/" baifendian="shpt;shpt_1252" ><img src="./index/financiallife/201512/W020180305352433914279.png" alt="缴费.png"/></a>
+						</dd>
+						<dd class="p10">
+							<a href="http://www.citicbank.com/personal/hjf/" baifendian="shpt;shpt_1252" >
+								缴费
+							</a>
+							
+							
+						</dd>
+					</dl>
+                          
+					<dl class="col-md-2 col-sm-2 col-xs-4">
+						<dd class="pmg">
+							<a href="http://www.citicbank.com/personal/global_visa/" baifendian="shpt;shpt_1251" ><img src="./index/financiallife/201512/W020180402519180032413.png" alt="W020180323574558768330.png"/></a>
+						</dd>
+						<dd class="p10">
+							<a href="http://www.citicbank.com/personal/global_visa/" baifendian="shpt;shpt_1251" >
+								签证
+							</a>
+							
+							
+						</dd>
+					</dl>
+                          
+				</div>
+			</div>
+		</div>
+
+		<div class="life-recommend">
+			<div class="container">
+				<div>
+					<h5 class="syy_title">快乐生活享不停</h5>
+					<div class="row sy_squarewrap">
+                                             
+						<div class="dhy_ff">
+							<div class="col-sm-6 col-xs-12">
+
+								<a target="_blank" baifendian="tupian;tupian2_1" href="http://www.citicbank.com/global" class="index_block   row dhy_tong1  "  >
+
+									<div class="index_img_word">
+										<h2>出国金融</h2>
+										<h3></h3>
+									</div>
+									<div class="index_tu  hidden-xs" style=" background: url(./index/happylife/201512/W020170825670734239797.png) no-repeat right bottom;"></div>
+									<div class="index_tu visible-xs">
+										<script>
+										  var img_1257="./index/happylife/201512/W020170825670734446466.jpg".length==0?"./index/happylife/201512/W020170825670734239797.png":"./index/happylife/201512/W020170825670734446466.jpg"
+										   document.write("<img src='"+img_1257+"' width='100%' class='img-responsive' />");
+										</script>
+									</div>
+
+									<div class="index_arrow ">
+										<span><img src="./images/index_arrow.png" /></span>
+									</div>
+									<div class="index_bg_black hidden-xs ">
+                                                                               
+									</div>
+								</a>
+							</div>
+						</div>
+                                             
+                                             
+						<div class="dhy_ff">
+							<div class="col-sm-6 col-xs-12">
+
+								<a target="_blank" baifendian="tupian;tupian2_2" href="http://www.citicbank.com/personal/loan/" class="index_block   row dhy_tong1  "  >
+
+									<div class="index_img_word">
+										<h2>个人贷款</h2>
+										<h3></h3>
+									</div>
+									<div class="index_tu  hidden-xs" style=" background: url(./index/happylife/201512/W020170825671096042250.png) no-repeat right bottom;"></div>
+									<div class="index_tu visible-xs">
+										<script>
+										  var img_1259="./index/happylife/201512/W020170825671096290826.png".length==0?"./index/happylife/201512/W020170825671096042250.png":"./index/happylife/201512/W020170825671096290826.png"
+										   document.write("<img src='"+img_1259+"' width='100%' class='img-responsive' />");
+										</script>
+									</div>
+
+									<div class="index_arrow ">
+										<span><img src="./images/index_arrow.png" /></span>
+									</div>
+									<div class="index_bg_black hidden-xs ">
+                                                                               
+									</div>
+								</a>
+							</div>
+						</div>
+                                             
+                                             
+						<div class="col-sm-4 col-md-4 col-xs-12">
+							<a  target="_blank" baifendian="tupian;tupian3_1" href="http://www.citicbank.com/citic_topic/activities/" class="index_block row  dhy_tong1">
+
+								<div class="index_img_word">
+									<h2>活动专区</h2>
+									<h3></h3>
+								</div>
+								<div class="index_tu hidden-xs" style=" background:url(./index/happylife/201512/W020170825672226676603.png) no-repeat right bottom;"></div>
+								<div class="index_tu visible-xs">
+										<script>
+										  var img_1260="./index/happylife/201512/W020170825672226974694.jpg".length==0?"./index/happylife/201512/W020170825672226676603.png":"./index/happylife/201512/W020170825672226974694.jpg"
+										  document.write("<img src='"+img_1260+"' width='100%' class='img-responsive' />");
+										</script>
+								</div>
+
+								<div class="index_arrow ">
+									<span><img src="./images/index_arrow.png" /></span>
+								</div>
+								<div class="index_bg_black hidden-xs ">
+                                                                               
+								</div>
+							</a>
+						</div>
+                                             
+                                              
+						<div class="col-sm-4 col-md-4 col-xs-12">
+							<a  target="_blank" baifendian="tupian;tupian3_2" href="http://www.citicbank.com/personal/ebank/mobilephone/" class="index_block row  dhy_tong1" >
+
+								<div class="index_img_word">
+									<h2>手机银行</h2>
+									<h3></h3>
+								</div>
+								<div class="index_tu hidden-xs" style=" background:url(./index/happylife/201512/W020170825672423626671.png) no-repeat right bottom;"></div>
+								<div class="index_tu visible-xs">
+										<script>
+										  var img_1261="./index/happylife/201512/W020170825672423895929.jpg".length==0?"./index/happylife/201512/W020170825672423626671.png":"./index/happylife/201512/W020170825672423895929.jpg"
+										  document.write("<img src='"+img_1261+"' width='100%' class='img-responsive' />");
+										</script>
+								</div>
+
+								<div class="index_arrow ">
+									<span><img src="./images/index_arrow.png" /></span>
+								</div>
+								<div class="index_bg_black hidden-xs ">
+                                                                               
+								</div>
+							</a>
+						</div>
+                                             
+                                              
+						<div class="col-sm-4 col-md-4 col-xs-12">
+							<a  target="_blank" baifendian="tupian;tupian3_3" href="http://www.citicbank.com/common/financialnews/news/" class="index_block row  dhy_tong1" >
+
+								<div class="index_img_word">
+									<h2>金融信息</h2>
+									<h3></h3>
+								</div>
+								<div class="index_tu hidden-xs" style=" background:url(./index/happylife/201512/W020170825672576564392.png) no-repeat right bottom;"></div>
+								<div class="index_tu visible-xs">
+										<script>
+										  var img_1256="./index/happylife/201512/W020170825672576813841.jpg".length==0?"./index/happylife/201512/W020170825672576564392.png":"./index/happylife/201512/W020170825672576813841.jpg"
+										  document.write("<img src='"+img_1256+"' width='100%' class='img-responsive' />");
+										</script>
+								</div>
+
+								<div class="index_arrow ">
+									<span><img src="./images/index_arrow.png" /></span>
+								</div>
+								<div class="index_bg_black hidden-xs ">
+                                                                               
+								</div>
+							</a>
+						</div>
+                                             
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="product-recommend green-channel">
+			<div class="container">
+
+				<h5 class="syy_title">让您的资产稳定增长</h5>
+				<div id="wendingzz_div" style="display:none">
+
+<!---------让您的资产稳定增长第一个区块--理财-------->
+
+
+					<div class="col-sm-4 col-md-4 index_product">
+						<div class="product_img"><img src="./images/index_blue.png" /></div>
+						<dl class="thumbnail blue">
+							<dt>
+								<div class="ma_min">
+                        <span><a target="_blank" href="./personal/investment/financing/B160A0417.html">乐赢稳健周期91天A款</a></span>
+                        <!--<span class="text-light-dark">每天快车每天尊享体验</span>-->
+                        </div>
+                        <p class="yield">
+                            <span class="yield_f60" finagains="0.048500" finprodno=="B160A0417"></span>
+                        </p>
+                        <span class="yield_small">预期年化收益率</span>
+                        </dt>
+							<dd class="caption">
+								<div class="caption_sm">
+									<span>
+                                        <h3 startpoint="50000.00         "></h3>
+                                        <small>购买起点</small>
+                                    </span>
+								</div>
+								<div class="caption_sm">
+									<span>
+                                        <h3><script>prddeadline('91')</script></h3>
+                                        <small>产品期限</small>
+                                    </span>
+								</div>
+							</dd>
+							<dd class="foot">
+										
+															
+															
+																	
+																
+																<!--可购买-->
+																	<a  href="javascript:void(0)" class="border_blue" finaCheck="true" prodNo="B160A0417"  baifendian="wdzz;wdzz_licai_buy">立即购买</a>
+																																	
+															
+																	
+							</dd>
+						</dl>
+					</div>
+
+
+					<div class="col-sm-4 col-md-4 index_product">
+						<div class="product_img"><img src="./images/index_blue.png" /></div>
+						<dl class="thumbnail blue">
+							<dt>
+								<div class="ma_min">
+                        <span><a target="_blank" href="./personal/investment/financing/B170A0171.html">乐赢稳健轻松投35天A款</a></span>
+                        <!--<span class="text-light-dark">每天快车每天尊享体验</span>-->
+                        </div>
+                        <p class="yield">
+                            <span class="yield_f60" finagains="0.046000" finprodno=="B170A0171"></span>
+                        </p>
+                        <span class="yield_small">预期年化收益率</span>
+                        </dt>
+							<dd class="caption">
+								<div class="caption_sm">
+									<span>
+                                        <h3 startpoint="50000.00         "></h3>
+                                        <small>购买起点</small>
+                                    </span>
+								</div>
+								<div class="caption_sm">
+									<span>
+                                        <h3><script>prddeadline('35')</script></h3>
+                                        <small>产品期限</small>
+                                    </span>
+								</div>
+							</dd>
+							<dd class="foot">
+										
+															
+															
+																	
+																
+																<!--可购买-->
+																	<a  href="javascript:void(0)" class="border_blue" finaCheck="true" prodNo="B170A0171"  baifendian="wdzz;wdzz_licai_buy">立即购买</a>
+																																	
+															
+																	
+							</dd>
+						</dl>
+					</div>
+
+<!---------让您的资产稳定增长第二个区块---基金------->
+
+
+<!---------让您的资产稳定增长第三个区块-----薪金煲----->
+
+					<div class="col-sm-4 col-md-4">
+						<div class="product_img"><img src="./images/index_purple.png" /></div>
+						<dl class="thumbnail violet">
+							<dt>
+								<div class="ma_min">
+                        <span><a href="https://etrade.citicbank.com/portalweb/html/salaryList.html" salaryPotList="list">薪金煲|信诚版</a></span>
+                                                                                                    <!--<span class="text-light-dark">每天快车每天尊享体验</span>去掉-->
+                       </div>
+                        <p class="yield">
+                             <span class="yield_f60" fundgains="4.1780"></span>
+                        </p>
+                        <span class="yield_small">7日年化收益率</span>
+                        </dt>
+							<dd class="caption row">
+								<div style="text-align: center;">
+									<span>
+                                        <h3><script>numFomat("1.08", 4)</script></h3>
+                                        <small>万份收益</small>
+                                    </span>
+								</div>
+							</dd>
+								<dd class="foot"><a  href="javascript:void(0)" class="border_violet"  salaryPotCheck="true" prodCode="000599" prdName="薪金煲|信诚版" fundStnm="" prdCmy="55" incomeUnit="1.08" incomeRate="4.1780"  baifendian="wdzz;wdzz_xjb_buy">立即购买</a></dd>
+
+						</dl>
+					</div>
+
+
+<!---------让您的资产稳定增长3个区块结束---------->
+				</div>
+			</div>
+		</div>
+		<div class="container news-recommend">
+			<div class="col-sm-6">
+				<h5 class="dhy_h3 bpH3"> <a href="./about/companynews/banknew/message/">中信新闻<div class="mor"><i class="fa fa-chevron-circle-right"></i></div></a></h5>
+				<div class="row">
+                                    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2018 07 11</span><a href="./about/companynews/banknew/message/201807/t20180711_1790780.html" target="_blank" class='index_news'>中信银行发布第5期“资管经理人景气指数（AMI）”</a>
+					</div>
+                                    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2018 07 11</span><a href="./about/companynews/banknew/message/201807/t20180711_1790778.html" target="_blank" class='index_news'>中信银行济南分行上线济南市公安局微信公众号缴费平台</a>
+					</div>
+                                    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2018 07 11</span><a href="./about/companynews/banknew/message/201807/t20180711_1790774.html" target="_blank" class='index_news'>中信银行宁波分行举办英国“如意签”首场落地活动</a>
+					</div>
+                                    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2018 07 10</span><a href="./about/companynews/banknew/message/201807/t20180710_1787824.html" target="_blank" class='index_news'>2018中网青巡赛来到南京  中信银行助力赛事全面升级</a>
+					</div>
+                                    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2018 07 10</span><a href="./about/companynews/banknew/message/201807/t20180710_1787819.html" target="_blank" class='index_news'>中信银行宁波分行闪耀2018年宁波市融资对接会</a>
+					</div>
+                                    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2018 07 09</span><a href="./about/companynews/banknew/message/201807/t20180709_1785605.html" target="_blank" class='index_news'>中信银行广州分行全力支持实体经济 打造千亿规模汽车产业综合金融服务</a>
+					</div>
+                                    
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<h5 class="dhy_h3 bpH3"> <a href="./common/servicenotice/">服务公告<div class="mor"><i class="fa fa-chevron-circle-right"></i></div></a></h5>
+				<div class="row">
+                                    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2017 12 29</span><a href="http://www.citicbank.com/common/financialnews/jmfwb2/" target="_blank" class='index_news'><font color="#ff0000">服务价目表</font></a>
+					</div>
+				    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2017 06 27</span><a href="./common/servicenotice/201706/t20170627_336194.html" target="_blank" class='index_news'>公示美国签证费的通知</a>
+					</div>
+				    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2018 07 10</span><a href="./common/servicenotice/201606/t20160622_171487.html" target="_blank" class='index_news'>中信银行零售渠道理财及代销产品信息查询</a>
+					</div>
+				    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2018 07 10</span><a href="./common/servicenotice/201807/t20180709_1786667.html" target="_blank" class='index_news'>中信银行天津分行开展2018年反假货币、爱护人民币宣传工作</a>
+					</div>
+				    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2018 07 10</span><a href="./common/servicenotice/201807/t20180709_1786626.html" target="_blank" class='index_news'>关于开展存量个人低净值客户涉税信息尽职调查工作的公告</a>
+					</div>
+				    
+					<div class="col-xs-12 dhy_liebiao">
+						<span style="color: #A9A9A9;">2018 06 29</span><a href="http://www.citicbank.com/common/haibao/201806/t20180629_1724048.html" target="_blank" class='index_news'>重要通知！证件有效期过期将影响您正常用卡！</a>
+					</div>
+				    
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(function() {									
+				hotSale();
+				happyLife();
+				oneStep()
+					$(window).resize(function() {
+						hotSale();
+						happyLife();
+						oneStep();
+					})
+			})
+			//购买基金购买理财浮层	
+			function hotSale() {
+				var width = $(window).width();
+				if (width >= 768) {
+					$(".quick-service dl  ").bind("touchstart", function() {
+						$(this).unbind("mouseover")
+					});
+					$(".quick-service dl").bind("mouseover", function() {
+						$(this).children(".index-pop").show().end();
+						$(this).siblings().children(".index-pop").hide();
+					});
+					$(".quick-service dl").mouseout(function() {
+						$(".index-pop").hide();
+					})
+				}
+			}
+            //快乐生活享不停滑块效果
+			function happyLife() {
+				var width = $(window).width();
+				if (width >= 768) {
+					$(".index_block").hover(function() {
+						$(this).children(".index_bg_black").show();
+						$(this).find("h1,h3").css("color", "#FFF");
+					}, function() {
+						$(this).children(".index_bg_black").hide();
+						$(this).find("h1").css("color", "#000");
+						$(this).find("h3").css("color", "#909090");
+					})
+				}else{
+					$(".index_block").unbind('mouseenter mouseleave')
+				}
+				
+			}
+            //一站式生活平台图标上浮效果
+			function oneStep() {
+				var width = $(window).width();
+				if (width >= 768) {
+					$(".quick-service dl").hover(function() {
+							$(this).find(".pmg").css("margin-top", "-10px");
+							$(this).find(".pmg a").css("height", "58px");
+							$(this).find(".pmg a").css("display", "inline-block");
+						},
+						function() {
+							$(this).find(".pmg").css("margin-top", "0px");
+							$(this).find(".pmg a").css("height", "0px");
+							$(this).find(".pmg a").css("display", "inline");
+						})
+				}else{
+					$(".quick-service dl").unbind('mouseenter mouseleave')
+				}
+			}
+			
+			function togglemenu() {
+					//console.log($(".dropdown-menu-bot").find(".syy_title").length);
+					$(".dropdown-menu-bot").find(".syy_title").bind("click",
+						function(evt) {
+							evt = window.event ? window.event : evt;
+							// evt.preventDefault();
+							//  evt.stopPropagation();
+							if ($(this).nextAll().hasClass("hidden-xs")) {
+								$(this).nextAll().removeClass("hidden-xs");
+							} else {
+								$(this).nextAll().addClass("hidden-xs")
+							}
+							evt.stopPropagation();
+						});
+				}
+				
+			togglemenu();
+		</script>
+<!-- Footer -->
+  <script language="JavaScript">
+function MM_jumpMenu(targ,selObj,restore){ //选择外部链接下拉菜单直接跳转
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+</script>
+</script>
+		<footer class="footer">
+<style>
+
+@media only screen and (max-width: 992px) and (min-width: 768px)
+.footer-list .panel.about-citic-up {
+    margin-top: -155px!important;
+}
+</style>
+			<div class="container">
+				<div class="panel-group row footer-list" id="footerList">
+					<div class="col-lg-2 col-md-2 col-sm-6 panel">
+						<div class="panel-heading">
+							<h4 class="panel-title"><a  class="tit">无处不在</a><a data-toggle="collapse" data-parent="#footerList" data-target="#footerSocial" aria-expanded="false"><span class="glyphicon glyphicon-plus text-right hidden-sm hidden-md hidden-lg"><b>+</b></span></a></h4></div>
+						<div id="footerSocial" class="collapse">
+							<div class="panel-body">
+								<ul class="first">
+									<li><i class=""></i>
+										<a baifendian="yewei;yewei_zxwb" rel="external nofollow" href="http://weibo.com/citicbank" title="中信银行微博"><img src="http://www.citicbank.com/include/bottom1/microblog/201512/W020151214521565916541.png" /></a>
+									</li>
+									<li class="weixin">
+										<div class="icon icon_weixin">微信公众号</div>
+										<div><img src="http://www.citicbank.com/include/bottom1/weixin/201512/W020160519539663890376.jpg" alt="" /></div>
+									</li>
+								  <!--  <li>
+										<a href="" title="订阅邮件"><img src="http://www.citicbank.com/include/bottom1/mail/201512/W020151214522894957059.png" alt="" /></a>
+									</li>
+                                                               -->
+								</ul>							
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-6 panel">
+						<div class="panel-heading">
+							<h4 class="panel-title"><a  class="tit">手机银行</a><a data-toggle="collapse" data-parent="#footerList" data-target="#footerApp" aria-expanded="false"><span class="glyphicon glyphicon-plus text-right hidden-sm hidden-md hidden-lg"><b>+</b></span></a></h4></div>
+						<div id="footerApp" class="collapse">
+							<div class="panel-body">
+								<ul class="first">
+									<li><i class=""></i>
+										<a baifendian="yewei;yewei_sjyhxz" rel="external nofollow" href="http://autoload.bank.ecitic.com/ebank/mobilebank/install/CiticMobileBank.apk" title="立即下载手机银行"><img src="http://www.citicbank.com/include/bottom1/microblog/201711/W020171101684959450538.png" /></a>
+									</li>
+									<li class="weixin">
+										<div class="icon" style="padding:10px 0 10px 0;">扫码下载</div>
+										<div><img src="http://www.citicbank.com/include/bottom1/weixin/201711/W020171101680819597889.jpg" alt="" /></div>
+									</li>
+								 </ul>							
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 panel">
+						<div class="panel-heading">
+							<h4 class="panel-title"><a href="http://www.citicbank.com/common/contact/" class="tit" baifendian="yewei;yewei_lxwm">联系我们</a><a data-toggle="collapse" data-parent="#footerList" data-target="#footerContactUs" aria-expanded="false"><span class="glyphicon glyphicon-plus text-right hidden-sm hidden-md hidden-lg"><b>+</b></span></a></h4></div>
+						<div id="footerContactUs" class="collapse">
+							<div class="panel-body">
+								<ul>
+									<li><a href="https://etrade.citicbank.com/portalweb/html/map.html" title="营业网点">营业网点</a></li>
+								        <li>信用卡中心：4008895558</li>
+								        <li>客户中心：95558</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="hidden-lg hidden-md col-sm-12"></div>
+					<div class="col-lg-2 col-md-2 col-sm-6 panel">
+						<div class="panel-heading">
+							<h4 class="panel-title"><a href="http://www.citicbank.com/common/helpcenter/"  class="tit">帮助中心</a><a data-toggle="collapse" data-parent="#footerList" data-target="#footerHelpCenter" aria-expanded="false"><span class="glyphicon glyphicon-plus text-right hidden-sm hidden-md hidden-lg"><b>+</b></span></a></h4></div>
+						<div id="footerHelpCenter" class="collapse">
+							<div class="panel-body">
+								<ul>
+									<li class="tac">在线服务: <a baifendian="yewei;yewei_zxfw" href="https://im.bank.ecitic.com?accesscode=75001" title="个人">个人</a>/<a href="https://im.bank.ecitic.com?accesscode=75021" title="公司" baifendian="yewei;yewei_zxfw">公司</a>/<a href="https://im.bank.ecitic.com/credit/navigation.html?channel=712021" title="信用卡" baifendian="yewei;yewei_zxfw">信用卡</a></li>
+									<li><a baifendian="yewei;yewei_cjwt" href="http://www.citicbank.com/common/question/" title="常见问题">常见问题</a></li>                                                               <li><a baifendian="yewei;yewei_wzdt" href="http://www.citicbank.com/common/map/" title="网站地图">网站地图</a></li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-sm-6 panel about-citic-up">
+						<div class="panel-heading">
+							<h4 class="panel-title"><a baifendian="yewei;yewei_zxfw" href="http://www.citicbank.com/about/introduction/brief/" class="tit">关于中信</a><a data-toggle="collapse" data-parent="#footerList" data-target="#footerAboutUs" aria-expanded="false"><span class="glyphicon glyphicon-plus text-right hidden-sm hidden-md hidden-lg"><b>+</b></span></a></h4></div>
+						<div id="footerAboutUs" class="collapse">
+							<div class="panel-body">
+								<ul>
+									<li class="tac"><a baifendian="yewei;yewei_zxxw" href="http://www.citicbank.com/about/companynews/" title="中信新闻">中信新闻</a></li>
+									<li><a baifendian="yewei;yewei_tzzgx" href="http://www.citicbank.com/about/investor/" title="投资者关系">投资者关系</a></li>
+									<li><a baifendian="yewei;yewei_rczp" href="http://job.bank.ecitic.com/zpweb.do" title="人才招聘">人才招聘</a></li>
+									<li class="jiegou" style="padding-bottom: 0;">
+										<label>
+											<div class="citic_select"><i class="icon icon_fhzq"></i>
+												<p class="">分行专区</p><i class="select_arrow select_arrow_down"></i>
+												<select onchange="MM_jumpMenu('parent',this,1)">
+                                                                                                    <option>&nbsp;&nbsp;&nbsp;---分行专区---</option>
+                                                                                                     
+                                                                                                        <option baifendian="yewei;yewei_fhzq" value="http://www.citicbank.com/bj">&nbsp;&nbsp;&nbsp;总行营业部</option>
+                                                                                                     
+                                                                                                        <option baifendian="yewei;yewei_fhzq" value="http://www.citicbank.com/hz">&nbsp;&nbsp;&nbsp;杭州分行</option>
+                                                                                                     
+                                                                                                        <option baifendian="yewei;yewei_fhzq" value="http://www.citicbank.com/nn">&nbsp;&nbsp;&nbsp;南宁分行</option>
+                                                                                                     
+                                                                                                        <option baifendian="yewei;yewei_fhzq" value="http://www.citicbank.com/ty">&nbsp;&nbsp;&nbsp;太原分行</option>
+                                                                                                     
+                                                                                                        <option baifendian="yewei;yewei_fhzq" value="http://www.citicbank.com/cd">&nbsp;&nbsp;&nbsp;成都分行</option>
+                                                                                                     
+                                                                                                        <option baifendian="yewei;yewei_fhzq" value="http://www.citicbank.com/gz">&nbsp;&nbsp;&nbsp;广州分行</option>
+                                                                                                     
+												</select>
+											</div>
+										</label>
+									</li>
+									<li class="jiegou">
+										<label>
+											<div class="citic_select"><i class="icon icon_jg"></i>
+												<p class="">分支机构</p><i class="select_arrow select_arrow_down"></i>
+												<select onchange="MM_jumpMenu('parent',this,1)">
+                                                                                                    <option>&nbsp;&nbsp;&nbsp;---分支机构---</option>
+                                                                                                     
+                                                                                                        <option baifendian="yewei;yewei_fzjg" value="http://www.cncbinternational.com/">&nbsp;&nbsp;&nbsp;信银国际</option>
+                                                                                                     
+                                                                                                        <option baifendian="yewei;yewei_fzjg" value="http://leasing.ecitic.com/">&nbsp;&nbsp;&nbsp;中信金融租赁有限公司</option>
+                                                                                                     
+												</select>
+											</div>
+										</label>
+									</li>
+									<li class="link">
+										<label>
+											<div class="citic_select"><i class="icon icon_link"></i>
+												<p class="">友情链接</p><i class="select_arrow select_arrow_down"></i>
+												<select onchange="MM_jumpMenu('parent',this,1)">
+                                                                                                    <option>&nbsp;&nbsp;&nbsp;---友情链接---</option>
+                                                                                                     
+													<option baifendian="yewei;yewei_yqlj" value="http://mall.ecitic.com">&nbsp;&nbsp;&nbsp;中信商城</option>
+                                                                                                     
+													<option baifendian="yewei;yewei_yqlj" value="http://group.citic">&nbsp;&nbsp;&nbsp;中信集团</option>
+                                                                                                     
+													<option baifendian="yewei;yewei_yqlj" value="http://www.citic.com">&nbsp;&nbsp;&nbsp;中信股份</option>
+                                                                                                     
+													<option baifendian="yewei;yewei_yqlj" value="http://www.ecitic.com">&nbsp;&nbsp;&nbsp;E·中信</option>
+                                                                                                     
+												</select>
+											</div>
+										</label>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr class="hidden-xs">
+				<ul class="copy-right">
+					<li class="web_map"><a href="http://www.citicbank.com/common/map/" class="mr10">网站地图</a>
+                                          <!--|<a href="http://www.citicbank.com/common/statement/" class="ml10">隐私声明</a>-->
+                                        </li>
+					<li class="copy_right">中信银行股份有限公司版权所有
+						<div>Copyright &copy; CITIC Bank All rights reserved</div>
+					</li>
+					<li>京公网安备11010502020433号 京ICP备16038101号</li>
+				</ul>
+			</div>
+		</footer>
+<!--签证弹窗-->
+ <!--<style type="text/css">
+	.mc {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.7);
+		display: none;
+		z-index: 900;
+	}
+	
+	.crjkzc {
+		margin: 0 auto;
+		width: 45%;
+		color: white;
+		z-index: 1000;
+		position: relative;
+	}
+	.windowc{
+		z-index: 998;
+	}
+	.windowc img {
+		width: 100%;
+	}
+	.windows_close {
+		position: absolute;
+		left: 89%;
+		top: 6%;
+		cursor: pointer;
+	}
+	
+	.windows_close img {
+		width: 80%;
+	}
+	.windows_button{
+		display: block;
+		z-index: 999;
+	}
+	@media screen and (min-width: 1600px) {
+		.crjkzc {
+			width: 50%;
+		}
+	}
+	
+	@media screen and (max-width: 1024px) {
+		.crjkzc {
+			width: 70%;
+		}
+	}
+	
+	@media screen and (max-width: 768px) {
+		.crjkzc {
+			width: 80%;
+		}
+	}
+	
+	@media screen and (max-width: 425px) {
+		.crjkzc {
+			width: 85%;
+		}
+	}
+</style>
+<div class="mc">
+	<div class="crjkzc">
+		<div class="windowc">
+			<a href="http://go.citicbank.com/dzzhkh" class="windows_button">
+				<img src="./images/hfghfnerfdvc.png" alt="" />
+			</a>
+			
+			<div class="windows_close">
+				<img src="./images/close.png" alt="" />
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	window.onload = function() {
+		var a = $(window).height();
+		var b = $(".crjkzc").height();
+		var c = (a - b) / 4;
+		
+		if($(document).width() < 766) {
+			$(".crjkzc").css("margin-top", c);
+
+		}else{
+			$(".crjkzc").css("width", "25%");
+			$(".crjkzc").css("margin-top", c);
+		}
+		
+		$(".mc").css("display","none");
+		$("a[baifendian='top;top_1931']").css("display","block");
+		
+	}
+	$("a[baifendian='top;top_1931']").attr("href","###");
+	$("dd[baifendian='top;top_1931']").children().attr("href","###");
+	$("a[baifendian='shpt;shpt_1251']").attr("href","###");
+	
+	$(".windows_close").click(function() {
+		window.location = "http://www.citicbank.com/personal/global_visa";
+		$(".mc").css("display","none");
+	})
+	$(".windows_button").click(function() {
+		window.location = "http://go.citicbank.com/dzzhkh";
+	})
+	$("a[baifendian='top;top_1931']").click(function() {
+		$(".mc").css("display","block");
+		$(".dropdown-menu").css("display","none");
+	})
+	$("dd[baifendian='top;top_1931']").children().click(function() {
+		$(".mc").css("display","block");
+		$(".dropdown-menu").css("display","none");
+	})
+	$("a[baifendian='shpt;shpt_1251']").children().click(function() {
+		$(".mc").css("display","block");
+		$(".dropdown-menu").css("display","none");
+	})
+//	$(".mc").click(function() {
+//		window.location = "http://www.citicbank.com/personal/global_visa";
+//	})
+	
+</script>-->	
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!doctype html>
+<!--[if lte IE 8 ]><html lang="zh-cmn-Hans" class="lte8"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="zh-cmn-Hans"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <title>爱豆</title>
+    <meta name="Description" content="爱豆是中国最大的粉丝娱乐门户网站，提供24小时不间断的明星新资讯（爱豆News），明星节目、演出专属直播间（爱豆TV），精彩活动的汇集平台（活动汇）!" />
+    <meta name="domain_verify" content="pmrgi33nmfuw4ir2ejuwi33mgaydcltdn5wselbcm52wszbchirdsojtmq2dom3ggeytqmrumuydcyrqg4ygenlcmu2tonjwg4zdomzcfqrhi2lnmvjwc5tfei5dcnjqgm2tknbwgmztkmbwpu">
+    <link rel="stylesheet" href="https://misc.idol001.com/www/v2.4.2/css/style.css?date=201807121125"/>
+	<link rel="stylesheet" href="https://misc.idol001.com/activity/css/login-pc.css" />
+    <!--[if lt IE 9]>
+    <script src="https://misc.idol001.com/www/js/html5.js"></script>
+    <![endif]-->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?f8d645bec1af37323ecf4b6f52453b71";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+	<script>
+		if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+			window.location.href="http://m.idol001.com/";
+		}
+	</script>
+</head>
+<body>
+<iframe id="form_post" name="form_post" src="about:blank" height=0 width=0 ng-cloak style="display:none"></iframe>
+<div class="guide-dialog" id="guide-dialog" style="display:none;">      
+	<div class="guide-dialog-con guide-dialog-login">
+		
+		<a class="close-btn" href="javascript://" onclick="$('#guide-dialog').hide()"></a>
+		<section class="login-pt login-pt1">
+			<h2 class="login-tit">一键登录 无需注册</h2>
+			<div class="login-btn-con">
+				<a style="display: none"  class="dl-btn dl-qq" onclick="loginQQ()" ><b></b>QQ登录<b></b></a>
+				<a class="dl-btn dl-wb" onclick="loginSina()" ><b></b>微博登录<b></b></a>                 
+			</div>
+		</section>
+		<section class="login-pt login-pt2">
+			<h2 class="login-tit login-idol">爱豆账号登录<i></i></h2>
+			<div class="login-btn-con">
+				<div class="login-form">
+					<form class="form-login" method="post" action="https://user.idol001.com/web_login.php?action=login_idol" target="form_post">
+						<div class="login-wr">
+							<label for="username" class="login-lb">账号</label>
+							<input type="text" class="login-ip" id="username" name="username"/>
+						</div>
+						<div class="login-wr">
+							<label for="password" class="login-lb">密码</label>
+							<input type="password" class="login-ip" id="password" name="password"/>
+						</div>
+                        <div class="login-wr">
+                            <input type="text" name="vcode" class="login-ip" placeholder="验证码" style="padding-left: 8px;width: 100px;float: left;margin-right: 5px;">
+                            <img id="img_vcode" src="https://user.idol001.com/web_login.php?action=vcode" onclick="document.getElementById('img_vcode').src='https://user.idol001.com/web_login.php?action=vcode&_r='+new Date().getTime()"/>
+                        </div>
+                        <p style="height: 20px; line-height: 20px;"><span style="float: left; color: #ccc;">请输入右侧验证码</span><a href="javascript:void(0)" style="float: right; display: inline; width: auto; padding: 0; font-size: 12px; color: #ff488d; line-height: 20px;" onclick="document.getElementById('img_vcode').src='https://user.idol001.com/web_login.php?action=vcode&_r='+new Date().getTime()">换一个</a></p>
+
+						<div class="login-wr" >
+							<p class="login-error" style="display:none">帐号不存在或者密码错误</p>
+							<a href="javascript://" onclick="$('.form-login').submit()" class="btn-login">登录</a>
+						</div>
+					</form>
+				</div>             
+			</div>
+		</section>
+		
+	</div>
+</div>
+<div class="container">
+<header class="header">
+    <div class="header-wr">
+        <hgroup>
+            <h1 class="tit-m"><a href="javascript:void(0)"><i class="ico ico-h1">爱豆</i><span class="des" style="font-size:12px;color: #fff;vertical-align: bottom;font-weight: 300;">不忘初心 伴你追星</span></a></h1>
+        </hgroup>
+        <nav class="nav">
+            <ul class="lis-nav">
+                <li class="nav-on"><a href="http://idol001.com/" class="nav-ln">首页</a></li>
+                <!-- <li id="2017_index"><a href="https://tv.idol001.com/video_v2.php?action=2017_index" class="nav-ln" >视频</a></li> -->
+                <li><a href="http://activity.idol001.com/" class="nav-ln" >活动汇</a></li>
+                <li><a href="http://idol001.com/app.html" class="nav-ln" >下载APP</a></li>
+            </ul>
+        </nav>
+        <div class="dw">
+            <a class="login-exit" href="http://up.idol001.com/">上传视频</a>
+            <div class="logining" id="login-user" style="display:none">
+                <a id="login-user-span" class="login-user"></a>
+                <a class="login-exit" href="javascript:void(0)" onclick="logout()">退出</a>
+            </div>
+            <a class="login-ln" href="javascript:void(0)" id="login-ln" onclick="login()">登录</a>
+            
+        </div>
+    </div>
+</header>
+
+
+<section class="md md1">
+    <div class="md-wr">
+        <div class="ban" id="slidePt">
+            <ul class="lis-ban-pic">
+    		<li class="ban-pic-it">
+	    <a class="ban-pic-ln" href="http://wuxia.qq.com/cp/a20180701yhzt/?ADTAG=media.buy.aidou.index_focuspic_pc_wap">
+	        <div class="ban-pic-wr"><img src="http://img.idol001.com/origin/2018/07/01/82069bae15e9d644dbbe0bd7f00a81b91530374667.jpg" alt="《天涯明月刀》移花门派大使王一博" class="ban-pic"/></div>
+	        <h2 class="ban-pic-tit">《天涯明月刀》移花门派大使王一博</h2>
+	    </a>
+	</li>
+				<li class="ban-pic-it">
+	    <a class="ban-pic-ln" href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45b0bbcd4e7084548b4cbc/">
+	        <div class="ban-pic-wr"><img src="http://img.idol001.com/origin/2018/07/11/96e76dd2ec96b29b884ed4deba045eb61531303973.jpg" alt="防弹少年团有望于8月发表后续专辑 " class="ban-pic"/></div>
+	        <h2 class="ban-pic-tit">防弹少年团有望于8月发表后续专辑 </h2>
+	    </a>
+	</li>
+				<li class="ban-pic-it">
+	    <a class="ban-pic-ln" href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c512cd4e7029258b52ed/">
+	        <div class="ban-pic-wr"><img src="http://img.idol001.com/origin/2018/07/11/c3ef1ecd86bfa57c022be8253a7bc1331531299385.jpg" alt="易烊千玺工作室更博 幻乐之城录制花絮照来袭" class="ban-pic"/></div>
+	        <h2 class="ban-pic-tit">易烊千玺工作室更博 幻乐之城录制花絮照来袭</h2>
+	    </a>
+	</li>
+				<li class="ban-pic-it">
+	    <a class="ban-pic-ln" href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45d0cfcd4e70f5608b4a00/">
+	        <div class="ban-pic-wr"><img src="http://img.idol001.com/origin/2018/07/11/28dd56832c7a0148f5fcec11f67109021531304003.jpg" alt="李起光-李浩沅-李昇勋合流KBS2《Dancing High》舞蹈教练阵容" class="ban-pic"/></div>
+	        <h2 class="ban-pic-tit">李起光-李浩沅-李昇勋合流KBS2《Dancing High》舞蹈教练阵容</h2>
+	    </a>
+	</li>
+				<li class="ban-pic-it">
+	    <a class="ban-pic-ln" href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c48bcd4e701d258b5322/">
+	        <div class="ban-pic-wr"><img src="http://img.idol001.com/origin/2018/07/11/a3d4e98daff28baebd0259d27069a07b1531299342.jpg" alt="鹿晗remix EP压轴单曲《某时某刻(Remix) 》MV上线 打破常规带来迷幻般的惊喜刺激" class="ban-pic"/></div>
+	        <h2 class="ban-pic-tit">鹿晗remix EP压轴单曲《某时某刻(Remix) 》MV上线 打破常规带来迷幻般的惊喜刺激</h2>
+	    </a>
+	</li>
+				<li class="ban-pic-it">
+	    <a class="ban-pic-ln" href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45d23dcd4e70e9518b4994/">
+	        <div class="ban-pic-wr"><img src="http://img.idol001.com/origin/2018/07/11/960103f7e2990a9e526a2ee8b0e48f7f1531304034.jpg" alt="“热曲制造者” 宣美以9月回归为目标准备中！" class="ban-pic"/></div>
+	        <h2 class="ban-pic-tit">“热曲制造者” 宣美以9月回归为目标准备中！</h2>
+	    </a>
+	</li>
+				<li class="ban-pic-it">
+	    <a class="ban-pic-ln" href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c5a2cd4e70742e8b4f25/">
+	        <div class="ban-pic-wr"><img src="http://img.idol001.com/origin/2018/07/11/5588d671bfb05cd84ecbd69785b7e5521531299360.jpg" alt="主题曲和MV双双破亿！ 制片人意邀陈立农参演《解码游戏》续集" class="ban-pic"/></div>
+	        <h2 class="ban-pic-tit">主题曲和MV双双破亿！ 制片人意邀陈立农参演《解码游戏》续集</h2>
+	    </a>
+	</li>
+				</ul>
+<ul class="lis-ban-dot">
+			<li class="ban-dot-it"></li>
+				<li class="ban-dot-it"></li>
+				<li class="ban-dot-it"></li>
+				<li class="ban-dot-it"></li>
+				<li class="ban-dot-it"></li>
+				<li class="ban-dot-it"></li>
+				<li class="ban-dot-it"></li>
+				</ul>
+        </div>
+        <article class="news">
+            <h2 class="tit-news">大事件</h2>
+            <div class="news-it">
+    <h2 class="news-tit"><span class="news-type">明星</span><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45b0e1cd4e7028258b5361/">GFRIEND新专辑首版预告照公开！</a></h2>
+    <p class="news-if">韩国时间11日零时，GFRIEND夏日迷你专辑《Sunny Summer》首版团体以及个人预告照公开，散发着清爽魅力的夏日精灵们来了！buddy们准备好和女友们一起度过火热夏日了吗</p>
+</div>
+<div class="news-it">
+    <h2 class="news-tit"><span class="news-type">明星</span><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45d130cd4e7029258b52f6/">金泫雅7月末发表先行曲+8月中旬发表新专辑！</a></h2>
+    <p class="news-if">11日据歌谣界相关人士透露，泫雅将在7月末作为solo歌手发表先行曲，8月中旬发表新专辑。由此可见，泫雅将于7月以Triple H组合活动，8月将会以solo身份活动。所属社Cub</p>
+</div>
+<div class="news-it">
+    <h2 class="news-tit"><span class="news-type">明星</span><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c4c0cd4e702c258b53c4/">吴亦凡牵手大型双标现场</a></h2>
+    <p class="news-if">欢迎来到吴亦凡牵手大型双标现场，经小编确认，wuli凡凡眼中大概只有两类人：小女孩和非小女孩。在小女孩面前的凡凡化身绕指柔，眼中盛得满满的都是宠溺与柔情，这样的他更是主动牵过女孩的</p>
+</div>
+
+        </article>
+    </div>
+</section>
+<section class="md md2">
+    <div class="md-wr">
+        <h2 class="tit-md">热门明星<span class="ico-md"></span></h2>
+        <div class="star-pt">
+            <div class="star-wr">
+                <ul class="lis-star">
+                    <li class="star-it">
+    <a class="star-ln" href="http://idol001.com/star/exo.html">
+        <div class="star-pic-wr"><img src="https://img.idol001.com/middle/2017/12/26/887bd1805a38409a4516aea5dd8c5da01514258815.jpg" alt="EXO" class="star-pic"/></div>
+        <p class="star-name">EXO</p>
+    </a>
+</li>
+<li class="star-it">
+    <a class="star-ln" href="http://idol001.com/star/tfboys.html">
+        <div class="star-pic-wr"><img src="https://img.idol001.com/middle/2017/08/10/255659e68ce1078bf497e01f60115d551502333818.jpg" alt="TFBOYS" class="star-pic"/></div>
+        <p class="star-name">TFBOYS</p>
+    </a>
+</li>
+<li class="star-it">
+    <a class="star-ln" href="http://idol001.com/star/bangtan.html">
+        <div class="star-pic-wr"><img src="https://img.idol001.com/middle/2018/05/06/b322a56cdc8e3b6bd25208d5482418d51525620068.jpg" alt="防弹少年团" class="star-pic"/></div>
+        <p class="star-name">防弹少年团</p>
+    </a>
+</li>
+<li class="star-it">
+    <a class="star-ln" href="http://idol001.com/star/luhan.html">
+        <div class="star-pic-wr"><img src="https://img.idol001.com/middle/2018/06/11/6d405124e4548de74e7b4a5338415f5f1528728782.jpg" alt="鹿晗" class="star-pic"/></div>
+        <p class="star-name">鹿晗</p>
+    </a>
+</li>
+<li class="star-it">
+    <a class="star-ln" href="http://idol001.com/star/got7.html">
+        <div class="star-pic-wr"><img src="https://img.idol001.com/middle/2018/04/09/d133ebebff1dccb158e0e1b5cf5de2e61523264288.jpg" alt="GOT7" class="star-pic"/></div>
+        <p class="star-name">GOT7</p>
+    </a>
+</li>
+<li class="star-it">
+    <a class="star-ln" href="http://idol001.com/star/liyifeng.html">
+        <div class="star-pic-wr"><img src="https://img.idol001.com/middle/2018/06/30/408fa62f7fab4ec70f118b95fc7079d81530353097.jpg" alt="李易峰" class="star-pic"/></div>
+        <p class="star-name">李易峰</p>
+    </a>
+</li>
+<li class="star-it">
+    <a class="star-ln" href="http://idol001.com/star/bigbang.html">
+        <div class="star-pic-wr"><img src="https://img.idol001.com/middle/2018/03/15/97a8d649aa6436efe476a1a1ce29795f1521094997.jpg" alt="BigBang" class="star-pic"/></div>
+        <p class="star-name">BigBang</p>
+    </a>
+</li>
+<li class="star-it">
+    <a class="star-ln" href="http://idol001.com/star/wuyifan.html">
+        <div class="star-pic-wr"><img src="https://img.idol001.com/middle/2018/02/09/a2fc16ce5c6da233f7f4c7bbf4696ee11518173128.jpg" alt="吴亦凡" class="star-pic"/></div>
+        <p class="star-name">吴亦凡</p>
+    </a>
+</li>
+
+                </ul>
+            </div>
+            <a class="star-more" href="http://idol001.com/app.html#md4"><span class="ico-star-more"></span><p class="more-if">更多</p></a>
+        </div>
+    </div>
+</section>
+<div class="md-wr">
+    <div class="md-m">
+
+    <section class="md md3">
+        <h2 class="tit-md">韩流 NEWS<span class="ico-md"></span></h2>
+        <div class="news-pt"><div class="news-main"><a class="news-pic-ln" href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45d322cd4e7028258b5364/"><div class="news-pic-wr"><img class="news-pic" src="http://img.idol001.com/thumbnail/2018/07/12/e3232a0e9c285da111a4616eaeb60d2c.jpg" alt="Summer Queen的回归！孝琳将于20日发表新单曲《SEE SEA》"/></div><p class="news-pic-if">Summer Queen的回归！孝琳将于20日发表新单曲《SEE SEA》</p></a></div><ul class="lis-news"></ul><ul class="lis-news"></ul><div class="news-it"><h2 class="news-tit"><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45d23dcd4e70e9518b4994/">《GASHINA》、《Heroine》后是...宣美以9月回归为目标准备中</a></h2><p class="news-if">据多位歌谣界相关人士透露，宣美以9月回归为目标投入专辑制作工作中。正在选定专辑主打曲与收录曲中，不久...</p></div><ul class="lis-news"></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45d1eacd4e701d258b5324/">脸红的思春期17日突袭发表新曲，为粉丝准备的礼物</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45d178cd4e70f7548b45cf/">MAMAMOO将于8月18-19日举行首尔单独演唱会</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45d130cd4e7029258b52f6/">金泫雅将于7月末发表先行曲+8月中旬发表新专辑！</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45d0cfcd4e70f5608b4a00/">李起光-李浩沅-李昇勋合流KBS2《Dancing High》舞蹈教练阵容</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul></div><div class="news-pt"><ul class="lis-news"></ul><div class="news-main"><a class="news-pic-ln" href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45d29fcd4e70b2548b4cec/"><div class="news-pic-wr"><img class="news-pic" src="http://img.idol001.com/thumbnail/2018/07/12/c292475618dc62ecccc9d1893fd66efc.jpg" alt="因“健康问题”中断活动的朴明恩回归LOVELYZ活动，合流粉丝见面会"/></div><p class="news-pic-if">因“健康问题”中断活动的朴明恩回归LOVELYZ活动，合流粉丝见面会</p></a></div><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><div class="news-it"><h2 class="news-tit"><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45b1b3cd4e703c258b53af/">BigBang胜利正规一辑主打曲《1, 2, 3!》海报再公开</a></h2><p class="news-if">YG娱乐11日公开了胜利正规一辑《THE GREAT SEUNGRI》主打曲《1, 2, 3!》 的...</p></div><ul class="lis-news"></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45b0edcd4e703a258b535d/">GFRIEND出击《Idol Room》，回归前与Dony Cony相遇！</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45b0e1cd4e7028258b5361/">GFRIEND《Sunny Summer》首版预告照公开！散发清爽魅力的夏日精灵们</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b45b0bbcd4e7084548b4cbc/">防弹少年团有望8月发表后续专 BigHit：还没有确定</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60fcd4e7097028b45ef/detail/5b4468b2cd4e709c5d8b45a4/">BigBang胜利正规一辑歌单公开  收录9首歌曲！</a> <span class="time">07-10</span></p></li></ul></div>
+    </section>
+    <section class="md md3">
+        <h2 class="tit-md">华语 NEWS<span class="ico-md"></span></h2>
+        <div class="news-pt"><div class="news-main"><a class="news-pic-ln" href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b46c7f9cd4e70a9548b4ce0/"><div class="news-pic-wr"><img class="news-pic" src="http://img.idol001.com/thumbnail/2018/07/12/5ca11d6601764d2410431f359a141c88.jpg" alt="猫的树合作校服美少女余佳淼  全新掌镜雪漫新书mv"/></div><p class="news-pic-if">猫的树合作校服美少女余佳淼  全新掌镜雪漫新书mv</p></a></div><ul class="lis-news"></ul><ul class="lis-news"></ul><div class="news-it"><h2 class="news-tit"><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b46c637cd4e703b258b52ce/">《无问西东》领衔上半年华语五佳 清华校长引用台词勉励学子</a></h2><p class="news-if">2018年上半年，多部华语电影作品引领一轮轮内地市场观影热潮，爱情、悬疑、喜剧、犯罪等多种类型满足各...</p></div><ul class="lis-news"></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b46c5dacd4e70742e8b4f35/">《解码游戏》韩庚凤小岳李媛山下智久开大招 占领暑期最帅“C位”</a> <span class="time">07-12</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b46c571cd4e709c5d8b45dc/">暑期上线！ 超级剧集《媚者无疆》发布虐恋版预告 李一桐乱世求生难逃爱恨纠葛</a> <span class="time">07-12</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c5a2cd4e70742e8b4f25/">主题曲和MV双双破亿！ 制片人意邀陈立农参演《解码游戏》续集</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c57ecd4e70aa548b4c98/">《红秀》第三十八期王牌街拍花絮曝光 ONER傲娇拒绝讲土味情话</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul></div><div class="news-pt"><ul class="lis-news"></ul><div class="news-main"><a class="news-pic-ln" href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b46c76dcd4e70b4548b4d0e/"><div class="news-pic-wr"><img class="news-pic" src="http://img.idol001.com/thumbnail/2018/07/12/837cdcd053ddddf335b56ea138aec170.jpg" alt="《莽荒纪》完美收官发布新特辑 台前幕后莽荒精神感染观众"/></div><p class="news-pic-if">《莽荒纪》完美收官发布新特辑 台前幕后莽荒精神感染观众</p></a></div><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><ul class="lis-news"></ul><div class="news-it"><h2 class="news-tit"><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c551cd4e70a9548b4cc8/">王俊凯上新闻被叫小朋友 演示平衡车的错误玩耍方式</a></h2><p class="news-if">近日，贪玩小孩王俊凯登上了安徽公共频道的午间新闻，下面就让小编来讲一讲故事的经过。大家都知道小凯的平...</p></div><ul class="lis-news"></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c512cd4e7029258b52ed/">易烊千玺工作室更博 幻乐之城录制花絮照来袭</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c4efcd4e7020258b53ba/">吴磊近期专访视频公开 佛系回应因“胖”上热搜</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c4c0cd4e702c258b53c4/">吴亦凡牵手大型双标现场：高冷傲娇独宠小女孩</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/54b0e60bcd4e703c628b4706/detail/5b45c48bcd4e701d258b5322/">鹿晗remix EP压轴单曲《某时某刻(Remix) 》MV上线 打破常规带来迷幻般的惊喜刺激</a> <span class="time">07-11</span></p></li></ul></div>
+    </section>
+    <section class="md md3">
+        <h2 class="tit-md">新鲜事<span class="ico-md"></span></h2>
+        <div class="news-pt"><div class="news-main"><a class="news-pic-ln" href="http://idol001.com/userquan/571755347a1173d5708b456c/detail/5b458f55cd4e708b548b4c74/"><div class="news-pic-wr"><img class="news-pic" src="http://img.idol001.com/thumbnail/2018/07/12/fcf5750978040736ebe5ff256e40aa3b.jpg" alt="《碟中谍6：全面瓦解》首波媒体口碑清一色好评  场面壮观阿汤哥搏命成就“系列最佳”"/></div><p class="news-pic-if">《碟中谍6：全面瓦解》首波媒体口碑清一色好评  场面壮观阿汤哥搏命成就“系列最佳”</p></a></div><ul class="lis-news"></ul><div class="news-it"><h2 class="news-tit"><a href="http://idol001.com/userquan/571755347a1173d5708b456c/detail/5b458f16cd4e70f5608b49ed/">《今夜在浪漫剧场》今日韩国上映 主演坂口健太郎迎27岁生日</a></h2><p class="news-if">爱豆娱乐讯 由武内英树执导，治愈系女王绫濑遥和盐系暖男坂口健太郎领衔演绎的《今夜在浪漫剧场》（暂译）...</p></div><ul class="lis-news"></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/571755347a1173d5708b456c/detail/5b4577aecd4e70a9548b4cbe/">沐浴Lagom时光 全新瑞典品牌Barnängen芭兰珂带来幸福生活哲学</a> <span class="time">07-11</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/571755347a1173d5708b456c/detail/5b4474d1cd4e70f5608b49d9/">《肆式青春》超赞画风欣赏   中日联合内外兼具</a> <span class="time">07-10</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/571755347a1173d5708b456c/detail/5b42d41bcd4e7020258b533d/">《肆式青春》亮相北美最大漫展   全球首映观众反响狂热</a> <span class="time">07-09</span></p></li></ul><ul class="lis-news"><li class="news-it"><p class="news-if"><a href="http://idol001.com/userquan/571755347a1173d5708b456c/detail/5b3f2520cd4e70b2548b4c0f/">《金蝉脱壳2》史泰龙再开打 咏春拳青岛话惊喜连连</a> <span class="time">07-06</span></p></li></ul></div>
+    </section>
+
+    <section class="md md5">
+        <h2 class="tit-md">活动汇<span class="ico-md"></span></h2>
+        <ul class="lis-active">
+            <li class="active-it ">
+    <a class="active-ln" href="http://activity.idol001.com/activity/detail/5b37a900f710733a718b45ad">
+        <div class="active-pic-wr">
+            <img class="active-pic" src="https://img.idol001.com/origin/2018/06/30/f9b8a9eae776bcfc8c6693d57a445b8a1530373717.jpg" alt="0元启动蔡徐坤0802生日-爱豆APP开屏应援"/>
+            <span class="active-star">蔡徐坤</span>
+        </div>
+        <p class="active-if"><span class="active-type">[应援]</span>0元启动蔡徐坤0802生日-爱豆APP开屏应援</p>
+        <p class="active-party"><span class="party-num">70315</span>人参加</p>
+    </a>
+</li>
+<li class="active-it active-nopad">
+    <a class="active-ln" href="http://activity.idol001.com/activity/detail/5b10beb4f710733b558b45ba">
+        <div class="active-pic-wr">
+            <img class="active-pic" src="https://img.idol001.com/origin/2018/06/01/338d39f5acd60cd58e8bd63ac69d6fd51527824020.jpg" alt="悉数收藏你的一切美好-段宜恩0904生日应援众筹"/>
+            <span class="active-star">段宜恩</span>
+        </div>
+        <p class="active-if"><span class="active-type">[众筹]</span>悉数收藏你的一切美好-段宜恩0904生日应援众筹</p>
+        <p class="active-party"><span class="party-num">208</span>人参加</p>
+    </a>
+</li>
+<li class="active-it ">
+    <a class="active-ln" href="http://activity.idol001.com/activity/detail/5b304f54f71073266b8b46a5">
+        <div class="active-pic-wr">
+            <img class="active-pic" src="https://img.idol001.com/origin/2018/06/25/9db3628e008dab5273f258043c9ac7fd1529892661.jpg" alt="真挚温暖如你-朴珍荣0922生日应援众筹"/>
+            <span class="active-star">朴珍荣</span>
+        </div>
+        <p class="active-if"><span class="active-type">[众筹]</span>真挚温暖如你-朴珍荣0922生日应援众筹</p>
+        <p class="active-party"><span class="party-num">39</span>人参加</p>
+    </a>
+</li>
+
+        </ul>
+        <div class="more-wr"><a class="btn-more" href="http://activity.idol001.com/">查看更多>></a></div>
+    </section>
+    </div>
+    <aside class="aside">
+        <div class="star-news">
+    <h2 class="star-tit">WANNA ONE</h2>
+    <div class="sn-m"><div class="sn-wr"><a href="http://idol001.com/star/wannaone.html"><img class="sn-pic" src="https://img.idol001.com/middle/2018/05/07/176407b4563383c3f2b5a6c67a2175ba1525663457.png" alt="[新闻]180711 留下满满回忆 画报既视感的合照公开"/></a></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/wannaone/detail/5b4607e37a1173fd5e8b464e/">[新闻]180711 留下满满回忆 画报既视感的合照公开</a></p><span class="sn-time">07月11日 21:36</span></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/wannaone/detail/5b4606c37a117316478b4d0c/">[新闻]180711 盛况空前 WANNA ONE日本CON圆满落幕</a></p><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/wannaone/detail/5b45df4e7a117393118b4cd6/">[新闻]180711 征服海外之路 WANNA ONE再出战“KCON IN LA”</a></p>
+    <a class="btn-sn" href="http://idol001.com/star/wannaone.html">更多></a>
+</div>
+<div class="star-news">
+    <h2 class="star-tit">黄致列</h2>
+    <div class="sn-m"><div class="sn-wr"><a href="http://idol001.com/star/huangzhilie.html"><img class="sn-pic" src="https://img.idol001.com/middle/2018/04/10/19d8bd4e921854e0c1b7124f646d71191523367239.jpg" alt="[分享]180711 大叔和小孩的奇妙化学反应 小演员公开与黄致列广告拍摄认证"/></a></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/huangzhilie/detail/5b45de4e7a1173f6438b4c8b/">[分享]180711 大叔和小孩的奇妙化学反应 小演员公开与黄致列广告拍摄认证</a></p><span class="sn-time">07月11日 18:39</span></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/huangzhilie/detail/5b45dc657a11731f4c8b4cba/">[分享]180711 悄咪咪干大事！黄致列出演《Running Man》15日播出！</a></p><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/huangzhilie/detail/5b4443b97a11735f458b49b1/">[分享]180710 让人不自觉跟着“YUM”黄致列代言免税店最新广告片公开</a></p>
+    <a class="btn-sn" href="http://idol001.com/star/huangzhilie.html">更多></a>
+</div>
+<div class="star-news">
+    <h2 class="star-tit">NINE PERCENT</h2>
+    <div class="sn-m"><div class="sn-wr"><a href="http://idol001.com/star/ouxianglianxisheng.html"><img class="sn-pic" src="https://img.idol001.com/middle/2018/06/05/5ae0270e828409cc17e3dea9e25271061528184878.jpg" alt="[新闻]180712 尤长靖解锁第二首个人单曲 电影《昨日青空》青春主题曲即将发布"/></a></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/ouxianglianxisheng/detail/5b46b6707a1173992e8b47ad/">[新闻]180712 尤长靖解锁第二首个人单曲 电影《昨日青空》青春主题曲即将发布</a></p><span class="sn-time">07月12日 10:01</span></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/ouxianglianxisheng/detail/5b45ed207a117316478b4cd2/">[新闻]180711 网曝陈立农新综艺上海路透 超市拍摄与嘉宾有说有笑</a></p><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/ouxianglianxisheng/detail/5b45e30e7a1173c74c8b4ccb/">[新闻]180711 宠粉狂魔小橘微博今日更新 浪漫分享初夏体验</a></p>
+    <a class="btn-sn" href="http://idol001.com/star/ouxianglianxisheng.html">更多></a>
+</div>
+<div class="star-news">
+    <h2 class="star-tit">杨洋</h2>
+    <div class="sn-m"><div class="sn-wr"><a href="http://idol001.com/star/yangyang.html"><img class="sn-pic" src="https://img.idol001.com/middle/2018/03/31/2836b8b74475cf0885c34e55cbb470941522430941.jpg" alt="[新闻]180712 《武动乾坤》杨洋首版现场花絮来袭 林动打虎救妹挑战“上古攀岩”"/></a></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/yangyang/detail/5b46bf5f7a11739e4b8b4e51/">[新闻]180712 《武动乾坤》杨洋首版现场花絮来袭 林动打虎救妹挑战“上古攀岩”</a></p><span class="sn-time">07月12日 10:39</span></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/yangyang/detail/5b45df197a1173fd5e8b4604/">[分享]180711 总裁羊整理领口动作苏点满满 标准偶像剧男主走进现实！</a></p><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/yangyang/detail/5b45c60f7a1173c54c8b4ce0/">[分享]180711 羊圈人才济济又搞大动作！杨洋ICON48天团饭制游戏推出</a></p>
+    <a class="btn-sn" href="http://idol001.com/star/yangyang.html">更多></a>
+</div>
+<div class="star-news">
+    <h2 class="star-tit">薛之谦</h2>
+    <div class="sn-m"><div class="sn-wr"><a href="http://idol001.com/star/xuezhiqian.html"><img class="sn-pic" src="https://img.idol001.com/middle/2018/06/07/1544d421b909fefa52e60f947c2114b71528368408.jpg" alt="[新闻]180712 《金曲捞之挑战主打曲》宣传片A版公开 快看！快看！这只粉红色的谦谦"/></a></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/xuezhiqian/detail/5b468cdc7a1173a94c8b4e67/">[新闻]180712 《金曲捞之挑战主打曲》宣传片A版公开 快看！快看！这只粉红色的谦谦</a></p><span class="sn-time">07月12日 07:03</span></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/xuezhiqian/detail/5b45c2a47a1173c54c8b4cd3/">[新闻]180711 薛之谦演唱会成都场：2天低调预热 2分钟高调秒空</a></p><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/xuezhiqian/detail/5b4598677a1173c61b8b48cc/">[新闻]180711 太合音乐与薛之谦联合声明：从未发布过演唱会兼职招募</a></p>
+    <a class="btn-sn" href="http://idol001.com/star/xuezhiqian.html">更多></a>
+</div>
+<div class="star-news">
+    <h2 class="star-tit">迪丽热巴</h2>
+    <div class="sn-m"><div class="sn-wr"><a href="http://idol001.com/star/dilireba.html"><img class="sn-pic" src="https://img.idol001.com/middle/2018/06/06/c1031af15ffe825e2b77724dc9eeb5c61528248094.jpg" alt="[新闻]180712 迪丽热巴携《冷巴ACTION》第9话更博 内藏期待已久的福利“泳照”！"/></a></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/dilireba/detail/5b46b4737a117322128b4e20/">[新闻]180712 迪丽热巴携《冷巴ACTION》第9话更博 内藏期待已久的福利“泳照”！</a></p><span class="sn-time">07月12日 09:52</span></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/dilireba/detail/5b45d7027a117393118b4cc9/">[新闻]180711 寻艺品牌星指数新一期周榜 迪丽热巴携全新代言品牌强势登顶 </a></p><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/dilireba/detail/5b45d26c7a1173354d8b4cdb/">[分享]180711 欢迎收看《一千零一夜》大型忘词现场 迪丽热巴苦背台词变成“戏精”</a></p>
+    <a class="btn-sn" href="http://idol001.com/star/dilireba.html">更多></a>
+</div>
+<div class="star-news">
+    <h2 class="star-tit">陈伟霆</h2>
+    <div class="sn-m"><div class="sn-wr"><a href="http://idol001.com/star/chenweiting.html"><img class="sn-pic" src="https://img.idol001.com/middle/2018/03/18/c18bc94e2dd9bd0e04cfab7f3f8a2afc1521369456.jpg" alt="[分享]180711 陈伟霆《嘉人》封面大片回顾 Chanel加身演绎N面陈伟霆"/></a></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/chenweiting/detail/5b45db957a1173264d8b4cd8/">[分享]180711 陈伟霆《嘉人》封面大片回顾 Chanel加身演绎N面陈伟霆</a></p><span class="sn-time">07月11日 18:27</span></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/chenweiting/detail/5b45db267a117344038b4581/">[分享]180711 陈伟霆——一个对在脑门上签名有执念的爱豆</a></p><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/chenweiting/detail/5b45cf6d7a1173992e8b45ea/">[分享]180711 《风暴舞》昨日探班照分享 青春无敌小甜豆本豆</a></p>
+    <a class="btn-sn" href="http://idol001.com/star/chenweiting.html">更多></a>
+</div>
+<div class="star-news">
+    <h2 class="star-tit">赵丽颖</h2>
+    <div class="sn-m"><div class="sn-wr"><a href="http://idol001.com/star/zhaoliying.html"><img class="sn-pic" src="https://img.idol001.com/middle/2018/05/15/a5c7d4ade7ee169bb8485101a99eaf001526371149.jpg" alt="[分享]180711 那年今日：赵丽颖为导演郑保瑞送生日祝福"/></a></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/zhaoliying/detail/5b45bd697a117357108b4c68/">[分享]180711 那年今日：赵丽颖为导演郑保瑞送生日祝福</a></p><span class="sn-time">07月11日 16:18</span></div><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/zhaoliying/detail/5b45bc5b7a117317128b4c70/">[分享]180711 10日艺人新媒体指数公开 赵丽颖稳定位列第四</a></p><p class="sn-if"><a class="sn-ln" href="http://idol001.com/news/zhaoliying/detail/5b459d637a117393118b4c2d/">[分享]180711 网曝赵丽颖即将入驻某视频APP</a></p>
+    <a class="btn-sn" href="http://idol001.com/star/zhaoliying.html">更多></a>
+</div>
+
+    </aside>
+</div>
+
+
+﻿<footer class="footer">
+    <div class="follow-pt">
+        <p class="follow-if">关注我们</p>
+        <ul class="lis lis-follow">
+            <li class="follow-it"><a target="_blank" href="http://weibo.com/u/5069474597" class="follow-ln" rel="external nofollow">爱豆APP</a></li>
+            <li class="follow-it"><a target="_blank" href="http://weibo.com/fengwotiyu" class="follow-ln" rel="external nofollow">爱豆韩流社区</a></li>
+            <li class="follow-it"><a target="_blank" href="http://weibo.com/u/5069780070" class="follow-ln" rel="external nofollow">爱豆华语社区</a></li>
+            <li class="follow-it"><a target="_blank" href="http://weibo.com/u/5471793815" class="follow-ln" rel="external nofollow" >爱豆TV</a></li>
+            <li class="follow-it follow-weixin">
+                <b class="ico-line"></b>
+                <a href="javascript:void(0)" class="follow-ln" onmouseover="document.getElementById('follow-code').style.display=''" onmouseout="document.getElementById('follow-code').style.display='none'">微信公众号</a>
+                <div class="follow-code" style="display:none" id="follow-code">
+                    <img src="https://tv.idol001.com/img/QR_wechat.png" width="86" height="86" alt="微信公众号">
+                    <span class="ico-arrow"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <p class="company">深圳市爱豆网络技术有限公司 </p>
+    <p class="company-eng"> IDOL NETWORK</p>
+
+    <div class="f-nav">
+        <a target="_blank" href="http://idol001.com/about.html">关于我们</a>
+        <span>|</span>
+        <a target="_blank" href="http://idol001.com/join.html">加入我们</a>
+        <span>|</span>
+        <a target="_blank" href="http://idol001.com/sitemap.html">网站地图</a>
+    </div>
+    
+    <div style="text-align: center;">
+        <a href="http://szcert.ebs.org.cn/b53fa642-2971-44ea-bbbb-78fb1dd481ab" target="_blank"><img style="display:inline;width:116px;height:50px;" src="https://idol001.com/img/wangjiannew.png" title="深圳市市场监督管理局企业主体身份公示" alt="深圳市市场监督管理局企业主体身份公示" width="50" height="" border="0"></a>
+        <a href="http://sq.ccm.gov.cn:80/ccnt/sczr/service/business/emark/toDetail/bdfbcb32d9d44a06b2d94dff82ce5b43" target="_blank" style="height:48px;display:inline-block;background:#fff;border:1px solid #ffe5f1;padding:0 10px 0 8px;"><img style="display:inline;width:48px;height:48px;" src="http://img.idol001.com/origin/2017/10/26/f5f3976cf4be787ad2be202a19d408231508989068.png" title="网络文化经营单位" alt="网络文化经营单位" border="0"><span style="float:right;padding:6px 0 0 8px;font-size: 12px;color: #000;line-height: 19.2px;">网络文化<br>经营单位</span></a>
+    </div>
+    <p class="company-if">© 2013－2018 idol001.com, all rights reserved   <a style="color:#fff;" href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备12015719号</a></p>
+<script>
+(function(para) {
+  var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script',x = null,y = null;
+  w['sensorsDataAnalytic201505'] = n;
+  w[n] = w[n] || function(a) {return function() {(w[n]._q = w[n]._q || []).push([a, arguments]);}};
+  var ifs = ['track','quick','register','registerPage','registerOnce','clearAllRegister','trackSignup', 'trackAbtest', 'setProfile','setOnceProfile','appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify','login','logout','trackLink','clearAllRegister'];
+  for (var i = 0; i < ifs.length; i++) {
+    w[n][ifs[i]] = w[n].call(null, ifs[i]);
+  }
+  if (!w[n]._t) {
+    x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+    x.async = 1;
+    x.src = p;
+    y.parentNode.insertBefore(x, y);
+    w[n].para = para;
+  }
+})({
+  sdk_url: 'https://static.sensorsdata.cn/sdk/1.7.1.2/sensorsdata.min.js',
+  name: 'sa',
+  web_url: 'https://shence.idol001.com/?project=idolApp',
+  server_url: 'https://sa.idol001.com/sa?project=idolApp',
+  heatmap:{}
+});
+sa.quick('autoTrack');
+</script>
+</footer>
+
+
+</div>
+<script type="text/javascript" src="https://misc.idol001.com/www/js/jquery.js"></script>
+<script type="text/javascript" src="https://misc.idol001.com/www/v2.4.2/js/index_20150618.js?date=20171119"></script>
+
+
+
+<script src="https://ttv.idol001.com/iplookup.php"></script>
+<script>
+if (idol_city!="深圳" ) {
+    $('#2017_index').hide();
+}
+</script>   
+
+<div class="guide-dialog" style="display:none;" id="guide-dialog1">      
+    <div class="guide-dialog-con">
+        <h4>爱豆APP-追星必备神器</h4>
+        <a class="close-btn" href="javascript://" onclick="closeDialog()"></a>
+        <ul class="guide-list">
+            <li class="li1"><b></b>随时追踪行程</li>
+            <li class="li2"><b></b>高清流畅直播</li>
+            <li class="li3"><b></b>美图视频搜集</li>
+            <li class="li4"><b></b>亲密家人互动</li>
+        </ul>
+        <div class="dl-div">
+            <strong class="ico-lg">爱豆APP</strong>
+            <div class="guide-btn-con">
+                <a class="dl-btn dl-android" href="https://at.umeng.com/rWfyOv" rel="external nofollow"><b></b>Android版<b></b></a>
+                <a class="dl-btn dl-iPhone" href="https://at.umeng.com/CauGXz" rel="external nofollow"><b></b>iPhone版<b></b></a><!--  -->          
+            </div>
+            <div class="qr-wp">
+                <img alt="安卓二维码" src="http://img.idol001.com/web_img/qrcode_yd.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="guide-tips" style="display:none;" id="guide-tips">
+    <h4>爱豆APP-追星必备神器</h4>
+    <a class="close-btn" href="javascript://" onclick="closeDialogTips();"></a>
+    <div class="dl-div">
+        <div class="qr-wp">
+            <img alt="安卓二维码" src="http://img.idol001.com/web_img/qrcode_yd.png">
+        </div>
+        <div class="guide-btn-con">
+            <a class="dl-btn dl-android" href="https://at.umeng.com/rWfyOv" rel="external nofollow"><b></b>Android版<b></b></a>
+            <a class="dl-btn dl-iPhone" href="https://at.umeng.com/CauGXz" rel="external nofollow"><b></b>iPhone版<b></b></a>           <!--  -->      
+        </div>
+    </div>
+    <p class="p1"><em></em>门票专辑，定期大派送</p>
+    <p class="p2"><em></em>还有明星见面机会呦~</p>
+</div>
+<script src="https://idol001.com/adTest/js/postscribe.min.js"></script>
+<script>
+function closeDialog() {
+    document.getElementById("guide-dialog1").style.display="none";
+    Common_Tool.setCookie("guide-dialog",1,24*3600*1000);
+}
+
+function closeDialogTips(){
+    document.getElementById("guide-tips").style.display="none";
+    Common_Tool.setCookie("guide-tips",1,24*3600*1000);
+}
+if (location.href.indexOf('idol001.com') !== -1) {
+   if(Common_Tool.getCookie("guide-dialog")!=1){
+        document.getElementById("guide-dialog1").style.display="";
+    }
+
+    if(Common_Tool.getCookie("guide-tips")!=1){
+        document.getElementById("guide-tips").style.display="";
+    } 
+}
+
+window.addEventListener("load",function(){
+    var oNewsAll = document.querySelector(".md-m");
+    // 华语news上方
+    var oHuiDing0 = document.createElement("div");
+    oHuiDing0.style.width = '728px';
+    oHuiDing0.style.height = '90px';
+    oHuiDing0.style.marginTop = '15px';
+    oHuiDing0.id = 'huiding0';
+    oNewsAll.insertBefore(oHuiDing0, oNewsAll.children[1]);
+    console.log(oNewsAll.children)
+    postscribe("#huiding0", '<script language="JavaScript" src="https://tfp.tadseeker.com/static/baixinyi/mail0712.js"><\/script>', {
+        done: function () {
+            sa.track("ad_show", {
+                advertiser: "1",
+                ad_position: "5",
+                platform:"Web"
+            })
+        }
+    });
+
+    // 新鲜事上方
+    var oHuiDing1 = document.createElement("div");
+    oHuiDing1.style.width = '728px';
+    oHuiDing1.style.height = '90px';
+    oHuiDing1.style.marginTop = '15px';
+    oHuiDing1.id = 'huiding1';
+    oNewsAll.insertBefore(oHuiDing1, oNewsAll.children[3]);
+    postscribe("#huiding1", '<script language="JavaScript" src="https://tfp.tadseeker.com/static/baixinyi/mail0712.js"><\/script>', {
+        done: function () {
+            sa.track("ad_show", {
+                advertiser: "1",
+                ad_position: "6",
+                platform:"Web"
+            })
+        }
+    });
+})
+</script>
+</body>
+</html>
+<script src="https://ttv.idol001.com/iplookup.php?type=real"></script>

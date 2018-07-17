@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="zh-cmn-Hans" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]> <html lang="zh-cmn-Hans" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]> <html lang="zh-cmn-Hans" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="zh-cmn-Hans">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="baidu-site-verification" content="FPKsqNEm5M" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>迈外迪-中国领先的智能商业解决方案提供商</title>
+    <meta name="keywords" content="WiFi,迈外迪WiFi,安全WiFi,智能商业,,新零售,人工智能,AI,BI,场景营销,线下商业,商业解决方案,智能解决方案,零售解决方案,大数据解决方案,智慧门店,智慧门店解决方案" />
+    <meta name="description" content="迈外迪，中国领先的智能商业架构和运营服务提供商，提供迈创路由、迈享掌柜、迈智BI、迈睿应用平台等产品" />
+    <link rel="stylesheet" href="https://www.wiwide.com/statics/css/pack.min.css?v=3.0.50.37">
+    <link rel="stylesheet" href="https://www.wiwide.com/statics/css/wibeacon.css?v=3.0.50.37">
+    <script src="https://www.wiwide.com/statics/js/jquery-1.11.1.min.js"></script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?83c4975d45974760b6b4ce0b3aef9981";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<style>
+    .native{
+        position:relative; !important;
+        left: 40px;
+    }
+    #header{
+
+    }
+    #test{
+        width:100%;
+        height:300%;
+        background-color:#000;
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:2;
+        opacity:0.7;
+        /*兼容IE8及以下版本浏览器*/
+        filter: alpha(opacity=30);
+        display:none;
+    }
+    #mask {
+        width:415px;
+        height:380px;
+        border-radius: 10px;
+        background-color:#fff;
+        margin: auto;
+        position: absolute;
+        z-index:3;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display:none;
+        z-index: 200;
+        padding-left: 10px;
+    }
+    #mask h2{
+        margin-top: 20px;
+        text-align: center;
+        font-size: 18px;
+    }
+    #mask .content{
+        text-align: center;
+    }
+    #mask p{
+        text-align: left;
+        width: 100px;
+        margin-left: 30px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    #mask input{
+        width: 350px;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #fafafa;
+        padding-left: 15px;
+    }
+    #mask input:focus{
+        outline:2px solid #f47b0f;
+        border-radius: 5px;
+    }
+    #mask .login{
+        width: 350px;
+        height: 50px;
+        text-align: center;
+        border-radius: 5px;
+        line-height: 50px;
+        background-color: #f47b0f;
+        color: #fff;
+        margin-top: 30px;
+        margin-left: 30px;
+        font-size: 14px;
+    }
+    .media{
+        width: 85px;
+        text-align: center;
+        height: 55px;
+        padding-top: 10px;
+        border: 1px solid #ccc;
+        position: absolute;
+        left: 35px;
+        top: 36px;
+        border-radius: 5px;
+        z-index: 100;
+        background-color: #fff;
+        font-size: 13px;
+        display: none;
+    }
+    .lie{
+        position:relative;
+
+    }
+    .errors{
+        position: absolute;
+        top: 104px;
+        right: 4em;
+        color: #ff9900;
+        font-size: 12px;
+        line-height: 50px;
+    }
+    .sg_2{
+        position: absolute;
+        top: 211px;
+        right: 4em;
+        color: #ff9900;
+        font-size: 12px;
+        line-height: 50px;
+    }
+    .media dd{
+        margin-bottom: 10px;
+    }
+    .close1{
+        float: right;
+        margin-top: -37px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+</style>
+<body>
+
+<div class="layout">
+    <div id="header" class="clearfix block">
+        <div class="logo l">
+            <a href="/index"><img src="https://www.wiwide.com/statics/images/wiwide_logo.gif" /></a>
+        </div>
+        <div class="nav r">
+            <ul>
+                <li>
+                    <a href="/index">首页</a>
+                </li>
+<!--                <li>-->
+<!--                    <a href="/mrouter">产品及服务</a>-->
+<!--                </li>-->
+                <li>
+                    <a href="/product/applist">产品与服务</a>
+                </li>
+<!--                <li>-->
+<!--                    <a href="/case">客户案例</a>-->
+<!--                </li>-->
+                <li>
+                    <a href="/more">了解更多</a>
+                </li>
+                <li>
+                    <a href="/jobs">招聘</a>
+                </li>
+                <li>
+                    <a href="/vip">vip权益介绍</a>
+                </li>
+<!--                <li>-->
+<!--                    <a href="/service">成为城市服务商</a>-->
+<!--                </li>-->
+                <li class="last">
+                    <a href="/article/index">资讯浏览</a>
+                </li>
+                                    <li class="native">
+                        <a href="https://www.wiwide.com/login/login">注册</a>
+                    </li>
+                 <li class="native">
+                    <a href="https://www.wiwide.com/login/login">登录</a>
+                </li>
+
+                            </ul>
+        </div>
+        <div id="test"></div>
+        <div id="mask">
+            <h2>登录</h2>
+            <span class="close1" onclick="close1()"><img src="https://www.wiwide.com/statics/images/orderimage/close1.png" /></span>
+            <div class="content">
+                <p>账号</p>
+                <input type="text" class="first_one" placeholder="请输入widash账号" name='username'>
+                <span class="errors sg_1"></span>
+                <p>密码</p>
+                <span class="errors sg_2"></span>
+                <input type="password" class="first_two" placeholder="请输入widash密码" name='password'>
+                <div class="login" onclick="hide()">登录</div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+       function lie() {
+           $('.media').show();
+       }
+    </script>
+<div id="main">
+    <div class="banner-index full">
+        <div class="banner-index-animation">
+            <a href="/buy#start" class="banner-item full" style="background-image: url(https://www.wiwide.com/statics/images/index_banner_4.jpg)"></a>
+        </div>
+    </div>
+    <div class="intro block clearfix">
+            
+    </div>
+    <div class="product full">
+        <div class="product-animate">
+            <div class="product-banner full product-wismart">
+                <div class="product-inner block">
+                    <h3>产品及服务</h3>
+                    <h4>OUR PRODUCTS</h4>
+                    <dl>
+                        <dt>迈创路由</dt>
+                        <dd>基于人工智能的多传感商用路由器</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="product-banner full product-widash">
+                <div class="product-inner block">
+                    <h3>产品及服务</h3>
+                    <h4>OUR PRODUCTS</h4>
+                    <dl>
+                        <dt>迈享掌柜</dt>
+                        <dd>全场景商用终端</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="product-banner full product-wifiads">
+                <div class="product-inner block">
+                    <h3>产品及服务</h3>
+                    <h4>OUR PRODUCTS</h4>
+                    <dl>
+                        <dt>迈智BI</dt>
+                        <dd>新零售时代线下商业的智能BI</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="product-banner full product-build">
+                <div class="product-inner block">
+                    <h3>产品及服务</h3>
+                    <h4>OUR PRODUCTS</h4>
+                    <dl>
+                        <dt>迈睿应用平台2.0</dt>
+                        <dd>用户画像引擎驱动的应用平台</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="partner full">
+        <h3>&nbsp;</h3>
+        <div class="partner-list">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="javascript:void(0);">
+                                <img src="https://www.wiwide.com/statics/images/index_logo_02.png" alt="迈外迪解决方案，迈外迪智能商业，迈外迪新零售，迈外迪数字切片，迈外迪商业网络，迈外迪智慧门店，迈外迪智能硬件，迈外迪应用">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);">
+                                <img src="https://www.wiwide.com/statics/images/index_logo_07.png" alt="迈外迪解决方案，迈外迪智能商业，迈外迪新零售，迈外迪数字切片，迈外迪商业网络，迈外迪智慧门店，迈外迪智能硬件，迈外迪应用">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);">
+                                <img src="https://www.wiwide.com/statics/images/index_logo_01.png" alt="迈外迪解决方案，迈外迪智能商业，迈外迪新零售，迈外迪数字切片，迈外迪商业网络，迈外迪智慧门店，迈外迪智能硬件，迈外迪应用">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);">
+                                <img src="https://www.wiwide.com/statics/images/index_logo_08.png" alt="迈外迪解决方案，迈外迪智能商业，迈外迪新零售，迈外迪数字切片，迈外迪商业网络，迈外迪智慧门店，迈外迪智能硬件，迈外迪应用">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="javascript:void(0);">
+                                <img src="https://www.wiwide.com/statics/images/index_logo_03.png" alt="迈外迪解决方案，迈外迪智能商业，迈外迪新零售，迈外迪数字切片，迈外迪商业网络，迈外迪智慧门店，迈外迪智能硬件，迈外迪应用">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);">
+                                <img src="https://www.wiwide.com/statics/images/index_logo_05.png" alt="迈外迪解决方案，迈外迪智能商业，迈外迪新零售，迈外迪数字切片，迈外迪商业网络，迈外迪智慧门店，迈外迪智能硬件，迈外迪应用">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);">
+                                <img src="https://www.wiwide.com/statics/images/index_logo_04.png" alt="迈外迪解决方案，迈外迪智能商业，迈外迪新零售，迈外迪数字切片，迈外迪商业网络，迈外迪智慧门店，迈外迪智能硬件，迈外迪应用">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0);">
+                                <img src="https://www.wiwide.com/statics/images/index_logo_06.png" alt="迈外迪解决方案，迈外迪智能商业，迈外迪新零售，迈外迪数字切片，迈外迪商业网络，迈外迪智慧门店，迈外迪智能硬件，迈外迪应用">
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="join-us">
+            <a href="/service#start">加入我们</a>
+        </div>
+    </div>
+
+</div>
+<!--<a class="href" style="display:block;color:#000;width:100px;height: 20px;text-align: center;margin: 0 auto;padding-top: 50px" href="/article/list ">文章链接</a>-->
+
+    <div id="links" class="block clearfix">
+        <div class="links-item">
+            <h5>产品及服务</h5>
+            <ul class="two-rows clearfix">
+                <li><a href="/mrouter#product-content">迈创路由</a></li>
+                <li><a href="/mpos#product-content">迈享掌柜</a></li>
+                <li><a href="/bi#product-content">迈智BI</a></li>
+                <li><a href="/mapp#product-content">迈睿应用平台</a></li>
+                <li><a href="/widash#product-content">WIDASH</a></li>
+                <li><a href="/wifiads#product-content">Wi-Fi广告</a></li>
+                <li><a href="/build#product-content">安装及维护</a></li>
+            </ul>
+        </div>
+        <div class="links-item">
+            <h5>客户案例</h5>
+            <ul>
+                <li><a href="/case#case-airport">中国20多家大型机场</a></li>
+                <li><a href="/case#case-brands">500多家品牌连锁店</a></li>
+            </ul>
+        </div>
+        <div class="links-item">
+            <h5>了解更多</h5>
+            <ul>
+                <li><a href="/more#biggest">智能商业构架和运营服务提供商</a></li>
+                <li><a href="/more#innovation-50">中国商业创新50人</a></li>
+                <li><a href="/more#originality">中国商业最具创意人物之一</a></li>
+                <li><a href="/more#asia-100">亚洲科技100强</a></li>
+            </ul>
+        </div>
+        <div class="links-item links-item-last">
+            <h5>从这里开始</h5>
+            <ul>
+                <li><a href="/service#start">填写表单</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer" class="full">
+        <div class="block">
+            <div class="logo l">
+                <a href="/">
+                    <img src="https://www.wiwide.com/statics/images/wiwide_logo.gif" />
+                </a>
+            </div>
+            <p class="contact">客服：400 6500 311  商务咨询：135 2100 0066  总部：010-6215 1599</p>
+                        <p class="copyright">Copyright&copy;2007-2018 WiWide Inc 上海迈外迪科技 <a  style="color: #666;" href="http://www.miitbeian.gov.cn">沪ICP备08023648号</a>
+            <a id="beian-a" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402000932" style="text-decoration:none;"><img src="https://www.wiwide.com/statics/images/beian.png" style="margin: 0 5px; position: relative;top: 4px;"><em id="beian" style="color:#939393;">沪公网安备 31010402000932号</em></a>
+            </p>
+                        
+        </div>
+    </div>
+</div>
+<script> 
+window.onload=function(){
+/*var url = document.URL;
+    if (url == 'http://www.wiwide.net/'){
+        document.getElementById("beian-a").href = "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402000934"; 
+        document.getElementById('beian').innerHTML="沪公网安备 31010402000934号";
+    }
+    if (url == 'http://www.wiwide.cn/'){
+        document.getElementById("beian-a").href = "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402000933"; 
+        document.getElementById('beian').innerHTML="沪公网安备 31010402000933号";
+    }*/
+
+    var $slog_img_obj = null;
+	function SLOG($flag, $params){
+		if(!$flag || !$params) return false;
+		var $host = window.location.host;
+		var $domain = $host.substring($host.lastIndexOf(".") + 1, $host.length);
+		if($domain == 'com'){
+			var $slog_host = 'https://slog.wiwide.com/d.gif?slog=' + $flag+'&time=0'; // 线上
+		}else{
+			var $slog_host = 'http://52.83.230.199/d.gif?slog=' + $flag +'&time=0'; // 测试
+		}
+		
+		var $a, $p = new Array();
+		$a = $params.split("&");   
+		for(var i = 0; i < $a.length; i++) {
+			$a[i].split("=")[0] = unescape($a[i].split("=")[1]);
+			$p[$a[i].split("=")[0]] = unescape($a[i].split("=")[1]);
+		}
+		var $params_str = '';
+		for(var i = 1; i <= 10; i++) {
+			$params_str += '&k' + i + '=';
+			$params_str += typeof($p['k'+i]) == 'undefined' ? '-' : $p['k'+i];
+		}
+		$slog_host += $params_str;
+		if(!$slog_img_obj){
+			var $slog_img_obj = document.createElement('img');
+		    $slog_img_obj.style.cssText = 'display:none;width:0px;height:0px;';
+		    document.body.appendChild($slog_img_obj);
+		    //$slog_img_obj.src = $slog_host + '&log_time='+(new Date()).valueOf()/1000;
+		    $slog_img_obj.src = $slog_host;
+		}else{
+			$slog_frame.src = $slog_host;
+		}
+		return true;
+	}
+
+	var pathname = window.location.pathname;
+	// 点击记录访问日志
+    /* $('a').click(function(){
+		var type = $(this).data('type');
+		if(type){
+			//SLOG('website', 'k1=1&k2='+pathname+'&k3='+type); 
+		}
+    }); */
+
+    // 页面加载记录访问日志
+    $(document).ready(function(){
+    	SLOG('website', 'k1='+pathname+'&k2=hvdhv3r3ki20fqjmd8e8t7h6a6');    	
+    });
+    
+}
+
+</script>
+
+<script src="https://www.wiwide.com/statics/js/pack.min.js?v=3.0.50.37"></script>
+</body>
+</html>

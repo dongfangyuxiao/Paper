@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>绿盟市场_绿色软件联盟_绿盟_软件下载</title>
+<meta name="keywords" content="绿盟,绿色软件联盟,xdowns,绿色软件,绿盟市场,软件下载,破解软件,游戏下载,免费软件,app下载" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link href="/template/tshouyou/css/sy.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="/template/tshouyou/js/jquery.min.js"></script>
+<script type="text/javascript" src="/template/tshouyou/js/sy.js"></script>
+<script language="JavaScript" type="text/javascript">
+function getCookie(objName){
+var arrStr = document.cookie.split("; ");
+for(var i = 0;i < arrStr.length;i ++){
+var temp = arrStr[i].split("=");
+if(temp[0] == objName) return unescape(temp[1]);
+} 
+}
+$(function(){
+var sval=getCookie('search');
+if (sval=='news'){
+$('.search_nav').hide();
+$('.search_nav2').show();	 
+$("#isac").val("searchnews");
+} else {
+$('.search_nav2').hide();
+    $('.search_nav').show();
+    $("#isac").val("search");
+}
+ $.ajax({
+          type: "GET",
+          url: "/index.php?ac=common&op=islogin",
+          dataType: "json",
+          success: function(data){
+              if(data.uid){
+ $('.topuser').hide();
+ $('.topmember').show();
+ $('.topuser_name').html(data.username);
+ $('.topuser_tuichu').attr("href","/index.php?ac=common&op=logout&uhash="+data.uhash);
+ if(data.isadmin=="1"){
+ $('.topuser_houtai').show();
+ }else{
+ $('.topuser_houtai').hide(); 
+ }
+ if(data.qiandao){
+  $('.yiqiandao').show();
+  $('.qiandao').hide();
+ }else{
+  $('.yiqiandao').hide();
+  $('.qiandao').show(); 
+ }
+  }else{
+$('.topmember').hide();
+$('.topuser').show();
+ }
+             }
+      });
+
+});
+
+$(document).ready(function(){
+  $('.search_zx').click(function(){
+  document.cookie="search=news";
+  $('.search_nav').hide();
+  $('.search_nav2').show();
+  $("#isac").val("searchnews");
+  });
+  $('.search_app').click(function(){
+  document.cookie="search=app";
+  $('.search_nav2').hide();
+  $('.search_nav').show();
+  $("#isac").val("search");
+  });
+   $('#bdshare').click(function(){
+$.ajax({
+url:"/index.php?ac=common&op=share",
+type:'get',
+dataType:'json',
+success:function(json){
+}
+});
+    });
+}); 
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?5cbde80b486242236f3a15dcc34d6976";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body id="top">
+<div id="header">
+  <div class="topnav">
+    <div class="layout clearfix">
+      <div class="top_gn">
+        <a href="http://www.weibo.com/clinch" class="top_gn_fdzm" target="_blank" rel="nofollow">微博</a>
+        <a href="javascript:;" class="top_gn_swzy" rel="nofollow" >微信<div class="b_gntu"><em class="b_gn_sj"></em><img src="http://www.xdowns.com/image/weixin.jpg" /></div></a>
+        <a href="http://m.xdowns.com" class="top_gn_jrsc" target="_blank" rel="nofollow">手机版
+       <div class="b_gntu2">
+            <em class="b_gn_sj"></em>
+            <ul>
+                <li><img src="http://www.xdowns.com/image/syerweima.jpg" /></li>
+            </ul>
+          </div>        </a>
+<a href="http://www.xdowns.com" onClick="window.external.addFavorite(this.href,this.title);return false;" title="绿盟市场" rel="sidebar" class="jiarushoucang" rel="nofollow">加入收藏</a>
+      </div>
+ 
+      <div class="topmember" style="display:none;">
+        您好，<a href="/index.php?ac=user" class="topuser_name"></a>
+    <a href="/index.php?ac=user" class="topuser_center" rel="nofollow">用户中心</a>
+    <a href="/admincp.php" class="topuser_houtai" rel="nofollow">后台管理</a>
+     <a href="" class="topuser_tuichu" rel="nofollow">退出</a>
+      </div>
+      <div class="topuser" style="display:none;">
+        
+        <a href="/index.php?ac=login" class="toplog" rel="nofollow">登录</a>|<a href="/index.php?ac=register" class="topreg" rel="nofollow">注册</a>
+      </div>
+  
+      
+    </div>
+    <div id="xs_qiandao"></div>
+  </div>
+  <div class="headercon">
+    <div class="layout clearfix">
+      <div class="logo"><a href="/"><img src="/image/logo.png"></a></div>
+      <div class="search">
+        <form action="/index.php" onSubmit="return qrsearch();" method="get" name="search" id="search" >
+         <input type="hidden" name="ac" value="search" id="isac"/>
+ <input type="text" onBlur="if(this.value==''){this.value='精品软件，海量搜索！';};" onFocus="if(this.value=='精品软件，海量搜索！'){this.value='';}" value="精品软件，海量搜索！" name="keyword" class="search_input">
+          <ul class="search_nav">
+            <li class="search_app"><a href="javascript:;">软件</a></li>
+            <li class="search_zx"><a href="javascript:;">资讯</a></li>
+          </ul>
+          <ul class="search_nav2">
+            <li class="search_zx"><a href="javascript:;">资讯</a></li>
+            <li class="search_app"><a href="javascript:;">软件</a></li>
+          </ul>
+          <input type="submit" value="" class="search_button" id="searchbutton">
+        </form>
+          <div class="hotkey">
+          <script type="text/javascript" src="/js/tai.js"></script>          
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="erjinav clearfix">
+    <div class="layout">
+        <ul class="erjinavbox clearfix">
+          <li><a href="/"  class="dangqian">绿盟市场首页</a></li>
+          <li><a href="/index-games.html"  >软件库</a></li>
+                
+          <li><a href="/index-news.html" >文章资讯</a></li>  
+           <li><a href="/index-recommend.html" >排行榜</a></li> 
+           <li><a href="/soft" >老版本</a></li>           
+        </ul>
+    </div>
+  </div>
+</div>
+
+<div id="main" class="layout">
+   <!--   --><!--  
+   <ul class="tuad clearfix">
+<li class="tu1"><a href="/app/298549.html" target="_blank"><img src="/attachment/syapp/lbpic/201806141528977981.jpg"><span class="tuad_tit"><em>《2018中国餐饮B2B服务行业研究报告》</em></span></a></li>
+<li class="tu2"><a href="/app/284948.html" target="_blank"><img src="/attachment/syapp/lbpic/201803261522065212.jpg"><span class="tuad_tit"><em>933彩票</em></span></a></li>
+<li class="tu3"><a href="/app/285458.html" target="_blank"><img src="/attachment/syapp/lbpic/201803261522066527.jpg"><span class="tuad_tit"><em>933彩票（安卓版）</em></span></a></li>
+<li class="tu4"><a href="/app/299033.html" target="_blank"><img src="/attachment/syapp/lbpic/201806141528977822.jpg"><span class="tuad_tit"><em>2018年中国新零售市场研究报告</em></span></a></li>
+<li class="tu5"><a href="/app/285976.html" target="_blank"><img src="/attachment/syapp/lbpic/201803301522411655.png"><span class="tuad_tit"><em>全球彩票</em></span></a></li>
+<li class="tu6"><a href="/app/302111.html" target="_blank"><img src="/attachment/syapp/lbpic/201806261529998638.jpg"><span class="tuad_tit"><em>666彩票</em></span></a></li>
+  </ul>
+  -->
+  <!--   -->
+    <div class="itoptui">
+    <div class="itoptui_tit">精品推荐</div>
+    <ul class="clearfix">
+
+       
+        
+    	    
+<li>
+          <a href="http://www.xdowns.com/app/244508.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201709111505111500.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/244508.html" target="_blank" title ="DS CADAM Drafting V5-6R2018 SP2  - 2D设计和手绘软件 官方版" >DS CADAM Drafting V5</a></p>
+        </li>
+            
+<li>
+          <a href="/soft/38/103/2014/soft_121693.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/soft/ico/2014102414415650964.gif">
+          </a>
+          <p class="app_tit_90"><a href="/soft/38/103/2014/soft_121693.html" target="_blank" title ="Advanced Installer Architect 15.01 绿色版_安装包制作" >Advanced Installer Architect</a></p>
+        </li>
+            
+<li>
+          <a href="http://www.xdowns.com/app/290818.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201804241524532814.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/290818.html" target="_blank" title ="晨风qq机器人   v4.3.5.2  官方最新版 - 自助QQ聊天工具" >晨风qq机器人</a></p>
+        </li>
+            
+<li>
+          <a href="http://www.xdowns.com/app/246304.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201709161505557874.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/246304.html" target="_blank" title ="PLSQL developer 64位中文版" >PLSQL developer</a></p>
+        </li>
+            
+<li>
+          <a href="/soft/31/109/2016/soft_163463.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201709201505869845.jpg">
+          </a>
+          <p class="app_tit_90"><a href="/soft/31/109/2016/soft_163463.html" target="_blank" title ="CAM设计软件PentaLogix CAMMaster Designer 11.14.6" >CAMMaster</a></p>
+        </li>
+            
+<li>
+          <a href="/soft/31/109/2007/soft_35933.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201709241506219800.jpg">
+          </a>
+          <p class="app_tit_90"><a href="/soft/31/109/2007/soft_35933.html" target="_blank" title ="BluffTitler Ultimate 14.1.0.0绿色版_3D立体文本动画制作工具" >BluffTitler 14</a></p>
+        </li>
+            
+<li>
+          <a href="http://www.xdowns.com/app/303819.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201807051530756086.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/303819.html" target="_blank" title ="Audio Damage AD046 Quanta 1.0.8 Win/Mac" >粒子合成器</a></p>
+        </li>
+            
+<li>
+          <a href="http://www.xdowns.com/app/245673.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201709141505372272.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/245673.html" target="_blank" title ="IAR Embedded Workbench for ARM 8.3 特别版 - ARM芯片开发工具" >IAR For Arm</a></p>
+        </li>
+            </ul>
+  </div>
+  <div class="box">
+    <div class="inews">
+      <div class="itit"><a href="/index-news.html" target="_blank" class="more">更多</a>新闻资讯</div>
+      <div class="inewscon">
+  	        <h2><a href="http://www.xdowns.com/news/1177.html" target="_blank" title="平安办新信用卡得橙意礼包+领80元">平安办新信用卡得橙意礼包+领80元</a></h2>                <p class="inewscon_tui"><a href="http://www.xdowns.com/news/1051.html" target="_blank">流量防火墙在哪开 流量防火墙怎么用</a><a href="http://www.xdowns.com/news/524.html" target="_blank">AutoCAD 2011 for Mac 安装破解教程</a></p>
+    <ul>
+          <li><span class="time">07-11</span><a href="http://www.xdowns.com/news/1320.html" target="_blank">发现新变种的幽灵安全缺陷:投机缓冲区溢出</a></li>
+                  <li><span class="time">07-11</span><a href="http://www.xdowns.com/news/1319.html" target="_blank">《逆水寒》剧情问题答案大全</a></li>
+                  <li><span class="time">07-11</span><a href="http://www.xdowns.com/news/1317.html" target="_blank">微软发布Windows 10累积更新KB4338819, KB4338825, KB4338826</a></li>
+                  <li><span class="time">07-10</span><a href="http://www.xdowns.com/news/1315.html" target="_blank">摩拜单车二维码被破坏后的开锁办法</a></li>
+                  <li><span class="time">07-10</span><a href="http://www.xdowns.com/news/1314.html" target="_blank">取消微博全部关注的操作方法(官方的实用方法）</a></li>
+                  <li><span class="time">07-10</span><a href="http://www.xdowns.com/news/1313.html" target="_blank">如何在Windows 10 Redstone 5中禁用SwiftKey</a></li>
+                  <li><span class="time">07-10</span><a href="http://www.xdowns.com/news/1312.html" target="_blank">抖音你有你的我有我的安排社会语录合集</a></li>
+                  <li><span class="time">07-10</span><a href="http://www.xdowns.com/news/1311.html" target="_blank">微软为Windows 8.1杀死了翻译软件</a></li>
+                  <li><span class="time">07-10</span><a href="http://www.xdowns.com/news/1310.html" target="_blank">微软Office 2019的ONENOT接口更新</a></li>
+                  <li><span class="time">07-09</span><a href="http://www.xdowns.com/news/1309.html" target="_blank">手机老是提升更新系统，系统更新到底好不好？</a></li>
+                  <li><span class="time">07-09</span><a href="http://www.xdowns.com/news/1308.html" target="_blank">微软公司关闭了Windows 8.1的翻译程序。</a></li>
+                  <li><span class="time">07-09</span><a href="http://www.xdowns.com/news/1307.html" target="_blank">Windows 10雷石东5(2018年秋季)建造17711现在可供下载</a></li>
+                  <li><span class="time">07-09</span><a href="http://www.xdowns.com/news/1306.html" target="_blank">微软将于明天发布新的Windows 10累积更新</a></li>
+        </ul>
+        <div class="inewscon_tu clearfix">
+              <a href="http://www.xdowns.com/news/1177.html" target="_blank">
+            <img src="/attachment/synews/lbpic/201806071528366241.jpg">
+            <p>平安办新信用卡得橙意礼包+领80元</p>
+          </a>
+    <a href="http://www.xdowns.com/news/918.html" target="_blank">
+            <img src="/attachment/synews/lbpic/201804091523240523.png">
+            <p>绝地求生辅助不封号的办法总结</p>
+          </a>
+          </div>
+      
+      </div>
+    </div>
+    <div class="inews">
+      <div class="itit"><a href="/index-games.html" class="more" target="_blank">更多</a>最新软件/APP/应用</div>
+      <div class="inewscon">
+      
+    
+ <ul>
+          	    
+ <li><span class="time">07-12</span><a href="/soft/17/60/2009/soft_55933.html" target="_blank">恒源好用发(送)货单打印 v6.1</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305155.html" target="_blank">STM32_USB-FS-Device_Lib_V4.1.0 免费版</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305154.html" target="_blank">l 1qc_logbarrierr算法源码</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305153.html" target="_blank">java md5加密函数</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305152.html" target="_blank">欢乐印 1117  -微信打印软件</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305151.html" target="_blank">汽车车牌归属地查询软件 1.0 绿色免费版</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305150.html" target="_blank">彩护士时时彩计划软件 1.0 安装版</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305149.html" target="_blank">企业资料采集软件 1.5 绿色版 -精准查找企业资料</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305148.html" target="_blank">工作室售币精灵 1.2 安装版 -管理销售订单</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305147.html" target="_blank">缘天网页表白生成器 1.6 绿色版 -提高表白成功率</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305146.html" target="_blank">pass资源查看器 1.1 绿色版 -快速查找文本资源</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305145.html" target="_blank">微信质量群采集助手 V3.0 绿色版 -采集优质的微信群</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305144.html" target="_blank">jboa北大青鸟办公管理系统</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305143.html" target="_blank">audioUtils简单音频功能包</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305142.html" target="_blank">FPGA 6位密码锁代码</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305141.html" target="_blank">AndroidDemoSuduku九宫图范例</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305140.html" target="_blank">时频分析压缩包 - 含各类时频变换</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305136.html" target="_blank">如驿如意 for ios/Android_轮胎销售服务app</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305135.html" target="_blank">嘟嘟牛秒破神器</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305134.html" target="_blank">企薪宝 for ios/Android_提供薪酬管理服务</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305133.html" target="_blank">网吧影视特权VIP神器</a></li>
+            
+ <li><span class="time">07-12</span><a href="http://www.xdowns.com/app/305132.html" target="_blank">贴心小区(配送端/用户端/商户端) for ios/Android—提供订单配送服务</a></li>
+                </ul>
+    
+      
+    
+    </div>
+  </div>
+  <div class="box">
+    <div class="iremen">
+      <div class="itit"><a href="/index-games-op-downloadcount.html" class="more" target="_blank">更多</a>热门软件</div>
+      <ul class="iremencon">
+            	<li>
+          <a href="http://www.xdowns.com/app/244508.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201709111505111500.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/244508.html" target="_blank" title = "DS CADAM Drafting V5-6R2018 SP2  - 2D设计和手绘软件 官方版">DS CADAM Drafting V5</a></p>
+          <div class="iremen_dwon"><a href="http://www.xdowns.com/app/244508.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="/soft/38/103/2014/soft_121693.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/soft/ico/2014102414415650964.gif">
+          </a>
+          <p class="app_tit_90"><a href="/soft/38/103/2014/soft_121693.html" target="_blank" title = "Advanced Installer Architect 15.01 绿色版_安装包制作">Advanced Installer Architect</a></p>
+          <div class="iremen_dwon"><a href="/soft/38/103/2014/soft_121693.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="http://www.xdowns.com/app/290818.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201804241524532814.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/290818.html" target="_blank" title = "晨风qq机器人   v4.3.5.2  官方最新版 - 自助QQ聊天工具">晨风qq机器人</a></p>
+          <div class="iremen_dwon"><a href="http://www.xdowns.com/app/290818.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="http://www.xdowns.com/app/246304.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201709161505557874.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/246304.html" target="_blank" title = "PLSQL developer 64位中文版">PLSQL developer</a></p>
+          <div class="iremen_dwon"><a href="http://www.xdowns.com/app/246304.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="/soft/31/109/2016/soft_163463.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201709201505869845.jpg">
+          </a>
+          <p class="app_tit_90"><a href="/soft/31/109/2016/soft_163463.html" target="_blank" title = "CAM设计软件PentaLogix CAMMaster Designer 11.14.6">CAMMaster</a></p>
+          <div class="iremen_dwon"><a href="/soft/31/109/2016/soft_163463.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="/soft/31/109/2007/soft_35933.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201709241506219800.jpg">
+          </a>
+          <p class="app_tit_90"><a href="/soft/31/109/2007/soft_35933.html" target="_blank" title = "BluffTitler Ultimate 14.1.0.0绿色版_3D立体文本动画制作工具">BluffTitler 14</a></p>
+          <div class="iremen_dwon"><a href="/soft/31/109/2007/soft_35933.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="http://www.xdowns.com/app/303819.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201807051530756086.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/303819.html" target="_blank" title = "Audio Damage AD046 Quanta 1.0.8 Win/Mac">粒子合成器</a></p>
+          <div class="iremen_dwon"><a href="http://www.xdowns.com/app/303819.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="http://www.xdowns.com/app/245673.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201709141505372272.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/245673.html" target="_blank" title = "IAR Embedded Workbench for ARM 8.3 特别版 - ARM芯片开发工具">IAR For Arm</a></p>
+          <div class="iremen_dwon"><a href="http://www.xdowns.com/app/245673.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="http://www.xdowns.com/app/303108.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201807021530498181.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/303108.html" target="_blank" title = "HOFA-Plugins HOFA CD-Burn DDP Master 2.0.4 - 烧录软件">HOFA CD-Burn & DDP</a></p>
+          <div class="iremen_dwon"><a href="http://www.xdowns.com/app/303108.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="http://www.xdowns.com/app/252975.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201804061522983335.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/252975.html" target="_blank" title = "Pitrinec Macro Toolworks Pro (键盘鼠标宏编程软件) 8.6.0">Macro Toolworks</a></p>
+          <div class="iremen_dwon"><a href="http://www.xdowns.com/app/252975.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="/soft/38/103/2013/soft_111284.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/soft/ico/201311810153884032.png">
+          </a>
+          <p class="app_tit_90"><a href="/soft/38/103/2013/soft_111284.html" target="_blank" title = "Enigma Virtual Box 9.0 中文去广告版 - 单文件封装工具">Enigma Virtual Box</a></p>
+          <div class="iremen_dwon"><a href="/soft/38/103/2013/soft_111284.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="/soft/4/5/2017/soft_222291.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201710081507428462.jpg">
+          </a>
+          <p class="app_tit_90"><a href="/soft/4/5/2017/soft_222291.html" target="_blank" title = "XYplorer  19.00.0200 绿色中文版 - 文件管理器">XYplorer中文版</a></p>
+          <div class="iremen_dwon"><a href="/soft/4/5/2017/soft_222291.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="/soft/31/113/2014/soft_121646.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201806261530003806.jpg">
+          </a>
+          <p class="app_tit_90"><a href="/soft/31/113/2014/soft_121646.html" target="_blank" title = "AKVIS AirBrush 4.0.426.13543_喷笔绘图插件">AKVIS AirBrush</a></p>
+          <div class="iremen_dwon"><a href="/soft/31/113/2014/soft_121646.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="/soft/6/7/2006/soft_9573.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201806241529823568.jpg">
+          </a>
+          <p class="app_tit_90"><a href="/soft/6/7/2006/soft_9573.html" target="_blank" title = "Zero Assumption Recovery 10.1141绿色版_恢复FAT16/32和NTF数据">Zero Assumption Recovery</a></p>
+          <div class="iremen_dwon"><a href="/soft/6/7/2006/soft_9573.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="/soft/10/133/2008/soft_45055.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201806201529486367.jpg">
+          </a>
+          <p class="app_tit_90"><a href="/soft/10/133/2008/soft_45055.html" target="_blank" title = "央视影音CCTVBox 6.5.3去广告去升级版">CCTVBox去广告版</a></p>
+          <div class="iremen_dwon"><a href="/soft/10/133/2008/soft_45055.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="/soft/10/57/2013/soft_107871.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201801261516961912.jpg">
+          </a>
+          <p class="app_tit_90"><a href="/soft/10/57/2013/soft_107871.html" target="_blank" title = "Adobe After Effects CC 2015  - 集成1800插件最完美版">Aecc 2015</a></p>
+          <div class="iremen_dwon"><a href="/soft/10/57/2013/soft_107871.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="/soft/31/93/2006/soft_7782.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201806191529375079.jpg">
+          </a>
+          <p class="app_tit_90"><a href="/soft/31/93/2006/soft_7782.html" target="_blank" title = "Astra Image PLUS 5.2.3.0 绿色版_3d图片加工处理">Astra Image PLUS</a></p>
+          <div class="iremen_dwon"><a href="/soft/31/93/2006/soft_7782.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+       <li>
+          <a href="http://www.xdowns.com/app/288569.html" class="app_90" target="_blank">
+            <i class="app_img_90"></i>
+            <img src="http://www.xdowns.com/attachment/syapp/logo/201804121523500521.jpg">
+          </a>
+          <p class="app_tit_90"><a href="http://www.xdowns.com/app/288569.html" target="_blank" title = "PowerArchiver2018 v18.00.56中文破解版">PowerArchiver 2018</a></p>
+          <div class="iremen_dwon"><a href="http://www.xdowns.com/app/288569.html" target="_blank" target="_blank" >立即下载</a></div>
+        </li>
+             </ul>
+    </div>
+    <div class="ipaihang">
+      <div class="itit"><a href="/index-recommend.html" class="more" target="_blank">更多</a>周排行榜</div>
+      <ul class="ipaihangcon">
+         	    <li>
+          <div class="ph_mun"><em class="first">1</em></div>
+          <div class="ph_app">
+            <a href="/soft/31/93/2009/soft_50316.html" class="app_36" target="_blank">
+                <i class="app_img_36"></i>
+                <img src="http://www.xdowns.com/soft/ico/201371216283886048.jpg">
+            </a>
+            <p><a href="/soft/31/93/2009/soft_50316.html" target="_blank" title = "Adobe Photoshop CS6 中文破解版/ 绿色中文版 - photoshopcs6绿色版">ps cs6绿色版</a></p>
+          </div>
+          <div class="ph_down"></div>
+        </li>
+          <li>
+          <div class="ph_mun"><em class="second">2</em></div>
+          <div class="ph_app">
+            <a href="http://www.xdowns.com/app/256758.html" class="app_36" target="_blank">
+                <i class="app_img_36"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201711101510299881.jpg">
+            </a>
+            <p><a href="http://www.xdowns.com/app/256758.html" target="_blank" title = "P城办事处吃鸡超级助手">吃鸡超级助手</a></p>
+          </div>
+          <div class="ph_down"></div>
+        </li>
+          <li>
+          <div class="ph_mun"><em class="third">3</em></div>
+          <div class="ph_app">
+            <a href="/soft/10/35/2008/soft_41466.html" class="app_36" target="_blank">
+                <i class="app_img_36"></i>
+                <img src="http://www.xdowns.com/soft/ico/2014112523291485588.gif">
+            </a>
+            <p><a href="/soft/10/35/2008/soft_41466.html" target="_blank" title = "格式工厂FormatFactory 4.20 去广告绿色版_万能的视频音频格式转换器">格式工厂 绿色版</a></p>
+          </div>
+          <div class="ph_down"></div>
+        </li>
+          <li>
+          <div class="ph_mun"><em >4</em></div>
+          <div class="ph_app">
+            <a href="/soft/188/215/2015/soft_138317.html" class="app_36" target="_blank">
+                <i class="app_img_36"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201801081515419509.jpg">
+            </a>
+            <p><a href="/soft/188/215/2015/soft_138317.html" target="_blank" title = "Office 2017 四合一绿色精简版 + 官方版">Office2017绿色版</a></p>
+          </div>
+          <div class="ph_down"></div>
+        </li>
+          <li>
+          <div class="ph_mun"><em >5</em></div>
+          <div class="ph_app">
+            <a href="/soft/188/215/2013/soft_103851.html" class="app_36" target="_blank">
+                <i class="app_img_36"></i>
+                <img src="http://www.xdowns.com/soft/ico/201310291625289440.jpg">
+            </a>
+            <p><a href="/soft/188/215/2013/soft_103851.html" target="_blank" title = "Microsoft Office Visio 2010 中文版">visio2010</a></p>
+          </div>
+          <div class="ph_down"></div>
+        </li>
+          <li>
+          <div class="ph_mun"><em >6</em></div>
+          <div class="ph_app">
+            <a href="/soft/4/124/2011/soft_81329.html" class="app_36" target="_blank">
+                <i class="app_img_36"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201710251508918432.jpg">
+            </a>
+            <p><a href="/soft/4/124/2011/soft_81329.html" target="_blank" title = "魔方虚拟光驱 v2.26 绿色版_小巧绿色的虚拟光驱软件">魔方虚拟光驱</a></p>
+          </div>
+          <div class="ph_down"></div>
+        </li>
+          <li>
+          <div class="ph_mun"><em >7</em></div>
+          <div class="ph_app">
+            <a href="/soft/31/91/2007/soft_38278.html" class="app_36" target="_blank">
+                <i class="app_img_36"></i>
+                <img src="http://www.xdowns.com/soft/ico/201372012275697886.gif">
+            </a>
+            <p><a href="/soft/31/91/2007/soft_38278.html" target="_blank" title = "Adobe Camera Raw 10.4  - 最优秀的RAW文件处理工具">Adobe Camera Raw</a></p>
+          </div>
+          <div class="ph_down"></div>
+        </li>
+          <li>
+          <div class="ph_mun"><em >8</em></div>
+          <div class="ph_app">
+            <a href="/soft/31/32/2006/soft_28113.html" class="app_36" target="_blank">
+                <i class="app_img_36"></i>
+                <img src="http://www.xdowns.com/soft/ico/201381414471923084.gif">
+            </a>
+            <p><a href="/soft/31/32/2006/soft_28113.html" target="_blank" title = "Ulead GIF Animator V5.11 官方版 -GIF动画制作软件">GIF动画制作软件</a></p>
+          </div>
+          <div class="ph_down"></div>
+        </li>
+          <li>
+          <div class="ph_mun"><em >9</em></div>
+          <div class="ph_app">
+            <a href="http://www.xdowns.com/app/261518.html" class="app_36" target="_blank">
+                <i class="app_img_36"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201712031512269231.jpg">
+            </a>
+            <p><a href="http://www.xdowns.com/app/261518.html" target="_blank" title = "荒野求生透视辅助 12.03">荒野透视</a></p>
+          </div>
+          <div class="ph_down"></div>
+        </li>
+          <li>
+          <div class="ph_mun"><em >10</em></div>
+          <div class="ph_app">
+            <a href="/soft/6/99/2008/soft_41124.html" class="app_36" target="_blank">
+                <i class="app_img_36"></i>
+                <img src="http://www.xdowns.com/soft/ico/201410211881595243.png">
+            </a>
+            <p><a href="/soft/6/99/2008/soft_41124.html" target="_blank" title = "影子系统PowerShadow 8.5.5 完全免费版">影子系统</a></p>
+          </div>
+          <div class="ph_down"></div>
+        </li>
+            </ul>
+    </div>
+  </div>
+  <div class="box">
+    
+  
+  <div class="ifenlei">
+    <div class="itit"><a href="/index-games.html" class="more" target="_blank">更多</a>热门分类</div>
+    <div class="ifenleicon clearfix">
+            <div class="ifenleibox">
+        <div class="ifenlei_tit"><a href="/index-games-cname-3D.html" class="more" target="_blank">+ 更多</a><span>3D</span></div>
+        <ul>
+  <li>
+              <a href="/soft/31/109/2007/soft_35933.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201709241506219800.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/31/109/2007/soft_35933.html" title = "BluffTitler Ultimate 14.1.0.0绿色版_3D立体文本动画制作工具">BluffTitler 14</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/31/109/2007/soft_35933.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/31/109/2016/soft_177431.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201805131526197200.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/31/109/2016/soft_177431.html" title = "eDrawings Pro 2017 Suite 2018-05-12_CAD文件查看器">eDrawings 2017</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/31/109/2016/soft_177431.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/31/93/2008/soft_45602.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201804151523759595.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/31/93/2008/soft_45602.html" title = "Reallusion iClone Pro 7.21.1609.2 - 3D动画设计">iClone 7</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/31/93/2008/soft_45602.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/31/109/2017/soft_237372.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201804121523501320.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/31/109/2017/soft_237372.html" title = "Chief Architect Premier X10 20.2.1.1 x64  - 建筑3d模型设计">Chief Architect Premier X10</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/31/109/2017/soft_237372.html" >立即下载</a></div>
+          </li>
+                 </ul>
+      </div>
+          <div class="ifenleibox oushu">
+        <div class="ifenlei_tit"><a href="/index-games-cname-youxi.html" class="more" target="_blank">+ 更多</a><span>游戏</span></div>
+        <ul>
+  <li>
+              <a href="http://www.xdowns.com/app/270787.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201803051520217317.jpg">
+              </a>
+              <p class="app_tit_90"><a href="http://www.xdowns.com/app/270787.html" title = "冲顶大会app  v1.2.1 安卓/iphone版 - 竞答奖金平台">冲顶大会</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="http://www.xdowns.com/app/270787.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="http://www.xdowns.com/app/277060.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201802091518151472.png">
+              </a>
+              <p class="app_tit_90"><a href="http://www.xdowns.com/app/277060.html" title = "腾讯绝地求生正式手游">绝地求生:刺激战场</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="http://www.xdowns.com/app/277060.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="http://www.xdowns.com/app/248558.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201709241506246747.jpg">
+              </a>
+              <p class="app_tit_90"><a href="http://www.xdowns.com/app/248558.html" title = "绝对音域 1.1 音乐节奏游戏">绝对音域</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="http://www.xdowns.com/app/248558.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="http://www.xdowns.com/app/243494.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201709071504771469.jpg">
+              </a>
+              <p class="app_tit_90"><a href="http://www.xdowns.com/app/243494.html" title = "FBA Shuffle（FBA模拟器）  绿色版 PC端 - 街机模拟器">FBA Shuffle</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="http://www.xdowns.com/app/243494.html" >立即下载</a></div>
+          </li>
+                 </ul>
+      </div>
+          <div class="ifenleibox">
+        <div class="ifenlei_tit"><a href="/index-games-cname-net.html" class="more" target="_blank">+ 更多</a><span>网络</span></div>
+        <ul>
+  <li>
+              <a href="/soft/184/phone/Android/2013/soft_111183.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201805131526191758.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/184/phone/Android/2013/soft_111183.html" title = "UC浏览器无广告版">UC浏览器</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/184/phone/Android/2013/soft_111183.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/1/44/2015/soft_138927.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201804091523243455.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/1/44/2015/soft_138927.html" title = "Connectify Hotspot 2018.1.1.38937 - 网络辅助工具">Connectify Hotspot 2018</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/1/44/2015/soft_138927.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/1/70/2006/soft_28269.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/soft/ico/20141298335033866.gif">
+              </a>
+              <p class="app_tit_90"><a href="/soft/1/70/2006/soft_28269.html" title = "Internet Download Manager 6.30.8 绿色版">IDM绿色版</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/1/70/2006/soft_28269.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/1/98/2006/soft_18187.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201803281522204177.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/1/98/2006/soft_18187.html" title = "ScriptFTP 4.5 绿色版_能够自动传输您的文件">ScriptFTP</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/1/98/2006/soft_18187.html" >立即下载</a></div>
+          </li>
+                 </ul>
+      </div>
+          <div class="ifenleibox oushu">
+        <div class="ifenlei_tit"><a href="/index-games-cname-office.html" class="more" target="_blank">+ 更多</a><span>办公</span></div>
+        <ul>
+  <li>
+              <a href="/soft/40/89/2017/soft_184461.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201801041515050317.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/40/89/2017/soft_184461.html" title = "腾讯TIM V2.2.5.20839 绿色便携版">腾讯TIM</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/40/89/2017/soft_184461.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/31/93/2014/soft_126845.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/soft/ico/20148316285216455.gif">
+              </a>
+              <p class="app_tit_90"><a href="/soft/31/93/2014/soft_126845.html" title = "Visution MAPIO Pro 2.3.1.2849 绿色版 - 创建投影显示">Visution Mapio</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/31/93/2014/soft_126845.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/184/phone/Android/2015/soft_141709.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201804161523846373.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/184/phone/Android/2015/soft_141709.html" title = "易企秀app  v2.8.5.1  安卓版/ v2.9.8  苹果版  - H5微场景制作">易企秀</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/184/phone/Android/2015/soft_141709.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/184/x64/2015/soft_141582.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201711201511165869.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/184/x64/2015/soft_141582.html" title = "Kutools for Excel 17.00 -  Excel 工具集">Kutools for Excel</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/184/x64/2015/soft_141582.html" >立即下载</a></div>
+          </li>
+                 </ul>
+      </div>
+          <div class="ifenleibox">
+        <div class="ifenlei_tit"><a href="/index-games-cname-tool.html" class="more" target="_blank">+ 更多</a><span>工具</span></div>
+        <ul>
+  <li>
+              <a href="/soft/38/103/2014/soft_121693.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/soft/ico/2014102414415650964.gif">
+              </a>
+              <p class="app_tit_90"><a href="/soft/38/103/2014/soft_121693.html" title = "Advanced Installer Architect 15.01 绿色版_安装包制作">Advanced Installer Architect</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/38/103/2014/soft_121693.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/38/103/2013/soft_111284.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/soft/ico/201311810153884032.png">
+              </a>
+              <p class="app_tit_90"><a href="/soft/38/103/2013/soft_111284.html" title = "Enigma Virtual Box 9.0 中文去广告版 - 单文件封装工具">Enigma Virtual Box</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/38/103/2013/soft_111284.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/4/5/2017/soft_222291.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201710081507428462.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/4/5/2017/soft_222291.html" title = "XYplorer  19.00.0200 绿色中文版 - 文件管理器">XYplorer中文版</a></p>
+              <p class="app_star_90"><span class="star bigstar35"></span></p>
+              <div class="iremen_dwon"><a href="/soft/4/5/2017/soft_222291.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/184/185/2006/soft_29644.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/soft/ico/20138191155980795.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/184/185/2006/soft_29644.html" title = "速度最快的文件拷贝删除工具_Fastcopy x64 v3.51 汉化绿色免费版">Fastcopy汉化绿色版</a></p>
+              <p class="app_star_90"><span class="star bigstar10"></span></p>
+              <div class="iremen_dwon"><a href="/soft/184/185/2006/soft_29644.html" >立即下载</a></div>
+          </li>
+                 </ul>
+      </div>
+          <div class="ifenleibox oushu">
+        <div class="ifenlei_tit"><a href="/index-games-cname-media.html" class="more" target="_blank">+ 更多</a><span>媒体</span></div>
+        <ul>
+  <li>
+              <a href="http://www.xdowns.com/app/303819.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201807051530756086.jpg">
+              </a>
+              <p class="app_tit_90"><a href="http://www.xdowns.com/app/303819.html" title = "Audio Damage AD046 Quanta 1.0.8 Win/Mac">粒子合成器</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="http://www.xdowns.com/app/303819.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="http://www.xdowns.com/app/303108.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201807021530498181.jpg">
+              </a>
+              <p class="app_tit_90"><a href="http://www.xdowns.com/app/303108.html" title = "HOFA-Plugins HOFA CD-Burn DDP Master 2.0.4 - 烧录软件">HOFA CD-Burn & DDP</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="http://www.xdowns.com/app/303108.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/10/57/2013/soft_107871.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201801261516961912.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/10/57/2013/soft_107871.html" title = "Adobe After Effects CC 2015  - 集成1800插件最完美版">Aecc 2015</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/10/57/2013/soft_107871.html" >立即下载</a></div>
+          </li>
+           <li>
+              <a href="/soft/10/57/2017/soft_226444.html" class="app_90">
+                <i class="app_img_90"></i>
+                <img src="http://www.xdowns.com/attachment/syapp/logo/201806071528338504.jpg">
+              </a>
+              <p class="app_tit_90"><a href="/soft/10/57/2017/soft_226444.html" title = "SilhouetteFX Silhouette 6.1.13 - 动态遮罩制作软件">Silhouette</a></p>
+              <p class="app_star_90"><span class="star bigstar30"></span></p>
+              <div class="iremen_dwon"><a href="/soft/10/57/2017/soft_226444.html" >立即下载</a></div>
+          </li>
+                 </ul>
+      </div>
+        </div>
+  </div>
+    <div class="flink">
+    <div class="itit">友情链接</div>
+    <div class="flink_con">
+          <a href="http://dl.pconline.com.cn/" target="_blank">太平洋下载</a>
+<a href="http://wanwan.sina.com.cn/" target="_blank">新浪玩玩</a>
+<a href="http://www.huacolor.com/" target="_blank">华彩下载</a>
+<a href="http://www.ddooo.com/" target="_blank">多多软件站</a>
+<a href="http://www.ali213.net/" target="_blank"  >游侠单机游戏</a>
+<a href="http://www.91.com/" target=_blank>91手机门户</a>
+<a href="http://www.ptbus.com" target="_blank">口袋巴士</a>
+<a href="http://www.crsky.com/default.html" target="_blank">非凡软件下载</a>
+<a href="http://www.pc6.com" target=_blank>pc6软件下载</a>
+<a href="http://www.9553.com/" target=_blank>9553软件下载</a>
+<a href="http://www.uzzf.com" target=_blank>东坡软件</a>
+<a href="http://iphone.tgbus.com/" target="_blank">iPhone中文网</a>
+<a href="http://mydown.yesky.com/" target=_blank>天极下载</a>
+<a href="http://down.admin5.com/" target="_blank">A5网站源码</a>
+<a href="http://www.ruan8.com/" target="_blank">软吧手机软件</a>
+<a href="http://www.duote.com" target="_blank">多特软件下载</a>
+<a href="http://www.uc.cn/index.html" target="_blank">UC浏览器</a>
+<a href="http://www.52z.com" target="_blank">飞翔下载</a>
+<a href="http://www.downxia.com/" target="_blank" >当下软件园</a>
+<a href="http://www.cr173.com" target=_blank>西西软件园</a>
+<a href="http://www.52pojie.cn" target=_blank>吾爱破解论坛</a>
+<a href=" http://www.JZ5U.com" target="_blank">JZ5U</a>
+<a href="http://www.lemall.com/" target="_blank">乐视</a>
+<a href="http://www.gamedog.cn/" target="_blank" >游戏狗</a>
+<a href="https://www.gezila.com/" target="_blank">格子啦下载</a>
+<a href="http://www.9u8u.com/" target=_blank>9u8u网页游戏</a>
+<a href="http://android.d.cn/" target="_blank" >当乐安卓游戏</a>
+<a href="http://bbs.hiapk.com/" target=_blank>安卓网论坛</a>
+<a href="http://bbs.mumayi.com/" target="_blank">木蚂蚁安卓论坛</a>
+<a href="http://bbs.houdao.com/" target="_blank">猴岛游戏论坛</a>
+<a href="http://www.7399.com/" target="_blank">7399小游戏</a> 
+<a href="http://www.dangbei.com/" target="_blank">当贝市场</a>
+<a href="http://www.mapbar.com/" target=_blank>图吧</a>
+<a href="http://www.eepw.com.cn/" target="_blank">电子产品世界</a>     </div>
+  </div>
+</div>
+<div id="footer">
+  <div class="f_content">
+    <p>本站提供软件归原作者所有，如侵犯您的版权，请您按《<a href="/index.php?ac=contact&op=copyright"  target="_blank">版权保护投诉指引</a>》告知，本网站将应要求进行删除处理。
+</p>
+    <div><a href="/index-contact-op-copyright.html" target="_blank" rel="nofollow" >版权声明</a> | <a href="/index-contact-op-upload.html" target="_blank" rel="nofollow" >新闻投递</a> | <a href="/index-contact-op-comment.html" target="_blank" rel="nofollow" >提交应用</a> | <a href="/index-contact-op-address.html" target="_blank" rel="nofollow" >联系我们</a>| <a href="/index-sitemap-op-app.html" target="_blank" >网站地图</a>  </div>
+    <p class="f_copyright"><a href="http://www.xdowns.com">绿盟市场</a> <script type="text/javascript" src="/js/footer.js"></script></p>
+  </div>
+</div>
+<p id="back-to-top"><a href="#top"></a></p>
+
+</body>
+</html>
+
+<script src="/js/jc.js" type="text/javascript"></script>
+       
+<script src="/js/jump.js" type="text/javascript"></script>
+
+
+<script>
+if(device.mobile()){
+window.location = "http://m.xdowns.com";  
+}
+
+function SetCookie(sName, sValue) 
+{ 
+date = new Date(); 
+var str=sName+"="+escape(sValue)+(";expires="+date.toGMTString())+";path=/"; 
+str=str.replace("2018","2099"); 
+
+document.cookie=str; 
+
+
+} 
+
+
+SetCookie('xdowns','www.xdowns.com');
+
+</script>

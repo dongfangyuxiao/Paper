@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<meta charset="UTF-8">
+<meta name="_token" content="5b46c9fb7106d2.05877392">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+<meta name="description" content="萌购是一个以二次元购物为主的全日系商品代购网站，各种游戏动漫ACG周边、偶像商品一应俱全。旗下萌购支持千余家日系网站代购，实现真正的一站式购物新体验！">
+<title>萌购</title>
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="/apple-icon.png">
+<link href="/common/css/bootstrap.min.css?r=00a98172" rel="stylesheet">
+<link href="/common/css/awesome-bootstrap-checkbox.css?r=445832a5" rel="stylesheet">
+<link href="/common/css/ladda-themeless.min.css?r=ea13fbf8" rel="stylesheet">
+<link href="/common/css/font-awesome.min.css?r=445832a5" rel="stylesheet">
+<link href="/css/jquery-confirm.min.css?r=6cfb8535" rel="stylesheet">
+<link href="/css/frontend-030.css?r=fa79b2c8" rel="stylesheet">
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-83149335-1', "auto");
+    ga('send', 'pageview');
+  </script>
+</head>
+<body id="moe-030" class="moe-index">
+<div id="omni-alert">
+<div class="alert alert-success">
+<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<span class="message"></span>
+</div>
+</div>
+<div class="moe-search-case">
+<moe-index-search></moe-index-search>
+</div>
+<div class="moe-bags-wallpaper">
+<div class="moe-bags">
+<div class="moe-header-box" v-cloak>
+<header-nav></header-nav>
+</div>
+<div class="moe-page-wrap">
+<div id="moe-index-app" v-cloak>
+<div class="moe-content padding relative">
+<form action="http://www.0a0a0.cc/owo" method="get" target="_blank" ref="search-form" @click="openSearch">
+<input type="text" class="moe-search-input" placeholder="海淘助手，从这里开始" v-model="search_url">
+<input type="text" class="hidden" value="" v-if="!search_url_computed" />
+<input type="hidden" name="url" :value="base64Encode(search_url_computed)">
+</form>
+<div class="moe-slides" v-if="$data.hasOwnProperty('slides_list') && slides_list.length > 0">
+<div class="left">
+<div class="text">
+<div v-for="(slides, index) in slides_list" :class="['slides-text-' + index, { 'actived': index == slides_actived_index }]" class="slides-text">
+<div class="subtitle">{{slides.subtitle}}</div>
+<div class="title" v-html="splitText(slides.title)"></div>
+<a class="button" :href="slides.link" target="_blank">
+查看详情
+<svg><use xlink:href="#arrow-line-blue" /></svg>
+</a>
+</div>
+</div>
+<div class="points">
+<div class="point" v-for="(slides, index) in slides_list" :class="['slides-point-' + index, { 'actived': index == slides_actived_index }]" @click="slides_actived_index = index"></div>
+</div>
+</div>
+<div class="right">
+<div class="images" :style="{ 'background-image': 'url(' + slides_list[old_slides_actived_index].image + ')' }">
+<div class="image-mask" v-for="(slides, index) in slides_list" :class="{ 'actived': index == slides_actived_index }">
+<a class="slides-image" target="_blank" :href="slides.link" :class="['slides-image-' + index]" :style="{ 'background-image': 'url(' + slides.image + ')' }" :alt="slides.title"></a>
+</div>
+</div>
+</div>
+<div class="prev" @click="slidesSwitch(-1)">
+<svg><use xlink:href="#link-next-color" /></svg>
+</div>
+<div class="next" @click="slidesSwitch(1)">
+<svg><use xlink:href="#link-next-color" /></svg>
+</div>
+</div>
+<div class="moe-hot">
+<a v-for="hot in hot_list" :href="hot.link" target="_blnak">
+<div class="moe-card-large">
+<div class="image" :style="{ 'background-image': 'url(' + hot.image + ')'}"></div>
+<div class="text-case center">
+<div class="center-text" v-html="splitText(hot.title)"></div>
+</div>
+</div>
+</a>
+</div>
+<div class="moe-notice">
+<div class="block calendar">
+<div class="calendar-box">
+<div class="left">
+<span class="day">{{day}}</span><br><span class="month">{{month}}</span>
+</div>
+<div class="right">
+<span class="week-name" v-html="week_name.replace('曜', '<br>曜<br>')"></span>
+</div>
+</div>
+</div>
+<div class="block" :class="{ link: notice_type == 'bulletin' }" v-for="(config, notice_type) in notice_types" @click="notice_type == 'bulletin' ? (notice_show = (notice_show == 'bulletin') ? '' : 'bulletin') : ''">
+<svg class="omni-icon"><use :xlink:href="'#index-' + config.icon" /></svg>
+<div class="status" :class="[(getBulletins(notice_type)[0]).type_status ? 'status-' + (getBulletins(notice_type)[0]).type_status : '',
+                    { show: !config.using_color || config.using_color.indexOf((getBulletins(notice_type)[0]).type_status) !== -1 }]">
+</div>
+<div class="status status-green" :class="{ show: !bulletins_is_read && notice_type == 'bulletin' }"></div>
+<div class="text">
+<span v-html="splitText((getBulletins(notice_type)[0]).bulletin_title)"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="moe-notice-case" :class="{ 'notice-show': notice_show != '' }">
+<div class="moe-content">
+<gemini-scrollbar class="moe-text" v-if="notice_show != ''">
+<div class="pre"><h2><div v-html="splitText((getBulletins(notice_show)[notice_show_index]).bulletin_title)"></div><span class="subtitle" v-if="notice_show == 'bulletin'">{{(getBulletins(notice_show)[notice_show_index]).create_time * 1000 | date}}</span></h2><div v-html="gen_link((getBulletins(notice_show)[notice_show_index]).bulletin_content)"></div></div>
+</gemini-scrollbar>
+<div class="prev" @click="noticeSwitch(-1)" v-if="notice_show != '' && getBulletins(notice_show).length > 1">
+<svg><use xlink:href="#link-next-color" /></svg>
+</div>
+<div class="next" @click="noticeSwitch(1)" v-if="notice_show != '' && getBulletins(notice_show).length > 1">
+<svg><use xlink:href="#link-next-color" /></svg>
+</div>
+</div>
+</div>
+<div class="moe-content moe-recommend clearfix">
+<div class="clearfix">
+<div class="moe-items-title">
+<img src="//ss.030mall.com/chii/030omni/030/icbb.png">商品推荐
+</div>
+<div class="moe-ranking-title">
+<img src="//ss.030mall.com/chii/030omni/030/rank.png">畅销排行榜
+</div>
+</div>
+<div class="moe-items clearfix">
+<a href="#" v-for="item in recommend_limit" target="_blank" :href="item.link">
+<div class="moe-card" :class="[item.size]">
+<div class="image" :style="{ 'background-image': 'url(' + item.image + ')' }"></div>
+<div class="text">
+<div class="title line-limit-2" v-html="splitText(item.title)"></div>
+<div class="subtitle">
+{{item.subtitle}}
+</div>
+<div class="info">
+<div class="price" v-if="item.price">
+¥ {{item.price}}
+</div>
+<button class="button-link" v-if="!item.price">{{item.button ? item.button : '了解详情'}}</button>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="moe-ranking clearfix">
+<a class="moe-ranking-item" v-for="(item, index) in ranking" target="_blank" :href="item.link">
+<div class="image" :style="{ 'background-image': 'url(' + item.image + ')' }"></div>
+<div class="text">
+<div class="title line-limit-3">
+{{item.title}}
+</div>
+<div class="subtitle">
+{{item.subtitle}}
+</div>
+</div>
+<div class="rank">
+<div class="number" :class="['red', 'orange', 'green'][index]">
+{{index + 1}}
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="moe-editor-recommend-case">
+<div class="moe-content">
+<h2>编辑精选</h2>
+<div class="moe-editor-recommend-slides">
+<div class="slides-slot" v-for="(slide, index) in editor_recommend_slice">
+<div class="image" :style="{ 'background-image': 'url(' + slide.image + ')' }"></div>
+<div class="subtitle">{{slide.subtitle}}</div>
+<div class="title" v-html="splitText(slide.title)"></div>
+<a :href="slide.link" target="_blank" class="cart-button">
+<svg><use xlink:href="#moe-cart-add" /></svg>
+{{slide.price}}
+</a>
+</div>
+</div>
+<div class="prev" @click="editorRecommendSwitch(-4)">
+<svg><use xlink:href="#link-next-color" /></svg>
+</div>
+<div class="next" @click="editorRecommendSwitch(4)">
+<svg><use xlink:href="#link-next-color" /></svg>
+</div>
+</div>
+</div>
+<div class="moe-site-recommends-case" v-for="(site, index) in site_recommends">
+<div class="moe-content">
+<h2>{{site.title}}</h2>
+<div class="moe-site-recommend-list clearfix">
+<a v-for="item in site.items" target="_blank" :href="item.link" class="moe-card-case">
+<div class="moe-card">
+<div class="image" :style="{ 'background-image': 'url(' + item.image + ')' }"></div>
+<div class="text">
+<div class="title line-limit-2" v-html="splitText(item.title)"></div>
+<div class="subtitle">
+{{item.subtitle}}
+</div>
+<div class="info">
+<div class="price" v-if="item.price">
+¥ {{item.price}}
+</div>
+<button class="button-link" v-if="!item.price">{{item.button ? item.button : '了解详情'}}</button>
+</div>
+</div>
+</div>
+</a>
+<a class="moe-card-case moe-site-recommend-info" :href="site.site.link">
+<div class="moe-card" class="large">
+<div class="image" :style="{ 'background-image': 'url(' + site.site.image + ')' }"></div>
+<div class="text" v-html="splitText(site.site.title)"></div>
+<button class="link" :href="site.site.link" target="_blank">
+立刻前往
+<svg class="pull-right"><use xlink:href="#arrow-line-blue" /></svg>
+</button>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="moe-help-tip" v-if="need_tip" :class="{ 'actived': need_tip_show }">
+<div class="left"></div>
+<div class="center">
+<div class="case">
+<div class="image"></div>
+<div class="text">
+<h2>萌购海淘助手全面升级</h2>
+<p>
+已支持包括Animate、Amiami、Movic等三大热门网站。 <br>
+陆续还会有更多站点加入其中，赶紧来这里体验一下吧！
+<button type="button" name="button" @click="need_tip_show = false">我知道了</button>
+</p>
+</div>
+</div>
+</div>
+<div class="right"></div>
+</div>
+<transition name="fade">
+<div class="moe-bulletin-tip" v-if="!bulletins_is_read && bulletins_need_tip" @click="noticeShow">
+有一条新公告：{{getBulletins('bulletin')[0].bulletin_title}}
+</div>
+</transition>
+</div>
+</div>
+<script src="/common/js/jquery-1.11.1.min.js?r=8343cff8"></script>
+<script src="/common/js/core.js?r=1d4434af"></script>
+<script src="/common/js/date.format.js?r=1c9304d2"></script>
+<script src="/js/mustache.js?r=57fad24a"></script>
+<script>
+  poi.consts = {"item_status":{"0":"等待支付","2":"等待下单","3":"已下单","4":"海外商城已发货","5":"已到达仓库","42":"已向用户发货","1000":"已取消"},"source_site":{"4":"tora","5":"cq","3":"surugaya","1":"amazon","6":"animate","7":"melon","8":"booth","10":"mandarake","12":"movic","99":"request","100":"self","11":"hmv","17":"amiami"},"refund_status":{"1":"退款中","4":"已退款"},"fee_type":{"0":"商品费用","1":"日本国内运费","2":"国际运费","3":"关税","4":"商品补款","6":"运单补款","10":"代购手续费","11":"包装手续费","12":"国际结算手续费","13":"快速团发包裹处理费","20":"仓储保管费","30":"付款手续费","50":"意向金","51":"大数量商品订单","52":"预约代购手续费","53":"支付转账手续费","54":"折扣","55":"申请单商品费用","60":"其他","70":"拼团优惠","80":"余额","97":"优惠券抵扣","98":"活动优惠","99":"积分抵扣"},"product_type":{"1":"书籍","2":"光碟","3":"玩具","4":"PC\/主机","5":"其他","6":"文具","7":"液体","8":"医药","9":"奶粉","10":"手表","11":"中空","12":"食品"},"ship_status":{"0":"尚未达到仓库","1":"未支付","12":"已支付","13":"货物调配中","2":"待打包","3":"待发货","4":"待发货旧","5":"发货审核中","9":"已发货","-1":"已取消"},"request_status":["等待支付","等待审核","审核不通过","已完成","已关闭"],"product_flag":{"1":"18x商品","2":"电池在内","3":"电池在外","4":"禁团"},"pending_notice":{"1":"unpaid_request","2":"unpaid_item","3":"unpaid","4":"unpaid_all","5":"buying","6":"buying_all","7":"waiting_all","8":"unpackaged","9":"packaged","10":"unshipped","11":"unshipped_all","12":"shipped_all","13":"refunding","14":"refunding_all","15":"balance","20":"favorite_all","21":"auction","22":"auction_all","23":"coupon_all"},"product_condition":["不明","全新","二手","预售（废弃）"],"product_stock":{"1":"通常","3":"取寄","4":"预约","0":"不可购买"},"pool_type":["不限","光盘类","书籍类","手办\/模型类","纸片类","周边\/杂货类"],"pool_delivery":["不限","快递","面交"],"pool_status":{"1":"已开团","2":"已截团","3":"已完成","4":"已失效"},"pool_receive_type":{"1":"支付宝","2":"微信","3":"银行转账","4":"面交","5":"其他"},"pool_weight_flag":{"1":"ok","2":"danger","3":"fail"},"pool_pending_notice":{"1":"applying","2":"ongoing_member","3":"finished_member","4":"pending","5":"ongoing_leader","6":"finished_leader"},"pool_limit":{"100":"pool_count","50":"weight_min","30000":"weight_max","30":"max_length","50000":"max_price","1":"hot_pool","4":"max_battery_count","5000":"min_weight","3":"edit"},"refund_reason_type":{"1":"用户取消","2":"缺货","3":"禁运","6":"价格变动","17":"取消竞拍","18":"余额提现（系统）","19":"余额提现（用户）"},"currency":["jpy","rmb"],"ship_express":{"1":"日本邮政EMS","2":"国际小包SAL","6":"国际小包AIR","9":"香港邮政E特快","10":"标准团发（跨境电商）","11":"香港采购","14":"E邮宝","15":"香港邮政经济快递","16":"小物专线","17":"萌购标准团发","18":"轻邮Plus","19":"萌购快速团发","20":"任你购国际小包","21":"BC直邮","22":"vip专线","23":"日本邮政E邮宝"},"request_flag":{"1":"cancel_all","2":"from_app","3":"paid_product","4":"ship_safe"},"request_item_flag":{"3":"直接支付商品款项","5":"雅虎拍卖","6":"雅虎拍卖预约","7":"雅虎拍卖即决商品"},"auction_status":{"1":"待出价","2":"已出价","3":"被超过","4":"已得标","5":"竞拍失败"},"pause_buying_type":{"1":"缺货","2":"交涉中","3":"待用户确认"},"pay_type":{"1":"支付宝","3":"支付宝银联支付","4":"PayPal","5":"余额支付"},"bulletin_type":{"1":"公告","2":"下单状态","3":"国内仓库","4":"客服状态"},"balance_type":{"1":"充值","2":"支付","3":"退款","4":"提现","5":"取消退款"},"pool_flag":{"1":"新萌购可见"},"express_flag":{"1":"小包警告","2":"拼团中心可筛选","3":"轻邮Plus物流","4":"香港邮政类","5":"任你购使用","6":"新萌购使用","7":"是否需要用户信息"},"coupon_status":["未使用","已抵扣","未抵扣","已过期"],"site_flag":{"1":"页面可显示","2":"后端可解析","3":"有菜单入口","4":"多商品（虎穴）","5":"财务采购信息来源为邮件","6":"新萌购页面可显示","7":"新萌购后端可解析","8":"新萌购有菜单入口"}};
+  poi.consts_origin = {"item_status":{"unpaid":"0","buying":"2","ordered":"3","mall_shipped":"4","arrived":"5","shipped":"42","cancelled":"1000"},"source_site":{"tora":"4","cq":"5","surugaya":"3","amazon":"1","animate":"6","melon":"7","booth":"8","mandarake":"10","movic":"12","request":"99","self":"100","hmv":"11","amiami":"17"},"refund_status":{"applied":"1","finished":"4"},"fee_type":{"product":"0","local_express":"1","express":"2","customs":"3","item_extra":"4","ship_extra":"6","handling":"10","express_handling":"11","settlement_handling":"12","processing_fee":"13","storage_charge":"20","pay_handling":"30","request_handling":"50","request_excess":"51","request_preorder":"52","request_pay_handling":"53","request_discount":"54","request_product":"55","request_other":"60","pool_discount":"70","balance":"80","coupon":"97","discount":"98","point":"99"},"product_type":{"book":"1","cd":"2","toy":"3","pc_part":"4","other":"5","stationery":"6","liquid":"7","medicine":"8","milk_powder":"9","watch":"10","empty":"11","food":"12"},"ship_status":{"unarrived":"0","arrived":"1","paid":"12","transfering":"13","fetched":"2","packaged":"3","ready":"4","examining":"5","shipped":"9","cancelled":"-1"},"request_status":{"unpaid":"0","pending":"1","rejected":"2","passed":"3","closed":"4"},"product_flag":{"adult":"1","battery_inside":"2","battery_outside":"3","group_banned":"4"},"pending_notice":{"unpaid_request":"1","unpaid_item":"2","unpaid":"3","unpaid_all":"4","buying":"5","buying_all":"6","waiting_all":"7","unpackaged":"8","packaged":"9","unshipped":"10","unshipped_all":"11","shipped_all":"12","refunding":"13","refunding_all":"14","balance":"15","favorite_all":"20","auction":"21","auction_all":"22","coupon":"23","coupon_all":"23"},"product_condition":{"unavailable":"0","new":"1","used":"2","presell":"3"},"product_stock":{"normal":"1","obtaining":"3","preorder":"4","unavailable":"0"},"pool_type":{"unlimited":"0","cd":"1","book":"2","model":"3","paper":"4","other":"5"},"pool_delivery":{"unlimited":"0","express":"1","face":"2"},"pool_status":{"ongoing":"1","close":"2","finished":"3","invalid":"4"},"pool_receive_type":{"alipay":"1","wechat":"2","bank":"3","face":"4","other":"5"},"pool_weight_flag":{"ok":"1","danger":"2","fail":"3"},"pool_pending_notice":{"applying":"1","ongoing_member":"2","finished_member":"3","pending":"4","ongoing_leader":"5","finished_leader":"6"},"pool_limit":{"favorite":"100","pool_count":"100","weight_min":"50","weight_max":"30000","max_length":"30","max_price":"50000","max_battery":"1","max_battery_count":"4","hot_pool":"1","min_weight":"5000","hot_pool_user":"3","edit":"3"},"refund_reason_type":{"user_req":"1","oos":"2","forbidden":"3","price_changed":"6","cancel_auction":"17","balance_withdrawals_b":"18","balance_withdrawals":"19"},"currency":{"jpy":"0","rmb":"1"},"ship_express":{"ems":"1","sal":"2","air":"6","e":"9","sp":"10","hk_purchase":"11","eyoubao":"14","economic":"15","small_article":"16","moebuy_group":"17","agent":"18","moebuy_group_fast":"19","bc":"20","sp2":"21","vip":"22","eyoubao_japan":"23"},"request_flag":{"cancel_all":"1","from_app":"2","paid_product":"3","ship_safe":"4"},"request_item_flag":{"paid_product":"3","yahoo_auction":"5","yahoo_order":"6","yahoo_buyout":"7"},"auction_status":{"waiting":"1","bidding":"2","exceeded":"3","won":"4","lost":"5"},"pause_buying_type":{"oos":"1","pending":"2","confirm":"3"},"pay_type":{"alipay":"1","alipay_bank":"3","paypal":"4","balance":"5"},"bulletin_type":{"bulletin":"1","order":"2","store":"3","customer":"4"},"balance_type":{"add":"1","use":"2","refund":"3","cash":"4","close_refund":"5"},"pool_flag":{"show":"1"},"express_flag":{"alert":"1","pool":"2","agent":"3","hk":"4","rng":"5","moebuy":"6","require_identity":"7"},"coupon_status":{"unused":"0","effective":"1","invalid":"2","expired":"3"},"site_flag":{"visible":"1","analysable":"2","entrance":"3","multiple":"4","mail":"5","moebuy_visible":"6","moebuy_analysable":"7","moebuy_entrance":"8"}};
+  poi.user_id = -1;
+  poi.host = 'https://www.030buy.net';
+    poi.sites = {"1":{"site_id":"1","protocol":"https","original_host":"www.amazon.co.jp","match_rule":"","proxy_name":"amazon","name":"日本亚马逊","default_path":"\/b\/?node=2277721051","flag":"231","free_shipping":"0","original_freight":"0","series_id":"0","path_replace":"{\"\\\\\\\/gp\\\\\\\/aw\\\\\\\/d\":\"\/dp\",\"\\\\\\\/gp\\\\\\\/aw\\\\\\\/ol\":\"\/gp\/offer-listing\"}","flag_array":[1,2,3,6,7,8]},"3":{"site_id":"3","protocol":"https","original_host":"www.suruga-ya.jp","match_rule":"","proxy_name":"surugaya","name":"骏河屋","default_path":"\/hobby.html","flag":"231","free_shipping":"1500","original_freight":"309","series_id":"0","path_replace":"","flag_array":[1,2,3,6,7,8]},"4":{"site_id":"4","protocol":"https","original_host":"ec.toranoana.shop","match_rule":"\/^https?\\:\\\/\\\/ec\\.toranoana\\.(jp|shop)\/","proxy_name":"toranoana","name":"虎穴","default_path":"\/tora\/ec\/","flag":"74","free_shipping":"15000","original_freight":"520","series_id":"0","path_replace":"{\"\\\\\\\/esmart\\\\\\\/d\":\"\/mailorder\/article\"}","flag_array":[2,4,7]},"5":{"site_id":"5","protocol":"https","original_host":"www.c-queen.net","match_rule":"","proxy_name":"cqueen","name":"CQUEEN","default_path":"","flag":"66","free_shipping":"5000","original_freight":"480","series_id":"0","path_replace":"","flag_array":[2,7]},"6":{"site_id":"6","protocol":"https","original_host":"www.animate-onlineshop.jp","match_rule":"","proxy_name":"animate","name":"ANIMATE","default_path":"","flag":"231","free_shipping":"0","original_freight":"412","series_id":"0","path_replace":"{\"\\\\\\\/sphone\":\"\"}","flag_array":[1,2,3,6,7,8]},"7":{"site_id":"7","protocol":"https","original_host":"www.melonbooks.co.jp","match_rule":"","proxy_name":"melonbooks","name":"MELONBOOKS","default_path":"","flag":"66","free_shipping":"10800","original_freight":"540","series_id":"0","path_replace":"","flag_array":[2,7]},"10":{"site_id":"10","protocol":"http","original_host":"order.mandarake.co.jp","match_rule":"","proxy_name":"mandarake","name":"MANDARAKE","default_path":"\/order\/","flag":"66","free_shipping":"0","original_freight":"594","series_id":"0","path_replace":"","flag_array":[2,7]},"11":{"site_id":"11","protocol":"http","original_host":"www.hmv.co.jp","match_rule":"","proxy_name":"hmv","name":"HMV","default_path":"","flag":"66","free_shipping":"0","original_freight":"0","series_id":"0","path_replace":"","flag_array":[2,7]},"12":{"site_id":"12","protocol":"http","original_host":"www.movic.jp","match_rule":"","proxy_name":"movic","name":"MOVIC","default_path":"\/shop\/default.aspx","flag":"231","free_shipping":"6000","original_freight":"330","series_id":"0","path_replace":"","flag_array":[1,2,3,6,7,8]},"17":{"site_id":"17","protocol":"https","original_host":"www.amiami.jp","match_rule":"","proxy_name":"amiami","name":"amiami","default_path":"","flag":"231","free_shipping":"0","original_freight":"0","series_id":"0","path_replace":"","flag_array":[1,2,3,6,7,8]}};
+  poi.sites_dict = {"www.amazon.co.jp":"http:\/\/www.0a0a0.cc\/amazon","www.suruga-ya.jp":"http:\/\/www.0a0a0.cc\/surugaya","ec.toranoana.shop":"http:\/\/www.0a0a0.cc\/toranoana","www.c-queen.net":"http:\/\/www.0a0a0.cc\/cqueen","www.animate-onlineshop.jp":"http:\/\/www.0a0a0.cc\/animate","www.melonbooks.co.jp":"http:\/\/www.0a0a0.cc\/melonbooks","booth.pm":"http:\/\/www.0a0a0.cc\/booth","www.jiku-chu.com":"http:\/\/www.0a0a0.cc\/jikuchu","order.mandarake.co.jp":"http:\/\/www.0a0a0.cc\/mandarake","www.hmv.co.jp":"http:\/\/www.0a0a0.cc\/hmv","www.movic.jp":"http:\/\/www.0a0a0.cc\/movic","www.babyssb.co.jp":"http:\/\/www.0a0a0.cc\/babyssb","angelicpretty-onlineshop.com":"http:\/\/www.0a0a0.cc\/angelicpretty","www.metamorphose.gr.jp":"http:\/\/www.0a0a0.cc\/metamorphose","kerashop.jp":"http:\/\/www.0a0a0.cc\/kerashop","www.amiami.jp":"http:\/\/www.0a0a0.cc\/amiami"};
+  poi.express = {"1":{"express_id":"1","name":"日本邮政EMS","tips":"通常7日内送达目的地，适合较轻物品","time_tip":"2~5天","delay_tip":"","currency":"0","handling":"0.00","weight_limit":"30000","flag":"54","status":"1","carrier_code":"japan-post","reg":"EJ\\d+JP","require_identity":false},"2":{"express_id":"2","name":"国际小包(SAL)","tips":"通常14日内送达国内，适合2KG以上物品","time_tip":"10~15天","delay_tip":"","currency":"0","handling":"0.10","weight_limit":"30000","flag":"54","status":"1","carrier_code":"japan-post","reg":"CI\\d+JP","require_identity":false},"6":{"express_id":"6","name":"国际小包(AIR)","tips":"通常7日内送达国内，非国际港口城市送达时间较长","time_tip":"7~10天","delay_tip":"","currency":"0","handling":"0.10","weight_limit":"30000","flag":"54","status":"1","carrier_code":"japan-post","reg":"CI\\d+JP","require_identity":false},"9":{"express_id":"9","name":"香港邮政E特快","tips":"全新高性价比直发方式，经由香港邮政发送，推荐1kg以上选择","time_tip":"10~15天","delay_tip":"","currency":"1","handling":"0.00","weight_limit":"7000","flag":"56","status":"1","carrier_code":"hong-kong-post","reg":"EL\\d+HK","require_identity":false},"10":{"express_id":"10","name":"标准团发（跨境电商）","tips":"采用跨境电商进口直邮的新团发，综合性价比高","time_tip":"20~30天","delay_tip":"","currency":"1","handling":"0.00","weight_limit":"30000","flag":"104","status":"1","carrier_code":"yto","reg":"圆通(\\d+)","require_identity":true},"14":{"express_id":"14","name":"E邮宝","tips":"若打包后的包裹实际重量超过2KG，将以默认方式进行拆发，拆发费用由任你购承担。","time_tip":"5~12天","delay_tip":"","currency":"1","handling":"0.00","weight_limit":"2000","flag":"62","status":"1","carrier_code":"hong-kong-post","reg":"EV\\d+HK","require_identity":false},"15":{"express_id":"15","name":"香港邮政经济快递","tips":"最实惠可靠的速递方案","time_tip":"5~12天","delay_tip":"","currency":"1","handling":"0.00","weight_limit":"30000","flag":"62","status":"1","carrier_code":"hong-kong-post","reg":"EV\\d+HK","require_identity":false},"17":{"express_id":"17","name":"旧标准团发","tips":"已禁用","time_tip":"25-30天","delay_tip":"","currency":"1","handling":"0.00","weight_limit":"0","flag":"40","status":"0","carrier_code":"","reg":"","require_identity":false},"19":{"express_id":"19","name":"快速团发","tips":"萌购快速团发","time_tip":"15-20天","delay_tip":"","currency":"1","handling":"0.00","weight_limit":"0","flag":"40","status":"1","carrier_code":"","reg":"","require_identity":false},"22":{"express_id":"22","name":"VIP 专线","tips":"专属 VIP 物流","time_tip":"15-20 天","delay_tip":"","currency":"1","handling":"0.00","weight_limit":"0","flag":"104","status":"1","carrier_code":"","reg":"","require_identity":true},"23":{"express_id":"23","name":"日本邮政E邮宝","tips":"暂时没有什么要说的。。","time_tip":"15-20 天","delay_tip":"","currency":"0","handling":"200.00","weight_limit":"0","flag":"48","status":"0","carrier_code":"","reg":"","require_identity":false}};
+  poi.identity_express_id_list = [];
+  var flag = 1 << (Number(poi.consts_origin['express_flag']['require_identity']) - 1);
+  for(var key in poi.express) {
+    var express = poi.express[key];
+    if((Number(express.flag) & flag) > 0) {
+      poi.identity_express_id_list.push(Number(express.express_id));
+    }
+  }
+  poi.exchange = 0.0617;
+  poi.bulletins = {"app":[{"bulletin_id":"3197","bulletin_title":"2018年端午节萌购发货安排","bulletin_content":"2018年中国端午节为6月16日（周六）- 6月18日（周一），受端午节影响部分物流方式的到货和发货时间可能有顺延的情况。\r\n\r\n使用标准团发（跨境电商），快速团发 的发货时间将顺延1-3个工作日；\r\n\r\n使用香港系列物流的，物流单号的生成时间和生成后的可追踪时间将可能分别顺延1-3个工作日；\r\n\r\n使用日本邮政系列物流发送的将不受影响。\r\n\r\n您的退款到账时间和售后处理问题处理时间也可能顺延1-2个工作日。\r\n\r\n给您带来不便敬请谅解，祝大家节日愉快。","operator":"753186","type":"1","type_status":"","create_time":"1528450350","update_time":"1528960727","flag":"11"},{"bulletin_id":"3194","bulletin_title":"E特快山东省暂停发送通知","bulletin_content":"接E特快物流商通知，受山东青岛上合组织峰会影响，即日起E特快将暂停山东省辖区内包裹的投递。预计将在6月12日之后恢复。\r\n\r\n您已申请E特快发送的包裹将在送达香港中转后转为其他可用的物流方式进行发送，如无可用物流方式的将在恢复后发送。\r\n\r\n其他物流方式暂未收到通知，但为了顺利收到包裹若您的收货地址在山东省境内建议您在6月11日后再申请发货。","operator":"3866","type":"1","type_status":"","create_time":"1527125807","update_time":"1527125875","flag":"11"},{"bulletin_id":"3189","bulletin_title":"萌购改版预报","bulletin_content":"在2018年的春风中，3月29日萌购网站将引来一次大规模的改版，本次改版萌购将进一步优化购物体验，提升浏览网站的流畅程度，并添加更多的购物网站支持，那么就让在下先来预告一下即将带来的新变动吧：\r\n\r\n* 萌购随心购\r\n\r\n萌购随心购功能将正式加入萌购大家庭。\r\n\r\n支持包括Yahoo 日本拍卖的几乎所有日本通贩和C2C网站，绝版、场贩、特典哦哦，都要到你口袋。\r\n\r\n更多有关随心购的使用方式，请留意之后首页专题页面。\r\n\r\n* 全面支持日本 ANIMATE,MOVIC,AMIAMI 代购服务。\r\n\r\n以上3站均支持萌购新团发，恩，终于不用问我们什么时候支持A站了吧~\r\n\r\n* 骏河屋下单全面提速\r\n\r\n新萌购系统提交的骏河屋订单将采取全天候自动下单，全天候守候特价，热门稀缺商品，不再有遗憾。\r\n\r\n* 直发团发随心用\r\n\r\n还没决定好用团发还是直发？下单没有后悔药？这一切将成为过去！新萌购系统中，您将不再需要下单时决定商品的发送方式，所有订单商品皆会在日本仓库进行入库，入库后您可根据商品的具体情况（如运费高低等，速度需求等）自由选择使用直发物流方式还是团发物流方式。\r\n\r\n\r\n* 团发全新模式\r\n\r\n萌购新团发将提供标准团发和快速团发2种团发模式，标准团发将提供更经济的运费（3元\/50g，每个商品），适合不在意到货时间的用户；萌购快速团发线路，收费标准为5元\/50g（每个商品），适合希望到货时间稳定，又不想自行处理通关手续的用户。\r\n\r\n\r\n* 一键申请发货，运费一目了然\r\n\r\n申请打包、申请发货陷入混乱，申请打包了后不知道运费是否超过预期，心中悬着下不来？申请打包后又发现打包不合适，拆包既麻烦又伤财？这些也都成为过去了，萌购依托大量的数据支持合并了打包和申请发货阶段，在新版萌购中您将可以直接申请商品的发货，直观的看到商品直发各种物流方式运费以及团发物流运费，根据需求自由选择，省心省力。\r\n\r\n请注意：以上功能仅支持新版萌购上提交的订单，您旧版萌购提交的订单，订单全部流程和服务将保持原流程不变。\r\n\r\n除了新功能的加入，部分老功能也将退出舞台，或暂时休息等待下次与您见面：\r\n\r\n* 新版萌购将不再支持预付运费功能。\r\n* 萌购国际小包发送方式将暂停，预计4月下旬恢复\r\n* 新支持网站及原服务手续费变更请留意后续更新\r\n\r\n请注意：您在萌购旧版中提交的订单将无法和新版萌购订单合并发货，请根据需求选择下单方式，带来不便敬请谅解。\r\n请注意：改版初期您仍可切换到旧版萌购下单，若您需要合并老商品发货可选择旧版萌购下单，旧版萌购将于4月下旬暂停服务。","operator":"633","type":"1","type_status":"","create_time":"1522258995","update_time":"1523866459","flag":"11"}],"stick":{"1":[{"bulletin_id":"3197","bulletin_title":"2018年端午节萌购发货安排","bulletin_content":"2018年中国端午节为6月16日（周六）- 6月18日（周一），受端午节影响部分物流方式的到货和发货时间可能有顺延的情况。\r\n\r\n使用标准团发（跨境电商），快速团发 的发货时间将顺延1-3个工作日；\r\n\r\n使用香港系列物流的，物流单号的生成时间和生成后的可追踪时间将可能分别顺延1-3个工作日；\r\n\r\n使用日本邮政系列物流发送的将不受影响。\r\n\r\n您的退款到账时间和售后处理问题处理时间也可能顺延1-2个工作日。\r\n\r\n给您带来不便敬请谅解，祝大家节日愉快。","operator":"753186","type":"1","type_status":"","create_time":"1528450350","update_time":"1528960727","flag":"11"},{"bulletin_id":"3196","bulletin_title":"海淘助手维护中，可使用萌购随心购","bulletin_content":"萌购海淘助手由于受到网络流量攻击， 正在紧急维护当中，预计将在明晚（6月7日晚）完全恢复。对于造成不便，深表歉意。m(__)m\r\n\r\n随心购服务没有受到影响，大家可以戳首页右上角的图标进入。\r\n也可通过 http:\/\/anybuy.030buy.net 进入随心购进行购买哦。","operator":"633","type":"1","type_status":"","create_time":"1528278844","update_time":"1528289535","flag":"9"},{"bulletin_id":"3194","bulletin_title":"E特快山东省暂停发送通知","bulletin_content":"接E特快物流商通知，受山东青岛上合组织峰会影响，即日起E特快将暂停山东省辖区内包裹的投递。预计将在6月12日之后恢复。\r\n\r\n您已申请E特快发送的包裹将在送达香港中转后转为其他可用的物流方式进行发送，如无可用物流方式的将在恢复后发送。\r\n\r\n其他物流方式暂未收到通知，但为了顺利收到包裹若您的收货地址在山东省境内建议您在6月11日后再申请发货。","operator":"3866","type":"1","type_status":"","create_time":"1527125807","update_time":"1527125875","flag":"11"},{"bulletin_id":"3192","bulletin_title":"萌购新版正式上线和团发最新状态通知","bulletin_content":"* 萌购新团发正式上线 *\r\n\r\n在新萌购系统试运行一个月后，新萌购将在5月7日正式上线。感谢试运行阶段新老用户的支持和建议，完善了新萌购的不足。\r\n\r\n正式上线后，萌购页面将全面切换至新页面，旧萌购系统将停止受理新的订单，您的可以切换至旧萌购系统管理您的历史订单，进行申请发货和其他历史订单操作。\r\n\r\n* 萌购团发最新状态通知 *\r\n\r\n萌购团发作为萌购的标志性运输方式，在2018年春节后由于承运物流方的各种因素以及国家部门和政策调整的原因出现了大面积延误的情况，目前在新的萌购版本中萌购将采用跨境电商保税直邮的清关方式作为团发的解决方案，完美解决各类时效不稳定的情况，具体的策略变更如下：\r\n\r\n旧萌购团发：旧萌购的团发订单资费和流程将不会变更，由于目前待处理的包裹数较多，您的旧萌购团发订单将有一定的延误，萌购已尽最大可能处理延误订单，但由于年后的延误包裹数较多，预计将于5月底旧团发到货时间才能稳定，而新团发使用的是完全不同的物流供应商，时效不会受到影响。\r\n\r\n新萌购标准团发：按照国家要求，自2018年5月7日起，您使用标准团发时将需要填写收件人的姓名和身份证信息，使用虚假信息将无法申请发货。由于通关流程的变更，标准团发的收费标准将做相关调整：\r\n\r\n收费重量将从商品重量变更为包裹重量，首重500克收费19元，续重每500克10元，不再收取包裹的国内运费和体积运费，到货时间为发货后的20-30天。\r\n\r\n跨境关税，使用标准团发将需支付跨境关税，通常商品的关税额度为11.2%（详细查看 http:\/\/new.030buy.net\/help\/03_08#TAX），前期推广阶段萌购将提供关税补贴，199元以上的商品将提供50%关税补贴，199元以下的商品提供30%关税补贴（以上优惠化妆品除外）。更多有关关税的信息请点击查看帮助。\r\n\r\n新萌购快速团发：由于流程的变更导致日本和国内运维成本的上升，自2018年5月7日起，快速团发将新增10元包裹处理费，其他收费标准和流程不变。\r\n\r\n由于各种因素带来的不便深表歉意，新的团发将弥补老团发的各种不足，为您提供更可靠稳定的团发体验。一直以来您的声音都是萌购前进的动力，我们依然希望听到您建议和意见，欢迎联系我们如有任何意见和建议。","operator":"3866","type":"1","type_status":"","create_time":"1525394418","update_time":"1525402680","flag":"9"},{"bulletin_id":"3189","bulletin_title":"萌购改版预报","bulletin_content":"在2018年的春风中，3月29日萌购网站将引来一次大规模的改版，本次改版萌购将进一步优化购物体验，提升浏览网站的流畅程度，并添加更多的购物网站支持，那么就让在下先来预告一下即将带来的新变动吧：\r\n\r\n* 萌购随心购\r\n\r\n萌购随心购功能将正式加入萌购大家庭。\r\n\r\n支持包括Yahoo 日本拍卖的几乎所有日本通贩和C2C网站，绝版、场贩、特典哦哦，都要到你口袋。\r\n\r\n更多有关随心购的使用方式，请留意之后首页专题页面。\r\n\r\n* 全面支持日本 ANIMATE,MOVIC,AMIAMI 代购服务。\r\n\r\n以上3站均支持萌购新团发，恩，终于不用问我们什么时候支持A站了吧~\r\n\r\n* 骏河屋下单全面提速\r\n\r\n新萌购系统提交的骏河屋订单将采取全天候自动下单，全天候守候特价，热门稀缺商品，不再有遗憾。\r\n\r\n* 直发团发随心用\r\n\r\n还没决定好用团发还是直发？下单没有后悔药？这一切将成为过去！新萌购系统中，您将不再需要下单时决定商品的发送方式，所有订单商品皆会在日本仓库进行入库，入库后您可根据商品的具体情况（如运费高低等，速度需求等）自由选择使用直发物流方式还是团发物流方式。\r\n\r\n\r\n* 团发全新模式\r\n\r\n萌购新团发将提供标准团发和快速团发2种团发模式，标准团发将提供更经济的运费（3元\/50g，每个商品），适合不在意到货时间的用户；萌购快速团发线路，收费标准为5元\/50g（每个商品），适合希望到货时间稳定，又不想自行处理通关手续的用户。\r\n\r\n\r\n* 一键申请发货，运费一目了然\r\n\r\n申请打包、申请发货陷入混乱，申请打包了后不知道运费是否超过预期，心中悬着下不来？申请打包后又发现打包不合适，拆包既麻烦又伤财？这些也都成为过去了，萌购依托大量的数据支持合并了打包和申请发货阶段，在新版萌购中您将可以直接申请商品的发货，直观的看到商品直发各种物流方式运费以及团发物流运费，根据需求自由选择，省心省力。\r\n\r\n请注意：以上功能仅支持新版萌购上提交的订单，您旧版萌购提交的订单，订单全部流程和服务将保持原流程不变。\r\n\r\n除了新功能的加入，部分老功能也将退出舞台，或暂时休息等待下次与您见面：\r\n\r\n* 新版萌购将不再支持预付运费功能。\r\n* 萌购国际小包发送方式将暂停，预计4月下旬恢复\r\n* 新支持网站及原服务手续费变更请留意后续更新\r\n\r\n请注意：您在萌购旧版中提交的订单将无法和新版萌购订单合并发货，请根据需求选择下单方式，带来不便敬请谅解。\r\n请注意：改版初期您仍可切换到旧版萌购下单，若您需要合并老商品发货可选择旧版萌购下单，旧版萌购将于4月下旬暂停服务。","operator":"633","type":"1","type_status":"","create_time":"1522258995","update_time":"1523866459","flag":"11"}],"3":[{"bulletin_id":"3188","bulletin_title":"日本仓库繁忙","bulletin_content":"目前日本仓库较为繁忙，存在一定的收发货延期情况。","operator":"633","type":"3","type_status":"yellow","create_time":"1522258756","update_time":"1523501607","flag":"15"}],"4":[{"bulletin_id":"3187","bulletin_title":"客服正常","bulletin_content":"小姐姐正常工作中","operator":"633","type":"4","type_status":"green","create_time":"1522258675","update_time":"1522258705","flag":"15"}],"2":[{"bulletin_id":"3186","bulletin_title":"下单正常","bulletin_content":"目前正常下单","operator":"633","type":"2","type_status":"green","create_time":"1522258004","update_time":"1522258004","flag":"15"}]}};
+  poi.exchange = 0.0617;
+  poi.exchangeLog = $.parseJSON('{"exchange_log":[{"date":"2018-06-08","exchange":"0.06030000"},{"date":"2018-06-09","exchange":"0.06050000"},{"date":"2018-06-10","exchange":"0.06050000"},{"date":"2018-06-11","exchange":"0.06050000"},{"date":"2018-06-12","exchange":"0.06010000"},{"date":"2018-06-13","exchange":"0.05990000"},{"date":"2018-06-14","exchange":"0.06000000"},{"date":"2018-06-15","exchange":"0.06000000"},{"date":"2018-06-16","exchange":"0.06010000"},{"date":"2018-06-17","exchange":"0.06010000"},{"date":"2018-06-18","exchange":"0.06030000"},{"date":"2018-06-19","exchange":"0.06060000"},{"date":"2018-06-20","exchange":"0.06080000"},{"date":"2018-06-21","exchange":"0.06060000"},{"date":"2018-06-22","exchange":"0.06110000"},{"date":"2018-06-23","exchange":"0.06120000"},{"date":"2018-06-24","exchange":"0.06120000"},{"date":"2018-06-25","exchange":"0.06150000"},{"date":"2018-06-26","exchange":"0.06180000"},{"date":"2018-06-27","exchange":"0.06220000"},{"date":"2018-06-28","exchange":"0.06210000"},{"date":"2018-06-29","exchange":"0.06220000"},{"date":"2018-06-30","exchange":"0.06190000"},{"date":"2018-07-01","exchange":"0.06190000"},{"date":"2018-07-02","exchange":"0.06180000"},{"date":"2018-07-03","exchange":"0.06260000"},{"date":"2018-07-04","exchange":"0.06210000"},{"date":"2018-07-05","exchange":"0.06220000"},{"date":"2018-07-06","exchange":"0.06220000"},{"date":"2018-07-07","exchange":"0.06220000"},{"date":"2018-07-08","exchange":"0.06220000"},{"date":"2018-07-09","exchange":"0.06200000"},{"date":"2018-07-10","exchange":"0.06150000"},{"date":"2018-07-11","exchange":"0.06220000"},{"date":"2018-07-12","exchange":"0.06170000"}]}');
+  poi.browser_host = 'http://www.0a0a0.cc';
+  poi.app_webview = 0;
+  poi.moebuy = 1;
+  poi.current_site_name = '1'
+  poi.pool_url = {
+    // '<pool_status>: { <Number(is_pool_leader)>: func }'
+    0: {
+      false: function (pool_id) { return '/pool/pendingApplyForMember'; },
+    },
+    1: {
+      false: function (pool_id) { return '/pool/ongoingPoolForMember'; },
+      true: function (pool_id, item_id) { return '/pool/ongoingPoolForLeader?keyword_type=item_id&keyword=' + item_id; },
+    },
+    2: {
+      false: function (pool_id, item_id) { return '/pool/finishedPoolForMember?keyword_type=item_id&keyword=' + item_id; },
+      true: function (pool_id, item_id) { return '/pool/finishedPoolForLeader?keyword_type=item_id&keyword=' + item_id; },
+    }
+  };
+
+  $(function() {
+    poi.msg('', '');
+  })
+</script>
+<script async src="https://qiyukf.com/script/9b2b7d46239097c1d97ea6b9464927e4.js" id="qiyuScript"></script><script>
+  //客服配置
+  $('#qiyuScript').on('load',function(){
+      })
+</script>
+<script src="/common/js/bootstrap.min.js?r=e2b4ac51"></script>
+<script src="/js/frontend_omni.js?r=9eff93e1"></script>
+<script src="/js/jquery-confirm.min.js?r=6cfb8535"></script>
+<script src="/js/frontend.js?r=e55c29ba"></script>
+<script src="/js/vendor.js?r=887962eb"></script>
+<script src="/js/omni.js?r=db6960f7"></script>
+<script src="/js/030.js?r=62dc398a"></script>
+<script>
+  poi.register = 'https://user.030buy.net/register';
+  poi.login = 'https://user.030buy.net/service/login?next_url=https%3A%2F%2Fwww.030buy.net%2Flogin%3Fredirect%3Dhttp%253A%252F%252Fwww.030buy.net%252F';
+  poi.logout = 'https://user.030buy.net/service/logout?next_url=https%3A%2F%2Fwww.030buy.net%2Flogout';
+  poi.profile = 'https://user.030buy.net/user/profile';
+  poi.anybuy = 'http://anybuy.030buy.net';
+</script>
+<script>
+	$(function() {
+		moeEvent.$on('side',function() {
+      $('html').addClass('moebuy');
+      $('.moe-page-wrap').css('padding-bottom', '128px');
+		})
+		moeEvent.$on('footer.small',function() {
+      $('.moe-page-wrap').css('padding-bottom', '128px');
+		})
+		moeEvent.$on('timeLine',function() {
+			$('html').addClass('moebuy');
+		})
+	});
+</script>
+<style>
+.moe-index header .header-icons {
+  right: 0px !important;
+}
+</style>
+<script type="text/javascript" src="/js/isMobile.min.js"></script>
+<script type="text/javascript" src="/js/encoding.min.js"></script>
+<script>
+$(function () {
+
+new Vue({
+  el: '#moe-index-app',
+  data: {
+    search_url: '',
+    slides_list:[{"title":"在种草姬|分享你的最爱|同好交流从这里开始","subtitle":"新萌购 APP 上出现了 种草姬社区","image":"\/\/ss.030mall.com\/widget\/web_illustration.png","link":"https:\/\/www.030buy.net\/special\/2018.5.9.moebuy"},{"title":"全日本随心购|现已正式加入|萌购娘豪华套餐","subtitle":"咕咕咕~ 完成2018新年的约定","image":"\/\/ss.030mall.com\/widget\/8FEF146817AD58CAC503FA040C854FE1","link":"http:\/\/anybuy.030buy.net\/"},{"title":"女神装置|Alice Gear Aegis|吾妻枫","subtitle":"【寿屋商店代理特典版】","image":"http:\/\/caracal.moeid.com\/66\/66e3\/66e37a42f29a6f285eaf897cb5ba641f.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060266"},{"title":"FAG  新机娘|格里芬","subtitle":"FRAME ARMS GIRL","image":"http:\/\/caracal.moeid.com\/65\/650a\/650a4a4611ea93092d681adcce0367a1.jpg","link":"http:\/\/www.030mall.com\/p\/SG_059681"},{"title":"正经手机架|無料社|~【手机少女】","subtitle":"来自「大绅士」的超正经推荐","image":"\/\/ss.030mall.com\/widget\/D7FF85B0968AB65CB4631B1D88503572","link":"http:\/\/www.030mall.com\/p\/SG_059337"},{"title":"艶娘幻梦谭|春梅","subtitle":"original by Tony","image":"http:\/\/caracal.moeid.com\/52\/5248\/52484446f7ecbc4b83bd88e69d4680e7.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060379"}],
+hot_list:[{"title":"壽屋 女神装置|机甲美少女，可动性超高的塑料老婆们。","image":"\/\/ss.030mall.com\/widget\/7880260B316170DBFAB10AF03DA1DE82","link":"http:\/\/www.030mall.com\/list#filter=13326&page=1&group=3"},{"title":"TYPE-MOON fate系列|欢迎来到型月世界，你也是月球人吗？","image":"\/\/ss.030mall.com\/widget\/744F4FC8EA642D198DC650506AE101B8","link":"http:\/\/www.030mall.com\/list#page=1&group=0&condition=0&name=fate"},{"title":"眼镜厂 景品扭蛋|除了舔爆我还能说什么？对，就是实惠啊！","image":"\/\/ss.030mall.com\/widget\/37A483D1C6C28B2B672DD116AD4E36A3","link":"http:\/\/www.030mall.com\/list#sort=createTime&st=desc&filter=&page=1&group=0&condition=0&name=%E6%99%AF%E5%93%81%20%E6%89%AD%E8%9B%8B%20%E9%A3%9F%E7%8E%A9"}],
+recommend:[{"title":"异度之刃2 光","subtitle":"土可以再吃，钱可以再赚","price":"1360","button":"","image":"http:\/\/caracal.moeid.com\/fa\/fae7\/fae7b4ea3b459fd35a764d56ec0ef119_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_057955","tag":"","size":"large"},{"title":"异度之刃2 焰","subtitle":"这个娃下架就不会再有了","price":"1360","button":"","image":"http:\/\/caracal.moeid.com\/3f\/3fff\/3fffce20c8927d56431fcc651fc67d52_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_052887","tag":"","size":"large"},{"title":"HT 复仇者联盟3：无限战争 美国队长","subtitle":"","price":"1500","button":"","image":"http:\/\/caracal.moeid.com\/08\/0894\/0894c0f1b0cae29c33f8462fc3846690_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_058181","tag":"","size":"small"},{"title":"HT 复仇者联盟3：无限战争 钢铁蜘蛛侠","subtitle":"","price":"1550","button":"","image":"http:\/\/caracal.moeid.com\/10\/10a1\/10a194eb5c8448d8fd9611656ca08c04_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_058902","tag":"","size":"small"},{"title":"HT 死侍2 死侍","subtitle":"","price":"1500","button":"","image":"http:\/\/caracal.moeid.com\/70\/703d\/703d2e394fc712896d6750694b7e07aa_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_059845","tag":"","size":"small"},{"title":"HT 复仇者联盟3：无限战争 奇异博士","subtitle":"","price":"1600","button":"","image":"http:\/\/caracal.moeid.com\/8c\/8c16\/8c16961cb96bc13a60f4598986a34ed3_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060013","tag":"","size":"small"},{"title":"七美徳 拉斐尔 节制之像","subtitle":"","price":"1094-1315","button":"","image":"http:\/\/caracal.moeid.com\/d6\/d619\/d619492eac8b601f721367976c65656a_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060702","tag":"","size":"small"},{"title":"Fate\/stay night Saber 阿尔托莉雅 和服礼服Ver.","subtitle":"","price":"970-1092","button":"","image":"http:\/\/caracal.moeid.com\/35\/3572\/3572ccd0a9cbf875891962aa1d9acfba_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060701","tag":"","size":"small"},{"title":"粘土人 来自深渊 娜娜奇","subtitle":"","price":"306-325","button":"","image":"http:\/\/caracal.moeid.com\/87\/87f4\/87f46df329686ef9bf6b6b90dc476e51_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060558","tag":"","size":"small"},{"title":"figma 初音未来 GTproject 赛车初音2018Ver.","subtitle":"","price":"406","button":"","image":"http:\/\/caracal.moeid.com\/e6\/e6ff\/e6ff4e7f32d7d644b44500e9128d18ce.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060545","tag":"","size":"small"},{"title":"figma 女神异闻录5 Panther 高卷杏","subtitle":"","price":"362","button":"","image":"http:\/\/caracal.moeid.com\/a3\/a39d\/a39d48bc0bdf0198dabc7f7051df632b_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060541","tag":"","size":"small"},{"title":"figma 女神异闻录5 joker","subtitle":"","price":"371","button":"","image":"http:\/\/caracal.moeid.com\/a2\/a2c5\/a2c5a48939c3c26472568be7382ec7d2.jpg","link":"http:\/\/www.030mall.com\/p\/SG_047848","tag":"","size":"small"},{"title":"CodeGeass 反逆的鲁鲁修 C.C.","subtitle":"","price":"640","button":"","image":"http:\/\/caracal.moeid.com\/96\/9662\/9662b2b6f7ba034895a16d970052d67a_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060377","tag":"","size":"small"},{"title":"偶像大师灰姑娘女孩 速水奏 Tulip Ver.","subtitle":"","price":"810-980","button":"","image":"http:\/\/caracal.moeid.com\/3c\/3c74\/3c746bf96968f290574baf937c4fa0fa_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060380","tag":"","size":"small"}],
+ranking:[{"title":"手机少女 正经手机支架（颜色随机）","subtitle":"","image":"http:\/\/caracal.moeid.com\/e9\/e903\/e903b878d2f4518f36afe40fb6f0f7d5_150x150_b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_059337"},{"title":"全金属狂潮 TDD-1 帽子","subtitle":"","image":"http:\/\/caracal.moeid.com\/15\/15eb\/15ebcf87d09bae9957f8ebea1a1a3191_150x150_b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_058823"},{"title":"异度之刃2 光","subtitle":"","image":"http:\/\/caracal.moeid.com\/d1\/d17f\/d17f35663dcd9b9f8a469edce8c0f430_150x150_b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_057955"},{"title":"异度之刃2 焰","subtitle":"","image":"http:\/\/caracal.moeid.com\/b8\/b81c\/b81c52bf00daff5787064817b11b4291_150x150_b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_052887"},{"title":"figma 重兵装型女子高生 壱 重兵装型 女子高中生","subtitle":"","image":"http:\/\/caracal.moeid.com\/1c\/1c67\/1c67c894b84f65525ddd23b382e45c16_150x150_b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_059318"},{"title":"全金属狂潮 马度卡斯 帽子","subtitle":"","image":"http:\/\/caracal.moeid.com\/20\/20ba\/20ba182bb6aec05aaa867f3624cdf6cd_150x150_b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_058824"},{"title":"女神装置×alice gear aegis 吾妻枫【寿屋商店代理特典版】","subtitle":"","image":"http:\/\/caracal.moeid.com\/61\/61c2\/61c20692ac040628fa46e0f188b3028a_150x150_b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060266"},{"title":"全金属狂潮 TDD-1 两用包","subtitle":"","image":"http:\/\/caracal.moeid.com\/be\/be3d\/be3d90fc7b101d1de829032d92282370_150x150_b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_058512"},{"title":"攻壳机动队 塔奇库玛 思考车 STAND ALONE COMPLEX","subtitle":"","image":"http:\/\/caracal.moeid.com\/06\/06df\/06dfc63cdca53fb0758ab96fc91097c1_150x150_b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_059410"},{"title":"和牛拼图","subtitle":"","image":"http:\/\/caracal.moeid.com\/67\/6767\/6767c7f54d8f1ce14b24b7a93fc173db_150x150_b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_059111"}],
+editor_recommend:[{"title":"机动战士高达 08MS小队 |陆战型高达 背包","subtitle":"只要998！","image":"http:\/\/caracal.moeid.com\/70\/70c8\/70c805b3699ff09c3802b8331ad7e576.jpg","link":"http:\/\/www.030mall.com\/p\/SG_060619","price":"998 元"},{"title":"假面骑士Build系列","subtitle":"BANDAI","image":"http:\/\/xdream-test.oss-cn-shanghai.aliyuncs.com\/widget\/1cd63d96374e4718644cabe65db96de8","link":"http:\/\/www.030mall.com\/list#filter=14783&page=1&group=3","price":"30~605 元"},{"title":"金枪鱼拼图","subtitle":"megahouse","image":"http:\/\/caracal.moeid.com\/dd\/dde9\/dde97fed82b674a00e13fd2a583b0a6e.jpg","link":"http:\/\/www.030mall.com\/p\/SG_059112","price":"89 元"},{"title":"和牛拼图","subtitle":"megahouse","image":"http:\/\/caracal.moeid.com\/67\/6767\/6767c7f54d8f1ce14b24b7a93fc173db_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_059111","price":"89 元"},{"title":"攻壳机动队| 塔奇库玛 思考车 ","subtitle":"STAND ALONE COMPLEX","image":"http:\/\/xdream-test.oss-cn-shanghai.aliyuncs.com\/widget\/1c56a685e4d7856726d835e03b2ed4d8","link":"http:\/\/www.030mall.com\/p\/SG_059410","price":"123 元"},{"title":"排球少年| 徽章 吧唧 文件夹 立牌","subtitle":"WEGO","image":"https:\/\/gd4.alicdn.com\/imgextra\/i4\/372931103\/TB2Qy9mdrZnBKNjSZFGXXbt3FXa_!!372931103.jpg_400x400.jpg","link":"https:\/\/item.taobao.com\/item.htm?spm=a1z38n.10677092.0.0.11891deb9xw4Av&id=567953763802","price":"12-50 元"},{"title":"绮罗星纸 神话 |夜天 良夜 星座图 月华","subtitle":"游星商会","image":"https:\/\/gd1.alicdn.com\/imgextra\/i3\/372931103\/TB2fa1aqH9YBuNjy0FgXXcxcXXa_!!372931103.jpg","link":"https:\/\/item.taobao.com\/item.htm?spm=a1z38n.10677092.0.0.11891debYw4jj2&id=569122124732","price":"20-100 元"},{"title":"steins gate 命运石之门0|T恤 卫衣 皮带 帽子 ","subtitle":"R4G ","image":"https:\/\/gd4.alicdn.com\/imgextra\/i4\/372931103\/TB2UgQsqHSYBuNjSspiXXXNzpXa_!!372931103.jpg","link":"https:\/\/item.taobao.com\/item.htm?spm=a1z38n.10677092.0.0.11891debYw4jj2&id=569324300058&","price":"100-300 元"},{"title":"黑\/白 素体 本体|魅特兔  玩偶挂件","subtitle":"MOVIC animate","image":"http:\/\/xdream-test.oss-cn-shanghai.aliyuncs.com\/widget\/967c6d8ffcc7e5e4f08cc4d257805ced","link":"https:\/\/item.taobao.com\/item.htm?spm=a1z38n.10677092.0.0.11891debBnACq2&id=564886854406","price":"65 元"},{"title":"  夏尔 赛巴斯|彼得兔 毛绒挂件","subtitle":"黑执事Black Label","image":"https:\/\/gd1.alicdn.com\/imgextra\/i3\/372931103\/TB2VYRkbGagSKJjy0FgXXcRqFXa_!!372931103.jpg","link":"https:\/\/item.taobao.com\/item.htm?spm=a1z38n.10677092.0.0.11891debBnACq2&id=558744476793","price":"217 元"}],
+site_recommends:[{"title":"现货推荐","items":[{"title":"[52TOYS]MEGABOX MB-01 异形 异形蛋 破胸虫 变形玩具 首发版 ","subtitle":"（赠送夜光异形蛋和破胸虫）","image":"http:\/\/caracal.moeid.com\/a6\/a66f\/a66fcadc4357e39bffdb9ae89218d20c_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_057797","price":"148","tag":""},{"title":"[52TOYS]BEASTBOX MAHJONG DIO 猛兽匣 麻将狄奥 变形小恐龙","subtitle":"","image":"http:\/\/caracal.moeid.com\/c8\/c8a7\/c8a7c2408b79009219de2ad4cd58583f.jpg","link":"http:\/\/www.030mall.com\/p\/SG_057796","price":"198","tag":""},{"title":"[52TOYS]猛兽匣系列 52TOYS吉祥物 变形小恐龙DIO 警视厅狄奥","subtitle":"","image":"http:\/\/caracal.moeid.com\/62\/6261\/62616286522cb740607d93fa1cecdb4a_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_057795","price":"68","tag":""},{"title":"路人女主的养成方法 加藤恵 和服Ver.","subtitle":"Aniplex+限定","image":"http:\/\/caracal.moeid.com\/b9\/b9a4\/b9a40a3c49adb470edaa4924528546a6_1200x900.png","link":"http:\/\/www.030mall.com\/p\/SG_040443","price":"950","tag":""},{"title":"舰队收藏 高雄 重兵装Ver.","subtitle":"【GSCO限定版】","image":"http:\/\/caracal.moeid.com\/a7\/a706\/a7068863e4f5099791f69c2f1e28492a.jpg","link":"http:\/\/www.030mall.com\/p\/SG_039917","price":"1598","tag":""},{"title":"舰队收藏 爱宕 重兵装Ver.","subtitle":"【GSCO限定版】","image":"http:\/\/caracal.moeid.com\/12\/1256\/1256b6c8a17a9a9f833cce4a044db728.jpg","link":"http:\/\/www.030mall.com\/p\/SG_033798","price":"1595","tag":""},{"title":"Dwell EVA新剧场版Q 渚薰X碇真治","subtitle":"","image":"http:\/\/caracal.moeid.com\/53\/5383\/53838b0b8d0b734c4a4778223240eceb.jpg","link":"http:\/\/www.030mall.com\/p\/SG_015749","price":"350","tag":""},{"title":"【食玩】FW GUNDAM CONVERGE EX19 恶魔高达","subtitle":"特价","image":"http:\/\/caracal.moeid.com\/40\/40f1\/40f13edcdb028f3e05d7b24ba552266b.jpg","link":"http:\/\/www.030mall.com\/p\/SG_048914","price":"102","tag":""},{"title":"S.H.Figuarts 正义联盟 神奇女侠","subtitle":"","image":"http:\/\/caracal.moeid.com\/c0\/c04e\/c04eeac4b03fa50da9a766ae533f7819_1200x900.jpg","link":"http:\/\/www.030mall.com\/p\/SG_048008","price":"290","tag":""},{"title":"海洋堂 软胶玩具 凤蝶毛虫","subtitle":"毛虫了解下？","image":"http:\/\/caracal.moeid.com\/fe\/fe3d\/fe3d25182a54eccbfd21a4999144c89e.jpg","link":"http:\/\/www.030mall.com\/p\/SG_040836","price":"134","tag":""}],"site":{"image":"https:\/\/g-search1.alicdn.com\/img\/bao\/uploaded\/i4\/\/9c\/fa\/TB1jVw9LXXXXXXbXVXXSutbFXXX.jpg_70x70.jpg_.webp","title":"萌购淘宝支部","link":"https:\/\/shop61248121.taobao.com"}}],
+    slides_actived_index: 0,
+    old_slides_actived_index: 0,
+    week_name: '',
+    day: '',
+    month: '',
+    bulletins: {"1":[{"bulletin_id":"3197","bulletin_title":"2018年端午节萌购发货安排","bulletin_content":"2018年中国端午节为6月16日（周六）- 6月18日（周一），受端午节影响部分物流方式的到货和发货时间可能有顺延的情况。\r\n\r\n使用标准团发（跨境电商），快速团发 的发货时间将顺延1-3个工作日；\r\n\r\n使用香港系列物流的，物流单号的生成时间和生成后的可追踪时间将可能分别顺延1-3个工作日；\r\n\r\n使用日本邮政系列物流发送的将不受影响。\r\n\r\n您的退款到账时间和售后处理问题处理时间也可能顺延1-2个工作日。\r\n\r\n给您带来不便敬请谅解，祝大家节日愉快。","operator":"753186","type":"1","type_status":"","create_time":"1528450350","update_time":"1528960727","flag":"11"},{"bulletin_id":"3196","bulletin_title":"海淘助手维护中，可使用萌购随心购","bulletin_content":"萌购海淘助手由于受到网络流量攻击， 正在紧急维护当中，预计将在明晚（6月7日晚）完全恢复。对于造成不便，深表歉意。m(__)m\r\n\r\n随心购服务没有受到影响，大家可以戳首页右上角的图标进入。\r\n也可通过 http:\/\/anybuy.030buy.net 进入随心购进行购买哦。","operator":"633","type":"1","type_status":"","create_time":"1528278844","update_time":"1528289535","flag":"9"},{"bulletin_id":"3194","bulletin_title":"E特快山东省暂停发送通知","bulletin_content":"接E特快物流商通知，受山东青岛上合组织峰会影响，即日起E特快将暂停山东省辖区内包裹的投递。预计将在6月12日之后恢复。\r\n\r\n您已申请E特快发送的包裹将在送达香港中转后转为其他可用的物流方式进行发送，如无可用物流方式的将在恢复后发送。\r\n\r\n其他物流方式暂未收到通知，但为了顺利收到包裹若您的收货地址在山东省境内建议您在6月11日后再申请发货。","operator":"3866","type":"1","type_status":"","create_time":"1527125807","update_time":"1527125875","flag":"11"},{"bulletin_id":"3192","bulletin_title":"萌购新版正式上线和团发最新状态通知","bulletin_content":"* 萌购新团发正式上线 *\r\n\r\n在新萌购系统试运行一个月后，新萌购将在5月7日正式上线。感谢试运行阶段新老用户的支持和建议，完善了新萌购的不足。\r\n\r\n正式上线后，萌购页面将全面切换至新页面，旧萌购系统将停止受理新的订单，您的可以切换至旧萌购系统管理您的历史订单，进行申请发货和其他历史订单操作。\r\n\r\n* 萌购团发最新状态通知 *\r\n\r\n萌购团发作为萌购的标志性运输方式，在2018年春节后由于承运物流方的各种因素以及国家部门和政策调整的原因出现了大面积延误的情况，目前在新的萌购版本中萌购将采用跨境电商保税直邮的清关方式作为团发的解决方案，完美解决各类时效不稳定的情况，具体的策略变更如下：\r\n\r\n旧萌购团发：旧萌购的团发订单资费和流程将不会变更，由于目前待处理的包裹数较多，您的旧萌购团发订单将有一定的延误，萌购已尽最大可能处理延误订单，但由于年后的延误包裹数较多，预计将于5月底旧团发到货时间才能稳定，而新团发使用的是完全不同的物流供应商，时效不会受到影响。\r\n\r\n新萌购标准团发：按照国家要求，自2018年5月7日起，您使用标准团发时将需要填写收件人的姓名和身份证信息，使用虚假信息将无法申请发货。由于通关流程的变更，标准团发的收费标准将做相关调整：\r\n\r\n收费重量将从商品重量变更为包裹重量，首重500克收费19元，续重每500克10元，不再收取包裹的国内运费和体积运费，到货时间为发货后的20-30天。\r\n\r\n跨境关税，使用标准团发将需支付跨境关税，通常商品的关税额度为11.2%（详细查看 http:\/\/new.030buy.net\/help\/03_08#TAX），前期推广阶段萌购将提供关税补贴，199元以上的商品将提供50%关税补贴，199元以下的商品提供30%关税补贴（以上优惠化妆品除外）。更多有关关税的信息请点击查看帮助。\r\n\r\n新萌购快速团发：由于流程的变更导致日本和国内运维成本的上升，自2018年5月7日起，快速团发将新增10元包裹处理费，其他收费标准和流程不变。\r\n\r\n由于各种因素带来的不便深表歉意，新的团发将弥补老团发的各种不足，为您提供更可靠稳定的团发体验。一直以来您的声音都是萌购前进的动力，我们依然希望听到您建议和意见，欢迎联系我们如有任何意见和建议。","operator":"3866","type":"1","type_status":"","create_time":"1525394418","update_time":"1525402680","flag":"9"},{"bulletin_id":"3189","bulletin_title":"萌购改版预报","bulletin_content":"在2018年的春风中，3月29日萌购网站将引来一次大规模的改版，本次改版萌购将进一步优化购物体验，提升浏览网站的流畅程度，并添加更多的购物网站支持，那么就让在下先来预告一下即将带来的新变动吧：\r\n\r\n* 萌购随心购\r\n\r\n萌购随心购功能将正式加入萌购大家庭。\r\n\r\n支持包括Yahoo 日本拍卖的几乎所有日本通贩和C2C网站，绝版、场贩、特典哦哦，都要到你口袋。\r\n\r\n更多有关随心购的使用方式，请留意之后首页专题页面。\r\n\r\n* 全面支持日本 ANIMATE,MOVIC,AMIAMI 代购服务。\r\n\r\n以上3站均支持萌购新团发，恩，终于不用问我们什么时候支持A站了吧~\r\n\r\n* 骏河屋下单全面提速\r\n\r\n新萌购系统提交的骏河屋订单将采取全天候自动下单，全天候守候特价，热门稀缺商品，不再有遗憾。\r\n\r\n* 直发团发随心用\r\n\r\n还没决定好用团发还是直发？下单没有后悔药？这一切将成为过去！新萌购系统中，您将不再需要下单时决定商品的发送方式，所有订单商品皆会在日本仓库进行入库，入库后您可根据商品的具体情况（如运费高低等，速度需求等）自由选择使用直发物流方式还是团发物流方式。\r\n\r\n\r\n* 团发全新模式\r\n\r\n萌购新团发将提供标准团发和快速团发2种团发模式，标准团发将提供更经济的运费（3元\/50g，每个商品），适合不在意到货时间的用户；萌购快速团发线路，收费标准为5元\/50g（每个商品），适合希望到货时间稳定，又不想自行处理通关手续的用户。\r\n\r\n\r\n* 一键申请发货，运费一目了然\r\n\r\n申请打包、申请发货陷入混乱，申请打包了后不知道运费是否超过预期，心中悬着下不来？申请打包后又发现打包不合适，拆包既麻烦又伤财？这些也都成为过去了，萌购依托大量的数据支持合并了打包和申请发货阶段，在新版萌购中您将可以直接申请商品的发货，直观的看到商品直发各种物流方式运费以及团发物流运费，根据需求自由选择，省心省力。\r\n\r\n请注意：以上功能仅支持新版萌购上提交的订单，您旧版萌购提交的订单，订单全部流程和服务将保持原流程不变。\r\n\r\n除了新功能的加入，部分老功能也将退出舞台，或暂时休息等待下次与您见面：\r\n\r\n* 新版萌购将不再支持预付运费功能。\r\n* 萌购国际小包发送方式将暂停，预计4月下旬恢复\r\n* 新支持网站及原服务手续费变更请留意后续更新\r\n\r\n请注意：您在萌购旧版中提交的订单将无法和新版萌购订单合并发货，请根据需求选择下单方式，带来不便敬请谅解。\r\n请注意：改版初期您仍可切换到旧版萌购下单，若您需要合并老商品发货可选择旧版萌购下单，旧版萌购将于4月下旬暂停服务。","operator":"633","type":"1","type_status":"","create_time":"1522258995","update_time":"1523866459","flag":"11"}],"3":[{"bulletin_id":"3188","bulletin_title":"日本仓库繁忙","bulletin_content":"目前日本仓库较为繁忙，存在一定的收发货延期情况。","operator":"633","type":"3","type_status":"yellow","create_time":"1522258756","update_time":"1523501607","flag":"15"}],"4":[{"bulletin_id":"3187","bulletin_title":"客服正常","bulletin_content":"小姐姐正常工作中","operator":"633","type":"4","type_status":"green","create_time":"1522258675","update_time":"1522258705","flag":"15"}],"2":[{"bulletin_id":"3186","bulletin_title":"下单正常","bulletin_content":"目前正常下单","operator":"633","type":"2","type_status":"green","create_time":"1522258004","update_time":"1522258004","flag":"15"}]},
+    gemini_scrollbar: [],
+    notice_show: '',
+    notice_show_index: 0,
+    notice_types: {
+      'bulletin': {
+        icon: 'feature',
+        using_color: ['green'],
+      },
+      'order': {
+        icon: 'order',
+        using_color: ['yellow', 'red'],
+      },
+      'store': {
+        icon: 'warehouse',
+        using_color: ['yellow', 'red'],
+      },
+      'customer': {
+        icon: 'service',
+        using_color: ['yellow', 'red'],
+      }
+    },
+    bulletins_is_read: true,
+    bulletins_need_tip: false,
+    need_tip_show: false,
+    need_tip: false,
+    editor_recommend_start: 0,
+      },
+  created: function () {
+    this.$watch('slides_actived_index', function (new_value, old_value) {
+      this.old_slides_actived_index = old_value;
+    });
+    this.$watch('notice_show', function (old_value, new_value) {
+      if(old_value == 'bulletin') {
+        this.bulletins_is_read = true;
+        localStorage['030-notice'] = (this.getBulletins('bulletin'))[0].update_time;
+      }
+      this.notice_show_index = 0;
+    });
+    var date = new Date();
+    this.week_name = ['日', '月', '火', '水', '木', '金', '土'][date.getDay()] + '曜日';
+    this.day = (date.getDate() > 9 ? '' : '0') + String(date.getDate());
+    this.month = date.getFullYear() + ' . ' + (date.getDay() > 9 ? '' : '0') + String(date.getMonth() + 1);
+    var time = Number(localStorage['030-notice']);
+    if((isNaN(time) ? 0 : time) < (this.getBulletins('bulletin'))[0].update_time) {
+      this.bulletins_is_read = false;
+    }
+      },
+  watch: {
+    'need_tip_show': function (value) {
+      var _this = this;
+      if(!value) {
+        setTimeout(function () {
+          _this.need_tip = false;
+          $('body').css({'overflow': 'auto'});
+        }, 500);
+      }
+    },
+  },
+  mounted: function () {
+    var _this = this;
+    $('.moe-notice .text > span, .line-limit-2').each(function () {
+      $clamp(this, { clamp: 2 });
+    });
+    $('.line-limit-3').each(function () {
+      $clamp(this, { clamp: 3 });
+    });
+    var timeout = null;
+    var switchSlides = function () {
+      _this.slidesSwitch(1);
+    };
+    var time = 4000;
+    timeout = setInterval(switchSlides, time);
+    $('.moe-slides')
+      .on('mouseenter', function () {
+        clearInterval(timeout);
+      })
+      .on('mouseleave', function () {
+        timeout = setInterval(switchSlides, time);
+      });
+    $('body').on('click', function () {
+      moeEvent.$emit('closeAll');
+    });
+    $('body').on('click', '.header-nav, .logining-menu', function (e) {
+      e.stopPropagation();
+    });
+    if(!isMobile.phone && !isMobile.tablet) {
+      setTimeout(function () {
+        if(localStorage.getItem('new_help_tip') != 'true') {
+          _this.need_tip = true;
+          setTimeout(function () {
+            _this.need_tip_show = true;
+          }, 200);
+          localStorage.setItem('new_help_tip', 'true');
+          $('body').css({'overflow': 'hidden'});
+        }
+      }, 500);
+    }
+    // 显示tip
+    var tick = Math.ceil((new Date()).getTime() / 1000) - (this.getBulletins('bulletin'))[0].update_time;
+    if(!this.bulletins_is_read && tick < 15 * 24 * 3600) {
+      setTimeout(function() {
+        var $html = $('html');
+        var scrollEvent = function () {
+          var notice_offset = $('.moe-notice').offset();
+          var notice_height = $('.moe-notice').height();
+          _this.bulletins_need_tip = $html.scrollTop() <= notice_offset.top - window.innerHeight + notice_height * 1.5;
+        };
+        scrollEvent();
+        $(document).on('scroll', scrollEvent);
+      }, 1000);
+    }
+  },
+  computed: {
+    search_url_computed: function () {
+      if(/^https?:\/\//.test(this.search_url)) {
+        return this.search_url;
+      } else {
+        if(this.search_url.trim() != '') {
+          return 'https://www.amazon.co.jp/s/?field-keywords=' + encodeURIComponent(this.search_url);
+        }
+      }
+      return '';
+    },
+    editor_recommend_slice: function () {
+      return this.editor_recommend.slice(this.editor_recommend_start, this.editor_recommend_start + 4);
+    },
+    recommend_limit: function () {
+      var array = [];
+      var line = 0, line_count = 0;
+      for (var i = 0; i < this.recommend.length; i++) {
+        var width = this.recommend[i].size === 'small' ? 1 : 2;
+        if(line_count + width <= 4) {
+          array.push(this.recommend[i]);
+          line_count += width;
+        } else {
+          if(line >= 2) break;
+          array.push(this.recommend[i]);
+          line += 1;
+          line_count = width;
+        }
+      }
+      return array;
+    },
+  },
+  methods: {
+    scrollbarInit: function (geminiScrollbar) {
+      this.gemini_scrollbar.push(geminiScrollbar);
+    },
+    base64Encode: Base64.encode,
+    slidesSwitch: function (step) {
+      var index = this.slides_actived_index + step;
+      if(!step) {
+        return;
+      } else if(step > 0 && this.slides_list.length - 1 < index) {
+        this.slides_actived_index = 0;
+        return;
+      } else if(step < 0 && 0 > index) {
+        this.slides_actived_index = this.slides_list.length - 1;
+        return;
+      }
+      this.slides_actived_index = index;
+    },
+    noticeSwitch: function (step) {
+      var index = this.notice_show_index + step;
+      if(!step) {
+        return;
+      } else if(step > 0 &&  this.getBulletins(this.notice_show).length - 1 < index) {
+        this.notice_show_index = 0;
+        return;
+      } else if(step < 0 && 0 > index) {
+        this.notice_show_index =  this.getBulletins(this.notice_show).length - 1;
+        return;
+      }
+      this.notice_show_index = index;
+    },
+    getBulletins: function (type) {
+      var constValue = this.$const('bulletin_type', type);
+      if(!constValue || !this.bulletins[constValue]) {
+        return [{
+          bulletin_title: '',
+          bulletin_content: '',
+          type_status: '',
+        }];
+      } else {
+        return this.bulletins[constValue];
+      }
+    },
+    searchSubmit: function (e) {
+      e.preventDefault();
+      this.$nextTick(function () {
+        if(this.search_url_computed) {
+          this.$refs['search-form'].submit();
+        }
+      });
+    },
+    splitText: function (html) {
+      var temp = document.createElement('div');
+      (temp.textContent != undefined ) ? (temp.textContent = html) : (temp.innerText = html);
+      var output = temp.innerHTML;
+      temp = null;
+      output = output.replace(/[\x00-\x1f\x7f]/g, '');
+      var text = output.split('|');
+      for (var i = 0; i < text.length; i++) {
+        if(text[i].substr(0, 1) == '~') {
+          text[i] = '<span style="margin-left: -0.5em">' + text[i].substr(1) + '</span>';
+        }
+      }
+      return text.join('<br>');
+      // return output.replace(/\|/g, '<br>');
+    },
+    openSearch: function () {
+      if(!isMobile.phone && !isMobile.tablet) {
+        moeEvent.$emit('search.key');
+      }
+    },
+    editorRecommendSwitch: function (value) {
+      var index = this.editor_recommend_start + value;
+      if(index + 1 > this.editor_recommend.length - Math.abs(value)) {
+        index = this.editor_recommend.length - Math.abs(value);
+      }
+      if(index < 0) {
+        index = 0;
+      }
+      this.editor_recommend_start = index;
+    },
+        noticeShow: function () {
+      var notice_offset = $('.moe-notice').offset();
+      this.notice_show = 'bulletin';
+      $('html, body').scrollTop(notice_offset.top - (window.innerHeight - 484) / 2);
+    },
+    gen_link: function (string) {
+      return string.replace(/(https?:\/\/[^\s/$.?#].[^\s]*)/ig, '<a href="$1" target="_blank">$1</a>')
+    },
+  },
+});
+
+new Vue({
+  el: '.moe-search-case',
+  data: {},
+});
+
+});
+</script>
+<div class="moe-footer-box" v-cloak>
+<footer-nav>
+<div class="help"><a href="/help/01_01a">什么是「萌购」</a></div>
+<div class="help"><a href="/help/02_07">什么是「随心购」</a></div>
+<div class="help"><a href="/help/02_06">生成并支付订单</a></div>
+<div class="help"><a href="/help/01_03">费用构成</a></div>
+<div class="help"><a href="/help/02_08">自主报价</a></div>
+<div class="help"><a href="/help/02_10">订单处理周期</a></div>
+<div class="help"><a href="/help/03_05">国际团发</a></div>
+<div class="help"><a href="/help/02_01">生成订单</a></div>
+<div class="help"><a href="/help/02_04">订单状态说明</a></div>
+<div class="help"><a href="/help/03_01">直发相关</a></div>
+<div class="help"><a href="/help/02_02">完成下单</a></div>
+<div class="help"><a href="/help/02_05">取消订单和退款</a></div>
+</footer-nav>
+</div>
+</body>
+</html>

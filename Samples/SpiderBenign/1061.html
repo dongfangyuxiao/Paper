@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>深圳高新社区</title>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="description" content="深圳市高新技术产业园区是第二大国家级高新区，单位面积产出全国第一。高新社区网创于2007年，是深圳高新园唯一的社区信息交流平台。" />
+<meta name="keywords" content="深圳高新园,深圳科技园,高新科技园,南山科技园,高新社区,科技园论坛,深圳社区,深圳论坛,高新企业,高新人才招聘" />
+<link rel="stylesheet" href="http://www.hiqq.com.cn/themes/site/default/css/dev/core.css?v=20140228" />
+<link rel="stylesheet" href="http://www.hiqq.com.cn/themes/site/default/css/dev/style.css?v=20140228" />
+<script>
+//全局变量 Global Variables
+var GV = {
+	JS_ROOT : 'http://www.hiqq.com.cn/res/js/dev/',										//js目录
+	JS_VERSION : '20140228',											//js版本号(不能带空格)
+	JS_EXTRES : 'http://www.hiqq.com.cn/themes/extres',
+	TOKEN : 'f3976d5f5b66894b',	//token $.ajaxSetup data
+	U_CENTER : 'http://www.hiqq.com.cn/index.php?m=space',		//用户空间(参数 : uid)
+	U_AVATAR_DEF : 'http://www.hiqq.com.cn/res/images/face/face_small.jpg',					//默认小头像
+	U_ID : parseInt('0'),									//uid
+	REGION_CONFIG : '',														//地区数据
+	CREDIT_REWARD_JUDGE : '',			//是否积分奖励，空值:false, 1:true
+	URL : {
+		LOGIN : 'http://www.hiqq.com.cn/index.php?m=u&c=login',										//登录地址
+		QUICK_LOGIN : 'http://www.hiqq.com.cn/index.php?m=u&c=login&a=fast',								//快速登录
+		IMAGE_RES: 'http://www.hiqq.com.cn/res/images',										//图片目录
+		CHECK_IMG : 'http://www.hiqq.com.cn/index.php?m=u&c=login&a=showverify',							//验证码图片url，global.js引用
+		VARIFY : 'http://www.hiqq.com.cn/index.php?m=verify&a=get',									//验证码html
+		VARIFY_CHECK : 'http://www.hiqq.com.cn/index.php?m=verify&a=check',							//验证码html
+		HEAD_MSG : {
+			LIST : 'http://www.hiqq.com.cn/index.php?m=message&c=notice&a=minilist'							//头部消息_列表
+		},
+		USER_CARD : 'http://www.hiqq.com.cn/index.php?m=space&c=card',								//小名片(参数 : uid)
+		LIKE_FORWARDING : 'http://www.hiqq.com.cn/index.php?c=post&a=doreply',							//喜欢转发(参数 : fid)
+		REGION : 'http://www.hiqq.com.cn/index.php?m=misc&c=webData&a=area',									//地区数据
+		SCHOOL : 'http://www.hiqq.com.cn/index.php?m=misc&c=webData&a=school',								//学校数据
+		EMOTIONS : "http://www.hiqq.com.cn/index.php?m=emotion&type=bbs",					//表情数据
+		CRON_AJAX : 'http://www.hiqq.com.cn/index.php?m=cron',											//计划任务 后端输出执行
+		FORUM_LIST : 'http://www.hiqq.com.cn/index.php?c=forum&a=list',								//版块列表数据
+		CREDIT_REWARD_DATA : 'http://www.hiqq.com.cn/index.php?m=u&a=showcredit',					//积分奖励 数据
+		AT_URL: 'http://www.hiqq.com.cn/index.php?c=remind',									//@好友列表接口
+		TOPIC_TYPIC: 'http://www.hiqq.com.cn/index.php?c=forum&a=topictype'							//主题分类
+	}
+};
+</script>
+<script src="http://www.hiqq.com.cn/res/js/dev/wind.js?v=20140228"></script>
+<link href="http://www.hiqq.com.cn/themes/site/default/css/dev/forum.css?v=20140228" rel="stylesheet" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jfmly05LPcmK2bFuAG05BSIB9gCkxInG"></script>
+
+</head>
+<body>
+<style type="text/css">
+</style><div class="wrap">
+<header class="header_wrap">
+	<div id="J_header" class="header cc">
+		<div class="logo">
+			<a href="http://www.hiqq.com.cn">
+								<img src="http://www.hiqq.com.cn/themes/site/default/images/logo.png" alt="深圳高新社区网">
+							</a>
+		</div>
+		<nav class="nav_wrap">
+			<div class="nav">
+				<ul>
+						<li class="current"><a href="http://www.hiqq.com.cn/">首页</a></li>
+						<li class=""><a href="http://www.hiqq.com.cn/cate/1">分类信息</a></li>
+						<li class=""><a href="http://www.hiqq.com.cn/cate/9">企业商务</a></li>
+						<li class=""><a href="http://www.hiqq.com.cn/cate/15">聊天灌水</a></li>
+						<li class=""><a href="http://www.hiqq.com.cn/cate/22">意见反馈</a></li>
+					</ul>
+			</div>
+		</nav>
+		<div class="header_login">
+	<a rel="nofollow" href="http://www.hiqq.com.cn/index.php?m=u&c=login">登录</a><a rel="nofollow" href="http://www.hiqq.com.cn/index.php?m=u&c=register">注册</a>
+</div>
+	</div>
+</header>
+<div class="tac"> </div>
+	<div class="main_wrap">
+		
+		<div class="bread_crumb" id="bread_crumb">
+			<a href="http://www.hiqq.com.cn" class="home" title="深圳高新社区网">首页</a><em>&gt;</em><a href="http://www.hiqq.com.cn">本站新帖</a>
+		</div>
+		       
+		<div id="cloudwind_forum_top"></div>
+		<div class="main cc">
+			<div class="main_body">
+				<div class="main_content cc">
+					
+					 
+					<div class="box_wrap thread_page J_check_wrap">
+						<nav>
+							<div class="content_nav" id="hashpos_ttype">
+								<div class="content_filter"><a href="http://www.hiqq.com.cn/index.php?order=postdate" class=" current">最新发帖</a><span>|</span><a href="http://www.hiqq.com.cn/index.php?order=lastpost" class="">最后回复</a></div>
+								<ul>
+									<li class="current"><a href="http://www.hiqq.com.cn/index.php?order=lastpost">本站新帖</a></li>
+																	</ul>
+							</div>
+						</nav>
+						<!--公告-->
+												<!--公告结束-->
+												<div class="thread_posts_list">
+							<table width="100%" id="J_posts_list">
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5230" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/2" class="st">[话说深圳]</a>
+																						<a href="http://www.hiqq.com.cn/view/5230" class="st" style="" title="恩吉娜医美张峰院长：你脸上长的到底是什么斑？">恩吉娜医美张峰院长：你脸上长的到底是什么斑？</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">爱美的你是不是希望自己有白皙的皮肤漂亮的脸蛋？可是有一天照镜子，突然发现脸上出现了斑点，有木有惊！呆！了！？惊呆的同时，妹子们能分辨出脸上长的是什么斑么？看一下小编的这张图，一秒帮...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10237">天光了</a><span itemprop="dateCreated">2018-07-11</span>
+                                            浏览：<span>57</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5229" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/2" class="st">[话说深圳]</a>
+																						<a href="http://www.hiqq.com.cn/view/5229" class="st" style="" title="你的娇俏侧颜，最是令人心动~">你的娇俏侧颜，最是令人心动~</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">仔细观察女神们的脸蛋，你会发现，她们的鼻子翘挺且自然，鼻梁线条流畅且弧度优美，鼻尖小巧且饱满，满满的可爱鼻都快撑爆屏幕了！面分五岳，鼻子为中岳，最好的面相就叫五岳朝贡。即其他的四官...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10237">天光了</a><span itemprop="dateCreated">2018-07-11</span>
+                                            浏览：<span>50</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5228" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/2" class="st">[话说深圳]</a>
+																						<a href="http://www.hiqq.com.cn/view/5228" class="st" style="" title="恩吉娜医美张峰院长：">恩吉娜医美张峰院长：</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">不少姑娘花几千大洋打了玻尿酸 但是几个月就没有了可明明身边的朋友们个个打了都能维持很长时间怎么到自己身上就没有了呢？难道白打了吗？那么，问题来了，为什么别人效果比你持久呢？为什么脸...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10237">天光了</a><span itemprop="dateCreated">2018-07-11</span>
+                                            浏览：<span>109</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5227" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/2" class="st">[话说深圳]</a>
+																						<a href="http://www.hiqq.com.cn/view/5227" class="st" style="" title="恩吉娜医美张峰院长：双眼皮的分类和方法">恩吉娜医美张峰院长：双眼皮的分类和方法</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">有一双迷人的眼睛是许多爱美人士梦寐以求的。因为眼睛是十分重要的情感传递器官，双眼皮的眼睛能充分表现人们丰富多彩的内心世界。双眼皮手术是东方人，特别是我们中国人中最常见的美容整形术，...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10237">天光了</a><span itemprop="dateCreated">2018-07-11</span>
+                                            浏览：<span>66</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5226" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/2" class="st">[话说深圳]</a>
+																						<a href="http://www.hiqq.com.cn/view/5226" class="st" style="" title="恩吉娜医美张峰院长：割双眼皮后何预防疤痕增生">恩吉娜医美张峰院长：割双眼皮后何预防疤痕增生</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">而想要拥有一双美丽的的大眼睛，少不了一对完美的双眼皮来衬托。于是越来越的人开始选择割双眼皮手术来改善自己的眼部形态，因为双眼皮手术是一项需要开刀的手术，因此术后可能出现疤痕增生的情...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10237">天光了</a><span itemprop="dateCreated">2018-07-11</span>
+                                            浏览：<span>73</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5225" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/2" class="st">[话说深圳]</a>
+																						<a href="http://www.hiqq.com.cn/view/5225" class="st" style="" title="恩吉娜医美张峰院长：让男人一见钟情">恩吉娜医美张峰院长：让男人一见钟情</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">“ 我 们 都 应 该 知 道 怎 么 让 自 己 漂亮 ”男人喜欢各种各样的女人，纯洁的女人、性感的女人、漂亮的女人，可爱的女人……但是，能让男人一生钟情的女人却少之又少那么，什...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10237">天光了</a><span itemprop="dateCreated">2018-07-11</span>
+                                            浏览：<span>99</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5224" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/2" class="st">[话说深圳]</a>
+																						<a href="http://www.hiqq.com.cn/view/5224" class="st" style="" title="恩吉娜医美张峰院长：注意，千万别这样洗脸">恩吉娜医美张峰院长：注意，千万别这样洗脸</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">  双眼皮术后能否洗脸?这个问题确实难倒一票人,很多人不明白,做完双眼皮后到底能不能洗脸?在这里明确的告诉大家：做完双眼皮可以洗脸，但是前提是要避开伤口哦！     因为人的眼部血...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10237">天光了</a><span itemprop="dateCreated">2018-07-11</span>
+                                            浏览：<span>83</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5223" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/2" class="st">[话说深圳]</a>
+																						<a href="http://www.hiqq.com.cn/view/5223" class="st" style="" title="恩吉娜医美张峰院长：有了眼袋显老又憔悴？消灭它！">恩吉娜医美张峰院长：有了眼袋显老又憔悴？消灭它！</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">1.眼袋和卧蚕的区别在紧邻睫毛下缘有一条宽约4～7mm的隆起，看起来就像一条蚕宝宝横卧在下眼睑边缘，微笑或眯眼时更为明显，民间称之为卧蚕。而眼袋主要是因脂肪凸出所致，一般呈三角形。...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10237">天光了</a><span itemprop="dateCreated">2018-07-11</span>
+                                            浏览：<span>105</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5222" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/8" class="st">[高新快讯]</a>
+																						<a href="http://www.hiqq.com.cn/view/5222" class="st" style="" title="自创区服务中心安全生产主体责任规定">自创区服务中心安全生产主体责任规定</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">       2018年6月28日，深圳市国家自主创新示范区服务中心召开全体人员关于《安全生产主体责任规定》为主题的“安全生产月”活动，全面推动今年安全生产各项工作落实，集中开展专...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/2">potato</a><span itemprop="dateCreated">2018-07-09</span>
+                                            浏览：<span>54</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5221" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/2" class="st">[话说深圳]</a>
+																						<a href="http://www.hiqq.com.cn/view/5221" class="st" style="" title="恩吉娜医美张峰院长：双眼皮术后护理">恩吉娜医美张峰院长：双眼皮术后护理</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">双眼皮术后注意事项如下： 一、双眼皮术后要注意保持伤口清洁，防止感染。割双眼皮手术后的伤口护理是非常重要的，术后要保持伤口洁净，不要沾水，避免用手或其他不干净物品直接接触眼部术位。...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10237">天光了</a><span itemprop="dateCreated">2018-07-08</span>
+                                            浏览：<span>108</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5220" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/2" class="st">[话说深圳]</a>
+																						<a href="http://www.hiqq.com.cn/view/5220" class="st" style="" title="恩吉娜医美：招牌双眼皮的方法和优势">恩吉娜医美：招牌双眼皮的方法和优势</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">对于众多爱美女性来说，重睑术中的埋线法、切开法早已不再陌生，但她们往往又在效果持久性和手术恐惧症之间难以取舍，如今桥连双眼皮可以很好的解决她们的烦恼，让她们可以抛开顾虑放心实现自己...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10237">天光了</a><span itemprop="dateCreated">2018-07-08</span>
+                                            浏览：<span>139</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5219" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/7" class="st">[生活]</a>
+																						<a href="http://www.hiqq.com.cn/view/5219" class="st" style="" title="深圳恩吉娜科普双眼皮修复的方法">深圳恩吉娜科普双眼皮修复的方法</a>
+											<span class="posts_icon"><i class="icon_img" title="图片帖"></i></span>										</p>
+                                        <p class="info f14" style="text-indent:2em">失败双眼皮修复六大方法1、失败双眼皮修复之术后两眼不对称：重新按照其中理想的一侧重新设计切开不佳一侧的重睑进行双眼皮修复即可。2、失败双眼皮修复之三角眼：重新设计重睑线，加宽重睑线...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10236">748061671</a><span itemprop="dateCreated">2018-07-07</span>
+                                            浏览：<span>110</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5218" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/10" class="st">[招聘]</a>
+																						<a href="http://www.hiqq.com.cn/view/5218" class="st" style="" title="广州单位需要2本高级土地管理、土地规划">广州单位需要2本高级土地管理、土地规划</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">广州单位需要2本高级土地管理、土地规划、土地调查、土地利用规划、地籍管理等专业职称，仅用于资质上，联系李工13755677642   扣扣2079105809</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10231">3220706446</a><span itemprop="dateCreated">2018-07-03</span>
+                                            浏览：<span>186</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5217" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/6" class="st">[交友]</a>
+																						<a href="http://www.hiqq.com.cn/view/5217" class="st" style="" title="【深圳恩吉娜】让我从此做‘胸’帝">【深圳恩吉娜】让我从此做‘胸’帝</a>
+											<span class="posts_icon"><i class="icon_img" title="图片帖"></i></span>										</p>
+                                        <p class="info f14" style="text-indent:2em"> 不知道各位女性宝宝们会不会和我一样有这样的烦恼，就是胸部太小，看起来跟个男的一样，我男朋友经常叫我‘胸’弟，太平公主。很不好意思，感觉很配不起他，我的胸实在是太平了，生活过着也不...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10238">金色粉末闪烁</a><span itemprop="dateCreated">2018-07-03</span>
+                                            浏览：<span>212</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5216" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/8" class="st">[高新快讯]</a>
+																						<a href="http://www.hiqq.com.cn/view/5216" class="st" style="" title="深圳高新区创投广场入驻机构工作座谈会成功召开">深圳高新区创投广场入驻机构工作座谈会成功召开</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">              为加强管理服务部门与高新区创投广场各入驻机构的交流沟通，更好地为入驻机构服务。2018年6月28日上午，深圳高新区创业投资广场入驻机构工作座谈会在综合楼...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/2">potato</a><span itemprop="dateCreated">2018-07-03</span>
+                                            浏览：<span>207</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5215" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/8" class="st">[高新快讯]</a>
+																						<a href="http://www.hiqq.com.cn/view/5215" class="st" style="" title="俄罗斯欧亚经济联盟部长访问国际平台">俄罗斯欧亚经济联盟部长访问国际平台</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">              2018年6月23日下午，俄罗斯欧亚经济联盟部长谢尔盖·希德尔斯基一行访问了深圳国际科技商务平台。深圳市国家自主创新示范区服务中心国际合作部副部长陈禹蒴...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/2">potato</a><span itemprop="dateCreated">2018-07-03</span>
+                                            浏览：<span>204</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5214" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/7" class="st">[生活]</a>
+																						<a href="http://www.hiqq.com.cn/view/5214" class="st" style="" title="深圳恩吉娜张锋院长科普瘦脸针">深圳恩吉娜张锋院长科普瘦脸针</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">瘦脸针瘦脸实质上就是采用肉毒杆菌毒素注射治疗咬肌肥大。研究发现：由于下颌角手术中难以把握肌肉 的切除量和肌肉切除的深度，不仅效果不理想，还容易增加出血、血肿、感染的机会，造成面部两...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10236">748061671</a><span itemprop="dateCreated">2018-07-03</span>
+                                            浏览：<span>163</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5213" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/8" class="st">[高新快讯]</a>
+																						<a href="http://www.hiqq.com.cn/view/5213" class="st" style="" title="乌拉圭驻华大使费尔南多·卢格里斯访问国际平台">乌拉圭驻华大使费尔南多·卢格里斯访问国际平台</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">              2018年6月29日下午，乌拉圭驻华大使费尔南多·卢格里斯访问了深圳国际科技商务平台，随行访问的还有乌拉圭候任驻广州总领事马丁·阿尔维斯。深圳市国家自主...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/2">potato</a><span itemprop="dateCreated">2018-07-03</span>
+                                            浏览：<span>189</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5212" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/7" class="st">[生活]</a>
+																						<a href="http://www.hiqq.com.cn/view/5212" class="st" style="" title="深圳恩吉娜张锋院长科普鼻部结构">深圳恩吉娜张锋院长科普鼻部结构</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">外鼻分为鼻根、鼻梁、鼻尖和鼻翼、鼻孔五部分。鼻根部为骨性部分，是由两块鼻骨和上颌骨鼻突构成。鼻梁部介于鼻根部和鼻尖部之间，由左右两块鼻侧软骨构成。鼻尖部为鼻的末端部分，主要由两块鼻...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10236">748061671</a><span itemprop="dateCreated">2018-07-03</span>
+                                            浏览：<span>153</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+																<tr>	
+									<td class="subject">
+										<p class="title">
+																						<a href="http://www.hiqq.com.cn/view/5211" target="_blank"><span class="posts_icon"><i class="icon_topic" title="普通帖  新窗口打开"></i></span></a>
+																						<a href="http://www.hiqq.com.cn/cate/7" class="st">[生活]</a>
+																						<a href="http://www.hiqq.com.cn/view/5211" class="st" style="" title="深圳恩吉娜科普自体脂肪的优点">深圳恩吉娜科普自体脂肪的优点</a>
+																					</p>
+                                        <p class="info f14" style="text-indent:2em">优点1.自体脂肪移植的是自身的脂肪颗粒，作为自体组织，其生物学特性远远优于任何假体材料，对自身来说无毒无害，也不会产生免疫反应和排异反应；2. 自体脂肪移植不会引起人体的内分泌环境...</p>
+										<p class="info">
+											楼主：<a href="http://www.hiqq.com.cn/user/10236">748061671</a><span itemprop="dateCreated">2018-07-03</span>
+                                            浏览：<span>131</span>
+                                            回复: <span>0</span>
+                                            										</p>
+									</td>
+								</tr>
+															</table>
+						</div>
+											</div>
+					<div class="J_page_wrap cc" data-key="true">
+						<div class="pages">
+	<strong>1</strong>
+	<a href="http://www.hiqq.com.cn/index.php?page=2&amp;order=postdate">2</a>
+		<a href="http://www.hiqq.com.cn/index.php?page=3&amp;order=postdate">3</a>
+		<a href="http://www.hiqq.com.cn/index.php?page=4&amp;order=postdate">4</a>
+		<a href="http://www.hiqq.com.cn/index.php?page=100&amp;order=postdate">...100</a>
+		<a href="http://www.hiqq.com.cn/index.php?page=2&amp;order=postdate" class="pages_next J_pages_next">下一页&nbsp;&raquo;</a>
+</div>
+					</div>
+					
+										 
+				</div>
+			</div>
+			<div class="main_sidebar">
+                <div class="box_wrap">
+                <div style="width:258px;height:240px;border:#ccc solid 1px;font-size:12px" id="map"></div>
+                </div>        
+					<div class="box_wrap sidebar_login">
+    <button type="button" onclick="location.href='http://www.hiqq.com.cn/index.php?m=u&c=login'" class="btn btn_big btn_submit">登录</button><a class="btn btn_big btn_error" href="http://www.hiqq.com.cn/index.php?m=u&c=register" rel="nofollow">立即注册</a>        
+	</div>
+<!--advertisement id='Site.Sider.User' sys='1'/-->
+<div role="structure_mopjhs" data-lcm="100" class="box_wrap design_layout_style J_mod_layout_none" id="mopjhs">			<h2 role="titlebar" class="design_layout_hd cc J_layout_hd" style=""><span style="float:left;margin-left:0px;font-weight:bold;">新入用户</span><span><a href="/?m=u&amp;c=register" style="float:right;margin-right:0px;color: #e36c09;">【注册用户可免费发布信息】</a></span></h2>			<div class="design_layout_ct J_layout_item"><div id="J_mod_9" style="" data-id="9" data-model="user" class="mod_box J_mod_box"><div class="tmode_list tmode_list_sort">
+<ul>
+	<li><span class="time">1</span><a href="http://www.hiqq.com.cn/user/10238" target="_blank">金色粉末闪烁</a></li>
+	<li><span class="time">11</span><a href="http://www.hiqq.com.cn/user/10237" target="_blank">天光了</a></li>
+	<li><span class="time">6</span><a href="http://www.hiqq.com.cn/user/10236" target="_blank">748061671</a></li>
+	<li><span class="time">1</span><a href="http://www.hiqq.com.cn/user/10235" target="_blank">ChenDNA</a></li>
+	<li><span class="time">0</span><a href="http://www.hiqq.com.cn/user/10234" target="_blank">INES精准</a></li>
+	<li><span class="time">1</span><a href="http://www.hiqq.com.cn/user/10233" target="_blank">wentang</a></li>
+	<li><span class="time">0</span><a href="http://www.hiqq.com.cn/user/10232" target="_blank">jack</a></li>
+	<li><span class="time">12</span><a href="http://www.hiqq.com.cn/user/10231" target="_blank">3220706446</a></li>
+	<li><span class="time">7</span><a href="http://www.hiqq.com.cn/user/10230" target="_blank">是不是傻</a></li>
+	<li><span class="time">2</span><a href="http://www.hiqq.com.cn/user/10228" target="_blank">二个如果</a></li>
+</ul>
+</div></div></div></div>
+				<div class="box_wrap" aria-label="版块列表" role="tablist">
+			<h2 class="box_title J_sidebar_box_toggle">版块列表</h2>
+			<div class="forum_menu" >
+							<dl class=" current">
+					<dt class="J_sidebar_forum_toggle"><a href="http://www.hiqq.com.cn/cate/1">分类信息</a></dt>
+					<dd role="tabpanel">
+												<p><a class="" href="http://www.hiqq.com.cn/cate/4">房屋</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/6">交友</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/10">招聘</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/23">车辆</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/24">家居</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/25">培训</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/5">二手</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/3">商品</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/7">生活</a></p>
+											</dd>
+				</dl>
+								<dl class="">
+					<dt class="J_sidebar_forum_toggle"><a href="http://www.hiqq.com.cn/cate/9">企业商务</a></dt>
+					<dd role="tabpanel">
+												<p><a class="" href="http://www.hiqq.com.cn/cate/8">高新快讯</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/11">企业通讯</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/26">名企档案</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/12">业务外包</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/13">产品展示</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/14">商务服务</a></p>
+											</dd>
+				</dl>
+								<dl class="">
+					<dt class="J_sidebar_forum_toggle"><a href="http://www.hiqq.com.cn/cate/15">资讯交流</a></dt>
+					<dd role="tabpanel">
+												<p><a class="" href="http://www.hiqq.com.cn/cate/2">话说深圳</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/16">心情随笔</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/17">科技沙龙</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/18">创业论坛</a></p>
+											</dd>
+				</dl>
+								<dl class="">
+					<dt class="J_sidebar_forum_toggle"><a href="http://www.hiqq.com.cn/cate/20">社区管理</a></dt>
+					<dd role="tabpanel">
+												<p><a class="" href="http://www.hiqq.com.cn/cate/21">社区公告</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/22">意见反馈</a></p>
+												<p><a class="" href="http://www.hiqq.com.cn/cate/19">回收站</a></p>
+											</dd>
+				</dl>
+							</div>
+		</div>
+<div role="structure_gzllcu" data-lcm="100" class="box_wrap design_layout_style J_mod_layout_none" id="gzllcu">			<h2 role="titlebar" class="design_layout_hd cc J_layout_hd" style=""><span>友情链接</span></h2>			<div class="design_layout_ct J_layout_item"><div id="J_mod_8" style="" data-id="8" data-model="link" class="mod_box J_mod_box"><div class="tmode_list">
+<ul>
+  <li><a href="http://www.szsti.gov.cn/" target="_blank">深圳市科创委&amp;高新园管委会</a></li>
+  <li><a href="http://www.gdstc.gov.cn/" target="_blank">广东省科技厅</a></li>
+  <li><a href="http://www.shipsc.org/" target="_blank">高新园服务中心</a></li>
+  <li><a href="http://www.szsoftwarepark.com/" target="_blank">深圳软件园</a></li>
+  <li><a href="http://www.szvup.com/" target="_blank">深圳虚拟大学园</a></li>
+  <li><a href="http://www.szjssc.org.cn/" target="_blank">技术转移促进中心</a></li>
+  <li><a href="http://www.szns.gov.cn/" target="_blank">南山区科技创新局</a></li>
+  <li><a href="http://www.szhr.com.cn/hitech/" target="_blank">高新园人才招聘</a></li>
+  <li><a href="http://www.szdyp.cn/" target="_blank">深圳电影票网</a></li>
+  <li><a href="http://hr.tencent.com/" target="_blank">腾讯公司招聘</a></li>
+  <li><a href="index.php?m=link&c=index&a=run" class="J_link_apply">申请链接</a></li>
+</ul>
+</div></div></div></div>
+ 
+<!--design role="segment" id="linkdemo"/-->
+			</div>
+		</div>
+		<div id="cloudwind_forum_bottom"></div>
+	</div>
+<!--.main-wrap,#main End-->
+<div class="tac">
+ <br />
+ 
+</div>
+<div class="footer_wrap">
+	<div class="footer">
+		
+		<div class="bottom">
+		<a href="http://www.hiqq.com.cn/view/1">关于本站</a><a href="http://www.hiqq.com.cn/view/2">社区公约</a><a href="http://www.hiqq.com.cn/view/4">广告服务</a><a href="http://www.hiqq.com.cn/view/3">联系站长</a><a href="http://www.hiqq.com.cn/cate/22">意见反馈</a>		</div>
+		<p>&copy;2007-2014 <a href="http://www.hiqq.com.cn/" target="_blank">深圳高新社区</a> 版权所有 <a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow">粤ICP备07031320号</a></p>
+		<div style=" display:block; text-align:center">
+        <font color="#cc0000">深圳高新园，国家高新区，深圳科技园，高新园企业，高新园人才，高新园生活等信息交流平台</font>.
+<!--<div style="display:none">
+<script src="http://s9.cnzz.com/stat.php?id=5622409&web_id=5622409" language="JavaScript"></script></div>--> </div>
+	</div>
+	 
+	 
+	 
+	<div id="cloudwind_common_bottom"></div>
+	</div>
+
+<!--返回顶部-->
+<a href="#" rel="nofollow" role="button" id="back_top" tabindex="-1">返回顶部</a>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=0&amp;pos=right&amp;uid=0" ></script><script type="text/javascript" id="bdshell_js"></script>
+<!-- Baidu Button END -->
+</div>
+<script>
+var FID = '';
+Wind.use('jquery', 'global', function(){
+	if(GV.U_ID) {
+		Wind.js(GV.JS_ROOT +'pages/bbs/threadManage.js?v=' + GV.JS_VERSION);
+	}
+});
+</script>
+
+</body>
+</html>
+  <script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+      createMap();//创建地图
+      setMapEvent();//设置地图事件
+      addMapControl();//向地图添加控件
+      addMapOverlay();//向地图添加覆盖物
+    }
+    function createMap(){ 
+      map = new BMap.Map("map"); 
+      map.centerAndZoom(new BMap.Point(113.954853,22.546303),15);
+    }
+    function setMapEvent(){
+      map.enableScrollWheelZoom();
+      map.enableKeyboard();
+      map.enableDragging();
+      map.enableDoubleClickZoom()
+    }
+    function addClickHandler(target,window){
+      target.addEventListener("click",function(){
+        target.openInfoWindow(window);
+      });
+    }
+    function addMapOverlay(){
+    }
+	
+    //向地图添加控件
+    function addMapControl(){
+      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:1});
+      map.addControl(navControl);
+      var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_TOP_LEFT,isOpen:false});
+      map.addControl(overviewControl);
+    }
+    var map;
+      initMap();
+  </script>
+
+

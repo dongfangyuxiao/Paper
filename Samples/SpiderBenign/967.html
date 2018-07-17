@@ -1,0 +1,455 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="超星发现以数十亿海量元数据为基础，利用数据仓储、资源整合、知识挖掘、数据分析、文献计量学模型等相关技术，较好地解决了复杂异构数据库群的集成整合，实现高效、精准、统一的学术资源搜索，进而通过分面聚类、引文分析、知识关联分析等实现高价值学术文献发现、纵横结合的深度知识挖掘、可视化的全方位知识关联，超星发现能够帮助您冲破信息孤岛与信息超载的桎梏，让意外惊喜成为创新的灵感， 让洞察全局成为科学探索的法宝，让巨人的肩膀成为知识价值再生的基石。"
+          name=description/>
+    <meta content="多维分面聚类  智能辅助检索  立体引文分析 考镜学术源流  知识关联  揭示学术趋势  元数据 分面分析 时间维度 文献类型  主题维度 学科维度 作者维度 机构维度 组配检索 自由扩检 缩检 精炼聚类  精准化搜索 影响因子被引频次 相关度 精准度 检准率 引证逻辑 演变规律 知识挖掘 知识关联 主题 学科 作者 机构 地区 高度洞察 人与人 人与机构 人与知识  知识与知识  图书搜索 学术搜索 学术资源 文献检索 文献传递 参考咨询 数字图书馆 被引用 学术趋势 搜索报告 搜索引擎 一站式检索 元数据 章节 试读 馆藏 电子书 研究 课题 图书馆 期刊 论文 整合 查找 资料 知识 阅读 词汇 报纸 标准 专利 文献服务 读者"
+          name=Keywords/>
+    <title>系统登录</title>
+    <script src="/views/js/jquery.min.js" language="javascript"></script>
+    <script LANGUAGE="JavaScript" src="js/duxiuchk.js"></script>
+    <script language="javascript">
+        String.prototype.trim = function () {
+            return this.replace(/(^\s+)|(\s+$)/g, "");
+        }
+        function sendForm() {
+            var s, p, d;
+            s = document.getElementById("UserName").value.trim();
+            p = document.getElementById("PassWord").value.trim();
+            d = document.getElementById("seccode").value.trim();
+            if (s == "" || p == "") {
+                alert("请输入用户名口令");
+                return false;
+            } else if (d == "") {
+                alert("请输入验证码");
+                return false;
+            } else
+                return true;
+        }
+        function refreshImg() {
+            var timenow = new Date().getTime();
+            document.getElementById('secimg').src = "/vImage.jsp?" + timenow;
+            document.getElementById('seccode').value = "";
+            document.getElementById('secimg1').src = "/vImage.jsp?" + timenow;
+            document.getElementById('seccode1').value = "";
+            document.getElementById('secimg2').src = "/vImage.jsp?" + timenow;
+            document.getElementById('seccode2').value = "";
+            document.getElementById('secimg3').src = "/vImage.jsp?" + timenow;
+            document.getElementById('seccode3').value = "";
+        }
+
+        function refreshImgt() {
+            refreshImg();
+        }
+        $(function () {
+            var $login_tit = $(".login_tit li");
+            var index = igetCookie("findtabcookie");
+            if (index >= 1) {
+                $(".login_con > div").eq(index).show().siblings().hide();
+                $(".login_tit ul > li").eq(index).addClass("cur").siblings().removeClass("cur");
+            }
+            if ($("#user_name").val() != "") {
+                var name = $("#user_name").val();
+                if (index == 0) $("#UserName").val(name);
+                if (index == 1) $("#UserName_lib").val(name);
+                if (index == 2) $("#UserName_nameauth").val(name);
+            }
+            $login_tit.click(function () {
+                $(this).addClass("cur").siblings().removeClass("cur");
+                var loginIndex = $login_tit.index(this);
+                document.cookie = "findtabcookie=" + loginIndex + ";";
+                $(".login_con > div").eq(loginIndex).show().siblings().hide();
+            });
+        })
+
+        function subdsr() {
+            var chkcode = document.getElementById("tyno").value.trim();
+            var seccode = document.getElementById("seccode3").value.trim();
+            if (chkcode != '' && seccode != '')
+                send_dsrrequests('/dsrlogon.jsp', chkcode, seccode, "1");
+            else if (chkcode == '')
+                document.getElementById("dsrerr").innerHTML = "验证码不能为空!";
+            else
+                document.getElementById("dsrerr").innerHTML = "校验码不能为空!";
+        }
+    </script>
+    <style>
+        /* CSS Document */
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            font: 12px/1.5 宋体, Arial, Helvetica, sans-serif;
+            color: #666;
+            background: url(/images/find/body_bg.gif) repeat;
+        }
+
+        table {
+            border-spacing: 0px;
+            border-collapse: collapse;
+            width: 100%;
+            border: 0px;
+        }
+
+        ul, ol {
+            list-style-type: none;
+        }
+
+        input, select, textarea {
+            vertical-align: middle;
+            font: 12px/1.5 宋体, Arial, Helvetica, sans-serif;
+            color: #000;
+        }
+
+        a {
+            color: #01468d;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #e66405;
+        }
+
+        em {
+            font-style: normal;
+            color: #000;
+        }
+
+        img {
+            display: block;
+            border: 0px;
+        }
+
+        .clearfix {
+            overflow: hidden;
+            zoom: 1;
+        }
+
+        .clear {
+            clear: both;
+            height: 0px;
+            font-size: 0px;
+            line-height: 0px;
+            overflow: hidden;
+        }
+
+        /*2013.11.25 begin*/
+        .login_index {
+            width: 470px;
+            margin: 40px auto;
+        }
+
+        .login_index img {
+            display: inline-block;
+        }
+
+        .login_index .tit {
+            height: 64px;
+            text-align: center;
+        }
+
+        .login_index .login {
+            background: url(/images/find/login_bg.gif) 0 25px no-repeat;
+            padding: 0 26px;
+            margin-top: 30px;
+        }
+
+        .login_index .login_tit {
+            height: 36px;
+        }
+
+        .login_index .login_tit li {
+            width: 120px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            font-size: 13px;
+            font-family: 微软雅黑;
+            background: url(/images/find/login_li.gif) 0 -58px no-repeat;
+            float: left;
+            display: inline;
+            margin-right: 7px;
+        }
+
+        .login_index .login_tit li a {
+            color: #FFF;
+        }
+
+        .login_index .login_tit li.cur {
+            width: 120px;
+            height: 36px;
+            line-height: 38px;
+            margin: -1px 0;
+            position: relative;
+            background: url(/images/find/login_li.gif) no-repeat;
+        }
+
+        .login_index .login_tit li.cur a {
+            color: #818991;
+        }
+
+        .login_index .login_con {
+            padding-top: 13px;
+        }
+
+        .login_index .login .dj dt {
+            float: left;
+            width: 116px;
+            line-height: 60px;
+            text-align: center;
+        }
+
+        .login_index .login .dj dd {
+            padding-left: 28px;
+            width: 274px;
+            float: left;
+        }
+
+        .login_index .login .dj dd .txt_xian {
+            background: url(/images/find/line_xian_bg.gif) 0px -74px repeat-x;
+            width: 243px;
+            margin-top: 14px;
+        }
+
+        /*2013.04.10*/
+        .login_index .login .dj dd .txt_xian .txt_l {
+            background: url(/images/find/line_xian_bg.gif) left -35px no-repeat;
+            width: 243px;
+        }
+
+        /*2013.04.10*/
+        .login_index .login .dj dd .txt_xian .txt_l .txt_r {
+            background: url(/images/find/line_xian_bg.gif) right -113px no-repeat;
+            height: 34px;
+            line-height: 34px;
+            width: 243px;
+        }
+
+        /*2013.04.10*/
+        .login_index .login .dj dd .txt_xian .txt_l .txt_r input {
+            height: 34px;
+            line-height: 34px;
+            border: 0;
+            background: none;
+            padding: 0 10px;
+            width: 223px;
+        }
+
+        .login_index .login .reset input {
+            width: 418px;
+            height: 45px;
+            border: 0;
+            background: url(/images/find/top_ss_reset.gif) 0 -184px no-repeat;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        /*2013.04.10*/
+        .login_index .login p {
+            line-height: 24px;
+        }
+
+        /*2013.11.25 end*/
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body style=" background:none;">
+<div class="login_index">
+    <div class="tit"><img src="/images/find/login_tit.gif"/></div>
+    <div class="login">
+        <div class="login_tit">
+            <ul>
+                <li class="cur"><a href="javascript:void[0]">机构用户</a></li>
+                <li><a href="javascript:void[0]">个人认证用户</a></li>
+                <li><a href="javascript:void[0]">发现卡用户</a></li>
+            </ul>
+            <div class="clear"></div>
+
+        </div>
+        <div class="login_con">
+            <div>
+                <form name="FORM1" method="get" action="/loginhl.jsp">
+                    <input name=send type=hidden value="true"/>
+                    <input name=backurl type=hidden value="http://www.zhizhen.com/"/>
+                    <input name="user_name" id="user_name" type="hidden" value=""/>
+                    <dl class="dj clearfix">
+                        <dt>帐号：</dt>
+                        <dd>
+                            <div class="txt_xian">
+                                <div class="txt_l">
+                                    <div class="txt_r">
+                                        <input type="text" id=UserName value="" name=UserName
+                                               onblur="this.style.borderWidth='1px' ;this.style.margin='1px';"
+                                               onfocus="this.style.borderWidth='2px';this.style.margin='0px';"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="dj clearfix">
+                        <dt>密码：</dt>
+                        <dd>
+                            <div class="txt_xian">
+                                <div class="txt_l">
+                                    <div class="txt_r">
+                                        <input id=PassWord type=password name=PassWord
+                                               onblur="this.style.borderWidth='1px' ;this.style.margin='1px';"
+                                               onfocus="this.style.borderWidth='2px';this.style.margin='0px';"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="dj clearfix">
+                        <dt>校验码：</dt>
+                        <dd class="clearfix">
+                            <div class="txt_xian" style="width:80px;float:left;">
+                                <div class="txt_l" style="width:80px;">
+                                    <div class="txt_r" style="width:80px;">
+                                        <input type="text" style="width:60px;" id=seccode name="verifycode"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <img id="secimg" src="/vImage.jsp?a=1531366049781"
+                                 style="display:inline-block;float:left; display:inline;margin:20px 8px 0px 5px;"
+                                 onblur="this.style.borderWidth='1px' ;this.style.margin='1px';"
+                                 onfocus="this.style.borderWidth='2px';this.style.margin='0px';"/>
+                            <a href="javascript:refreshImg()" class="answ"
+                               style="float:left;margin-top:20px; display:inline;width:60px; color:#326289;">看不清楚？</a>
+                        </dd>
+                    </dl>
+                    <div class="reset"><input type="submit" id=searchinp name=submit value=""/></div>
+                    <p style="color:#d1cfcf; margin-top:20px;">您不在IP范围内访问，请使用账号进行登录</p>
+                    <p style="color:#9ea6aa;">当前机器IP：123.112.15.221
+                    </p>
+                </form>
+            </div>
+
+
+            <div style="display:none;">
+                <form name="FORM1" method="get" action="/login_dd.jsp">
+                    <input name=send type=hidden value="true"/>
+                    <input name="ddtype" type="hidden" value="nameauth" id="ddtype"/>
+                    <input name=backurl type=hidden value="http://www.zhizhen.com/"/>
+                    <dl class="dj clearfix">
+                        <dt>帐号：</dt>
+                        <dd>
+                            <div class="txt_xian">
+                                <div class="txt_l">
+                                    <div class="txt_r">
+                                        <input type="text" name="UserName_nameauth" value=""/>
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="dj clearfix">
+                        <dt>密码：</dt>
+                        <dd>
+                            <div class="txt_xian">
+                                <div class="txt_l">
+                                    <div class="txt_r">
+                                        <input type="password" name="PassWord_nameauth"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="dj clearfix">
+                        <dt>校验码：</dt>
+                        <dd class="clearfix">
+                            <div class="txt_xian" style="width:80px;float:left;">
+                                <div class="txt_l" style="width:80px;">
+                                    <div class="txt_r" style="width:80px;">
+                                        <input type="text" style="width:60px;" id=seccode2 name="verifycode_nameauth"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <img id="secimg2" src="/vImage.jsp?a=1531366049781"
+                                 style="display:inline-block;float:left; display:inline;margin:20px 8px 0px 5px;"
+                                 onblur="this.style.borderWidth='1px' ;this.style.margin='1px';"
+                                 onfocus="this.style.borderWidth='2px';this.style.margin='0px';"/>
+                            <a href="javascript:refreshImg()" class="answ"
+                               style="float:left;margin-top:20px; display:inline;width:60px; color:#326289;">看不清楚？</a>
+                        </dd>
+                    </dl>
+                    <div class="reset"><input type="submit" id=searchinp name=submit value=""/></div>
+                    <p style="color:#d1cfcf; margin-top:20px;">您不在IP范围内访问，请使用账号进行登录</p>
+                    <p style="color:#9ea6aa;">当前机器IP：123.112.15.221
+                    </p>
+                </form>
+            </div>
+
+            <div style="display:none;">
+                <form name="FORM1" method="get" action="/login_dd.jsp">
+                    <input name=send type=hidden value="true"/>
+                    <input name="ddtype" type="hidden" value="nameauth" id="ddtype"/>
+                    <input name=backurl type=hidden value="http://www.zhizhen.com/"/>
+                    <dl class="dj clearfix">
+                        <dt>验证码：</dt>
+                        <dd>
+                            <div class="txt_xian">
+                                <div class="txt_l">
+                                    <div class="txt_r">
+                                        <input type="text" name="UserName_nameauth33" value="" id="tyno"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </dd>
+                    </dl>
+                    <dl class="dj clearfix">
+                        <dt>校验码：</dt>
+                        <dd class="clearfix">
+                            <div class="txt_xian" style="width:80px;float:left;">
+                                <div class="txt_l" style="width:80px;">
+                                    <div class="txt_r" style="width:80px;">
+                                        <input type="text" style="width:60px;" id="seccode3" name="seccode"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <img id="secimg3" src="/vImage.jsp?a=1531366049781"
+                                 style="display:inline-block;float:left; display:inline;margin:20px 8px 0px 5px;"
+                                 onblur="this.style.borderWidth='1px' ;this.style.margin='1px';"
+                                 onfocus="this.style.borderWidth='2px';this.style.margin='0px';"/>
+                            <a href="javascript:refreshImg()" class="answ"
+                               style="float:left;margin-top:20px; display:inline;width:60px; color:#326289;">看不清楚？</a>
+                        </dd>
+                    </dl>
+                    <dl class="dj clearfix">
+                        <dt>&nbsp;</dt>
+                        <dd class="clearfix">
+                            <div id="dsrerr" style="color:#FF0000;margin-left: 30px;height: 40px;"></div>
+                        </dd>
+                    </dl>
+                    <div class="reset"><input type="button" id=searchinp name=submit onClick="subdsr();"/></div>
+                    <p style="color:#d1cfcf; margin-top:20px;">您不在IP范围内访问，请使用账号进行登录</p>
+                    <p style="color:#9ea6aa;">当前机器IP：123.112.15.221
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div style="text-align: center;margin-top: 10px;">
+    <p><a target="_blank" href="http://www.zhizhen.com/help/help.html">帮助 </a> | <a target="_blank"
+                                                                                    href="http://www.zhizhen.com/about/about.html">关于发现</a>
+        | <a target="_blank" href="http://www.zhizhen.com/advice">联系我们</a></p>
+    <p>超星发现系统&nbsp;&nbsp;Copyright©2018·powered&nbsp;by&nbsp;超星</p>
+    <p>客服电话：010-57166540</p>
+</div>
+</body>
+</html>

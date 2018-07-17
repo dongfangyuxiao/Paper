@@ -1,0 +1,560 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, user-scalable=no"><title>GitChat</title><meta name="description" content="GitChat 是一款基于微信平台的知识分享产品。通过这款产品我们希望改变IT知识的学习方式。"><meta name="robots" content="index,follow"><meta name="keywords" content="GitChat,机器学习,大数据,程序员,用户体验,软件开发,知识付费,技术分享"><meta name="baidu-site-verification" content="BRkuL6TTfM"><link href="/dist/site/gitbook/bundle1.css" rel="stylesheet"><script src="/dist/site/gitbook/js1.js"></script><link href="/css/gitbook/common/common.css" rel="stylesheet"><link rel="icon" type="image/png" href="https://images.gitbook.cn/Logo16.png" sizes="16x16"><link rel="icon" type="image/png" href="https://images.gitbook.cn/Logo32.png" sizes="32x32"></head><link href="/dist/site/gitchat/bundle2.css" rel="stylesheet"><link rel="stylesheet" href="/dist/gitchat/css/mazi.css"><!--if isGuide--><!--    link(href='/dist/css/introjs.css', rel='stylesheet')--><script src="/dist/js/ScrollMagic.min.js"></script><style>#loader {
+    height: 60px;
+    overflow: hidden;
+    line-height: 60px;
+    text-align: center;
+}
+#loader.active {
+    height: 60px;
+    background-color: #fff;
+}
+#loader img {
+    margin-top: 5px;
+    width: 40px;
+    vertical-align: text-bottom;
+}
+.recommedAuthor{
+    display: inline-block;
+    margin: 0 16px 18px 0;
+    min-height: 32px;
+    background-color: #f7f7f7;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    vertical-align: top;
+    overflow: hidden;
+}
+.moreHotAuthor{
+    display: inline-block;
+    margin-top: 7px;
+    font-size: 14px;
+    color: #787878;
+}
+.book {
+    flex: 1;
+    position: relative;
+    width: 205px;
+    min-height: 220px;
+    margin: 15px 0 10px 0;
+    padding: 7px 7px 15px;
+    float: left;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    transition: .2s ease;
+    -webkit-transition: .2s ease;
+}
+.cover {
+    border-radius: 3px;
+    overflow: hidden;
+}
+.name {
+    margin-top: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.book .cover img {
+    width: 100%;
+    vertical-align: middle;
+}
+.author {
+    height: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #999;
+}
+.price{
+    height: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #999;
+    float:right;
+}
+.intros {
+    height: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #999;
+}
+.syncColumn {
+
+    -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotateZ(0deg);
+    }
+    to {
+        -webkit-transform: rotateZ(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px) {
+    .mainDiv{
+        width:100%;max-width: 800px;margin: 0 auto;
+    }
+}
+
+@media only screen
+and (min-device-width: 1024px) {
+    .mainDiv {
+        width:100%;max-width: 800px;display: inline-block;float: left;
+    }
+}</style><body style="background-color: rgb(245, 245, 245)"><div id="header" style="height:70px;position:fixed;top:-5px;left:0px;right:0px;padding-top: 20px;        padding-bottom:10px;background-color: #ffffff;border-bottom: solid 1px #f0f0f0;z-index:1;" class="headroom hidden-md hidden-lg"><div style="float: left;-webkit-animation-name:none;animation-name:none;" class="container hidden-md hidden-lg hidden-sm"><ul id="gn-menu" class="gn-menu-main"><li class="gn-trigger"><a class="gn-icon gn-icon-menu"><span>Menu</span></a><nav class="gn-menu-wrapper"><div class="gn-scroller"><ul style="border-bottom:0" class="gn-menu"><!--li.gn-search-item--><!--    input.gn-search(id='menuSearchInput' placeholder='文章搜索', type='search')--><!--    a.gn-icon.gn-icon-search--><!--        span Search--><li><a style="font-weight:400" href="/" class="icon lnr-home">首页</a></li><!--li--><!--    a.icon.lnr-home(style='font-weight:400', href='/gitchat/hot') 热门Chat--><li><a style="font-weight:400" href="/gitchat/columns" class="icon lnr-rocket">课程与专题</a></li><!--li--><!--    a.icon.lnr-diamond(style='font-weight:400', href='/gitchat/series/list') 专 题--><li><a style="font-weight:400" href="/gitchat/geekbooks" class="icon lnr-book">极客书</a></li><!--li--><!--    a.icon.lnr-book(style='font-weight:400',href='/gitchat/recruits')  人才--><li><a style="font-weight:400" href="/gitchat/vip" class="icon lnr-diamond">会 员</a></li><li><a style="font-weight:400" href="/books/5b398139328f856827673b50/index.html" class="icon lnr-earth">关于我们</a></li><li><a style="font-weight:400" class="icon lnr-text-align-justify">活动分类</a><div style="width: 350px;padding-left: 60px;margin-top:-10px;"><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58e84f875295227534aad506">前端</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=591171a3e692d5280d8157b6">移动开发</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=59eafe89692eee01b9fb77e7">硬件与物联网</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=5953698a3d38293ecceacb89">区块链</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58e84f53ec8e9e7b34457809">人工智能</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=59e731556d761a35fa821842">数学与算法</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58e84f7bec8e9e7b3445780d">大数据</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58e84f6bad952d6b3428af9a">架构</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=59f59b5a49cd43306135f1ea">开源软件</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=59c491948fee063dc3c447ab">编程语言</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=5941fc0f0c19c77beb43ac13">软件工程实践</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58e84f425295227534aad502">测试</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=5901bd477b61a76bc4016423">运维</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=591f073981be962a981acf18">安全</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58e84f31ad952d6b3428af99">技术管理</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58e84f5f5295227534aad503">敏捷</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58e84f1584c651693437f27c">职场</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58e84f2284c651693437f27d">产品与运营</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58e84f05ad952d6b3428af98">生活</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=59c0c8ca1a1fd73dd3f2e01a">写作与翻译</a><a style="border: 1px solid #f0f0f0;height: 30px;display: inline-block;float: left;                                                  background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 12px;line-height:30px;                                                  color: #000;margin-right: 10px;margin-top: 10px;" href="/?categoryId=58fcb9e3102f8405a04630a4">教育</a></div><div style="margin:0 auto;width:90%;margin-top: 180px;"></div></li></ul></div></nav></li></ul></div><div style="display: inline-block;float:left;margin-top: -6px;margin-left: 60px;"><a href="/"><img style="width: 50px;vertical-align: top" src="https://images.gitbook.cn/logo.png"></a></div><div style="display: inline-block;float: right;"><a id="loginBtn" style="display:inline-block;float:right;height:35px;color: #ff9100;font-size:14px;                border: 1px solid #ff9100;-webkit-border-radius: 0px;margin-right: 10px;" href="javascript:void(0)" role="button" class="btn btn-default">登录 / 注册</a><a id="writeBtn" style="display:inline-block;height:35px;color: #5f6f81;float:right;font-size:14px;                    border: 1px solid #d1d1d1;-webkit-border-radius: 0;margin-right: 10px;" href="javascript:void(0) return false;" role="button" class="hidden-xs btn btn-default">写作</a><!--if !isLogin--><!--    a#newChatBtn.hidden-xs.btn.btn-default(style='display:inline-block;height:35px;color: #5f6f81;float:right;font-size:14px;\--><!--                                border: 1px solid #d1d1d1;-webkit-border-radius: 25px;margin-right: 10px;', href='javascript:void(0) return false;', role='button')--><!--        | 发布Chat--><!--else--><a style="display:inline-block;height:35px;color: #5f6f81;float:right;font-size:14px;                                        border: 1px solid #d1d1d1;-webkit-border-radius: 0;margin-right: 10px;" href="/new/gitchat/activity" role="button" class="hidden-xs btn btn-default">发布Chat</a></div></div><div style="height:70px;position:fixed;top:-5px;left:0px;right:0px;padding-top: 20px;        padding-bottom:10px;background-color: #ffffff;border-bottom: solid 1px #f0f0f0;z-index:1;" class="hidden-xs hidden-sm"><div style="margin:0 auto;max-width: 1180px;"><div style="display: inline-block;float:left;margin-top: -6px;margin-left: 30px;"><a href="/"><img style="width: 50px;vertical-align: top" src="https://images.gitbook.cn/logo.png"></a></div><div style="display: inline-block;float: left;margin-top: 37px;max-width: 800px;"><div style="display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;                    border-bottom: 4px solid #646464;text-align: center;font-size: 16px;"><a href="/" style="color:#444444">首页</a></div><!--if(sortStr == 'hot')--><!--    div(style='display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;\--><!--                border-bottom: 4px solid #646464;text-align: center;font-size: 16px;')--><!--        a(href='/gitchat/hot',style='color:#444444') 热门 Chat--><!--else--><!--    div(style='display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;\--><!--                text-align: center;font-size: 16px;color: #646464')--><!--        a(href='/gitchat/hot') 热门 Chat--><div style="display: inline-block;float: left;margin-left: 20px;width: 86px;height: 42px;margin-top: -29px;                            text-align: center;font-size: 16px;color: #646464"><a href="/gitchat/columns">课程与专题</a></div><!--if(sortStr == 'series')--><!--    div(style='display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;\--><!--                border-bottom: 4px solid #646464;text-align: center;font-size: 16px;')--><!--        a(href='/gitchat/series/list',style='color:#444444') 专 题--><!--else--><!--    div(style='display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;\--><!--                text-align: center;font-size: 16px;color: #646464')--><!--        a(href='/gitchat/series/list') 专 题--><div style="display: inline-block;float: left;margin-left: 25px;width: 80px;height: 42px;margin-top: -29px;                    text-align: center;font-size: 16px;"><a href="/gitchat/geekbooks">极客书</a></div><!--if(sortStr == 'recruits')--><!--    div(style='display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;\--><!--        border-bottom: 4px solid #646464;text-align: center;font-size: 16px;')--><!--        a(href='/gitchat/recruits',style='color:#444444') 人才--><!--else--><!--    div(style='display: inline-block;float: left;margin-left: 20px;width: 80px;height: 42px;margin-top: -29px;\--><!--        text-align: center;font-size: 16px;')--><!--        a(href='/gitchat/recruits') 人才--><div style="display: inline-block;float: left;margin-left: 15px;width: 74px;height: 42px;margin-top: -29px;                            text-align: center;font-size: 16px;"><a href="/gitchat/vip">会 员<!--span(style='position: absolute;\n' +--><!--    'margin-left: 2px;\n' +--><!--    'margin-top: -3px;\n' +--><!--    'content: "NEW";\n' +--><!--    'color: #ff5400;\n' +--><!--    'white-space: nowrap;\n' +--><!--    '-webkit-transform: scale(.6);\n' +--><!--    'transform: scale(.6);\n' +--><!--    'font-weight: 700;\n' +--><!--    'font-size: 14px;\n' +--><!--    '-webkit-transform-origin: 0 0;\n' +--><!--    'transform-origin: 0 0;') NEW--></a></div><!--div#aboutusNav(style='display: inline-block;float: left;margin-left: 20px;width: 90px;height: 42px;margin-top: -29px;\--><!--        text-align: center;font-size: 16px;color: #646464')--><!--        a#aboutusLink(href='/aboutus') 关于我们--><!--div#contactUsNav(style='display: inline-block;float: left;margin-left: 20px;width: 90px;height: 42px;margin-top: -29px;\--><!--                text-align: center;font-size: 16px;color: #646464')--><!--    a#contactUsLink(data-toggle="modal" href="#contactUsModal") 联系客服--><div style="display: inline-block;float: left;margin-left: 20px;width: 180px;height: 35px;margin-top: -36px;                       padding-top:1px;text-align: center;font-size: 16px;border:1px solid #d1d1d1;width:180px;margin-left:125px;"><input id="rightTopSearchInput" style="margin:3px 0 0 10px;width:155px;border: 0px;font-size: 14px;line-height: 25px;                                padding-left:5px;height: 25px;display: inline-block;float: left;" type="search" placeholder="搜索"><!--a(href='#', onclick='searchArticle(); return false;', style='float: right;margin:4px 3px 0 0')div(style='width:25px;height:25px;border:1px solid #ff9100;border-radius: 50%;font-size:10px;line-height:22px;text-align:center;') GO--></div></div><div style="display: inline-block;float: right;"><a id="loginBtn2" style="display:inline-block;float:right;height:35px;color: #ff9100;font-size:14px;                    border: 1px solid #ff9100;-webkit-border-radius: 0;margin-right: 10px;" href="javascript:void(0)" role="button" class="btn btn-default">登录 / 注册</a><a id="writeBtn2" style="display:inline-block;height:35px;color: #5f6f81;float:right;font-size:14px;                        border: 1px solid #d1d1d1;-webkit-border-radius: 0;margin-right: 10px;" href="javascript:void(0) return false;" role="button" class="hidden-xs btn btn-default">写作</a><!--if !isLogin--><!--    a#newChatBtn2.hidden-xs.btn.btn-default(style='display:inline-block;height:35px;color: #5f6f81;float:right;font-size:14px;\--><!--                                        border: 1px solid #d1d1d1;-webkit-border-radius: 25px;margin-right: 10px;', href='javascript:void(0) return false;', role='button')--><!--        | 发布Chat--><!--else--><a style="display:inline-block;height:35px;color: #5f6f81;float:right;font-size:14px;                                                    border: 1px solid #d1d1d1;-webkit-border-radius: 0;margin-right: 10px;" href="/new/gitchat/activity" role="button" class="hidden-xs btn btn-default">发布Chat</a></div><div id="thumbClickMenuDIV" style="position: relative;float: right;top: 47px;right: -257px;font-size: 14pt;width: 160px;display: none;z-index: 1;"><div style="border:1px solid #f0f0f0"><ul style="width: 100%;padding: 5px 15px;line-height: 35px;margin: 2px 0 0;font-size: 14px;text-align: center;list-style: none;background-color: #fff"><li style="border-bottom: 1px dashed #cccccc"><a style="text-decoration: none;color:#555555;" href="/gitchat/ordered">已  购</a></li><li style="border-bottom: 1px dashed #cccccc"><a style="text-decoration: none;color:#555555;" href="/gitchat/vip">我的会员</a></li><li style="border-bottom: 1px dashed #cccccc" class="hidden-md hidden-lg hidden-sm"><a style="text-decoration: none;color:#555555;" href="javascript:myArtAlert()">我的创作</a></li><li style="border-bottom: 1px dashed #cccccc" class="hidden-xs"><a style="text-decoration: none;color:#555555;" href="/mazi/my/activity">我的创作</a></li><li style="border-bottom: 1px dashed #cccccc"><a style="text-decoration: none;color:#555555;" onclick="configFun()" href="#" data-toggle="modal" data-target="#authorModal">个人设置</a></li><li><a style="text-decoration: none;color:#cccccc;" href="/customers/logout">退出登录</a></li></ul></div><s><i></i></s></div></div></div><div id="myArtsAlertModal" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4 id="authorModalLabel" class="modal-title">提示</h4></div><div class="modal-body"><div style="text-align:center;padding-top:10px;">此功能目前只对PC端开放，请用PC访问网站 gitbook.cn</div></div><div style="margin-top: 20px;" class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">返回</button></div></div></div></div><div id="newChatModal" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4 id="newChatLabel" style="text-align:center;" class="modal-title">微信扫码，发起Chat</h4></div><div class="modal-body"><div style="text-align:center;"><img src="https://images.gitbook.cn/new_chat_qr_code.jpg" style="width:250px;margin-top:-10px;"></div></div></div></div></div><div id="contactUsModal" style="margin-top: 100px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div style="text-align:center;" class="modal-header"><h4 id="followWeixinModalLabel" class="modal-title">微信扫描二维码联系客服</h4></div><div style="padding:0;" class="modal-body"><div style="text-align:center;padding-top:10px;"><img src="https://images.gitbook.cn/xiaozhushou1.jpeg" style="margin:5px;width:172px;height:172px;"></div></div><div style="margin-top: 10px;text-align:center;" class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">关闭</button></div></div></div></div><script>// grab an element
+var myElement = document.getElementById("header");
+// construct an instance of Headroom, passing the element
+var headroom  = new Headroom(myElement);
+// initialise
+headroom.init();</script><div style="width:100%;max-width:1160px;margin:0 auto;overflow:hidden;"><div class="mainDiv"><div style="border:0;margin-top:89px;padding:0 25px 0 25px;"></div><div style="border:0;padding:0 25px 0 25px;margin-top:10px;background-color: rgb(245, 245, 245);" class="mazi-activity-container item-container"><!--.hidden-md.hidden-lg.searchWrapper.input-group(style="height: 46px;width: 100%;")--><!--    form(onsubmit="return false")--><!--        input#mobileSearchInput.form-control(style='width:100%;box-shadow: none;-webkit-appearance: none;background-color:#f0f0f2;border-color:#f0f0f2;border-radius:5px;box-sizing: border-box;' type="search" value=keyword placeholder="搜索")--><!--        span.input-group-btn(style='display:none')--><!--            button#searchSubmit.btn.btn-default(type="button" onclick="searchArticle()") Go--><div style="border:0;" class="mazi-activity-container item-container"><style>.carousel-indicators li {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    width: 12px;
+    height: 2px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .5);
+    border:0;
+    border-radius: 0;
+    margin:0 2px 3px 2px;
+}
+
+.carousel-indicators .active {
+    background-color: #fff;
+    width: 12px;
+    height: 2px;
+    border:0;
+    border-radius: 0;
+    margin:0 2px 3px 2px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 15%;
+    color: #fff;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.carousel-control-prev:focus, .carousel-control-prev:hover,
+.carousel-control-next:focus,
+.carousel-control-next:hover {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    opacity: .9;
+}
+
+.carousel-control-prev {
+    left: -25px;
+}
+
+.carousel-control-next {
+    right: -30px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: transparent no-repeat center center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M4 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M1.5 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}</style><div id="carouselBannerIndicators" data-ride="carousel" class="carousel slide"><ol style="bottom: -13px;" class="carousel-indicators"><li data-target="#carouselBannerIndicators" data-slide-to='0' class="active"></li><li data-target="#carouselBannerIndicators" data-slide-to='1'></li><li data-target="#carouselBannerIndicators" data-slide-to='2'></li><li data-target="#carouselBannerIndicators" data-slide-to='3'></li><li data-target="#carouselBannerIndicators" data-slide-to='4'></li></ol><div role="listbox" class="carousel-inner"><div class="item active"><img style="width:100%" src="https://images.gitbook.cn/f07b17b0-8255-11e8-bd8b-c12823715328?imageMogr2/thumbnail/1200x500!" alt="" sid="5b4175b4da103d6fdfbf390a" ltype="" aid="https://gitbook.cn/gitchat/series/5b35bcce60882b4294c1a373?isSeries=yes" class="d-block img-fluid"></div><div class="item"><img style="width:100%" src="https://images.gitbook.cn/b06b8af0-79f0-11e8-adba-414237f6888c?imageMogr2/thumbnail/1200x500!" alt="" sid="5b335fe0a563c175e7b499c2" ltype="" aid="https://gitbook.cn/gitchat/series/5b335da9bd64c574cab6c6b3?isSeries=yes" class="d-block img-fluid"></div><div class="item"><img style="width:100%" src="https://images.gitbook.cn/bd275f30-75b3-11e8-bc64-b1c6b1c474fb?imageMogr2/thumbnail/1200x500!" alt="" sid="5b2c43d9a1df2605e6515c51" ltype="" aid="https://gitbook.cn/gitchat/columns?tag=%E7%B2%BE%E5%93%81%E8%AF%BE" class="d-block img-fluid"></div><div class="item"><img style="width:100%" src="https://images.gitbook.cn/e9d28b90-753b-11e8-bc59-b1d4b3e364bd?imageMogr2/thumbnail/1200x500!" alt="" sid="5b2b7ac42739a17e1fd432d6" ltype="" aid="https://gitbook.cn/gitchat/activity/5b2a0a8270ff8652199f91f3" class="d-block img-fluid"></div><div class="item"><img style="width:100%" src="https://images.gitbook.cn/6fd759d0-5f40-11e8-b354-8f1dfd9119ae?imageMogr2/thumbnail/1200x500!" alt="" sid="5b06996ab9f775446da5ffbe" ltype="" aid="https://gitbook.cn/gitchat/series/5b069891b9f775446da5ff60?isSeries=yes" class="d-block img-fluid"></div></div><a href="#carouselBannerIndicators" role="button" data-slide="prev" class="carousel-control-prev"><span aria-hidden="true" class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a><a href="#carouselBannerIndicators" role="button" data-slide="next" class="carousel-control-next"><span aria-hidden="true" class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a></div><script>$("#carouselBannerIndicators").swiperight(function () {
+    $("#carouselBannerIndicators").carousel('prev');
+});
+$("#carouselBannerIndicators").swipeleft(function () {
+    $("#carouselBannerIndicators").carousel('next');
+});
+$('#carouselBannerIndicators img').click(function () {
+    window.location.href = $(this).attr('aid')+'';
+});</script></div></div><div style="border:0;padding:0 25px 0 25px;background-color: rgb(245, 245, 245);" class="mazi-activity-container item-container"><div style="border:0;padding:0 25px 0 25px;" class="mazi-activity-container item-container"><div style="float:left;line-height:50px;font-size:18px;font-weight:500;color:#666;"><span>Chat</span></div><div style="float:right;font-size: 16px;color:#555;line-height: 50px;font-weight:500;"><a href="/gitchat/news"><span style="margin-right:15px;">最新</span></a><a href="/gitchat/hot"><span style="margin-right:15px;">最热</span></a><a href="/gitchat/free"><span>免费</span></a></div></div></div><div style="border-bottom: 1px solid #f5f5f5;"></div><div style="border:0;padding:0 25px 0 25px;background-color: rgb(245, 245, 245);" class="mazi-activity-container item-container"><div id="chatItemContainer" style="border:0;padding:10px 25px 0 25px;" class="mazi-activity-container item-container"><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b278ce151bc1a7cd5bd19e8"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/e4454cc0-25d8-11e7-957e-abee09f1d1ef" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">移动互联网安全扫描检测和质量分析</div><div style="padding-top: 3px;" class="item-author-nameV2">IT诸葛亮</div><div class="item-author-descV2">资深质量开发|DevOps架构专家</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">90</span></div><a href="/?categoryId=591f073981be962a981acf18" class="textTag category">安全</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b2868623544ac7cf10db934"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/4f8c9880-7367-11e8-9e76-835574e7e257" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">IDEA Maven 使用教程</div><div style="padding-top: 3px;" class="item-author-nameV2">woodwang</div><div class="item-author-descV2">Java软件工程师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">175</span></div><a href="/?categoryId=59c491948fee063dc3c447ab" class="textTag category">编程语言</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b28c7f63130202ab558cb48"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/66cf9210-a28c-11e7-b731-edf3e3989273?imageView2/1/w/200/h/200" class="item-author-thumbV2"><img style="border: 0;margin: 17px 0 0 -37px;width: 40px;height: 40px;" src="https://images.gitbook.cn/rvip.png"><div class="item-author-ndV2"><div class="item-titleV2">写给程序员的数理科普：混沌与三体</div><div style="padding-top: 3px;" class="item-author-nameV2">如是</div><div class="item-author-descV2">算法工程师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">184</span></div><a href="/?categoryId=59e731556d761a35fa821842" class="textTag category">数学与算法</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div><div style="border:1px solid #c9a063;color:#c9a063;line-height:16px" class="textTag">免费</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b299e4070ff8652199f890b"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://wx.qlogo.cn/mmopen/8kv8jjXQ8EXmu7Zj0QsoGXrNcRxWM76LVaJsMabzFibNsE4Sp4mfr81wAAADTreHrcJgCmibkb2VvZxAzkcu9KPQ5V5L1TaGwL/0" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">契约测试初探与实例讲解</div><div style="padding-top: 3px;" class="item-author-nameV2">文</div><div class="item-author-descV2">测试leader</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">83</span></div><a href="/?categoryId=58e84f425295227534aad502" class="textTag category">测试</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b2a295aeecf993d5627dd04"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/cc28d070-72a4-11e8-9e76-835574e7e257?imageView2/1/w/200/h/200" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">分布式服务治理框架 Dubbo 之应用实战和源码分析</div><div style="padding-top: 3px;" class="item-author-nameV2">码侠岛</div><div class="item-author-descV2">Java开发</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">147</span></div><a href="/?categoryId=58e84f6bad952d6b3428af9a" class="textTag category">架构</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b286ab6328c342a9ff715c6"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/79932e50-2088-11e8-aca3-1913555404a4" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">Redis 高级 Java 客户端 Lettuce 的用法及踩坑经验</div><div style="padding-top: 3px;" class="item-author-nameV2">应书澜</div><div class="item-author-descV2">～中间件高级工程师/设计师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">109</span></div><a href="/?categoryId=59f59b5a49cd43306135f1ea" class="textTag category">开源软件</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b287cf93130202ab558ca0d"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/2e585f10-580e-11e8-80a9-2b40ec71fa5f?imageView2/1/w/200/h/200" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">竹间智能：人机交互未来如何改变人类生活</div><div style="padding-top: 3px;" class="item-author-nameV2">AI科技大本营</div><div class="item-author-descV2">技术媒体</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">77</span></div><a href="/?categoryId=58e84f53ec8e9e7b34457809" class="textTag category">人工智能</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div><div style="border:1px solid #c9a063;color:#c9a063;line-height:16px" class="textTag">免费</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b28e7af4ac48f2aa573cd8c"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/7a806de0-7421-11e8-a8e5-f9dad580585a" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">家庭智能终端开发之蓝牙语言遥控器概念篇</div><div style="padding-top: 3px;" class="item-author-nameV2">石头</div><div class="item-author-descV2">智能终端研发与管理中级工程师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">68</span></div><a href="/?categoryId=59eafe89692eee01b9fb77e7" class="textTag category">硬件与物联网</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div><div style="border:1px solid #c9a063;color:#c9a063;line-height:16px" class="textTag">免费</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b2d9f64194fe035cadddf9e"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/09081c80-7683-11e8-a427-f303e3acbaa5" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">区块链轻钱包技术分享</div><div style="padding-top: 3px;" class="item-author-nameV2">block</div><div class="item-author-descV2">架构师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">88</span></div><a href="/?categoryId=5953698a3d38293ecceacb89" class="textTag category">区块链</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b2331824498263985c7dffc"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/76792b00-d292-11e7-a749-d1c99a8dd9de?imageView2/1/w/200/h/200" class="item-author-thumbV2"><img style="border: 0;margin: 17px 0 0 -37px;width: 40px;height: 40px;" src="https://images.gitbook.cn/rvip.png"><div class="item-author-ndV2"><div class="item-titleV2">Java 程序员常用的8个数据库知识点</div><div style="padding-top: 3px;" class="item-author-nameV2">JPM</div><div class="item-author-descV2">信息系统项目管理师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">185</span></div><a href="/?categoryId=59c491948fee063dc3c447ab" class="textTag category">编程语言</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div><span style="color:#c9a063;" class="icon2 lnr-clock">下周一 20:30</span></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b2714cc3130202ab558c687"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/25aed360-838a-11e8-884a-35c5e2ab8361?imageView2/1/w/200/h/200" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">PowerShell 在日常开发运维中的应用</div><div style="padding-top: 3px;" class="item-author-nameV2">Richard崔驰坤</div><div class="item-author-descV2">技术架构师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">88</span></div><a href="/?categoryId=5901bd477b61a76bc4016423" class="textTag category">运维</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div><div style="border:1px solid #c9a063;color:#c9a063;line-height:16px" class="textTag">免费</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b2865f15b15e22abb141005"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/21244fe0-f448-11e7-8fbf-c59fff073cfb" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">YOLO V1和YOLO V3深度学习目标检测补遗更新</div><div style="padding-top: 3px;" class="item-author-nameV2">Q.IAN</div><div class="item-author-descV2">视觉与图像处理研究生</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">96</span></div><a href="/?categoryId=58e84f53ec8e9e7b34457809" class="textTag category">人工智能</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div><div style="border:1px solid #c9a063;color:#c9a063;line-height:16px" class="textTag">免费</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b2cbfb65bb4e914075cdc95"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/6ccf7aa0-b613-11e7-b2f4-b5e006f12537" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">MySQL 索引创建与优化</div><div style="padding-top: 3px;" class="item-author-nameV2">Scorpio</div><div class="item-author-descV2">IT民工</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">199</span></div><a href="/?categoryId=59c491948fee063dc3c447ab" class="textTag category">编程语言</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b30ef7056ef1307f374dbc1"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/09081c80-7683-11e8-a427-f303e3acbaa5" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">一个小时学会 Electron</div><div style="padding-top: 3px;" class="item-author-nameV2">block</div><div class="item-author-descV2">架构师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">159</span></div><a href="/?categoryId=58e84f875295227534aad506" class="textTag category">前端</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b2b2235af54ea0f807ca11d"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/f74b9070-54d2-11e8-8d0c-8b26a5c3fb7d" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">常见 Android 代码兼容性问题及解决方案</div><div style="padding-top: 3px;" class="item-author-nameV2">珠穆朗玛</div><div class="item-author-descV2">高级安卓开发工程师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">68</span></div><a href="/?categoryId=591171a3e692d5280d8157b6" class="textTag category">移动开发</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b3341ed28f60a20b62890f8"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/eeacd8b0-6e0f-11e8-9503-5f61421c20d6" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">基于情感词典的中文自然语言处理情感分析（上）</div><div style="padding-top: 3px;" class="item-author-nameV2">Soyoger</div><div class="item-author-descV2">数据挖掘工程师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">97</span></div><a href="/?categoryId=58e84f53ec8e9e7b34457809" class="textTag category">人工智能</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b31acaa7ea05569dea5862a"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/45e9c060-6a38-11e8-b138-6bde7fa5e463?imageView2/1/w/200/h/200" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">RabbitMQ 消息服务二消息重发以及需要回执的消息的实现方式</div><div style="padding-top: 3px;" class="item-author-nameV2">IT小香猪</div><div class="item-author-descV2">工程师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">96</span></div><a href="/?categoryId=58e84f6bad952d6b3428af9a" class="textTag category">架构</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b339cc2b3d1de6cd5e3cecb"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/85809400-088c-11e8-ae46-53d1e9f27ba6" class="item-author-thumbV2"><img style="border: 0;margin: 17px 0 0 -37px;width: 40px;height: 40px;" src="https://images.gitbook.cn/rvip.png"><div class="item-author-ndV2"><div class="item-titleV2">本地事务原理探究</div><div style="padding-top: 3px;" class="item-author-nameV2">追梦</div><div class="item-author-descV2">高级java 攻城狮</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">122</span></div><a href="/?categoryId=58e84f6bad952d6b3428af9a" class="textTag category">架构</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b35de94deb86c016d7dc55a"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/0a417b50-7b6f-11e8-95d0-05d53c09e644?imageView2/1/w/200/h/200" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">使用 Hyperledger Fabric 自定义搭建属于自己的区块链</div><div style="padding-top: 3px;" class="item-author-nameV2">谦益</div><div class="item-author-descV2">区块链工程师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">91</span></div><a href="/?categoryId=5953698a3d38293ecceacb89" class="textTag category">区块链</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div></div></div></a></div><div style="padding:0;border-bottom: 1px solid #f5f5f5;" class="col-md-12"><a href="/gitchat/activity/5b35856c18887615fe36ffa7"><div style="border:0;padding:0;" class="mazi-item"><div style="padding: 10px 0 10px 0;" class="item-name-cardV2"><img src="https://images.gitbook.cn/a11f2770-694a-11e8-b501-5b633bc9aed2?imageView2/1/w/200/h/200" class="item-author-thumbV2"><div class="item-author-ndV2"><div class="item-titleV2">哪些算法和数据结构是需要程序员必须掌握的？</div><div style="padding-top: 3px;" class="item-author-nameV2">zhen.guo</div><div class="item-author-descV2">资深算法工程师</div></div></div><div style="margin: 0 0 8px -10px;" class="mazi-item-bottom"><div style="margin-left:8px;display: inline;"><span class="icon2 lnr-user"></span><span class="text">320</span></div><a href="/?categoryId=59e731556d761a35fa821842" class="textTag category">数学与算法</a><div style="border:1px solid #6e8b84;color:#6e8b84;line-height:16px" class="textTag">读者圈</div><div style="border:1px solid #c9a063;color:#c9a063;line-height:16px" class="textTag">免费</div></div></div></a></div></div><div><div id="loader"><img src="https://images.gitbook.cn/loading_spinner.gif"></div><div id="noMoreToLoad" style="display:none;height:60px;text-align:center;line-height: 60px;color:#555;">-- 我们是有底线的 --</div></div></div></div><style>#btnRight{
+    color:#fff;
+    background-color:#337ab7;
+    border-color:#2e6da4;
+}
+#btnRight:hover{
+    color:#fff;
+    background-color:#286090 !important;
+    border-color:#204d74;
+}
+.vipRightTag{
+    border:1px solid #f5f5f5;
+    padding:20px;
+    margin:13px 0 0 0;
+    background-color:#fff;
+    cursor:pointer;
+}
+.vipBecomeBtn{
+    text-align:center;
+    color:#95A094;
+    border-top:1px solid #f5f5f5;
+    background-color:#fff;
+    height:40px;
+    line-height:40px;
+    font-size:16px;
+    font-weight:600;
+    cursor: pointer;
+}</style><div id="indexRight" style="float:left;width: 360px;margin-top:75px;z-index: -1;height: 100%;padding-bottom: 100px;padding-left: 10px;overflow:hidden;" class="hidden-xs hidden-sm"><div class="vipClick vipRightTag"><div style="display: flex;"><div style="flex: 1;font-size: 12px;text-align: center;"><img src="https://images.gitbook.cn/side_chat.png?imageView2/1/h/500" height="50" width="50" alt=""><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">Chat</div><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">免费订</div></div><div style="flex: 1;font-size: 12px;text-align: center;"><img src="https://images.gitbook.cn/side_c.png?imageView2/1/h/500" height="50" width="50" alt=""><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">课程</div><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">随心学</div></div><div style="flex: 1;font-size: 12px;text-align: center;"><img src="https://images.gitbook.cn/side_b.png?imageView2/1/h/500" height="50" width="50" alt=""><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">好书</div><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">每月领</div></div><div style="flex: 1;font-size: 12px;text-align: center;"><img src="https://images.gitbook.cn/side_s.png?imageView2/1/h/500" height="50" width="50" alt=""><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">专家</div><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">畅快聊</div></div></div></div><div class="vipClick vipBecomeBtn"><a style="color:#CAA56A" href="/gitchat/vip">成为会员</a></div><div style="margin-top:20px;"></div><div style="margin: 0 auto;display:inline-block;background-color:#ffffff;padding-bottom:10px;padding-left:20px;"><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=58e84f875295227534aad506" target="_blank"><img src="https://images.gitbook.cn/dd53cb80-1c05-11e7-8187-65a30c956cd7" style="width:25px;margin-right:5px;"><span>前端</span></a><a style="height: 40px;display: inline-block;float: left;                          background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                          margin-top: 10px;min-width:160px;" href="/?categoryId=591171a3e692d5280d8157b6" target="_blank"><img src="https://images.gitbook.cn/4b807350-348a-11e7-8728-a9cb89af1d5d" style="width:25px;margin-right:5px;"><span>移动开发</span></a><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=59eafe89692eee01b9fb77e7" target="_blank"><img src="https://images.gitbook.cn/d5c726d0-b635-11e7-955b-b55efdfa1bf6" style="width:25px;margin-right:5px;"><span>硬件与物联网</span></a><a style="height: 40px;display: inline-block;float: left;                          background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                          margin-top: 10px;min-width:160px;" href="/?categoryId=5953698a3d38293ecceacb89" target="_blank"><img src="https://images.gitbook.cn/45741e20-5bdc-11e7-a916-3bc36c078bd8" style="width:25px;margin-right:5px;"><span>区块链</span></a><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=58e84f53ec8e9e7b34457809" target="_blank"><img src="https://images.gitbook.cn/be039710-1c05-11e7-9d4d-1121a99bb498" style="width:25px;margin-right:5px;"><span>人工智能</span></a><a style="height: 40px;display: inline-block;float: left;                          background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                          margin-top: 10px;min-width:160px;" href="/?categoryId=59e731556d761a35fa821842" target="_blank"><img src="https://images.gitbook.cn/c0082920-b3f1-11e7-9e2f-8367361a88f2" style="width:25px;margin-right:5px;"><span>数学与算法</span></a><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=58e84f7bec8e9e7b3445780d" target="_blank"><img src="https://images.gitbook.cn/d5a56510-1c05-11e7-9d4d-1121a99bb498" style="width:25px;margin-right:5px;"><span>大数据</span></a><a style="height: 40px;display: inline-block;float: left;                          background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                          margin-top: 10px;min-width:160px;" href="/?categoryId=58e84f6bad952d6b3428af9a" target="_blank"><img src="https://images.gitbook.cn/cc8a9d60-1c05-11e7-8187-65a30c956cd7" style="width:25px;margin-right:5px;"><span>架构</span></a><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=59f59b5a49cd43306135f1ea" target="_blank"><img src="https://images.gitbook.cn/29d250c0-bc89-11e7-a513-09587bc95d13" style="width:25px;margin-right:5px;"><span>开源软件</span></a><a style="height: 40px;display: inline-block;float: left;                          background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                          margin-top: 10px;min-width:160px;" href="/?categoryId=59c491948fee063dc3c447ab" target="_blank"><img src="https://images.gitbook.cn/8c17e090-9f4e-11e7-b002-c1f7ed467750" style="width:25px;margin-right:5px;"><span>编程语言</span></a><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=5941fc0f0c19c77beb43ac13" target="_blank"><img src="https://images.gitbook.cn/064d9590-5179-11e7-8f9d-e1a46a00e053" style="width:25px;margin-right:5px;"><span>软件工程实践</span></a><a style="height: 40px;display: inline-block;float: left;                          background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                          margin-top: 10px;min-width:160px;" href="/?categoryId=58e84f425295227534aad502" target="_blank"><img src="https://images.gitbook.cn/b4495b10-1c05-11e7-8187-65a30c956cd7" style="width:25px;margin-right:5px;"><span>测试</span></a><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=5901bd477b61a76bc4016423" target="_blank"><img src="https://images.gitbook.cn/fa6cb380-2b2d-11e7-93f9-893e15f43873" style="width:25px;margin-right:5px;"><span>运维</span></a><a style="height: 40px;display: inline-block;float: left;                          background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                          margin-top: 10px;min-width:160px;" href="/?categoryId=591f073981be962a981acf18" target="_blank"><img src="https://images.gitbook.cn/10953840-3ca3-11e7-9a83-95fed495c599" style="width:25px;margin-right:5px;"><span>安全</span></a><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=58e84f31ad952d6b3428af99" target="_blank"><img src="https://images.gitbook.cn/aa5b64e0-1c05-11e7-ba87-1ba9759a0caa" style="width:25px;margin-right:5px;"><span>技术管理</span></a><a style="height: 40px;display: inline-block;float: left;                          background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                          margin-top: 10px;min-width:160px;" href="/?categoryId=58e84f5f5295227534aad503" target="_blank"><img src="https://images.gitbook.cn/c5c3fee0-1c05-11e7-8187-65a30c956cd7" style="width:25px;margin-right:5px;"><span>敏捷</span></a><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=58e84f1584c651693437f27c" target="_blank"><img src="https://images.gitbook.cn/99722ba0-1c05-11e7-b2fd-1d704832d7d1" style="width:25px;margin-right:5px;"><span>职场</span></a><a style="height: 40px;display: inline-block;float: left;                          background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                          margin-top: 10px;min-width:160px;" href="/?categoryId=58e84f2284c651693437f27d" target="_blank"><img src="https://images.gitbook.cn/a11dfa00-1c05-11e7-b2fd-1d704832d7d1" style="width:25px;margin-right:5px;"><span>产品与运营</span></a><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=58e84f05ad952d6b3428af98" target="_blank"><img src="https://images.gitbook.cn/8d3f9ca0-1c05-11e7-ba87-1ba9759a0caa" style="width:25px;margin-right:5px;"><span>生活</span></a><a style="height: 40px;display: inline-block;float: left;                          background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                          margin-top: 10px;min-width:160px;" href="/?categoryId=59c0c8ca1a1fd73dd3f2e01a" target="_blank"><img src="https://images.gitbook.cn/17bbd190-9d0d-11e7-be01-51f282d58fd1" style="width:25px;margin-right:5px;"><span>写作与翻译</span></a><a style="height: 40px;display: inline-block;float: left;                      background-color: #ffffff;padding-left: 10px;padding-right:10px;font-size: 14px;line-height:40px;                      margin-top: 10px;margin-right:10px;min-width:160px;" href="/?categoryId=58fcb9e3102f8405a04630a4" target="_blank"><img src="https://images.gitbook.cn/0186a7c0-2831-11e7-a4f0-afdbe5283f35" style="width:25px;margin-right:5px;"><span>教育</span></a></div><div style="border:1px solid #f5f5f5;padding:20px;margin:10px 0 20px 0;background-color:#fff;"><div><div><span style="font-weight:500">Chat 是什么？</span><a style="float:right;font-size:12px;color:#2B84C4" href="/books/5b398139328f856827673b50/index.html" target="_blank"><span>了解更多</span></a></div><div style="padding-top:10px;text-align: justify;"><span>Chat 是一种全新的阅读/写作互动体验产品。一场 Chat 包含一篇文章和一场为该文章的读者和作者准备的专属线上交流。</span></div></div><div style="width:100%;margin:0 auto;border-bottom: 1px solid #f0f0f0;display:inline-block;"></div><div style="margin:5px 0"><div data-step="4" data-intro="关注GitChat服务号，获取活动状态通知。" style="float:left;"><img src="https://images.gitbook.cn/FugaAUCJPglWvm7ZO6Vldhc6Iq6h" height="100" width="100"></div><div style="margin-left:100px;"><div style="line-height:20px;margin:0 0 5px 22px;font-weight:500;padding-top:5px;">关注 GitChat 微信公众号</div><div style="color:#95A094;"><ul><li>获得 Chat 邀请</li><li>与作者实时互动</li><li>限时特惠不错过</li></ul></div></div></div><div style="text-align:center;color:#95A094;margin-top:25px;font-size:13px;"><table style="width:100%;"><tr><td><a href="http://gitbook.cn/books/5ad965d38ba0ed4ba9410f27/index.html" target="_blank">加入我们</a></td><td><span style="margin:5px 10px;">|</span></td><td><a id="aboutusLink" href="/books/5b398139328f856827673b50/index.html" target="_blank">常见问题</a></td><td><span style="margin:5px 10px;">|</span></td><td><a id="contactUsLink" data-toggle="modal" href="#contactUsModal">联系客服</a></td></tr></table></div></div><a id="btnRight" data-step="1" data-intro="发布Chat活动，开启讲师之旅。" style="width:100%;height:40px;line-height: 26px;order-radius: 0;" target="_blank" href="/new/gitchat/activity" role="button" class="btn btn-primary">创建一场 Chat</a><a id="btnRight" style="margin-top:10px;width:100%;height:40px;line-height: 26px;order-radius: 0;" target="_blank" href="/application/column" role="button" class="btn btn-primary">成为达人课作者</a><style>#adRight{
+    position:fixed;
+    top:85px;
+    width: 350px;
+    display: none;
+    transition:all 0.2s;
+}
+#btnRight{
+    color:#fff;
+    background-color:#337ab7;
+    border-color:#2e6da4;
+}
+#btnRight:hover{
+    color:#fff;
+    background-color:#286090 !important;
+    border-color:#204d74;
+}
+.vipRightTag{
+    border:1px solid #f5f5f5;
+    padding:20px;
+    margin:13px 0 0 0;
+    background-color:#fff;
+    cursor:pointer;
+}
+.vipBecomeBtn{
+    text-align:center;
+    color:#95A094;
+    border-top:1px solid #f5f5f5;
+    background-color:#fff;
+    height:40px;
+    line-height:40px;
+    font-size:16px;
+    font-weight:600;
+    cursor: pointer;
+}</style><div id="adRight" class="hidden-xs hidden-sm"><div class="vipClick vipRightTag"><div style="display: flex;"><div style="flex: 1;font-size: 12px;text-align: center;"><img src="https://images.gitbook.cn/side_chat.png?imageView2/1/h/500" height="50" width="50" alt=""><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">Chat</div><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">免费订</div></div><div style="flex: 1;font-size: 12px;text-align: center;"><img src="https://images.gitbook.cn/side_c.png?imageView2/1/h/500" height="50" width="50" alt=""><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">课程</div><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">随心学</div></div><div style="flex: 1;font-size: 12px;text-align: center;"><img src="https://images.gitbook.cn/side_b.png?imageView2/1/h/500" height="50" width="50" alt=""><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">好书</div><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">每月领</div></div><div style="flex: 1;font-size: 12px;text-align: center;"><img src="https://images.gitbook.cn/side_s.png?imageView2/1/h/500" height="50" width="50" alt=""><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">专家</div><div style="color:#CAA56A;width: 55px;padding-top:5px;margin: 0 auto;text-align:center;">畅快聊</div></div></div></div><div class="vipClick vipBecomeBtn"><a style="color:#CAA56A" href="/gitchat/vip">成为会员</a></div><div style="border:1px solid #f5f5f5;padding:20px;margin:10px 0 20px 0;background-color:#fff;"><div><div><span style="font-weight:500">Chat 是什么？</span><a style="float:right;font-size:12px;color:#2B84C4" href="/books/5b398139328f856827673b50/index.html" target="_blank"><span>了解更多</span></a></div><div style="padding-top:10px;text-align: justify;"><span>Chat 是一种全新的阅读/写作互动体验产品。一场 Chat 包含一篇文章和一场为该文章的读者和作者准备的专属线上交流。</span></div></div><div style="width:100%;margin:0 auto;border-bottom: 1px solid #f0f0f0;display:inline-block;"></div><div style="margin:5px 0"><div data-step="4" data-intro="关注GitChat服务号，获取活动状态通知。" style="float:left;"><img src="https://images.gitbook.cn/FugaAUCJPglWvm7ZO6Vldhc6Iq6h" height="100" width="100"></div><div style="margin-left:100px;"><div style="line-height:20px;margin:0 0 5px 22px;font-weight:500;padding-top:5px;">关注 GitChat 微信公众号</div><div style="color:#95A094;"><ul><li>获得 Chat 邀请</li><li>与作者实时互动</li><li>限时特惠不错过</li></ul></div></div></div><div style="text-align:center;color:#95A094;margin-top:25px;font-size:13px;"><table style="width:100%;"><tr><td><a href="http://gitbook.cn/books/5ad965d38ba0ed4ba9410f27/index.html" target="_blank">加入我们</a></td><td><span style="margin:5px 10px;">|</span></td><td><a id="aboutusLink_2" href="/books/5b398139328f856827673b50/index.html" target="_blank">常见问题</a></td><td><span style="margin:5px 10px;">|</span></td><td><a id="contactUsLink_2" data-toggle="modal" href="#contactUsModal">联系客服</a></td></tr></table></div></div><a id="btnRight" data-step="1" data-intro="发布Chat活动，开启讲师之旅。" style="width:100%;height:40px;line-height: 26px;order-radius: 0;" target="_blank" href="/new/gitchat/activity" role="button" class="btn btn-primary">创建一场 Chat</a><a id="btnRight" style="margin-top:10px;width:100%;height:40px;line-height: 26px;order-radius: 0;" target="_blank" href="/application/column" role="button" class="btn btn-primary">成为达人课作者</a><script>if(!showCount){
+    //当没定义距离时为正常高度，定义了为长标签高度
+    var showCount = 1300;
+}
+let leftPosition = $('#indexRight').offset().left+10;
+$('#adRight').css('left',leftPosition);
+window.onscroll = function () {
+    var topCount = $(document).scrollTop();
+    if(topCount>showCount){
+        $('#adRight').show();
+    }else{
+        $('#adRight').hide();
+    }
+}
+//定位广告
+$(window).resize(function(){
+    let leftPosition = $('#indexRight').offset().left+10;
+    if(leftPosition<100){
+        $('#adRight').hide();
+    }else{
+        $('#adRight').css('left',leftPosition);
+    }
+
+});
+//跳转会员页
+$('.vipClick').on('click', function () {
+    window.location.href='/gitchat/vip';
+    event.stopPropagation();
+    event.preventDefault();
+})</script></div><script>//跳转会员页
+$('.vipClick').on('click', function () {
+    window.location.href='/gitchat/vip';
+    event.stopPropagation();
+    event.preventDefault();
+})</script></div><!--include ./indexGitChatRightV4--></div><script src="https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script><div class="fat-nav"><div class="fat-nav__wrapper"><div style="margin: 0 auto;font-size: 30px;color: #ffffff;text-align: center;margin-top: 60px;"><img style="width: 50px;" src="https://images.gitbook.cn/logo.png"></div><div id="loginInputDiv" style="width: 100%"><div style="text-align:center;color: #ffffff;margin-top:10px;font-size: 16px;letter-spacing: 2px;">微信扫描登录</div><div id="login_container" style="text-align: center;height: 250px;overflow: hidden;"></div></div></div></div><div id="authorModal" style="margin-top: 60px;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade"><div role="document" class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button><h4 id="authorModalLabel" class="modal-title">帐号设置</h4></div><div class="modal-body"><div style="display:inline-block;width: 100%;"><div style="display:inline;float:left;padding: 20px 0 0 10px;min-width: 280px;"><div id="authorThumb" style="display: inline-block;float:left;width: 100px;height: 100px;border: 1px solid #cccccc;margin-right: 20px;                      line-height: 100px;font-size: 30px;text-align: center;-webkit-border-radius: 50px;margin-bottom:20px;">头像</div><form id="thumbUploadForm" style="margin-top:25px;" method="post" action="/upload/book/image" enctype="multipart/form-data"><div style="display: inline" class="form-group"><a href="javascript:;" class="file">选择头像<input id="thumbInputFile" type="file" name="tmpFile" onchange="javascript:submitThumbForm()"></a><p style="font-size:12px;" class="help-block">最佳分辨率：200*200像素</p></div></form></div><!--if customerAccountStatus == 'onlymail'--><!--    div.hidden-xs(style='display:inline;float:right;width:50%;height: 220px;text-align: center;')--><!--        span 绑 定 微 信 帐 号--><!--        div#bandweixin(style='height: 220px;overflow: hidden;')--><!--    script.--><!--        if (!(/MicroMessenger/i).test(window.navigator.userAgent)) {--><!--            var state = encodeURI(window.location.href);--><!--            $.ajax ({--><!--                url: "/weixin/bind/weixin/qr",--><!--                type: "POST",--><!--                dataType: "json",--><!--                contentType: "application/json; charset=utf-8",--><!--                success: function(data,status){--><!--                    if(data.code == 0){--><!--                        var obj = new WxLogin({--><!--                            id:"bandweixin",--><!--                            appid: data.appId,--><!--                            scope: data.scope,--><!--                            redirect_uri: data.redirectUrl,--><!--                            state: state,--><!--                            style: "black",--><!--                            href: "https%3A%2F%2Foabbwo5lj.qnssl.com%2FweixinLoginQr2.css"--><!--                            });--><!--                    }--><!--                }--><!--            });--><!--        }--></div><div style="display:inline-block;width:100%;border-top:1px dashed #f5f5f5;height:20px;"></div><div style="display:inline-block;width:100%;"><div style="float:left;line-height:30px;">昵   称:</div><div style="margin-left:70px;"><input id="authorName" style="margin-bottom: 10px;" type="text" placeholder="用户昵称" value="" class="form-control"></div></div><div style="display:inline-block;width:100%;"><div style="float:left;line-height:30px;">微信号:</div><div style="margin-left:70px;"><input id="weixinAccount" style="margin-bottom: 10px;" type="text" placeholder="不填写微信号就不能发布Chat活动哦^_^" value="" class="form-control"></div></div><div style="display:inline-block;width:100%;"><div style="float:left;line-height:30px;">头   衔:</div><div style="margin-left:70px;"><input id="authorTitle" style="margin-bottom: 10px;" type="text" placeholder="用户头衔" value="" class="form-control"></div></div><div style="display:inline-block;width:100%;"><div style="float:left;line-height:30px;">背景介绍:</div><div style="margin-left:70px;"><textarea id="authorBackground" style="margin-bottom: 10px;" rows="3" placeholder="用户背景简介" class="form-control"></textarea><input id="hideCustomerThumbImage" style="display:none"></div></div><div style="font-size: 25px;line-height: 35px;"></div><div id="thumbUploadingAlertDiv" style="display:none;margin-top: 50px;margin-bottom: -20px;" class="alert alert-info">正在上传头像，请稍等......</div><div id="updatingAlertDiv" style="display:none;margin-top: 50px;margin-bottom: -20px;" class="alert alert-info">正在更新，请稍等......</div><div id="emailCheckAlertDiv" style="display:none;margin-top: 50px;margin-bottom: -20px;" class="alert alert-danger">邮件地址格式不正确，请重新填写</div><div id="dupEmailAlertDiv" style="display:none;margin-top: 50px;margin-bottom: -20px;" class="alert alert-danger">此邮件地址已经被其他用户使用</div></div><div style="margin-top: 20px;" class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-default">取消</button><button id="authorSubmitBtn" type="button" data-dismiss="modal" class="btn btn-primary">保存</button></div></div></div></div><script>if (!(/MicroMessenger/i).test(window.navigator.userAgent)) {
+    var state = encodeURI(window.location.href);
+    $.ajax ({
+            url: "/weixin/login/qr",
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function(data,status){
+                if(data.code == 0){
+                    console.log(data)
+                    var obj = new WxLogin({
+                              id:"login_container",
+                              appid: data.appId,
+                              scope: data.scope,
+                              redirect_uri: data.redirectUrl,
+                              state: state,
+                              style: "white",
+                              href: "https%3A%2F%2Foabbwo5lj.qnssl.com%2FweixinLoginQr.css"
+                            });
+                    console.log(obj)        
+                }
+            }
+    });
+}</script><script src="/dist/js/jquery.fatNav.js"></script><script>new gnMenu( document.getElementById( 'gn-menu' ) );</script></body><script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script><script>$.ajax ({
+    url: "/weixin/signature",
+    type: "POST",
+    data: JSON.stringify({url:window.location.href}),
+    dataType: "json",
+    contentType: "application/json; charset=utf-8",
+    success: function(data,status){
+        if(data.code == 0){
+            wx.config({
+            debug: false,
+            appId: 'wx7ba47eadabd9ddde',
+            timestamp: data.timestamp,
+            nonceStr: data.nonce,
+            signature: data.sha1,
+            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone','chooseWXPay']
+            });
+            wx.ready(function(){
+                //alert('config check successfully.');
+                wx.onMenuShareTimeline({
+                title: '', // 分享标题
+                link: '', // 分享链接
+                imgUrl: '', // 分享图标
+                success: function () {
+                // 用户确认分享后执行的回调函数
+                    $.ajax({
+                        url: "/m/mazi/share/event",
+                        type: "POST",
+                        data: JSON.stringify({
+                            shareItemType:'', // activity, article, author, others
+                            shareItemId:'',
+                            shareToken:'',
+                            shareChanel:'weixinTimeline',
+                            shareItemUrl:window.location.href
+                        }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data, status) {
+
+                        }
+                    });
+                },
+                cancel: function () {
+                // 用户取消分享后执行的回调函数
+                }
+                });
+                wx.onMenuShareAppMessage({
+                title: '', // 分享标题
+                desc: '', // 分享描述
+                link: '', // 分享链接
+                imgUrl: '', // 分享图标
+                type: 'link', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    $.ajax({
+                        url: "/m/mazi/share/event",
+                        type: "POST",
+                        data: JSON.stringify({
+                            shareItemType: '', // activity, article, author, others
+                            shareItemId: '',
+                            shareToken: '',
+                            shareChanel: 'weixinMessage',
+                            shareItemUrl: window.location.href
+                        }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data, status) {
+
+                        }
+                    });
+                },
+                cancel: function () {
+                // 用户取消分享后执行的回调函数
+                }
+                });
+                wx.onMenuShareQQ({
+                title: '', // 分享标题
+                desc: '', // 分享描述
+                link: '', // 分享链接
+                imgUrl: '', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    $.ajax({
+                        url: "/m/mazi/share/event",
+                        type: "POST",
+                        data: JSON.stringify({
+                            shareItemType: '', // activity, article, author, others
+                            shareItemId: '',
+                            shareToken: '',
+                            shareChanel: 'qq',
+                            shareItemUrl: window.location.href
+                        }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data, status) {
+
+                        }
+                    });
+                },
+                cancel: function () {
+                // 用户取消分享后执行的回调函数
+                }
+                });
+                wx.onMenuShareWeibo({
+                title: '', // 分享标题
+                desc: '', // 分享描述
+                link: '', // 分享链接
+                imgUrl: '', // 分享图标
+                success: function () {
+                // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                // 用户取消分享后执行的回调函数
+                }
+                });
+                wx.onMenuShareQZone({
+                title: '', // 分享标题
+                desc: '', // 分享描述
+                link: '', // 分享链接
+                imgUrl: '', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    $.ajax({
+                        url: "/m/mazi/share/event",
+                        type: "POST",
+                        data: JSON.stringify({
+                            shareItemType: '', // activity, article, author, others
+                            shareItemId: '',
+                            shareToken: '',
+                            shareChanel: 'QZone',
+                            shareItemUrl: window.location.href
+                        }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data, status) {
+
+                        }
+                    });
+                },
+                cancel: function () {
+                // 用户取消分享后执行的回调函数
+                }
+                });
+            });
+            wx.error(function (res) {
+            });
+        }
+    }
+});</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-96766334-1', 'auto');
+ga('send', 'pageview');
+</script><script>var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?5667c6d502e51ebd8bd9e9be6790fb5d";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();</script><script>$('#mobileSearchInput').bind("enterKey",function(e){
+    var searchKey = $('#mobileSearchInput').val();
+    window.location.href = "/articles?search=" + searchKey
+});
+$('#mobileSearchInput').keyup(function(e){
+    console.log(e.keyCode)
+    if(e.keyCode == 13)
+    {
+        $(this).trigger("enterKey");
+    }
+});
+
+var currentPage = 1;
+var controller = new ScrollMagic.Controller();
+var scene = new ScrollMagic.Scene({triggerElement: "#loader", triggerHook: "onEnter"})
+    .addTo(controller)
+    .on("enter", function (e) {
+        if (!$("#loader").hasClass("active")) {
+            $("#loader").addClass("active");
+            setTimeout(loadMoreItems, 300, 9);
+        }
+    });
+function loadMoreItems() {
+    var from = currentPage * 20;
+    var to = from + 20;
+    $.ajax({
+        url: "/chat/activity/" + from + "/" + to + '?',
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        success: function (data, status) {
+            if (status == 'success' && data.code == 0) {
+                $('#chatItemContainer').append(data.data);
+                currentPage = currentPage + 1;
+                if (data.isEnd) {
+                    scene.destroy(true);
+                    $("#loader").removeClass("active");
+                    $("#loader").hide();
+                    $("#noMoreToLoad").show();
+                } else {
+                    scene.update();
+                    $("#loader").removeClass("active");
+                }
+            }
+        }
+    });
+}
+function changeHomeColumn(num) {
+    $('#syncColumn').addClass("syncColumn");
+    $.ajax({
+        url: "/gitchat/homepage/change/column/" + num,
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        success: function (data, status) {
+            if (status == 'success' && data.code == 0) {
+                $('#homeColumns').html('');
+                $('#homeColumns').append(data.data);
+                $('#changeColumns').attr('onclick', 'changeHomeColumn(' + data.next + '); return false;')
+                $('#syncColumn').removeClass("syncColumn");
+            }
+        }
+    });
+}</script></html>

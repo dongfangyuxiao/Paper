@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>诚盾保障APP</title>
+    <meta name="description" content="诚盾保障APP" />
+    <meta name="Keywords" content="诚盾保障APP" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Home/APPdownload/css/ui-box.css">
+    <link rel="stylesheet" type="text/css" href="/Home/APPdownload/css/ui-color.css">
+    <link rel="stylesheet" type="text/css" href="/Home/APPdownload/layui/css/layui.css">
+    <script type="text/javascript" src="/Home/APPdownload/layui/layui.js"></script>
+</head>
+<body>
+<header>
+    <div class="beheader">
+        <div><img src="/Home/APPdownload/images/bzlogo.png"><span><a href="/Index/index.html">诚盾保障</a></span></div>
+        <div>
+            <a href="/Index/index2.html">诚盾客</a>
+            <a id="Numimg" href="">微信公众号</a>
+            <img id="oBgh" src="http://www.chengdun.com/Home/APPdownload/images/apnum.png">
+        </div>
+    </div>
+</header>
+<div class="mainbox">
+    <div class="mains">
+        <img src="/Home/APPdownload/images/pned.png">
+        <div>
+            <img src="/Home/APPdownload/images/mintext.png">
+            <p>
+                <span>
+                    <a href="https://obs.cn-north-1.myhwclouds.com/obs-zl-app/5b360be40e40d_chengdunbaozhang.apk"><img src="/Home/APPdownload/images/Androidbuntr.png"></a>
+                    <a href="javascript:;" onclick="get_iphone()"><img src="/Home/APPdownload/images/Iphonebunt.png"></a>
+                </span>
+                <img src="http://www.chengdun.com/Home/APPdownload/images/apnum.png">
+            </p>
+        </div>
+    </div>
+</div>
+<div class="mincenim">
+    <img src="/Home/APPdownload/images/cenmim.png">
+</div>
+<div class="mintai">
+    <img src="/Home/APPdownload/images/tiven.png">
+</div>
+<div class="Buyt">
+    <img src="/Home/APPdownload/images/BUY.png">
+</div>
+<footer>
+    <p>
+        北京诚盾诚讯信息技术有限公司Powered by chengdun.com Copyright 2018<br>
+        北京经济技术开发区荣华南路13号中航国际广场10号楼6层<br>
+        京ICP备14036905号-3 京公网安备11011502002531 京ICP证150208号
+    </p>
+</footer>
+</body>
+<script type="application/javascript"  src="/Home/APPdownload/js/jquery-1.7.1.min.js"></script>
+<script>
+
+    function get_iphone(){
+        let ua = navigator.userAgent.toLowerCase();
+        let itms_url = 'itms-apps://itunes.apple.com/app/id1068091326';
+
+        if (/iphone|ipad|ipod/.test(ua)) {
+            window.location.href=itms_url;
+
+        } else if (!/itms-apps/.test(itms_url)) {
+            layer.msg('请使用苹果手机自带浏览器下载诚盾APP');
+
+        } else {
+            let http_url = itms_url.replace(/itms-apps/, 'https');
+            let url = http_url.replace(/\/app\//, '/cn/app/');
+            window.open(url);
+        }
+    }
+
+    $(function () {
+        layui.use('layer', function(){});
+
+        $('#Numimg').toggle(function(){
+            $('#oBgh').show();
+        },function(){
+            $('#oBgh').hide();
+        });
+    })
+</script>
+</html>

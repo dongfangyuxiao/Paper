@@ -1,0 +1,958 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="zh-cn"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="http://www.eefocus.com/asset/theme-default/css/article-mobile-community.css?20170307">
+    <!--[if gte IE 9]><!--><link href="http://www.stmcu.org/public/vendor/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet"><!--><![endif]-->
+    <style>
+    .clearfix {
+        *zoom: 1;
+    }
+
+    .clearfix:before, .clearfix:after {
+        display: table;
+        line-height: 0;
+        content: "";
+    }
+
+    .clearfix:after {
+        clear: both;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #999; 
+    } 
+    :-moz-placeholder {
+        color: #999; 
+    } 
+    ::-moz-placeholder {
+        color: #999; 
+    } 
+    :-ms-input-placeholder {
+        color: #999; 
+    } 
+
+    .entrance-search-m {
+        margin:10px auto 10px;
+        border: 1px solid #e1e0e0;
+        height: 32px;
+        width: 94%;
+        border-radius: 5px !important;
+        background-color: #fff;
+    }
+
+    @media (min-width: 770px) {
+        .entrance-search-m {
+            display: none;
+        }
+    }
+
+    .entrance-ser-inputm {
+        border: 0 !important;
+        outline: 0 !important;
+        height: 30px !important;
+        line-height: 20px !important;
+        box-shadow: none !important;
+        width: 86%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding-left: 2% !important;
+        padding-right: 1% !important;
+        color: #999 !important;
+        font-size: 14px !important;
+        border-radius: 5px !important;
+    }
+
+    .ser-imgm {
+        background: url("http://asset.semidata.info/new.eefocus.com/theme-channel/image/search-phone.png") center center no-repeat;
+        cursor: pointer;
+        width: 8%;
+        height: 30px;
+        border: 0;
+        float: left;
+    }
+
+</style>
+
+<title>意法半导体STM32/STM8技术社区 - 提供最新的ST资讯和技术交流</title>
+
+<meta name="author" content="与非网,eefocus.com">
+<meta name="generator" content="与非网,eefocus.com">
+<meta name="keywords" content="STM32,STM8,ST,意法半导体,MCU,微控制器,与非网">
+<meta name="description" content="围绕意法半导体的STM32、STM8微控制器，提供最新的技术资料、极具人气的技术交流论坛。数据手册、应用笔记、中文培训教程等海量资料下载，热门开发板活动，技术问题讨论请来这里。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<link href="http://www.stmcu.org/public/vendor/bootstrap/css/bootstrap.min.css?1531204971" media="screen" rel="stylesheet" type="text/css">
+<link href="http://www.stmcu.org/asset/theme-st-new/css/front.css?1513323978" media="screen" rel="stylesheet" type="text/css">
+<link href="http://www.stmcu.org/asset/theme-st-new/css/topernew.css?1513323978" media="screen" rel="stylesheet" type="text/css">
+<link href="http://www.stmcu.org/asset/custom/image/favicon.ico" rel="shortcut icon">
+
+
+<!--[if lt IE 9]><script type="text/javascript" src="http://static.semidata.info/sns.eefocus.com/st/js/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="http://static.semidata.info/sns.eefocus.com/st/js/respond.min.js"></script><![endif]-->
+<script type="text/javascript" src="http://static.semidata.info/sns.eefocus.com/st/vendor/jquery/jquery.min.js?1405601224"></script>
+<script type="text/javascript" src="http://www.stmcu.org/public/vendor/bootstrap/js/bootstrap.min.js?1531204971"></script>
+
+
+</head>
+
+<body id="pi-system" class="zh-cn">
+    <!--[if lt IE 9]><link href="http://www.stmcu.org/public/vendor/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet"><![endif]-->
+    <script src='http://gg.eefocus.com/www/delivery/spcjs.php?id=1'></script>
+    <!-- Header: brand, slogan, user bar -->
+    <div class="navbar navbar-inverse navbar-header-ef hidden-pid" role="navigation">
+        <div class="container">
+            <!-- <div class="entrance-brand">
+                <a href="http://www.eehub.cn?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=eehub&amp;utm_term=eehub" class="entrance-main-title" target="_blank">电子信息港</a>
+                -
+                <a href="http://www.eefocus.com" class="entrance-sub-title">与非网
+                    <img alt="" width="9" height="5" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAKCAYAAAC5Sw6hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTFDODNDMUVGMTQ5MTFFM0E1OTc5QTQ1MkFBNzBCNDUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTFDODNDMUZGMTQ5MTFFM0E1OTc5QTQ1MkFBNzBCNDUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxMUM4M0MxQ0YxNDkxMUUzQTU5NzlBNDUyQUE3MEI0NSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxMUM4M0MxREYxNDkxMUUzQTU5NzlBNDUyQUE3MEI0NSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PkDZohUAAADOSURBVHjalNE7CsJAFIXhGAa0y1p0A77wgUJsNJWVYOUS7NyAnSAoiKioC/ABQhoLwUIrIY1r8Q/cQAiJSQY+wmTOHIaZzMMoaIw95rC19KOKgS6TFY5opixx8wesvaILLOxgJizpYIserrpvwZaSBboxJZbkTO86VCBwRxsn5LAJKeljihae3k8VEnQX6zgji6VvbYgJanj7N6mIo79QwU3KZhhhLK/0CW5Qf+7BDZelrIG8zJ2wsB5zqe6mIgz5OlFBleCZvyjFhX4CDAApPCL1WG/jIAAAAABJRU5ErkJggg==" />
+                </a>
+                <div class="nav-modules-container" id="nav-modules-container"></div>
+            </div> -->
+            <div class="entrance-brand">
+                <a href="http://www.eefocus.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=eefocus&amp;utm_term=eefocus" class="nav-module-link active" title="看行业资讯，观技术交流" target="_blank"><span class="svglogo logoeefocus"></span>与非网</a>
+                <a href="http://www.eeboard.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=eeboard&amp;utm_term=eeboard" class="nav-module-link" title="评最新板卡、拆热门产品" target="_blank"><span class="svglogo logoeeboard"></span>爱板网</a>
+                <a href="http://www.cirmall.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=cirmall&amp;utm_term=cirmall" class="nav-module-link" title="看别人设计、晒自己方案" target="_blank"><span class="svglogo logocirmall"></span>电路城</a>
+                <a href="http://www.moore8.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=moore8&amp;utm_term=moore8" class="nav-module-link" title="做行业名师、学专业技能" target="_blank"><span class="svglogo logomoore8"></span>摩尔吧</a>
+                
+                <a href="http://www.bom2buy.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=eda&amp;utm_term=bom2buy" class="nav-module-link" title="比供应报价，推荐最优方案" target="_blank"><span class="svglogo logobom2buy"></span>买芯片</a>
+                <a href="http://www.moore8.com/yl/home?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=eda&amp;utm_term=yinglai" class="nav-module-link" title="电子行业线下活动汇聚地" target="_blank"><span class="svglogo logoyl"></span>硬来</a>
+                <a href="http://www.datasheet5.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=datasheet5&amp;utm_term=datasheet5" class="nav-module-link" title="查器件信息，下数据手册" target="_blank"><span class="svglogo logod5"></span>元件库</a>
+                <!--                 <a href="http://www.znczz.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=znczz&amp;utm_term=znczz" class="nav-module-link last-link" title="玩尖端科技、练团队实战" target="_blank"><span class="svglogo logoznczz"></span>智能车</a> -->
+                <a href="http://www.stepfpga.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=stepfpga&amp;utm_term=stepfpga" class="nav-module-link last-link" title="小脚丫" target="_blank"><span class="svglogo logoxjy"></span>小脚丫</a>
+				<!-- Search -->
+                <form id="form1" action="http://search.eefocus.com/s" name="form1" class="entrance-search" target="_blank">
+                    <input type="hidden" name="app_id" value="24">
+                    <input style="overflow: hidden; text-indent: -9999em;" class="ser-img" type="submit" name="sub" value="1">
+                    <input id="Text2" class="ser_input entrance-ser-input" type="text" gtbfieldid="2" autocomplete="off" name="q" value="" maxlength="100" placeholder="输入关键词        搜资讯查资料        找开发板寻电路方案">
+                </form>
+            </div>
+            <div class="nav-modules-container" id="nav-modules-container"></div>
+
+            <ul class="nav navbar-nav navbar-right" id="user-bar-anonymous" style="display: none;">
+    <li>
+        <a href="/saml/index/login/?redirect=http%3A%2F%2Fwww.stmcu.org%2F">
+            登录        </a>
+    </li>    
+    <li>
+        <a href="http://account.eefocus.com/user/register?app=11&redirect=http%3A%2F%2Fwww.stmcu.org%2F">
+            注册        </a>
+    </li>     
+</ul>
+<ul class="nav navbar-nav navbar-right" id="user-bar-member" style="display: none;">
+    <li>
+        <a id="member-profile" href="#" title="资料">
+            资料        </a>
+    </li> 
+    <li>
+         <a id="member-message" href="#" title="私信">
+            私信        </a>
+    </li>
+    <li>
+        <a id="member-logout" href="/saml/index/logout/?redirect=http%3A%2F%2Fwww.stmcu.org%2F">
+            退出        </a>
+    </li>
+</ul>
+<script>
+    $.getJSON("http://www.stmcu.org/system/index/user/?" + new Date().getTime(), function (user) {
+        var ela = $('#user-bar-anonymous');
+        var elm = $('#user-bar-member');
+
+        if (user.uid > 0) {
+            ela.hide();
+            elm.show();
+            $('#member-message').attr('href', user.message);
+            $('#member-profile').attr('href', user.profile).html(user.avatar + ' ' + user.name);
+
+            /*show message number*/
+            $.ajax({
+          	  type: "GET",
+          	  url: "http://account.eefocus.com/message/index/count",
+          	  dataType: "jsonp",
+          	  success:function(data){
+              	  if (data.status == 1 && data.data > 0){
+                  	  var newText = $('#member-message').html() + '('+data.data+')';
+                	  $('#member-message').html(newText);
+              	  }
+          	  }
+          	});
+        } else {
+            ela.show();
+            elm.hide();
+        }
+                    if ($('#nav-modules-container').length) {
+            var new_script = document.createElement("script");
+            new_script.src = "http://www.eehub.cn/api/v1/js/navigation-modules2?source=stmcu&userId=" + user.uid + "&site=stmcu";
+            $('#nav-modules-container').after(new_script);
+        }
+
+             
+        
+    });
+</script>
+        </div>
+    </div>
+    <div class="entrance-brand1 entrance-header show-pid">
+      <a href="http://www.eefocus.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=eefocus&amp;utm_term=eefocus" class="nav-module-link1" title="看行业资讯，观技术交流" target="_blank"><span class="svglogo1 logoeefocus"></span></a>
+      <a href="http://www.eeboard.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=eeboard&amp;utm_term=eeboard" class="nav-module-link1" title="评最新板卡、拆热门产品" target="_blank"><span class="svglogo1 logoeeboard"></span></a>
+      <a href="http://www.cirmall.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=cirmall&amp;utm_term=cirmall" class="nav-module-link1" title="看别人设计、晒自己方案" target="_blank"><span class="svglogo1 logocirmall"></span></a>
+      <a href="http://www.moore8.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=moore8&amp;utm_term=moore8" class="nav-module-link1" title="做行业名师、学专业技能" target="_blank"><span class="svglogo1 logomoore8"></span></a>
+      <a href="http://www.bom2buy.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=eda&amp;utm_term=bom2buy" class="nav-module-link1" title="比供应报价，推荐最优方案" target="_blank"><span class="svglogo1 logobom2buy"></span></a>
+      <a href="http://www.moore8.com/yl/home?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=eda&amp;utm_term=yinglai" class="nav-module-link1" title="电子行业线下活动汇聚地" target="_blank"><span class="svglogo1 logoyl"></span></a>
+      <a href="http://www.datasheet5.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=datasheet5&amp;utm_term=datasheet5" class="nav-module-link1" title="查器件信息，下数据手册" target="_blank"><span class="svglogo1 logod5"></span></a>
+<!--       <a href="http://www.znczz.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=znczz&amp;utm_term=znczz" class="nav-module-link1 last-link" title="玩尖端科技、练团队实战" target="_blank"><span class="svglogo1 logoznczz"></span></a>
+ -->    
+      <a href="http://www.stepfpga.com/?utm_campaign=dianzixinxigang&amp;utm_medium=navi&amp;utm_source=stmcu&amp;utm_content=stepfpga&amp;utm_term=stepfpga" class="nav-module-link1 last-link" title="小脚丫" target="_blank"><span class="svglogo1 logoxjy"></span></a>
+ </div>
+    <!-- 添加搜索框 -->
+    <!-- Search -->
+    <form id="form2" action="http://search.eefocus.com/s" name="form1" class="entrance-search-m clearfix" target="_blank">
+        <input type="hidden" name="app_id" value="24">
+        <input style="overflow: hidden; text-indent: -9999em;" class="ser-imgm" type="submit" name="sub" value="1">
+        <input id="Text2" class="ser_input entrance-ser-inputm" type="text" gtbfieldid="2" autocomplete="off" name="q" value="" maxlength="100" placeholder="资讯   电路方案   开发板   数据手册   部件采购     ...">
+    </form>
+<script>
+$('.ser_input').keyup(function(e){
+    var curKey = e.which;
+    if (curKey == 13) {
+        $(this).closest('form').submit();
+    }
+});
+</script>
+
+    <!-- Page main content: blocks and module content -->
+    
+        <style>
+        .navbar-inverse {
+            margin-bottom: 0;
+        }
+    </style>
+
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="nav">
+                <ul class="nav navbar-nav pi-navbar-nav">
+    <li class="active">
+        <a href="&#x2F;">首页</a>
+    </li>
+    <li>
+        <a href="&#x2F;article&#x2F;">新闻</a>
+    </li>
+    <li>
+        <a href="&#x2F;document&#x2F;list&#x2F;index&#x2F;category-466">资料下载</a>
+    </li>
+    <li>
+        <a href="&#x2F;module&#x2F;forum&#x2F;forum.php" target="_blank">论坛</a>
+    </li>
+    <li>
+        <a href="http&#x3A;&#x2F;&#x2F;www.stmcu.org&#x2F;video&#x2F;index&#x2F;list&#x2F;id-1&#x2F;sort-new&#x2F;style-grid">视频</a>
+    </li>
+    <li>
+        <a href="&#x2F;faq&#x2F;">FAQ</a>
+    </li>
+    <li>
+        <a href="http&#x3A;&#x2F;&#x2F;url.eefocus.com&#x2F;29n" target="_blank">立刻购买</a>
+    </li>
+</ul>                <div class="navbar-form navbar-left">
+                    <form method="get" action="/search/"
+     target="_self">
+    <div class="input-group">
+        <input type="text" class="form-control" name="q"
+               placeholder="关键字">
+        <div class="input-group-btn">
+                        <button class="btn btn-default">
+                <i class="fa fa-search"></i>
+            </button>
+                    </div>
+    </div>
+</form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container pi-main-container">
+                <div class="row hidden-xs" style="margin-bottom: 20px;">
+            <div class="col-sm-6" id="js-member-join">
+                <a href="/" 
+                   title="意法半导体STM32/STM8技术社区" style="text-decoration: none;">
+                    <img src="http://www.stmcu.org/asset/theme-st-new/image/logo.png?1513323978" 
+                         class="pi-banner-logo">
+                </a>
+            </div>
+
+            <!-- Ads //-->
+            <div class="col-sm-6 pi-banner-ad">
+                <script type="text/javascript" src="http://gg.eefocus.com/www/delivery/spcjs.php?id=54"></script>
+<script type='text/javascript'><!--// <![CDATA[
+    /* [id402] STM32社区 - 首页（583*60） */
+    OA_show(402);
+// ]]> --></script><noscript><a target='_blank' href='http://gg.eefocus.com/www/delivery/ck.php?n=0b6ecb5'><img border='0' alt='' src='http://gg.eefocus.com/www/delivery/avw.php?zoneid=402&amp;n=0b6ecb5' /></a></noscript>            </div>
+            <!-- Ads //-->
+
+        </div>
+                        <!-- Flash messenger -->
+                <!-- Top head zone -->
+                <div class="row">
+            <!-- Left zone -->
+                        <div class="pi-zone-1 col-md-4">
+                <div class="panel panel-default">
+    <div class="panel-heading"><div class="pi-panel-subline"><a href="/document/list/index/sort-new/category-466" target="_blank">更多</a></div><strong>所有资料</strong></div><div class="panel-body">
+<div class="document-category-list">
+    <ul class="pi-list">
+                <li>
+            <a href="/document/list/index/category-120" 
+               target="_blank"
+               title="ST MCU研讨会&amp;中国峰会"
+               style="margin-left: 0px">
+                ST MCU研讨会&amp;中国峰会                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-308" 
+               target="_blank"
+               title="ST MCU培训资料"
+               style="margin-left: 0px">
+                ST MCU培训资料                                   (3 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-657" 
+               target="_blank"
+               title="ST MCU实战经验"
+               style="margin-left: 0px">
+                ST MCU实战经验                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-131" 
+               target="_blank"
+               title="官网资料.STM32F0"
+               style="margin-left: 0px">
+                官网资料.STM32F0                                   (12 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-147" 
+               target="_blank"
+               title="官网资料.STM32F1"
+               style="margin-left: 0px">
+                官网资料.STM32F1                                   (1 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-148" 
+               target="_blank"
+               title="官网资料.STM32F2"
+               style="margin-left: 0px">
+                官网资料.STM32F2                                   (1 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-149" 
+               target="_blank"
+               title="官网资料.STM32F3"
+               style="margin-left: 0px">
+                官网资料.STM32F3                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-150" 
+               target="_blank"
+               title="官网资料.STM32F4"
+               style="margin-left: 0px">
+                官网资料.STM32F4                                   (10 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-877" 
+               target="_blank"
+               title="官网资料.STM32F7"
+               style="margin-left: 0px">
+                官网资料.STM32F7                                   (4 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-681" 
+               target="_blank"
+               title="官网资料.STM32L0"
+               style="margin-left: 0px">
+                官网资料.STM32L0                                   (8 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-76" 
+               target="_blank"
+               title="官网资料.STM32L1"
+               style="margin-left: 0px">
+                官网资料.STM32L1                                   (1 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-882" 
+               target="_blank"
+               title="官网资料.STM32L4"
+               style="margin-left: 0px">
+                官网资料.STM32L4                                   (19 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-1164" 
+               target="_blank"
+               title="官网资料.STM32L4+"
+               style="margin-left: 0px">
+                官网资料.STM32L4+                                   (5 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-1102" 
+               target="_blank"
+               title="官网资料.STM32H7"
+               style="margin-left: 0px">
+                官网资料.STM32H7                                   (12 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-1185" 
+               target="_blank"
+               title="官网资料.STM32WB"
+               style="margin-left: 0px">
+                官网资料.STM32WB                                   (4 <img src = "http://www.stmcu.org/asset/theme-st-new/image/ico_new.gif?1513323978" > )
+                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-17" 
+               target="_blank"
+               title="官网资料.STM8S"
+               style="margin-left: 0px">
+                官网资料.STM8S                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-36" 
+               target="_blank"
+               title="官网资料.STM8L"
+               style="margin-left: 0px">
+                官网资料.STM8L                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-844" 
+               target="_blank"
+               title="官网资料.STM8A"
+               style="margin-left: 0px">
+                官网资料.STM8A                            </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-471" 
+               target="_blank"
+               title="官网资料.开发工具 "
+               style="margin-left: 0px">
+                官网资料.开发工具                             </a>
+        </li>
+                <li>
+            <a href="/document/list/index/category-658" 
+               target="_blank"
+               title="ST MCU选型工具"
+               style="margin-left: 0px">
+                ST MCU选型工具                            </a>
+        </li>
+            </ul>
+</div>
+</div></div><div class="panel panel-default">
+    <div class="panel-heading"><div class="pi-panel-subline"><a href="/document/list/index/sort-hot/category-466" target="_blank">更多</a></div><strong>下载排行</strong></div><div class="panel-body"><ol class="pi-order-list"><li>
+            <a href="/document/detail/index/id-218864" target="_blank" title="STM32 GUI培训资料（2018.6）">
+                STM32 GUI培训资料（2018.6）
+            </a><li>
+            <a href="/document/detail/index/id-218179" target="_blank" title="STM8和STM32产品选型手册（2017.9）">
+                STM8和STM32产品选型手册（2017.9）
+            </a><li>
+            <a href="/document/detail/index/id-200272" target="_blank" title="RM0008 - STM32F10x参考手册">
+                RM0008 - STM32F10x参考手册
+            </a><li>
+            <a href="/document/detail/index/id-201055" target="_blank" title="RM0091 - STM32F0xx参考手册">
+                RM0091 - STM32F0xx参考手册
+            </a><li>
+            <a href="/document/detail/index/id-216163" target="_blank" title="AN4655">
+                AN4655
+            </a><li>
+            <a href="/document/detail/index/id-214984" target="_blank" title="STM32CubeMX">
+                STM32CubeMX
+            </a><li>
+            <a href="/document/detail/index/id-200230" target="_blank" title="DS5319 - STM32F103数据手册">
+                DS5319 - STM32F103数据手册
+            </a><li>
+            <a href="/document/detail/index/id-218857" target="_blank" title="STM32 MC SDK5.0培训资料分享">
+                STM32 MC SDK5.0培训资料分享
+            </a><li>
+            <a href="/document/detail/index/id-213160" target="_blank" title="stsw-stm32054 - 标准外围库">
+                stsw-stm32054 - 标准外围库
+            </a><li>
+            <a href="/document/detail/index/id-200614" target="_blank" title="RM0090">
+                RM0090
+            </a></ol>
+</div></div><div class="panel panel-default">
+    <div class="panel-heading"><div class="pi-panel-subline"><a href="/module/forum/forum-1285-1.html" target="_blank">更多</a></div><strong>社区公告</strong></div><div class="panel-body"><ul class="pi-list">
+	<li>
+		<a href="http://www.stmcu.org/module/forum/thread-614412-1-1.html" target="_blank">2018年STM32官方培训前瞻</a></li>
+	<li>
+		<a href="http://www.stmcu.org/module/forum/thread-611870-1-1.html" target="_blank">2017年STM32培训资料汇总</a></li>
+	<li>
+		<a href="http://www.stmcu.org/document/list/index/category-1164" target="_blank">最新：STM32L4+技术资料</a></li>
+
+	<li>
+		<a href="http://www.stmcu.org/document/detail/index/id-216397" target="_blank">ST MCU最新选型工具（ST MCU Finder）下载</a></li>
+	<li>
+		<a href="http://www.stmcu.org/module/forum/thread-600789-1-1.html" target="_blank">如何获取社区金币</a></li>
+	<li>
+		<a href="http://www.stmcu.org/module/forum/thread-586498-1-1.html" target="_blank">ST MCU的一级代理及合作伙伴介绍</a></li>
+</ul>
+</div></div><div class="panel panel-default">
+    <div class="panel-heading"><strong>ST社区支持</strong></div><div class="panel-body"><p class="st_support">
+	技术交流QQ群：<a href="http://shang.qq.com/wpa/qunwpa?idkey=ab94601dd12b21c251822fb704ecc7bb14d20105a2e606b702949dd9935e0bea" target="_blank">313887143</a></p>
+<p class="st_support">
+	直通FAE：<a href="mailto:mcu.china@st.com" target="_blank">mcu.china@st.com</a></p>
+<p>
+	样片购买：400 800 8051</p>
+</div></div>            </div>
+                        <div class="col-md-5">
+                <!-- Center top zone -->
+                                <div class="pi-zone-2">
+                    <div class="panel panel-default">
+    <div class="panel-heading"><div class="pi-panel-subline"><a href="/module/forum/forum.php" target="_blank">更多</a></div><strong>论坛热帖</strong></div><div class="panel-body"><ul class="pi-list">
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-616376-1-1.html" 
+            title="众筹，这个5寸大屏等你带回家！"
+            target="_blank">
+            【活动】众筹，这个5寸大屏等你带回家！        </a>
+            </li>
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-616353-1-1.html" 
+            title="（已公布）也没什么好送的，再送一波XLink吧"
+            target="_blank">
+            【活动】（已公布）也没什么好送的，再送一波XLink吧        </a>
+            </li>
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-616259-1-1.html" 
+            title="（已公布）6月技术原创帖征集"
+            target="_blank">
+            （已公布）6月技术原创帖征集        </a>
+            </li>
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-616260-1-1.html" 
+            title="《The Manga Guide to Microprocessors》英文电子书分享"
+            target="_blank">
+            【电子书】《The Manga Guide to Microprocessors》英文电子书分享        </a>
+            </li>
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-616252-1-1.html" 
+            title="12864类显示屏使用STemwin库的方法（源码已上传）"
+            target="_blank">
+            【原创】12864类显示屏使用STemwin库的方法（源码已上传）        </a>
+            </li>
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-616215-1-1.html" 
+            title="【源代码】ST-LINK V2仿真器改CMSIS-DAP，同时带有SWO和CDC功能"
+            target="_blank">
+            【原创】【源代码】ST-LINK V2仿真器改CMSIS-DAP，同时带有SWO和CDC功能        </a>
+            </li>
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-616196-1-1.html" 
+            title="买不起DISC就不能玩GUI了吗？"
+            target="_blank">
+            【原创】买不起DISC就不能玩GUI了吗？        </a>
+            </li>
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-616081-1-1.html" 
+            title="【源代码】STM32F103C8T6最小板搞定CMSIS-DAP和SWO功能"
+            target="_blank">
+            【原创】【源代码】STM32F103C8T6最小板搞定CMSIS-DAP和SWO功能        </a>
+            </li>
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-616065-1-1.html" 
+            title="littlevGL Windows PC模拟器"
+            target="_blank">
+            【原创】littlevGL Windows PC模拟器        </a>
+            </li>
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-616020-1-1.html" 
+            title="【在线培训】快来pick这个 STM32 GUI 高阶培训"
+            target="_blank">
+            【活动】【在线培训】快来pick这个 STM32 GUI 高阶培训        </a>
+            </li>
+    <li>
+                <a href="http://www.stmcu.org/module/forum/thread-615740-1-1.html" 
+            title="小破邀你成为小小管理员，当家做主人~"
+            target="_blank">
+            小破邀你成为小小管理员，当家做主人~        </a>
+            </li>
+</ul></div></div><div class="panel panel-default">
+    <div class="panel-heading"><div class="pi-panel-subline"><a href="/article" target="_blank">更多</a></div><strong>今日头条</strong></div><div class="panel-body"><div class="row media">
+	<div class="col-xs-4">
+		<a href="/article/id-330632" target="_blank"><img src="http://upload.semidata.info/sns.eefocus.com/st/article/feature/2018/07/05/5b3dc7d7eb8fc.jpg" class="img-responsive" style="height: 90px"></a>	</div>
+	<div class="col-xs-8">
+		<h4 class="media-heading">
+			<a href="/article/id-330632" target="_blank">简单便捷、开箱即用的IoT连接方案——意法半导体STM32蜂窝-云端探索套件</a>		</h4>
+		<div class="pi-ellipsis pi-ellipsis-2">中国，2018年7月5日——意法半导体用于连接蜂窝物联网的STM32*探索套件今年早些时候首次亮相2018年嵌入式系统展会和亚洲物联网展会，现在，客户可以通过意法半导体全球分销网订购。该套件现有两款产品可选，每款产品都包含STM32L496探索板和集成Quectel调制解调器的STMod +蜂窝扩展板...</div>	</div>
+</div>
+<hr>
+<ul class="pi-list">
+<li><span class="pull-right text-muted" style="padding-left: 10px;">2018-07-03</span>
+			<a href="/article/id-330610" target="_blank" class="pi-ellipsis pi-ellipsis-1">这些支持GUI的STM32摆在你面前，该选择谁？ | 文末有惊喜</a></li><li><span class="pull-right text-muted" style="padding-left: 10px;">2018-07-02</span>
+			<a href="/article/id-330596" target="_blank" class="pi-ellipsis pi-ellipsis-1">意法半导体推出脉宽调制控制器，让超低待机电源更高效、经济和稳定</a></li><li><span class="pull-right text-muted" style="padding-left: 10px;">2018-06-28</span>
+			<a href="/article/id-330563" target="_blank" class="pi-ellipsis pi-ellipsis-1">TicWatch Pro搭载意法半导体NFC技术，提升用户非接触式支付体验</a></li><li><span class="pull-right text-muted" style="padding-left: 10px;">2018-06-27</span>
+			<a href="/article/id-330552" target="_blank" class="pi-ellipsis pi-ellipsis-1">ST与光宝科技合作推出针对物联网市场超低功耗的 Sigfox 认证模块</a></li></ul></div></div><div class="panel panel-default">
+    <div class="panel-heading"><div class="pi-panel-subline"><a href="/video" target="_blank">更多</a></div><strong>最新视频</strong></div><div class="panel-body">              <div class="row media" >
+          
+                  <a href="/video/index/detail/id-4052" class="col-xs-5" target="blank">
+                      <img src="http://upload.semidata.info/sns.eefocus.com/st/video/video_screenshot_5b3c1fa81edc0.jpg" class="img-responsive">
+                  </a>          <div class="col-xs-7" style="padding-left: 0;">
+              <h4 class="pi-ellipsis pi-ellipsis-1 media-heading">
+                  <a href="/video/index/detail/id-4052" 
+                     title="STM32 GUI高阶在线培训，提前锁定" target="blank">
+                      STM32 GUI高阶在线培训，提前锁定                  </a>
+              </h4>
+              <div class="text-muted"><small>282 观看</small></div>          </div>
+      </div>
+          <div class="row media" >
+          
+                  <a href="/video/index/detail/id-4051" class="col-xs-5" target="blank">
+                      <img src="http://upload.semidata.info/sns.eefocus.com/st/video/video_screenshot_5b3b0eaf17ffc.png" class="img-responsive">
+                  </a>          <div class="col-xs-7" style="padding-left: 0;">
+              <h4 class="pi-ellipsis pi-ellipsis-1 media-heading">
+                  <a href="/video/index/detail/id-4051" 
+                     title="STM32GUI培训 - HMI实验（下）" target="blank">
+                      STM32GUI培训 - HMI实验（下）                  </a>
+              </h4>
+              <div class="text-muted"><small>353 观看</small></div>          </div>
+      </div>
+          <div class="row media" >
+          
+                  <a href="/video/index/detail/id-4050" class="col-xs-5" target="blank">
+                      <img src="http://upload.semidata.info/sns.eefocus.com/st/video/video_screenshot_5b39ed306b27b.jpg" class="img-responsive">
+                  </a>          <div class="col-xs-7" style="padding-left: 0;">
+              <h4 class="pi-ellipsis pi-ellipsis-1 media-heading">
+                  <a href="/video/index/detail/id-4050" 
+                     title="STM32GUI培训 - HMI实验（上）" target="blank">
+                      STM32GUI培训 - HMI实验（上）                  </a>
+              </h4>
+              <div class="text-muted"><small>785 观看</small></div>          </div>
+      </div>
+    
+</div></div><div class="panel panel-default">
+    <div class="panel-heading"><div class="pi-panel-subline"><a href="/faq" target="_blank">更多</a></div><strong>FAQ</strong></div><div class="panel-body"><ul class="pi-list">
+<li><span class="pull-right text-muted" style="padding-left: 10px;"><span style="color: red">未回答</span></span><a href="/faq/index/detail/id-71181" class="pi-ellipsis pi-ellipsis-1">STEVAL-IHM042V1的软件包在哪里下载？</a></li><li><span class="pull-right text-muted" style="padding-left: 10px;"><span style="color: red">未回答</span></span><a href="/faq/index/detail/id-71180" class="pi-ellipsis pi-ellipsis-1">STM32H743的SPI使用HAL_SPI_Transmit_DMA函数发送不出去</a></li><li><span class="pull-right text-muted" style="padding-left: 10px;">已回答</span><a href="/faq/index/detail/id-71179" class="pi-ellipsis pi-ellipsis-1">CAN普通模式发送失败</a></li><li><span class="pull-right text-muted" style="padding-left: 10px;">已回答</span><a href="/faq/index/detail/id-71178" class="pi-ellipsis pi-ellipsis-1">关于STM32使用外部时钟的问题</a></li><li><span class="pull-right text-muted" style="padding-left: 10px;">已回答</span><a href="/faq/index/detail/id-71177" class="pi-ellipsis pi-ellipsis-1">STM32L476 使用文件系统的情况下，hal库，最大能支持多大容量的SD卡</a></li><li><span class="pull-right text-muted" style="padding-left: 10px;">已回答</span><a href="/faq/index/detail/id-71176" class="pi-ellipsis pi-ellipsis-1">STM8L051F3的运行速度</a></li></ul></div></div>                </div>
+                                
+                <!-- Module zone -->
+                
+                                <!-- Center bottom zone -->
+                            </div>
+
+            <!-- Right zone -->
+                        <div class="col-md-3 pi-zone-8">
+                <div class="panel panel-default">
+    <div class="panel-heading"><strong>应用案例</strong></div><div class="panel-body"><ul class="pi-list">
+	<li>
+		<a href="http://www.stmcu.com.cn/wearableapplication" target="_blank">STM32可穿戴应用</a></li>
+	<li>
+		<a href="http://www.stmcu.com.cn/thingsinternetapplication" target="_blank">STM32物联网应用</a></li>
+	<li>
+		<a href="http://www.stmcu.com.cn/drone" target="_blank">STM32无人机</a></li>
+	<li>
+		<a href="http://www.stmcu.com.cn/medicalelectronnics" target="_blank">STM32医疗电子</a></li>
+	<li>
+		<a href="http://www.stmcu.com.cn/careletronics" target="_blank">STM32汽车电子</a></li>
+	<li>
+		<a href="http://www.stmcu.com.cn/wifi_ble" target="_blank">STM32 WIFI&amp;BLE</a></li>
+	<li>
+		<a href="http://www.stmcu.com.cn/lora" target="_blank">STM32 LoRa</a></li>
+	<li>
+		<a href="http://www.stmcu.com.cn/nb_iot" target="_blank">STM32 NB-IoT</a></li>
+	<li>
+		<a href="http://www.stmcu.com.cn/cloud" target="_blank">STM32 Cloud</a></li>
+</ul>
+</div></div><div class="panel panel-default">
+    <div class="panel-heading"><strong>图书推荐</strong></div><div class="panel-body"><div class="widget-media-list">
+        <div class="media">
+        <a class="pull-left" href="http://www.stmcu.org/module/forum/thread-616164-1-1.html?sy" target="_blank">
+            <img class="media-object" src="http://upload.semidata.info/sns.eefocus.com/st/widget/5b17773f45a39.jpg" alt="Beginning STM32: Developing with FreeRTOS, libopencm3 and GCC" style="width: 70px;">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">
+                <a href="http://www.stmcu.org/module/forum/thread-616164-1-1.html?sy"
+                   title="Beginning STM32: Developing with FreeRTOS, libopencm3 and GCC"
+                   class="pi-ellipsis pi-ellipsis-1"
+                   target="_blank"
+                >
+                    Beginning STM32: Developing with FreeRTOS, libopencm3 and GCC                </a>
+            </h4>
+            <div class="pi-ellipsis">Using FreeRTOS and libopencm3 instead of the Arduino software environment,  ...</div>
+        </div>
+    </div>
+    <div class="media">
+        <a class="pull-left" href="http://www.stmcu.org/module/forum/thread-616165-1-1.html?sy" target="_blank">
+            <img class="media-object" src="http://upload.semidata.info/sns.eefocus.com/st/widget/5b177997bccbf.jpg" alt="Programming With STM32 : Getting Started With the Nucleo Board" style="width: 70px;">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">
+                <a href="http://www.stmcu.org/module/forum/thread-616165-1-1.html?sy"
+                   title="Programming With STM32 : Getting Started With the Nucleo Board"
+                   class="pi-ellipsis pi-ellipsis-1"
+                   target="_blank"
+                >
+                    Programming With STM32 : Getting Started With the Nucleo Board                </a>
+            </h4>
+            <div class="pi-ellipsis">Get up and running programming the STM32 line using the hands-on information ...</div>
+        </div>
+    </div>
+    <div class="media">
+        <a class="pull-left" href="http://www.stmcu.org/module/forum/thread-616389-1-1.html?sy" target="_blank">
+            <img class="media-object" src="http://upload.semidata.info/sns.eefocus.com/st/widget/5b31e71345c65.png" alt="野火:RT-Thread内核实现与应用开发实战指南" style="width: 70px;">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">
+                <a href="http://www.stmcu.org/module/forum/thread-616389-1-1.html?sy"
+                   title="野火:RT-Thread内核实现与应用开发实战指南"
+                   class="pi-ellipsis pi-ellipsis-1"
+                   target="_blank"
+                >
+                    野火:RT-Thread内核实现与应用开发实战指南                </a>
+            </h4>
+            <div class="pi-ellipsis">第一部分“从0到1写RT-Thread内核”重点讲解RT-Thread的原理实现；第二部分“RTT内核...</div>
+        </div>
+    </div>
+</div>
+</div></div><div class="panel panel-default">
+    <div class="panel-heading"><strong>广告</strong></div><div class="panel-body"><center>
+	<script type='text/javascript'><!--// <![CDATA[
+    /* [id427] STM32社区 -首页（200*200） */
+    OA_show(427);
+// ]]> --></script><noscript><a target='_blank' href='http://gg.eefocus.com/www/delivery/ck.php?n=43087b6'><img border='0' alt='' src='http://gg.eefocus.com/www/delivery/avw.php?zoneid=427&amp;n=43087b6' /></a></noscript></center>
+</div></div><div class="panel panel-default">
+    <div class="panel-heading"><strong>活跃用户</strong></div><div class="panel-body"><style>
+	.active-user-list div {
+		width:70px;
+		padding:2px;
+		text-align:center;
+		margin-bottom:5px;
+	}
+
+</style>
+<div class="active-user-list">
+
+    <div class="pull-left">
+    
+            <a href="http://www.stmcu.org/module/forum/space-uid-2083020.html" target="_blank">
+                <img src="http://upload.semidata.info/account.eefocus.com/avatar/0209/normal/d8cbd4e8a93c195b0e9cbfc3b12c8ceb.jpg" alt="" width="46" />
+            </a>	    <div >
+	    	 
+	            <a href="http://www.stmcu.org/module/forum/space-uid-2083020.html" target="_blank" style="display:block;overflow:hidden;height:20px;line-height:20px">
+	                电子星辰
+	            </a>	    </div>
+    </div>
+
+
+    <div class="pull-left">
+    
+            <a href="http://www.stmcu.org/module/forum/space-uid-307297.html" target="_blank">
+                <img src="http://upload.semidata.info/account.eefocus.com/avatar/0032/normal/0df023b653769ded8b6c6ad58e436b13.jpg" alt="" width="46" />
+            </a>	    <div >
+	    	 
+	            <a href="http://www.stmcu.org/module/forum/space-uid-307297.html" target="_blank" style="display:block;overflow:hidden;height:20px;line-height:20px">
+	                toofree
+	            </a>	    </div>
+    </div>
+
+
+    <div class="pull-left">
+    
+            <a href="http://www.stmcu.org/module/forum/space-uid-3272191.html" target="_blank">
+                <img src="http://upload.semidata.info/account.eefocus.com/avatar/0328/normal/af59d9ba1dbc7860259c522a3183467c.jpg" alt="" width="46" />
+            </a>	    <div >
+	    	 
+	            <a href="http://www.stmcu.org/module/forum/space-uid-3272191.html" target="_blank" style="display:block;overflow:hidden;height:20px;line-height:20px">
+	                众想@刘洋
+	            </a>	    </div>
+    </div>
+
+
+    <div class="pull-left">
+    
+            <a href="http://www.stmcu.org/module/forum/space-uid-3426478.html" target="_blank">
+                <img src="http://upload.semidata.info/account.eefocus.com/avatar/0344/normal/f9010d856e17508efcb945d238523a1d.jpg" alt="" width="46" />
+            </a>	    <div >
+	    	 
+	            <a href="http://www.stmcu.org/module/forum/space-uid-3426478.html" target="_blank" style="display:block;overflow:hidden;height:20px;line-height:20px">
+	                stm1024
+	            </a>	    </div>
+    </div>
+
+
+    <div class="pull-left">
+    
+            <a href="http://www.stmcu.org/module/forum/space-uid-3172141.html" target="_blank">
+                <img src="http://upload.semidata.info/account.eefocus.com/avatar/0318/normal/5bbc03b0270779d299848ae0862d78e7.jpg" alt="" width="46" />
+            </a>	    <div >
+	    	 
+	            <a href="http://www.stmcu.org/module/forum/space-uid-3172141.html" target="_blank" style="display:block;overflow:hidden;height:20px;line-height:20px">
+	                wolfgang2015
+	            </a>	    </div>
+    </div>
+
+
+    <div class="pull-left">
+    
+            <a href="http://www.stmcu.org/module/forum/space-uid-45393.html" target="_blank">
+                <img src="http://gravatar.eefocus.com/avatar/aceafc50fbd2c53cc75ada4f86035ecd.png?s=46&d=retro&r=g" alt="" width="46" />
+            </a>	    <div >
+	    	 
+	            <a href="http://www.stmcu.org/module/forum/space-uid-45393.html" target="_blank" style="display:block;overflow:hidden;height:20px;line-height:20px">
+	                wenyangzeng
+	            </a>	    </div>
+    </div>
+
+
+    <div class="pull-left">
+    
+            <a href="http://www.stmcu.org/module/forum/space-uid-21857.html" target="_blank">
+                <img src="http://upload.semidata.info/account.eefocus.com/avatar/0003/normal/4682ba60cfd9bdbc779fa633fa3218d5.jpg" alt="" width="46" />
+            </a>	    <div >
+	    	 
+	            <a href="http://www.stmcu.org/module/forum/space-uid-21857.html" target="_blank" style="display:block;overflow:hidden;height:20px;line-height:20px">
+	                zwei99999999
+	            </a>	    </div>
+    </div>
+
+
+    <div class="pull-left">
+    
+            <a href="http://www.stmcu.org/module/forum/space-uid-1659729.html" target="_blank">
+                <img src="http://upload.semidata.info/account.eefocus.com/avatar/0167/normal/c90d4b9292ed3b3f509326c771016702.jpg" alt="" width="46" />
+            </a>	    <div >
+	    	 
+	            <a href="http://www.stmcu.org/module/forum/space-uid-1659729.html" target="_blank" style="display:block;overflow:hidden;height:20px;line-height:20px">
+	                zhongfg
+	            </a>	    </div>
+    </div>
+
+
+    <div class="pull-left">
+    
+            <a href="http://www.stmcu.org/module/forum/space-uid-3315236.html" target="_blank">
+                <img src="http://upload.semidata.info/account.eefocus.com/avatar/0333/normal/a3b8dc614ff9d62e2269c704a01b4241.jpg" alt="" width="46" />
+            </a>	    <div >
+	    	 
+	            <a href="http://www.stmcu.org/module/forum/space-uid-3315236.html" target="_blank" style="display:block;overflow:hidden;height:20px;line-height:20px">
+	                x5y4z3
+	            </a>	    </div>
+    </div>
+
+</div></div></div>            </div>
+                    </div>
+        <!-- Bottom foot zone -->
+                <div class="pi-zone-99">
+            <div class="panel panel-default">
+    <div class="panel-heading"><strong>友情链接</strong></div><div class="panel-body"><p>
+	<a href="http://www.stmcu.com.cn/" target="_blank" title="STM32单片机中文官网">STM32官网</a> | <a href="http://www.stmicroelectronics.com.cn/content/st_com/zh.html" target="_blank" title="意法半导体">意法半导体</a> | <a href="http://www.arm.com/" target="_blank" title="ARM">ARM</a> | <a href="http://www.keil.com/ " target="_blank" title="KEIL">KEIL</a> | <a href="http://www.eefocus.com/" target="_blank" title="与非网">与非网</a> | <a href="http://www.eeboard.com/" target="_blank" title="爱板网">爱板网</a> | <a href="http://www.cndzz.com/ " target="_blank" title="电子电路网">电子电路网</a> | <a href="http://www.cirmall.com/circuits/manufacturer/stm/personal" target="_blank" title="电路城">电路城</a></p>
+</div></div>        </div>
+            </div>
+
+    <!-- Footer: sitelink -->
+    <div class="pi-footer" title="0.6599s">
+        <div class="container pi-footer-container">
+            <div class="text-center" style="margin-bottom: 5px;">
+    <a title="关于ST" target="_blank" href="/page/about/">关于ST</a>
+    <a title="ST使用说明" target="_blank" href="/page/work/">ST使用说明</a> 
+    <a title="FAQ" target="_blank" href="/page/faq/">FAQ</a> 
+    <a title="法律及版权声明" target="_blank" href="/page/law">法律及版权声明</a>
+    <a title="网站地图" target="_blank" href="/page/sitemap">网站地图</a>
+<a title="Archiver" target="_blank" href="/module/forum/archiver">Archiver</a>
+</div>  
+<div class="text-center">
+    Email:
+    <a href="mailto:zhongjing@eefocus.com">zhongjing@eefocus.com</a>
+    Tel: 0512-80981663-8064
+    备案号: 苏ICP备14012660号-2
+</div>
+<div style="text-align: center;width: 100%;margin:0 auto; padding:20px 0;background: #333;      /* border-top: 2px solid #f86d2a; */      color: #fff;left: 0;">
+		 		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32059002001050" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src='http://upload.semidata.info/sns.eefocus.com/freescale/article/media/2016/04/12/331491.png' lazysrc="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">苏公网安备 32059002001050号</p></a>
+		 	</div>        </div>
+    </div>
+    <script>
+        $('body').data('config', {
+            joinMemberUrl: '/member/join/joinButton/'
+        });
+
+    </script>
+    
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F690d45bea5af4833fe09cbc483316f69' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    var $abc = $(".pi-zone-5").find(".pi-list").find("a");
+    var $video = $(".pi-zone-6").find("h4").find("a");
+    var $img = $(".pi-zone-6").find(".media").find("img");
+    _gaq.push(['_setAccount', 'UA-1502657-12']);
+    _gaq.push(['_trackPageview']);
+
+    _gaq.push(['t2._setAccount', 'UA-25533899-12']);
+    _gaq.push(['t2._trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+       $abc.click(function(){ 
+            _gaq.push(['_trackEvent', 'Link', 'Click', $(this).attr("href")]); 
+        }); 
+       $img.click(function(){ 
+            _gaq.push(['_trackEvent', 'Link', 'Click', $(this).attr("href")]); 
+        }); 
+      $video.click(function(){ 
+            _gaq.push(['_trackEvent', 'Link', 'Click', $(this).attr("href")]); 
+        }); 
+    $(".title").click(function(){ 
+            _gaq.push(['_trackEvent', 'Link', 'Click', $(this).attr("href")]); 
+        }); 
+</script>
+
+<script>
+$('.st_support a').click(function(){    _gaq.push(['_trackPageview', '/support/'+this.href]);});
+</script>
+<script>
+// Baidu Zhanzhang
+(function(){
+var bp = document.createElement('script');
+var curProtocol = window.location.protocol.split(':')[0];
+if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+} else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+}
+var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+/*sf tracking */
+(function() {
+   var ZONE_PREFIX = 'EEstm';
+   var TRACK_URL = "http://analytics.supplyframe.com/trackingservlet/impression?action=pageImpression&zone={Zone_name}";
+   var suffix='_other';var path=window.location.pathname;if(/\/video\//.test(path)){suffix='_video'}else if(/\/document\//.test(path)){suffix='_doc'}else if(/\/article\//.test(path)){suffix='_article'}else if(/\/search\//.test(path)){suffix='_search'}else if(/\/activity\//.test(path)){suffix='_activity'}else if(/\/page\/product\//.test(path)){suffix='_product'}else if(/\/page\/teardown\//.test(path)){suffix='_teardown'}else if(/\/techarticle\//.test(path)){suffix='_techarticle'}else if(/\/page\/nxp-mcu\//.test(path)){suffix='_mcu'}else if(path=='/'){suffix='_home'}zone=ZONE_PREFIX+suffix;var img=document.createElement("img");img.src=TRACK_URL.replace('{Zone_name}',zone);img.style.display="none";document.body.appendChild(img);
+ })();
+</script>
+<script type="text/javascript" src="http://www.stmcu.org/asset/theme-st-new/js/front.js?1513323978"></script>
+
+</body>
+</html>

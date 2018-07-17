@@ -1,0 +1,1893 @@
+<!doctype html>
+<html xmlns:wb="http://open.weibo.com/wb">
+
+<head>
+    <meta name="baidu-site-verification" content="EWXVCmU0aM" />
+    <meta name="baidu-site-verification" content="zCN2pohvQx" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>动漫新闻_动漫论坛_动漫美图_幻之羁绊动漫网-羁绊动漫网络</title>
+    <meta name="description" content="羁绊网络（www.005.tv）是一家国内顶尖的动漫游戏门户网站，致力于为ACG爱好者搭建一个资源，资讯，以及交流平台。" />
+    <meta name="keywords" content="Fate,羁绊,游戏,动漫,百科,展会,萌娘,资讯,新闻" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
+    <link rel="stylesheet" href="http://www.005.tv/templets/muban/style/css/master_index.css" />
+    <link rel="stylesheet" href="http://www.005.tv/templets/muban/css/index.css">
+    <script type="text/javascript" src="http://www.005.tv/templets/muban/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="http://www.005.tv/templets/muban/js/005script.js"></script>
+    <script type="text/javascript" src="http://www.005.tv/templets/muban/js/index_a2.js"></script>
+    <link rel="stylesheet" id="awesome-css" href="http://www.005.tv/templets/muban/style/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" id="frontend-css" href="http://www.005.tv/templets/muban/style/css/frontend-default.css" media="all" />
+    <script src="http://www.005.tv/templets/muban/style/js/modernizr.custom.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?04ba75c46c5725e9f451c8b8326a13da";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+    <script language="javascript" src="http://usr.005.tv/Common/header.html"></script>
+    <!--<script src="http://www.005.tv/templets/muban/style/js/swiper/swiper.min.js"></script>-->
+    <script src="http://www.005.tv/templets/muban/style/js/swiper/idangerous.swiper2.7.6.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="http://www.005.tv/templets/muban/style/js/swiper/swiper.min.css" />-->
+    <link rel="stylesheet" href="http://www.005.tv/templets/muban/style/js/swiper/idangerous.swiper2.7.6.css">
+    <meta name="baidu-site-verification" content="EWXVCmU0aM" />
+</head>
+
+<body>
+
+    <script>
+        $(function() {
+            //首页 今日推荐 翻页
+            $(".Home-More a").click(function() {
+                $(".one.none").eq(0).toggleClass("none block");
+                //$(".one.none").eq(0).toggleClass("none block");
+                $("html,body").animate({
+                    scrollTop: $(".one.block").eq($(".one.block").length - 1).offset().top
+                }, 400);
+                if ($(".one.none").length == 0) {
+                    $(".Home-More").html("<a href='http://005.tv/03more.html' target='_blank'>查看全部</a></div>");
+                }
+            });
+            //$(".Home-More").html("<a href='http://005.tv/03more.html' target='_blank'>查看全部</a></div>");
+            HomeScroll(".mainleftbox,.Mid_L", ".mainrightbox,.Mid_R"); //左右侧滚动
+
+            var show = false,
+                showed = false,
+                show1 = false,
+                showed1 = false,
+                show2 = false,
+                showed2 = false,
+                show3 = false,
+                showed3 = false,
+                show4 = false,
+                showed4 = false,
+                show5 = false,
+                showed5 = false;
+            setInterval(function() {
+                if (show && !showed) {
+                    $(".navbar2-zxpg").stop(true, false).slideDown();
+                    showed = true;
+                } else if (!show && showed) {
+                    $(".navbar2-zxpg").stop(true, false).slideUp();
+                    showed = false;
+                }
+                if (show1 && !showed1) {
+                    $(".navbar2-mms").stop(true, false).slideDown();
+                    showed1 = true;
+                } else if (!show1 && showed1) {
+                    $(".navbar2-mms").stop(true, false).slideUp();
+                    showed1 = false;
+                }
+                if (show2 && !showed2) {
+                    $(".navbar2-zzz").stop(true, false).slideDown();
+                    showed2 = true;
+                } else if (!show2 && showed2) {
+                    $(".navbar2-zzz").stop(true, false).slideUp();
+                    showed2 = false;
+                }
+                /*if (show3 && !showed3) {
+                    $(".nextlsj").stop(true, false).fadeIn();
+                    showed3 = true;
+                } else if (!show3 && showed3) {
+                    $(".nextlsj").stop(true, false).fadeOut();
+                    showed3 = false;
+                }*/
+                if (show4 && !showed4) {
+                    $(".navbar2-ppp").stop(true, false).slideDown();
+                    showed4 = true;
+                } else if (!show4 && showed4) {
+                    $(".navbar2-ppp").stop(true, false).slideUp();
+                    showed4 = false;
+                }
+                if (show5 && !showed5) {
+                    $(".navbar2-sy").stop(true, false).slideDown();
+                    showed5 = true;
+                } else if (!show5 && showed5) {
+                    $(".navbar2-sy").stop(true, false).slideUp();
+                    showed5 = false;
+                }
+            }, 100);
+
+            $(".navbar2 a:eq(0)").mouseenter(function() {
+                show = true;
+            })
+            $(".navbar2 a:eq(0)").mouseleave(function() {
+                show = false;
+            })
+            $(".navbar2-zxpg").mouseenter(function() {
+                show = true;
+            })
+            $(".navbar2-zxpg").mouseleave(function() {
+                show = false;
+            })
+            $(".navbar2 a:eq(1)").mouseenter(function() {
+                show1 = true;
+            })
+            $(".navbar2 a:eq(1)").mouseleave(function() {
+                show1 = false;
+            })
+            $(".navbar2-mms").mouseenter(function() {
+                show1 = true;
+            })
+            $(".navbar2-mms").mouseleave(function() {
+                show1 = false;
+            })
+            $(".navbar2 a:eq(5)").mouseenter(function() {
+                show2 = true;
+            })
+            $(".navbar2 a:eq(5)").mouseleave(function() {
+                show2 = false;
+            })
+            $(".navbar2-zzz").mouseenter(function() {
+                show2 = true;
+            })
+            $(".navbar2-zzz").mouseleave(function() {
+                show2 = false;
+            })
+            $(".navbar2 a:eq(8)").mouseenter(function() {
+                show3 = true;
+            })
+            $(".navbar2 a:eq(8)").mouseleave(function() {
+                show3 = false;
+            })
+            /*$(".nextlsj").mouseenter(function() {
+                show3 = true;
+            })
+            $(".nextlsj").mouseleave(function() {
+                show3 = false;
+            })*/
+            $(".navbar2 a:eq(2)").mouseenter(function() {
+                show4 = true;
+            })
+            $(".navbar2 a:eq(2)").mouseleave(function() {
+                show4 = false;
+            })
+            $(".navbar2-ppp").mouseenter(function() {
+                show4 = true;
+            })
+            $(".navbar2-ppp").mouseleave(function() {
+                show4 = false;
+            })
+            $(".navbar2 a:eq(6)").mouseenter(function() {
+                show5 = true;
+            })
+            $(".navbar2 a:eq(6)").mouseleave(function() {
+                show5 = false;
+            })
+            $(".navbar2-sy").mouseenter(function() {
+                show5 = true;
+            })
+            $(".navbar2-sy").mouseleave(function() {
+                show5 = false;
+            })
+        })
+    </script>
+    <div class="mobiletop">
+        <h1 class="logo"><a href="#">羁绊动漫</a></h1>
+        <div class="opennav"></div>
+    </div>
+    <div class="mobilenavfc">
+        <div class="mobilenavbox">
+            <div class="mobilesearch clear">
+                <input type="text" class="searchinput" value="请输入关键字">
+                <a href="#" class="searchbtn">搜索</a>
+            </div>
+            <div class="mobilenavtit">导航栏</div>
+            <div class="mobilenavlist clear">
+                <a href="#">首页</a><a href="http://moe.005.tv">萌化资源</a><a href="#">新番站</a>
+                <a href="#">BW绘画站</a><a href="#">啪啪啪弹幕站</a><a href="http://bbs.005.tv">论坛</a>
+            </div>
+            <div class="mobilenavtit">标签</div>
+            <div class="mobilenavlist clear">
+                <a href="#">FATE中文网</a><a href="#">儿童</a><a href="#">后宫</a>
+                <a href="#">冒险</a><a href="#">热血</a><a href="#">亲小说</a>
+            </div>
+        </div>
+    </div>
+
+    <a href="http://www.005.tv/">
+        <div class="banner"></div>
+    </a>
+
+
+    <div class="navbar2">
+        <a href="http://www.005.tv/zx/" target="_blank">
+        <img src="/templets/muban/images/1zixun.png" alt=""/>
+        <span>二次元资讯</span>
+    </a>
+        <a href="http://www.005.tv/zwh/" target="_blank">
+        <img src="/templets/muban/images/2mms.png" alt=""/>
+        <span>慢慢说</span>
+    </a>
+        <a href="http://www.005.tv/Cosplay/" target="_blank">
+        <img src="/templets/muban/images/3cos.png" alt=""/>
+        <span>COS本子图</span>
+    </a>
+        <!--<a href="http://www.005.tv/zl/" target="_blank">
+        <img src="/templets/muban/images/4htjs.png" alt=""/>
+        <span>羁绊娘的话题教室</span>
+    </a>-->
+        <a href="http://www.005.tv/zh/" target="_blank">
+        <img src="/templets/muban/images/5zh.png" alt=""/>
+        <span>展会资讯</span>
+    </a>
+        <a href="" style="display:none">
+        <img src="/templets/muban/images/6zt.png" alt=""/>
+        <span>专题站</span>
+    </a>
+        <a href="http://www.005.tv/erciyuanshouyou/">
+        <img src="/templets/muban/images/shouyou.png" alt=""/>
+        <span>二次元手游</span>
+    </a>
+        <a href="http://www.005.tv/2016/51139.html?1468379289">
+        <img src="/templets/muban/images/upload1.png" alt=""/>
+        <span>投稿专区</span>
+    </a>
+        <!--<a href="http://laosiji.005.tv/lsj/" target="_blank"></a>-->
+
+        <!--<div class="navbar2pg">
+            <div class="navbar2-zxpg">
+                <a href="http://www.005.tv/xw/dmxw/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>动漫新闻</span>
+            </a>
+                <a href="http://www.005.tv/xw/yjdt/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>业界动态</span>
+            </a>
+                <a href="http://www.005.tv/xw/qtrd/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>其他热点</span>
+            </a>
+            </div>
+
+            <div class="navbar2-mms">
+                <a href="http://www.005.tv/zwh/zx/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>独家专栏</span>
+            </a>
+                <a href="http://www.005.tv/zwh/xiaobianyouhuamanmanshuo/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>小编有话说</span>
+            </a>
+                <a href="http://www.005.tv/zwh/meiridongmanpintu/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>每日动漫拼图</span>
+            </a>
+            </div>
+
+            <div class="navbar2-zzz">
+                <a href="http://www.005.tv/fate/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>FATE专题站</span>
+            </a>
+                <a href="http://www.005.tv/kdz/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>口袋站</span>
+            </a>
+                <a href="http://www.005.tv/rmdm" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>热门动漫站</span>
+            </a>
+                <a href="http://www.005.tv/lol/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>英雄联盟站</span>
+            </a>
+                <a href="http://www.005.tv/djsy/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>刀剑神域站</span>
+            </a>
+            </div>
+            <div class="navbar2-ppp">
+                <a href="http://www.005.tv/Cosplay/Cosplay/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>Cosplay</span>
+            </a>
+                <a href="http://www.005.tv/Cosplay/erciyuanmeitu/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>二次元美图</span>
+            </a>
+                <a href="http://www.005.tv/Cosplay/meizhouPzhanbenzitu/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>每周P站本子图 </span>
+            </a>
+            </div>
+
+            <div class="navbar2-sy" style="left:670px">
+                <a href="http://www.005.tv/erciyuanshouyou/shouyougonglue/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>手游攻略</span>
+            </a>
+                <a href="http://www.005.tv/erciyuanshouyou/shouyoutuijian/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>手游推荐</span>
+            </a>
+                <a href="http://www.005.tv/erciyuanshouyou/shouyouzixun/" target="_blank">
+                <img src="/templets/muban/images/jiantou.png" alt=""/>
+                <span>手游资讯</span>
+            </a>
+            </div>
+
+            <a href="http://laosiji.005.tv/lsj/" target="_blank">
+                <div class="nextlsj"></div>
+            </a>
+        </div>-->
+    </div>
+    <script>
+        $('#jbnav a').eq(3).hide();
+        $('.navbar2').append('<a href="http://h5.dilidili.wang" class="bbs" target="_blank"><img src="/templets/muban/images/game.png" style="position: relative;"><span style="color:#f00;margin-left: 6px;">游戏中心</span></a>');
+    </script>
+
+    <div class="h10">
+        <div class="xf_right">
+            <div class="xf_a1 xf_a fl"><img src="http://www.005.tv/templets/muban/images/code2.png" />
+                <p>扫描关注我们</p>
+            </div>
+            <script>
+                WRITE_weibo();
+            </script>
+            <div class="xf_a3 xf_a fl"><a href="http://bbs.005.tv" target="_blank" rel="nofollow">动漫社区</a></div>
+
+            <div class="xf_a2 xf_a fl"><a href="http://www.005.tv/game/" target="_blank" rel="nofollow">游戏中心</a></div>
+
+            <div class="xf_a4 xf_a fl">
+                <wb:follow-button uid="3390288124" type="red_1" width="67" height="24"></wb:follow-button>
+            </div>
+            <script>
+                jQuery(function() {
+                    var top = $(".xf_right").offset().top;
+                    $(window).scroll(function() {
+                        if ($(window).scrollTop() >= top) {
+                            $(".xf_right").attr("style", "position:fixed;z-index:10;");
+                        } else {
+                            $(".xf_right").removeAttr("style");
+                        }
+                    }).trigger("scroll");
+                });
+            </script>
+            <!--<div class="back-to" id="toolBackTop"><a title="返回顶部" onclick="window.scrollTo(0,0);return false;" href="#top" class="back-top">返回顶部</a></div>-->
+        </div>
+
+        <!--<div class="xf_left" style="width:110px;margin-left:80px;margin-top:-151px;">
+            <a href="http://lhl.005.tv/" target="_blank" title="点击进入"><img src="http://www.005.tv/templets/muban/images/lhl.png" alt="lhl"/></a>
+        </div>-->
+        <div class="xf_left">
+            <a href="http://shang.qq.com/wpa/qunwpa?idkey=4bb2918c4073e9a8af6486e396e46c915b1cc83d0fdd47e903c8e40728b9bfb3%22" title="点击加入" target="_blank"><img src="http://www.005.tv/templets/muban/images/old.png"></a>
+        </div>
+    </div>
+    <div style="width: 100%;height: 100%;position: fixed;top:0px;z-index: 0;"></div>
+
+    <script>
+        $(function() {
+            if ($(window).width() < 735) {
+                $(".sonwmarry").remove()
+            }
+        })
+    </script>
+
+
+    <style>
+        .swiper-container .swiper-wrapper li {
+            height: 400px!important;
+            overflow: hidden;
+        }
+
+        .swiper-container .swiper-wrapper {
+            height: 400px!important;
+            overflow: hidden;
+        }
+    </style>
+
+    <div class="warp w1200">
+        <div class="clear">
+            <div class="hdbox">
+                <!-- Swiper -->
+                <div class="swiper-container" id="slidebox-banner">
+                    <div class="swiper-wrapper">
+                        <!--<ul>-->
+                        <!--<li class="swiper-slide">
+                            <a href="http://www.dilidili.wang/lyzzr" target="_blank">
+                                <img src="http://www.005.tv/shouye/005tv-550x400.jpg" style="width:430px;height:300px;"/>
+                                <p>
+                                    恋与制作人
+                                </p>
+                            </a>
+                        </li>-->
+
+                        <li class="swiper-slide">
+                            <a href="http://www.005.tv/2018/72212.html" target="_blank">
+                                <img src="http://www.005.tv/uploads/allimg/180710/41-1PG0125Z1I6.jpg" style="width:430px;height:300px;"/>
+                                <p title="天蚕土豆#创作十周年# 上海粉丝见面会">
+                                    天蚕土豆#创作十周年# 上海粉丝见面会
+                                </p>
+                            </a>
+                        </li>
+<li class="swiper-slide">
+                            <a href="http://www.005.tv/2018/72206.html" target="_blank">
+                                <img src="http://www.005.tv/uploads/allimg/180709/41-1PF91H93U93.jpg" style="width:430px;height:300px;"/>
+                                <p title="《歌之☆王子殿下?》8周年全球庆典活动中国站活动启动">
+                                    《歌之☆王子殿下?》8周年全球庆典活动中国站活动启动
+                                </p>
+                            </a>
+                        </li>
+<li class="swiper-slide">
+                            <a href="http://www.005.tv/2018/72170.html" target="_blank">
+                                <img src="http://www.005.tv/uploads/allimg/180705/41-1PF5163409604.jpg" style="width:430px;height:300px;"/>
+                                <p title="短篇剧场动画《小小的英雄 螃蟹与蛋与透明人》预告视频公布">
+                                    短篇剧场动画《小小的英雄 螃蟹与蛋与透明人》预告视频公布
+                                </p>
+                            </a>
+                        </li>
+<li class="swiper-slide">
+                            <a href="http://www.005.tv/2018/72163.html" target="_blank">
+                                <img src="http://www.005.tv/uploads/allimg/180705/41-1PF5151525X7.jpg" style="width:430px;height:300px;"/>
+                                <p title="《机动奥特曼》动画定档2019年四月 新生代英雄降临">
+                                    《机动奥特曼》动画定档2019年四月 新生代英雄降临
+                                </p>
+                            </a>
+                        </li>
+<li class="swiper-slide">
+                            <a href="http://www.005.tv/2018/72162.html" target="_blank">
+                                <img src="http://www.005.tv/uploads/allimg/180705/41-1PF5150451507.jpg" style="width:430px;height:300px;"/>
+                                <p title="《Fate/Stay night》间桐樱特辑 master这制服好像有点小...">
+                                    《Fate/Stay night》间桐樱特辑 master这制服好像有点小...
+                                </p>
+                            </a>
+                        </li>
+
+                        <!--</ul>-->
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination">
+                        <ul></ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiperThumbnail">
+                <ul>
+                    <!--<li style="background-position:center;background-size: 96px 70px;background-image:url(http://www.005.tv/shouye/005tv-550x400.jpg);" class="on" title="恋与制作人"></li>-->
+                    <li style="background-position:center;background-size: 96px 70px;background-image:url(http://www.005.tv/uploads/allimg/180710/41-1PG0125Z1I6.jpg);" title="天蚕土豆#创作十周年# 上海粉丝见面会"></li>
+<li style="background-position:center;background-size: 96px 70px;background-image:url(http://www.005.tv/uploads/allimg/180709/41-1PF91H93U93.jpg);" title="《歌之☆王子殿下?》8周年全球庆典活动中国站活动启动"></li>
+<li style="background-position:center;background-size: 96px 70px;background-image:url(http://www.005.tv/uploads/allimg/180705/41-1PF5163409604.jpg);" title="短篇剧场动画《小小的英雄 螃蟹与蛋与透明人》预告视频公布"></li>
+<li style="background-position:center;background-size: 96px 70px;background-image:url(http://www.005.tv/uploads/allimg/180705/41-1PF5151525X7.jpg);" title="《机动奥特曼》动画定档2019年四月 新生代英雄降临"></li>
+<li style="background-position:center;background-size: 96px 70px;background-image:url(http://www.005.tv/uploads/allimg/180705/41-1PF5150451507.jpg);" title="《Fate/Stay night》间桐樱特辑 master这制服好像有点小..."></li>
+
+                </ul>
+            </div>
+            <div class="topnews">
+                <!-- <div class="ad40 fr"></div> -->
+                <div class="topnewsbtn">
+                    <span class="icon"></span>
+                    <h2>今日速报</h2>
+                    <a href="/03more.html" target="_blank">更多></a>
+                </div>
+
+                <div class="newsone">
+                    <i class="dot"></i>
+                    <h4 class="icoblue fl">
+                        <a href="http://www.005.tv/2018/72170.html" target="_blank" title="短篇剧场动画《小小的英雄 螃蟹与蛋与透明人》预告视频公布 8月24日上映！">短篇剧场动画《小小的英雄 螃蟹与蛋与透明人》预告视频公布 8月24日上映！</a>
+                    </h4>
+                    <div style="clear:both;"></div>
+                </div>
+<div class="newsone">
+                    <i class="dot"></i>
+                    <h4 class="icoblue fl">
+                        <a href="http://www.005.tv/2018/72163.html" target="_blank" title="《机动奥特曼》动画定档2019年四月 新生代英雄降临">《机动奥特曼》动画定档2019年四月 新生代英雄降临</a>
+                    </h4>
+                    <div style="clear:both;"></div>
+                </div>
+<div class="newsone">
+                    <i class="dot"></i>
+                    <h4 class="icoblue fl">
+                        <a href="http://www.005.tv/2018/72162.html" target="_blank" title="《Fate/Stay night》间桐樱特辑 master这制服好像有点小...">《Fate/Stay night》间桐樱特辑 master这制服好像有点小...</a>
+                    </h4>
+                    <div style="clear:both;"></div>
+                </div>
+<div class="newsone">
+                    <i class="dot"></i>
+                    <h4 class="icoblue fl">
+                        <a href="http://www.005.tv/2018/72161.html" target="_blank" title="日升原创动画《DOUBLE DECKER!》人设公开 定档与2018年秋季播出">日升原创动画《DOUBLE DECKER!》人设公开 定档与2018年秋季播出</a>
+                    </h4>
+                    <div style="clear:both;"></div>
+                </div>
+<div class="newsone">
+                    <i class="dot"></i>
+                    <h4 class="icoblue fl">
+                        <a href="http://www.005.tv/2018/72142.html" target="_blank" title="不一样的妖艳《后街女孩》监督戴假发秀舞技">不一样的妖艳《后街女孩》监督戴假发秀舞技</a>
+                    </h4>
+                    <div style="clear:both;"></div>
+                </div>
+<div class="newsone">
+                    <i class="dot"></i>
+                    <h4 class="icoblue fl">
+                        <a href="http://www.005.tv/2018/72117.html" target="_blank" title="哆啦A梦宣导正确观念 胖虎骑车戴安全帽被吐槽">哆啦A梦宣导正确观念 胖虎骑车戴安全帽被吐槽</a>
+                    </h4>
+                    <div style="clear:both;"></div>
+                </div>
+<div class="newsone">
+                    <i class="dot"></i>
+                    <h4 class="icoblue fl">
+                        <a href="http://www.005.tv/2018/72105.html" target="_blank" title="原创动画《音乐少女》第二弹PV公布 将于7月6日开播">原创动画《音乐少女》第二弹PV公布 将于7月6日开播</a>
+                    </h4>
+                    <div style="clear:both;"></div>
+                </div>
+<div class="newsone">
+                    <i class="dot"></i>
+                    <h4 class="icoblue fl">
+                        <a href="http://www.005.tv/2018/72101.html" target="_blank" title="剧场动画『K SEVEN STORIES』 Episode 4/5/6 预告片公开">剧场动画『K SEVEN STORIES』 Episode 4/5/6 预告片公开</a>
+                    </h4>
+                    <div style="clear:both;"></div>
+                </div>
+<div class="newsone">
+                    <i class="dot"></i>
+                    <h4 class="icoblue fl">
+                        <a href="http://www.005.tv/2018/72097.html" target="_blank" title="《冰上的尤里》剧场版「ICE ADOLESCENCE」2019年上映确定！">《冰上的尤里》剧场版「ICE ADOLESCENCE」2019年上映确定！</a>
+                    </h4>
+                    <div style="clear:both;"></div>
+                </div>
+
+
+                <!-- <dl class="hdimg">
+                    <dt class="fl"><a target="_blank" href="http://www.005.tv/2018/72083.html"><img src="http://www.005.tv/uploads/allimg/180702/41-1PF2104Pa37.jpg" /></a>
+                        <p class="tittext">
+                            <a href="http://www.005.tv/2018/72083.html" target="_blank">荷叶罗裙一色裁 王者荣耀甄姬cosplay</a><br/>
+                            <span>点击数：863 </span><br/>
+                            <span>编辑：有鱼</span>
+                        </p>
+                    </dt>
+
+                    <div style="clear:both;"></div>
+                </dl> -->
+            </div>
+        </div>
+        <!--广告区-->
+
+        <div style="margin-top: 12px;">
+            <script>
+                index_ad();
+            </script>
+        </div>
+
+
+        <div class="clear">
+            <div class="mainleftbox fl">
+                <div class="swichmainbox">
+                    <div class="title">
+                        <div class="t_h2">
+                            <div class="swichtitle">
+                                <a class="this" href="/03more.html" target="_blank"></a>
+                                <span class="fr"><a href="/03more.html" target="_blank">.</a></span>
+                                <!--  <a class="this" href="http://www.005.tv/zwh/" target="_blank">漫慢说</a>   
+                             <a class="this" href="http://www.005.tv/Cosplay/" target="_blank">Cos本子图</a>
+                         -->
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swichbox">
+                        <div class="one clear block">
+                            <div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/71863.html" target="_blank"><img src="http://www.005.tv/uploads/180620/42-1P620163215547.jpg"></a></div>
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/71863.html" target="_blank" title="2018年七月新番动画总览" style="background-image:url(http://www.005.tv/templets/muban/style/images/hot.png);background-repeat:no-repeat;padding-left:50px;">2018年七月新番动画总览
+                                </a>
+                                    <span class="know">
+                                
+                                编辑：有鱼
+                                       
+                                发布日期：2018-06-20
+                                
+                                </span>
+                                    <p>2018年七月新番中文列表（06.20更新） 《One Room》 邂逅更多的少女 泡面番动画《ONE ROOM》第2期制作决定 《One Room》第二季将于...</p>
+                                </div>
+                            </div>
+ <div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72247.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180711/41-1PG11UG4I6.jpg"></a></div>
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72247.html" target="_blank" title="《食戟之灵》漫画再出劲爆设定 兄弟对战致敬火影？">《食戟之灵》漫画再出劲爆设定 兄弟对战致敬火影？</a>
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                
+                                <!--点击数：248-->
+                                发布日期：2018-07-11
+                                </span>
+                                    <p>继男女主跻身顶点、黑暗料理界登场后，《食戟之灵》最新漫画第271话再出劲爆设定据男主创真的父亲透露，新篇章的反派...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72246.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180711/41-1PG11U449C2.jpg"></a></div>
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72246.html" target="_blank" title="声优上坂堇香港拍摄MV 逛夜市吃美食很逍遥">声优上坂堇香港拍摄MV 逛夜市吃美食很逍遥</a>
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                
+                                <!--点击数：182-->
+                                发布日期：2018-07-11
+                                </span>
+                                    <p>美女声优上坂堇的最新CD即将发售，官方在前不久发布了新CD的一些写真图，眼尖的网友们发现其中的街景应该是香港的某个...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72245.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180711/41-1PG11U25R00.jpg"></a></div>
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72245.html" target="_blank" title="《进击的巨人》搞笑联动广告 后颈肉嘎嘣脆超鲜嫩">《进击的巨人》搞笑联动广告 后颈肉嘎嘣脆超鲜嫩</a>
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                
+                                <!--点击数：225-->
+                                发布日期：2018-07-11
+                                </span>
+                                    <p>经常关注《进击的巨人》的观众一定对于切后颈非常熟悉，那么巨人的后颈肉究竟是什么味道呢？最近，日本某牛肉品牌与《...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72244.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180711/41-1PG11T95K06.jpg"></a></div>
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72244.html" target="_blank" title="Netflix推出新动画《龙王子》 《神秘海域》与《降世神通》制作人联手打造">Netflix推出新动画《龙王子》 《神秘海域》与《降世神通》制作</a>
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                
+                                <!--点击数：220-->
+                                发布日期：2018-07-11
+                                </span>
+                                    <p>Netflix（网飞）近日在动画的领域各种动作不断，现在他们宣布将推出全新的动画剧集《龙王子》(The Dragon Prince)，该剧由动画...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72243.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180711/41-1PG11T631255.jpg"></a></div>
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72243.html" target="_blank" title="美少女动画人气火爆周边商品激增">美少女动画人气火爆周边商品激增</a>
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                
+                                <!--点击数：160-->
+                                发布日期：2018-07-11
+                                </span>
+                                    <p>伴随着动画的播出，以描述美少女登山为主题的7月新番《向山进发》第三季收获了越来越多人气，周边商品数量也陆续增多...</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="one clear none">
+
+                            <div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72242.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180711/41-1PG11T4032H.jpg"></a></div>
+
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72242.html" target="_blank" title="7月新番质量良莠不齐 新动画OP崩坏到惨不忍睹">7月新番质量良莠不齐 新动画OP崩坏到惨不忍睹</a>
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                <!--点击数：123-->
+                                发布日期：2018-07-11
+                                </span>
+                                    <p>现在7月新番已经开播，就目前来说有不少让人眼前一亮的黑马，比如《轻羽飞扬》的动作画面就让人感叹不已，制作方更是...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72241.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180711/41-1PG11T114232.jpg"></a></div>
+
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72241.html" target="_blank" title="《精灵宝可梦：日月》动画因涉嫌种族歧视被美国取消播放一集">《精灵宝可梦：日月》动画因涉嫌种族歧视被美国取消播放一</a>
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                <!--点击数：225-->
+                                发布日期：2018-07-11
+                                </span>
+                                    <p>《精灵宝可梦》系列推出了不少的动画，最新的一部《精灵宝可梦：日月》正在全球播放中，也是深得孩子们的喜爱。不过美...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72240.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180711/41-1PG11R23Y38.jpg"></a></div>
+
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72240.html" target="_blank" title="《我的英雄学院》剧场版动画IGN评分7.7 热血激战令人期待">《我的英雄学院》剧场版动画IGN评分7.7 热血激战令人期待</a>
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                <!--点击数：205-->
+                                发布日期：2018-07-11
+                                </span>
+                                    <p>《我的英雄学院》剧场版动画将于8月3日正式上映，这款超级英雄题材的作品在国外也是很受注目，在那边有不少粉丝对本作...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72239.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180711/41-1PG11Q924N1.jpg"></a></div>
+
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72239.html" target="_blank" title="《海贼王》官方拟制定角色实力排名 吸引读者注意">《海贼王》官方拟制定角色实力排名 吸引读者注意</a>
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                <!--点击数：106-->
+                                发布日期：2018-07-11
+                                </span>
+                                    <p>《海贼王》里角色实力永远是读者们讨论的重头戏，甚至还有连作者尾田荣一郎都不知道的准大将实力的称谓。而在最近，官...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72238.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180711/41-1PG11PT3M6.jpg"></a></div>
+
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72238.html" target="_blank" title="《未来重启》漫画宣传曲上线，以音乐为媒打通次元壁">《未来重启》漫画宣传曲上线，以音乐为媒打通次元壁</a>
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                <!--点击数：193-->
+                                发布日期：2018-07-11
+                                </span>
+                                    <p>2018年7月8日，腾讯动漫携手超竞壹动漫共同打造的电竞题材漫画《未来重启》的宣传曲《永不止梦》全线发布，实现了电竞文...</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="one clear none">
+
+
+
+                            <div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72226.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180710/41-1PG0153031107.jpg"></a></div>
+
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72226.html" target="_blank" title="《龙珠：超》剧场版新宣传图曝光 布罗利再度降临">《龙珠：超》剧场版新宣传图曝光 布罗利再度降临</a>
+
+
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                
+                                <!--点击数：236-->
+                                发布日期：2018-07-10
+                                </span>
+
+
+                                    <p>定档今年12月14日上映的《龙珠：超》剧场版现已确定正式标题为《龙珠：超 布罗利》，同时新宣传图一并发布，围绕着悟空...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72225.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180710/41-1PG0152SVQ.jpg"></a></div>
+
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72225.html" target="_blank" title="《银魂2》真人剧详情公开 桥本环奈挑战恐怖版神乐">《银魂2》真人剧详情公开 桥本环奈挑战恐怖版神乐</a>
+
+
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                
+                                <!--点击数：280-->
+                                发布日期：2018-07-10
+                                </span>
+
+
+                                    <p>按照《银魂》真人版的惯例，《银魂2》推出电影之后也将会推出真人日剧，现在《银魂2》真人日剧《世界奇妙银魂》确定将...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72224.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180710/41-1PG0152613641.jpg"></a></div>
+
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72224.html" target="_blank" title="《哥布林杀手》最新PV公开 大尺度展现残酷世界">《哥布林杀手》最新PV公开 大尺度展现残酷世界</a>
+
+
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                
+                                <!--点击数：311-->
+                                发布日期：2018-07-10
+                                </span>
+
+
+                                    <p>将于10月开播的超大尺度改编动画《哥布林杀手》公开了最新的PV，在本次的PV中公开了大量的新画面，看样子动画在画面上并...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72223.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180710/41-1PG01523322D.jpg"></a></div>
+
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72223.html" target="_blank" title="《JUMP》50周年展新菜单黑暗风强烈 冈叔又被恶搞">《JUMP》50周年展新菜单黑暗风强烈 冈叔又被恶搞</a>
+
+
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                
+                                <!--点击数：301-->
+                                发布日期：2018-07-10
+                                </span>
+
+
+                                    <p>《少年JUMP》50周年展还在如火如荼的进行当中，现在马上就要迎来第三阶段，官方也是公开了《少年JUMP》50周年展第三阶段展...</p>
+                                </div>
+                            </div>
+<div class="newsright">
+                                <div class="ad40 fr"></div>
+                                <div class="newsimg"><a href="http://www.005.tv/2018/72221.html" target="_blank"><img src="http://www.005.tv/uploads/allimg/180710/41-1PG0151GB20.jpg"></a></div>
+
+                                <div class="hotnews">
+                                    <a href="http://www.005.tv/2018/72221.html" target="_blank" title="《星期一的丰满》：白领妹子摸鱼喝酒 小娇羞很福利">《星期一的丰满》：白领妹子摸鱼喝酒 小娇羞很福利</a>
+
+
+                                    <span class="know">
+                                编辑：有鱼
+                                    
+                                
+                                <!--点击数：257-->
+                                发布日期：2018-07-10
+                                </span>
+
+
+                                    <p>终于迎来了大家期盼的暑期，本以为会是爱酱这种高中生会出来发福利，却没想到是消失了一段时间的上班族后辈妹子。貌似...</p>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="Home-More"><a class="LoadMore" href="javascript:;">加载更多</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fr mainrightbox">
+                <div class="recommend">
+                    <a target="_blank" href="">
+                        <div class="img"><p></p></div>
+                    </a>
+                    <div class="thumbnail">
+                        <a target="_blank" href="http://www.005.tv/2018/72083.html"><img onmouseover="changeImg(this)" title="荷叶罗裙一色裁 王者荣耀甄姬cosplay" class="1" src="http://www.005.tv/uploads/allimg/180702/41-1PF2104Pa37.jpg" /></a>
+<a target="_blank" href="http://www.005.tv/2018/72024.html"><img onmouseover="changeImg(this)" title="每周P站本子图 master...你觉得我穿泳装好看吗？第0628期" class="2" src="http://www.005.tv/uploads/allimg/180628/41-1P62Q50213605.jpg" /></a>
+<a target="_blank" href="http://www.005.tv/2018/71842.html"><img onmouseover="changeImg(this)" title="最美COSER线上评选活动火热报名中，参与即可获得奖品！" class="3" src="http://www.005.tv/uploads/180628/13-1P62P12352531.jpg" /></a>
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <script>
+                    var backimg = $(".thumbnail img").eq(0).attr("src");
+                    var link = $(".thumbnail img").eq(0).parent().attr('href');
+                    var title = $(".thumbnail img").eq(0).attr('title');
+                    $(".recommend .img").css('background-image', 'url(' + backimg + ')');
+                    $(".recommend .img").parent().attr('href', link);
+                    $(".recommend .img").attr('title', title);
+                    $(".recommend .img p").html(title);
+                    changeImg = function(node) {
+                        var index = node.className;
+                        var link = $(node).parent().attr('href');
+                        var title = $(node).attr('title');
+                        var backimg = $(".thumbnail img").eq(index - 1).attr("src");
+                        $(".recommend .img").css('background-image', 'url(' + backimg + ')');
+                        $(".recommend .img").parent().attr('href', link);
+                        $(".recommend .img").attr('title', title);
+                        $(".recommend .img p").html(title);
+                    }
+                </script>
+
+                <!--<div class="keywordsbox">
+                    
+                    <a href="http://www.005.tv/tags.php?/%E5%A4%9C%E7%8E%B2/" target="_blank" title="夜玲" class="a1">夜玲</a> 
+                     
+                    
+                    <a href="http://www.005.tv/tags.php?/%E5%8A%A8%E6%BC%AB%E5%A3%81%E7%BA%B8/" target="_blank" title="动漫壁纸" class="a5">动漫壁纸</a> 
+                     
+                    
+                    <a href="http://www.005.tv/tags.php?/%E5%8A%A8%E6%BC%AB%E5%A5%B3%E5%A4%B4/" target="_blank" title="动漫女头" class="a2">动漫女头</a> 
+                     
+                    
+                    <a href="http://www.005.tv/tags.php?/Summer+Pocke/" target="_blank" title="Summer Pocke" class="a6">Summer Pocke</a> 
+                     
+                    
+                    <a href="http://www.005.tv/tags.php?/%E8%AF%B6%E5%9B%BE/" target="_blank" title="诶图" class="a4">诶图</a> 
+                     
+                    
+                    <a href="http://www.005.tv/tags.php?/%E7%9E%B3%E6%B1%90/" target="_blank" title="瞳汐" class="a6">瞳汐</a> 
+                     
+                    
+                    <a href="http://www.005.tv/tags.php?/%E9%93%B6%E6%97%B6%E4%B8%BA%E4%BD%95%E7%A7%83%E9%A1%B6/" target="_blank" title="银时为何秃顶" class="a3">银时为何秃顶</a> 
+                     
+                    
+                    <a href="http://www.005.tv/tags.php?/%E5%A5%87%E6%80%AA%E7%9A%84%E6%83%B3%E6%B3%95/" target="_blank" title="奇怪的想法" class="a2">奇怪的想法</a> 
+                     
+                    
+                    <a href="http://www.005.tv/tags.php?/%E8%AF%BA%E8%B4%9D%E5%B0%94%E5%A5%96/" target="_blank" title="诺贝尔奖" class="a3">诺贝尔奖</a> 
+                     
+                    
+                    <a href="http://www.005.tv/tags.php?/%E6%9F%AF%E5%8D%97%E6%B1%A1%E9%95%9C%E5%A4%B4/" target="_blank" title="柯南污镜头" class="a1">柯南污镜头</a> 
+                     
+                    
+                    <a href="http://www.005.tv/tags.php?/%E7%BA%A2A/" target="_blank" title="红A" class="a5">红A</a> 
+                    
+                </div>-->
+
+
+                <style>
+                    .phbox .phtext a:nth-of-type(2) {
+                        min-width: 230px;
+                        display: inline-block;
+                    }
+                </style>
+                <div class="swichmainbox swichbaibox maxphbox">
+                    <div class="title">
+                        <div class="t_h2">
+                            <div class="swichtitle">
+                                <a class="this" herf="javascript:;">本周排行</a>
+                                <a herf="javascript:;">本月排行</a>
+                                <a herf="javascript:;">点击排行</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swichbox" style="padding:3px;">
+
+                        <div class="one clear">
+                            <ol class="phbox">
+                                <li>
+                                    <div class="phtext fr">
+                                        <a href="http://moe.005.tv/72189.html" target="_blank" class="phimg fl"><img src="http://www.005.tv/uploads/allimg/180708/13-1PFR25135436.jpg" /></a><a href="http://moe.005.tv/72189.html" target="_blank" title="无法离别 亦无心离别 动漫壁纸20180708期">无法离别 亦无心离别 动漫壁纸</a>
+                                        <p class="fr">编辑：表妹点击数：13248 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+                                    <div class="phtext fr">
+                                        <a href="http://moe.005.tv/72164.html" target="_blank" class="phimg fl"><img src="http://www.005.tv/uploads/allimg/180705/32-1PF5150S3521.jpg" /></a><a href="http://moe.005.tv/72164.html" target="_blank" title="要跟小姐姐一起玩球吗 沙滩排球特辑">要跟小姐姐一起玩球吗 沙滩排球</a>
+                                        <p class="fr">编辑：老中医点击数：7450 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+                                    <div class="phtext fr">
+                                        <a href="http://moe.005.tv/72158.html" target="_blank" class="phimg fl"><img src="http://www.005.tv/uploads/allimg/180705/32-1PF5140PAH.jpg" /></a><a href="http://moe.005.tv/72158.html" target="_blank" title="【每日P站本子图】给你一个爱的比心">【每日P站本子图】给你一个爱的</a>
+                                        <p class="fr">编辑：老中医点击数：7278 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+ <ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span style="background-color:#FF86A5;">1</span>
+                                        <a href="http://moe.005.tv/72181.html" target="_blank" title="【每日P站本子图】夏天来临啦！">【每日P站本子图】夏天来临啦！</a>
+                                        <p class="fr">编辑：老中医点击数：6151 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span style="background-color:#FF86A5;">2</span>
+                                        <a href="http://moe.005.tv/72214.html" target="_blank" title="【每日P站本子图】夏日的福利时刻">【每日P站本子图】夏日的福利时刻</a>
+                                        <p class="fr">编辑：老中医点击数：3633 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span style="background-color:#FF86A5;">3</span>
+                                        <a href="http://moe.005.tv/72197.html" target="_blank" title="P站画师推荐 フカヒレ 二次元萌图">P站画师推荐 フカヒレ 二次元萌图</a>
+                                        <p class="fr">编辑：未来点击数：3494 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+ <ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span>4 </span>
+                                        <a href="http://moe.005.tv/72152.html" target="_blank" title="全新的剧场版将于2020年1月上映。《紫罗兰永恒花园》同人特辑">全新的剧场版将于2020年1月上映。《紫罗兰永恒花园》同人特辑</a>
+                                        <p class="fr">编辑：未来点击数：3454 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span>5 </span>
+                                        <a href="http://moe.005.tv/72219.html" target="_blank" title="小孩子别在泳池里待那么久！萝莉与死库水特辑">小孩子别在泳池里待那么久！萝莉与死库水特辑</a>
+                                        <p class="fr">编辑：老中医点击数：3428 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span>6 </span>
+                                        <a href="http://moe.005.tv/72211.html" target="_blank" title="P站画师推荐 刃天 二次元萌图">P站画师推荐 刃天 二次元萌图</a>
+                                        <p class="fr">编辑：未来点击数：3299 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span>7 </span>
+                                        <a href="http://www.005.tv/2018/72162.html" target="_blank" title="《Fate/Stay night》间桐樱特辑 master这制服好像有点小...">《Fate/Stay night》间桐樱特辑 master这制服好像有点小...</a>
+                                        <p class="fr">编辑：有鱼点击数：1575 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span>8 </span>
+                                        <a href="http://moe.005.tv/72154.html" target="_blank" title="紫罗兰的永恒花园 动漫女头">紫罗兰的永恒花园 动漫女头</a>
+                                        <p class="fr">编辑：未来点击数：889 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+
+                        </div>
+                        <div class="one clear" style="display:none;">
+                            <ol class="phbox">
+                                <li>
+
+                                    <div class="phtext fr">
+                                        <a href="http://www.005.tv/2018/71863.html" target="_blank" class="phimg fl"><img src="http://www.005.tv/uploads/180620/42-1P620163215547.jpg" /></a><a href="http://www.005.tv/2018/71863.html" target="_blank" title="2018年七月新番动画总览">2018年七月新番动画总览</a>
+                                        <p class="fr">编辑：有鱼点击数：94116 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext fr">
+                                        <a href="http://moe.005.tv/71803.html" target="_blank" class="phimg fl"><img src="http://www.005.tv/uploads/allimg/180617/13-1P61H32G62P.jpg" /></a><a href="http://moe.005.tv/71803.html" target="_blank" title="听见睡着的你的呼吸声 动漫壁纸20180617期">听见睡着的你的呼吸声 动漫壁纸</a>
+                                        <p class="fr">编辑：表妹点击数：83276 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext fr">
+                                        <a href="http://moe.005.tv/71699.html" target="_blank" class="phimg fl"><img src="http://www.005.tv/uploads/allimg/180612/13-1P612162554210.jpg" /></a><a href="http://moe.005.tv/71699.html" target="_blank" title="如果是做梦的话 请别让我醒来 动漫壁纸20180612期">如果是做梦的话 请别让我醒来 动</a>
+                                        <p class="fr">编辑：表妹点击数：31936 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+ <ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span style="background-color:#FF86A5;">1</span>
+                                        <a href="http://moe.005.tv/71747.html" target="_blank" title="【每日P站本子图】每一颗真心，都该被温柔相待">【每日P站本子图】每一颗真心，</a>
+                                        <p class="fr">编辑：老中医点击数：31215 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span style="background-color:#FF86A5;">2</span>
+                                        <a href="http://moe.005.tv/71773.html" target="_blank" title="【每日P站本子图】要是不开心了就能缩进你胳膊弯儿里就好了">【每日P站本子图】要是不开心了</a>
+                                        <p class="fr">编辑：老中医点击数：22378 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span style="background-color:#FF86A5;">3</span>
+                                        <a href="http://moe.005.tv/71775.html" target="_blank" title="在家中悠闲度日的少女特辑">在家中悠闲度日的少女特辑</a>
+                                        <p class="fr">编辑：老中医点击数：18726 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                </li>
+                            </ol>
+ <ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span>4 </span>
+                                        <a href="http://moe.005.tv/72116.html" target="_blank" title="我可以盯着看吗？侧胸很吸引人目光的插画特辑">我可以盯着看吗？侧胸很吸引人目光的插画特辑</a>
+                                        <p class="fr">编辑：老中医点击数：18630 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span>5 </span>
+                                        <a href="http://moe.005.tv/71695.html" target="_blank" title="P站画师推荐 Ririko 二次元萌图">P站画师推荐 Ririko 二次元萌图</a>
+                                        <p class="fr">编辑：未来点击数：17531 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span>6 </span>
+                                        <a href="http://moe.005.tv/71696.html" target="_blank" title="【每日P站本子图】你的借口多么残忍，别怪我绝情的走">【每日P站本子图】你的借口多么残忍，别怪我绝情的走</a>
+                                        <p class="fr">编辑：老中医点击数：16936 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span>7 </span>
+                                        <a href="http://moe.005.tv/71868.html" target="_blank" title="于天穹之下飞舞飘散 动漫壁纸20180620期">于天穹之下飞舞飘散 动漫壁纸20180620期</a>
+                                        <p class="fr">编辑：表妹点击数：15881 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span>8 </span>
+                                        <a href="http://moe.005.tv/71861.html" target="_blank" title="【每日P站本子图】今天你看球了吗？">【每日P站本子图】今天你看球了吗？</a>
+                                        <p class="fr">编辑：老中医点击数：15863 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+
+                        </div>
+                        <div class="one clear" style="display:none;">
+                            <ol class="phbox">
+                                <li>
+
+                                    <div class="phtext fr">
+                                        <a href="http://www.005.tv/2018/67645.html" target="_blank" class="phimg fl"><img src="http://www.005.tv/uploads/allimg/180105/41-1P105204544K0.jpg" /></a><a href="http://www.005.tv/2018/67645.html" target="_blank" title="2018年四月新番动画总览">2018年四月新番动画总览</a>
+                                        <p class="fr">编辑：有鱼点击数：332244 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext fr">
+                                        <a href="http://www.005.tv/2017/62212.html" target="_blank" class="phimg fl"><img src="http://www.005.tv/uploads/allimg/170522/6-1F522095T11R.jpg" /></a><a href="http://www.005.tv/2017/62212.html" target="_blank" title="《东京喰种：RE》125最新话 官方开车措手不及">《东京喰种：RE》125最新话 官方开</a>
+                                        <p class="fr">编辑：XMTTTN点击数：298753 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext fr">
+                                        <a href="http://www.005.tv/2016/55188.html" target="_blank" class="phimg fl"><img src="http://www.005.tv/uploads/allimg/161006/6-1610061513529D.jpg" /></a><a href="http://www.005.tv/2016/55188.html" target="_blank" title="进击的巨人86话揭露真相！原来艾伦所在之处竟然是一个小岛！">进击的巨人86话揭露真相！原来艾</a>
+                                        <p class="fr">编辑：XMTTTN点击数：256677 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+ <ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span style="background-color:#FF86A5;">1</span>
+                                        <a href="http://moe.005.tv/58248.html" target="_blank" title="一拳超人 战栗的龙卷本子图包">一拳超人 战栗的龙卷本子图包</a>
+                                        <p class="fr">编辑：依晓点击数：219236 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span style="background-color:#FF86A5;">2</span>
+                                        <a href="http://moe.005.tv/70615.html" target="_blank" title="东京搜查官 萌图、主题、皮肤、ED、cos资源大合集">东京搜查官 萌图、主题、皮肤、</a>
+                                        <p class="fr">编辑：表妹点击数：194714 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+                                    <div class="phtext"><span style="background-color:#FF86A5;">3</span>
+                                        <a href="http://moe.005.tv/57549.html" target="_blank" title="一对两张 二次元动漫情侣头像">一对两张 二次元动漫情侣头像</a>
+                                        <p class="fr">编辑：表妹点击数：192882 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+ <ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span>4 </span>
+                                        <a href="http://www.005.tv/2017/59873.html" target="_blank" title="2B小姐姐又来了 台湾超还原绝对领域尼尔机械纪元cosplay">2B小姐姐又来了 台湾超还原绝对领域尼尔机械纪元cosplay</a>
+                                        <p class="fr">编辑：XMTTTN点击数：192242 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span>5 </span>
+                                        <a href="http://moe.005.tv/66461.html" target="_blank" title="穿着白色袜子的小姐姐居然如此大胆 白丝足控福利图片">穿着白色袜子的小姐姐居然如此大胆 白丝足控福利图片</a>
+                                        <p class="fr">编辑：老中医点击数：189986 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span>6 </span>
+                                        <a href="http://www.005.tv/2017/63495.html" target="_blank" title="18禁的胜利《水龙敬乐园》游戏化+动画化❤夏日工口狂欢要开始啰">18禁的胜利《水龙敬乐园》游戏化+动画化❤夏日工口狂欢要开始</a>
+                                        <p class="fr">编辑：XMTTTN点击数：179826 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span>7 </span>
+                                        <a href="http://moe.005.tv/58852.html" target="_blank" title="Fate圣女贞德 手机壁纸精选图集">Fate圣女贞德 手机壁纸精选图集</a>
+                                        <p class="fr">编辑：依晓点击数：167910 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+<ol class="phbox">
+                                <li>
+
+                                    <div class="phtext"><span>8 </span>
+                                        <a href="http://moe.005.tv/49208.html" target="_blank" title="甲铁城无名福利本子图">甲铁城无名福利本子图</a>
+                                        <p class="fr">编辑：小暗点击数：151642 </p>
+                                    </div>
+                                    <div style="clear:both;"></div>
+
+                                </li>
+                            </ol>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- 广告区-->
+        <a href="http://www.c3online.com.cn/" target="_blank"><img src="/shouye/cjls（1200px-500px） (1).jpg" width="100%" style=" margin-top: 10px;"/></a>
+        <!--20181010下架-->
+        <div style="margin-top:10px">
+            <script type="text/javascript">
+                panshi_a = "3635331072_3992264704_1";
+                panshi_b = "1200_80_10";
+            </script>
+         <!--<script type="text/javascript" src="http://s.adyun.com/show_ps3.js"></script>-->  
+        </div>
+
+        <!--3张图-->
+        <!--<div class="pics-three w">
+        <div class="root-full">
+            <ul class="clear full cosplay">
+                <a href="http://www.005.tv/2018/72083.html" class="img2" target="_blank">
+                        <h3>荷叶罗裙一色裁 王者荣耀</h3>
+                        <img src='http://www.005.tv/uploads/allimg/180702/41-1PF2104Pa37.jpg' border='0' width='380' height='100%' alt='荷叶罗裙一色裁 王者荣耀甄姬cosplay'>
+                    </a>
+<a href="http://www.005.tv/2018/72024.html" class="img2" target="_blank">
+                        <h3>每周P站本子图 master...你觉</h3>
+                        <img src='http://www.005.tv/uploads/allimg/180628/41-1P62Q50213605.jpg' border='0' width='380' height='100%' alt='每周P站本子图 master...你觉得我穿泳装好看吗？第0628期'>
+                    </a>
+<a href="http://www.005.tv/2018/71947.html" class="img2" target="_blank">
+                        <h3>准备好被我逮捕了吗？玉</h3>
+                        <img src='http://www.005.tv/uploads/allimg/180625/41-1P6251036423Y.jpg' border='0' width='380' height='100%' alt='准备好被我逮捕了吗？玉藻前警服cosplay'>
+                    </a>
+
+            </ul>
+        </div>
+    </div>-->
+
+        <div class="clear swichlistbox">
+
+
+            <div class="box390 fl">
+                <div class="swichmainbox swichbaibox">
+                    <div class="title">
+                        <div class="t_h2">
+                            <div class="swichtitle" style="background-image:url(http://www.005.tv/templets/muban/style/images/news.png)">
+                                <a class="this" herf="http://www.005.tv/zx/"></a>
+
+                                <span class="fr"><a href="http://www.005.tv/zx/" target="_blank">.</a></span>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swichbox">
+                        <div class="one clear">
+                            <dl class="imgbox clear">
+                                <dt style="margin-bottom: 10px; width: 95%; height: 280px;">
+                                <a href="http://www.005.tv/2018/72024.html" target="_blank" title=""><img src="http://www.005.tv/uploads/allimg/180628/41-1P62Q53309C1.jpg" alt="每周P站本子图 master...你觉得我穿泳装好看吗？第0628期"></a>
+                            <h3 id="change2"><a href="http://www.005.tv/2018/72024.html" target="_blank">每周P站本子图 master...你觉得我穿泳装好看吗？第0628期</a></h3>
+                            </dt> <dt>
+                            <a href="http://www.005.tv/2018/72170.html"  title="短篇剧场动画《小小的英雄 螃蟹与蛋与透明人》预告视频公布 8月24日上映！"><img src="http://www.005.tv/uploads/allimg/180705/41-1PF5163409604.jpg" alt="短篇剧场动画《小小的英雄 螃蟹与蛋与透明人》预告视频公"></a>
+                            <p ><a href="http://www.005.tv/2018/72170.html" target="_blank">短篇剧场动画《小小的英雄 螃蟹与蛋与透明人》预告视频公</a><br/><span>点击数：390 </span><br/><span>编辑：有鱼</span>
+                            
+                            </p>
+                            </dt>
+<dt>
+                            <a href="http://www.005.tv/2018/72163.html"  title="《机动奥特曼》动画定档2019年四月 新生代英雄降临"><img src="http://www.005.tv/uploads/allimg/180705/41-1PF5151525X7.jpg" alt="《机动奥特曼》动画定档2019年四月 新生代英雄降临"></a>
+                            <p ><a href="http://www.005.tv/2018/72163.html" target="_blank">《机动奥特曼》动画定档2019年四月 新生代英雄降临</a><br/><span>点击数：457 </span><br/><span>编辑：有鱼</span>
+                            
+                            </p>
+                            </dt>
+<dt>
+                            <a href="http://www.005.tv/2018/72161.html"  title="日升原创动画《DOUBLE DECKER!》人设公开 定档与2018年秋季播出"><img src="http://www.005.tv/uploads/allimg/180705/41-1PF5145622158.jpg" alt="日升原创动画《DOUBLE DECKER!》人设公开 定档与2018年秋季播出"></a>
+                            <p ><a href="http://www.005.tv/2018/72161.html" target="_blank">日升原创动画《DOUBLE DECKER!》人设公开 定档与2018年秋季播出</a><br/><span>点击数：343 </span><br/><span>编辑：有鱼</span>
+                            
+                            </p>
+                            </dt>
+<dt>
+                            <a href="http://www.005.tv/2018/72105.html"  title="原创动画《音乐少女》第二弹PV公布 将于7月6日开播"><img src="http://www.005.tv/uploads/allimg/180703/41-1PF3103925432.jpg" alt="原创动画《音乐少女》第二弹PV公布 将于7月6日开播"></a>
+                            <p ><a href="http://www.005.tv/2018/72105.html" target="_blank">原创动画《音乐少女》第二弹PV公布 将于7月6日开播</a><br/><span>点击数：334 </span><br/><span>编辑：有鱼</span>
+                            
+                            </p>
+                            </dt>
+
+
+                            </dl>
+                            <ul class="textlist">
+                                <li class="fl">
+                                    <i>[<a href='http://www.005.tv/zx/'>二次元资讯</a>]</i>
+                                    <a href="http://www.005.tv/2018/72247.html" title="《食戟之灵》漫画再出劲爆设定 兄弟对战致敬火影？" target="_blank">
+                            《食戟之灵》漫画再出劲爆设定 兄弟对战致敬</a></li>
+<li class="fl">
+                                    <i>[<a href='http://www.005.tv/zx/'>二次元资讯</a>]</i>
+                                    <a href="http://www.005.tv/2018/72244.html" title="Netflix推出新动画《龙王子》 《神秘海域》与《降世神通》制作人联手打造" target="_blank">
+                            Netflix推出新动画《龙王子》 《神秘海域》与《</a></li>
+<li class="fl">
+                                    <i>[<a href='http://www.005.tv/zx/'>二次元资讯</a>]</i>
+                                    <a href="http://www.005.tv/2018/72226.html" title="《龙珠：超》剧场版新宣传图曝光 布罗利再度降临" target="_blank">
+                            《龙珠：超》剧场版新宣传图曝光 布罗利再度</a></li>
+<li class="fl">
+                                    <i>[<a href='http://www.005.tv/zx/'>二次元资讯</a>]</i>
+                                    <a href="http://www.005.tv/2018/72225.html" title="《银魂2》真人剧详情公开 桥本环奈挑战恐怖版神乐" target="_blank">
+                            《银魂2》真人剧详情公开 桥本环奈挑战恐怖版</a></li>
+<li class="fl">
+                                    <i>[<a href='http://www.005.tv/zx/'>二次元资讯</a>]</i>
+                                    <a href="http://www.005.tv/2018/72224.html" title="《哥布林杀手》最新PV公开 大尺度展现残酷世界" target="_blank">
+                            《哥布林杀手》最新PV公开 大尺度展现残酷世界</a></li>
+<li class="fl">
+                                    <i>[<a href='http://www.005.tv/zx/'>二次元资讯</a>]</i>
+                                    <a href="http://www.005.tv/2018/72221.html" title="《星期一的丰满》：白领妹子摸鱼喝酒 小娇羞很福利" target="_blank">
+                            《星期一的丰满》：白领妹子摸鱼喝酒 小娇羞</a></li>
+
+
+                                <div style="clear:both;"></div>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box250 fr">
+                <div class="swichmainbox swichbaibox">
+                    <div class="title">
+                        <div class="t_h2">
+
+                            <div class="swichtitle" style="background-image:url(http://www.005.tv/templets/muban/style/images/vote.png)">
+                                <a class="this" herf="http://www.005.tv/zl/"></a>
+                                <span class="fr">
+                            <a href="http://www.005.tv/zl/" target="_blank">.</a>
+                            </span>
+
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swichbox">
+                        <div class="one clear">
+                            <dl class="imgbox clear">
+
+                                
+                            </dl>
+                            <script language="javascript" src="http://www.005.tv/data/vote/vote_42.js"></script>
+                        </div>
+                    </div>
+                </div>
+                <div class="swichmainbox swichbaibox">
+                    <div class="title">
+                        <div class="t_h2">
+                            <div class="swichtitle" style="background-image:url(http://www.005.tv/templets/muban/style/images/cos.png)">
+                                <a class="this" herf="http://www.005.tv/Cosplay/"></a>
+                                <span class="fr"><a href="http://www.005.tv/Cosplay/" target="_blank">.</a></span>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swichbox">
+                        <div class="one clear">
+                            <dl class="imgbox clear">
+                                <dt><a href="http://www.005.tv/2018/72162.html" title="《Fate/Stay night》间桐樱特辑 master这制服好像有点小..." target="_blank"><img src="http://www.005.tv/uploads/allimg/180705/41-1PF5150451507.jpg" alt="《Fate/Stay night》间桐樱特辑 master这制服">
+                            </a></dt>
+                                <p><a href="http://www.005.tv/2018/72162.html" target="_blank">《Fate/Stay night》间桐樱特辑 master这制服</a></p>
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="swichmainbox swichbaibox">
+                    <div class="title">
+                        <div class="t_h2">
+
+
+                            <div class="swichtitle" style="background-image:url(http://www.005.tv/templets/muban/style/images/play.png)">
+                                <a class="this" herf="http://www.005.tv/zh/"></a>
+
+
+                                <span class="fr"><a href="http://www.005.tv/zh/" target="_blank">.</a></span>
+
+                                <div style="clear:both;"></div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="swichbox">
+                        <div class="one clear">
+                            <dl class="imgbox clear">
+                                <dt><a href="http://www.005.tv/2018/71715.html" title="FACG狼人杀派对，语言是你的武器，逻辑是你的靠山！"><img src="http://www.005.tv/uploads/allimg/180613/41-1P613125944E0.jpg" alt="FACG狼人杀派对，语言是你的武器，逻辑"></a></dt>
+                                <p><a href="http://www.005.tv/2018/71715.html" target="_blank">FACG狼人杀派对，语言是你的武器，逻辑</a></p>
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="swichmainbox swichbaibox">
+                    <div class="title">
+                        <div class="t_h2">
+                            <div class="swichtitle" style="background-image:url(http://www.005.tv/templets/muban/style/images/fate.png)">
+                                <a class="this" herf="http://www.005.tv/fate/"></a>
+                                <span class="fr"><a href="http://www.005.tv/fate/" target="_blank">.</a></span>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swichbox">
+                        <div class="one clear">
+                            <dl class="imgbox clear">
+                                <dt><a href="http://www.005.tv/fate/44324.html" title="为刚见面陌生人拼命的龙傲天:卫宫士郎"><img src="http://www.005.tv/uploads/160330/9-160330094ZH64.jpg" alt="为刚见面陌生人拼命的龙傲天:卫宫士郎"></a></dt>
+                                <p><a href="http://www.005.tv/fate/44324.html" target="_blank">为刚见面陌生人拼命的龙傲天:卫宫士郎</a></p>
+
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+
+            <div class="box390 fl">
+                <div class="swichmainbox swichbaibox">
+                    <div class="title">
+                        <div class="t_h2">
+                            <div class="swichtitle" style="background-image:url(http://www.005.tv/templets/muban/style/images/speak.png)">
+                                <a class="this" herf="http://www.005.tv/zwh/"></a>
+                                <span class="fr"><a href="http://www.005.tv/zwh/" target="_blank">.</a></span>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swichbox">
+                        <div class="one clear">
+                            <dl class="imgbox clear">
+                                <dt style="margin-bottom: 10px; width: 95%; height: 280px;">
+                                <a href="http://www.005.tv/2018/72047.html" target="_blank" title="路人女主《加藤惠》特辑 我是你的女主角吗？"><img src="http://www.005.tv/uploads/allimg/180629/41-1P629115331H3.jpg" alt="路人女主《加藤惠》特辑 我是你的女主角吗？"></a>
+                            <h3 id="change2"><a href="http://www.005.tv/2018/72047.html">路人女主《加藤惠》特辑 我是你的女主角吗？</a></h3>
+                            </dt> <dt><a href="http://www.005.tv/2018/72142.html" title="不一样的妖艳《后街女孩》监督戴假发秀舞技" target="_blank"><img src="http://www.005.tv/uploads/allimg/180704/41-1PF416310HU.jpg" alt="不一样的妖艳《后街女孩》监督戴假发秀舞技"></a><p><a href="http://www.005.tv/2018/72142.html" target="_blank">不一样的妖艳《后街女孩》监督戴假发秀舞技</a><br/><span>点击数：568 </span><br/><span>编辑：有鱼</span></p></dt>
+<dt><a href="http://www.005.tv/2018/72117.html" title="哆啦A梦宣导正确观念 胖虎骑车戴安全帽被吐槽" target="_blank"><img src="http://www.005.tv/uploads/allimg/180703/41-1PF31A235356.jpg" alt="哆啦A梦宣导正确观念 胖虎骑车戴安全帽被吐槽"></a><p><a href="http://www.005.tv/2018/72117.html" target="_blank">哆啦A梦宣导正确观念 胖虎骑车戴安全帽被吐槽</a><br/><span>点击数：329 </span><br/><span>编辑：有鱼</span></p></dt>
+<dt><a href="http://www.005.tv/2018/71776.html" title="路人女主《霞之丘诗羽》特辑 学姐最棒了！" target="_blank"><img src="http://www.005.tv/uploads/allimg/180615/41-1P615144506426.jpg" alt="路人女主《霞之丘诗羽》特辑 学姐最棒了！"></a><p><a href="http://www.005.tv/2018/71776.html" target="_blank">路人女主《霞之丘诗羽》特辑 学姐最棒了！</a><br/><span>点击数：2247 </span><br/><span>编辑：有鱼</span></p></dt>
+<dt><a href="http://www.005.tv/2018/71144.html" title="变态绅士“Melon Pan”推特被上司发现了，为了兴趣只好离职" target="_blank"><img src="http://www.005.tv/uploads/allimg/180515/41-1P515145624S2.jpg" alt="变态绅士“Melon Pan”推特被上司发现了，为了兴趣只好离职"></a><p><a href="http://www.005.tv/2018/71144.html" target="_blank">变态绅士“Melon Pan”推特被上司发现了，为了兴趣只好离职</a><br/><span>点击数：918 </span><br/><span>编辑：有鱼</span></p></dt>
+
+                            </dl>
+                            <ul class="textlist">
+                                <li class="fl"><i>[<a href='http://www.005.tv/zwh/'>漫慢说</a>]</i><a href="http://www.005.tv/2018/72246.html" target="_blank">声优上坂堇香港拍摄MV 逛夜市吃美食很逍遥</a></li>
+<li class="fl"><i>[<a href='http://www.005.tv/zwh/'>漫慢说</a>]</i><a href="http://www.005.tv/2018/72245.html" target="_blank">《进击的巨人》搞笑联动广告 后颈肉嘎嘣脆超</a></li>
+<li class="fl"><i>[<a href='http://www.005.tv/zwh/'>漫慢说</a>]</i><a href="http://www.005.tv/2018/72243.html" target="_blank">美少女动画人气火爆周边商品激增</a></li>
+<li class="fl"><i>[<a href='http://www.005.tv/zwh/'>漫慢说</a>]</i><a href="http://www.005.tv/2018/72242.html" target="_blank">7月新番质量良莠不齐 新动画OP崩坏到惨不忍睹</a></li>
+<li class="fl"><i>[<a href='http://www.005.tv/zwh/'>漫慢说</a>]</i><a href="http://www.005.tv/2018/72241.html" target="_blank">《精灵宝可梦：日月》动画因涉嫌种族歧视被美</a></li>
+<li class="fl"><i>[<a href='http://www.005.tv/zwh/'>漫慢说</a>]</i><a href="http://www.005.tv/2018/72240.html" target="_blank">《我的英雄学院》剧场版动画IGN评分7.7 热血激</a></li>
+
+                                <div style="clear:both;"></div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="box390 fl">-->
+            <!--<div class="swichmainbox swichbaibox">-->
+            <!--<div class="title">-->
+            <!--<div class="t_h2">-->
+            <!--<div class="swichtitle" style="background-image:url(http://www.005.tv/templets/muban/style/images/lol.png)">-->
+            <!--<a class="this" herf="http://www.005.tv/lol/"></a> -->
+            <!-- -->
+            <!-- -->
+            <!--<span class="fr"><a href="http://www.005.tv/lol/" target="_blank">.</a></span>-->
+            <!-- -->
+            <!---->
+            <!-- -->
+            <!--<div style="clear:both;"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!-- -->
+            <!--<div class="swichbox">-->
+            <!--<div class="one clear">-->
+            <!--<dl class="imgbox clear">-->
+            <!---->
+            <!--<dt><a href="http://www.005.tv/lol/52239.html" title="S6赛季五杀金克斯出装教学"><img src="http://www.005.tv/uploads/allimg/160729/13-160H91512490-L.jpg" alt="S6赛季五杀金克斯出装教学"></a><p><a href="http://www.005.tv/lol/52239.html" target="_blank">S6赛季五杀金克斯出装教学</a><br/><span>点击数：<script src="http://www.005.tv/plus/indexcount.php?view=yes&aid=52239&mid=13"type='text/javascript' language="javascript"></script></span><br/><span>编辑：表妹</span></p></dt>-->
+            <!-- -->
+            <!--
+-->
+            <!--<dt><a href="http://www.005.tv/lol/51601.html" title="召唤师峡谷灵异事件TOP5：夭寿啦!奥巴马上天啦！"><img src="http://www.005.tv/uploads/allimg/160719/13-160G91F0400-L.jpg" alt="召唤师峡谷灵异事件TOP5：夭寿啦!奥巴马上天啦！"></a><p><a href="http://www.005.tv/lol/51601.html" target="_blank">召唤师峡谷灵异事件TOP5：夭寿啦!奥巴马上天啦！</a><br/><span>点击数：<script src="http://www.005.tv/plus/indexcount.php?view=yes&aid=51601&mid=13"type='text/javascript' language="javascript"></script></span><br/><span>编辑：表妹</span></p></dt>-->
+            <!-- -->
+            <!--
+-->
+            <!--<dt><a href="http://www.005.tv/lol/51596.html" title="最佳第六人！机器人一勾害死队友"><img src="http://www.005.tv/uploads/allimg/160719/13-160G9163G00-L.jpg" alt="最佳第六人！机器人一勾害死队友"></a><p><a href="http://www.005.tv/lol/51596.html" target="_blank">最佳第六人！机器人一勾害死队友</a><br/><span>点击数：<script src="http://www.005.tv/plus/indexcount.php?view=yes&aid=51596&mid=13"type='text/javascript' language="javascript"></script></span><br/><span>编辑：表妹</span></p></dt>-->
+            <!-- -->
+            <!--
+-->
+            <!--<dt><a href="http://www.005.tv/lol/51510.html" title="三秒真男人？蛮王实测最坚挺32秒！"><img src="http://www.005.tv/uploads/allimg/160718/13-160GQ640500-L.jpg" alt="三秒真男人？蛮王实测最坚挺32秒！"></a><p><a href="http://www.005.tv/lol/51510.html" target="_blank">三秒真男人？蛮王实测最坚挺32秒！</a><br/><span>点击数：<script src="http://www.005.tv/plus/indexcount.php?view=yes&aid=51510&mid=13"type='text/javascript' language="javascript"></script></span><br/><span>编辑：表妹</span></p></dt>-->
+            <!-- -->
+            <!--
+-->
+            <!--</dl>-->
+            <!--<ul class="textlist">-->
+            <!---->
+            <!-- -->
+            <!--<li class="fl"><i>[<a href='http://www.005.tv/lol/lolgl/yxcz/'>英雄出装</a>]</i><a href="http://www.005.tv/lol/52239.html" title="S6赛季五杀金克斯出装教学" target="_blank">S6赛季五杀金克斯出装教学</a></li>-->
+            <!-- -->
+            <!--
+-->
+            <!-- -->
+            <!--<li class="fl"><i>[<a href='http://www.005.tv/lol/sp/gxsp/'>搞笑视频</a>]</i><a href="http://www.005.tv/lol/51601.html" title="召唤师峡谷灵异事件TOP5：夭寿啦!奥巴马上天啦！" target="_blank">召唤师峡谷灵异事件TOP5：夭寿啦!奥巴马上天啦</a></li>-->
+            <!-- -->
+            <!--
+-->
+            <!-- -->
+            <!--<li class="fl"><i>[<a href='http://www.005.tv/lol/sp/gxsp/'>搞笑视频</a>]</i><a href="http://www.005.tv/lol/51596.html" title="最佳第六人！机器人一勾害死队友" target="_blank">最佳第六人！机器人一勾害死队友</a></li>-->
+            <!-- -->
+            <!--
+-->
+            <!-- -->
+            <!--<li class="fl"><i>[<a href='http://www.005.tv/lol/sp/tbsp/'>特别视频</a>]</i><a href="http://www.005.tv/lol/51510.html" title="三秒真男人？蛮王实测最坚挺32秒！" target="_blank">三秒真男人？蛮王实测最坚挺32秒！</a></li>-->
+            <!-- -->
+            <!--
+-->
+            <!-- -->
+            <!--<li class="fl"><i>[<a href='http://www.005.tv/lol/sp/jcjj/'>精彩集锦</a>]</i><a href="http://www.005.tv/lol/50103.html" title="围攻模式：AP蕾欧娜新模式实战集锦！" target="_blank">围攻模式：AP蕾欧娜新模式实战集锦！</a></li>-->
+            <!-- -->
+            <!--
+-->
+            <!-- -->
+            <!--<li class="fl"><i>[<a href='http://www.005.tv/lol/rmzx/hd/'>活动</a>]</i><a href="http://www.005.tv/lol/49859.html" title="真正的推塔游戏！最新围城模式抢先看" target="_blank">真正的推塔游戏！最新围城模式抢先看</a></li>-->
+            <!-- -->
+            <!--
+ -->
+            <!-- -->
+            <!--<div style="clear:both;"></div>-->
+            <!--</ul>-->
+            <!-- -->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="footer">
+            <!--<div class="bottombar"><a href="http://www.acfun.tv/sp/acdc2016" target="_blank"><img src="http://www.005.tv/templets/muban/style/images/temp/bar4.jpg"></a></div>-->
+            <div class="friendlink">
+                <b>友情链接</b>  <a href='http://www.dilidili.wang' target='_blank'>嘀哩嘀哩</a> |  <a href='http://www.xcmh.cc/' target='_blank'>星辰漫画</a> |  <a href='http://www.93w.net/lzdm/' target='_blank'>励志动漫</a> |  <a href='http://www.acglivefans.com/' target='_blank'>二次元现场</a> |  <a href='http://www.comicyu.com' target='_blank'>漫域网</a> |  <a href='http://moe.005.tv/' target='_blank'>萌娘资源站</a> |  <a href='http://www.oacg.cn' target='_blank'>东方二次元</a> |  <a href='http://gacha.163.com' target='_blank'>网易二次元社区GACHA</a> |  <a href='http://www.shuaacg.com' target='_blank'>刷刷-二次元福利社</a> |  <a href='http://www.moeplay.com' target='_blank'>萌玩</a> |  <a href='http://manhua.163.com/' target='_blank'>网易漫画</a> |  <a href='http://www.mihuashi.com' target='_blank'>米画师</a> |  <a href='https://www.pangci.cc' target='_blank'>胖次网</a> |  <a href='http://news.missevan.com' target='_blank'>MissEvan动漫新闻网</a> |  <a href='http://www.yimoe.cc/' target='_blank'>翼萌动漫</a> |  <a href='http://kamidm.com/' target='_blank'>卡密动漫</a> |  <a href='http://www.wowodm.com' target='_blank'>喔喔动漫</a> |  <a href='http://www.aimanzhan.com/' target='_blank'>爱漫展</a> |  <a href='https://www.dajiaochongmanhua.com/' target='_blank'>大角虫漫画</a> |  <a href='http://www.cilicili.cc' target='_blank'>呲哩呲哩</a> |  <a href='http://moe321.com/' target='_blank'>萌站</a> |  <a href='http://www.c3acg.com/' target='_blank'>C3动漫网</a> | 
+            </div>
+        </div>
+        <div class="back-top" style="display:none;"></div>
+    </div>
+    <div class="footlink">
+        <div class="w1200" style="padding-top: 100px;">
+            <span>
+    <a class="backtopbtn" href="#top">backtop</a>
+    <a class="link-item" href="http://www.005.tv/Templates/The005TVMain/Scripts/lianxiwomen/gywm.html" target="_blank">关于羁绊网</a>
+    <a class="link-item" href="http://www.005.tv/Templates/The005TVMain/Scripts/lianxiwomen/jrwm.html" target="_blank">加入我们</a>
+    <a class="link-item" href="http://www.005.tv/Templates/The005TVMain/Scripts/lianxiwomen/lxwm.html" target="_blank">商务合作</a>
+    <div style="display:none;">
+        <!--<script>
+            var cnzz_s_tag = document.createElement('script');
+            cnzz_s_tag.type = 'text/javascript';
+            cnzz_s_tag.async = true;
+            cnzz_s_tag.charset = "utf-8";
+            cnzz_s_tag.src ="http://s11.cnzz.com/stat.php?id=1254760299&web_id=1254760299&async=1";
+                    var root_s = document.getElementsByTagName('script')[0];
+            root_s.parentNode.insertBefore(cnzz_s_tag, root_s);
+        </script>
+        <script>
+            var cnzz_s_tag = document.createElement('script');
+            cnzz_s_tag.type = 'text/javascript';
+            cnzz_s_tag.async = true;
+            cnzz_s_tag.charset = "utf-8";
+            cnzz_s_tag.src ="http://s4.cnzz.com/stat.php?id=1259276546&web_id=1259276546&async=1";
+            var root_s = document.getElementsByTagName('script')[0];
+            root_s.parentNode.insertBefore(cnzz_s_tag, root_s);
+        </script>
+        <script>
+            var cnzz_s_tag = document.createElement('script');
+            cnzz_s_tag.type = 'text/javascript';
+            cnzz_s_tag.async = true;
+            cnzz_s_tag.charset = "utf-8";
+            cnzz_s_tag.src ="https://s95.cnzz.com/z_stat.php?id=3930880&web_id=3930880&async=1";
+            var root_s = document.getElementsByTagName('script')[0];
+            root_s.parentNode.insertBefore(cnzz_s_tag, root_s);
+        </script>-->
+        <script src="https://s95.cnzz.com/z_stat.php?id=3930880&web_id=3930880" language="JavaScript"></script>
+        <script src="https://s11.cnzz.com/z_stat.php?id=1254760299&web_id=1254760299" language="JavaScript"></script>
+        <script src="https://s4.cnzz.com/z_stat.php?id=1259276546&web_id=1259276546" language="JavaScript"></script>
+    </div>
+
+    <a class="this" herf="[field:typelink /]">友情链接</a>      
+        </span>
+            <span>Copyright ? 2001-2018 005.tv All rights reserved.<br/>
+    羁绊网络有限公司 <a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank">闽ICP备16029788号-7</a> 闽网文（2017）10813-316号
+    <br/>
+<div style="">
+    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35010402350117" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+        <img src="http://www.005.tv/templets/muban/images/备案图标.png" style="float:left;"/>
+        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">闽公网安备35010402350117号</p>
+    </a>
+</div>
+</span>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://www.005.tv/templets/muban/js/frontend-entry.js"></script>
+
+    <script type="text/javascript">
+        var bannerSwiper = new Swiper('.swiper-container', {
+            autoplay: 4000,
+            loop: true,
+            onlyExternal: true,
+            autoplayDisableOnInteraction: false,
+            onSlideChangeStart: function(swiper) {
+                $('.swiperThumbnail ul li').eq(bannerSwiper.activeLoopIndex).addClass("on").siblings().removeClass("on");
+                //$('.swiper-wrapper li').eq(0).siblings().show();
+            },
+        });
+        
+        $('.swiperThumbnail ul li').click(function() {
+            var _index = $(this).index();
+            bannerSwiper.swipeTo(_index, 500, true);
+            $(this).addClass("on").siblings().removeClass("on");
+        });
+
+        var webWidth = 736;
+
+        function changeSwiper1(obj) {
+            var _width = jQuery(window).width();
+            var _is = _width <= webWidth;
+            var _this = jQuery(obj);
+            var arr = new Array();
+            var ahtml = '';
+            _this.find('li').each(function(e) {
+                arr[e] = jQuery(this).html();
+            });
+
+            var arrlen = arr.length;
+            var len = 0;
+            if (_is) {
+                if (arrlen % 2 > 0) {
+                    len = parseInt(arrlen / 2) + 1;
+                } else {
+                    len = parseInt(arrlen / 2);
+                }
+            } else {
+                if (arrlen % 8 > 0) {
+                    len = parseInt(arrlen / 8) + 1;
+                } else {
+                    len = parseInt(arrlen / 8);
+                }
+            }
+
+
+            var j = 0;
+            var no = 8;
+            for (var i = 0; i < len; i++) {
+                var ihtml = '';
+                if (_is) {
+                    no = 2;
+                }
+                for (var k = 0; k < no; k++, j++) {
+                    if (j < arrlen) {
+                        ihtml += '<li>' + arr[j] + '</li>';
+                    }
+                }
+                ahtml += '<div class="swiper-slide"><ul class="clear">' + ihtml + '</ul></div>';
+                //j++;
+            }
+            _this.find('.swiper-wrapper').html(ahtml);
+        }
+        changeSwiper1('.xfswiper0');
+        changeSwiper1('.xfswiper1');
+        changeSwiper1('.xfswiper2');
+        changeSwiper1('.xfswiper3');
+        changeSwiper1('.xfswiper4');
+        changeSwiper1('.xfswiper5');
+        changeSwiper1('.xfswiper6');
+        jQuery(window).resize(function() {
+            changeSwiper1('.xfswiper0');
+            changeSwiper1('.xfswiper1');
+            changeSwiper1('.xfswiper2');
+            changeSwiper1('.xfswiper3');
+            changeSwiper1('.xfswiper4');
+            changeSwiper1('.xfswiper5');
+            changeSwiper1('.xfswiper6');
+        });
+
+        jQuery(function() {
+            var t;
+            jQuery(".swichmainbox .title .t_h2 .swichtitle a").hover(function() {
+                var temp = jQuery(this);
+                t = setTimeout(function() {
+                    temp.parent().find("a").removeClass("this");
+                    temp.addClass("this");
+                    temp.parent().parent().parent().parent().find(".one").hide();
+                    temp.parent().parent().parent().parent().find(".one:eq(" + temp.index() + ")").show();
+                }, 100);
+            }, function() {
+                clearTimeout(t);
+            });
+
+            jQuery(".opennav").toggle(function() {
+                jQuery(".opennav").addClass("closenav");
+                jQuery(".opennav").attr("title", "关闭");
+                jQuery(".mobilenavfc").animate({
+                    height: '100%'
+                }, 300);
+            }, function() {
+                jQuery(".opennav").removeClass("closenav");
+                jQuery(".opennav").attr("title", "展开");
+                jQuery(".mobilenavfc").animate({
+                    height: '0'
+                }, 300);
+            });
+
+            jQuery("#selectbtn").toggle(function() {
+                jQuery(".selectfcbox").show();
+            }, function() {
+                jQuery(".selectfcbox").hide();
+            });
+
+            jQuery(".weixin").hover(function() {
+                jQuery(".weixinfcbox").show();
+            }, function() {
+                jQuery(".weixinfcbox").hide();
+            });
+
+            jQuery(".app").toggle(function() {
+                jQuery(".appdownfcbox").show();
+            }, function() {
+                jQuery(".appdownfcbox").hide();
+            });
+
+            jQuery("#selectlist p").click(function() {
+                var txt = $(this).text();
+                jQuery("#selectbtn").html(txt);
+                var value = $(this).attr("rel");
+                jQuery("#selectlist").hide();
+            });
+
+        });
+
+        var week = new Date().getDay();
+        jQuery(".xf_news .pk_time a").removeClass("current");
+        jQuery(".xf_news .time_pic .time_con").hide();
+        if (week != 0) {
+            jQuery(".xf_news .pk_time a:eq(" + (week - 1) + ")").addClass("current");
+            jQuery(".xf_news .time_pic .time_con:eq(" + (week - 1) + ")").show();
+            new Swiper(".xfswiper" + (week - 1), {
+                nextButton: '.xfswiper-button-next' + (week - 1),
+                prevButton: '.xfswiper-button-prev' + (week - 1),
+                spaceBetween: 30
+            });
+        } else {
+            jQuery(".xf_news .pk_time a:last").addClass("current");
+            jQuery(".xf_news .time_pic .time_con:last").show();
+            new Swiper(".xfswiper7", {
+                nextButton: '.xfswiper-button-next7',
+                prevButton: '.xfswiper-button-prev7',
+                spaceBetween: 30
+            });
+        }
+
+        jQuery(".xf_news .pk_time a").each(function(index) {
+            jQuery(this).click(function() {
+                jQuery(".xf_news .pk_time a").removeClass("current");
+                jQuery(this).addClass("current");
+                jQuery(".xf_news .time_pic .time_con").hide();
+                jQuery(".xf_news .time_pic .time_con:eq(" + index + ")").show();
+                new Swiper(".xfswiper" + index, {
+                    nextButton: '.xfswiper-button-next' + index,
+                    prevButton: '.xfswiper-button-prev' + index,
+                    spaceBetween: 30
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,908 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<link href="http://www.gaotie.cn/style/souye.css" rel="stylesheet" type="text/css" />
+<link href="http://www.gaotie.cn/css/www/header.css" rel="stylesheet" type="text/css" />
+<link href="http://www.gaotie.cn/css/www/footer.css" rel="stylesheet" type="text/css" />
+<link href="http://www.gaotie.cn/style/link.css" rel="stylesheet" type="text/css" />
+<link href="http://www.gaotie.cn/css/www/souyepic.css" rel="stylesheet" type="text/css" />
+<link href="http://www.gaotie.cn/Select_City/Corp.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="http://www.gaotie.cn/Select_City/Corp.js"></script>
+<script language="javascript" src="http://book.gaotie.cn/js/listCity.js"></script>
+<link rel="stylesheet" type="text/css" href="http://book.gaotie.cn/css/dpstyle3.css" />
+<link rel="shortcut icon" href="./favicon.ico" />
+<title>高铁网：高铁时刻表及票价查询_网上订票_高铁票查询预订- Gaotie.Cn</title>
+<meta name="keywords" content="高铁,高铁网,高铁时刻表,高速铁路,高速铁路网,高铁票价,高铁票,高铁旅游,高铁论坛,火车票预订,高铁查询,高铁订票,高铁网上订票,中国高铁,高铁列车时刻表" />
+<meta name="description" content="高铁网（Gaotie.cn）中国高铁网-专业的高铁网络信息平台：提供最新高铁资讯、2018最新高铁时刻表及票价查询，高铁票查询、高铁网上订票、网上订火车票在线预订动车票。高铁旅游线路，高铁百科知识问答、高铁客运专线、城际铁路列车时刻表，火车、动车时刻表及票价查询网上订票，高铁论坛及高速铁路规划建设运营相关专题，高铁站点查询及网络购票乘车指南。" />
+<script language="javascript">
+function doClick(o){
+	 o.className="tab-u";
+	 var j;
+	 var id;
+	 var b;
+	 for(var i=1;i<=10;i++){
+	   id ="a"+i;
+	   j = document.getElementById(id);
+	   b = document.getElementById("b"+i);
+	   if(id != o.id){
+	   	 j.className="";
+	   	 b.style.display = "none";
+	   }else{
+			b.style.display = "block";
+	   }
+	 }
+}
+</script>
+<script type="text/javascript">
+(function($) {
+$.fn.marquee = function(o) {
+   //获取滚动内容内各元素相关信息
+   o = $.extend({
+    speed:   parseInt($(this).attr('speed')) || 30, // 滚动速度
+    step:   parseInt($(this).attr('step')) || 1, // 滚动步长=li宽度
+    direction: $(this).attr('direction') || 'up', // 滚动方向
+    pause:   parseInt($(this).attr('pause')) || 0 // 停顿时长
+   }, o || {});
+   var dIndex = jQuery.inArray(o.direction, ['right', 'down']);
+   if (dIndex > -1) {
+    o.direction = ['left', 'up'][dIndex];
+    o.step = -o.step;
+   }
+   var mid;
+   var div    = $(this); // 容器对象
+   var divWidth = div.innerWidth(); // 容器宽
+   var divHeight = div.innerHeight(); // 容器高
+   var ul     = $("ul", div);
+   var li     = $("li", ul);
+   var liSize    = li.size(); // 初始元素个数
+   var liWidth = li.width(); // 元素宽
+   var liHeight = li.height(); // 元素高
+   var width    = liWidth * liSize;
+   var height    = liHeight * liSize;
+   if ((o.direction == 'left' && width > divWidth) ||
+    (o.direction == 'up' && height > divHeight)) {
+    // 元素超出可显示范围才滚动
+    if (o.direction == 'left') {
+     ul.width(2 * liSize * liWidth);
+     if (o.step < 0) div.scrollLeft(width);
+    } else {
+     ul.height(2 * liSize * liHeight);
+     if (o.step < 0) div.scrollTop(height);
+    }
+    ul.append(li.clone()); // 复制元素
+    mid = setInterval(_marquee, o.speed);
+    div.hover(
+     function(){clearInterval(mid);},
+     function(){mid = setInterval(_marquee, o.speed);}
+    );
+   }
+   function _marquee() {
+    // 滚动
+    if (o.direction == 'left') {
+     var l = div.scrollLeft();
+     if (o.step < 0) {
+      div.scrollLeft((l <= 0 ? width : l) + o.step);
+     } else {
+      div.scrollLeft((l >= width ? 0 : l) + o.step);
+     }
+     if (l % liWidth == 0) _pause();
+    } else {
+     var t = div.scrollTop();
+     if (o.step < 0) {
+      div.scrollTop((t <= 0 ? height : t) + o.step);
+     } else {
+      div.scrollTop((t >= height ? 0 : t) + o.step);
+     }
+     if (t % liHeight == 0) _pause();
+    }
+   }
+   function _pause() {
+    // 停顿
+    if (o.pause > 0) {
+     var tempStep = o.step;
+     o.step = 0;
+     setTimeout(function() {
+      o.step = tempStep;
+     }, o.pause);
+    }
+   }
+};
+})(jQuery);
+$(document).ready(function(){
+$(".marquee").each(function() {
+   $(this).marquee();
+});
+});
+</script>
+<style type="text/css">
+<!--
+.STYLE1 {font-size: 13px; color: #FFFFFF;}
+.STYLE5 {font-size: 13px; color: #999999; }
+
+#stickyunit {
+		position: fixed;
+}
+
+-->
+</style>
+</head>
+<body>
+<div id="box">
+
+<style type="text/css">
+<!--
+.STYLE1 {font-size: 12px}
+.STYLE3 {
+	color: #666666;
+	font-size: 12px;
+}
+.STYLE4 {font-size: 12}
+-->
+</style>
+<div class="header">
+<div class="header01">
+<div class="tian">
+<table width="100%" height="27" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#F9F9F9">
+<tr>
+<td width="35%" align="center" valign="middle"><iframe width="220" height="20" scrolling="no" src="http://www.gaotie.cn/style/time.html" frameborder="0"></iframe></td>
+<td width="32%" align="center" valign="middle"><a href="http://www.gaotie.cn/zhongguo/" target="_blank"><span style="color:#FF6600;font-weight:bold;">中国高铁，国之骄傲，民之便利！</span></a> </td>
+<td width="33%" align="right" valign="middle"><span class="STYLE1"><a href="http://www.gaotie.cn" target="_blank">高铁首页</a></span><span class="STYLE3">|</span><span class="STYLE1"><a href="http://www.gaotie.cn/js/tiao/denglu.html" target="_blank">用户登录</a></span><span class="STYLE3">|</span><span class="STYLE1"><a href="http://www.gaotie.cn/js/tiao/zhuce.html" target="_blank">注册账号</a></span><span class="STYLE3">|</span><span class="STYLE1"><a href="http://www.gaotie.cn/dingdan/" target="_blank">订单查询</a></span><span class="STYLE3">|</span><span class="STYLE1"><a href="http://wenda.gaotie.cn/?c-84.html" target="_blank">客服在线</a></span> &nbsp;</td>
+</tr></table>
+</div>
+<div class="header02">
+<div class="logo"><a href="http://www.gaotie.cn/"><img src="http://images.gaotie.cn/header/logo.gif" alt="高铁网-中国高铁网站" width="180" height="60" border="0" /></a></div>
+<div class="lan">
+<ul>
+<li><a href="http://news.gaotie.cn"><img src="http://images.gaotie.cn/header/zixun_header.jpg" alt="中国铁路" width="55" height="50" /></a><a href="http://news.gaotie.cn">资讯</a></li>
+<li class="bu"><img src="http://images.gaotie.cn/header/daohang_yc.gif" width="7" height="75" /></li>
+<li><a href="http://shike.gaotie.cn"><img src="http://images.gaotie.cn/header/shike_header.jpg" alt="高铁时刻表" width="55" height="50" /></a><a href="http://shike.gaotie.cn">时刻</a></li>
+<li class="bu"><img src="http://images.gaotie.cn/header/daohang_yc.gif" width="7" height="75" /></li>
+<li><a href="http://cn.gaotie.cn"><img src="http://images.gaotie.cn/header/chengshi_header.jpg" alt="中国高铁" width="55" height="50" /></a><a href="http://cn.gaotie.cn">城市</a></li>
+<li class="bu"><img src="http://images.gaotie.cn/header/daohang_yc.gif" width="7" height="75" /></li>
+<li><a href="http://crh.gaotie.cn"><img src="http://images.gaotie.cn/header/xianlu_header.jpg" alt="高铁线路" width="55" height="50" /></a><a href="http://crh.gaotie.cn">线路</a></li>
+<li class="bu"><img src="http://images.gaotie.cn/header/daohang_yc.gif" width="7" height="75" /></li>
+<li><a href="http://piao.gaotie.cn"><img src="http://images.gaotie.cn/header/piaowu_header.jpg" alt="网上订票" width="55" height="50" /></a><a href="http://piao.gaotie.cn">订票</a></li>
+<li class="bu"><img src="http://images.gaotie.cn/header/daohang_yc.gif" width="7" height="75" /></li>
+<li><a href="http://lvyou.gaotie.cn"><img src="http://images.gaotie.cn/header/lvyou_header.jpg" alt="高铁旅游" width="55" height="50" border="0" /></a><a href="http://lvyou.gaotie.cn">旅游</a></li>
+<li class="bu"><img src="http://images.gaotie.cn/header/daohang_yc.gif" width="7" height="75" /></li>
+<li><a href="http://piao.gaotie.cn/jipiao/"><img src="http://images.gaotie.cn/header/jipiao_header.jpg" alt="特价机票" width="55" height="50" /></a><a href="http://piao.gaotie.cn/jipiao/">机票</a></li>
+<li class="bu"><img src="http://images.gaotie.cn/header/daohang_yc.gif" width="7" height="75" /></li>
+<li><a href="http://wenda.gaotie.cn"><img src="http://images.gaotie.cn/header/wenda_header.jpg" alt="铁路客服服务中心" width="55" height="50" /></a><a href="http://wenda.gaotie.cn">问答</a></li>
+<li class="bu"><img src="http://images.gaotie.cn/header/daohang_yc.gif" width="7" height="75" /></li>
+<li><a href="http://www.gaotie.cn/jiudian/"><img src="http://images.gaotie.cn/header/jiudian_header.jpg" alt="酒店预订" width="55" height="50" /></a><a href="http://www.gaotie.cn/js/tiao/jiudianyuding.html">酒店</a></li>
+<li class="bu"><img src="http://images.gaotie.cn/header/daohang_yc.gif" width="7" height="75" /></li>
+<li><a href="http://www.gaotie.cn/chunyun/" target="_blank"><img src="http://images.gaotie.cn/header/chunyun_header.jpg" alt="春运" width="55" height="50" border="0" /></a><a href="http://www.gaotie.cn/chunyun/">春运</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="header03">
+<div class="nav">
+<h1><img src="http://images.gaotie.cn/header/nav_left.gif" width="75" height="31" /></h1>
+<div class="nav_01">
+<ul>
+<li><a href="http://cn.gaotie.cn/beijing/">北京</a></li><li><a href="http://cn.gaotie.cn/shanghai/">上海</a></li><li><a href="http://cn.gaotie.cn/guangzhou/">广州</a></li><li><a href="http://cn.gaotie.cn/shenzhen/">深圳</a></li><li><a href="http://cn.gaotie.cn/tianjin/">天津</a></li><li><a href="http://cn.gaotie.cn/hangzhou/">杭州</a></li><li><a href="http://cn.gaotie.cn/chongqing/">重庆</a></li><li><a href="http://cn.gaotie.cn/xiamen/">厦门</a></li><li><a href="http://cn.gaotie.cn/wuhan/">武汉</a></li><li><a href="http://cn.gaotie.cn/changsha/">长沙</a></li><li><a href="http://cn.gaotie.cn/nanjing/">南京</a></li><li><a href="http://cn.gaotie.cn/suzhou/">苏州</a></li><li><a href="http://cn.gaotie.cn/zhengzhou/">郑州</a></li><li><a href="http://cn.gaotie.cn/xian/">西安</a></li><li><a href="http://cn.gaotie.cn/fuzhou/">福州</a></li><li><a href="http://cn.gaotie.cn/hefei/">合肥</a></li><li><a href="http://cn.gaotie.cn/chengdu/">成都</a></li><li><a href="http://cn.gaotie.cn/jinan/">济南</a></li><li><a href="http://cn.gaotie.cn/">更多</a></li>
+
+</ul>
+</div>
+<h1><img src="http://images.gaotie.cn/header/nav_right.gif" width="75" height="31" /></h1>
+</div>
+</div>
+<div class="header04">
+<h1><img src="http://images.gaotie.cn/header/nav_beijing01.gif" width="10" height="35" /></h1>
+<div class="nav02">
+<ul>
+<li><a href="http://crh.gaotie.cn/jingjin/">京津</a>|<a href="http://crh.gaotie.cn/jingguang/">京广</a>|<a href="http://crh.gaotie.cn/jinghu/">京沪</a>|<a href="http://crh.gaotie.cn/jingfu/">京福</a>|<a href="http://crh.gaotie.cn/jingha/">京哈</a>|<a href="http://crh.gaotie.cn/jingshen/">京沈</a>|<a href="http://crh.gaotie.cn/huhang/">沪杭</a>|<a href="http://crh.gaotie.cn/huning/">沪宁</a>|<a href="http://crh.gaotie.cn/hukun/">沪昆</a>|<a href="http://crh.gaotie.cn/ninghang/">宁杭</a>|<a href="http://crh.gaotie.cn/guangshen/">广深</a>|<a href="http://crh.gaotie.cn/guiguang/">贵广</a>|<a href="http://crh.gaotie.cn/nanguang/">南广</a>|<a href="http://crh.gaotie.cn/fuxia/">福厦</a>|<a href="http://crh.gaotie.cn/xiashen/">厦深</a>|<a href="http://crh.gaotie.cn/zhengxi/">郑西</a>|<a href="http://crh.gaotie.cn/zhengxu/">郑徐</a>|<a href="http://crh.gaotie.cn/hada/">哈大</a>|<a href="http://crh.gaotie.cn/chengyu/">成渝</a>|<a href="http://crh.gaotie.cn/yuqian/">渝黔</a>|<a href="http://crh.gaotie.cn/baolan/">宝兰</a>|<a href="http://crh.gaotie.cn/xicheng/">西成</a>|<a href="http://crh.gaotie.cn/lanyu/">兰渝</a>|<a href="http://crh.gaotie.cn/lanxin/">兰新</a>|<a href="http://crh.gaotie.cn/donghuan/">东环</a>|<a href="http://crh.gaotie.cn/hefu/">合福</a>|<a href="http://crh.gaotie.cn/hangchang/">杭长</a>|<a href="http://crh.gaotie.cn">更多</a></li>
+</ul>
+</div>
+<h1><img src="http://images.gaotie.cn/header/nav01_beijing02.gif" width="10" height="35" /></h1>
+</div>
+
+</div>
+<div class="conter"> 
+<div class="banner003">
+<table width="960" height="30" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#0099FF">
+<tr>
+<form method="get" action="http://book.gaotie.cn/piao.asp" target="_blank">
+<td width="85" align="right" valign="middle" class="STYLE1"><strong>出发地</strong>：</td>
+<td width="120" valign="middle"><input name="from" type="text" class="CC" id="txtchufa" value="北京" size="16" /></td>
+<td width="85" align="right" valign="middle" class="STYLE1"><strong>到达地</strong>：</td>
+<td width="120" valign="middle"><input name="to" type="text" class="CC" id="txtdaoda" value="上海" size="16" /></td>
+<td width="55" valign="middle"><input type="submit" value="查询" class="SS" /></td>
+</form>
+<form method="get" action="http://shike.gaotie.cn/checi.asp" target="_blank">
+<td width="85" align="right" valign="middle" class="STYLE1"><strong>查车次</strong>：</td>
+<td width="100" valign="middle"><input name="checi" type="text" class="CC" id="txtcheci" value="" size="12" /></td>
+<td width="50" valign="middle"><input type="submit" value="查询" class="SS" /></td>
+</form>
+<form method="get" action="http://shike.gaotie.cn/zhan.asp" target="_blank">
+<td width="85" align="right" valign="middle" class="STYLE1"><strong>查车站</strong>：</td>
+<td width="120" valign="middle"><input name="zhan" type="text" class="CC" id="txtchezhan" value="" size="14" /></td>
+<td width="79" valign="middle"><input type="submit" value="查询" class="SS" /></td>
+</form>
+<td width="81" valign="middle"><a href="http://12306.gaotie.cn" target="_blank"><font color="#000000"> <span class="STYLE1">12306</span></font></a></td>
+</tr>
+</table>
+
+</div>
+<div class="shou_conter01">
+<div class="shou_left">
+
+<div class="cxbox">
+<div class="cxbt"><span class="cxbtr"> <a href="http://m.gaotie.cn/" target="_blank">手机访问高铁网</a> <a href="http://piao.gaotie.cn/12306.html" target="_blank">网上订票</a> </span> </div>
+<div class="cxcon">
+<form name="form1" action="http://book.gaotie.cn/piao.asp" target="_blank" method="get">
+<p>
+<label>出&nbsp;发&nbsp;地：
+<input name="from" type="text" id="begin" value="请输入出发城市" onfocus="showCity('begin')" onblur="hideCity()" size="14" />
+</label>
+</p>
+<p>
+<label>目&nbsp;的&nbsp;地：
+<input name="to" type="text" id="end" value="请输入到达城市" onfocus="showCity('end')" onblur="hideCity()" size="14" />
+</label>
+</p>
+<p>
+<label>出发日期：
+<span id="goDateWrap">
+<input name="date_ft" type="text" class="input" id="goDate" onChange="goDateChanged(this)" onclick='BBCalendar2.getDateFromPopup(this)' size="14" readOnly toDateElId='backDate' calPosElId="goDateWrap" />
+</span>
+</label>
+</p>
+<p style=" padding-left:78px;">
+<input name="book" type="image" src="images/cx_03.jpg" class="serch" />
+</p>
+</form>
+<div class="linkbox"><a href="http://shike.gaotie.cn/lieche.asp?from=%B1%B1%BE%A9&to=%C9%F2%D1%F4" target="_blank">北京-沈阳</a><a href="http://shike.gaotie.cn/lieche.asp?from=%B9%E3%D6%DD&to=%D6%D8%C7%EC" target="_blank">广州-重庆</a><a href="http://shike.gaotie.cn/lieche.asp?from=%C9%CF%BA%A3&to=%D6%D8%C7%EC" target="_blank">上海-重庆</a><br>
+<a href="http://shike.gaotie.cn/lieche.asp?from=%B1%B1%BE%A9&to=%D6%A3%D6%DD" target="_blank">北京-郑州</a><a href="http://shike.gaotie.cn/lieche.asp?from=%B9%E3%D6%DD&to=%B3%C9%B6%BC" target="_blank">广州-成都</a><a href="http://shike.gaotie.cn/lieche.asp?from=%C9%CF%BA%A3&to=%C9%EE%DB%DA" target="_blank">上海-深圳</a></div>
+</div>
+<div class="cxbot"></div>
+</div>
+
+
+ <script type="text/javascript" src="js/tabmeanu.js"></script>
+<div class="tabmeanu">
+<div class="tabbt">
+<ul class="tab">
+<li id="tab_to_1" class="no"><a href="http://crh.gaotie.cn/" onmouseover="tab('tab',2,1)">高铁线路</a></li>
+<li id="tab_to_2"><a href="http://cn.gaotie.cn/" onmouseover="tab('tab',2,2)">高铁城市</a></li>
+<div class="clear"></div>
+</ul>
+</div>
+<div class="tab_mo">
+
+<div id="tab_mo_1">
+<ul>
+<li><a href="http://news.gaotie.cn/jingjin/">京津城际</a> | <a href="http://news.gaotie.cn/jingguang/">京广高铁</a> | <a href="http://news.gaotie.cn/jinghu/">京沪高铁</a> </li><li><a href="http://news.gaotie.cn/jingfu/">京福高铁</a> | <a href="http://news.gaotie.cn/jingha/">京哈高铁</a> | <a href="http://news.gaotie.cn/jingshen/">京沈高铁</a> </li><li><a href="http://news.gaotie.cn/huhang/">沪杭高铁</a> | <a href="http://news.gaotie.cn/huning/">沪宁高铁</a> | <a href="http://news.gaotie.cn/hukun/">沪昆高铁</a> </li><li><a href="http://news.gaotie.cn/ninghang/">宁杭高铁</a> | <a href="http://news.gaotie.cn/guangshen/">广深高铁</a> | <a href="http://news.gaotie.cn/guiguang/">贵广高铁</a> </li><li><a href="http://news.gaotie.cn/nanguang/">南广高铁</a> | <a href="http://news.gaotie.cn/fuxia/">福厦高铁</a> | <a href="http://news.gaotie.cn/xiashen/">厦深高铁</a> </li><li><a href="http://news.gaotie.cn/zhengxi/">郑西高铁</a> | <a href="http://news.gaotie.cn/zhengxu/">郑徐高铁</a> | <a href="http://news.gaotie.cn/hada/">哈大高铁</a> </li><li><a href="http://news.gaotie.cn/chengyu/">成渝高铁</a> | <a href="http://news.gaotie.cn/yuqian/">渝黔高铁</a> | <a href="http://crh.gaotie.cn/" target="_blank"><font color="#8f1d22">更多线路</font></a></li>
+</ul>
+</div>
+
+
+<div id="tab_mo_2" style="display:none;">
+<ul>
+<li><a href="http://news.gaotie.cn/beijing/">北京</a>&nbsp;<a href="http://news.gaotie.cn/shanghai/">上海</a>&nbsp;<a href="http://news.gaotie.cn/guangzhou/">广州</a>&nbsp;<a href="http://news.gaotie.cn/shenzhen/">深圳</a>&nbsp;<a href="http://news.gaotie.cn/tianjin/">天津</a>&nbsp;<a href="http://news.gaotie.cn/hangzhou/">杭州</a>&nbsp;</li><li><a href="http://news.gaotie.cn/chongqing/">重庆</a>&nbsp;<a href="http://news.gaotie.cn/xiamen/">厦门</a>&nbsp;<a href="http://news.gaotie.cn/wuhan/">武汉</a>&nbsp;<a href="http://news.gaotie.cn/changsha/">长沙</a>&nbsp;<a href="http://news.gaotie.cn/nanjing/">南京</a>&nbsp;<a href="http://news.gaotie.cn/suzhou/">苏州</a>&nbsp;</li><li><a href="http://news.gaotie.cn/zhengzhou/">郑州</a>&nbsp;<a href="http://news.gaotie.cn/xian/">西安</a>&nbsp;<a href="http://news.gaotie.cn/fuzhou/">福州</a>&nbsp;<a href="http://news.gaotie.cn/hefei/">合肥</a>&nbsp;<a href="http://news.gaotie.cn/chengdu/">成都</a>&nbsp;<a href="http://news.gaotie.cn/jinan/">济南</a>&nbsp;</li><li><a href="http://news.gaotie.cn/qingdao/">青岛</a>&nbsp;<a href="http://news.gaotie.cn/changchun/">长春</a>&nbsp;<a href="http://news.gaotie.cn/wuxi/">无锡</a>&nbsp;<a href="http://news.gaotie.cn/dalian/">大连</a>&nbsp;<a href="http://news.gaotie.cn/shenyang/">沈阳</a>&nbsp;<a href="http://news.gaotie.cn/taiyuan/">太原</a>&nbsp;</li><li><a href="http://news.gaotie.cn/nanchang/">南昌</a>&nbsp;<a href="http://news.gaotie.cn/nanning/">南宁</a>&nbsp;<a href="http://news.gaotie.cn/kunming/">昆明</a>&nbsp;<a href="http://news.gaotie.cn/guiyang/">贵阳</a>&nbsp;<a href="http://news.gaotie.cn/xining/">西宁</a>&nbsp;<a href="http://news.gaotie.cn/lanzhou/">兰州</a>&nbsp;</li><li><a href="http://news.gaotie.cn/xuzhou/">徐州</a>&nbsp;<a href="http://news.gaotie.cn/luoyang/">洛阳</a>&nbsp;<a href="http://news.gaotie.cn/dongguan/">东莞</a>&nbsp;<a href="http://news.gaotie.cn/wenzhou/">温州</a>&nbsp;<a href="http://news.gaotie.cn/ningbo/">宁波</a>&nbsp;<a href="http://cn.gaotie.cn/" target="_blank"><font color="#8f1d22">更多</font></a>&nbsp;</li>
+</ul>
+</div>
+
+</div>
+<div class="cxbot"></div>
+</div>
+
+
+<div class="cxbox">
+<div class="cxbt"><span class="cxdp"><a href="http://www.gaotie.cn/pinglun/" target="_blank"><strong>铁路网评</strong></a> - 投稿：news@gaotie.cn </span> </div>
+<div class="cxcon">
+<div class="xzul">
+<ul>
+<li>·<a href="http://news.gaotie.cn/pinglun/2018-07-12/467771.html" target="_blank">“列车会晚点，服务不能”</a></li><li>·<a href="http://news.gaotie.cn/pinglun/2018-07-11/467639.html" target="_blank">高铁将“创新”镌刻在前行路上</a></li><li>·<a href="http://news.gaotie.cn/pinglun/2018-07-11/467618.html" target="_blank">重温红色历史，坚定理想信念</a></li><li>·<a href="http://news.gaotie.cn/pinglun/2018-07-10/467525.html" target="_blank">中国火车是最快最新的</a></li><li>·<a href="http://news.gaotie.cn/pinglun/2018-07-10/467498.html" target="_blank">弘扬武铁精神 提高服务质量</a></li><li>·<a href="http://news.gaotie.cn/pinglun/2018-07-10/467484.html" target="_blank">一段铁路，千万个家庭的民生</a></li></ul>
+<p class="cxlink"><a href="http://www.gaotie.cn/fuxinghao/" target="_blank">复兴号高铁</a> <a href="http://www.gaotie.cn/qubie/" target="_blank">高铁和动车的区别</a> </p>
+</div>
+</div>
+<div class="cxbot"></div>
+</div>
+
+<div class="clear"></div>
+</div>
+<div class="shou_conter02">
+<h1><img src="http://www.gaotie.cn/images/silio.gif" width="469" height="7" /></h1>
+<div class="conter001">
+<div class="tyu">
+ <iframe width="450" height="265" frameborder="0" scrolling="no" src="Home_Pic.html"></iframe>
+</div>
+<div class="wen">
+<h3><a target="_blank" href="http://news.gaotie.cn/tielu/2018-07-12/467734.html">长三角铁路暑运客流增长明显，太火爆</a></h3>
+<ul>
+<li>·<a target="_blank" href="http://news.gaotie.cn/tielu/2018-07-12/467769.html">暑运拉开帷幕 客流较往年增加</a>·<a target="_blank" href="http://news.gaotie.cn/yunying/2018-07-12/467717.html">昆楚大铁路日均发送旅客3.3万</a></li>
+</ul>
+</div>
+<div class="wen">
+<h3><a target="_blank" href="http://news.gaotie.cn/anquan/2018-07-12/467712.html">受台风及强降雨影响 全国多趟列车停运</a></h3><ul>
+<li>·<a target="_blank" href="http://news.gaotie.cn/yunying/2018-07-12/467777.html">台风来袭 逼停4趟动车</a>·<a target="_blank" href="http://news.gaotie.cn/keji/2018-07-12/467772.html">中国智能高铁成铁路“排头兵”</a></li>
+</ul>
+</div>
+<div class="lie">
+<ul>
+<li>·<a href="http://news.gaotie.cn/keji/2018-07-12/467772.html" target="_blank">中国智能高铁成铁路“排头兵”</a></li><li>·<a href="http://news.gaotie.cn/huochezhan/2018-07-12/467770.html" target="_blank">重庆站24列列车停运折返</a></li><li>·<a href="http://news.gaotie.cn/tielu/2018-07-12/467769.html" target="_blank">暑运拉开帷幕 客流较往年增加</a></li><li>·<a href="http://piao.gaotie.cn/gaotiepiao/2018-07-12/467768.html" target="_blank">全国高铁明年可刷证进站</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467766.html" target="_blank">厦门航班和动车基本恢复正常</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467765.html" target="_blank">宝成、西成铁路 摆渡动车来了 </a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467762.html" target="_blank">四川动车晚点停运</a></li></ul>
+<ul>
+<li>·<a href="http://news.gaotie.cn/huochezhan/2018-07-12/467760.html" target="_blank">30趟途经郑州东站列车受影响</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467759.html" target="_blank">江湛高铁顺利通车</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467751.html" target="_blank">济青高铁接触网7月25日起带电</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467749.html" target="_blank">开往广元高铁动车全部停运</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467744.html" target="_blank">济青高铁接触网25日开始带电</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467743.html" target="_blank">加快构建西南高铁一体化网络</a></li><li>·<a href="http://news.gaotie.cn/anquan/2018-07-12/467741.html" target="_blank">西成高铁多趟列车停运</a></li></ul>
+</div>
+</div>
+<h2><img src="http://www.gaotie.cn/images/er.gif" width="469" height="20" /></h2>
+</div>
+<div class="shou_right">
+<div class="shou_right01">
+<div class="er">
+<ul>
+<li>
+<p>
+<img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;" /> <span style="color:#FF6600;font-weight:bold;">购票请上正规网站，谨防受骗!</span>
+</p>
+</li>
+</ul>
+</div>
+<div class="as">
+<ul>
+<li><img src="http://www.gaotie.cn/images/tool_shike.gif" width="23" height="18" /><a href="http://lieche.gaotie.cn" target="_blank">列车时刻</a> <img src="http://www.gaotie.cn/images/tool_xianlu.gif" width="23" height="18" /><a href="http://book.gaotie.cn/" target="_blank">网上订票</a> <img src="http://www.gaotie.cn/images/tool_wenda.gif" width="23" height="18" /><a href="http://www.gaotie.cn/yupiao/" target="_blank">余票查询</a></li>
+<li><img src="http://www.gaotie.cn/images/tool_tianqi.gif" width="23" height="18" /><a href="http://www.gaotie.cn/tianqi/" target="_blank">天气预报</a> <img src="http://www.gaotie.cn/images/tool_hangban.gif" width="23" height="18" /> <a href="http://www.gaotie.cn/tejiajipiao/" target="_blank">特价机票</a> <img src="http://www.gaotie.cn/images/tool_jioudian.jpg" width="23" height="18" /> <a href="http://www.gaotie.cn/js/tiao/jiudianyuding.html" target="_blank">酒店预订</a></li>
+<li><img src="http://www.gaotie.cn/images/tool_ditie.gif" width="23" height="18" /><a href="http://www.gaotie.cn/ditie/" target="_blank">地铁线路</a> <img src="http://www.gaotie.cn/images/tool_gongjiao.gif" width="23" height="18" /> <a href="http://www.gaotie.cn/gongjiao/" target="_blank">公交查询</a> <img src="http://www.gaotie.cn/images/tool_qiche.gif" width="23" height="18" /><a href="http://www.gaotie.cn/js/tiao/qichepiao.html" target="_blank">订汽车票</a> </li>
+<li> <img src="http://www.gaotie.cn/images/tool_dujia.gif" width="23" height="18" /> <a href="http://www.gaotie.cn/jingdianmenpiao/" target="_blank">景点门票</a><img src="http://www.gaotie.cn/images/tool_ditu.gif" width="23" height="18" /> <a href="http://www.gaotie.cn/js/tiao/ditu.html" target="_blank">电子地图</a> <img src="http://www.gaotie.cn/images/tool_gonglu.gif" width="23" height="18" /> <a href="http://www.gaotie.cn/zuche/" target="_blank">车站租车</a></li>
+<li><IMG src="images/wb_02.jpg" width=23 height=18> <A href="http://weibo.com/wwwgaotiecn" target=_blank>新浪微博</A><IMG src="images/wb_05.jpg" width=23 height=18> <A href="http://t.qq.com/wwwgaotiecn" target=_blank>腾讯微博</A> <IMG src="images/wb_07.jpg" width=23 height=18> <A href="http://t.people.com.cn/gaotie/" target=_blank>人民微博</A> </li>
+</ul>
+</div>
+<h2><img src="http://www.gaotie.cn/images/right_bj_08.gif" width="264" height="8" /></h2>
+</div>
+<div class="clear"></div>
+<div style="margin-top:8px; padding-left:3px;">
+
+<table width="260" height="160" border="0" cellspacing="1" bgcolor="#CCCCCC">
+<tr>
+<td height="80" align="center" bgcolor="#FFFFFF">
+
+<table width="248" height="70" border="0" cellspacing="1" bgcolor="#CCCCCC">
+<tr>
+<td colspan="3" align="center" bgcolor="#FFFFFF"><a href="http://www.gaotie.cn/wandian/" target="_blank"><span style="color:#0000FF;font-size:13px;">列车晚点</span></a>、<a href="http://www.gaotie.cn/tingyun/" target="_blank"><span style="color:#0000FF;font-size:13px;">火车停运</span></a> </td>
+<td width="103" align="center" bgcolor="#FFFFFF"> <a href="http://www.gaotie.cn/tiaotu/" target="_blank"><span style="color:#FF0000;font-size:13px;">7月1日调图</span></a> </td>
+</tr>
+<tr>
+<td width="130" align="center" bgcolor="#FFFFFF"><span style="color:#663300;font-size:13px;"><a href="http://www.gaotie.cn/linke/" target="_blank">火车票积分兑换</a> </td>
+<td colspan="3" align="center" bgcolor="#FFFFFF"> <a href="http://www.gaotie.cn/gaiqian/" target="_blank"><span style="color:#0066FF;font-weight:bold;">改签</span></a>、<a href="http://www.gaotie.cn/tuipiao/" target="_blank"><span style="color:#0066FF;font-weight:bold;">退票</span></a> </td>
+</tr>
+<tr>
+<td colspan="2" align="center" bgcolor="#FFFFFF"><a href="http://www.gaotie.cn/bazongbaheng/" target="_blank"><span style="color:#0066FF;font-size:13px;">八纵八横高铁规划图</span></a> </td>
+<td colspan="2" align="center" bgcolor="#FFFFFF"> <a href="http://www.gaotie.cn/yunxingtu/" target="_blank"><span style="color:#FF0000;font-size:12px;">最新铁路运行图</span></a> </td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="center" bgcolor="#FFFFFF">
+<table width="100%" height="70" align="center" class="STYLE1">
+<tr>
+<td align="center" class="STYLE1"> <a href="http://www.gaotie.cn/guangdong/">广东</a> <a href="http://www.gaotie.cn/guangxi/">广西</a> <a href="http://www.gaotie.cn/zhejiang/">浙江</a> <a href="http://www.gaotie.cn/fujian/">福建</a> <a href="http://www.gaotie.cn/yunnan/">云南</a> <a href="http://www.gaotie.cn/guizhou/">贵州</a> <a href="http://www.gaotie.cn/jiangxi/">江西省</a> </td>
+</tr>
+<tr>
+<td align="center" class="STYLE1"> <a href="http://www.gaotie.cn/henan/">河南</a> <a href="http://www.gaotie.cn/hebei/">河北</a> <a href="http://www.gaotie.cn/shanxi/">山西</a> <a href="http://www.gaotie.cn/shandong/">山东</a> <a href="http://www.gaotie.cn/shan-xi/">陕西</a> <a href="http://www.gaotie.cn/anhui/">安徽</a> <a href="http://www.gaotie.cn/neimenggu/">内蒙古</a> </td>
+</tr>
+<tr>
+<td align="center" class="STYLE1"> <a href="http://www.gaotie.cn/jiangsu/">江苏</a> <a href="http://www.gaotie.cn/hubei/">湖北</a> <a href="http://www.gaotie.cn/hunan/">湖南</a> <a href="http://www.gaotie.cn/sichuan/">四川</a> <a href="http://www.gaotie.cn/jilin/">吉林</a> <a href="http://www.gaotie.cn/liaoning/">辽宁</a> <a href="http://www.gaotie.cn/heilongjiang/">黑龙江</a></td>
+</tr>
+<tr>
+<td align="center" class="STYLE1"><a href="http://www.gaotie.cn/xinjiang/">新疆</a> <a href="http://www.gaotie.cn/xizang/">西藏</a> <a href="http://www.gaotie.cn/gansu/">甘肃</a> <a href="http://www.gaotie.cn/qinghai/">青海</a> <a href="http://www.gaotie.cn/ningxia/">宁夏</a> <a href="http://www.gaotie.cn/hainandao/" target="_blank">海南岛</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+
+<div class="tabmeanu2">
+<div class="tabbt2">
+<ul class="tab2">
+<li id="tab2_to_1" class="no"><a href="#" onmouseover="tab2('tab2',2,1)">热门线路</a></li>
+<li id="tab2_to_2"><a href="#" onmouseover="tab2('tab2',2,2)">热门车站</a></li>
+<div class="clear"></div>
+</ul>
+</div>
+<div class="tab2_mo">
+
+<div id="tab2_mo_1">
+<ul>
+<li>
+<a href="http://www.gaotie.cn/beijingdaotianjin/" target="_blank">北京到天津</a> | <a href="http://www.gaotie.cn/wuhandaoguangzhou/" target="_blank">武汉到广州</a> | <a href="http://www.gaotie.cn/guangzhoudaoshenzhen/" target="_blank">广州到深圳</a><br>
+<a href="http://www.gaotie.cn/tianjindaobeijing/" target="_blank">天津到北京</a> | <a href="http://www.gaotie.cn/guangzhoudaowuhan/" target="_blank">广州到武汉</a> | <a href="http://www.gaotie.cn/xiamendaoguangzhou/" target="_blank">厦门到广州</a><br>
+<a href="http://www.gaotie.cn/beijingdaoshanghai/" target="_blank">北京到上海</a> | <a href="http://www.gaotie.cn/guangzhoudaochangsha/" target="_blank">广州到长沙</a> | <a href="http://www.gaotie.cn/xiandaobeijing/" target="_blank">西安到北京</a><br>
+<a href="http://www.gaotie.cn/shanghaidaobeijing/" target="_blank">上海到北京</a> | <a href="http://www.gaotie.cn/shanghaidaoguangzhou/" target="_blank">上海到广州</a> | <a href="http://www.gaotie.cn/shenzhendaoguangzhou/" target="_blank">深圳到广州</a><br>
+<a href="http://www.gaotie.cn/beijingdaoguangzhou/" target="_blank">北京到广州</a> | <a href="http://www.gaotie.cn/nanjingdaoshanghai/" target="_blank">南京到上海</a> | <a href="http://www.gaotie.cn/hangzhoudaoshanghai/" target="_blank">杭州到上海</a><br>
+<a href="http://www.gaotie.cn/guangzhoudaobeijing/" target="_blank">广州到北京</a> | <a href="http://www.gaotie.cn/shanghaidaonanjing/" target="_blank">上海到南京</a> | <a href="http://www.gaotie.cn/shanghaidaohangzhou/" target="_blank">上海到杭州</a><br>
+<a href="http://www.gaotie.cn/beijingdaohangzhou/" target="_blank">北京到杭州</a> | <a href="http://www.gaotie.cn/shanghaidaoshenzhen/" target="_blank">上海到深圳</a> | <a href="http://www.gaotie.cn/xiamendaobeijing" target="_blank">厦门到北京</a><br>
+<a href="http://www.gaotie.cn/hangzhoudaobeijing/" target="_blank">杭州到北京</a> | <a href="http://www.gaotie.cn/shenzhendaoshanghai/" target="_blank">深圳到上海</a> | <a href="http://www.gaotie.cn/fuzhoudaobeijing/" target="_blank">福州到北京</a><br>
+<a href="http://www.gaotie.cn/beijingdaonanjing/" target="_blank">北京到南京</a> | <a href="http://www.gaotie.cn/shanghaidaoguangzhou/" target="_blank">上海到广州</a> | <a href="http://www.gaotie.cn/beijingdaoshenyang/" target="_blank">北京到沈阳</a><br>
+<a href="http://www.gaotie.cn/beijingdaozhengzhou/" target="_blank">北京到郑州</a> | <a href="http://www.gaotie.cn/beijingdaojinan/" target="_blank">北京到济南</a> | <a href="http://www.gaotie.cn/beijingdaoshenzhen/" target="_blank">北京到深圳</a><br>
+<a href="http://www.gaotie.cn/beijingdaoqingdao/" target="_blank">北京到青岛</a> |
+<a href="http://www.gaotie.cn/beijingdaochongqing/" target="_blank">北京到重庆</a> |
+<a href="http://www.gaotie.cn/beijingdaochengdu/" target="_blank">北京到成都</a>
+</li>
+</ul>
+</div>
+
+
+<div id="tab2_mo_2" style="display:none;">
+<ul>
+<li> <a href="http://www.gaotie.cn/beijingxizhan/" target="_blank">北京西</a>|<a href="http://www.gaotie.cn/tianjinzhan/" target="_blank">天津站</a>|<a href="http://www.gaotie.cn/guangzhouzhan/" target="_blank">广州站</a>|<a href="http://www.gaotie.cn/shenzhenzhan/" target="_blank">深圳站</a>|<a href="http://www.gaotie.cn/hangzhouzhan/" target="_blank">杭州站</a></li>
+<li><a href="http://www.gaotie.cn/shanghainanzhan/" target="_blank">上海南</a>|<a href="http://www.gaotie.cn/nanjingzhan/" target="_blank">南京站</a>|<a href="http://www.gaotie.cn/suzhouzhan/" target="_blank">苏州站</a>|<a href="http://www.gaotie.cn/jinanzhan/" target="_blank">济南站</a>|<a href="http://www.gaotie.cn/qingdaozhan/" target="_blank">青岛站</a><br />
+<a href="http://www.gaotie.cn/wuhanzhan/" target="_blank">武汉站</a>|<a href="http://www.gaotie.cn/zhengzhouzhan/" target="_blank">郑州站</a>|<a href="http://www.gaotie.cn/xianzhan/" target="_blank">西安站</a>|<a href="http://www.gaotie.cn/taiyuanzhan/" target="_blank">太原站</a>|<a href="http://www.gaotie.cn/shijiazhuangzhan/" target="_blank">石家庄</a><br />
+<a href="http://www.gaotie.cn/chongqingzhan/" target="_blank">重庆站</a>|<a href="http://www.gaotie.cn/chengduzhan/" target="_blank">成都站</a>|<a href="http://www.gaotie.cn/lanzhouzhan/" target="_blank">兰州站</a>|<a href="http://www.gaotie.cn/xiningzhan/" target="_blank">西宁站</a>|<a href="http://www.gaotie.cn/yinchuanzhan/" target="_blank">银川站</a></li>
+<li><a href="http://www.gaotie.cn/changshazhan/" target="_blank">长沙站</a>|<a href="http://www.gaotie.cn/fuzhouzhan/" target="_blank">福州站</a>|<a href="http://www.gaotie.cn/xiamenzhan/" target="_blank">厦门站</a>|<a href="http://www.gaotie.cn/hefeizhan/" target="_blank">合肥站</a>|<a href="http://www.gaotie.cn/nanchangzhan/" target="_blank">南昌站</a></li>
+<li><a href="http://www.gaotie.cn/dongguanzhan/" target="_blank">东莞站</a>|<a href="http://www.gaotie.cn/wenzhouzhan/" target="_blank">温州站</a>|<a href="http://www.gaotie.cn/taizhouzhan/" target="_blank">台州站</a>|<a href="http://www.gaotie.cn/xuzhouzhan/" target="_blank">徐州站</a>|<a href="http://www.gaotie.cn/bengbuzhan/" target="_blank">蚌埠站</a></li>
+<li><a href="http://www.gaotie.cn/wuchangzhan/" target="_blank">武昌站</a>|<a href="http://www.gaotie.cn/foshanzhan/" target="_blank">佛山站</a>|<a href="http://www.gaotie.cn/guilinzhan/" target="_blank">桂林站</a>|<a href="http://www.gaotie.cn/zhangjiajiezhan/" target="_blank">张家界</a>|<a href="http://www.gaotie.cn/zhumadianzhan/" target="_blank">驻马店</a></li>
+<li><a href="http://www.gaotie.cn/zhoukouzhan/" target="_blank">周口站</a>|<a href="http://www.gaotie.cn/xinyangzhan/" target="_blank">信阳站</a>|<a href="http://www.gaotie.cn/zhuhaizhan/" target="_blank">珠海站</a>|<a href="http://www.gaotie.cn/huangshanzhan/" target="_blank">黄山站</a>|<a href="http://www.gaotie.cn/jingdezhenzhan/" target="_blank">景德镇</a></li>
+<li><a href="http://www.gaotie.cn/ningbozhan/" target="_blank">宁波站</a>|<a href="http://www.gaotie.cn/fuyangzhan/" target="_blank">阜阳站</a>|<a href="http://www.gaotie.cn/quanzhouzhan/" target="_blank">泉州站</a>|<a href="http://www.gaotie.cn/jiamusizhan/" target="_blank">佳木斯</a>|<a href="http://www.gaotie.cn/qiqihaerzhan/" target="_blank">齐齐哈尔</a></li>
+<li><a href="http://www.gaotie.cn/shenyangzhan/" target="_blank">沈阳站</a>|<a href="http://www.gaotie.cn/changchunzhan/" target="_blank">长春站</a>|<a href="http://www.gaotie.cn/haerbinzhan/" target="_blank">哈尔滨</a>|<a href="http://www.gaotie.cn/dalianzhan/" target="_blank">大连站</a>|<a href="http://www.gaotie.cn/huhehaotezhan/" target="_blank">呼和浩特</a></li>
+<li><a href="http://www.gaotie.cn/sanyazhan/" target="_blank">三亚站</a>|<a href="http://www.gaotie.cn/nanningzhan/" target="_blank">南宁站</a>|<a href="http://www.gaotie.cn/kunmingzhan/" target="_blank">昆明站</a>|<a href="http://www.gaotie.cn/lasazhan/" target="_blank">拉萨站</a>|<a href="http://www.gaotie.cn/wulumuqizhan/" target="_blank">乌鲁木齐</a></li>
+</ul>
+</div>
+
+</div>
+<div class="xcbot2"></div>
+</div>
+
+</div>
+</div>
+<div class="banner002">
+<table width="100%" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<script type="text/javascript" src="//bdad.gaotie.net/dyuqeuzv.js"></script>
+
+</td>
+</tr>
+</table>
+</div>
+<div class="shou_conter01">
+<div class="shou_left">
+<div class="conter01_left02">
+<h1><img src="http://www.gaotie.cn/images/left02.gif" width="218" height="12" /></h1>
+<div class="zheng">
+<div class="dao">
+<ul>
+<li><a href="http://news.gaotie.cn/lvyou/">高铁旅游</a></li>
+</ul>
+</div>
+<div class="miao">
+<ul>
+<li><a target="_blank" href="http://news.gaotie.cn/lvyou/2018-07-02/466274.html"><img src="http://upload.gaotie.cn/Article_Pic/2018/07/02/1122389838.jpg" width="98" height="71" /></a></li>
+<li class="zii">《江湛高铁 粤西腾飞》乘江湛铁路 品尝江...<a target="_blank" href="http://news.gaotie.cn/lvyou/2018-07-02/466274.html"><font color="#ff0000">[全文]</font></a></li>
+</ul>
+</div>
+<div class="xin">
+<ul>
+<li>·<a href="http://news.gaotie.cn/lvyou/2018-07-12/467767.html" target="_blank">暑期乐趣尽在嬉戏谷水世界</a></li><li>·<a href="http://news.gaotie.cn/lvyou/2018-07-12/467764.html" target="_blank">动车开通催热大理自由行 </a></li><li>·<a href="http://news.gaotie.cn/lvyou/2018-07-12/467738.html" target="_blank">西安客运段助力“红色旅游”</a></li><li>·<a href="http://news.gaotie.cn/lvyou/2018-07-12/467723.html" target="_blank">沿着江湛铁路觅美味</a></li><li>·<a href="http://news.gaotie.cn/lvyou/2018-07-11/467553.html" target="_blank">每周开行一班高铁旅游专列</a></li><li>·<a href="http://news.gaotie.cn/lvyou/2018-07-10/467542.html" target="_blank">2018夏季三大人气水上乐园盘点</a></li></ul>
+</div>
+<div class="dao001">
+<ul>
+<li><a href="#">官方消息</a></li>
+</ul>
+</div>
+<div class="miao">
+<ul>
+<li><a target="_blank" href="http://news.gaotie.cn/tieluju/2018-07-02/466212.html"><img src="http://upload.gaotie.cn/Article_Pic/2018/07/02/1009006084.jpg" width="98" height="71" /></a></li>
+<li class="zii">北京局暑运开启“加长版”复兴号助力假期...<a target="_blank" href="http://news.gaotie.cn/tieluju/2018-07-02/466212.html"><font color="#ff0000">[全文]</font></a></li>
+</ul>
+</div>
+<div class="xin">
+<ul>
+<li>·<a href="http://news.gaotie.cn/tieluju/2018-07-11/467654.html" target="_blank">武铁发布11-13日临时停运公告</a></li><li>·<a href="http://news.gaotie.cn/tieluju/2018-07-11/467593.html" target="_blank">上海铁路局增开直通车</a></li><li>·<a href="http://news.gaotie.cn/tieluju/2018-07-11/467577.html" target="_blank">南昌铁路局停售今日动车车票</a></li><li>·<a href="http://news.gaotie.cn/tieluju/2018-07-11/467557.html" target="_blank">上海铁路局多措迎战第8号台风</a></li><li>·<a href="http://news.gaotie.cn/tielu/2018-07-12/467781.html" target="_blank">忠旺助力中国高铁轻快提速</a></li><li>·<a href="http://news.gaotie.cn/tielu/2018-07-12/467769.html" target="_blank">暑运拉开帷幕 客流较往年增加</a></li><li>·<a href="http://news.gaotie.cn/tielu/2018-07-12/467763.html" target="_blank">厦门航班动车今起基本恢复 </a></li></ul>
+</div>
+<div class="xiao">
+<ul>
+<li><a href="http://www.gaotie.cn/jifen/" target="_blank">火车票积分兑换火车票</a> </li>
+</ul>
+</div>
+</div>
+<h2><img src="http://www.gaotie.cn/images/left02_bj_11.gif" width="218" height="8" /></h2>
+</div>
+</div>
+<div class="conter002">
+<h1><img src="http://www.gaotie.cn/images/sij.gif" width="495" height="10" /></h1>
+<div class="op">
+<div class="op01">
+<div class="op001">
+<div class="op_biao">
+<ul>
+<li><img src="http://www.gaotie.cn/images/gaotiepiao.gif" width="29" height="25" /><span class="op_biaoL"><a href="http://piao.gaotie.cn/gaotiepiao/">高铁票</a></span><span class="op_biaoR"> <a href="http://piao.gaotie.cn/yushouqi/" target="_blank">预售期</a> <a href="http://piao.gaotie.cn/shimingzhi" target="_blank">实名制</a> <a href="http://piao.gaotie.cn/tuantipiao" target="_blank">团体票</a></span></li>
+</ul>
+</div>
+<div class="miao001">
+<ul>
+<li><a target="_blank" href="http://piao.gaotie.cn/gaotiepiao/2018-07-03/466481.html"><img src="http://upload.gaotie.cn/Article_Pic/2018/07/03/1042237784.jpg" width="98" height="71" /></a></li>
+<li class="zii001">全国铁路将迎来2018年第二次调图 部分车次...<a target="_blank" href="http://piao.gaotie.cn/gaotiepiao/2018-07-03/466481.html"><font color="#ff0000">[全文]</font></a></li>
+</ul>
+</div>
+<div class="xin001">
+<ul>
+<li>·<a href="http://piao.gaotie.cn/gaotiepiao/2018-07-12/467768.html" target="_blank">全国高铁明年可刷证进站</a></li><li>·<a href="http://piao.gaotie.cn/gaotiepiao/2018-07-11/467624.html" target="_blank">电子客票助力铁路迈向市场化</a></li><li>·<a href="http://piao.gaotie.cn/gaotiepiao/2018-07-11/467610.html" target="_blank">天津近一个月高铁车票难求</a></li><li>·<a href="http://piao.gaotie.cn/gaotiepiao/2018-07-11/467562.html" target="_blank">电子客票业务将开展试点运营</a></li><li>·<a href="http://piao.gaotie.cn/gaotiepiao/2018-07-10/467536.html" target="_blank">电子客票或能遏制假票</a></li><li>·<a href="http://piao.gaotie.cn/gaotiepiao/2018-07-10/467529.html" target="_blank">天津近一个月高铁票基本售罄</a></li><li>·<a href="http://piao.gaotie.cn/gaotiepiao/2018-07-10/467425.html" target="_blank">荆汉之间最高76元最低49元</a></li><li>·<a href="http://piao.gaotie.cn/gaotiepiao/2018-07-10/467421.html" target="_blank">明天这些班次高铁票暂停发售</a></li><li>·<a href="http://piao.gaotie.cn/gaotiepiao/2018-07-09/467394.html" target="_blank">铁路部分车次将降价近百元</a></li></ul>
+</div>
+</div>
+<div class="op001">
+<div class="op_biao">
+<ul>
+<li><img src="http://www.gaotie.cn/images/huochepiao.gif" width="29" height="25" /><span class="op_biaoL"><a href="http://piao.gaotie.cn/huochepiao/">火车票</a></span><span class="op_biaoR"><a href="http://piao.gaotie.cn/xueshengpiao/" target="_blank">学生票</a> <a href="http://piao.gaotie.cn/ertongpiao/" target="_blank">儿童票 </a></span></li>
+</ul>
+</div>
+<div class="miao001">
+<ul>
+<li><a target="_blank" href="http://piao.gaotie.cn/huochepiao/2018-07-04/466649.html"><img src="http://upload.gaotie.cn/Article_Pic/2018/07/04/0922075067.jpg" width="98" height="71" /></a></li>
+<li class="zii001">新疆铁路暑运扩能日均增加坐席7000个<a target="_blank" href="http://piao.gaotie.cn/huochepiao/2018-07-04/466649.html"><font color="#ff0000">[全文]</font></a></li>
+</ul>
+</div>
+<div class="xin001">
+<ul>
+<li>·<a href="http://piao.gaotie.cn/huochepiao/2018-07-11/467608.html" target="_blank">暑运铁路车票紧张</a></li><li>·<a href="http://piao.gaotie.cn/huochepiao/2018-07-10/467510.html" target="_blank">合肥至温州部分列车暂停售票</a></li><li>·<a href="http://piao.gaotie.cn/huochepiao/2018-07-10/467458.html" target="_blank">合肥至温州等地列车停售票</a></li><li>·<a href="http://news.gaotie.cn/x/2018-07-10/467456.html" target="_blank">上海因台风停售的列车票恢复</a></li><li>·<a href="http://piao.gaotie.cn/huochepiao/2018-07-09/467279.html" target="_blank">台风影响10-12日部分车票停售</a></li><li>·<a href="http://piao.gaotie.cn/huochepiao/2018-07-06/467054.html" target="_blank">合肥-武汉最低可买6.5折火车票</a></li><li>·<a href="http://piao.gaotie.cn/huochepiao/2018-07-06/466971.html" target="_blank">中铁总公司部分火车票打折啦!</a></li><li>·<a href="http://piao.gaotie.cn/huochepiao/2018-07-05/466915.html" target="_blank">1500余张暑期火车票送进校园 </a></li><li>·<a href="http://piao.gaotie.cn/huochepiao/2018-07-04/466649.html" target="_blank">新疆暑运扩能日均增坐席7000个</a></li></ul>
+</div>
+</div>
+</div>
+<div class="op02">
+<div class="op001">
+<div class="op_biao">
+<ul>
+<li><img src="http://www.gaotie.cn/images/huochezhan.gif" width="29" height="25" /><span class="op_biaoL"><a href="http://news.gaotie.cn/huochezhan/">火车站</a></span><span class="op_biaoR"><a href="http://piao.gaotie.cn/shike" target="_blank">时刻调整</a> <a href="http://piao.gaotie.cn/piaojia" target="_blank">票价调整</a> </span></li>
+</ul>
+</div>
+<div class="xin001">
+<ul>
+<li>·<a href="http://news.gaotie.cn/huochezhan/2018-07-12/467776.html" target="_blank">合肥多趟高铁受台风影响停运</a></li><li>·<a href="http://news.gaotie.cn/huochezhan/2018-07-12/467770.html" target="_blank">重庆站24列列车停运折返</a></li><li>·<a href="http://news.gaotie.cn/huochezhan/2018-07-12/467760.html" target="_blank">30趟途经郑州东站列车受影响</a></li><li>·<a href="http://piao.gaotie.cn/tuipiao/2018-07-12/467755.html" target="_blank">这些车次30日内可办退票</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467749.html" target="_blank">开往广元高铁动车全部停运</a></li><li>·<a href="http://news.gaotie.cn/huochezhan/2018-07-12/467737.html" target="_blank">上饶火车站加开4趟高铁动车</a></li><li>·<a href="http://news.gaotie.cn/huochezhan/2018-07-12/467736.html" target="_blank">7趟经停泉州站动车恢复开行 </a></li><li>·<a href="http://news.gaotie.cn/huochezhan/2018-07-12/467729.html" target="_blank">今郑州高铁东站多趟列车停运</a></li></ul>
+</div>
+</div>
+<div class="op001">
+<div class="op_biao">
+<ul>
+<li><img src="http://www.gaotie.cn/images/shoupiaochu.gif" width="29" height="25" /><span class="op_biaoL"><a href="http://piao.gaotie.cn/shoupiaochu/">售票处</a></span><span class="op_biaoR"><a href="http://piao.gaotie.cn/qupiao/" target="_blank">取票</a> <a href="http://piao.gaotie.cn/gaiqian/" target="_blank"> 改签</a> <a href="http://piao.gaotie.cn/tuipiao/" target="_blank">退票</a> <a href="http://piao.gaotie.cn/guashibupiao/" target="_blank">挂失</a></span></li>
+</ul>
+</div>
+<div class="xin001">
+<ul>
+<li>·<a href="http://piao.gaotie.cn/shoupiaochu/2018-07-09/467314.html" target="_blank">6日吐鲁番机场开设车票代售点</a></li><li>·<a href="http://piao.gaotie.cn/shoupiaochu/2018-07-09/467284.html" target="_blank">吐鲁番机场开通铁路车票代售</a></li><li>·<a href="http://piao.gaotie.cn/shoupiaochu/2018-06-12/463293.html" target="_blank">铁路在乌市7所高校设售票窗口</a></li><li>·<a href="http://piao.gaotie.cn/shoupiaochu/2018-05-07/458561.html" target="_blank">库木塔格沙漠铁路售票处上线</a></li><li>·<a href="http://piao.gaotie.cn/shoupiaochu/2018-04-09/454384.html" target="_blank">鄯善县新增铁路车票代售点</a></li><li>·<a href="http://piao.gaotie.cn/shoupiaochu/2018-04-03/453482.html" target="_blank">新疆火车票代售点9月将达800家</a></li><li>·<a href="http://piao.gaotie.cn/shoupiaochu/2018-04-03/453463.html" target="_blank">9月底前新建火车票代售点396个</a></li><li>·<a href="http://piao.gaotie.cn/shoupiaochu/2018-03-12/450067.html" target="_blank">新疆铁路客票代售点拟增400个</a></li></ul>
+</div>
+</div>
+</div>
+</div>
+<h2><img src="http://www.gaotie.cn/images/dfe.gif" width="495" height="8" /></h2>
+</div>
+<div class="shou_right03">
+<h1><img src="http://www.gaotie.cn/images/rigjt.gif" width="236" height="8" /></h1>
+<div class="zhu">
+<div class="dao002">
+<ul>
+<li><a href="http://piao.gaotie.cn/yushouqi/">火车票预售期</a></li>
+</ul>
+</div>
+<div class="xin002">
+<ul>
+<li>·<a href="http://piao.gaotie.cn/yushouqi/2018-05-30/461657.html" target="_blank">火车票预售期最新调整 </a></li><li>·<a href="http://piao.gaotie.cn/yushouqi/2018-05-30/461647.html" target="_blank">6月中下旬进入火车票预售高峰</a></li><li>·<a href="http://piao.gaotie.cn/yushouqi/2018-05-22/460418.html" target="_blank">今起可在窗口买端午节火车票</a></li><li>·<a href="http://piao.gaotie.cn/yushouqi/2018-05-18/460063.html" target="_blank">端午假期车票可通过电话购买</a></li><li>·<a href="http://piao.gaotie.cn/yushouqi/2018-05-17/460042.html" target="_blank">端午假期车票可通过网络购买</a></li><li>·<a href="http://piao.gaotie.cn/yushouqi/2018-05-17/460004.html" target="_blank">18日起端午小长假火车票开售</a></li><li>·<a href="http://piao.gaotie.cn/yushouqi/2018-04-25/456941.html" target="_blank">武咸城铁部分打折票现已开售</a></li></ul>
+</div>
+<table width="100%" align="center">
+<tr>
+<td align="center">
+<script type="text/javascript" src="http://bdad.gaotie.net/ib3a1ec697fec8f03edb1c7481b2b030ee5af6d40175ec34f6.js"></script>
+
+</td>
+</tr>
+</table>
+<div class="dao003">
+<ul>
+<li><a href="http://news.gaotie.cn/tiaotu/">线路调图</a></li>
+</ul>
+</div>
+<div class="xin002">
+<ul>
+<li>·<a href="http://news.gaotie.cn/tiaotu/2018-07-10/467513.html" target="_blank">铁路推出“同车接续”列车</a></li><li>·<a href="http://news.gaotie.cn/tiaotu/2018-07-10/467443.html" target="_blank">火车运行再调图 出行要注意</a></li><li>·<a href="http://news.gaotie.cn/tiaotu/2018-07-09/467418.html" target="_blank">调图给炎炎夏日一份清凉的答卷</a></li><li>·<a href="http://news.gaotie.cn/tiaotu/2018-07-09/467348.html" target="_blank">拉萨站调整暑运期间运行图</a></li><li>·<a href="http://news.gaotie.cn/tiaotu/2018-07-09/467271.html" target="_blank">调整暑运期间列车运行图</a></li><li>·<a href="http://news.gaotie.cn/tiaotu/2018-07-08/467228.html" target="_blank">“调图+调价”让旅客得实惠</a></li><li>·<a href="http://news.gaotie.cn/pinglun/2018-07-06/467140.html" target="_blank">七大亮点助调图赢市场</a></li></ul>
+</div>
+</div>
+<h1><img src="http://www.gaotie.cn/images/righg.gif" width="236" height="8" /></h1>
+</div>
+</div>
+<div class="luo">
+<h1><img src="http://www.gaotie.cn/images/beiji.gif" width="960" height="8" /></h1>
+<div class="luo01">
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/guihua/" target="_blank">高铁规划</a></li>
+</ul>
+</div>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/guihua/2018-07-12/467778.html" target="_blank">聊泰铁路路线出炉 途经东阿</a></li><li>·<a href="http://news.gaotie.cn/guihua/2018-07-12/467730.html" target="_blank">南昌铁路枢纽最新规划出炉！</a></li><li>·<a href="http://news.gaotie.cn/guihua/2018-07-11/467684.html" target="_blank">南昌铁路枢纽最新规划出炉</a></li><li>·<a href="http://news.gaotie.cn/guihua/2018-07-09/467397.html" target="_blank">四川到重庆即将开工一条高铁</a></li><li>·<a href="http://news.gaotie.cn/guihua/2018-07-08/467237.html" target="_blank">湖北加快推进宜昌轨交规划</a></li><li>·<a href="http://news.gaotie.cn/guihua/2018-07-06/467143.html" target="_blank">9条铁路有望2025年前建成</a></li><li>·<a href="http://news.gaotie.cn/guihua/2018-07-06/467035.html" target="_blank">未来渭南与西安 县县通城铁</a></li><li>·<a href="http://news.gaotie.cn/guihua/2018-07-06/466995.html" target="_blank">日照至董家口争取规划市域铁路</a></li></ul>
+</div>
+</div>
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/jianshe/" target="_blank">高铁建设</a></li>
+</ul>
+</div>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467782.html" target="_blank">中国通号承建杭海城际信号系统</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467759.html" target="_blank">江湛高铁顺利通车</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467754.html" target="_blank">泰和赣江特大桥工程按质完成</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467753.html" target="_blank">闫景军到梅州西站调研高铁建设</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467752.html" target="_blank">首座重载铁路单钢拱桥主体竣工</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467751.html" target="_blank">济青高铁接触网7月25日起带电</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467745.html" target="_blank">郑阜铁路连续梁实现“大”跨越</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467740.html" target="_blank">京张高铁明年底将实现通车</a></li></ul>
+</div>
+</div>
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/yunying/" target="_blank">高铁运营</a></li>
+</ul>
+</div>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467777.html" target="_blank">台风来袭 逼停4趟动车</a></li><li>·<a href="http://news.gaotie.cn/huochezhan/2018-07-12/467776.html" target="_blank">合肥多趟高铁受台风影响停运</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467766.html" target="_blank">厦门航班和动车基本恢复正常</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467765.html" target="_blank">宝成、西成铁路 摆渡动车来了 </a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467762.html" target="_blank">四川动车晚点停运</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467749.html" target="_blank">开往广元高铁动车全部停运</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467744.html" target="_blank">济青高铁接触网25日开始带电</a></li><li>·<a href="http://news.gaotie.cn/yunying/2018-07-12/467743.html" target="_blank">加快构建西南高铁一体化网络</a></li></ul>
+</div>
+</div>
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/shangji/" target="_blank">高铁商机</a></li>
+</ul>
+</div>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/shangji/2018-07-12/467747.html" target="_blank">将发行中国高铁普通纪念币一枚</a></li><li>·<a href="http://news.gaotie.cn/shangji/2018-07-09/467258.html" target="_blank">高铁经济效益释放</a></li><li>·<a href="http://news.gaotie.cn/shangji/2018-07-06/467056.html" target="_blank">13城发出乡村振兴共同行动倡议</a></li><li>·<a href="http://news.gaotie.cn/shangji/2018-07-04/466815.html" target="_blank">“科顺防水号”高铁专列启程！</a></li><li>·<a href="http://news.gaotie.cn/shangji/2018-07-04/466708.html" target="_blank">粤桂黔高铁经济带该怎么建？</a></li><li>·<a href="http://news.gaotie.cn/shangji/2018-07-04/466701.html" target="_blank">粤西进入“高铁时代”</a></li><li>·<a href="http://news.gaotie.cn/shangji/2018-07-04/466697.html" target="_blank">高铁沿线13城携手推动乡村振兴</a></li><li>·<a href="http://news.gaotie.cn/shangji/2018-06-29/465952.html" target="_blank">台山迎铁路新时代 </a></li></ul>
+</div>
+</div>
+</div>
+<h1><img src="http://www.gaotie.cn/images/beiji001.gif" width="960" height="8" /></h1>
+</div>
+<div class="banner002">
+<table width="100%" height="95" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<script type="text/javascript" src="http://bdad.gaotie.net/ta3a18c490f3cdf274c51a7a98eff936e041ebd84a35e725.js"></script>
+</td>
+</tr>
+</table>
+</div>
+<div class="luo">
+<h1><img src="http://www.gaotie.cn/images/beiji.gif" width="960" height="8" /></h1>
+<div class="luo01">
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/keji/" target="_blank">高铁科技</a></li>
+</ul>
+</div>
+</div>
+<div class="yu">
+<ul>
+<li><a target="_blank" href="http://news.gaotie.cn/keji/2018-07-04/466805.html"><img src="http://upload.gaotie.cn/Article_Pic/2018/07/04/1540493848.jpg" width="200" height="120" />“复兴号”亮点让人目不暇给</a></li>
+</ul>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/keji/2018-07-12/467772.html" target="_blank">中国智能高铁成铁路“排头兵”</a></li><li>·<a href="http://news.gaotie.cn/keji/2018-07-11/467674.html" target="_blank">智能高铁提升着百姓出行幸福</a></li><li>·<a href="http://news.gaotie.cn/keji/2018-07-11/467623.html" target="_blank">茅以升科学技术奖传递正能量</a></li><li>·<a href="http://news.gaotie.cn/keji/2018-07-11/467617.html" target="_blank">“铁路工业游”一举多赢好尝试</a></li><li>·<a href="http://news.gaotie.cn/keji/2018-07-11/467592.html" target="_blank">铁路技术和建设呈现多点突破</a></li></ul>
+</div>
+</div>
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/renwu/" target="_blank">高铁人物</a></li>
+</ul>
+</div>
+</div>
+<div class="yu">
+<ul>
+<li><a target="_blank" href="http://news.gaotie.cn/renwu/2018-07-06/467082.html"><img src="http://upload.gaotie.cn/Article_Pic/2018/07/06/1406117859.jpg" width="200" height="120" />工匠先锋初心路</a></li>
+</ul>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/renwu/2018-07-12/467733.html" target="_blank">从蒸汽火车到内燃机车再到高铁</a></li><li>·<a href="http://news.gaotie.cn/renwu/2018-07-11/467625.html" target="_blank">抢险中的铁军担当</a></li><li>·<a href="http://news.gaotie.cn/renwu/2018-07-11/467583.html" target="_blank">铁路文明的美丽使者</a></li><li>·<a href="http://news.gaotie.cn/renwu/2018-07-11/467563.html" target="_blank">“高铁工匠”张素丽</a></li><li>·<a href="http://news.gaotie.cn/renwu/2018-07-10/467516.html" target="_blank">铁路抢通的背后</a></li></ul>
+</div>
+</div>
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/guoji/" target="_blank">国际铁路</a></li>
+</ul>
+</div>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/guoji/2018-07-12/467779.html" target="_blank">中老铁路特大桥基础施工完成</a></li><li>·<a href="http://news.gaotie.cn/guoji/2018-07-12/467716.html" target="_blank">中老铁路跨主桥基础施工完成</a></li><li>·<a href="http://news.gaotie.cn/guoji/2018-07-10/467509.html" target="_blank">孟买遭暴雨袭击 列车受影响</a></li><li>·<a href="http://news.gaotie.cn/guoji/2018-07-10/467503.html" target="_blank">多地洪水泛滥火车和交通中断</a></li><li>·<a href="http://news.gaotie.cn/guoji/2018-07-10/467476.html" target="_blank">在中蒙铁路合作中迅速成长</a></li></ul>
+</div>
+<div class="yu">
+<ul>
+<li><a target="_blank" href="http://news.gaotie.cn/guoji/2018-07-03/466484.html"><img src="http://upload.gaotie.cn/Article_Pic/2018/07/03/1100076069.jpg" width="200" height="120" />成都国际铁路班列开行计划出炉</a></li>
+</ul>
+</div>
+</div>
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/fangchan/" target="_blank">铁路投资</a></li>
+</ul>
+</div>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/touzi/2018-07-10/467474.html" target="_blank">铁路项目前期工作获经费支持</a></li><li>·<a href="http://news.gaotie.cn/touzi/2018-07-06/466958.html" target="_blank">取消铁路航空领域部分投资限制</a></li><li>·<a href="http://news.gaotie.cn/touzi/2018-06-28/465725.html" target="_blank">温州民资控股高铁</a></li><li>·<a href="http://news.gaotie.cn/touzi/2018-06-28/465680.html" target="_blank">93亿支持河南城际铁路建设</a></li><li>·<a href="http://news.gaotie.cn/touzi/2018-06-22/464939.html" target="_blank">国开行授信加速贵南高铁建设</a></li></ul>
+</div>
+<div class="yu">
+<ul>
+<li><a target="_blank" href="http://news.gaotie.cn/touzi/2018-06-01/460374.html"><img src="http://upload.gaotie.cn/Article_Pic/2018/06/01/1213460642.jpg" width="200" height="120" />未来10年江苏铁路投资约4770亿</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h1><img src="http://www.gaotie.cn/images/beiji001.gif" width="960" height="8" /></h1>
+</div>
+<div class="luo">
+<h1><img src="http://www.gaotie.cn/images/beiji.gif" width="960" height="8" /></h1>
+<div class="luo01">
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/guidaojiaotong/" target="_blank">轨道交通</a></li>
+</ul>
+</div>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/guidaojiaotong/2018-07-10/467512.html" target="_blank">东盟轨道交通路在何方？</a></li><li>·<a href="http://news.gaotie.cn/ditie/2018-07-09/467378.html" target="_blank">精心打造地铁“多能尖兵”</a></li><li>·<a href="http://cn.gaotie.cn/shanghai/2018-07-09/467330.html" target="_blank">上海10号线开“童话号”列车</a></li><li>·<a href="http://cn.gaotie.cn/shanghai/2018-07-09/467280.html" target="_blank">轨道交通13号线列车上线调试</a></li><li>·<a href="http://cn.gaotie.cn/beijing/2018-07-08/467244.html" target="_blank">北京地铁6号线尝鲜“光触媒”</a></li><li>·<a href="http://cn.gaotie.cn/nanjing/2018-07-08/467226.html" target="_blank">2号线西延线开始监测招标了</a></li><li>·<a href="http://cn.gaotie.cn/beijing/2018-07-07/467176.html" target="_blank">北京6号线“光触媒”喷涂完毕</a></li><li>·<a href="http://cn.gaotie.cn/beijing/2018-07-07/467169.html" target="_blank">6号线列车“光触媒除异味”</a></li></ul>
+</div>
+</div>
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/tielu/" target="_blank">中国铁路</a></li>
+</ul>
+</div>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/tielu/2018-07-12/467781.html" target="_blank">忠旺助力中国高铁轻快提速</a></li><li>·<a href="http://news.gaotie.cn/tielu/2018-07-12/467769.html" target="_blank">暑运拉开帷幕 客流较往年增加</a></li><li>·<a href="http://news.gaotie.cn/tielu/2018-07-12/467763.html" target="_blank">厦门航班动车今起基本恢复 </a></li><li>·<a href="http://news.gaotie.cn/tielu/2018-07-12/467761.html" target="_blank">三十五载，见证中国铁路变迁</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467759.html" target="_blank">江湛高铁顺利通车</a></li><li>·<a href="http://news.gaotie.cn/tielu/2018-07-12/467758.html" target="_blank">三洋铁路永城段落下实锤</a></li><li>·<a href="http://news.gaotie.cn/tielu/2018-07-12/467756.html" target="_blank">陇海铁路宝成铁路受损路段抢通</a></li><li>·<a href="http://news.gaotie.cn/jianshe/2018-07-12/467754.html" target="_blank">泰和赣江特大桥工程按质完成</a></li></ul>
+</div>
+</div>
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/hangkong/" target="_blank">航空资讯</a></li>
+</ul>
+</div>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/hangkong/2018-07-09/467400.html" target="_blank">安检总站开展作风宣教活动</a></li><li>·<a href="http://news.gaotie.cn/hangkong/2018-07-09/467399.html" target="_blank">安检总站开展再就业体验活动</a></li><li>·<a href="http://news.gaotie.cn/hangkong/2018-07-09/467398.html" target="_blank">安检总站举行岗位交流活动</a></li><li>·<a href="http://news.gaotie.cn/hangkong/2018-07-09/467396.html" target="_blank">凌晨五点十分</a></li><li>·<a href="http://news.gaotie.cn/hangkong/2018-07-09/467395.html" target="_blank">同心协力 共战旺季</a></li><li>·<a href="http://news.gaotie.cn/hangkong/2018-07-09/467382.html" target="_blank">美德传承，真诚相待</a></li><li>·<a href="http://news.gaotie.cn/hangkong/2018-07-06/467137.html" target="_blank">安检总站：暑运出行需注意</a></li><li>·<a href="http://news.gaotie.cn/hangkong/2018-07-06/467122.html" target="_blank">旅客晕倒，安检员展开紧急救助</a></li></ul>
+</div>
+</div>
+<div class="ghy">
+<div class="chao">
+<div class="bo">
+<ul>
+<li><a href="http://news.gaotie.cn/hotel/" target="_blank">宾馆酒店</a></li>
+</ul>
+</div>
+</div>
+<div class="mo">
+<ul>
+<li>·<a href="http://news.gaotie.cn/hotel/2018-07-10/467540.html" target="_blank">尚美生活开展“铺床王”挑战赛</a></li><li>·<a href="http://news.gaotie.cn/hotel/2018-07-10/467487.html" target="_blank">佰翔酒店集团揽获多项奖项</a></li><li>·<a href="http://news.gaotie.cn/hotel/2018-07-09/467420.html" target="_blank">洲际酒店和百度合作的智慧客房彰显人文关怀</a></li><li>·<a href="http://news.gaotie.cn/hotel/2018-07-09/467343.html" target="_blank">归隐苏州园林，隐藏斜塘老街</a></li><li>·<a href="http://news.gaotie.cn/hotel/2018-06-29/465997.html" target="_blank">漫心都市度假系列再添新成员</a></li><li>·<a href="http://news.gaotie.cn/hotel/2018-06-28/465698.html" target="_blank">机器人“小白”不具备监控功能</a></li><li>·<a href="http://news.gaotie.cn/hotel/2018-06-27/465518.html" target="_blank">一次与庞门里院的阆中之恋</a></li><li>·<a href="http://news.gaotie.cn/hotel/2018-06-26/465427.html" target="_blank">南宁会展豪生大酒店专场招聘</a></li></ul>
+</div>
+</div>
+</div>
+<h1><img src="http://www.gaotie.cn/images/beiji001.gif" width="960" height="8" /></h1>
+</div>
+<BR>
+<div class="banner004">
+<table width="960" height="250" border="0" align="center" cellpadding="5" cellspacing="1" bordercolor="#DFE6FF" bgcolor="#CCCCCC" class="STYLE1">
+<tr>
+<td width="68" height="50" rowspan="2" align="center" valign="middle" bgcolor="#FFFFFF" class="STYLE1"><a href="http://cn.gaotie.cn/" target="_blank"><strong>中国高铁</strong></a></td>
+<td width="892" height="25" valign="middle" bgcolor="#FFFFFF"> &nbsp;<a href="http://cn.gaotie.cn/wuxi/">无锡</a> <a href="http://cn.gaotie.cn/changchun/">长春</a> <a href="http://cn.gaotie.cn/qingdao/">青岛</a> <a href="http://cn.gaotie.cn/dalian/">大连</a> <a href="http://cn.gaotie.cn/taiyuan/">太原</a> <a href="http://cn.gaotie.cn/hefei/">合肥</a> <a href="http://cn.gaotie.cn/nanchang/">南昌</a> <a href="http://cn.gaotie.cn/nanning/">南宁</a> <a href="http://cn.gaotie.cn/kunming/">昆明</a> <a href="http://cn.gaotie.cn/guiyang/">贵阳</a><a href="http://cn.gaotie.cn/zhuzhou/"> 株洲</a> <a href="http://cn.gaotie.cn/hengshan/">衡山</a> <a href="http://cn.gaotie.cn/taian/">泰安</a> <a href="http://cn.gaotie.cn/yueyang/">岳阳</a> <a href="http://cn.gaotie.cn/zhongshan/">中山</a> <a href="http://cn.gaotie.cn/changzhou/">常州</a> <a href="http://cn.gaotie.cn/wanzhou/">万州</a> <a href="http://cn.gaotie.cn/yichang/">宜昌</a> <a href="http://cn.gaotie.cn/zhenjiang/">镇江</a><a href="http://cn.gaotie.cn/su_zhou/"> 宿州</a> <a href="http://cn.gaotie.cn/zaozhuang/">枣庄</a> <a href="http://cn.gaotie.cn/dezhou/">德州</a> <a href="http://cn.gaotie.cn/haerbin/">哈尔滨</a> <a href="http://cn.gaotie.cn/shijiazhuang/">石家庄</a> <a href="http://cn.gaotie.cn/wulumuqi/">乌鲁木齐</a> </td>
+</tr>
+<tr>
+<td height="25" bgcolor="#FFFFFF">&nbsp;<a href="http://cn.gaotie.cn/haikou/">海口</a> <a href="http://cn.gaotie.cn/sanya/">三亚</a> <a href="http://cn.gaotie.cn/zhuhai/">珠海</a> <a href="http://cn.gaotie.cn/dongguan/">东莞</a> <a href="http://cn.gaotie.cn/wenzhou/">温州</a> <a href="http://cn.gaotie.cn/ningbo/">宁波</a> <a href="http://cn.gaotie.cn/jiaxing/">嘉兴</a> <a href="http://cn.gaotie.cn/shenyang/">沈阳</a> <a href="http://cn.gaotie.cn/xining/">西宁</a> <a href="http://cn.gaotie.cn/lanzhou/">兰州</a><a href="http://cn.gaotie.cn/xuzhou/"> 徐州</a> <a href="http://cn.gaotie.cn/luoyang/">洛阳</a> <a href="http://cn.gaotie.cn/jiujiang/">九江 </a> <a href="http://cn.gaotie.cn/shangqiu/">商丘</a> <a href="http://cn.gaotie.cn/jilin/">吉林</a> <a href="http://cn.gaotie.cn/bengbu/">蚌埠</a> <a href="http://cn.gaotie.cn/fuyang/">阜阳</a> <a href="http://cn.gaotie.cn/qufu/">曲阜</a><a href="http://cn.gaotie.cn/qinhuangdao/"> </a><a href="http://cn.gaotie.cn/xianggang/">香港</a> <a href="http://cn.gaotie.cn/taiwan/">台湾</a> <a href="http://cn.gaotie.cn/lasa/">拉萨</a> <a href="http://cn.gaotie.cn/yinchuan/">银川 </a><a href="http://cn.gaotie.cn/suzhou/" target="_blank">宿州</a><a href="http://cn.gaotie.cn/qinhuangdao/"> 秦皇岛</a> <a href="http://cn.gaotie.cn/huhehaotie/">呼和浩特</a></td>
+</tr>
+<tr>
+<td width="68" height="50" rowspan="2" align="center" valign="middle" bgcolor="#FFFFFF" class="STYLE1"><a href="http://shike.gaotie.cn/" target="_blank"><strong>高铁时刻</strong></a></td>
+<td width="892" height="25" valign="middle" bgcolor="#FFFFFF"> &nbsp;<a href="http://shike.gaotie.cn/jinghu/" target="_blank" class="STYLE12">京沪高铁时刻表</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/jingjin/" target="_blank">京津城际时刻表</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/wuguang/" target="_blank">武广高铁时刻表</a><span class="STYLE5">|</span><a href="http://crh.gaotie.cn/nanguang/" target="_blank">南广高铁时刻表</a><span class="STYLE5">|</span><a href="http://crh.gaotie.cn/guiguang/" target="_blank">贵广高铁时刻表</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/huning/" target="_blank">沪宁高铁时刻表</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/huhang/" target="_blank">沪杭高铁时刻表</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/jingguang/" target="_blank">京广高铁时刻表</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/dongche/" target="_blank">动车时刻表</a> </td>
+</tr>
+<tr>
+<td height="25" bgcolor="#FFFFFF">&nbsp;<a href="http://shike.gaotie.cn/ninghang/" target="_blank">宁杭高铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/huhanrong/" target="_blank">沪汉蓉高铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/chengguan/" target="_blank">成灌快铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/guangshen/" target="_blank">广深高铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/changjiu/" target="_blank">昌九城际</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/yiwan/" target="_blank">宜万铁路</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/hanyi/" target="_blank">汉宜高铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/jingfu/" target="_blank">京福高铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/hefu/" target="_blank">合福高铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/jingshi/" target="_blank">京石高铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/shiwu/" target="_blank">石武高铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/guangshengang/" target="_blank">广深港高铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/hukun/" target="_blank">沪昆高铁</a><span class="STYLE5">|</span><a href="http://shike.gaotie.cn/chengyu/" target="_blank">成渝高铁</a></td>
+</tr>
+<tr>
+ <td height="75" rowspan="3" align="center" valign="middle" bgcolor="#FFFFFF" class="STYLE1"><a href="http://piao.gaotie.cn/" target="_blank"><strong>网上订票</strong></a></td>
+<td height="25" valign="middle" bgcolor="#FFFFFF"> &nbsp;<a href="http://piao.gaotie.cn/jinghu/" target="_blank">京沪高铁网上订票</a><span class="STYLE5">|</span><a href="http://piao.gaotie.cn/wuguang/" target="_blank">武广高铁网上订票</a><a href="http://piao.gaotie.cn/zhengxi/" target="_blank"><span class="STYLE5">|</span></a><a href="http://piao.gaotie.cn/huning/" target="_blank">沪宁高铁网上订票</a><span class="STYLE5">|</span><a href="http://piao.gaotie.cn/huhang/" target="_blank">沪杭高铁网上订票</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/tuipiao/" target="_blank">火车票退票手续费</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/dingpiao/" target="_blank">铁路网上订票</a><span class="STYLE5">|</span><a href="http://piao.gaotie.cn/www12306cn/" target="_blank">12306</a><a href="http://www.gaotie.cn/12306/" target="_blank">铁路客户服务中心</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/dingdan/">订单查询</a> </td>
+</tr>
+<tr>
+<td height="25" bgcolor="#FFFFFF"> &nbsp;<a href="http://piao.gaotie.cn/gaotiepiao/" target="_blank">高铁票</a><span class="STYLE5">|</span><a href="http://piao.gaotie.cn/dongchepiao/" target="_blank">动车票</a><span class="STYLE5">|</span><a href="http://piao.gaotie.cn/huochepiao/" target="_blank">火车票</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/xueshengpiao/" target="_blank">学生票预订</a><span class="STYLE5">|</span><a href="http://piao.gaotie.cn/ertongpiao/" target="_blank">儿童票预订</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/tuantipiao/" target="_blank">团体票预订</a><span class="STYLE5">|</span><a href="http://yupiao.gaotie.cn/" target="_blank">余票查询</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/qiangpiao/" target="_blank">火车票抢票软件</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/shoupiaoshijian/" target="_blank">火车站售票时间</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/huochezhan/" target="_blank">火车站订票官网</a><span class="STYLE5">|</span><a href="http://www.gaotieshike.com/dongche/" target="_blank">动车票查询</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/fangpiao/" target="_blank">火车票几点放票</a> </td>
+</tr>
+<tr>
+<td height="25" bgcolor="#FFFFFF">&nbsp;<a href="http://book.gaotie.cn/dingpiao.asp?zhan=北京">北京</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=天津">天津</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=上海">上海</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=广州">广州</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=深圳">深圳</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=杭州">杭州</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=南京">南京</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=苏州">苏州</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=济南">济南</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=西安">西安</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=郑州">郑州</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=武汉">武汉</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=长沙">长沙</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=厦门">厦门</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=福州">福州</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=南昌">南昌</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=海口">海口</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=三亚">三亚</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=成都">成都</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=重庆">重庆</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=昆明">昆明</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=沈阳">沈阳</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=长春">长春</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=哈尔滨">哈尔滨</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=大连">大连</a><span class="STYLE5">|</span><a href="http://book.gaotie.cn/dingpiao.asp?zhan=合肥">合肥</a></td>
+</tr>
+<tr>
+<td height="75" rowspan="5" align="center" valign="middle" bgcolor="#FFFFFF" class="STYLE1"><a href="http://www.gaotie.cn/tielu/"><strong>新建铁路</strong></a> </td>
+<td height="25" bgcolor="#FFFFFF">&nbsp;<a href="http://www.gaotie.cn/lanxintielu/">兰新铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/daqintielu/">大秦铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/zhengwangaotie/" target="_blank">郑万高铁</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/hanghuangtielu/">杭黄高铁</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/hutongtielu/">沪通铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/jingjiutielu/">京九铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/shenmaotielu/">深茂铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/lianyantielu/">连盐铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/delongyantielu/">德龙烟铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/zhengkaitielu/">郑开城际铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/shenfutielu/">沈抚城际铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/zhanmaoyangtielu/">湛茂阳城际铁路</a></td>
+</tr>
+<tr>
+<td height="25" bgcolor="#FFFFFF">&nbsp;<a href="http://www.gaotie.cn/qingliantielu/">青连铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/ningantielu/">宁安铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/chuanzangtielu/" target="_blank">川藏铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/lanyutielu/">兰渝铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/xiwutielu/">西武铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/wuhuangtielu/">武黄铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/chengguigaotie/">成贵高铁</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/zhenghegaotie/">郑合高铁</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/changjigantielu/">昌吉赣铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/luofutielu/">漯阜城际铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/liunantielu/">柳南城际铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/jingtangtielu/">京唐城际铁路</a></td>
+</tr>
+<tr>
+<td height="25" bgcolor="#FFFFFF">&nbsp;<a href="http://www.gaotie.cn/jingzhangtielu/">京张铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/jiqingtielu/">济青铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/fanyagaotie/">泛亚高铁</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/yulitielu/">渝利铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/yiwantielu/">宜万铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/ningxitielu/">宁西铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/xichenggaotie/">西成高铁</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/jinbaotielu/">津保铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/lianhuaiyangzhentielu/">连淮杨镇铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/guangzhutielu/"> 广珠城际铁路</a><span class="STYLE5">|</span><a href="http://www.gaotie.cn/changzhutan/">长株潭城际铁路</a> </td>
+</tr>
+</table>
+<div class="banner008">
+<table width="100%" height="100" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<script type="text/javascript" src="http://bdad.gaotie.net/mt3a1dcf94f1cbfe3cdb1c7481b2b030ee5af6d40175ec34f6.js"></script>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="footer001">
+<div class="footerb">
+<ul>
+<li>
+<table width="100%" height="25" border="0" class="STYLE3">
+<tr>
+<td width="18%"><strong>合作伙伴&amp;友情链接</strong></td>
+<td width="82%"><a href="http://corp.gaotie.cn/About/list/index6.html" target="_blank">TEL-（010）57033018、QQ：97681299（合作）、97681298（广告）、97681297（友链） <a href="http://corp.gaotie.cn/About/list/index9.html" target="_blank" 》更多联系方式< a></td>
+</tr>
+</table>
+</li>
+</ul>
+</div>
+<div class="footerc">
+<ul>
+<li><a href="http://www.gaotie.cn/tieluju/" target="_blank">国家铁路局</a> <a href="http://www.gaotie.cn/js/tiao/tiekeyuan.html" target="_blank">铁科院</a> <a href="http://www.gaotie.cn/js/tiao/xuehui.html" target="_blank">铁道学会</a> <a href="http://www.gaotie.cn/js/tiao/lvyouju.html" target="_blank">国家旅游局</a> <a href="http://www.gaotie.cn/js/tiao/jiaotongbu.html" target="_blank">交通部</a> <a href="http://12306.gaotie.cn/" target="_blank">12306</a> <a href="http://www.gaotie.cn/jingshengaotie/" target="_blank">京沈高铁</a> <a href="http://www.offcn.com" target="_blank">中公公务员</a> <a href="http://www.gaotie.com.cn" target="_blank">高铁旅游</a> <a href="http://www.gaotie.cn/jingxionggaotie/" target="_blank">京雄高铁</a> <a href="http://www.keyunzhan.com/" target="_blank">客运站</a> <a href="http://car.bitauto.com/" target="_blank">汽车大全</a> <a href="http://www.gaotie.cn/guanming/" target="_blank">高铁冠名</a> <a href="http://www.mapbar.com/" target="_blank">图吧</a> <a href="http://www.chexun.com/" target="_blank">车讯网</a> <a href="http://www.gaotie.cn/baoxigaotie/" target="_blank">包西高铁</a> <a href="http://flight.qunar.com/" target="_blank">机票</a> <a href="http://www.admin5.com/" target="_blank">a5站长网</a> <a href="http://www.gaotie.cn/shisanwu/" target="_blank">十三五铁路规划</a> <a href="http://www.gaotie.cn/changjiugaotie/" target="_blank">昌九高铁</a> <a href="http://www.gaotie.cn/zhuanlie/" target="_blank">旅游专列</a> <a href="http://www.gaotie.cn/jinxiongtielu/" target="_blank">津雄铁路</a> <a href="http://www.gaotie.cn/gekutielu/" target="_blank">格库铁路</a> <a href="http://www.gaotie.cn/hanbanantielu/" target="_blank">汉巴南铁路</a> <a href="http://www.gaotie.cn/kongzhonglieche/" target="_blank">空中列车</a> <a href="http://www.huochepiao.com" target="_blank">火车票</a> <a href="http://www.gaotie.cn/zhuanlie/" target="_blank">旅游专列</a> <a href="http://www.gaotie.cn/hechaomatielu/" target="_blank">合巢马铁路</a> <a href="http://newcar.xcar.com.cn/" target="_blank">选车工具</a> <a href="http://www.gaotie.cn/huanbohaigaotie/" target="_blank">环渤海高铁</a> <a href="http://www.gaotie.cn/nankungaotie/" target="_blank">南昆高铁</a> <a href="http://www.gaotie.cn/jingjiugaotie/" target="_blank">京九高铁</a> <a href="http://www.gaotie.cn/huaiguigaotie/" target="_blank">怀贵高铁</a> <a href="http://www.xilu.com" target="_blank">西陆网</a> <a href="http://www.gaotie.cn/zhida/" target="_blank">高铁直达</a> <a href="http://www.gaotie.cn/nanjiangtielu/" target="_blank">南疆铁路</a> <a href="http://www.gaotie.cn/jinyongtielu/" target="_blank">金甬铁路</a> <a href="http://www.chinawutong.com/" target="_blank">物流信息网</a> <a href="http://www.mama.cn/" target="_blank">妈妈网</a> <a href="http://www.gaotie.cn/hanglintielu/" target="_blank">杭临铁路</a> <a href="http://www.gaotie.cn/liansubengtielu/" target="_blank">连宿蚌铁路</a> <a href="http://www.gaotie.cn/jingjinji/" target="_blank">京津冀</a> <a href="http://www.chinawutong.com" target="_blank">物流信息</a> <a href="http://www.9tour.cn/" target="_blank">九游网</a> <a href="http://www.gaotie.cn/yidaiyilu/" target="_blank">一带一路</a> <a href="http://www.gaotie.cn/dazhanggaotie/" target="_blank">大张高铁</a> <a href="http://www.gaotie.cn/xuyangaotie/" target="_blank">徐盐高铁</a> <a href="http://www.gaotie.cn/jinghugaotieerxian/" target="_blank">京沪高铁二线</a> <a href="http://www.goumin.com" target="_blank">宠物狗</a> <a href="http://www.gaotie.cn/xiongan/" target="_blank">雄安高铁</a> <a href="http://www.gaotie.cn/mimenggaotie/" target="_blank">弥蒙高铁</a> <a href="http://www.gaotie.cn/nanshengaotie/" target="_blank">南深高铁</a> <a href="http://www.gaotie.cn/xiongan/" target="_blank">雄安高铁规划</a> <a href="http://www.gaotie.cn/panxingtielu/" target="_blank">盘兴铁路</a>  <a href="http://www.zhulong.com" target="_blank">筑龙网</a> <a href="http://www.gaotie.cn/gaige/" target="_blank">铁路改革</a> <a href="http://www.51sole.com" target="_blank">搜了网</a> <a href="http://www.gaotie.cn/shixigaotie/" target="_blank">十西高铁</a> <a href="http://www.gaotie.cn/yuguigaotie/" target="_blank">渝贵高铁</a> <a href="http://www.gaotie.cn/dongwo/" target="_blank">高铁动卧</a> <a href="http://www.gaotie.cn/keyunzhan/" target="_blank">客运站</a> <a href="http://www.gaotie.cn/wanbeitielu/" target="_blank">皖北铁路</a> <a href="http://www.gaotie.cn/kuaidi/" target="_blank">高铁快递</a> <a href="http://www.gaotie.cn/zhengfugaotie/" target="_blank">郑阜高铁</a> <a href="http://www.city8.com" target="_blank">中国地图</a> <a href="http://www.gaotie.cn/xusuhuaiyantielu/" target="_blank">徐宿淮盐铁路</a> <a href="http://www.huatu.com" target="_blank">公务员考试网</a> <a href="http://www.gaotie.cn/xihantielu/" target="_blank">西韩铁路</a> <a href="http://www.gaotie.cn/zhongtaitielu/" target="_blank">中泰铁路</a> <a href="http://www.tianqi.com/" target="_blank">天气预报查询</a> <a href="http://www.gaotie.cn/chengjitielu/" target="_blank">城际铁路</a> <a href="http://www.gaotie.cn/yanyugaotie/" target="_blank">延榆铁路</a> <a href="http://www.gbs.cn/" target="_blank">电子商务</a> <a href="http://www.gaotie.cn/shiyitielu/" target="_blank">十宜铁路</a> <a href="http://china.eb80.com/" target="_blank">亿商网</a> <a href="http://www.gaotie.cn/chengkuntielu/" target="_blank">成昆铁路</a> <a href="http://www.gaotie.cn/gaiqian/" target="_blank">火车票改签</a> <a href="http://www.gaotie.cn/hanshigaotie/" target="_blank">汉十高铁</a> <a href="http://www.gaotie.cn/jingkungaotie/" target="_blank">京昆高铁</a> <a href="http://www.jobui.com" target="_blank">找工作</a> <a href="http://www.economicdaily.com.cn/" target="_blank">经济生活网</a> <a href="http://www.gaotie.cn/heantielu/" target="_blank">合安铁路</a> <a href="http://www.gaotie.cn/yuedongtielu/" target="_blank">粤东铁路</a> <a href="http://www.qinbei.com/" target="_blank">亲贝网 </a> <a href="http://www.007swz.com" target="_blank">007商务站</a> <a href="http://www.16888.com" target="_blank">车主之家</a> <a href="http://www.zhuna.cn/" target="_blank">酒店预订</a> <a href="http://www.changtu8.com" target="_blank">长途汽车</a> <a href="http://www.gaotie.cn/shoujidingpiao/" target="_blank">手机订火车票</a> <a href="http://www.gaotie.cn/yuegangaodawanqutielu/" target="_blank">粤港澳大湾区</a> <a href="http://www.gaotie.cn/shendangaotie/" target="_blank">沈丹高铁</a> <a href="http://www.gaotie.cn/yanjianggaotie/" target="_blank">沿江高铁</a> <a href="http://www.trip8080.com/" target="_blank">汽车票查询</a> <a href="http://www.gaotie.cn/chengangaotie/" target="_blank">成安高铁</a> <a href="http://www.gaotie.cn/jingbatielu/" target="_blank">京霸城际铁路</a> <a href="http://www.gaotie.cn/yantonggaotie/" target="_blank">盐通高铁</a> <a href="http://www.gaotie.cn/jiuzhaigoulvyou/" target="_blank">九寨沟</a> <a href="http://www.gaotie.cn/yuqiangaotie/" target="_blank">渝黔高铁</a> <a href="http://www.gaotie.cn/ningqitielu/" target="_blank">宁启高铁</a> <a href="http://www.reader8.cn/" target="_blank">读书人网</a> <a href="http://www.gaotie.cn/gaotiepiaojia/" target="_blank">高铁票价标准</a> <a href="http://www.gaotie.cn/qubie/" target="_blank">高铁和动车区别</a> <a href="http://www.gaotie.cn/zhengwangaotie/" target="_blank">郑万高铁</a> <a href="http://www.vobao.com/" target="_blank">保险</a> <a href="http://www.gaotie.cn/baolangaotie/" target="_blank">宝兰高铁</a> <a href="http://www.metalnews.cn/" target="_blank">金属价格网</a> <a href="http://www.5068.com" target="_blank">5068儿童网</a> <a href="http://www.gaotie.cn/yuwantielu/" target="_blank">渝万高铁</a> <a href="http://www.gaotie.cn/baohaigaotie/" target="_blank">包海高铁</a> <a href="http://www.qqbaobao.com" target="_blank">亲宝网</a> <a href="http://www.gaotie.cn/yawangaotie/" target="_blank">雅万高铁</a> <a href="http://you.ctrip.com" target="_blank">携程旅游网</a> <a href="http://www.southmoney.com/" target="_blank">股票</a> <a href="http://www.bidcenter.com.cn" target="_blank">中国采招网</a> <a href="http://www.gaotie.cn/chaojigaotie/" target="_blank">超级高铁</a> <a href="http://www.gaotie.cn/yuxinoutielu/" target="_blank">渝新欧铁路</a> <a href="http://www.gaotie.cn/zhangjiajielvyou/" target="_blank">张家界旅游</a> <a href="http://www.laoren.com/" target="_blank">老人网</a> <a href="http://book.kongfz.com/" target="_blank">网上买书</a> <a href="#" target="_blank">>>友链请加QQ：97681290</a> </li>
+</ul>
+<h1><img src="images/dff.gif" width="960" height="8" /></h1>
+</div>
+</div>
+
+<div class="footer02">
+<hr>
+<ul>
+<li><a href="http://corp.gaotie.cn/About/list/index3.html" target="_blank">关于我们</a> | <a href="http://corp.gaotie.cn/About/list/index9.html" target="_blank">联系我们</a> | <a href="http://corp.gaotie.cn/About/list/index6.html" target="_blank">合作机会</a> | <a href="http://corp.gaotie.cn/About/list/index18.html" target="_blank">广告服务</a> | <a href="http://corp.gaotie.cn/About/list/index15.html" target="_blank">网站声明</a> | <a href="http://corp.gaotie.cn/About/list/index22.html" target="_blank">服务协议</a> | <a href="http://www.gaotie.com.cn/hr/" target="_blank">诚聘英才</a> | <a href="http://wenda.gaotie.cn/" target="_blank">在线咨询</a>
+</li>
+<li> <a href="http://www.gaotie.cn">高铁网</a>{<a href="http://m.gaotie.cn">移动版</a>} <a href="http://www.miibeian.gov.cn" target="_blank">京ICP备11009069</a> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502031106" style="display:inline-block;text-decoration:none;"><img src="http://www.beian.gov.cn/img/ghs.png" style="float:left;" />京公网安备11010502031106号</a> </li>
+<li> Copyright &copy;2018 <a href="http://www.gaotie.cn">Gaotie.cn</a> </li>
+</br>
+</ul>
+</div>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F4a5bcdffa8c27ccc1ec525704ed44306' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+<table width="100%" height="100" border="0">
+<tr>
+<td>&nbsp;</td>
+</tr>
+</table>
+<script type="text/javascript">
+tianshu = '2';
+</script>
+<script type="text/javascript" src="http://book.gaotie.cn/js/bjdp/core.js"></script>
+<script type="text/javascript" src="http://book.gaotie.cn/js/bjdp/panel.js"></script>
+<script type="text/javascript" src="http://book.gaotie.cn/js/bjdp/BBCalendar-2M.js"></script>
+<script type="text/javascript" src="http://book.gaotie.cn/js/bjdp/search_all.js"></script>
+<script type="text/javascript" id='speedup_test' src="https://idm-su.baidu.com/su.js"></script>
+</body>
+</html>

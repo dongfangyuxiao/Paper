@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="zh-CN" class="avgrund-ready">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="renderer" content="webkit" />
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link type="text/css" media="all" href="https://www.zhaiiker.com/wp-content/cache/autoptimize/css/autoptimize_008b2d91b8dd9f65d3d72583fc175a20.css" rel="stylesheet" /><title>宅客ZhaiiKer &#8211; Share For Fun! Into The Future!</title>
+<link rel='dns-prefetch' href='//cdn.bootcss.com' />
+<link rel='dns-prefetch' href='//at.alicdn.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='fonticon-css' href='//at.alicdn.com/t/font_416760_9bz8naiedim2huxr.css' type='text/css' media='all' />
+<link rel='stylesheet' id='highlight-style-css' href='//cdn.bootcss.com/highlight.js/9.12.0/styles/xcode.min.css' type='text/css' media='all' />
+<meta property="og:locale" content="zh_CN" />
+<meta name="keywords" content="4K电影下载,4K电影,蓝光电影下载,蓝光下载,4K蓝光,电影,电影下载,4K下载,百度云下载,影视,影音,资源,数码,玩物,电脑,宅,宅社区,科技" />
+<meta name="description" content="宅客ZhaiiKer 是全球 4K 蓝光电影下载资源汇总基地，汇集了全球最丰富的 4K 蓝光电影下载。" />
+<meta property="og:description" content="宅客ZhaiiKer 是全球 4K 蓝光电影下载资源汇总基地，汇集了全球最丰富的 4K 蓝光电影下载。" />
+<meta property="og:site_name" content="宅客ZhaiiKer &#8211; Share For Fun! Into The Future!" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="宅客ZhaiiKer &#8211; Share For Fun! Into The Future!" />
+<meta property="og:url" content="https://www.zhaiiker.com" />
+<meta property="og:image" content="http://static.zhaiiker.com/wp-content/uploads/2018/07/newLOGO.png" />
+</head>
+<body class="home blog">
+<div id="page" class="site">
+<header id="masthead" class="site-header">
+<div class="header-top " ref="announcement">
+<div class="header-top-in pos-r clearfix" ref="announcementInfo">
+<div class="gg" v-if="marqueeList.length > 0">
+<div class="marquee_box" @mouseover="hoverStop('stop')" @mouseout="hoverStop('con')">
+<i class="iconfont zrz-icon-font-gonggao"></i>
+<ul class="marquee_list" :class="{'marquee_top':animate}">
+<li v-for="(item, index) in marqueeList">
+<div class="" v-html="item"></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="pos-a" @click="showSearchBox">
+<button class="text"><i class="iconfont zrz-icon-font-sousuo"></i></button>
+</div>
+</div>
+</div>
+<div class="top-menu-parent">
+<div class="pos-r site-branding-parent" data-sticky-class="is-top-sticky">
+<div class="site-branding pos-r clearfix">
+<div class="site-branding-in">
+<div class="mobile-top-menu pos-a">
+<button class="text" @click.stop="showTopMenu()"><i class="zrz-icon-font-tubiaozhizuomoban-copy iconfont"></i></button>
+</div><h1 class="site-title pos-a"><a href="https://www.zhaiiker.com/" rel="home"><img class="logo" src=http://static.zhaiiker.com/wp-content/uploads/2018/07/newLOGO.png alt="宅客ZhaiiKer"/></a></h1> <div class="menu-top l1" ref="topMenu">
+<div class="menu-sroll">
+<div class="clearfix hide"><div class="fl mar5-t"><img class="logo" src=http://static.zhaiiker.com/wp-content/uploads/2018/07/newLOGO.png alt="宅客ZhaiiKer"/></div><div class="fr menu-close" @click="close"><i class="iconfont zrz-icon-font-icon-x"></i></div></div>
+<div class="menu-search pos-r">
+<select v-model="type">
+<option value="post">
+文章
+</option>
+<option value="labs" v-if="showTable.labs">
+研究所
+</option>
+<option value="topic" v-if="showTable.topic">
+话题
+</option>
+<option value="shop" v-if="showTable.shop">
+商品
+</option>
+<option value="pps" v-if="showTable.bubble">
+冒泡
+</option>
+</select>
+<form class="" :action="action+'?s='+key+'&post_type='+type" method="post">
+<input type="text" name="" value="" v-model="key">
+<button class="text" name="submit"><i class="zrz-icon-font-sousuo iconfont"></i></button>
+</form>
+</div>
+<div id="zrz-menu-in" class="zrz-menu-in "><ul id="nav-menu" class="zrz-post-menu clearfix"><li id="menu-item-26670" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-26670"><a href="https://www.zhaiiker.com"><span>首页</span></a></li>
+<li id="menu-item-26671" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26671"><a href="https://www.zhaiiker.com/category/news"><span>资讯</span></a></li>
+<li id="menu-item-26672" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-26672"><a href="https://www.zhaiiker.com/category/resource"><span>资源</span><i class="iconfont zrz-icon-font-zelvxiangxiadanjiantouzhankai"></i></a>
+<ul class="sub-menu">
+<li id="menu-item-26673" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26673"><a href="https://www.zhaiiker.com/category/resource/4kresource"><span>4K资源</span></a></li>
+<li id="menu-item-26674" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26674"><a href="https://www.zhaiiker.com/category/resource/animation"><span>动画</span></a></li>
+<li id="menu-item-26675" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26675"><a href="https://www.zhaiiker.com/category/resource/drama"><span>剧集</span></a></li>
+<li id="menu-item-30211" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-30211"><a href="https://www.zhaiiker.com/category/resource/%e5%ad%97%e5%b9%95"><span>字幕</span></a></li>
+</ul>
+</li>
+<li id="menu-item-26843" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26843"><a href="https://www.zhaiiker.com/category/pre-order"><span>资源预告</span></a></li>
+<li id="menu-item-26676" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26676"><a href="https://www.zhaiiker.com/category/share"><span>分享</span></a></li>
+<li id="menu-item-26677" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-26677"><a href="https://www.zhaiiker.com/category/review"><span>评测</span><i class="iconfont zrz-icon-font-zelvxiangxiadanjiantouzhankai"></i></a>
+<ul class="sub-menu">
+<li id="menu-item-26678" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26678"><a href="https://www.zhaiiker.com/category/review/avreview"><span>影音评测</span></a></li>
+<li id="menu-item-26679" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26679"><a href="https://www.zhaiiker.com/category/review/digitalreview"><span>数码评测</span></a></li>
+<li id="menu-item-28821" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-28821"><a href="https://www.zhaiiker.com/category/review/toyreview"><span>玩物评测</span></a></li>
+</ul>
+</li>
+<li id="menu-item-26680" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26680"><a href="https://www.zhaiiker.com/category/titles"><span>专题</span></a></li>
+<li id="menu-item-26687" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-26687"><a href="https://www.zhaiiker.com/category/activity"><span>活动</span></a></li>
+<li id="menu-item-26664" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26664"><a href="https://www.zhaiiker.com/labs"><span>研究所</span></a></li>
+<li id="menu-item-26666" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-26666"><a href="https://www.zhaiiker.com/forums"><span>社区</span><i class="iconfont zrz-icon-font-zelvxiangxiadanjiantouzhankai"></i></a>
+<ul class="sub-menu">
+<li id="menu-item-26720" class="menu-item menu-item-type-post_type menu-item-object-forum menu-item-26720"><a href="https://www.zhaiiker.com/forum/26718"><span>影视宅</span></a></li>
+<li id="menu-item-26683" class="menu-item menu-item-type-post_type menu-item-object-forum menu-item-26683"><a href="https://www.zhaiiker.com/forum/815"><span>影音宅</span></a></li>
+<li id="menu-item-27640" class="menu-item menu-item-type-post_type menu-item-object-forum menu-item-27640"><a href="https://www.zhaiiker.com/forum/27638"><span>动漫宅</span></a></li>
+<li id="menu-item-26681" class="menu-item menu-item-type-post_type menu-item-object-forum menu-item-26681"><a href="https://www.zhaiiker.com/forum/5766"><span>数码宅</span></a></li>
+<li id="menu-item-26682" class="menu-item menu-item-type-post_type menu-item-object-forum menu-item-26682"><a href="https://www.zhaiiker.com/forum/5762"><span>玩物宅</span></a></li>
+<li id="menu-item-26737" class="menu-item menu-item-type-post_type menu-item-object-forum menu-item-26737"><a href="https://www.zhaiiker.com/forum/26735"><span>游戏宅</span></a></li>
+<li id="menu-item-26738" class="menu-item menu-item-type-post_type menu-item-object-forum menu-item-26738"><a href="https://www.zhaiiker.com/forum/26729"><span>水族馆</span></a></li>
+</ul>
+</li>
+<li id="menu-item-26667" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26667"><a href="https://www.zhaiiker.com/shop"><span>商城</span></a></li>
+</ul></div> </div>
+</div>
+<div class="sign-button pos-r pos-a">
+<div class="mobile-button">
+<button class="text" @click.stop="sign('in')"><i class="iconfont zrz-icon-font-40one"></i></button>
+</div>
+<div class="pc-button mobile-hide">
+<button class="empty" @click="sign('in')" v-cloak>登录</button>
+<button class="small mar10-l" @click="sign('up')" v-if="canReg == 1" v-cloak>快速注册</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div id="content" class="site-content">
+<div class="home-bg pos-a">
+<div class="pos-a img-bg blur" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/07/p2518549676.jpg?x-oss-process=image/resize,w_100)"></div>
+</div>
+<div id="carousel" class="home-wrapper mar10-b "><div ref="carousel" class=""><div class="fd pos-r wp-first" ref="pcCarousel"><div class="wp-l  img-bg " style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/07/153120998092142.jpg?x-oss-process=image/resize,m_fill,limit_0,h_365,w_570)">
+<a class="link-block" href="https://www.zhaiiker.com/review/35679.html" rel="bookmark"></a>
+<div :class="['pos-a','bg-bkg',{titleClass}]">
+<div class="wp-cat"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/review/avreview">影音评测</a></div>
+<h2>影音｜Campfire Audio Atlas：解析力比 Andromeda 更强</h2>
+<div class="wp-meta fs12 mar10-t">
+<img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/340e5fc37ea549fe_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_40,w_40" class="avatar" width="40" height="40" style="background-color:#5A8770"/><a id="user-340" class="users" href="https://www.zhaiiker.com/user/340">SPILL</a><span class="dot"></span><time class="timeago" datetime="2018-07-11T18:37:07+08:00" data-timeago="2018-7-11 18:37:07" ref="timeAgo">2018-7-11 18:37:07</time>
+</div>
+</div>
+</div><div class="wp-l  img-bg " style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/07/nexposter.jpg?x-oss-process=image/resize,m_fill,limit_0,h_365,w_570)">
+<a class="link-block" href="https://www.zhaiiker.com/review/35196.html" rel="bookmark"></a>
+<div :class="['pos-a','bg-bkg',{titleClass}]">
+<div class="wp-cat"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/review/digitalreview">数码评测</a></div>
+<h2>数码｜vivo NEX 评测：92.4%的屏占比，满满的黑科技与未来</h2>
+<div class="wp-meta fs12 mar10-t">
+<img src="http://static.zhaiiker.com/wp-content/uploads/2018/06/15279d5e0e1b2e4514_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_40,w_40" class="avatar" width="40" height="40" style="background-color:#9A89B5"/><a id="user-15279" class="users" href="https://www.zhaiiker.com/user/15279">cassie</a><span class="dot"></span><time class="timeago" datetime="2018-07-06T22:30:33+08:00" data-timeago="2018-7-6 22:30:33" ref="timeAgo">2018-7-6 22:30:33</time>
+</div>
+</div>
+</div><div class="wp-l  img-bg " style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/07/154e854c9f10b3.jpg?x-oss-process=image/resize,m_fill,limit_0,h_365,w_570)">
+<a class="link-block" href="https://www.zhaiiker.com/labs/35089.html" rel="bookmark"></a>
+<div :class="['pos-a','bg-bkg',{titleClass}]">
+<div class="wp-cat"><a class="list-category labs-cat" href="https://www.zhaiiker.com/labs/isaid">我说</a></div>
+<h2>「机动战士高达」将拍真人版，整个系列中你最希望哪部作品被翻拍？</h2>
+<div class="wp-meta fs12 mar10-t">
+<img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_40,w_40" class="avatar" width="40" height="40" style="background-color:#6FA9AB"/><a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><time class="timeago" datetime="2018-07-06T12:48:36+08:00" data-timeago="2018-7-6 12:48:36" ref="timeAgo">2018-7-6 12:48:36</time>
+</div>
+</div>
+</div><div class="wp-l  img-bg " style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/07/13372b3aecb065881b.jpg?x-oss-process=image/resize,m_fill,limit_0,h_365,w_570)">
+<a class="link-block" href="https://www.zhaiiker.com/share/34765.html" rel="bookmark"></a>
+<div :class="['pos-a','bg-bkg',{titleClass}]">
+<div class="wp-cat"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/share">分享</a></div>
+<h2>影视｜《我不是药神》：对中国电影的意义绝不仅是一部优秀类型片</h2>
+<div class="wp-meta fs12 mar10-t">
+<img src="http://static.zhaiiker.com/wp-content/uploads/2018/06/13372e2b8505114bdc_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_40,w_40" class="avatar" width="40" height="40" style="background-color:#F5AF29"/><a id="user-13372" class="users" href="https://www.zhaiiker.com/user/13372">gabymi</a><span class="dot"></span><time class="timeago" datetime="2018-07-04T14:27:55+08:00" data-timeago="2018-7-4 14:27:55" ref="timeAgo">2018-7-4 14:27:55</time>
+</div>
+</div>
+</div><div class="wp-l  img-bg " style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/07/shieldposter.jpg?x-oss-process=image/resize,m_fill,limit_0,h_365,w_570)">
+<a class="link-block" href="https://www.zhaiiker.com/review/33715.html" rel="bookmark"></a>
+<div :class="['pos-a','bg-bkg',{titleClass}]">
+<div class="wp-cat"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/review/avreview">影音评测</a></div>
+<h2>影音｜兼顾游戏与 4K 影音体验的奇怪产品 —— Nvidia Shield TV 评测</h2>
+<div class="wp-meta fs12 mar10-t">
+<img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_40,w_40" class="avatar" width="40" height="40" style="background-color:#6FA9AB"/><a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><time class="timeago" datetime="2018-07-03T00:57:27+08:00" data-timeago="2018-7-3 0:57:27" ref="timeAgo">2018-7-3 0:57:27</time>
+</div>
+</div>
+</div><div class="wp-l  img-bg " style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/07/1337239805f383fa7b.jpg?x-oss-process=image/resize,m_fill,limit_0,h_365,w_570)">
+<a class="link-block" href="https://www.zhaiiker.com/share/34420.html" rel="bookmark"></a>
+<div :class="['pos-a','bg-bkg',{titleClass}]">
+<div class="wp-cat"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/share">分享</a></div>
+<h2>影视｜《血观音》：世界上最可怕的不是眼前的刑罚，而是无爱的未来</h2>
+<div class="wp-meta fs12 mar10-t">
+<img src="http://static.zhaiiker.com/wp-content/uploads/2018/06/13372e2b8505114bdc_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_40,w_40" class="avatar" width="40" height="40" style="background-color:#F5AF29"/><a id="user-13372" class="users" href="https://www.zhaiiker.com/user/13372">gabymi</a><span class="dot"></span><time class="timeago" datetime="2018-07-01T18:46:02+08:00" data-timeago="2018-7-1 18:46:02" ref="timeAgo">2018-7-1 18:46:02</time>
+</div>
+</div>
+</div></div><div class="fd wp-r">
+<div class="wp-r-t pos-r img-bg" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/07/Oceans-8-Movie-Review.jpg?x-oss-process=image/resize,m_fill,limit_0,h_178,w_560)">
+<a class="link-block" href="https://www.zhaiiker.com/titles/34344.html" rel="bookmark"></a>
+<div class="pos-a bg-bkg">
+<div class="wp-cat"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/titles">专题</a></div>
+<h2>影视｜136.26 克拉钻石的幕后！？《瞒天过海：美人计》时尚名人客串统整、时尚品牌暗喻彩蛋和系列作串联分析一览表</h2>
+</div>
+</div><div class="wp-r-b">
+<div class="wp-r-b-l fd pos-r">
+<div class="img-bg pos-a" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/06/36419194_10155619056254849_7677339090542395392_n.png?x-oss-process=image/resize,m_fill,limit_0,h_176,w_280)">
+<a class="link-block" href="https://www.zhaiiker.com/review/34278.html" rel="bookmark"></a>
+<div class="pos-a bg-bkg">
+<div class="wp-cat"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/review/avreview">影音评测</a></div>
+<h2>影碟｜《权力的游戏》第一季 4K UHD BD Dolby Vision/Atmos　重温「龙母」崛起</h2>
+</div>
+</div></div><div class="wp-r-b-r fd pos-r">
+<div class="img-bg pos-a" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/06/spectreposter.jpg?x-oss-process=image/resize,m_fill,limit_0,h_174,w_273)">
+<a class="link-block" href="https://www.zhaiiker.com/review/33683.html" rel="bookmark"></a>
+<div class="pos-a bg-bkg">
+<div class="wp-cat"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/review/digitalreview">数码评测</a></div>
+<h2>数码｜除了散热和温控，近乎完美 —— 惠普 Spectre X360 15 详测</h2>
+</div>
+</div>
+</div></div></div></div></div><div class="box pd10 mission pos-r mar10-b mar10-t l1 hide" id="home-mission" ref="homeMission" v-cloak>
+<a href="#" @click.stop.prevent="mission()"><i class="iconfont zrz-icon-font-liwu red"></i><span class="text mar5-l" v-html="Mtext">&nbsp;</span></a>
+</div><div id="home-collections" class="home-collections box mar10-b pos-r" @click="openList($event)">
+<div class="pd10 b-b clearfix fs12 l1">
+<span class="fl">专题</span>
+<a href="https://www.zhaiiker.com/collections" class="fr" v-if="locked">所有专题</a>
+<span class="open-colle fr" v-else><i class="iconfont zrz-icon-font-zhankaishangxia"></i></span>
+</div>
+<ul class="l-8 pd5 " @click.stop="" v-show="locked"><li class="collections-item fd t-c l0">
+<div class="collections-item-in pd10-b">
+<div class="collections-item-img pos-r t-c" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/05/366221ece973d35a7_cat.jpg?x-oss-process=image/resize,m_fill,limit_0,h_136,w_179)">
+<a href=https://www.zhaiiker.com/collection/openmatte class="pos-a">
+<span class="pos-a shadow">@林見東-折e天使 OPEN MATTE 电影资源专题</span>
+</a>
+</div>
+<div class="pd10-b pd10-t bg-blue-light">
+<p class="fs13 gray">已更新56篇文章</p>
+</div>
+</div>
+</li><li class="collections-item fd t-c l0">
+<div class="collections-item-in pd10-b">
+<div class="collections-item-img pos-r t-c" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/05/386438a45698cebb0_cat.jpg?x-oss-process=image/resize,m_fill,limit_0,h_136,w_179)">
+<a href=https://www.zhaiiker.com/collection/criterioncollection class="pos-a">
+<span class="pos-a shadow">CC标准版蓝光专题</span>
+</a>
+</div>
+<div class="pd10-b pd10-t bg-blue-light">
+<p class="fs13 gray">已更新18篇文章</p>
+</div>
+</div>
+</li><li class="collections-item fd t-c l0">
+<div class="collections-item-in pd10-b">
+<div class="collections-item-img pos-r t-c" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/05/36633ca5dc0eeda95_cat.jpg?x-oss-process=image/resize,m_fill,limit_0,h_136,w_179)">
+<a href=https://www.zhaiiker.com/collection/readyplayerone class="pos-a">
+<span class="pos-a shadow">头号玩家专题</span>
+</a>
+</div>
+<div class="pd10-b pd10-t bg-blue-light">
+<p class="fs13 gray">已更新9篇文章</p>
+</div>
+</div>
+</li><li class="collections-item fd t-c l0">
+<div class="collections-item-in pd10-b">
+<div class="collections-item-img pos-r t-c" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/05/380255f183afcf9f0_cat.jpg?x-oss-process=image/resize,m_fill,limit_0,h_136,w_179)">
+<a href=https://www.zhaiiker.com/collection/deadpool2 class="pos-a">
+<span class="pos-a shadow">死侍2专题</span>
+</a>
+</div>
+<div class="pd10-b pd10-t bg-blue-light">
+<p class="fs13 gray">已更新19篇文章</p>
+</div>
+</div>
+</li><li class="collections-item fd t-c l0">
+<div class="collections-item-in pd10-b">
+<div class="collections-item-img pos-r t-c" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/05/3664c2a75b734a5ce_cat.jpg?x-oss-process=image/resize,m_fill,limit_0,h_136,w_179)">
+<a href=https://www.zhaiiker.com/collection/mcu10thanniversary class="pos-a">
+<span class="pos-a shadow">漫威电影十周年专题</span>
+</a>
+</div>
+<div class="pd10-b pd10-t bg-blue-light">
+<p class="fs13 gray">已更新27篇文章</p>
+</div>
+</div>
+</li><li class="collections-item fd t-c l0">
+<div class="collections-item-in pd10-b">
+<div class="collections-item-img pos-r t-c" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/06/3942e351b4aef5b9c_cat.jpg?x-oss-process=image/resize,m_fill,limit_0,h_136,w_179)">
+<a href=https://www.zhaiiker.com/collection/4kuhdbdsup class="pos-a">
+<span class="pos-a shadow">碧海银沙4K UHD 蓝光特效字幕专题</span>
+</a>
+</div>
+<div class="pd10-b pd10-t bg-blue-light">
+<p class="fs13 gray">已更新8篇文章</p>
+</div>
+</div>
+</li></ul></div>
+<div id="primary-home" class="content-area fd mobile-full-width" ref="primaryHome">
+<main id="main" class="site-main grid clearfix pos-r arc" ref="grid">
+<div ref="postList" class=""><div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/dims-5.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/news/35738.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/13289"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/06/13289005b6c0123691_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#9A89B5"/></a>
+</span>
+<a id="user-13289" class="users" href="https://www.zhaiiker.com/user/13289">Meisner</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T11:27:56+08:00" data-timeago="2018-7-12 11:27:56" ref="timeAgo">2018-7-12 11:27:56</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/news/35738.html" rel="bookmark">数码 | Magic Leap 混合现实耳机将于今年夏天发布</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">手势跟踪，眼动追踪、物理控制器...想买...用来玩“绿洲”...</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/news">资讯</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>2<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>0<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"><i class="iconfont zrz-icon-font-denglu"></i></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/04/2018040200274486.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/resource/23170.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/1"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#6FA9AB"/></a>
+</span>
+<a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T11:15:55+08:00" data-timeago="2018-7-12 11:15:55" ref="timeAgo">2018-7-12 11:15:55</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/resource/23170.html" rel="bookmark">「日本动画」足球小将 キャプテン翼 Captain Tsubasa (2018)「更新E15」</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">《足球小将》宣布复活！将于2018年4月播出，该动画讲述了热爱足球的大空翼逐渐成长为职业足球运动员的传奇故事。</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/resource/animation">动画</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>11597<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>43<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>6
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/neill-blomkamp-robocop.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/news/35737.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/1"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#6FA9AB"/></a>
+</span>
+<a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T11:12:23+08:00" data-timeago="2018-7-12 11:12:23" ref="timeAgo">2018-7-12 11:12:23</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/news/35737.html" rel="bookmark">影视｜尼尔·布洛姆坎普将指导《机械战警》的重启新作</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">贾斯丁·罗德斯重写新作剧本</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/news">资讯</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>4<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>0<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/kuo.png?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/news/35722.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/13289"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/06/13289005b6c0123691_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#9A89B5"/></a>
+</span>
+<a id="user-13289" class="users" href="https://www.zhaiiker.com/user/13289">Meisner</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T10:45:50+08:00" data-timeago="2018-7-12 10:45:50" ref="timeAgo">2018-7-12 10:45:50</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/news/35722.html" rel="bookmark">数码 | 郭明池最新报告，预测苹果秋季的“大”更新</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">我忽然想起了曾小贤对未来 iPhone 20 —— “长剑” 的预言...</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/news">资讯</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>21<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>1<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"><i class="iconfont zrz-icon-font-denglu"></i></span> <div style="background-image:url('https://zhaikeimgvdo.oss-cn-shenzhen.aliyuncs.com/wp-content/uploads/2018/06/0e37ed6a35bb8b3e5cc6049d4f2db989.png?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/resource/31986.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/1"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#6FA9AB"/></a>
+</span>
+<a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T10:33:55+08:00" data-timeago="2018-7-12 10:33:55" ref="timeAgo">2018-7-12 10:33:55</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/resource/31986.html" rel="bookmark">「体育」2018年俄罗斯世界杯 2018 FIFA World Cup (2018)「更新英格兰VS克罗地亚」</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">2018年俄罗斯世界杯（俄语：Чемпиона́т ми́ра по футбо́лу 2018）是第21届世界杯足球赛。比赛将于2018年6月14日至7月15日在俄罗斯境内11...</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/resource">资源</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>4721<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>89<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>3
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"><i class="iconfont zrz-icon-font-denglu"></i></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/04/2018042611391420.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/resource/25887.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/1"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#6FA9AB"/></a>
+</span>
+<a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T10:25:42+08:00" data-timeago="2018-7-12 10:25:42" ref="timeAgo">2018-7-12 10:25:42</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/resource/25887.html" rel="bookmark">「美剧」使女的故事 第二季 The Handmaid&#8217;s Tale Season 2 (2018)「更新完结」</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">这部剧凭借出色的第一季在今年的艾美奖上斩获数尊重量级奖项，第二季将聚焦奥芙丽德的怀孕，以及她为让即将出生的孩子脱离这恐怖的统治...</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/resource/drama">剧集</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>2588<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>15<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>1
+</div> </div>
+</div>
+</div>
+<div class="box mar10-b home-labs" ref="homeLabs">
+<ul class="clearfix home-labs-list">
+<li class="pos-r" v-cloak>
+<div class="pos-a home-labs-thumb-p">
+<div class="home-labs-thumb thumb-in" style="background-image:url(http://static.zhaiiker.com/wp-content/uploads/2018/07/154e854c9f10b3.jpg?x-oss-process=image/resize,m_fill,limit_0,h_300,w_410)"><a class="link-block" href="https://www.zhaiiker.com/labs/35089.html" rel="bookmark"></a></div>
+</div>
+<div class="home-labs-list-r">
+<p class="home-labs-cat"><a href="https://www.zhaiiker.com/labs/isaid">我说</a></p>
+<h2><a href="https://www.zhaiiker.com/labs/35089.html" rel="bookmark">「机动战士高达」将拍真人版，整个系列中你最希望哪部作品被翻拍？</a></h2>
+<p class="home-labs-des pos-r"><i class="iconfont zrz-icon-font-shangyinhao"></i>元祖高达0079，还是精神崩溃的卡谬Z高达，又或者平成三部曲GWX，还是说21世纪的SEED、00和独角兽？又或者夏亚或者阿姆罗的独立传记？<i class="iconfont zrz-icon-font-xiayinhao"></i></p>
+<p class="home-labs-author gray mar20-t label-meta mar20-b"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_30,w_30" class="avatar" width="30" height="30" style="background-color:#6FA9AB"/><a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a></p>
+<p class="mar10-t gray label-meta">103人参与<i class="dot">|</i><time class="timeago" datetime="2018-07-06T12:48:36+08:00" data-timeago="2018-7-6 12:48:36" ref="timeAgo">2018-7-6 12:48:36</time></p>
+</div></li><li class="pos-r" v-cloak>
+<div class="pos-a home-labs-thumb-p">
+<div class="home-labs-thumb thumb-in" style="background-image:url(https://zhaikeimgvdo.oss-cn-shenzhen.aliyuncs.com/wp-content/uploads/2018/06/13372ddba7521ce63b.jpg?x-oss-process=image/resize,m_fill,limit_0,h_300,w_410)"><a class="link-block" href="https://www.zhaiiker.com/labs/31178.html" rel="bookmark"></a></div>
+</div>
+<div class="home-labs-list-r">
+<p class="home-labs-cat"><a href="https://www.zhaiiker.com/labs/isaid">我说</a></p>
+<h2><a href="https://www.zhaiiker.com/labs/31178.html" rel="bookmark">我们正在计划出电影电视游戏动漫相关的周边产品，各位有什么心水的作品与台词对话尽情说，可能就有你最爱的人物作品周边出现了~</a></h2>
+<p class="home-labs-des pos-r"><i class="iconfont zrz-icon-font-shangyinhao"></i>目前的计划有 电影电视剧类：《异形》、《西部世界》、昆汀·塔伦蒂诺的所有电影、《自杀小队》小丑与小丑女、漫威宇宙 动漫类：《进击的...<i class="iconfont zrz-icon-font-xiayinhao"></i></p>
+<p class="home-labs-author gray mar20-t label-meta mar20-b"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/06/13372e2b8505114bdc_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_30,w_30" class="avatar" width="30" height="30" style="background-color:#F5AF29"/><a id="user-13372" class="users" href="https://www.zhaiiker.com/user/13372">gabymi</a></p>
+<p class="mar10-t gray label-meta">219人参与<i class="dot">|</i><time class="timeago" datetime="2018-06-11T17:23:00+08:00" data-timeago="2018-6-11 17:23:00" ref="timeAgo">2018-6-11 17:23:00</time></p>
+</div></li><li class="pos-r" v-cloak>
+<div class="pos-a home-labs-thumb-p">
+<div class="home-labs-thumb thumb-in" style="background-image:url(https://zhaikeimgvdo.oss-cn-shenzhen.aliyuncs.com/wp-content/uploads/2018/05/2369f6de395a2f685.jpg?x-oss-process=image/resize,m_fill,limit_0,h_300,w_410)"><a class="link-block" href="https://www.zhaiiker.com/labs/27847.html" rel="bookmark"></a></div>
+</div>
+<div class="home-labs-list-r">
+<p class="home-labs-cat"><a href="https://www.zhaiiker.com/labs/relay">接力</a></p>
+<h2><a href="https://www.zhaiiker.com/labs/27847.html" rel="bookmark">《复仇者联盟3：无限战争》你给打几分？</a></h2>
+<p class="home-labs-des pos-r"><i class="iconfont zrz-icon-font-shangyinhao"></i>各位都看了《复仇者联盟3：无限战争》了吧？在你心中，这部影片可以打多少分？<i class="iconfont zrz-icon-font-xiayinhao"></i></p>
+<p class="home-labs-author gray mar20-t label-meta mar20-b"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/137a8ea537eb7.jpg?x-oss-process=image/resize,m_fill,limit_0,h_30,w_30" class="avatar" width="30" height="30" style="background-color:#9A89B5"/><a id="user-2369" class="users" href="https://www.zhaiiker.com/user/2369">宅客ZhaiiKer</a></p>
+<p class="mar10-t gray label-meta">5人参与<i class="dot">|</i><time class="timeago" datetime="2018-05-12T22:50:35+08:00" data-timeago="2018-5-12 22:50:35" ref="timeAgo">2018-5-12 22:50:35</time></p>
+</div></li><li class="pos-r" v-cloak>
+<div class="pos-a home-labs-thumb-p">
+<div class="home-labs-thumb thumb-in" style="background-image:url(https://zhaikeimgvdo.oss-cn-shenzhen.aliyuncs.com/wp-content/uploads/2018/05/1631fca91257a5.jpg?x-oss-process=image/resize,m_fill,limit_0,h_300,w_410)"><a class="link-block" href="https://www.zhaiiker.com/labs/27380.html" rel="bookmark"></a></div>
+</div>
+<div class="home-labs-list-r">
+<p class="home-labs-cat"><a href="https://www.zhaiiker.com/labs/isaid">我说</a></p>
+<h2><a href="https://www.zhaiiker.com/labs/27380.html" rel="bookmark">推荐一些高分高口碑但冷门的电影、剧集或者动漫作品</a></h2>
+<p class="home-labs-des pos-r"><i class="iconfont zrz-icon-font-shangyinhao"></i>各位发表一下，好的资源我会找来发哦~<i class="iconfont zrz-icon-font-xiayinhao"></i></p>
+<p class="home-labs-author gray mar20-t label-meta mar20-b"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_30,w_30" class="avatar" width="30" height="30" style="background-color:#6FA9AB"/><a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a></p>
+<p class="mar10-t gray label-meta">151人参与<i class="dot">|</i><time class="timeago" datetime="2018-05-08T23:30:08+08:00" data-timeago="2018-5-8 23:30:08" ref="timeAgo">2018-5-8 23:30:08</time></p>
+</div></li><li class="pos-r" v-cloak>
+<div class="pos-a home-labs-thumb-p">
+<div class="home-labs-thumb thumb-in" style="background-image:url(https://zhaikeimgvdo.oss-cn-shenzhen.aliyuncs.com/wp-content/uploads/2018/05/11a0cb3aeaf5e5.jpg?x-oss-process=image/resize,m_fill,limit_0,h_300,w_410)"><a class="link-block" href="https://www.zhaiiker.com/labs/27099.html" rel="bookmark"></a></div>
+</div>
+<div class="home-labs-list-r">
+<p class="home-labs-cat"><a href="https://www.zhaiiker.com/labs/vote">投票</a></p>
+<h2><a href="https://www.zhaiiker.com/labs/27099.html" rel="bookmark">MCU十九部作品中哪几部是你最喜欢？</a></h2>
+<p class="home-labs-des pos-r"><i class="iconfont zrz-icon-font-shangyinhao"></i>MCU至今十年，第十九部作品《复仇者联盟3：无限战争》目前也准备在内地上映，十年时间，哪一部是你最喜欢的作品？<i class="iconfont zrz-icon-font-xiayinhao"></i></p>
+<p class="home-labs-author gray mar20-t label-meta mar20-b"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_30,w_30" class="avatar" width="30" height="30" style="background-color:#6FA9AB"/><a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a></p>
+<p class="mar10-t gray label-meta">304人参与<i class="dot">|</i><time class="timeago" datetime="2018-05-06T23:41:39+08:00" data-timeago="2018-5-6 23:41:39" ref="timeAgo">2018-5-6 23:41:39</time></p>
+</div></li><li class="pos-r" v-cloak>
+<div class="pos-a home-labs-thumb-p">
+<div class="home-labs-thumb thumb-in" style="background-image:url(https://zhaikeimgvdo.oss-cn-shenzhen.aliyuncs.com/wp-content/uploads/2018/05/1eca755f2aed86.jpg?x-oss-process=image/resize,m_fill,limit_0,h_300,w_410)"><a class="link-block" href="https://www.zhaiiker.com/labs/26953.html" rel="bookmark"></a></div>
+</div>
+<div class="home-labs-list-r">
+<p class="home-labs-cat"><a href="https://www.zhaiiker.com/labs/isaid">我说</a></p>
+<h2><a href="https://www.zhaiiker.com/labs/26953.html" rel="bookmark">5月5日起，机动战士高达 THE ORIGIN 最终话“赤色彗星诞生”在日本为期四周限定上映</a></h2>
+<p class="home-labs-des pos-r"><i class="iconfont zrz-icon-font-shangyinhao"></i>被豆瓣网友誉为描写政治部分系列最佳之作，初回限定蓝光碟也随着上映限定发售了。<i class="iconfont zrz-icon-font-xiayinhao"></i></p>
+<p class="home-labs-author gray mar20-t label-meta mar20-b"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_30,w_30" class="avatar" width="30" height="30" style="background-color:#6FA9AB"/><a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a></p>
+<p class="mar10-t gray label-meta">4人参与<i class="dot">|</i><time class="timeago" datetime="2018-05-06T01:34:32+08:00" data-timeago="2018-5-6 1:34:32" ref="timeAgo">2018-5-6 1:34:32</time></p>
+</div></li>
+</ul>
+</div><div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/《巨齿鲨》杜比影院版海报.jpeg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/news/35726.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/1"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#6FA9AB"/></a>
+</span>
+<a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T10:18:02+08:00" data-timeago="2018-7-12 10:18:02" ref="timeAgo">2018-7-12 10:18:02</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/news/35726.html" rel="bookmark">影视｜《巨齿鲨》曝杜比影院版独家海报 巨兽现身再掀惊涛骇浪</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">《巨齿鲨》采用杜比视界（Dolby Vision）和杜比全景声（Dolby Atmos）制作，将于8月10日登陆全国杜比影院。</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/news">资讯</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>31<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>2<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/huawei_logo_1.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/news/35714.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/13289"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/06/13289005b6c0123691_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#9A89B5"/></a>
+</span>
+<a id="user-13289" class="users" href="https://www.zhaiiker.com/user/13289">Meisner</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T09:41:55+08:00" data-timeago="2018-7-12 9:41:55" ref="timeAgo">2018-7-12 9:41:55</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/news/35714.html" rel="bookmark">科技 | 华为联手银联推出 Huawei Pay“碰一碰”支付方式</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">像华为这样的国民“好孩子”，肯定能受国家的万般宠爱。阿里巴巴的话...</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/news">资讯</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>34<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>2<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/DhyXoqtUcAAGUi7.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/news/35709.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/1"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#6FA9AB"/></a>
+</span>
+<a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T00:42:16+08:00" data-timeago="2018-7-12 0:42:16" ref="timeAgo">2018-7-12 0:42:16</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/news/35709.html" rel="bookmark">动漫｜《怪物猎人》动画化决定：Monster Hunter: Legends of the Guild</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">2019年公开</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/news">资讯</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>93<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>1<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>1
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/p1942343720-1.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/news/35705.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/1"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#6FA9AB"/></a>
+</span>
+<a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T00:26:08+08:00" data-timeago="2018-7-12 0:26:08" ref="timeAgo">2018-7-12 0:26:08</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/news/35705.html" rel="bookmark">影碟｜《复仇者联盟》和《复仇者联盟2奥创纪元》将发售 4K UHD 蓝光</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">发售日定在8月14日</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/news">资讯</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>168<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>6<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/p2520365213-1.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/news/35698.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/1"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#6FA9AB"/></a>
+</span>
+<a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-12T00:14:14+08:00" data-timeago="2018-7-12 0:14:14" ref="timeAgo">2018-7-12 0:14:14</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/news/35698.html" rel="bookmark">影碟｜《复仇者联盟3：无限战争》将发售蓝光以及 4K UHD 蓝光</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">发售日期定在8月14日</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/news">资讯</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>222<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>5<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/153120998092142.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/review/35679.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/340"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/340e5fc37ea549fe_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#5A8770"/></a>
+</span>
+<a id="user-340" class="users" href="https://www.zhaiiker.com/user/340">SPILL</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-11T18:37:07+08:00" data-timeago="2018-7-11 18:37:07" ref="timeAgo">2018-7-11 18:37:07</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/review/35679.html" rel="bookmark">影音｜Campfire Audio Atlas：解析力比 Andromeda 更强</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">这次评测的 Atlas 是品牌最新旗舰型号，并不是多单元结构，采用单一动圈设计，用上先前 Vega 一样的 A.D.L.C 类金刚石单元，却由 8.5mm ...</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/review/avreview">影音评测</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>150<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>1<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/Dhw6lSeV4AAX2j_.jpg_large.0.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/news/35669.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/13289"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/06/13289005b6c0123691_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#9A89B5"/></a>
+</span>
+<a id="user-13289" class="users" href="https://www.zhaiiker.com/user/13289">Meisner</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-11T16:12:06+08:00" data-timeago="2018-7-11 16:12:06" ref="timeAgo">2018-7-11 16:12:06</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/news/35669.html" rel="bookmark">动漫 | Netflix 宣布新系列动画《最后的风之子》现已制作中</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">屡拍不爽的动漫，游戏还会远吗？</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/news">资讯</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>179<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>5<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"><i class="iconfont zrz-icon-font-denglu"></i></span> <div style="background-image:url('http://static.zhaiiker.com/wp-content/uploads/2018/07/p2526617156.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/resource/35668.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/1"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#6FA9AB"/></a>
+</span>
+<a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-11T15:48:04+08:00" data-timeago="2018-7-11 15:48:04" ref="timeAgo">2018-7-11 15:48:04</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/resource/35668.html" rel="bookmark">「意大利电影」罗马男孩 A Ciambra (2017)</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">意大利南部吉普赛人聚居的社区，典型的贫穷混乱。十四岁少年渴望早日长大，像哥哥那样自力更生。他抽烟喝酒，从哥哥身上学会偷窃技能，...</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/resource">资源</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>163<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>0<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+<div class="pos-r pd10 post-list box mar10-b content">
+<div class="pos-r cart-list">
+<div class="thumb pos-r">
+<span class="pos-a post-cap fs12 shadow"><i class="iconfont zrz-icon-font-denglu"></i></span> <div style="background-image:url('https://zhaikeimgvdo.oss-cn-shenzhen.aliyuncs.com/wp-content/uploads/2018/06/p2520103076.jpg?x-oss-process=image/resize,m_fill,limit_0,h_200,w_300')" class="preview thumb-in"></div>
+<a target="_blank" href="https://www.zhaiiker.com/resource/30453.html" class="link-block"></a>
+</div>
+<div class="post-info pos-r pd10 post-side">
+<div class="post-header pos-r mar10-b fs13">
+<span class="pos-a">
+<a href="https://www.zhaiiker.com/user/1"><img src="http://static.zhaiiker.com/wp-content/uploads/2018/05/158f2ac2aebe25_avatar.jpg?x-oss-process=image/resize,m_fill,limit_0,h_50,w_50" class="avatar" width="50" height="50" style="background-color:#6FA9AB"/></a>
+</span>
+<a id="user-1" class="users" href="https://www.zhaiiker.com/user/1">kagakadaj</a><span class="dot"></span><span class="gray"><time class="timeago" datetime="2018-07-11T15:40:36+08:00" data-timeago="2018-7-11 15:40:36" ref="timeAgo">2018-7-11 15:40:36</time></span> </div>
+<h2 class="entry-title"><a target="_blank" href="https://www.zhaiiker.com/resource/30453.html" rel="bookmark">「美影」自觉美丽 I Feel Pretty (2018)「更新蓝光版」</a></h2>
+<div class="mar10-b post-ex mar10-t mobile-hide">Renee（舒默饰）一直因为缺乏安全感而感到困扰。然而，一起意外过后，她开始相信自己是这世上最美的女人。她重获自信，并开始充实自己的...</div>
+<div class="post-meta meta mar10-t clearfix">
+<span class="list-category-l hide5"><a class="list-category bg-blue-light color" href="https://www.zhaiiker.com/category/resource">资源</a><span class="dot"></span></span><i class="iconfont zrz-icon-font-eye"></i>627<span class="dot"></span><i class="iconfont zrz-icon-font-pinglun"></i>10<span class="dot"></span><i class="iconfont zrz-icon-font-collect"></i>0
+</div> </div>
+</div>
+</div>
+</div><page-nav class="box" nav-type="index" :paged="1" :pages="272" :show-type="'p'"></page-nav>
+</main>
+</div><aside id="secondary" class=" widget-area fd mobile-full-width">
+<div class="widget-area-in">
+<section id="user_box-8" class="widget widget_user_box box mar10-b"> 
+<div class="widget_guest clearfix box mar10-b">
+<div class="pd10">
+<p class="fs14 mar10-b gray">嗨! 新朋友</p>
+<p class="pd10-t pd10-b">欢迎您新朋友！</p>
+</div>
+<div class="bg-blue-light pd10 widget-title gray b-t b-b">免注册登录</div>
+<div class="pd10">
+<a href="javascript:void(0)" onclick="openWin('https://open.weixin.qq.com/connect/qrconnect?appid=&redirect_uri=https%3A%2F%2Fwww.zhaiiker.com%2Fopen%3Fopen_type%3Dweixin&response_type=code&scope=snsapi_login','weixin','500','500')" class="fs12 opwx pos-r">微信登录</a>
+<a href="javascript:void(0)" onclick="openWin('https://api.weibo.com/oauth2/authorize?client_id=2707700824&response_type=code&redirect_uri=https%3A%2F%2Fwww.zhaiiker.com%2Fopen%3Fopen_type%3Dweibo','weibo','500','500')" class="fs12 opwb pos-r">微博登录</a>
+<a href="javascript:void(0)" onclick="openWin('https://graph.qq.com/oauth2.0/authorize?client_id=101361781&state=257fcea00205e3947001ca9a3172c3dd&response_type=code&redirect_uri=https%3A%2F%2Fwww.zhaiiker.com%2Fopen%3Fopen_type%3Dqq','qq','500','500')" class="fs12 opqq pos-r">QQ登录</a>
+</div>
+</div>
+</section><section id="hot_post-8" class="widget widget_hot_post box mar10-b"><h2 class="widget-title l1 pd10 box-header">热门文章</h2><div class="b-t pd10 pos-r">
+<a href="https://www.zhaiiker.com/resource/25547.html" rel="bookmark">
+<img class="pos-a" src="http://static.zhaiiker.com/wp-content/uploads/2018/04/2018042311174990.jpg?x-oss-process=image/resize,m_fill,limit_0,h_90,w_120"><h2 class="">「美剧」西部世界 第二季 Westworld Season 2 (2018)「全集更新完毕」</h2></a></div><div class="b-t pd10 pos-r">
+<a href="https://www.zhaiiker.com/resource/24462.html" rel="bookmark">
+<img class="pos-a" src="http://static.zhaiiker.com/wp-content/uploads/2018/04/2018041311180193.jpg?x-oss-process=image/resize,m_fill,limit_0,h_90,w_120"><h2 class="">「美影」头号玩家 Ready Player One (2018)「更新蓝光版」</h2></a></div><div class="b-t pd10 pos-r">
+<a href="https://www.zhaiiker.com/resource/23170.html" rel="bookmark">
+<img class="pos-a" src="http://static.zhaiiker.com/wp-content/uploads/2018/04/2018040200274486.jpg?x-oss-process=image/resize,m_fill,limit_0,h_90,w_120"><h2 class="">「日本动画」足球小将 キャプテン翼 Captain Tsubasa (2018)「更新E15」</h2></a></div><div class="b-t pd10 pos-r">
+<a href="https://www.zhaiiker.com/resource/29175.html" rel="bookmark">
+<img class="pos-a" src="https://zhaikeimgvdo.oss-cn-shenzhen.aliyuncs.com/wp-content/uploads/2018/05/p2518362559.jpg?x-oss-process=image/resize,m_fill,limit_0,h_90,w_120"><h2 class="">「4K HDR 美影」头号玩家 Ready Player One (2018)「4K UHD 蓝光破解版」</h2></a></div><div class="b-t pd10 pos-r">
+<a href="https://www.zhaiiker.com/resource/32310.html" rel="bookmark">
+<img class="pos-a" src="https://zhaikeimgvdo.oss-cn-shenzhen.aliyuncs.com/wp-content/uploads/2018/06/0e37ed6a35bb8b3e5cc6049d4f2db989.png?x-oss-process=image/resize,m_fill,limit_0,h_90,w_120"><h2 class="">「4K UHD 体育」2018年俄罗斯世界杯 2018 FIFA World Cup (2018)「更新法国VS乌拉圭」</h2></a></div></section><section id="newest_comment-6" class="widget widget_newest_comment box mar10-b"><h2 class="widget-title l1 pd10 box-header">最新评论<div class="fr" ref="commentSide" v-cloak><button :class="[{'green' : paged > 1 && !locked},'mar10-r','text']" @click.stop.prevent="pager('prev')">❮ PREV</button> <button :class="[{'green' : paged < pages && !locked},'text']" @click.stop.prevent="pager('next')">NEXT ❯</button></div></h2>
+<div id="newest-comments" data-hide="1" data-number="5">
+<ul v-if="comments.length > 0" v-cloak>
+<li class="b-t pd10" v-for="comment in comments">
+<div class="clearfix">
+<span class="" v-html="comment.avatar"></span>
+<span class="newest_comment_author" v-html="comment.author"></span>
+<span v-html="comment.date" class="fr"></span>
+</div>
+<div class="newest_comment_content pd10 mar10-t pos-r mar5-b pjt fs13" v-html="comment.content"></div>
+<span class="gray fs12" v-html="comment.post_link"></span>
+</li>
+</ul>
+<div class="pd10 b-t t-c gray pos-r" style="min-height:100px" v-else-if="!noneComments">
+<b class="loading"></b>
+</div>
+<div class="pd10 b-t t-c gray pos-r" v-else v-cloak>
+没有评论
+</div>
+</div></section><section id="index_add-13" class="widget widget_index_add box mar10-b"><div class="side-fixed bg-w" data-sticky-class="is-side-sticky" data-margin-top="70"><div class="index-add b-t pd10"><a href="https://oppoyygf.tmall.com/shop/view_shop.htm?spm=a220m.1000862.1000730.2.5df66dffMNgRNP&user_number_id=2183965170&rn=3fd07b7899da4934abb3d2449dcbb0fc" target="_blank"><img src="http://static.zhaiiker.com/wp-content/uploads/2017/12/690-90.jpg"></a></div></div></section> </div>
+</aside>
+<div id="go-top" class="go-top" :style="'z-index:'+index">
+<template v-cloak>
+<div class="toolbar-write pos-r tool-button">
+<button class="text" @click="showSearchBox('write')"><i class="iconfont zrz-icon-font-dengpao"></i><span>发起</span></button>
+</div>
+<div class="pos-r tool-button" v-cloak>
+<button class="text " @click="msg"><i class="iconfont zrz-icon-font-message1"></i><span>反馈</span></button>
+</div>
+<div class="pos-r tool-button" v-cloak>
+<button class="text" @click="showSearchBox('search')"><i class="iconfont zrz-icon-font-sousuo"></i><span>搜索</span></button>
+</div>
+<div class="pos-r tool-button" v-cloak>
+<button class="text" @click="goTop"><i class="iconfont zrz-icon-font-arrowup"></i><span>Top</span></button>
+</div>
+<msg-box :show="showBox" :tid="uid" :tname="uname" :mtype="mtype" title="问题反馈" @close-form="closeForm"></msg-box>
+<go-top :show="showSearch" :type="type" @close-form="closeForm"></go-top>
+</template>
+</div>
+</div>
+<footer id="colophon" class="site-footer mar20-t pd20-b pd20-t">
+<div class="site-info fs12">
+<div class="footer-menu"><div id="zrz-menu-footer" class="zrz-menu-in "><ul id="nav-menu" class="zrz-footer-menu mar20-b"><li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-796"><a href="https://www.zhaiiker.com/aboutus"><span>关于我们</span></a></li>
+<li id="menu-item-5408" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5408"><a href="https://www.zhaiiker.com/cooperation"><span>商务合作</span></a></li>
+<li id="menu-item-6922" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6922"><a href="https://www.zhaiiker.com/links"><span>友情链接</span></a></li>
+<li id="menu-item-5407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5407"><a href="https://www.zhaiiker.com/author-notice"><span>投稿须知</span></a></li>
+<li id="menu-item-5409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5409"><a href="https://www.zhaiiker.com/report"><span>寻求报道</span></a></li>
+</ul></div></div><div class="footer-links mar20-b b-b b-t mobile-hide"><a target="_blank" href="http://www.chiphell.com/">Chiphell</a><a target="_blank" href="http://www.dgtle.com/">数字尾巴</a><a target="_blank" href="http://www.zimuxia.cn/">FIXSUB字幕侠</a><a target="_blank" href="https://pt.hd4fans.org">HD4FANS</a><a target="_blank" href="https://share.dmhy.org/">动漫花园</a><a target="_blank" href="http://www.miguyu.com">咪咕鱼导航</a><a target="_blank" href="http://subhd.com/">SubHD字幕站</a><a target="_blank" href="https://rarbg.is/">RARBG</a><a target="_blank" href="http://www.pniao.com/">胖鸟电影</a><a target="_blank" href="http://www.fusns.com/">腐宅</a></div>Copyright © 2018 <a href="https://www.zhaiiker.com">宅客ZhaiiKer</a> All Rights Reserved.
+本站部分资源来自互联网收集，仅供用于学习和交流，请遵循相关法律法规。 本站一切资源不代表本站立场，如有侵权、后门、不妥、请联系本站删除。
+<p class="mar10-b mobile-hide">
+9 queries 0.1008 s
+</p>
+<p>
+<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">粤ICP备15017374号-1</a>
+</p>
+</div>
+</footer>
+</div>
+<div id="sign-form">
+<sign-form :show-form="showBox" :signup="signup" :signin="signin" :security="security" @close-form="closeForm"></sign-form>
+<input type="hidden" ref="security" value="4472987442">
+</div>
+<input type="hidden" id="security" value="768794e1b8">
+<script>var _hmt =_hmt ||[];(function() {var hm =document.createElement("script");hm.src ="https://hm.baidu.com/hm.js?9774a628b1ba3d158cbe7ad091372fc2";var s =document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script>
+<script type='text/javascript'>var zrz_script ={"site_info":{"name":"\u5b85\u5ba2ZhaiiKer","des":"Share For Fun! Into The Future!","home_url":"https:\/\/www.zhaiiker.com","site_mark":"www_zhaiiker_com"},"ajax_url":"https:\/\/www.zhaiiker.com\/wp-admin\/admin-ajax.php?action=","theme_url":"https:\/\/www.zhaiiker.com\/wp-content\/themes\/seven","is_mobile":"","is_login":"","is_admin":"","theme_setting":{"theme_style":"list"},"current_user":"0","media_setting":{"max_width":"1920","quality":"94"},"rating":[],"page_width":"1140","balance":"0","social":{"qq_url":"https:\/\/graph.qq.com\/oauth2.0\/authorize?client_id=101361781&state=8a9215b56dcd3925291c8127da256bf7&response_type=code&redirect_uri=https%3A%2F%2Fwww.zhaiiker.com%2Fopen%3Fopen_type%3Dqq","weibo_url":"https:\/\/api.weibo.com\/oauth2\/authorize?client_id=2707700824&response_type=code&redirect_uri=https%3A%2F%2Fwww.zhaiiker.com%2Fopen%3Fopen_type%3Dweibo","weixin_url":"https:\/\/open.weixin.qq.com\/connect\/qrconnect?appid=&redirect_uri=https%3A%2F%2Fwww.zhaiiker.com%2Fopen%3Fopen_type%3Dweixin&response_type=code&scope=snsapi_login","qq":"1","weibo":"1","weixin":"0","weixin_m":"0","open_window":1},"can_reg":"1","pay_setting":{"weixin":false,"alipay":false,"card":1},"current_user_data":{"avatar":"<img src=\"https:\/\/www.zhaiiker.com\/wp-content\/uploads\/avatar\/b7612b71c08547dbd9309a2ec66b0785.png\" class=\"avatar\" width=\"40\" height=\"40\" style=\"background-color:#5A8770\"\/>","name":""},"credit_setting":{"name":"\u79ef\u5206","display":"0"},"mission":"0","complete":{"open":0,"has_mail":0,"name":""},"contect":{"id":"1","name":"kagakadaj"},"reg":"","login_type":"2","write_dom":"<div class=\"fd page-tools-item pos-r disabled\">\r\n                <div class=\"write-box-in\"><span class=\"write-ico\"><i class=\"iconfont zrz-icon-font-write1\"><\/i><\/span><span class=\"write-text\">\u5199\u6587\u7ae0<\/span><\/div>\r\n            <\/div><div class=\"fd page-tools-item pos-r disabled\">\r\n                <div class=\"write-box-in\"><span class=\"write-ico\"><i class=\"iconfont zrz-icon-font-shiyan\"><\/i><\/span><span class=\"write-text\">\u53d1\u8d77\u7814\u7a76\u6240<\/span><\/div>\r\n            <\/div><div class=\"fd page-tools-item pos-r disabled\">\r\n                <div class=\"write-box-in\"><span class=\"write-ico\"><i class=\"iconfont zrz-icon-font-tiezi\"><\/i><\/span><span class=\"write-text\">\u53d1\u8d77\u8bdd\u9898<\/span><\/div>\r\n            <\/div><div class=\"fd page-tools-item pos-r disabled\">\r\n                <div class=\"write-box-in\"><span class=\"write-ico\"><i class=\"iconfont zrz-icon-font-iocnqipaotu\"><\/i><\/span><span class=\"write-text\">\u53d1\u8d77\u5192\u6ce1<\/span><\/div>\r\n            <\/div>","ajax_post":"1","ajax_comment":"0","highlight":"1","show_collections":"1","show_search_tab":{"bubble":"0","topic":1,"shop":"1","labs":"1","bubble_name":"\u5192\u6ce1","labs_name":"\u7814\u7a76\u6240"},"announcement":"1"};</script>
+<script type='text/javascript' src='//cdn.bootcss.com/vue/2.4.4/vue.min.js'></script>
+<script type='text/javascript' src='//cdn.bootcss.com/es6-promise/4.1.1/es6-promise.auto.min.js'></script>
+<script type='text/javascript' src='//cdn.bootcss.com/axios/0.16.2/axios.min.js'></script>
+<script type='text/javascript' src='//cdn.bootcss.com/qs/6.5.0/qs.min.js'></script>
+<script type='text/javascript' src='//cdn.bootcss.com/timeago.js/3.0.2/timeago.min.js'></script>
+<script type='text/javascript' src='//cdn.bootcss.com/flickity/2.1.0/flickity.pkgd.min.js'></script>
+<script type='text/javascript' src='//cdn.bootcss.com/countup.js/1.9.1/countUp.min.js'></script>
+<script type='text/javascript' src='//cdn.bootcss.com/autosize.js/4.0.0/autosize.min.js'></script>
+<script type='text/javascript' src='//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js'></script>
+<script type="text/javascript" defer src="https://www.zhaiiker.com/wp-content/cache/autoptimize/js/autoptimize_19e53095ebdcfd110acfd27af70f97aa.js"></script></body>
+</html>

@@ -1,0 +1,712 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="baidu-site-verification" content="xsE3IOUzqg" />
+    <meta name="sogou_site_verification" content="h8lvT2KPcF"/>
+    <meta name="360-site-verification" content="7ca2f5ccda95ac0b0512a245b7d9379f" />
+    <meta name="shenma-site-verification" content="f44cc1d40572569228f4f580dbcc19ff_1519702145"/>
+    <title>【智友】-最专业的安卓门户网站</title>
+    <meta name="keywords" content="智友,安卓平台,安卓软件, 安卓游戏,安卓系统,rom下载" />
+    <meta name="description" content="智友是安智旗下互动媒体，以安卓为中心，包含智友论坛、智友众测、ROM大全、评测导购、搞机百科、美图壁纸、资源下载，网站第一时间发布更新,为您提供最新最丰富的安卓资源。" />
+		<link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/common.css?v2.0"/>
+    <link rel="stylesheet" href="/css/sub.css?v1.0"/>
+    <link rel="stylesheet" href="/css/jquery.pageslide.css?v1.0"/>
+	<script type="text/javascript" src="/js/checkua.js"></script>    <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.SuperSlide.js"></script>
+    <script type="text/javascript" src="/js/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
+</head>
+<body>
+<script type='text/javascript'>
+function ReloadCaptcha(){
+	$(".captimgsrc").html('<img src="/checkcode/seccode.php?t='+Math.random()+'" id="captimgid" onclick="ReloadCaptcha();" />');
+	$('.geetest_challenge').val('');
+}
+</script>
+<div id="ver_code" style="display: none;">
+<div class="form_code clear">
+	<p>	
+		<input type="text" name="captcha" id="captcha" size="20" placeholder="请输入验证码" class="geetest_challenge" />
+		<span class="captimgsrc"><img src="/checkcode/seccode.php?t=1234567890" id="captimgid" onclick="ReloadCaptcha();" /></span>
+		<input type="hidden" class="geetest_validate" name="geetest_validate" value="" />
+		<input type="hidden" class="geetest_seccode" name="geetest_seccode" value="" />
+</div>
+<div class="clear"></div>
+</div>
+
+<div id="loginSlide" style="display: none;">
+    <div class="pageslide_wrap">
+        <div class="pageslide_hd clear"><span class="fl">智友登录</span><a href="javascript:$.pageslide.close()" class="pageslide_close">关闭</a></div>
+        <div class="propmt">没有账号？<a href="#resSlide" class="lgslide">立即注册</a></div>
+		<form action='login.php?mod=loginsubmit' method='post' onsubmit="return loginSubmit()">
+			<ul class="form_list">
+				<li id="loginErrorMsg" class="registerError"></li>
+				<li><input name="username" id="Laccount" type="text" placeholder="请输入用户名／注册邮箱／手机号码" value=""/>
+				</li>
+				<li><input name="password" id="password" type="password" placeholder="请输入6－16位密码" value=""/></li>
+				
+				<input name="rmb" id="rmb" type="hidden" value="1" />
+			</ul>
+			<div class="ver_code_box"></div>
+			<div class="propmt1">注：注册账号可用于智友论坛、安智登录</div>
+			<div class="check_box clear">
+				<span onclick="rmbme(this)" class="checked">下次自动登录</span>
+				 <a href="http://i.anzhi.com/web/account/pwd/forgetpwd" target="_blank">忘记密码</a>
+			</div>
+			<div class="slide_btn">
+				<input type="submit" onclick="return loginSubmit()" value="登录" name="submit">
+			</div>
+		</form>
+        <div class="splid"><span>使用其它账号登录？</span></div>
+        <ul class="other_login">
+            <li>
+                <a  rel="nofollow"  href="http://i.anzhi.com/web/account/sns/login/qq?serviceId=004&serviceVersion=1&serviceType=1&redirecturi=http%3A%2F%2Fhome.zhiyoo.com%2F" class="qq_log">
+                    <p class="qq_icon"></p>
+                    <p>QQ登录</p>
+                </a>
+            </li>
+            <li>
+               <a  rel="nofollow"  href="http://i.anzhi.com/web/account/sns/login/weibo?serviceId=004&serviceVersion=1&serviceType=1&redirecturi=http%3A%2F%2Fhome.zhiyoo.com%2F" class="sina_log">
+                    <p class="sina_icon"></p>
+                    <p>微博登录</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="resSlide" style="display: none;">
+    <div class="pageslide_wrap">
+        <div class="pageslide_hd clear"><span class="fl">智友注册</span><a href="javascript:$.pageslide.close()" class="pageslide_close">关闭</a></div>
+        <div class="propmt">已有账号？<a href="#loginSlide" class="lgslide">登录</a></div>
+		<form action='register.php?mod=registersubmit' method='post' onsubmit="return registerSubmit()">
+        <ul class="form_list">
+        	<li id="registerErrorMsg" class="registerError"></li>
+            <li><input name="username" id="Raccount" type="text" placeholder="请输入6－16位字母或数字组合" value=""/></li>
+            <li><input name="password1" id="Rpwd" type="password" placeholder="请输入6－16位密码" value=""/></li>
+            <li><input name="password2" id="RrePwd" type="password" placeholder="请重新输入输入6－16位密码" value=""/></li>
+            
+        </ul>
+        
+        <div class="ver_code_box"> </div>
+        <div class="propmt1">注：注册账号可用于智友论坛、安智登录</div>
+        <div class="check_box clear">
+            <span id="agreeaz" class="checked">我已阅读并同意<em><a href="http://i.anzhi.com/pages/web/account/protocal.html" target="_blank">《安智用户协议》</a></em></span>
+        </div>
+        <div class="slide_btn">
+			<input type="submit" onclick="return registerSubmit()" value="注册" name="submit">
+		</div>
+        <div class="splid"><span>使用其它账号登录？</span></div>
+		</form>
+        <ul class="other_login">
+            <li>
+                <a  rel="nofollow"  href="http://i.anzhi.com/web/account/sns/login/qq?serviceId=004&serviceVersion=1&serviceType=1&redirecturi=http%3A%2F%2Fhome.zhiyoo.com%2F" class="qq_log">
+                    <p class="qq_icon"></p>
+                    <p>QQ登录</p>
+                </a>
+            </li>
+            <li>
+                <a  rel="nofollow"  href="http://i.anzhi.com/web/account/sns/login/weibo?serviceId=004&serviceVersion=1&serviceType=1&redirecturi=http%3A%2F%2Fhome.zhiyoo.com%2F" class="sina_log">
+                    <p class="sina_icon"></p>
+                    <p>微博登录</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/jquery.pageslide.js"></script>
+<div class="float_bar" id="float_bar">
+    <ul>
+        <li><a href="#head" id="backTop" class="top"></a></li>
+        <li>
+            <a href="javascript:;" id="code" class="code"></a>
+            <div class="code_pop" style="display: none;">
+                <p><img src="images/code.png"/></p>
+                <p style="margin-top: 5px;">智友客户端登录送礼<br />
+送智豆快来领取吧！</p>
+            </div>
+        </li>
+        <li><a  rel="nofollow"  href="http://pingce.zhiyoo.com/question.html" id="mark" class="mark"></a></li>
+    </ul>
+</div>
+<div id="head" class="">
+    <div class="wrap">
+        <div class="logo"><a href="/" target="_blank"><img src="images/logo_home.png" /></a></div>
+        <div class="search">
+            <form action="http://pingce.zhiyoo.com/search.php" method="get" id="search1" target="_blank">
+                <input type="text" name="q" id="sq1" value=""/>
+                <a href="javascript:;" onclick="document.getElementById('search1').submit();">搜索</a>
+            </form>
+            <script type="text/javascript">
+            var searchwordmap = ["\u667a\u53cb\u6652\u673a","\u4f17\u6d4b\u4ea7\u54c1","\u6bcf\u65e5\u8bdd\u9898","\u6444\u5f71\u4e13\u533a","\u4e00\u95ee\u4e00\u7b54"];
+            var swlength = searchwordmap.length;
+            var swrand = Math.floor(Math.random()*swlength);
+            var searchword = searchwordmap[swrand];
+            $("#sq1").val(searchword);
+            $(".search input").focus(function(){if($(this).val()==searchword){$(this).val("");}});$(".search input").blur(function(){if($(this).val()==''){$(this).val(searchword);}});</script>
+        </div>
+        <ul class="info" id="userName">
+            <li><a href="#loginSlide" class="login lgslide1">登录</a></li>
+            <li><a href="#resSlide" class="res lgslide1">注册</a></li>
+        </ul>
+        <script type="text/javascript">
+            
+        	$(".lgslide1").pageslide({ direction: "left"});
+        	//$('#userName').loadDBM('/floatbar.php?m=hcl','');
+            $.get('/floatbar.php?m=hcl',function(e){
+            
+            $('#userName').remove();
+            $('#head .wrap').append(e);
+              
+            });
+        </script>
+    </div>
+    <div class="clear"></div>
+</div>
+<div id="menu">
+    <div class="wrap cl">
+        <div class="fixed_logo" style="display: none;"><img src="images/fixed_logo.png"/></div>
+        <ul class="menu_list">
+            <li class="active"><a href="http://home.zhiyoo.com/jpyx.php" target="_blank" class='1'>首页</a></li>
+                        <li>
+            <a href="http://home.zhiyoo.com/column_30.html" target="_blank" class="30"><h1>智友论坛</h1></a>
+            </li>
+                        <li>
+            <a href="http://home.zhiyoo.com/column_34.html" target="_blank" class="34"><h1>ROM大全</h1></a>
+            </li>
+                        <li>
+            <a href="http://home.zhiyoo.com/column_31.html" target="_blank" class="31"><h1>评测导购</h1></a>
+            </li>
+                        <li>
+            <a href="http://home.zhiyoo.com/column_32.html" target="_blank" class="32"><h1>搞机百科</h1></a>
+            </li>
+                        <li>
+            <a href="http://home.zhiyoo.com/column_35.html" target="_blank" class="35"><h1>资源下载</h1></a>
+            </li>
+                        <li>
+            <a href="http://home.zhiyoo.com/column_37.html" target="_blank" class="37"><h1>安智市场</h1></a>
+            </li>
+                        <li class="app">
+                <a href="javascript:;">APP下载</a>
+                <div class="app_pop" style="display: none;">
+                    <p><img src="images/code.png"/></p>
+                    <p style="margin-top: 5px;">智友客户端登录送礼<br />
+送智豆快来领取吧！</p>
+                </div>
+            </li>
+        </ul>
+        <ul class="fixed_con" style="display: none;">
+            <li class="fixed_search">
+                <a class="search_icon"></a>
+                <div class="search_pop" style="display: none;">
+                    <i></i>
+                    <div class="search_box clear">
+                    <form action="http://pingce.zhiyoo.com/search.php" method="get" id="search2" target="_blank">
+                        <input type="text" name="q" id="sq2" value=""/>
+                        <a href="javascript:;" onclick="document.getElementById('search2').submit();">搜索</a>
+                    </form>
+                        <script type="text/javascript">
+                        $("#sq2").val(searchword);
+                        $(".search_box input").focus(function(){if($(this).val()==searchword){$(this).val("");}});$(".search_box input").blur(function(){if($(this).val()==''){$(this).val(searchword);}});</script>
+                    </div>
+                </div>
+            </li>
+            <li class="log_info" id="log_info"></li>
+            <script>$('#log_info').loadDBM('/floatbar.php?m=hclb','');</script>
+            <li class="app">
+                <a href="javascript:;">APP下载</a>
+                <div class="app_pop" style="display: none;">
+                    <p><img src="images/code.png"/></p>
+                     <p style="margin-top: 5px;">智友客户端登录送礼<br />
+送智豆快来领取吧！</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>    <style type="text/css">
+        ul,li{list-style: none;margin:0;padding:0;}
+        .wrap_c { width:100%;height:130px;margin-top:10px;}
+        .recommend { width:100%;height:100px;background: #fff;display:block;margin-top:10px;}
+        .recommend li { float:left;display:block;width:110px;height:100px;margin-left:12px;}
+        .soft_item { width:100%;height:100%; }
+        .recommend li .recommend_icon { display:block;width:48px;height:48px;padding:13px 35px 10px; }
+        a { text-decoration:none;color:#3e3e3e; }
+        a:hover{text-decoration:none;color:#43ae39;}
+        .recommend_icon img{width:48px;height:48px;}
+        .recommend li .recommend_name { width:100%;display:block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; }
+        .center { text-align: center; }
+        .clear {clear:both;}
+
+        /*.bm_h {padding:0 10px;height:31px;line-height: 31px;background: url(../static/image/common/icon_01.png) no-repeat 0 10px;}*/
+        .bm_h {height:30px;line-height: 30px;}
+        .bm_h h2 { padding-left:10px;height:30px;line-height:30px;font-size:16px;font-weight:normal;border-left: 5px solid #ff6600;}
+        .bm_h .bor1{ border-color:#2fc7da; }
+    </style> 
+<div class="clear"></div>
+<div class="wrap" style="margin-top:10px;">
+    <div class="wrap_c">
+        <div class="bm_h">
+            <h2 class="bor1">必玩手游</h2>
+        </div>
+        <ul class="recommend">
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.netease.dwrg.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201803/28/26ef3e632beaa4f252ab9f54d672e62e_73708500_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.netease.dwrg.anzhi" class="recommend_name center">第五人格</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.benjie.hospital.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201803/07/64dcd8877ed8fec3b5f26b3792f4c088_46053900_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.benjie.hospital.anzhi" class="recommend_name center">小小家园</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.fingertip.tyt.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201803/07/ffc48decf077de5b3930481a70dee2fe_76560500_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.fingertip.tyt.anzhi" class="recommend_name center">开心跳一跳</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.tencent.tmgp.pubgm" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201802/09/1506382bb99433e7fac0e79ff8434341_59339800_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.tencent.tmgp.pubgm" class="recommend_name center">绝地求生 全军出击</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.tencent.tmgp.pubgmhd" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201802/09/8b6b82552b1e6e988b757f65e384a868_49254600_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.tencent.tmgp.pubgmhd" class="recommend_name center">绝地求生:刺激战场</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.yingxiong.hero.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201801/31/92b0d668a7261d873c68a8fc8d3d7bc7_71508000_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.yingxiong.hero.anzhi" class="recommend_name center">代号英雄</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.joym.legendhero.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201801/26/76fee875aaa27b7d7e00a0802be6c58c_66623300_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.joym.legendhero.anzhi" class="recommend_name center">奥特曼传奇英雄</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.tencent.tmgp.speedmobile" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201712/29/c9f5b4c40c7194b326e94c967e43b6c5_34075000_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.tencent.tmgp.speedmobile" class="recommend_name center">QQ飞车-竞速王者</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="wrap_c">
+        <div class="bm_h"><h2>最热排行</h2></div>
+        <ul class="recommend">
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.netease.zjz.yyxx.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201711/23/5b51a27f64fae903548a5cdd2d1e58b9_86479300_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.netease.zjz.yyxx.anzhi" class="recommend_name center">终结者2:审判日</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.netease.hyxd.yyxx.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201711/14/27124fa288ea2204e06d6ebadedbbb86_45290200_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.netease.hyxd.yyxx.anzhi" class="recommend_name center">荒野行动</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.netease.wdsj.yyxx.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201710/10/8a0735a9d90ce0406fdf15eb6fcb6438_32419700_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.netease.wdsj.yyxx.anzhi" class="recommend_name center">我的世界（官方正版）</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.jiguang.dtszj.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201709/28/a4838bbc02652ccb19f43baef0407eca_53590500_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.jiguang.dtszj.anzhi" class="recommend_name center">大天使之剑H5-奇迹MU正版授权 全军出击</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.outfit7.mytalkingtomfree.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201709/19/bd4058bcbff85b1770aafab99bbf4d4a_48520000_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.outfit7.mytalkingtomfree.anzhi" class="recommend_name center">我的汤姆猫</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.outfit7.mytalkingangelafree.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201708/03/5fa87427ced769292f085c22586872bb_40087900_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.outfit7.mytalkingangelafree.anzhi" class="recommend_name center">我的安吉拉</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.knight.union.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201704/14/4a52013973db52a3d70d726157d5bc85_34343700_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.knight.union.anzhi" class="recommend_name center">元气骑士</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.wepie.snake.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201703/20/bbe45366c7dc5b83fd847f887ebfd41a_75717600_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.wepie.snake.anzhi" class="recommend_name center">贪吃蛇大作战®</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="wrap_c">
+        <div class="bm_h"><h2 class="bor1">火热新游</h2></div>
+        <ul class="recommend">
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.cottongame.isoland.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201611/10/2e1541dbaf921f83f00b8fcc47c387ee_23204400_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.cottongame.isoland.anzhi" class="recommend_name center">迷失岛(烧脑解谜)</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.cmplay.tiles2_cn.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201609/06/89151ac9c9e570285c58b9aad9d92533_95478300_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.cmplay.tiles2_cn.anzhi" class="recommend_name center">钢琴块2</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.wanmei.zhuxian.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201607/28/86305aab447d2abe920ea00f050da417_55289000_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.wanmei.zhuxian.anzhi" class="recommend_name center">诛仙</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.outfit7.talkingtomgoldrun.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201607/27/0880672c8b22e29f323100c8f0a581af_46697600_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.outfit7.talkingtomgoldrun.anzhi" class="recommend_name center">汤姆猫跑酷</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.sy37.yhjyj.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201606/27/b9e777b057644725cdac8656415eaafa_01053400_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.sy37.yhjyj.anzhi" class="recommend_name center">永恒纪元</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.minitech.miniworld.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201605/23/2a18bf2f688036e23cf2ac125a07c72f_17362000_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.minitech.miniworld.anzhi" class="recommend_name center">迷你世界</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.netease.l10.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201605/16/671cdc876cc07e183ec47c83404b8a7d_51961900_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.netease.l10.anzhi" class="recommend_name center">倩女幽魂</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.supercell.clashroyale.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201603/28/f834ec310d68c7be28a899d57fb48acd_45116300_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.supercell.clashroyale.anzhi" class="recommend_name center">皇室战争</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="wrap_c">
+        <div class="bm_h"><h2>猜你喜欢</h2></div>
+        <ul class="recommend">
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.tencent.tmgp.cf" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201512/01/9cbe6b43c09ecbef5eaab2664186b291_66666500_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.tencent.tmgp.cf" class="recommend_name center">穿越火线-枪战王者</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.tencent.tmgp.sgame" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201511/02/ef320c509c58720d3cf7b5adcc7850e8_43279800_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.tencent.tmgp.sgame" class="recommend_name center">王者荣耀-送皮肤</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.supercell.clashofclans.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201509/18/2ac94d1b4679d136c5fc77b871c7c4a9_15631600_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.supercell.clashofclans.anzhi" class="recommend_name center">部落冲突</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.fgol.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201502/03/687866644e793e636aa116e67beadfb7_92046900_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.fgol.anzhi" class="recommend_name center">饥饿鲨:进化</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.mfp.jelly.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201409/16/com.mfp.jelly.anzhi_50749100_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.mfp.jelly.anzhi" class="recommend_name center">糖果萌萌消</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.crisisfire.android.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201409/06/com.crisisfire.android.anzhi_52952900_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.crisisfire.android.anzhi" class="recommend_name center">全民枪战</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.supercell.boombeach.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201408/22/com.supercell.boombeach.anzhi_44730800_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.supercell.boombeach.anzhi" class="recommend_name center">海岛奇兵</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.popcap.pvz2cthdaz" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201309/18/com.popcap.pvz2cthdaz_04445800_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.popcap.pvz2cthdaz" class="recommend_name center">植物大战僵尸2</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="wrap_c">
+        <div class="bm_h"><h2 class="bor1">大家都在玩</h2></div>
+        <ul class="recommend">
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.imangi.templerun2" class="recommend_icon">
+                        <img src="http://img2.anzhi.com/data2/icon/201805/30/com.imangi.templerun2_48055200_96.png">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.imangi.templerun2" class="recommend_name center">神庙逃亡2</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.kiloo.subwaysurf" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/icon/201304/11/com.kiloo.subwaysurf_1179301388_96.png">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.kiloo.subwaysurf" class="recommend_name center">地铁跑酷</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.og.danjiddz" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/icon/201304/10/com.og.danjiddz_902111457_96.png">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.og.danjiddz" class="recommend_name center">《单机斗地主(开心版)》</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=cn.jj" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/icon/201304/07/cn.jj_272415261_96.png">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=cn.jj" class="recommend_name center">JJ斗地主</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.pokercity.bydrqp.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data3/icon/201506/08/3e39b56e9caf33e3a5570b318a5cf8c7_45158800_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.pokercity.bydrqp.anzhi" class="recommend_name center">波克捕鱼</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.happyelements.AndroidAnimal" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201404/04/com.happyelements.AndroidAnimal_47015400_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.happyelements.AndroidAnimal" class="recommend_name center">开心消消乐®</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.zengame.ttddzzrb.anzhi" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data2/icon/201406/30/com.zengame.ttddzzrb.anzhi_47038500_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.zengame.ttddzzrb.anzhi" class="recommend_name center">天天斗地主真人版</a>
+                </div>
+            </li>
+            <li>
+                <div class="soft_item">
+                    <a href="http://m.anzhi.com/download.php?package=com.joym.xiongdakuaipao" class="recommend_icon">
+                        <img src="http://img3.anzhi.com/data1/icon/201401/23/com.joym.xiongdakuaipao_25699700_96.jpg">
+                    </a>
+                    <a href="http://m.anzhi.com/download.php?package=com.joym.xiongdakuaipao" class="recommend_name center">熊出没之熊大快跑</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="clear"></div>
+<div id="foot">
+    <div class="ft">
+        <div class="about">
+            <a  rel="nofollow"  href="http://pingce.zhiyoo.com/question_5.html" target="_blank" class='30001'>关于智友</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a  rel="nofollow"  href="http://pingce.zhiyoo.com/question_6.html" target="_blank" class='30002'>联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a  rel="nofollow"  href="http://pingce.zhiyoo.com/question_7.html" target="_blank" class='30003'>招贤纳士</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://home.zhiyoo.com/jzjk/index.htm" target="_blank">家长监护</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://home.zhiyoo.com/jfcl/yhxy.html" target="_blank">用户协议</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://home.zhiyoo.com/jfcl/unlost.html" target="_blank">防沉迷</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://home.zhiyoo.com/jfcl/index.html" target="_blank">纠纷处理</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a  rel="nofollow"  href="http://pingce.zhiyoo.com/question.html" target="_blank" class='30004'>常见问题</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a  rel="nofollow"  href="http://pingce.zhiyoo.com/sitemap.html" target="_blank">网站地图</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a  rel="nofollow"  href="http://pingce.zhiyoo.com/rss.xml" target="_blank">RSS订阅</a>
+        </div>
+        <div class="gate_nav clear">
+            <div class="gate_mod">
+                <div class="gate_pic g_mtop1"><img src="images/ft_anzhi_logo.png"/></div>
+                <ul class="gate_text">
+                    <li><a  rel="nofollow"  href="http://www.anzhi.com/">安智市场</a></li>
+                    <li><a  rel="nofollow"  href="http://i.anzhi.com/?serId=004">用户中心</a></li>
+                    <li><a  rel="nofollow"  href="http://dev.anzhi.com/">开发者中心</a></li>
+                </ul>
+            </div>
+            <div class="gate_mod">
+                <div class="gate_pic g_mtop2"><img src="images/ft_zy_logo.png"/></div>
+                <ul class="gate_text">
+                    <li><a  rel="nofollow"  href="http://www.anzhi.com/soft_2627804.html">智友APP</a></li>
+                    <li><a href="http://pingce.zhiyoo.com/">智友众测</a></li>
+                    <li><a href="http://bbs.zhiyoo.com/">智友论坛</a></li>
+                </ul>
+            </div>
+            <div class="gate_mod">
+                <div class="gate_code">
+                    <p><img src="images/weixin.png"/></p>
+                    <p>官方微信</p>
+                </div>
+                <div class="gate_code">
+                    <p><a  rel="nofollow"  href="http://weibo.com/p/1006061730536307/home?from=page_100606&amp;mod=TAB&amp;is_all=1#place" target="_blank"><img src="images/weibo.png"/></a></p>
+                    <p><a  rel="nofollow"  href="http://weibo.com/p/1006061730536307/home?from=page_100606&amp;mod=TAB&amp;is_all=1#place" target="_blank">官方微博</a></p>
+                </div>
+            </div>
+        </div>
+        <p>北京力天无限网络技术有限公司</p>
+        <p class="copyright">京 ICP 证 101039 号&nbsp;&nbsp;|&nbsp;&nbsp;京ICP备10031276号-2&nbsp;&nbsp;|&nbsp;&nbsp;京网文[2012]0408-129号</p>
+<div style="text-align:center;width:300px;margin:0 auto; padding:20px 0;">
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802021388" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="./static/image/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">京公网安备 11010802021388号</p></a>
+</div>
+    </div>
+</div>
+<script>
+window._bd_share_config={
+
+"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","sqq","qzone","tsina","tqf","renren","weixin","tqq","kaixin001","ibaidu","tieba","douban","bdhome","thx"],
+"bdPic":"",
+"bdStyle":"0",
+"bdSize":"16"},
+"share":[{
+			"tag" : "share_1"
+		},{
+			"tag" : "share_2"
+		}]
+};
+with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!--[if lte IE 9]><script type="text/javascript" src="/js/jquery.placeholder.js"></script>
+<script type="text/javascript">$('input, textarea').placeholder();</script><![endif]-->
+<script type="text/javascript" src="/js/footer.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#info').loadDBM('/floatbar.php?m=hcl','');
+    });
+    $(".lgslide").pageslide({ direction: "left"});
+	
+	
+</script>
+<script type="text/javascript" src="/js/pingce.js"></script>
+<script>
+/*	var _hmt = _hmt || [];
+	(function() { 
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?4d9e2cbbd5b3150f61868297d94c30b4";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	*/
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f33c7792a6536abdc947af23b6a7d21d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create','UA-78626523-5','auto');
+  ga('send', 'pageview');
+	</script>
+</body>
+</html>
+
+
