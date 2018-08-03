@@ -13,29 +13,20 @@ fs.readFile('./test.js', function (err, data) {
   }
 
   var result = esprima.parseScript(data.toString().trim(), {range: false, loc: false});
+
   console.log(JSON.stringify(result));
 
   estraverse.traverse(result, {
     enter: function (node, parent) {
+      console.log(node);
+
       if (node.type === 'FunctionExpression' || node.type === 'FunctionDeclaration')
         return estraverse.VisitorOption.Skip;
     },
     leave: function (node, parent) {
-      if (node.type === 'VariableDeclarator') {
-        let name = node.id.name;
-        let value = {};
-        // console.log(name);
-        // console.log(node);
-        console.log(escodegen.generate(node));
-        let evalStr = 'value.' + escodegen.generate(node);
-        console.log(evalStr);
-        eval(evalStr);
-        Dictionary.set(name, value[name]);
-      }
+
     },
   });
-
-  console.log(Dictionary.size);
 });
 
 

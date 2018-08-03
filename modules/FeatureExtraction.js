@@ -169,7 +169,7 @@ function funWithRisk(text, fileName) {
     'indexOf', 'split', 'location', 'unescape'];
   // 以下为添加DOM交互的特征
   let htmlRiskArr = ['innerText', 'childNodes', 'children', 'URL', 'domain', "getAttribute",
-    'nodeValue', 'appendChild', 'addEventListener', 'attachEvent', 'createElement'];
+    'nodeValue', 'appendChild', 'addEventListener', 'attachEvent', 'createElement', 'createTextNode'];
   // DOM 事件特征
   let eventRiskArr = ['mouseover', 'mouseout', 'mousemove'];
 

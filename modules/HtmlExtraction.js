@@ -34,7 +34,7 @@ function extractCode(text) {
 function extractRiskKeyword(text) {
 
   // 1. html标签中属性内嵌的危险文本keyword
-  let riskKeywordSet = new Set(['javascript:', 'eval', 'document', 'expression', 'url(', 'onload', 'fromCharCode']);
+  let riskKeywordSet = new Set(['javascript:', 'eval', 'document', 'url=', 'url(', 'onload', 'fromCharCode']);
   // 2. 危险标签的使用, 注意大小写
   let riskTagSet = new Set(['embed', 'object', 'iframe']);
   // 3. 危险属性的使用, 注意大小写

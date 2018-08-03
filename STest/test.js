@@ -4,6 +4,8 @@ var d = null;
 var f = undefined;
 var g = 'test';
 
+var str = g + 'test' + a;
+
 function myfun() {
 }
 

@@ -1,13 +1,7 @@
-var a = 1, b = true;
-var c = {name: 'li', age: 24};
-var d = null;
-var f = undefined;
+var a;
 var g = 'test';
+var h = g + 'aaa' + 'bbb';
+a = g + h;
 
-function myfun() {
-}
 
-var h = function () {
-
-};
-var i = ['str1', 'str2'];
+var obj = {};

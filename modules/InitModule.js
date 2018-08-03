@@ -232,7 +232,8 @@ function extractHTMLFeature(fileText, fileName) {
       let htmlFeature = htmlModule.extractRiskKeyword(fileText);
       // 删除默认的0特征,加入html特征的值
       sampleFeature.pop();
-      sampleFeature.push((htmlFeature / totalNum).toFixed(2));
+      // sampleFeature.push((htmlFeature / totalNum).toFixed(2));
+      sampleFeature.push((htmlFeature).toFixed(2));
       // 推入一条结果
       results.push(sampleFeature);
     }
